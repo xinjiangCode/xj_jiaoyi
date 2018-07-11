@@ -1,0 +1,178 @@
+.activityList {
+	width: 984px;
+	border: 1px solid #eeeced;
+}
+
+.activityListTitle {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eeeced; 
+	padding-left: 19px;
+	font-size: 16px;
+	color: #282828;
+}
+
+.add_shop {
+	display: inline-block;
+	width: 75px;
+	height: 29px;
+	line-height: 29px;
+	color: #fff;
+	font-size: 12px;
+	background-color: #6EA3FF;
+	text-align: center;
+	border-radius: 2px;
+	margin-right: 17px;
+	cursor: pointer;
+}
+
+.add_shop a {
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+}
+
+.add_shop:hover {
+	background: rgb(67, 121, 245);
+}
+	
+.activityCenterTitle {
+	background-color: #fdfdfd;
+	height: 40px;
+	border-bottom: 1px solid #ebe9ea;
+	line-height: 40px;
+	font-size: 14px;
+	color: #282828;
+}
+
+.activityCenterTitle li {
+	float: left;
+}
+
+.activityCenterTitle li.one{
+	width: 49px;
+	text-align: center;
+}
+
+.activityCenterTitle li.two {
+	width: 92px;
+}
+
+.activityCenterTitle li.three {
+	width: 160px;
+}
+
+.activityCenterTitle li.four {
+	width: 110px;
+}
+
+.activityCenterTitle li.five {
+	width: 122px;
+}
+
+.activityCenterTitle li.six {
+	width: 80px;
+}
+
+.activityCenterTitle li.seven {
+	width: 75px;
+}
+
+.activityCenterTitle li.eight {
+	width: 90px;
+}
+
+.activityCenterTitle li.nine {
+	width: 100px;
+}
+
+/*.activityCenterTitle li.ten {
+	width: 65px;
+}*/
+
+.center_list {
+	font-size: 14px;
+	color: #282828;
+}
+
+.center_list li {
+	height: 70px;
+	/*line-height: 70px;*/
+	border-bottom: 1px solid #ebe9ea;
+	display: table;
+}
+
+.center_list li span {
+	display: inline-block;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.center_list li  span.radio_input {
+	width: 35px;
+	text-align: right;
+}
+
+.activity_shop_num {
+	width: 50px;
+}
+
+.activity_shop_name {
+	width: 176px;
+}
+
+.activity_shop_price {
+    width: 111px;
+}
+
+.pay_method {
+    width: 140px;
+}
+
+.activity_shop_chundu {
+    width: 73px;
+}
+
+.activity_shop_kucun {
+    width: 88px;
+}
+
+.activity_shop_xiaoliang {
+    width: 65px;
+}
+
+.activity_shop_status {
+    width: 112px;
+}
+
+.activity_shop_operate .operate_btn {
+    width: 102px;
+    cursor: pointer;
+}
+
+.orange {
+	color: #FF783D;
+}
+
+.blue {
+	color: #5590F6;
+}
+
+.activity_shop_operate .blue {
+	cursor: pointer;
+}
+
+
+/*分页*/
+.total {
+	margin-left: 15px;
+}
+
+.pageJump .button, .pageJump input {
+	height: 44px;
+}
+
+.pagination {
+	margin-bottom: 0px;
+}

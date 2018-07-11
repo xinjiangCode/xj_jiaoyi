@@ -1,0 +1,267 @@
+.store_index_main {
+	border-top: 2px solid #e5e5e5;
+}
+
+.store_index_pic {
+	width: 1229px;
+	height: 200px;
+	margin: 0 auto;
+	background: url('../../img/store_index.png');
+}
+
+.company_name {
+	padding: 14px 19px 13px 11px;
+	box-sizing: border-box;
+}
+
+.company_name img {
+	width: 236px;
+	height: 174px;
+}
+
+.company_name .name {
+	margin-left: 31px;
+	color: #5892F3;
+	font-size: 24px;
+	margin-top: 30px;
+}
+
+.company_name .major {
+	color: #333;
+	font-size: 16px;
+	margin-top: 18px;
+	margin-left: 31px;
+}
+
+/* 主内容左侧 */
+.main_width {
+	width: 1227px;
+	margin: 11px auto 0;
+}
+.main_left {
+	width: 258px;
+}
+.left_top {
+	width: 100%;
+	height: 367px;
+	border: 1px solid #EBE9EA;
+	padding: 8px 15px 6px 19px;
+	box-sizing: border-box;
+}
+
+.left_top img {
+	width: 223px;
+	height: 108px;
+}
+
+.left_top ul li {
+	color: #333333;
+	font-size: 14px;
+	line-height: 2.3;
+}
+
+.left_top .span_name {
+	color: #347AE9;
+}
+
+.left_top .renzheng2 {
+	width: 23px;
+	height: 22px;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+.left_top .renzheng1 {
+	width: 18px;
+	height: 18px;
+	margin-left: 5px;
+	vertical-align: middle;
+}
+
+.left_top .span_name {
+	color: #5590F6;
+}
+
+.left_top .span_phone {
+	color: #5590F6;
+	text-decoration: underline;
+}
+
+.left_top .contact_kefu {
+	width: 217px;
+	height: 40px;
+	margin-top: 7px;
+}
+
+.ml {
+	margin-left: 70px;
+}
+
+
+.left_bottom {
+	padding: 11px 10px 0 11px;
+	box-sizing: border-box;
+	border: 1px solid #EBE9EA;
+	margin-top: 4px;
+}
+
+.left_bottom .left_bottom_title {
+	width: 223px;
+	height: 40px;
+	border-bottom: 1px solid #f0f0f0;
+	text-align: center;
+	line-height: 40px;
+	color: #333333;
+	font-size: 14px;
+	margin: 0 auto;
+}
+
+.left_bottom ul li img {
+	width: 67px;
+	height: 69px;
+	margin-right: 14px;
+	margin-top: 13px;
+}
+
+.left_bottom .huafei_name {
+	color: #347AE9;
+	font-size: 14px;
+	margin-top: 21px;
+	margin-bottom: 17px;
+}
+
+.left_bottom .huafei_danjia {
+	color:#FF8D43;
+	font-size:14px;
+}
+
+.left_bottom ul li {
+	height: 88px;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.left_bottom ul li:last-child {
+	border-bottom: none;
+}
+
+.buy_info {
+	width: 153px;
+}
+
+.buy_info .huafei_name {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 153px;
+}
+
+/* 主内容右侧 */
+.right_main {
+	width: 960px;
+	margin-left: 9px;
+}
+
+ul,li {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+#oranger li {
+	display:inline-block;
+	line-height:52px;
+	height: 52px;
+	font-size: 18px;
+	color: #999;
+	margin-left: 18px;
+}
+.hover {
+	border-bottom: 3px solid #5892F3;
+	color: #5892F3;
+}
+
+
+.box {
+	display:none;
+}
+
+.padding {
+	padding: 0 13px 18px 14px;
+	box-sizing: border-box;
+	border: 1px solid #EBE9EA;
+}
+
+.box1_title {
+	height: 53px;
+	line-height: 53px;
+}
+
+.box1_title .title {
+	color: #666;
+	font-size: 18px;
+	margin-left: 10px;
+}
+
+.box1_title .more {
+	color: #6A9EF7;
+	font-size: 14px;
+}
+
+.box1 li {
+	width: 227px;
+	height: 267px;
+	float: left;
+	margin-left: 5px;
+	border: 1px solid #EBE9EA;
+	position: relative;
+}
+
+.box1 li:nth-child(4n-3) {
+	margin-left: 0px;
+}
+
+.box1 li:nth-child(1),
+.box1 li:nth-child(2),
+.box1 li:nth-child(3),
+.box1 li:nth-child(4) {
+	margin-bottom: 6px;
+}
+
+.box1 {
+	text-align: center;
+}
+
+.box1 .img {
+	margin-top: 37px;
+}
+
+.box1 .p_dun {
+	color: #FC6721;
+	font-size: 13px;
+	margin-top: 18px;
+	margin-bottom: 10px;
+	font-weight: 600;
+}
+
+.box1 .box1_huafei_name {
+	color: #282828;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.box1 .position_absolute {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.box1 .tuijian{
+	position: absolute;
+	top: -6px;
+	left: -6px;
+}
+
+.sale_product {
+	margin-top: 7px;
+}
+
+

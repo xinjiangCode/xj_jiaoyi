@@ -1,0 +1,243 @@
+.personalGrowthValue {
+	width: 984px;
+	border: 1px solid #eeeced;
+}
+
+.personalGrowthValueTitle {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eeeced; 
+	padding-left: 19px;
+	font-size: 16px;
+	color: #282828;
+}
+
+.personal_info {
+	height: 154px;
+	border-bottom: 1px solid #eeeced; 
+}
+
+.avatar_bg {
+	background-color: #E0E0E0;
+	border-radius: 50%;
+	margin: 29px 36px 0 42px;
+	width: 96px;
+	height: 96px;
+}
+
+.progress_width {
+	width: 243px;
+	height: 15px;
+	display: inline-block;
+	background: url('../../img/progress.png');
+}
+
+.progress_width span {
+	width: 128px;
+	height: 15px;
+	background: url('../../img/proress_current.png');
+	border-radius: 10px;
+	z-index: 2;
+	display: inline-block;
+	position: absolute;
+}
+
+.mt32 {
+	margin-top: 32px;
+	font-size: 14px;
+	color: #282828;
+}
+
+.mt32 p {
+	line-height: 30px;
+}
+
+.jifen {
+	margin-left: 40px;
+}
+
+.gongxian img, .jifen img {
+	vertical-align: text-bottom;
+}
+
+.gongxian img {
+	margin-left: 3px;
+}
+
+.gongxian_num {
+	color: #F14F28;
+	
+	margin-left: 3px;
+}
+
+.jifen_num {
+	color: #68D063;
+	
+	margin-left: 3px;
+}
+
+.cha {
+	color: #ADADAD;
+	font-size: 12px;
+}
+
+.cha_num {
+	color: #F66132;
+}
+
+.gold_member {
+	width: 54px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	background-color: #ffc141;
+	font-size: 12px;
+	color: #fff;
+	border: 1px solid #ffb534;
+	display: inline-block;
+}
+
+.progress_width {
+	vertical-align: sub;
+}
+
+.laydate-icon {
+	background-position: 5px center !important; 
+	padding-right: 0px !important;
+}
+
+input[type='text']#test1 {
+	padding-left: 35px;
+	height: 26px;
+}
+
+.data_search {
+	width: 68px;
+	height: 30px;
+	text-align: center;
+	display: inline-block;
+	line-height: 28px;
+	color: #fff;
+	background: #6EA3FF;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.data_search:hover {
+	background: rgb(67, 121, 245);
+}
+
+input[type='text'].search_input {
+	width: 148px;
+	height: 26px;
+}
+
+.disblock {
+	display: inline-block;
+}
+.mp {
+	padding-top: 9px;
+}
+
+.search1 {
+	margin-right: 7px;
+}
+
+.search {
+	margin-right: 15px;
+}
+
+.table_title {
+	height: 41px;
+	border-top: 1px solid #ebe9ea; 
+	border-bottom: 1px solid #ebe9ea; 
+	background: #fdfdfd;
+	color: #282828;
+	font-size: 14px;
+	line-height: 41px;
+}
+
+.table_title ul {
+	padding-left: 31px;
+	padding-right: 37px;
+	box-sizing: border-box;
+}
+
+.table_title ul li {
+	float: left;
+	width: 228px;
+	text-align: center;
+}
+
+.table_title ul li:first-child {
+	text-align: left;
+}
+
+.table_title ul li:last-child {
+	text-align: right;
+}
+
+.qiandao {
+	width: 34px;
+	height: 18px;
+	display: inline-block;
+	text-align: center;
+	line-height: 18px;
+	font-size: 14px;
+	background: #f9434a;
+	color: #fff;
+}
+
+.table_body {
+	padding-bottom: 28px;
+	font-size: 14px;
+	color: #282828;
+}
+
+.table_body ul {
+	padding-left: 31px;
+	padding-right: 37px;
+	box-sizing: border-box;
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.table_body ul li {
+	float: left;
+	width: 228px;
+	text-align: center;
+}
+
+.table_body ul li:first-child {
+	text-align: left;
+}
+
+.table_body ul li:last-child {
+	text-align: right;
+}
+
+.sort {
+	width: 25px;
+	display: inline-block;
+	height: 100%;
+	text-align: center;
+}
+
+.allPageN, input[type='text'] {
+	height: 44px;
+}
+
+.total {
+	margin-left: 15px;
+}
+
+.pageJump .button, .pageJump input {
+	height: 44px;
+}
+
+.jifen_list {
+	width: 55px;
+	display: inline-block;
+	text-align: center;
+}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title adct="首页">新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="css/mCustomScrollbar.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/result.css"/>
+		<style type="text/css">
+			body{
+				background: #fff;
+			}
+			.navbar2{
+				margin-top: 13px;
+			}
+			.address>select{
+				border: none;
+			    background: #fff;
+			    height: 21px;
+			    margin-left: 23px;
+			}
+			.address{
+				padding: 16px 0;
+			}
+			.navbar2>ul li{
+				padding: 6px 25px;
+			}
+			.navbar2>ul>.active{
+				color: #fff;
+			}
+			.navbar2>.title{
+				margin-top: 7px;
+			}
+			.shoplist>ul li{
+				border-bottom: 2px dotted #e1e1e8;
+			}
+			.navbar2>ul{
+				margin-left: 22px;
+			}
+			.shoplist>ul li>.leftImg{
+				margin-right: 21px;
+			}
+			.shoplist>ul li>.leftTitle img{
+				margin-left: 7px;
+			}
+			.shoplist>ul li>.leftTitle>.title{
+				color: #4079D7;
+			}
+			.shoplist>ul li>.leftTitle{
+				color: #282828;
+			}
+			.footerTop{
+    				border-top: 1px #e0e0e0 solid;
+			}
+			#page1{
+				margin-bottom: 0;
+			}
+			.shoplist .right{
+				width: 408px;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="js/header.js" type="text/javascript" charset="utf-8"></script>
+		<div class="stateList mianCont">
+			<div class="first">首页&nbsp;></div>
+			<div>供应商&nbsp;></div>
+			<div class="last"> 新疆&nbsp;&nbsp;&nbsp;&nbsp;<span>x</span></div>
+		</div>
+
+		<div class="navbar2 mianCont">
+			<div class="title">供应商类型:</div>
+			<ul>
+				<li class="active">
+					全部
+				</li>
+				<li>
+					生产厂家
+				</li>
+				<li>
+					贸易商
+				</li>
+				<li>
+					其他
+				</li>
+			</ul>
+		</div>
+		<div class="address mianCont">
+			<div class="title">所在地区:</div>
+			<select name="" id="changeAdd">
+				<option value="新疆">新疆</option>
+				<option value="湖北">湖北</option>
+			</select>
+		</div>
+
+		<div class="shoplist mianCont">
+			<ul>
+				<a href="shopManage/storeIndex.html">
+					<li>
+						<div class="leftImg Lf"><img src="img/cf_shop.png" alt=""></div>
+						<div class="leftTitle Lf">
+							<div class="title">新疆中顺鑫和供应链管理股份有限责任公司<img src="img/cf_weixian.png" alt=""><img src="img/cf_qiye.png" alt=""></div>
+							<div>公司类型: <span>贸易</span></div>
+							<div>所在地区: <span>中国     新疆     乌鲁木齐</span></div>
+						</div>
+						<div class="right">
+							<div class="rightTitle Lf">
+								<div class="img"><img src="img/schDphotIcon.png" alt=""></div>
+								<div class="title">热卖商品</div>
+							</div>
+							<div class="rightImg Lf"><img src="img/cf_shop.png" alt=""></div>
+							<div class="rightImg Lf"><img src="img/cf_shop.png" alt=""></div>
+							<div class="rightImg Lf"><img src="img/cf_shop.png" alt=""></div>
+						</div>
+					</li>
+				</a>
+				<a href="shopManage/storeIndex.html">
+					<li>
+						<div class="leftImg Lf"><img src="img/cf_shop.png" alt=""></div>
+						<div class="leftTitle Lf">
+							<div class="title">新疆中顺鑫和供应链管理股份有限责任公司<img src="img/cf_weixian.png" alt=""><img src="img/cf_qiye.png" alt=""></div>
+							<div>公司类型: <span>贸易</span></div>
+							<div>所在地区: <span>中国     新疆     乌鲁木齐</span></div>
+						</div>
+						<div class="right">
+							<div class="rightTitle Lf">
+								<div class="img"><img src="img/schDphotIcon.png" alt=""></div>
+								<div class="title">热卖商品</div>
+							</div>
+							<div class="rightImg Lf"><img src="img/cf_shop.png" alt=""></div>
+							<div class="rightImg Lf"><img src="img/cf_shop.png" alt=""></div>
+							<div class="rightImg Lf"><img src="img/cf_shop.png" alt=""></div>
+						</div>
+					</li>
+				</a>
+			</ul>
+		</div>
+		<div class="mianCont pagerBox" style="text-align: center;margin-top: 39px;">
+	        <ul class="pagination" id="page1"></ul>
+	        <div class="pageJump">
+	                <span class="allPageN">1/200</span>
+	                共<span class="allPageSize"></span>页，
+	            <span>到第</span>
+	            <input type="text"/>
+	            <span>页</span>
+	            <button type="button" class="button">GO</button>
+	        </div>
+	    </div>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/pager.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" >
+            $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+            var isFirst = true;
+            var cont = localStorage.getItem('seachSupplier');
+            console.log(cont);
+            getData(0,cont,'','新疆');
+            
+            $('.navbar2 ul li').click(function(){
+            		isFirst = true;
+            		$('.navbar2 ul .active').removeClass('active');
+            		$(this).addClass('active');
+            		var compType = '';
+            		switch($.trim($(this).text())){
+				    case '生产厂家':
+				        compType = 0;
+				        break;
+				    case '贸易商':
+				        compType = 1;
+				        break;
+				    case '终端':
+				        compType = 2;
+				        break;
+				    case '其它':
+				        compType = 3;
+				        break;
+				    default:
+    						compType = '';
+				}
+            		getData(0,cont, compType,'新疆');
+            })
+            
+            $('#changeAdd').change(function(){
+            		isFirst = true;
+            		var compType = '';
+            		switch($.trim($(this).text())){
+				    case '生产厂家':
+				        compType = 0;
+				        break;
+				    case '贸易商':
+				        compType = 1;
+				        break;
+				    case '终端':
+				        compType = 2;
+				        break;
+				    case '其它':
+				        compType = 3;
+				        break;
+				    default:
+    						compType = '';
+				}
+            		getData(0,cont,compType,$(this).val());
+            })
+            
+            //渲染
+            function addDom(data){
+            		var domStr = '';
+            		$.each(data, function(i,t) {
+            			var qrz = '';
+            			if(t.qualificationStatus == 2){
+            				qrz = '<img src="img/cf_weixian.png" alt="">';
+            			}
+            			if(t.aState == 1){
+            				qrz += '<img src="img/cf_qiye.png" alt="">';
+            			}
+            			var compType = '';
+            			switch(t.companyType){
+					    case '0':
+					        compType = '厂家';
+					        break;
+					    case '1':
+					        compType = '贸易商';
+					        break;
+					    case '2':
+					        compType = '终端';
+					        break;
+					    case '3':
+					        compType = '其它';
+					        break;
+					    default:
+        						compType = '';
+					}    
+            			domStr += '<li><div class="leftImg Lf"><img src="'+t.storeImage+'" alt=""></div>\
+								<div class="leftTitle Lf">\
+									<div class="title">'+t.storeName+qrz+'</div>\
+									<div>公司类型: <span>'+compType+'</span></div>\
+									<div>所在地区: <span>'+t.companyAddress2+'</span></div>\
+								</div>\
+								<div class="right">\
+									<div class="rightTitle Lf">\
+										<div class="img"><img src="img/schDphotIcon.png" alt=""></div>\
+										<div class="title">热卖商品</div>\
+									</div>';
+					$.each(t.hotProducs,function(i,t){
+						domStr += '<div class="rightImg Lf" productId="'+t.productId+'"><img src="'+t.productPic+'" alt=""></div>';
+					})
+					domStr +=	'</div></li>'	;
+            		});
+            		$('.shoplist ul').html(domStr);
+            }
+            
+            $(document).on('click','.rightImg',function(){
+            		localStorage.setItem('productId',$(this).attr('productId'));
+            		location.href = '../obj/objDetails.html';
+            })
+            
+            //请求
+			function getData(num,cont,type,add){
+				$.ajax({ 
+			      type:"post",
+			      url:pubIP+"store/searchVagueStoreInfo",//v1.0.0
+			      cache:false,
+			      dataType: "json",
+				  headers: {
+				  	token: token
+				  },
+			      data:{
+			      	'companyType':type,
+			      	'address':add,
+			    	  	'content':cont,
+			    	  	'sEcho':num,
+			    	  	'pageNum':num
+			      },
+			      success: function(json){
+			        console.log(json);
+			        if(json.aData.length == 0){
+			        		$('.pageJump').hide();
+			        		$('.shoplist ul').html('<li style="text-align: center;color: #666;font-size: 18px;">未查询到相关供应商</li>');
+			        		$('.pagerBox').hide();
+			        		return false;
+			        }
+			        if(isFirst){
+			        		//var all = Math.ceil(json.iTotalRecords/10)
+			        		//总页数字段暂缺
+			        		Page({
+					        num: json.pages,
+					        elem: $('#page1'),
+					        callback: function(n) {
+					            //console.log(n);
+					            addMsg(n-1);
+					        }
+					    });
+					    $('.allPageN').text(num+1+'/'+json.pages);
+					    $('.allPageSize').text(json.pages);
+					    isFirst = false;
+			        }
+			        addDom(json.aData);
+			      },
+			      error:function(xhr,statues,error){
+			          
+			      }
+			   });
+			}
+			//拦截链接
+	        $(document).on('click','a',function(e){
+	       		e.preventDefault();
+	       		var isOld = localStorage.getItem('isOld');
+	       		if(isOld != '2'){
+	       			var ttxt = $.trim($(this).text());
+	       			console.log(ttxt);
+	       			if(ttxt == '用户中心' ){
+	       				if(isOld == '1'){
+	       					$('#effect .contTitle span').text('您尚未登录');
+							missedLogin() ;
+	       				}else if(isOld == '0'){
+	       					missedLogin() ;
+	       				}else if(isOld == '-1'){
+	       					$('#effect .contTitle span').text('您尚未认证');
+	       					$('#effect .contTitle i').text('认证');
+	       					$('#popLogin').text('认证');
+							missedLogin() ;
+	       				}else if(isOld == '-2'){
+	       					$('#effect .contTitle span').text('您的认证正在审核中');
+	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	       					$('#popLogin').hide();
+							missedLogin() ;
+	       				}
+	       			}else{
+	       				window.location.href = this.href;
+	       			}
+	       		}else{
+	       			window.location.href = this.href;
+	       		}
+	        })
+	  </script>
+	</body>
+</html>

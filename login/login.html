@@ -1,0 +1,233 @@
+﻿<!--登录-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title>新疆化学品经营服务平台</title>
+
+		<link rel="stylesheet" type="text/css" href="../css/login.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
+		<style type="text/css">
+			.mianCont_box,.tabLinkMaxBox{display: none}
+			.topTitle>.logo1{
+				height: 100%;
+			}
+			.topTitle>.logo1>img{
+				vertical-align: middle;
+			}
+			body{
+				background: #ffffff;
+			}
+
+			.topTitle>.phone {
+				margin-top: 13px;
+			}
+		</style>
+		<style>
+			.menu {width: 760px;height: 100%;}
+			.menu .menuTop { background-color: #F10215; color: #fff; width: 140px; height: 40px; padding-left: 20px; line-height: 40px; cursor: pointer; }
+			.menu ul {padding-top: 7px;  background-color: #5892f3;position: relative;color: #fff;width: 245px;}
+			.menu ul li { padding-left: 21px; text-align: left;  font-size: 14px; z-index: 2; padding-top: 21px;padding-bottom: 12px;}
+			.menu ul li h3{ font-size: 17px;font-weight: bold;margin-bottom: 8px;}
+			.menu ul li a:hover {cursor: pointer; }
+			.menu ul li:hover { border-right: 0; background-image: none;background: #fff;color: #5892f3; }
+			.menu ul li:hover .submenu { display: block; }
+			.menu ul li .submenu {font-size: 16px;box-sizing: border-box;padding-top: 25px;padding-left: 30px;color: #282828; position: absolute;left: 245px;top: 7px;width: 533px;height: 446px; background-color: #FFF; z-index: 3; display: none; }
+			.menu ul li .submenu .subleft { margin-left: 0px;  }
+			.subTit{margin-bottom: 35px;}
+			.objType{margin-bottom: 48px;}
+			.objType>span{display: inline-block;padding: 8px 15px;}
+			.objType>span:hover {background: #eff5fd;}
+			.subleft>div>p{color: #5892f3;margin-bottom: 21px;}
+			.hotObj{margin-right: 11px;text-align: center;float: left;}
+			.hotObj div{width: 110px;height: 110px;margin-bottom: 23px;}
+			.hotObj p{margin-bottom: 11px;color: #fc6721;font-size: 14px;}
+			.rightUsBg{width: 282px;height: 460px;background: #000;opacity: 0.3;position: absolute;right: 0;top: 0;z-index: 2;}
+			.rightUsIner{background: #fff;position: absolute;right: 9px;top: 9px;z-index: 3;width: 264px;height: 442px;}
+			.headImg{width: 69px;height: 69px;border-radius:100%;float: left;}
+			.usBox{margin-top: 46px;color: #282828;}
+			.usBox p{margin-bottom: 10px;}
+			.rightUsIner{padding: 0px 21px; box-sizing: border-box;font-size: 14px;}
+		</style>
+	</head>
+	<body>
+	<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<!--<div class="maxWidth headBox">-->
+			<!--<div class="mianCont">-->
+				<!--<div class="Lf">-->
+					<!--<span class="collect"><a href="javascript:void(0);" onclick="AddFavorite('我的网站',location.href)">收藏本站</a></span>-->
+					<!--<span>你好，游客</span>-->
+				<!--</div>-->
+				<!--<div class="Rt">-->
+					<!--<div>-->
+						<!--<a href="##">-->
+							<!--<div class="icon userIcon"></div>-->
+							<!--用户中心-->
+						<!--</a>-->
+					<!--</div>-->
+					<!--<div class="fontI">|</div>-->
+					<!--<div>-->
+						<!--<a href="##">-->
+							<!--<div class="icon objIcon"></div>-->
+							<!--产品分类-->
+						<!--</a>-->
+					<!--</div>-->
+					<!--<div class="fontI">|</div>-->
+					<!--<div>-->
+						<!--<a href="../helpCenter/helpCenter.html">-->
+							<!--<div class="icon webIcon"></div>-->
+							<!--网站导航-->
+						<!--</a>-->
+					<!--</div>-->
+					<!--<div class="fontI">|</div>-->
+					<!--<div>-->
+						<!--<a href="../supplierEntry/supplierEntry.html">-->
+							<!--<div class="icon ssIcon"></div>-->
+							<!--供应商入驻-->
+						<!--</a>-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+		<div class="topTitle mianCont">
+			<div class="logo1 Lf" style="margin-top: 21px;">
+				<a href="../index.html"><img src="../img/cf_logo.png" alt=""></a>
+			</div>
+			<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 14px;">（工作日9:00-18:00）</i></div>
+		</div>
+		<div class="mainCenter" style="background-position: center center;    background-size: cover;">
+			<div class="mianCont">
+				<div class="mainCenterlogin">
+					<div class="mainCenterloginTitle">
+						<div class="Lf title">欢迎登录</div>
+						<a href="registert.html" class="Rt login">免费注册</a>
+					</div>
+					<ul class="reg-box">
+						<li>
+							<div class="imgs">
+								<img src="../img/cf_zhanghao.png" alt="">
+							</div>
+							<input type="text" id="user"  placeholder="手机/邮箱/用户名" class="account" maxlength="11"/>
+						</li>
+						<li>
+							<div class="imgs">
+								<img src="../img/cf_pwd.png" alt="">
+							</div>
+							<input type="password" id="pwd" autocomplete = 'new-password'  placeholder="密码" class="account" maxlength="16" />
+
+						</li>
+						<li class="error"></li>
+						<li class="autoLogin">
+							<span class="box Lf" ></span><i class="Lf" style="color:#666666;">&nbsp;自动登录&nbsp;</i><a href="findPass.html" class="Rt" style="color:#666666;">忘记密码?</a>
+						</li>
+					</ul>
+					<div class="sub" id="login">
+						登&nbsp;&nbsp;录
+						<!--<input type="button" value="立即注册" />-->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mainFooter mianCont">
+			<ul>
+				<li><a href="##">首 页</a></li>
+				<li class="line"></li>
+				<li><a href="##">合作伙伴</a></li>
+				<li class="line"></li>
+				<li><a href="##">关于我们</a></li>
+				<li class="line"></li>
+				<li><a href="##">联系我们</a></li>
+				<li class="line"></li>
+				<li><a href="##">服务条款</a></li>
+				<li class="line"></li>
+				<li><a href="##">金融服务</a></li>
+			</ul>
+			<div class="mainFooterQuanxian">Copyright © 2016 www.xjv56.com All Rights Reserved 新疆化学品经营服务平台版权所有   新ICP备 16003842号-1</div>
+		</div>
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" >
+				var isAuto=0;
+
+		  var mySwiper = new Swiper ('.swiper-container', {
+			    loop: true,
+			    autoplay:true,
+		  })
+          $(function () {
+              if(localStorage.getItem("isAuto")==1){
+              	if(localStorage.getItem('isOld') == 2){
+              		window.location.href = '../index.html';//直接跳到主页
+              	}
+              }
+
+              $(".box").eq(0).click(function () {
+                  if(isAuto==1){
+                      isAuto=0;
+                  }else{
+                      isAuto=1;
+                  }
+                  $(this).toggleClass("active");
+              })
+              $(".mainCenter") .css({"background-image":"url(../img/cf_loginBackGround.png)","background-size":"cover","min-width":"1230px","background-position":"center center"});
+//              $(".mainCenter") .css("background-size","cover");
+          })
+          
+          $(document).on('keydown',function(event){
+          	var e = event || window.event || arguments.callee.caller.arguments[0];
+          	if(e && e.keyCode==13){ 
+          		$('#login').click();
+          	}
+          })
+          
+          $('#login').click(function(){
+          	var user = $('#user').val();
+          	var pwd = $('#pwd').val();
+          	if(user == ''){
+          		//alert('请输入手机/邮箱/用户名！');
+                $(".error").eq(0).text('请输入手机/邮箱/用户名！');
+          		return false;
+          	}else if(pwd == ''){
+          		//alert('请输入密码！');
+                $(".error").eq(0).text('请输入密码！');
+          		return false;
+          	}
+          	$.ajax({ 
+	          type:"post",
+	          url:pubIP+"user/login",//v1.0
+	          cache:false,
+	          dataType: "json",
+	          data:{
+		        	  'mobileOrLoginName':user,
+		        	  'password':pwd,
+                      "isAuto":isAuto
+	          },
+	          success: function(json){
+	            	console.log(json);
+	                if(json.code == '1'){
+                        localStorage.setItem("isAuto",isAuto);
+                        localStorage.setItem("token",json.data.token);
+	                	window.location.href = '../index.html';
+						window.localStorage.setItem('data-logout', 'false');
+						$('#logout').show();
+	                }else{
+	                	//alert(json.msg)
+						$(".error").eq(0).text(json.msg);
+	                }
+	          },
+	          error:function(xhr,statues,error){
+	              
+	          }
+	       });
+          })
+	  </script>
+	</body>
+</html>

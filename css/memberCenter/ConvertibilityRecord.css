@@ -1,0 +1,13 @@
+.ConvertibilityRecord {
+	width: 984px;
+	border: 1px solid #eeeced;
+}
+
+.ConvertibilityRecordTitle {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eeeced; 
+	padding-left: 19px;
+	font-size: 16px;
+	color: #282828;
+}

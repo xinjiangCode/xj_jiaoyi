@@ -1,0 +1,1392 @@
+<!--账户 特殊资质认证-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <style type="text/css">
+        .xiaoshi{display: none;}
+
+
+        input[type='text'].input_width{
+            padding-left: 30px;
+        }
+        .btn{width: 359px;height: 51px;line-height:51px;background-color: #007aff;border-radius: 5px;text-align: center;color: white;margin-left: 95px;margin-top: 54px;}
+        .red{color: red;}
+        img{float: left;}
+        .uploade{ border: 1px solid #ebe9ea;}
+         a{color: #80acf8;}
+         html,body{min-width: 988px;width: 988px;background-color: white;overflow: hidden;margin: auto;font-size: 14px;}
+        .container{width:986px;border: 1px solid #f1f1f1;overflow-y: auto; height: 1595px;overflow-x: hidden;}
+        .header{padding: 18px 165px;border-bottom: 1px solid #f1f1f1;}
+        .header>ul{overflow: hidden;width: 830px;}
+        .header>ul>li{float: left;height: 18px;line-height: 18px;font-size: 16px;margin-right: 155px;}
+        .header>ul>.row{line-height: 10px;margin-left: 4px;}
+        .header>ul>li>a{font-size: 16px;}
+        .header>ul>li>a>div{color: white;height: 18px;line-height: 18px; text-align: center; width: 18px;border-radius: 50%;font-size:11px;margin: 0 4px; }
+        .header>ul>li>a>.orange{background-color: #ffae4c;}
+        .header>ul>li>a>.lan{background-color: #80aeff;}
+
+        .center1{padding: 0px 0px 66px 140px;border-bottom: 1px solid #f1f1f1;}
+        .center1>ul{margin-top: 52px;}
+        .center1>ul>li{margin-top: 17px;}
+        .center1>ul>li::after{content: "";clear: both;display: block}
+        .center1>ul>li>.left1{width: 135px;height: 38px;line-height: 38px;text-align: right;margin-right: 20px;}
+        .center1>ul>li>.right1{}
+        .center1>ul>li>.right1::after{content: "";clear: both;}
+        .center1>ul>li>.right1>select{width: 363px;height: 38px;padding-left: 10px;}
+        .center1>ul>li>.right1>input{width: 359px;height: 32px;font-size: 14px;color: #666666;text-indent: 10px;}
+        .center1>ul>li>.right1>.date-input{width: 143px;}
+        .center1>ul>li>.right1>.uploade{position: relative;width: 150px;height: 100px;line-height: 100px;text-align: center;}
+        .center1>ul>li>.right1>.uploade>i{position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
+        .center1>ul>li>.right1>.uploade>img{position: absolute;top: 0;left: 0;right: 0;bottom: 0;width: 100%;height: 100%;}
+        .center1>ul>li>.right1>.uploade>input{position: absolute;top: 0;left: 0;right: 0;bottom: 0;opacity: 0;width: 100%;}
+        .center1>ul>li>.right2{line-height: 38px;margin-left: -30px;}
+        .center1>ul>li>.right2>input{margin-left: 30px;}
+        .bottom1{overflow: hidden;margin-top: 60px;font-size: 16px;margin-left: 145px;margin-bottom: 54px;}
+        .bottom1>.add{width: 240px;height: 42px;line-height: 42px;margin-left: 155px;margin-top: 0;}
+        .bottom1>.sub{width: 107px;height: 40px;line-height: 40px;background-color: white;color: #666666;border: 1px solid #666666;margin-left: 10px;margin-top: 0;}
+        
+        .pic_div .uploade {
+            margin-right: 10px;
+        }
+
+        .input_width {
+            width: 145px;
+            height: 30px;
+            padding-left: 30px;
+            box-sizing: border-box;
+        }
+
+        .sousuo {
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+            margin-left: 5px;
+            background-color: #007aff;
+            text-align: center;
+            line-height: 30px;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .none {
+            display: none;
+            position: relative; 
+            float: right;
+            margin-right: 15px;
+        }
+
+        .sousuo_img {
+            position: absolute;
+            right: 180px;
+            top: 6px;
+        }
+
+        .cousuo_cont {
+            border: 1px solid #999;
+            width: 143px;
+            margin-top: -1px;
+            border-top: none;
+            z-index: 10;
+            position: absolute;
+            background-color: #fff;
+            height: 150px;
+                overflow-y: scroll;
+        }
+
+        ul.sousuo_ul li {
+            padding-left: 5px;
+            box-sizing: border-box;
+                margin-bottom: 15px;
+        }
+
+        .cousuo_cont {
+            display: none;
+        }
+
+        .shou_pic, .quxiao_add{
+            float: right;
+        }
+
+        /*清除浮动*/
+        .clearfix:before, .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1; /*IE/7/6*/
+        }
+
+        img.shou_pic {
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+
+        span.quxiao_add {
+            color: #007aff;
+        }
+
+        .quxiao_div {
+            margin-right: 100px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .ts {
+            margin-left: 10px;
+            line-height: 38px;
+            display: none;
+        }
+
+        .ts1 {
+            color: #ff7854;
+            font-size: 14px;
+            display: none;
+            position: absolute;
+            margin-top: 40px;
+        }
+
+        .ts2 {
+            color: #ff7854;
+            font-size: 14px;
+            margin-left: -80px;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .center1:last-child {
+            border-bottom: none;
+            padding: 0px 0px 0px 140px;
+        }
+
+        /* 弹框 */
+        .modelBox{
+            z-index: 9999;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modelBox1 {
+            z-index: 9999;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modelBox2 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 999;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+
+        .modelCont{
+            position: fixed;
+            width: 450px;
+            height: 276px;
+            left: 50%;
+            top: 50%;
+            margin-left: -225px;
+            margin-top: -138px;
+        }
+        
+        .modelBox .modelCont {
+            top: 50%;
+        }
+
+
+        .modelBox1 .modelCont, .modelBox2 .modelCont {
+            top: 22%;
+        }
+
+
+
+        .modeltitle{
+            width: 450px;
+            height: 50px;
+            background-image: url(../img/gsxq.gif);
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 16px;
+            color: #5690f6;
+            line-height: 50px;
+        }
+        .modeltitle span{
+            margin-left: 16px;
+        }
+        .modelcontent{
+            width: 450px;
+            height: 226px;
+            background-image: url('../img/gsxq_cont.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 18px;
+        }
+        
+        .modelbtn{
+            width: 145px;
+            height: 45px;
+            border: 1px solid #5690f6;
+            font-size: 18px;
+            color: #fff;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 18px auto 0 auto;
+        }
+
+        .modelcontent p {
+            color: #949495;
+            font-size: 14px;
+            padding: 0 80px;
+        }
+
+        .modelcontent p span {
+            color: #5992f3;
+        }
+
+        .img_div {
+            width: 100%; 
+            height: 42px; 
+            text-align: center; 
+            padding-top: 40px; 
+            margin-bottom: 19px;
+            overflow: hidden;
+        }
+
+        .textarea {
+            padding-left: 10px;
+            box-sizing: border-box;
+            padding-top: 5px;
+        }
+
+        .right1.Lf.pic_div {
+            width: 486px;
+        }
+
+        .right1.Lf.pic_div .uploade {
+            margin-bottom: 10px;
+        }
+        .zizhi_type{width: 359px;height: 38px;}
+
+        .textarea {
+            overflow: auto;
+        }
+        .center1 .right1 .zizhi_num{
+            height: 38px;
+            box-sizing: border-box;
+            border: 1px solid #ebe9ea;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <ul>
+            <li>
+                <a href="./Special1.html" style="color: #999;">
+                    危险化学品认证
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;" style="color: #007aff;">
+                    特殊资质认证
+                </a>
+            </li>
+            <li>
+                <a href="./Special3.html" style="color: #999;">
+                    其他资质信息
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="center">
+        <div class="center1 c0">
+            <ul>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>资质类型:</div>
+                    <div class="right1 Lf">
+                        <!-- <select name="" class="zizhi_type" id="zizhi_type0">
+
+                        </select> -->
+                        <div class="selectPub zizhi_type zizhi_type0" id="zizhi_type0" data-selectedindex="">
+                            <span></span>
+                            <img src="../img/prl-select.jpg" alt="">
+                            <ul>
+                                <li data-index="1">10</li>
+                                <li data-index="2">20</li>
+                                <li data-index="3">30</li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>资质编号:</div>
+                    <div class="right1 Lf"><input type="text" class="zizhi_num" id="zizhi_num0"></div>
+                    <span class="ts">资质编号必须为数字</span>
+                </li>
+                <li class="clearfix" style="position: relative;">
+                    <div class="left1 Lf"><i class="red">*</i>资质图片:</div>
+                    <div class="right1 Lf pic_div">
+                        <div class="uploade" style="float: left;">
+                            <i style=""></i>
+                            <img src="../img/list_logo.png" alt="" class="preview pic1" id="uploade_preview0">
+                            <input type="file" class="input_blur" onchange="xmTanUploadImg(this);">
+                            <input type="hidden" class="hd0" id="hidden">
+                        </div>
+                        <div class="ts1">至少添加一张图片</div>
+                        <a href="##" class="add_pic add_pic1" data-pic="pic" style="float: left;font-size: 14px; position: absolute; bottom: 0px;">继续添加图片</a>
+                    </div>
+
+                </li>
+                <li style="overflow: visible;" class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>
+                    <div class="right1 Lf">
+                        <div name="" id="textarea0" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #999;" contenteditable="false"></div>
+                    </div>
+                    <span class="ts2">许可经营不能为空</span>
+                    <div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 60px 0 0 12px;">添加</div>
+                    <div class="none">
+                        <div class="sousuo_div">
+                            <input type="text" id="" class="input_width">
+                            <img src="../img/sousuo.png" class="sousuo_img" alt="">
+                            <span class="sousuo">搜索</span>
+                        </div>
+                        <div class="cousuo_cont">
+                            <ul class="sousuo_ul">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>有效期起:</div>
+                    <div class="right1 Lf">
+                        <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 0px;" placeholder="请选择日期" id="test1">
+                        <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
+                        <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 0px;" placeholder="请选择日期" id="test2">
+                    </div>
+                    <span class="ts">有效期不能为空</span>
+                </li>
+            </ul>
+            <i class="red" style="display: block;margin-top: 22px;font-size: 14px;margin-left: 155px;">请上传营业执照或者扫描件！ 照片大小 < 2MB</i>
+        </div>
+    </div>
+    
+
+    <div class="bottom1">
+        <div class="btn Lf add add1">继续添加其他资质</div>
+        <div class="btn Lf sub">提交</div>
+    </div>
+
+    
+</div>
+
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
+<script type="text/javascript">
+
+    var startTime1 = '';
+    var endTime1 = '';
+    var isSelect=false;
+
+    laydate({
+        elem: '#test1',
+        format: 'YYYY-MM-DD ',
+        istime: false,
+        choose: function(dates){ //选择好日期的回调
+            $("#test1").parent().next().css('display', 'none');
+            startTime1 = dates;
+        }
+    })
+    laydate({
+        elem: '#test2',
+        format: 'YYYY-MM-DD ',
+        istime: false,
+        choose: function(dates){ //选择好日期的回调
+            $("#test2").parent().next().css('display', 'none');
+            startTime1 = dates;
+        }
+    })
+
+    function lay(id) {
+        laydate({
+            elem: '#'+id,
+            format: 'YYYY-MM-DD',
+            istime: false,
+            choose: function(dates){ //选择好日期的回调
+                $('#'+id).parent().next().css('display', 'none');
+                startTime1 = dates;
+            }
+        })
+    }
+
+    //不同浏览器下的路径不同
+    function getObjectURL(file) {
+        var url = null;
+        if (window.createObjectURL != undefined) { // basic
+
+            url = window.createObjectURL(file);
+
+        } else if (window.URL != undefined) { // mozilla(firefox)
+
+            url = window.URL.createObjectURL(file);
+
+        } else if (window.webkitURL != undefined) { // webkit or chrome
+
+            url = window.webkitURL.createObjectURL(file);
+        }
+
+        return url;
+    }
+
+    //选择图片，马上预览
+    function xmTanUploadImg(obj) {
+        var file = obj.files[0];
+
+        if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }
+
+        //添加图片路径到img src中进行预览
+        $(obj).prev().attr('src', getObjectURL(file));
+
+        var formdata=new FormData();
+
+        var c = $(obj).prev()[0];
+        var path = $(c).attr('src');
+
+        formdata.append('file', file);
+        
+        formdata.append('path', path);
+    
+
+        $.ajax({
+            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                // console.log(data);
+                /*img_url1 = data.url;*/
+                $(obj).prev().attr('src', data.url);
+                $(obj).next().val(data.url);
+                $(obj).prev().attr('data-flag', '0');
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+    }
+
+    $(function(){
+
+
+        searchAjax();
+
+   
+
+        function typeAjax() {
+            $.ajax({
+                url: pubIP + 'companyCertification/getQualificationTypeList',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    type: 1
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    /*console.log(data);*/
+
+                    var str = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<li  data-index="'+i+'" value="'+data.data[i].ids+'" data-ids="'+data.data[i].ids+'">'+data.data[i].typeName+'</li>';
+                        if($("#zizhi_type0").attr("disabled")=="disabled"){
+
+                        }else{
+                            if(i==0){
+                                $("#zizhi_type0").attr("data-selectedindex","0");
+                                $("#zizhi_type0 span").text(data.data[i].typeName);
+                                $("#zizhi_type0 span").attr("data-spanvalue",data.data[i].ids);
+                            }
+                        }
+                    }
+
+
+                    $('.zizhi_type ul').html(str);
+
+                    $('.selectPub ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().find('span').attr('data-spanvalue', $(this).attr('data-ids'));
+                        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                    });
+
+                    searchAjax();           
+                    
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+
+
+        // 模拟下拉框
+        // $('.zizhi_type0').click(function(event){
+        //     if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
+        //         $(this).children('img').attr('src', '../img/prl-select.jpg')
+        //     } else {
+        //         $(this).children('img').attr('src', '../img/prl-selected.jpg')
+        //     }
+
+        //     event.stopPropagation();
+
+        //     $(this).children('ul').toggle();
+        //     var that = $(this);
+        //     that.find('li').each(function(){
+        //         $(this).mouseover(function(){
+        //             $(this).addClass('hovered')
+        //         });
+        //         $(this).mouseleave(function(){
+        //             $(this).removeClass('hovered')
+        //         });
+        //         if($(this).attr('data-index') == that.attr('data-selectedindex')){
+        //             $(this).css({'background': '#6ea3ff','color': '#fff'});
+        //             $(this).siblings('li').css({'background': '#fff','color': '#999'});
+        //         }
+        //     });
+
+        // }).mouseleave(function (event) {
+        //     $(this).children('img').attr('src', '../img/prl-select.jpg');
+        //     $(this).children('ul').hide();
+        // });
+
+
+
+     
+    
+        var isfirst = true;
+        function searchAjax() {
+            $.ajax({
+                url: pubIP + 'companyCertification/getQualificationsBaseInfoAndStrByCompanyId',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    companyId: companyId,
+                    type: 1
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+
+                    if(isfirst){
+                        for (var i = 0; i < data.data.length; i++) {
+                            if(i > 0){
+                                $('.add').click();
+                            }
+                            for (var j = 0; j < data.data[i].picInfos.length-1; j++) {
+                                $('.c'+i+' .add_pic').click();
+
+                            }
+                        }
+                        typeAjax();
+                        isfirst = false;
+                        return false;
+                    }
+
+
+                    
+                    for (var i = 0; i < data.data.length; i++) {
+
+                        // $('.c'+i).attr('data-qiyeId', data.data[i].qualificationId);
+                        $('.c'+i).attr('data-qiyeId', data.data[i].ids);
+                       
+                        //资质类型
+                        //$('#zizhi_type'+i+' option[value="'+data.data[i].qualificationType+'"]').attr("selected",true);
+                        $('#zizhi_type'+i).find("span").text(data.data[i].qualificationName);
+                        $('#zizhi_type'+i).find('span').attr("data-spanvalue",data.data[i].qualificationTypeIds);
+                        $('#zizhi_type'+i).attr('disabled', "disabled");
+                        // $('#zizhi_type'+i).attr('data-f', 'true');
+                        
+                        //资质编号
+                        $('#zizhi_num'+i).val(data.data[i].qualificationNum);
+                        $('#zizhi_num'+i).attr('readonly', 'readonly');
+                        // $('#zizhi_num'+i).attr('data-f', 'true');
+
+                        //资质图片
+                        for (var j = 0; j < data.data[i].picInfos.length; j++) {
+                            $('.c'+i+' .pic'+(j+1)).attr('data-ids', data.data[i].picInfos[j].ids);
+                            $('.c'+i+' .pic'+(j+1)).attr('src', data.data[i].picInfos[j].picUrl);
+                            $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
+                        }
+
+                        data.data[i].qualificationDataBegin = new Date(data.data[i].qualificationDataBegin).Format("yyyy-MM-dd");
+
+                        data.data[i].qualificationDataExpire = new Date(data.data[i].qualificationDataExpire).Format("yyyy-MM-dd");
+
+                        //许可经营范围
+                        $('#textarea'+ i).attr('data-textarea', data.data[i].operationLimit);
+                        
+                        $('#textarea'+ i).attr('data-f', 'true');
+
+                        /*var arr = data.data[i].operationLimit.split(';')*/
+                        
+                        //时间
+                        $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin);
+                        $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire);
+
+
+                        $('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
+
+                    }
+                    $('.textarea').each(function(){
+                        var that = this;
+                        var idArr =  $(this).attr('data-textarea');
+                        if (idArr) {
+                            idArr = idArr.split(';');
+                            $(this).attr('contenteditable', 'false');
+                            $.each(idArr,function(i,t){
+                                if(t!=''){
+                                    sousuoAjax(t, function(a) {
+                                       /* console.log($(that))*/
+                                        $(that).append('<div data-ind="'+idArr[i]+'">'+a + '</div>');
+                                        
+                                    });
+                                }
+                            
+                            });
+                        }
+                        
+                    });
+
+
+                    // 模拟下拉框
+                    $('.zizhi_type0').click(function(event){
+// debugger
+                        event.stopPropagation();
+
+                        if($(this).attr("disabled")=="disabled"){ //判断是否可以点击
+                            
+                            return false;
+                        } 
+
+
+                            if($(this).children('img').attr('src') == '../img/prl-select.jpg'){
+                                $(this).children('img').attr('src', '../img/prl-selected.jpg')
+                            } else {
+                                $(this).children('img').attr('src', '../img/prl-select.jpg')
+                            }
+
+                            // if ($(this).find('ul').css('display') == 'none') {
+                            //     $(this).find('ul').css('display', 'block');
+                            // } else {
+                            //     $(this).find('ul').css('display', 'none');
+                            // }
+
+                            $(this).children('ul').toggle();
+                            var that = $(this);
+                            that.find('li').each(function(){
+                                $(this).mouseover(function(){
+                                    $(this).addClass('hovered')
+                                });
+                                $(this).mouseleave(function(){
+                                    $(this).removeClass('hovered')
+                                });
+                                if($(this).attr('data-index') == that.attr('data-selectedindex')){
+                                    $(this).css({'background': '#6ea3ff','color': '#fff'});
+                                    $(this).siblings('li').css({'background': '#fff','color': '#999'});
+                                }
+                            });
+                        
+
+                    }).mouseleave(function (event) {
+                        $(this).children('img').attr('src', '../img/prl-select.jpg');
+                        $(this).children('ul').hide();
+                    });
+
+                    stateAjax();
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+
+
+        }
+
+
+        function sousuoAjax(chemicalIds ,func) {
+
+            $.ajax({
+                url: pubIP + 'productApi/getChemicalInfoById',
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    chemicalId: chemicalIds
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    /*console.log(data);*/
+                    if (func) {
+                        func(data.data.chemicalName);
+                    }
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+
+        $(document).on('click', '.edit_btn', function() {
+            
+            $(this).parent().find('.zizhi_type').attr('disabled', false);
+            isSelect=true;
+
+            $(this).parent().find('.zizhi_num').attr('readonly', false);
+            $(this).parent().find('.textarea').attr('contenteditable', true);
+
+
+        });
+
+    
+
+        function stateAjax() {
+
+            $.ajax({
+                url: pubIP + 'companyCertification/getQualificationStateByCompanyId',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    companyId: companyId
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+
+                    //未审核
+                    if (data.data.bType == 1 && data.data.bState == 0) {
+                        window.parent.shenhe();  
+                        $('.btn.edit_btn').css('display', 'none');
+                        $('.sub').attr('disabled', true);
+                        $('.quxiao_add').css('display', 'none');
+                        $('.shou_pic').css('display', 'none');
+
+                    } else if (data.data.bType == 1 && data.data.bState == 2) {  //已拒绝
+                        window.parent.jujue(); 
+                        $('.btn.edit_btn').css('display', 'block');
+                        $('.sub').attr('disabled', false);
+                        $('.quxiao_add').css('display', 'block');
+                        $('.shou_pic').css('display', 'block');
+                    }else {
+                        $('.btn.edit_btn').css('display', 'block');
+                        $('.sub').attr('disabled', false);
+                        $('.quxiao_add').css('display', 'block');
+                        $('.shou_pic').css('display', 'block');
+                    }
+
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+
+            });
+
+        }
+
+    
+    $(window.parent.document).on('click', '.ok_ok1', function() {
+        if ($(this).text() == '确    定') {
+            window.location.reload();
+        }
+    });
+
+
+    
+        var ind;
+
+        $(document).on('click', '.add_pic', function() {
+            var pic = $(this).attr('data-pic');
+
+            var cla = $(this).prev().prev().find('img').attr('class');
+
+            // console.log(cla);
+
+            ind = Number(cla.substr(11));
+            // console.log(ind);
+            if (ind < 10) {
+
+                ind++;
+                var str =   '<div class="uploade" style="float: left;">'
+                                +'<i style=""></i>'
+                                +'<img src="../img/list_logo.png" alt="" class="preview '+(pic+ind)+'" id="uploade_preview'+(ind-1)+'">'
+                                +'<input type="file" class="input_blur" onchange="xmTanUploadImg(this);">'
+                                +'<input type="hidden" class="hd'+pic+'" id="hidden">'
+                            +'</div>';
+
+                $(this).parent().find('.ts1').before(str); 
+
+            } else {
+                $(this).html('最多只能添加十张');
+            }
+            
+
+        });
+    
+    var j = 3;
+    var i = 1;
+    var p = 1;
+    $(document).on('click', '.add', function () {
+
+        var center1 = 2 * Number($('.center1').length);
+
+        var str = '<div class="center1 c'+i+'">'
+                +'<div class="clearfix quxiao_div"><span class="quxiao_add">取消添加</span><img class="shou_pic" src="../img/search_shou.png"></div>'
+                +'<ul>'
+                    +'<li>'
+                        +'<div class="left1 Lf"><i class="red">*</i>资质类型:</div>'
+                        +'<div class="right1 Lf">'
+                            // +'<select name="" class="zizhi_type" id="zizhi_type'+i+'">'
+                                
+                            // +'</select>'
+                            +'<div class="selectPub zizhi_type zizhi_type'+i+'" id="zizhi_type'+i+'" data-selectedindex='+i+' value="">'
+                                +'<span></span>'
+                                +'<img src="../img/prl-select.jpg" alt="">'
+                                +'<ul></ul>'
+                            +' </div>'
+                        +'</div>'
+                    +'</li>'
+                    +'<li>'
+                        +'<div class="left1 Lf"><i class="red">*</i>资质编号:</div>'
+                        +'<div class="right1 Lf"><input type="text"  class="zizhi_num" id="zizhi_num'+i+'"></div>'
+                        +'<span class="ts">资质编号必须为数字</span>'
+                    +'</li>'
+                    +'<li style="position:relative;">'
+                        +'<div class="left1 Lf"><i class="red">*</i>资质图片:</div>'
+                        +'<div class="right1 Lf pic_div">'
+                            +'<div class="uploade" style="float: left;">'
+                                +'<i style=""></i>'
+                                +'<img src="../img/list_logo.png" alt="" class="preview pic1" id="uploade_preview0">'
+                                +'<input type="file" class="input_blur" onchange="xmTanUploadImg(this);">'
+                                +'<input type="hidden" class="hd0">'
+                            +'</div>'
+                            +'<div class="ts1">至少添加一张图片</div>'
+                            +'<a href="##" class="add_pic" data-pic="pic" style="float: left;font-size: 14px; position: absolute; bottom: 0px;">继续添加图片</a>'
+                        +'</div>'
+                    +'</li>'
+                    +'<li style="overflow: visible;" class="clearfix">'
+                        +'<div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>'
+                        +'<div class="right1 Lf">'
+                            +'<div name="" id="textarea'+i+'" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #999;"  contenteditable="false"></div>'
+                        +'</div>'
+                        +'<span class="ts2">许可经营不能为空</span>'
+                        +'<div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 60px 0 0 12px;">添加</div>'
+                        +'<div class="none">'
+                            +'<div class="sousuo_div">'
+                                +'<input type="text" id="" class="input_width">'
+                                +'<img src="../img/sousuo.png" class="sousuo_img" alt="">'
+                                +'<span class="sousuo">搜索</span>'
+                            +'</div>'
+                            +'<div class="cousuo_cont">'
+                                +'<ul class="sousuo_ul">'
+                                    
+                                +'</ul>'
+                            +'</div>'
+                        +'</div>'
+                    +'</li>'
+                    +'<li>'
+                        +'<div class="left1 Lf"><i class="red">*</i>有效期起:</div>'
+                        +'<div class="right1 Lf huoqu_date">'
+                            +'<input type="text" class="date-input laydate-icon kuang start" style="text-indent:4px;" placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 1)+'">'
+                            +'<span style="height: 38px;line-height: 38px;">&nbsp; 至&nbsp; </span>'
+                            +'<input type="text" class="date-input laydate-icon kuang end" style="text-indent:4px;" placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 2)+'">'
+                        +'</div>'
+                        +'<span class="ts">有效期不能为空</span>'
+                    +'</li>'
+                +'</ul>'
+                +'<i class="red" style="display: block;margin-top: 22px;font-size: 14px;margin-left: 155px;">请上传营业执照或者扫描件！ 照片大小 < 2MB</i>'
+            +'</div>';
+
+        $('#center').append(str);
+        i++;
+        /*typeAjax();*/
+
+
+        $.ajax({
+            url: pubIP + 'companyCertification/getQualificationTypeList',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                type: 1
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                /*console.log(data);*/
+
+                var str = '';
+                // for (var i = 0; i < data.data.length; i++) {
+                //     str += '<option value="'+data.data[i].ids+'" data-ids="'+data.data[i].ids+'">'+data.data[i].typeName+'</option>';
+                // }
+
+                // $('.zizhi_type').html(str);
+
+                for (var i = 0; i < data.data.length; i++) {
+
+                    str += '<li data-index="'+i+'" value="'+data.data[i].ids+'" data-ids="'+data.data[i].ids+'">'+data.data[i].typeName+'</li>';
+                    if(i==0){
+                        $('.zizhi_type'+(p)).attr("data-selectedindex","0");
+                        $('.zizhi_type'+(p)).find('span').attr("data-spanvalue",data.data[i].ids);
+                        $('.zizhi_type'+(p)).find("span").text(data.data[i].typeName);
+                    }
+
+                }
+
+                $('.zizhi_type'+(p)).find("ul").html(str);
+
+
+                // 模拟下拉框
+                $('.zizhi_type'+(p)).click(function(event){
+
+                    if($(this).attr("disabled")=="disabled"){ //判断是否可以点击
+                        
+                        return false;
+                    } 
+
+                    if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
+                        $(this).children('img').attr('src', '../img/prl-select.jpg')
+                    } else {
+                        $(this).children('img').attr('src', '../img/prl-selected.jpg')
+                    }
+
+                    event.stopPropagation();
+
+                    $(this).children('ul').toggle();
+                    var that = $(this);
+                    that.find('li').each(function(){
+                        $(this).mouseover(function(){
+                            $(this).addClass('hovered')
+                        });
+                        $(this).mouseleave(function(){
+                            $(this).removeClass('hovered')
+                        });
+                        if($(this).attr('data-index') == that.attr('data-selectedindex')){
+                            $(this).css({'background': '#6ea3ff','color': '#fff'});
+                            $(this).siblings('li').css({'background': '#fff','color': '#999'});
+                        }
+                    });
+
+                }).mouseleave(function (event) {
+                    $(this).children('img').attr('src', '../img/prl-select.jpg');
+                    $(this).children('ul').hide();
+                });
+                $('.zizhi_type'+(p)).find('ul li').click(function(){
+                    console.log($(this).attr('data-ids'));
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().find('span').attr('data-spanvalue', $(this).attr('data-ids'));
+                    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                    $(this).parent().css('display','none');
+                });
+
+                console.log($('.zizhi_type'+(p)));
+                p++;
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+        
+
+    });
+
+
+    $(document).on('click', '.btn1', function() {
+        $(this).next().find('.sousuo_ul').empty();
+        $(this).next().css('display', 'block');
+
+    });
+
+    $(document).on('click', '.sousuo', function () {
+
+        var cont = $(this).prev().prev().val();
+
+        var _this = $(this);
+        
+        // if ($('.cousuo_cont').css('display') == 'block') {
+        //     $('.cousuo_cont').css('display', 'none');
+        // } else if($('.cousuo_cont').css('display') == 'none') {
+        //     $('.cousuo_cont').css('display', 'block');
+        // }
+
+        $.ajax({
+            url: pubIP + 'productApi/listChemicalLikeByName',
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                chemicalStr: cont
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.data.length == 0 ) {
+                    var str1 = '';
+                    str1 += '<li style="color: #999;">暂无数据</li>';
+                    _this.parent().next('.cousuo_cont').css('display','block');
+                    _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str1);
+                    // $('.sousuo_ul').html(str1);
+                } else {
+                    var str2 = ''
+                    for (var i = 0; i < data.data.length; i++) {
+                        str2 += '<li data-index= "'+data.data[i].chemicalId+'" >'+data.data[i].chemicalName+'</li>';
+                    }
+                    // $('.sousuo_ul').html(str2);
+                    _this.parent().next('.cousuo_cont').css('display','block');
+                    _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str2);
+                }
+            },
+            error: function (err) {
+                console.log();
+            }
+        })
+
+    });
+
+    $(document).on('blur', '.input_width', function () {
+        if ($(this).val() == '') {
+            $(this).parent().next().css('display', 'none');
+        }
+    }) 
+
+
+    $(document).on('click',function(){
+        $('.cousuo_cont').hide();
+    })   
+
+    
+
+    $(document).on('click', '.sousuo_ul li', function () {
+        if ($(this).text() != '暂无数据') {
+            console.log($(this).text());
+            $(this).parent().parent().parent().prev().prev().prev().find('.textarea').append('<div data-ind="'+$(this).attr('data-index')+'">'+$(this).text()+'</div>');
+        }
+    });
+
+
+    $(document).on('click', '.quxiao_div', function() {
+        
+        var qiyeid = $(this).parent().attr('data-qiyeid');
+       
+        if (qiyeid) {
+            $.ajax({
+                url: pubIP + 'companyCertification/removeQualificationsInfoByQualificationsId',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    qualificationsId: qiyeid
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+
+                    if (data.code == 1) {
+                        window.parent.del();
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        } else {
+
+            $(this).parent().remove();
+
+        }
+
+        
+
+    });
+
+
+
+   
+    $(document).on('click', '.sub', function () {
+
+        if($(".zizhi_num").val()==''){
+            alert('资质编号不能为空!');
+            return;
+        }
+        if($("#textarea0").html()==''){
+            alert('许可经营范围不能为空!');
+            return;
+        }
+        if($("#test1").val()=='' || $("#test2").val()==''){
+            alert('有效期不能为空!');
+            return;
+        }
+
+        var json = {
+            type: 1,
+            companyId:companyId,
+            
+        };
+
+        var zizhi_type = $('.zizhi_type');
+        for (var i = 0; i < zizhi_type.length; i++) {
+            json['qualificationType'+(i+1)] = $('#zizhi_type'+i).find('span').attr('data-spanvalue');
+        }
+
+        $('.zizhi_num').each(function(index, elem) {
+            var zizhi_num1 = $(this).val().trim();
+            var zizhi_num1_reg = /^\d+$/;
+
+            if (zizhi_num1_reg.test(zizhi_num1) != true) {
+                $(this).parent().next().css('display', 'inline-block');
+                return false;
+            } else {
+                json['qualificationNum'+(index+1)] = $(this).val();
+            }
+        });
+
+       
+
+        var center1 = $('.center1');
+
+        for (var y = 0; y < center1.length; y++) {
+
+            if ($(center1[y]).attr('data-qiyeid')) {
+                json['qualificationId'+(y+1)] = $(center1[y]).attr('data-qiyeid');
+            }
+
+            var img = '';
+            for (var i = 0; i < $('.c'+y+' .preview').length; i++) {
+                
+                if ($('.c'+y+' .preview.pic'+(i+1)+'').attr('data-picids')) {
+                    img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('data-picids')+',';
+                }
+
+                if ($('.c'+y+' .preview').attr('data-flag')) {
+                    img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('src')+';';
+                } 
+
+            }
+
+            
+            json['imgs'+(y+1)] = img;
+
+        
+        }
+
+        $('.textarea').each(function (i, ele) {
+            var run_fanwei = '';
+            if ($(this).text() == '') {
+                $(this).parent().next().css('display', 'inline-block');
+                return;
+            } else {
+                var div = $(this).find('div');
+                $(div).each(function (index, element) {
+                    run_fanwei += $(this).attr('data-ind')+ ';';
+                });
+                json['operationLimit'+(i+1)] = run_fanwei;
+            }
+
+            
+        });
+
+        $('.start').each(function (i, ele) {
+            if ($(this).val() == '') {
+                $(this).parent().next().css('display', 'block');
+            } else {
+                json['qualificationDataBegin' + (i+1)] = $(this).val();
+            }
+            
+        });
+
+
+        $('.end').each(function (i, ele) {
+
+            if ($(this).val() == '') {
+                $(this).parent().next().css('display', 'block');
+            } else {
+                json['qualificationDataExpire' + (i+1)] = $(this).val();
+            }
+        });
+
+            /* console.log(json);*/
+
+        // if ($(this).attr('disabled')) {
+        //     window.parent.teshu_tan();
+        // }
+
+
+        
+            $.ajax({
+                url: pubIP + 'companyCertification/addQualificationsBaseInfo',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: json,
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.code == 1) {
+                        window.parent.teshu_tan();
+                        window.localStorage.setItem('data-subFlag', '0');
+                        $('.bottom1 >div').hide();
+                    }
+                    
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        
+        
+
+    });
+
+
+    $(document).on('blur', '.zizhi_num', function () {
+
+        var zizhi_num1 = $(this).val().trim();
+        var zizhi_num1_reg = /^\d+$/;
+
+        if (zizhi_num1_reg.test(zizhi_num1) != true) {
+            $(this).parent().next().css('display', 'inline-block');
+            // $(this).attr('data-f','false');
+            return;
+        } else {
+            $(this).parent().next().css('display', 'none');
+            //$(this).attr('data-f','true');
+        }
+
+    });
+
+
+
+    /*$(document).on('blur', '.input_blur', function() {
+
+        var center1 = $('.center1');
+
+        for (var y = 0; y < center1.length; y++) {
+
+            for (var i = 0; i < $('.c'+y+' .preview').length; i++) {
+                if ($('.c'+y+' .preview.pic1').prev().attr('src') == '../img/list_logo.png') {
+                    $('.c'+y+' .preview.pic1').parent().next().css('display', 'none');
+                } else {
+                    $('.c'+y+' .preview.pic1').parent().next().css('display', 'inline-block');
+                }
+
+            }
+
+        }
+
+    });*/
+
+    $(document).on('blur', '.textarea', function() {
+
+        if ($(this).text() == '') {
+            $(this).parent().next().css('display', 'inline-block');
+        } else {
+            $(this).parent().next().css('display', 'none');
+        }
+
+    });
+
+    $(document).on('blur', '.start', function () {
+        if ($(this).val() == '') {
+            $(this).parent().next().css('display', 'inline-block');
+        } else {
+            $(this).parent().next().css('display', 'none');
+        }
+    });
+
+    $(document).on('blur', '.end', function () {
+        if ($(this).val() == '') {
+            $(this).parent().next().css('display', 'inline-block');
+        } else {
+            $(this).parent().next().css('display', 'none');
+
+        }
+    });
+ 
+ });
+
+
+</script>
+</body>
+</html>

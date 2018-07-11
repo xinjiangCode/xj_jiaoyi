@@ -1,0 +1,269 @@
+.breadcrumb{
+	padding-bottom: 16px;
+}
+body{
+	background: #fff;
+}
+.flowBxo>div{
+	float: left;
+}
+.leftFlow{
+	width: 277px;
+	height: 313px;
+	font-size: 14px;
+	margin-bottom: 38px;
+	margin-right: 13px;
+	border-right: 6px #c8c8c8 solid;
+	border-left: 6px #c8c8c8 solid;
+	border-top: 7px #c8c8c8 solid;
+	border-bottom: 8px #c8c8c8 solid;
+}
+.leftFlow img{
+	margin-top: 34px;
+	margin-left: 29px;
+	width: 220px;
+}
+.leftFlow>div{
+	margin-bottom: 38px;
+}
+.leftFlow>div>span{
+	display: inline-block;
+	margin-top: 22px;
+	color: #333333;
+	max-height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+}
+.leftFlow>p{
+	padding-left: 16px;
+	color: #666666;
+	margin-bottom: 16px;
+	max-height: 14px;
+	line-height: 14px;
+	font-size: 14px;
+}
+.leftFlow>p>span{
+	width: 8px;
+	height: 8px;
+	display: inline-block;
+	background: #699BFA;
+	border-radius: 100%;	
+	margin-right: 9px;
+}
+.leftFlow button{
+	width: 196px;
+	height: 38px;
+	background: #5892F3;
+	color: #fff;
+	border-radius: 2px;
+	border:none;
+	margin-left: 41px;
+	margin-top: 16px;
+	font-size: 14px;
+}
+.leftFlow button:hover{
+	background: #4777c8;
+}
+.fsObjBox{
+	width: 691px;
+	height: 329px;
+	border: 1px #ebe9ea solid ;
+	padding-left: 6px;
+	box-sizing: border-box;
+	padding-right: 7px;
+}
+.swiper-slide{
+	background: #fff;
+}
+.fsObjItem{
+	background: #fff;
+	width: 221px ;
+	height: 295px ;
+	margin-right: 8px;
+	border: 1px #ebe9ea solid;
+	float: left;
+	box-sizing: border-box;
+	margin-top: 11px;
+	font-size: 13px;
+	color: #666;
+	position: relative;
+}
+.fsObjItem h1{
+	color: #282828;
+	font-size: 14px;
+	margin-top: 22px;
+	padding-left: 11px;
+	max-height: 14px;
+}
+.fsObjItem img{
+	position: absolute;
+	right: 13px;
+	top: 0;
+}
+.fsObjItem p{
+	margin-top: 10px;
+	padding-left: 11px;
+	max-height: 13px;
+}
+.fsObjItem button{
+	width: 127px;
+	height: 39px;
+	background: #66A7FF;
+	color: #fff;
+	border: none;
+	font-size: 13px;
+	border-radius:2px ;
+	margin-bottom: 23px;
+	margin-left: 46px;
+	margin-top: 48px;
+}
+.fsObjItem button:hover{
+	background: #5a94e2;
+}
+.swiper-slide .fsObjItem+div+div{
+	margin-right:0px;
+}
+.hasColoR{
+	color: #FF8D54;
+}
+.bigFt{
+	font-size: 22px;
+}
+.smBm{
+	font-size: 13px;
+	color: #666666;
+}
+.smBm span{
+	color: #FF2C2C;
+}
+.cpImgLogo{
+	width: 193px;
+	height: 87px;
+	background: url(../img/zthx_logo.png) no-repeat;
+	background-size:contain ;
+	background-position:center ;
+	margin-top: 20px;
+	margin-left: 17px;
+	margin-bottom: 17px;
+}
+.userBox{
+	text-align: center;
+	color: #666;
+	font-size: 16px;
+	border: 1px #ebe9ea solid;
+	margin-left: 10px;
+	width: 226px;
+	height: 329px;
+	box-sizing: border-box;
+}
+.userBox button{
+	width: 128px;
+	height: 39px;
+	background: #66A7FF;
+	color: #fff;
+	font-size: 16px;
+	border: none;
+	border-radius:2px ;
+	display: block;
+	margin: 0 auto;
+	margin-top: 32px;
+}
+.userBox button:hover{
+	background: #5d98e7;
+}
+.hasSechLeft{
+	width: 975px;
+	float: left;
+	margin-right: 13px;
+	font-size: 16px;
+}
+.dtrankingList{
+	float: left;
+	width: 239px;
+}
+.sechTit{
+	border: 1px #EBE9EA solid;
+	width: 100%;
+	height: 41px;
+	line-height: 41px;
+	padding: 0 15px;
+	box-sizing: border-box;
+	margin-bottom: 7px;
+}
+.sechTit a{
+	float: right;
+	color: #666666;
+	font-size: 14px;
+}
+.sechTit input{
+	width: 168px;
+	height: 29px;
+	border: 1px #C3C3C3 solid;
+	margin-left: 13px;
+	margin-right: 9px;
+	position: relative;
+	top: -2px;
+	box-sizing: border-box;
+}
+.sechTit button{
+	width: 70px;
+	height: 29px;
+	background: #5892F3;
+	border: none;
+	border-radius:2px ;
+	color: #fff;
+	font-size: 16px;
+}
+.sechTit button:hover{
+	background: #5187e0;
+}
+.hasSechObj{
+	width: 100%;
+	overflow: hidden;
+}
+.hasSechObj .fsObjItem{
+	margin-top:0 ;
+	width: 240px;
+	margin-right: 5px;
+	margin-bottom: 4px;
+}
+.dtrankingList{
+	border: 1px #EBE9EA solid;
+	height: 638px;
+}
+.dtrankingList h1{
+	font-size: 24px;
+	color: #66A7FF;
+	margin-top: 18px;
+	margin-left: 31px;
+	margin-bottom: 41px;
+	max-height: 24px;
+    line-height: 24px;
+}
+.RtDItem{
+	margin-left: 28px;
+	margin-bottom: 36px;
+	font-size: 16px;
+	max-height: 16px;
+    line-height: 16px;
+}
+.RtDItem:hover span:first-child,.RtDItem:hover>span{
+	color: #8ab5ff;
+}
+.RtDItem span{
+	display: inline-block;
+	color: #282828;
+}
+.RtDItem .num{
+	width: 29px;
+	color:#FC6721;
+}
+.RtDItem .gg{
+	width: 102px;
+}
+.RtDItem .type{
+	color: #979797;
+}
+.footerTop{
+	border-top: 1px #e0e0e0 solid;
+}

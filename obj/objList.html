@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title>新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/objList.css"/>
+		<style type="text/css">
+			.breadcrumbType .act:hover{
+				color: #fff;
+			}
+			.breadcrumbType span:hover{
+				color: #6a9ef7;
+			}
+			.breadcrumbType2 span select{
+				border: 1px #dadada solid;
+			    width: 120px;
+			    height: 22px;
+			    border-radius: 0px;
+			    margin-left: 10px;
+			}
+			.breadcrumbType2>span:after{
+				top: 24px;
+			}
+			#addressCompany{
+				height: 26px;
+    				border: 1px #ccc solid;
+    				box-sizing: border-box;
+    				width: 150px;
+			}
+			#addressBtn{
+				height: 26px;
+			    border: none;
+			    box-sizing: border-box;
+			    background: rgb(82,146,255);
+			    color: #fff;
+			    border-radius: 2px;
+			}
+			#addressBtn:hover{
+				background: rgb(67,121,245);
+			}
+			.rote{
+				transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				-moz-transform: rotate(180deg);
+				-webkit-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+			}
+			.priceTab img{
+				transition: all .3s;
+				-ms-transition: all .3s;
+				-moz-transition: all .3s;
+				-webkit-transition: all .3s;
+				-o-transition: all .3s;
+			}
+			.objListBox>div:nth-child(5n){
+				margin-right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!--商品列表页-->
+		<!--<div class="mianCont breadcrumb">
+			<a href="../index.html">首页</a>>
+			<a href="##">普化</a>>   
+			<span>日用化学品</span>
+		</div>-->
+		<div class="mianCont objFilter" style="margin-top: 20px;">
+			<div class="breadcrumbType">
+				分类：
+				<span class="act">全部</span>
+			</div>
+			<div  class="breadcrumbType2">
+				<span class="act tabItem">默认</span>
+				<span class="tabItem priceTab">价格<img src="../img/breadcrumbTopIcon.png" /></span>
+				<span>
+					生产地：
+					<input type="text" name="" id="addressCompany" value="" />
+					<button id="addressBtn">搜索</button>
+				</span>
+				<div>
+					共<span class="blueFt">0</span>个化合物<span class="headPages">0/0</span><i class="nrbd"><</i><i class="nrxt">></i>
+				</div>
+			</div>
+		</div>
+		<div class="objListBox mianCont">
+			
+			
+		</div>
+		<div class="mianCont" style="text-align: center;">
+		    <ul class="pagination" id="page1"></ul>
+		    <div class="pageJump">
+		    	 	<span class="allPageN">1/200</span>
+		    	 	共<span id="allpagesNum"></span>页，
+		        <span>到第</span>
+		        <input type="text"/>
+		        <span>页</span>
+		        <button type="button" class="button">GO</button>
+		    </div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var isFirst = true;
+			var categoryId = localStorage.getItem('categoryId');
+			$.ajax({
+				type: "GET",
+				headers: {
+					Accept: "application/json; charset=utf-8",
+					token: token
+				},
+				url: pubIP + "productApi/getCategoryByCategoryId",//v1.0
+				cache: false,
+				data: {
+					categoryId: categoryId,//默认查询当前所有小分类
+				},
+				dataType:'json',
+				success:function(json){
+					//console.log(json);
+					var typeDom = '';
+					$.each(json.data, function(i,t) {
+						typeDom += '<span categoryId="'+t.categoryId+'">'+t.categoryName+'</span>';
+					});
+					$('.breadcrumbType').append(typeDom);
+					$('.breadcrumbType span:first-child').attr('categoryId',json.dataParent.categoryId);
+					$('.breadcrumbType .act').removeClass('act');
+					$('.breadcrumbType span').each(function(i,t){
+						if($(this).attr('categoryId') == categoryId){
+							$(this).addClass('act');
+						}
+					})
+				}
+			})
+			
+			$('.nrbd').click(function(){
+				$('#page1 a').each(function(){
+					if($.trim($(this).text()) == '上一页'){
+						$(this).click();
+					}
+				})
+			})
+			$('.nrxt').click(function(){
+				$('#page1 a').each(function(){
+					if($.trim($(this).text()) == '下一页'){
+						$(this).click();
+					}
+				})
+			})
+			
+			$('.tabItem').click(function(){
+				$(this).parent().find('.act').removeClass('act');
+				$(this).addClass('act');
+				if($.trim($(this).text()) == '价格'){
+					if($(this).find('img').hasClass('rote')){
+						$(this).find('img').removeClass('rote');
+						orderBy = 2;
+					}else{
+						$(this).find('img').addClass('rote');
+						orderBy = 3;
+					}
+				}else{
+					$(this).find('img').removeClass('rote');
+					orderBy = 1;
+				}
+				isFirst = true;
+				$('#addressCompany').val('');
+				searchAdd = '';
+				getProductList(categoryId, orderBy, 1,'');
+			})
+			
+			var searchAdd = ''; 
+			$('#addressBtn').click(function(){
+				isFirst = true;
+				searchAdd = $(this).prev().val();
+				getProductList(categoryId, orderBy, 1,$(this).prev().val());
+			})
+			
+			var totalProductNum,
+				ProductListType = '',//默认查询全部，分类查询时传入类别id
+				pageNum = 1,
+				orderBy = 1,//默认上架时间排序,商品排序 1 默认排序 2 价格从低到高 3 价格从高到低
+				goodsList=[];
+			// 获取商品列表
+			getProductList (categoryId, orderBy, pageNum,'');
+			// 获取商品列表
+			function getProductList (ProductListType, orderBy, pageNum,addressCompany){
+				$.ajax({
+					type: "GET",
+					headers: {
+						Accept: "application/json; charset=utf-8",
+						token: token
+					},
+					url: pubIP + "productApi/getProductList",//v1.0
+					cache: false,
+					data: {
+						type: ProductListType,//默认查询全部，分类查询时传入类别id
+						orderBy: orderBy,//默认上架时间排序,商品排序 1 默认排序 2 价格从低到高 3 价格从高到低
+						pageNum: pageNum,//分页参数，当前页----required
+						pageSize: 10,//分页参数，每页显示条数。默认5条
+						addressCompany:addressCompany
+					},
+					dataType: "json",
+					success: function (response) {
+						console.log(response);
+						if (response.code == '1') {
+							var goodsListTpl='';
+							totalProductNum = response.data.total;
+							goodsList = response.data.result;
+							if(goodsList && goodsList.length>0){
+								$.each(goodsList, function(i, item){
+									goodsListTpl +='<div>'+
+												'<a style="display:block;" class="goDetail" data-companyId="'+item.publishCompanyId+'" data-objid="'+item.supplyId+'" data-goodsid="'+item.productId+'" href="##">';
+									if(item.chemicalDangerFlag==1){//危化品类型(1:普通危化品, 2:危险化学品, 3:特殊化学品)
+										goodsListTpl +='<div class="pu">普</div>';
+									} else {
+										goodsListTpl +='<div class="wei">危</div>';
+									}
+															
+									goodsListTpl +='<div class="objImg"><img width="196" height="196" src="'+item.productPicList[0]+'" /></div>'+
+											'<div class="objgg">'+item.unitPrice+'元/吨</div>'+
+											'<div class="objName">'+item.productName+'</div>'+
+											'<div class="objSeller">'+
+												'<span class="objSellerName">'+item.companyName+'</span>'+
+												'<img src="../img/objQiIcon.png" />'+
+												'<span class="wei2">危</span>'+
+											'</div>'+
+										'</a>'+
+									'</div>';
+								});
+								$('.objListBox.mianCont').html(goodsListTpl);
+								
+								
+								$('.breadcrumbType2 .blueFt').text(totalProductNum);
+								$('.breadcrumbType2 .headPages').text($('.allPageN').text());
+								$('#page1').parent().show();
+								$('.objListBox>div:nth-child(5n)').css('margin-right','0');
+							}else{
+								$('.objListBox').html('<p style="font-size: 18px;color: #666;text-align: center;">暂无商品</p>');
+								$('#page1').parent().hide();
+							}
+						} else {
+							alert(response.msg);
+						}
+						if(isFirst){
+							Page({
+							    num:response.data.pages ,
+							    elem: $('#page1'),
+							    callback: function(n) {
+							        console.log(n);
+							        $('#nowPage').text(n);
+							        if(searchAdd != ''){
+							        	  	getProductList(categoryId,orderBy,n,'');
+							        }else{
+							        	  	getProductList(categoryId,orderBy,n,$('#addressCompany').val());
+							        }
+							        $('.headPages').text($('.allPageN').text());
+							    }
+							});
+							$('.allPageN').html('<span id="nowPage">1</span>/'+response.data.pages);
+							$('#allpagesNum').text(response.data.pages);
+							isFirst = false;
+						}
+					},
+					error: function(res){
+						console.log(res);
+					}
+				});
+			}
+			$(document).on('click','.objListBox.mianCont .goDetail',function(){
+				localStorage.setItem('objid',$(this).attr('data-objid'));
+				localStorage.setItem('thisCompanyId',$(this).attr('data-companyId'));
+				location.href = 'objDetails.html';
+			})
+			
+			$(document).on('click','.breadcrumbType span',function(){
+				$('.breadcrumbType .act').removeClass('act');
+				$(this).addClass('act');
+				localStorage.setItem('categoryId',$(this).attr('categoryid'));
+				categoryId = $(this).attr('categoryid');
+				isFirst = true;
+				$('#addressCompany').val('');
+				searchAdd = '';
+				getProductList(categoryId, orderBy, 1,'');
+			})
+			
+			//拦截链接
+	        $(document).on('click','a',function(e){
+	       		e.preventDefault();
+	       		var isOld = localStorage.getItem('isOld');
+	       		if(isOld != '2'){
+	       			var ttxt = $.trim($(this).text());
+	       			//console.log(ttxt);
+	       			if(ttxt == '用户中心' ){
+	       				if(isOld == '1'){
+	       					$('#effect .contTitle span').text('您尚未登录');
+							missedLogin() ;
+	       				}else if(isOld == '0'){
+	       					missedLogin() ;
+	       				}else if(isOld == '-1'){
+	       					$('#effect .contTitle span').text('您尚未认证');
+	       					$('#effect .contTitle i').text('认证');
+	       					$('#popLogin').text('认证');
+							missedLogin() ;
+	       				}else if(isOld == '-2'){
+	       					$('#effect .contTitle span').text('您的认证正在审核中');
+	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	       					$('#popLogin').hide();
+							missedLogin() ;
+	       				}
+	       			}else{
+	       				window.location.href = this.href;
+	       			}
+	       		}else{
+	       			window.location.href = this.href;
+	       		}
+	        })
+		</script>
+	</body>
+</html>

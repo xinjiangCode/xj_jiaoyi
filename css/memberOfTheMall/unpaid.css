@@ -1,0 +1,147 @@
+.submit_success {
+	margin-top: 15px;
+}
+
+.submit_success img {
+	width: 39px;
+	height: 39px;
+	vertical-align: top;
+}
+
+.submit_success span {
+	color: #5690f6;
+	font-size: 28px;
+	margin-left: 10px;
+}
+
+.mianCont2 {
+    width: 1230px;
+    overflow: hidden;
+    height: auto;
+    margin: 0 auto;
+	margin-top: 20px;
+	border: 1px solid #ebe9ea;
+	padding-left: 50px;
+	box-sizing: border-box;
+}
+
+.time_out {
+	margin-top: 22px;
+	color: #333333;
+	font-size: 16px;
+}
+
+.time_out .minute_second {
+	font-size: 14px;
+	color: #666666;
+}
+
+.time_out .time_num {
+	font-size: 24px;
+	color: #FF8D4C;
+}
+
+.sh_info {
+	border: 1px solid #C9C9C9;
+	height: 57px;
+	line-height: 57px;
+	padding-left: 16px;
+	padding-right: 41px;
+	box-sizing: border-box;
+	font-size: 16px;
+	margin-top: 16px;
+	margin-bottom: 17px;
+	display: inline-block;
+}
+
+.sh_info .sh_name {
+	color: #333333;
+}
+
+.sh_phone, .sh_addr {
+	color: #666;
+}
+
+.sh_phone {
+	margin-left: 19px;
+	margin-right: 33px;
+}
+
+.order_num {
+	font-size: 16px;
+	color: #FF9B61;
+	margin-bottom: 16px;
+}
+
+.shop_name {
+	margin-bottom: 10px;
+}
+
+.shop_name .fl{
+	font-size: 16px;
+ 	color: #333333;
+ }
+
+.shop_name .fr {
+ 	font-size: 16px;
+ 	color: #333333;
+ 	margin-right: 33px;
+}
+
+.shop_name .fr .jifen_money {
+	color: #FF9B61;
+} 
+
+.num {
+	font-size: 24px;
+	color: #FF9B61;
+}
+
+.select_pay_title {
+	font-size: 16px;
+	color: #66A7FF;
+	width: 1230px;
+	margin: 32px auto 23px auto; 
+}
+
+.select_pay_title span {
+	margin-right: 9px;
+	width: 2px; 
+	height: 13px;
+	background-color: #66A7FF;
+	display: inline-block;
+}
+
+.mianCont2.padd23 {
+	padding-left: 23px;
+	padding-top: 12px;
+	margin-bottom: 19px;
+} 
+
+.ul_pay {
+	margin-bottom: 75px;
+}
+
+.ul_pay li {
+	float: left;
+	width: 286px;
+	height: 126px;
+	border: 1px solid #EBE9EA;
+	text-align: center; 
+	padding-top: 34px;
+    box-sizing: border-box;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.ul_pay li:first-child {
+	margin-left: 0px;
+}
+
+.ul_pay li.pay_current {
+	border: 1px solid #82B0FF;
+	background:rgba(255,255,255,1);
+	box-shadow:1px 0px 6px rgba(102,167,255,0.5);
+}
+
+

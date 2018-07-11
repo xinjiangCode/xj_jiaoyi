@@ -1,0 +1,67 @@
+.main {
+	width: 984px;
+	height: 655px;
+	border: 1px solid #EBE9EA;
+}
+
+.company_renzheng {
+	height: 50px;
+	border-bottom: 1px solid #EBE9EA;
+	color: #282828;
+	font-size: 16px;
+	padding-left: 21px;
+	box-sizing: border-box;
+	line-height: 50px;
+}
+
+.renzheng_step {
+	height: 160px;
+	text-align: center;
+	border-bottom: 1px solid #EBE9EA;
+}
+
+.renzheng_step img {
+	width: 585px;
+	height: 93px;
+	margin-top: 40px;
+}
+
+.step_list ul {
+	margin: 95px 0px 0 362px;
+}
+
+.step_list ul li {
+	color: #282828;
+	font-size: 18px;
+	line-height: 2.7;
+}
+
+.step_list ul li span {
+	margin-left: 11px;
+}
+
+.step_list ul li img {
+	margin-top: 15px;
+	vertical-align: middle;
+}
+
+.apply_btn {
+	text-align: center;
+	margin-top: 55px;
+}
+
+.apply_btn span {
+	display: inline-block;
+	width: 375px;
+	height: 65px;
+	text-align: center;
+	line-height: 65px;
+	color: #fff;
+	background-color: #5590f6;
+	-webkit-border-radius:2px; 
+    -moz-border-radius:2px; 
+    -ms-border-radius:2px;  
+    -o-border-radius:2px;  
+    border-radius: 2px;
+    font-size: 18px;
+}

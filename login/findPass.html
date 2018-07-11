@@ -1,0 +1,499 @@
+<!-- 登录密码-重置密码 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/payPass.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/jquery.step.css" />
+    <style type="text/css">
+		.mianCont_box,.tabLinkMaxBox{display: none}
+		.topTitle>.logo1{
+			height: 100%;
+		}
+		.topTitle>.logo1>img{
+			vertical-align: middle;
+		}
+    		input{
+    			outline: none;
+    		}
+    		.reds{
+    			color: red;
+		    font-size: 12px;
+		    position: absolute;
+		    height: 40px;
+		    line-height: 40px;
+		    margin-left: 10px;
+    		}
+    		.phone1,.code1{
+    			position: relative;
+    		}
+		.nextbtn:hover{
+			background-color: #3582F8;
+
+			color: white;
+		}
+			#submitBtn:hover{
+				background-color: #3076e2;
+
+				color: white;
+			}
+		.go_login{
+			display: block;
+			width: 204px;
+    		height: 36px;
+			border: 1px solid #3582F8;
+			color: #3582F8;
+			text-align: center;
+			line-height: 36px;
+			margin: 25px auto 0;
+		}
+		.go_login:hover{
+			background-color: #3582F8;
+
+			color: white;
+		}
+    </style>
+</head>
+<body>
+<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+	<!--<div class="maxWidth headBox">-->
+		<!--<div class="mianCont">-->
+			<!--<div class="Lf">-->
+				<!--<span class="collect"><a href="javascript:void(0);" onclick="AddFavorite('我的网站',location.href)">收藏本站</a></span>-->
+				<!--<span>你好，游客</span>-->
+			<!--</div>-->
+			<!--<div class="Rt">-->
+				<!--<div>-->
+					<!--<a href="../account/account.html">-->
+						<!--<div class="icon userIcon"></div>-->
+						<!--用户中心-->
+					<!--</a>-->
+				<!--</div>-->
+				<!--<div class="fontI">|</div>-->
+				<!--<div>-->
+					<!--<a href="##">-->
+						<!--<div class="icon objIcon"></div>-->
+						<!--产品分类-->
+					<!--</a>-->
+				<!--</div>-->
+				<!--<div class="fontI">|</div>-->
+				<!--<div>-->
+					<!--<a href="../helpCenter/helpCenter.html">-->
+						<!--<div class="icon webIcon"></div>-->
+						<!--网站导航-->
+					<!--</a>-->
+				<!--</div>-->
+				<!--<div class="fontI">|</div>-->
+				<!--<div>-->
+					<!--<a href="../supplierEntry/supplierEntry.html">-->
+						<!--<div class="icon ssIcon"></div>-->
+						<!--供应商入驻-->
+					<!--</a>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+	<div class="topTitle mianCont">
+		<div class="logo1 Lf"><a href="../index.html" style="float: left;height: 100%;"><img style="margin-top: 20px;padding-right: 20px;border-right: 1px solid #eeeeee;" src="../img/cf_logo.png" alt=""></a><span style="margin-left: 20px;font-size: 30px;color: #666666;">找回密码</span></div>
+		<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 10px;">（工作日9:00-18:00）</i></div>
+	</div>
+
+	<div class="mainCenter">
+		<div class="mian_center">
+			<div class="step-body" id="myStep">
+				<div class="step-header" style="width:80%">
+					<ul>
+						<li><p>进入账号</p></li>
+						<li><p>验证身份</p></li>
+						<li><p>重置密码</p></li>
+						<li><p>修改成功</p></li>
+					</ul>
+				</div>
+				<div class="step-content">
+					<div class="step-list">
+						<div class="phone1">
+							<span class="required">*</span>
+							<span class="span">手机号：</span>
+							<input type="text" class="phone_input" placeholder="请输入正确的手机号" id="phoneIpt" maxlength="11">
+						</div>
+						<div class="code code0">
+							<div class="clearfix inline-block">
+								<div class="fl ml72">
+									<span class="required">*</span>
+									<span class="span">验证码：</span>
+								</div>
+								<div class="fl">
+									<span class="clearfix inline-block">
+										<input type="text" class="code_input fl" id="code_input">
+										<span class="login_code fl"><img id="checkImg"  alt="验证图片"></span>
+										<span class="another fl">换一张</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="nextbtn" id="nextBtn">下一步</div>
+					</div>
+					<div class="step-list">
+						<div class="phone1">
+							<span class="span">手机号：</span>
+							<input type="text" class="phone_input" id="onlySwPhone" value="" onkeyup="this.value=chaneseCheck(this.value)" disabled="disabled">
+						</div>
+						<div class="code">
+							<div class="clearfix inline-block">
+								<div class="fl" style="width: 102px;">
+									<span class="required">*</span>
+									<span class="span">手机验证码：</span>
+								</div>
+								<div class="fl">
+									<span class="clearfix inline-block">
+											<input type="text" class="code_input fl" id="dxCode" maxlength="6" onkeyup="this.value=chaneseCheck(this.value)" placeholder="请输入短信验证码">
+										<span class="send_code fl" id="sdphCode">获取验证码</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="text-center">
+							<div class="clearfix inline-block">
+								<div class="nextbtn fl preBtn">上一步</div>
+								<div class="nextbtn ml55 fl" id="applyBtn">下一步</div>
+							</div>
+						</div>
+					</div>
+					<div class="step-list">
+						<div class="phone1">
+							<span class="required">*</span>
+							<span class="span">新密码：</span>
+							<input type="password" class="phone_input" onkeyup="this.value=chaneseCheck(this.value)" id="passWord1" placeholder="请输入新密码">
+							<span class="reds"></span>
+						</div>
+						<div class="code code1">
+							<span class="required">*</span>
+							<span class="span" style="margin-right: 6px;">确认密码：</span>
+							<input type="password" class="phone_input" id="passWord2" onkeyup="this.value=chaneseCheck(this.value)" placeholder="确认新密码">
+							<span class="reds"></span>
+						</div>
+						<div class="text-center mt">
+							<div class="clearfix inline-block">
+								<div class="nextbtn preBtn fl">取消</div>
+								<div class="submit fl" id="submitBtn">提交</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="step-list">
+						<div class="update_pass_success">
+							<img src="../img/update_pass_success.png" alt="">
+						</div>
+						<a class="go_login" href="login.html">去登录</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+
+	<div class="mainFooter mianCont">
+		<ul>
+			<li><a href="##">首 页</a></li>
+			<li class="line"></li>
+			<li><a href="##">合作伙伴</a></li>
+			<li class="line"></li>
+			<li><a href="##">关于我们</a></li>
+			<li class="line"></li>
+			<li><a href="##">联系我们</a></li>
+			<li class="line"></li>
+			<li><a href="##">服务条款</a></li>
+			<li class="line"></li>
+			<li><a href="##">金融服务</a></li>
+		</ul>
+		<div class="mainFooterQuanxian">Copyright © 2016 www.xjv56.com All Rights Reserved 新疆化学品经营服务平台版权所有   新ICP备 16003842号-1</div>
+	</div>
+
+
+<!--修改手机号弹框-->
+<!--<div class="pop" id="effect">-->
+	<!--<div class="cont" >-->
+		<!--<div class="cance2" >-->
+			<!--<span class="popTitle Lf" >提示</span>-->
+			<!--<div class="close Rt" onclick="close1(this)"></div>-->
+		<!--</div>-->
+		<!--<div class="deanger"></div>-->
+		<!--<div class="contTitle">您好，您的登陆已经过期，请先<i onclick="popLogin()" style="color: #00a0e9;">登陆</i>，以便使用更多功能。</div>-->
+		<!--<div class="popLogin" id="popLogin" onclick="popLogin()">登录</div>-->
+	<!--</div>-->
+<!--</div>-->
+
+
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/jquery.step.js"></script>
+	<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/javascript">
+
+
+        //禁止输入中文
+        function chaneseCheck(str){
+            var temp=""
+            for(var i=0;i<str.length;i++)
+                if(str.charCodeAt(i)>0&&str.charCodeAt(i)<255)
+                    temp+=str.charAt(i)
+            return temp
+        }
+		$(function() {
+
+            $('#dxCode').attr("disabled","disabled");
+            getImageCode();
+			var step= $("#myStep").step({
+				animate:true,
+				initStep:1,
+				speed:1000
+			});
+
+			$(".preBtn").click(function(event) {
+				var yes=step.preStep();
+			});
+			$("#nextBtn").click(function(event) {
+				var phoneTest=new RegExp("^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$");//手机号校验
+				if($('#phoneIpt').val() == ''){
+					alert('请输入正确手机号！');
+					return false;
+				}else if($('#code_input').val() == ''){
+					alert('请输入验证码！');
+					return false;
+				}else if(phoneTest.test($('#phoneIpt').val())===false){
+					alert('手机号码格式不正确！');
+					return false;
+				}else if(!imgCode){
+					alert('验证码不正确！');
+					return false;
+				}
+				$.ajax({ 
+		          type:"post",
+		          url: pubIP+"user/validMobileExist",//v1.0
+		          cache:false,
+		          data:{
+		          	'mobile':$('#phoneIpt').val(),
+		          	'imgRandomCode':$('#code_input').val()
+		          },
+		          dataType: "json",
+		          success: function(json){
+		            	console.log(json);
+		            	if(json.code == '1'){
+		            		$('#onlySwPhone').val($('#phoneIpt').val());
+		            		var yes=step.nextStep();
+		            	}else{
+		            		alert(json.msg);
+		            	}
+		          }
+			    });
+				
+			});
+			$("#applyBtn").click(function(event) {
+				//校验短信验证码
+				$.ajax({ 
+		          type:"post",
+		          url: pubIP+"user/validMobileCode",//v1.0
+		          cache:false,
+		          data:{
+		          	'mobile':$('#onlySwPhone').val(),
+		          	'smsRandomCode':$('#dxCode').val()
+		          },
+		          dataType: "json",
+		          success: function(json){
+		            	//console.log(json);
+		            	if(json.code == '1'){
+		            		var yes=step.nextStep();
+		            	}else{
+		            		alert(json.msg);
+		            	}
+		          }
+			    });
+			});
+
+
+
+			$("#submitBtn").click(function(event) {
+                var errorlist='';
+                for(var i=0;i<$(".reds").length;i++){
+                    errorlist+=$(".reds").eq(i).text();
+                }
+                if($("#passWord1").val()===""){
+                    $("#passWord1").parent().find(".reds").text("密码不能为空");
+                    return;
+                }else if($("#passWord2").val()===""){
+                    $("#passWord2").parent().find(".reds").text("密码不能为空");
+                    return;
+                }else if(errorlist!=""){
+                   return;
+				}
+
+
+				var pw=$("#passWord2").val();
+
+              	var leav=-1;
+              	var numC=0;
+              	var strC=0;
+              	var str_C=0;
+                for(var i=0;i<pw.length;i++){
+                    if(pw[i]<=9 && pw[i]>=0){
+                        numC=1;
+                    }else if(pw[i]>='A'&&pw[i]<='Z' || pw[i]>='a'&& pw[i]>='z'){
+                        strC=1;
+                    }else{
+                        str_C=1;
+                    }
+                }
+				leav=leav+parseInt(numC)+parseInt(strC)+parseInt(str_C);//安全等级
+				//加参数  手机号 暂停
+				$.ajax({ 
+		          type:"post",
+		          url: pubIP+"user/updatePassword",//v1.0
+		          cache:false,
+		          data:{
+		          	'newPassword':$('#passWord2').val(),
+		          	'securityGrade':leav,
+                    "mobile":$("#phoneIpt").val(),
+		          },
+		          dataType: "json",
+		          success: function(json){
+		            	//console.log(json);
+		            	if(json.code == '1'){
+		            		var yes=step.nextStep();
+		            	}else{
+		            		alert(json.msg);
+		            	}
+		          }
+			    });
+			});
+			$("#goBtn").click(function(event) {
+				var yes=step.goStep(3);
+			});
+		});
+		
+		 //校验密码
+		$('#passWord1').blur(function () {
+        //$('#passWord1').bind('blur',function () {
+            var text=$(this).val();
+            if(text==""){
+                $(this).next().text("密码不能为空");
+            }else if(text.length<6){
+                $(this).next().text("密码长度小于6");
+            }else{
+            		$(this).next().text("");
+            }
+            
+            if($("#passWord2").val()!=text && $("#passWord2").val()!=""){
+                //$('#passWord2').css('border','1px red solid');
+            }else{
+                 $('#passWord2').css('border','1px #D3D3D3 solid');
+            }
+        });
+        //二次校验密码
+        $('#passWord2').blur(function () {
+       // $('#passWord2').bind('blur',function () {
+            var text=$(this).val();
+            if(text==""){
+                $(this).next().text("密码不能为空");
+            }else if($("#passWord1").val()!=text){
+                $(this).next().text("两次密码不一致");
+            }else{
+            		$(this).next().text("");
+            }
+            if($("#passWord2").val()!=text && $("#passWord2").val()!=""){
+                //$(this).css('border','1px red solid');
+            }else{
+                 $(this).css('border','1px #D3D3D3 solid');
+            }
+        });
+		
+		//获取短信验证码
+		var canSend = true;
+		$('#sdphCode').click(function(){
+			if(canSend){
+				$.ajax({ 
+		          type:"post",
+		          url: pubIP+"user/getMessageCode",//v1.0
+		          cache:false,
+		          data:{
+		          	'mobile':$('#onlySwPhone').val(),
+		          },
+		          dataType: "json",
+		          success: function(json){
+		            	console.log(json);
+		            	if(json.code==1){
+                            $('#dxCode').removeAttr("disabled");
+						}
+		          }
+			    });
+			    canSend = false;
+			    var isi = 0;
+			    var times = setInterval(function(){
+			    		isi++;
+			    		$('#sdphCode').text(60-isi+'秒后获取');
+			    		if(isi == 60){
+			    			console.log(isi);
+			    			clearInterval(times);
+			    			$('#sdphCode').text('获取验证码');
+			    			canSend = true;
+			    		}
+			    },1000);
+			}
+			
+		})
+
+		$(document).on('click','.another',function(){
+			getImageCode();
+		})
+
+        //获取图片码
+        function getImageCode(){
+            var timestamp = Date.parse(new Date());
+            sessionStorage["imgCodeRedisKey"]=timestamp+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10);
+            $("#checkImg").attr("src",pubIP+"codeImage/ImageCodePic?imgCodeRedisKey="+sessionStorage["imgCodeRedisKey"]);
+        }
+        
+        var imgCode = false
+        //校验图片吗
+        $('#code_input').bind('input propertychange',function () {
+            var that=$(this).eq(0);
+            var text=$(this).eq(0).val();
+            $.ajax({
+                url: pubIP + 'user/validImgCode', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    //token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    imgCodeRedisKey:sessionStorage.getItem("imgCodeRedisKey"),
+                    imgRandomCode:text
+                },
+                success: function (data) {
+                    if(data.code==1){
+                        imgCode = true;
+                        $('#code_input').css('border-color','#D3D3D3');
+                    }else{
+                        imgCode = false;
+                        $('#code_input').css('border-color','red');
+                    }
+					console.log(imgCode);
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        });
+	</script>
+</body>
+</html>

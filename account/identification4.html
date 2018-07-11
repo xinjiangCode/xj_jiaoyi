@@ -1,0 +1,810 @@
+<!--账户 编辑.提交审核-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <style type="text/css">
+        .xiaoshi{display: none;}
+        .btn{width: 355px;height: 51px;line-height:51px;background-color: #007aff;border-radius: 5px;text-align: center;color: white;margin-top: 54px;}
+        .red{color: red;}
+        img{float: left;}
+         a{color: #80acf8;}
+         html,body{min-width: 988px;width: 988px;background-color: white;overflow: hidden;margin: auto;font-size: 14px;}
+        .container{width:986px;border: 1px solid #f1f1f1;}
+        .header{padding-top:21px;padding-left:61px;height:62px;box-sizing:border-box;border-bottom: 1px solid #f1f1f1;}
+        .header>ul{overflow: hidden;}
+        .header>ul>li{float: left;height: 18px;line-height: 18px;font-size: 16px;}
+        .header>ul>.row{line-height: 10px;margin-left: 4px;}
+        .header>ul>li>a{}
+        .header>ul>li>a>div{color: white;height: 18px;line-height: 18px; text-align: center; width: 18px;border-radius: 50%;font-size:11px;margin: 0 4px; }
+        .header>ul>li>a>.orange{background-color: #ffae4c;}
+        .header>ul>li>a>.lan{background-color: #80aeff;}
+
+
+        .bottom1{padding: 59px 0px 54px 85px;border-bottom: 1px solid #f1f1f1;overflow: hidden}
+        .bottom1>.left1{margin: 91px 60px 0 0;}
+        .bottom1>.right2{ margin-left: 15px; width: 474px;}
+        .bottom1>.right2>ul{}
+        .bottom1>.right2>ul>li{overflow: hidden;margin-top: 17px;display: block;}
+        .bottom1>.right2>ul>li>.left1{height: 38px;line-height: 38px;text-align: right;margin-right: 20px;}
+        .bottom1>.right2>ul>li>.right1{overflow: hidden;}
+        .bottom1>.right2>ul>li>.right1>input{width: 351px;height: 32px;font-size: 14px;color: #666666;text-indent: 10px;}
+        .bottom1>.right2>ul>li>.right1>.date-input{width: 169px;}
+        .bottom1>.right2>ul>li>.right1>.uploade{position: relative;width: 150px;height: 100px;line-height: 100px;text-align: center;margin-right: 20px;}
+        .bottom1>.right2>ul>li>.right1>.uploade>i{position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
+        .bottom1>.right2>ul>li>.right1>.uploade>img{position: absolute;top: 0;left: 0;right: 0;bottom: 0;width: 100%;height: 100%;}
+        .bottom1>.right2>ul>li>.right1>.uploade>input{position: absolute;top: 0;left: 0;right: 0;bottom: 0;opacity: 0;width: 100%;}
+        .bottom1>.right2>ul>li>.right2{line-height: 38px;margin-left: -30px;}
+        .bottom1>.right2>ul>li>.right2>input{margin-left: 30px;}
+        .ts {
+            margin-left: 125px;
+            display: none;
+        }
+
+        .update_btn2, .bottom1>.right2>ul>li.wj {
+            display: none;
+        }
+
+        .bottom1>.right2>ul>li.wj {
+            margin-left: -65px;
+        }
+
+        .bottom1>.right2>ul>li>.right1>input#wenjian_name {
+            width: 240px;
+        }
+
+        .submit_btn {
+            width: 168px;
+            height: 51px;
+            background-color: #6CA0FF;
+            display: inline-block;
+            margin-left: 115px;
+            text-align: center;
+            line-height: 51px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-top: 35px;
+        }
+
+        .cancel_btn {
+            width: 167px;
+            height: 49px;
+            border: 1px solid #C5C5C5;
+            display: inline-block;
+            background-color: #F6F6F6;
+            margin-left: 13px;
+            text-align: center;
+            line-height: 51px;
+            font-size: 16px;
+            color: #282828;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-top: 35px;
+        }
+
+        input#wenjian {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            width: 69%;
+            height: 100%;
+            opacity: 0;
+        }
+
+        .mml {
+            margin-left: 180px;
+        }
+
+        i.red {
+            margin-right: 3px;    
+        }
+
+        input[type='text'] {
+            padding-left: 0px;
+        }
+
+        .xiugai {
+            margin-left: 118px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <div class="Lf lan">1</div>
+                    企业基本信息
+                </a>
+            </li>
+            <li class="row">
+                ..................
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="Lf lan">2</div>
+                    运营者信息
+                </a>
+            </li>
+            <li class="row">
+                ..................
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="Lf lan">3</div>
+                    发票信息
+                </a>
+            </li>
+            <li class="row">
+                ..................
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="Lf orange">4</div>
+                    出金账户绑定
+                </a>
+            </li>
+            <li class="row">
+                ..................
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="Lf lan">5</div>
+                    财务信息
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="bottom1">
+        <div class="left1 Lf">
+            提现出金账户
+        </div>
+        <div class="right2 Lf">
+            <ul>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>出金账户名称:</div>
+                    <div class="right1 Lf"><input type="text" id="chujin_account_name1"></div>
+                    <div class="ts">出金账户名称不能为空</div>
+                </li>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>出金账户账号:</div>
+                    <div class="right1 Lf"><input type="text" id="chujin_account_account1"></div>
+                    <div class="ts">出金账户账号格式不正确</div>
+                </li>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>开户银行信息:</div>
+                    <div class="right1 Lf"><input type="text" id="kaihu_bank_info1"></div>
+                    <div class="ts">开户银行信息不能为空</div>
+                </li>
+            </ul>
+        </div>
+        <div class="right3 Lf" style="margin-top: 30px;">
+            <div style="font-size: 12px;width: 135px;height: 73px;margin-left: 55px; color: #666; line-height: 20px;">所有赎回中、支付中、 融资中、提票中和托收中的总金额每笔交易资金， 都将在银行全称记录。</div>
+            <div style="margin-left: 32px;margin-top: 14px;font-size: 14px; "><img style="width: 13px;height: 13px;margin-top: 3px; vertical-align: bottom;" src="../img/wenhao.png" alt=""><a href="">为什么要进行出金账户绑定</a></div>
+        </div>
+    </div>
+
+    <div class="bottom1">
+        <div class="left1 Lf">
+            票据收票账户
+        </div>
+        <div class="right2 Lf">
+            <ul>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>出金账户名称:</div>
+                    <div class="right1 Lf"><input type="text" id="chujin_account_name2"></div>
+                    <div class="ts">出金账户名称不能为空</div>
+                </li>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>出金账户账号:</div>
+                    <div class="right1 Lf"><input type="text" id="chujin_account_account2"></div>
+                    <div class="ts">出金账户账号格式不正确</div>
+                </li>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>开户银行信息:</div>
+                    <div class="right1 Lf"><input type="text" id="kaihu_bank_info2"></div>
+                    <div class="ts">开户银行信息不能为空</div>
+                </li>
+                <li class="wj">
+                    <div class="left1 Lf ml"><i class="red">*</i>企业认证协议(盖章文件):</div>
+                    <div class="right1 Lf" style="position: relative;">
+                        <input type="text" placeholder="将盖好公章的文件上传" id="wenjian_name"><a href="##" style="margin-left: 27px; margin-right: 27px;">模板下载</a>
+                        <input type="file" id="wenjian" onchange="upload_file(this);">
+                    </div>
+                    <div class="ts mml">协议不能为空</div>
+                </li>
+            </ul>
+
+            <div class="btn weiRenZheng next_btn">下一步</div>
+            <div class="btn update_btn xiugai">修改企业信息</div>
+            <div class="update_btn2">
+                <span class="submit_btn">提交</span>
+                <span class="cancel_btn">取消</span>
+            </div>
+            <div class="" style="width: 356px; margin-top: 32px;text-align: center;">
+                <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
+                <a href="##">客服QQ</a>
+                <span>(工作日10 : 00 - 19 : 00)</span>
+            </div>
+            <div style="width: 356px; text-align: center;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##">400-1234567</a></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
+<script type="text/javascript">
+
+var file_url = null;
+
+//不同浏览器下的路径不同
+function getObjectURL(file) {
+    var url = null;
+    if (window.createObjectURL != undefined) { // basic
+
+        url = window.createObjectURL(file);
+
+    } else if (window.URL != undefined) { // mozilla(firefox)
+
+        url = window.URL.createObjectURL(file);
+
+    } else if (window.webkitURL != undefined) { // webkit or chrome
+
+        url = window.webkitURL.createObjectURL(file);
+    }
+
+    return url;
+}
+
+function upload_file(obj) {
+
+    var file = obj.files[0].name;
+    
+    $('#wenjian_name').val(file);
+
+    var formdata = new FormData();
+    formdata.append('file', obj.files[0]);
+
+    $.ajax({
+        url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+        type: 'post',
+        processData: false,  // 告诉jQuery不要去处理发送的数据
+        contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+        data: formdata,
+        cache: false,
+        dataType: 'json',
+        success: function (data) {
+            // console.log(data);
+            file_url = data.url;
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+    
+    $(function () {
+
+        // if (window.localStorage.getItem('add-flag') == 'true') {
+            //v1.0
+            $.ajax({
+                url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    token: token
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.data.type == 7) {  //等待审核
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".update_btn").css('display', 'none');
+                    } else if (data.data.type == 2) {  //正在审核
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".update_btn").css('display', 'none');
+                    } else if (data.data.type == 3) {  //已认证
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".update_btn").css('display', 'block');
+                    } else if (data.data.type == 4) {  //已拒绝
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".update_btn").css('display', 'block');
+                    } else if (data.data.type == 5) {  //企业资料二次审核中
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".update_btn").css('display', 'block');
+                    } else if (data.data.type == 6) {  //出金账户二次审核
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".update_btn").css('display', 'none');
+                       /* window.parent.tan7();*/
+                    } else if (data.data.type == 1) {  //没有提交
+                        $('.weiRenZheng').css('display', 'block');
+                        $(".update_btn").addClass('xiaoshi');
+                    }
+                    
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+
+        // } else {
+        //     // 添加
+        //     $(".yiRenZheng").addClass('xiaoshi');
+        // }
+    
+
+       /* var companyId1 = window.localStorage.getItem('companyId');
+        console.log(companyId1);*/
+
+       
+
+        $(document).on('click', '.weiRenZheng.btn', function () {
+
+            if ($('#chujin_account_name1').val() == '') {
+                $('#chujin_account_name1').parent().next().css('display', 'block');
+                return;
+            }
+
+            var chujin_account_account1 = $('#chujin_account_account1').val();
+            var chujin_account_account1_reg = /^\d{16}|\d{19}$/;
+
+            if (chujin_account_account1_reg.test(chujin_account_account1) != true) {
+                $('#chujin_account_account1').parent().next().css('display', 'block');
+                return;
+            }
+
+
+            if ($('#kaihu_bank_info1').val() == '') {
+                $('#kaihu_bank_info1').parent().next().css('display', 'block');
+                return;
+            }
+
+            if ($('#chujin_account_name2').val() == '') {
+                $('#chujin_account_name2').parent().next().css('display', 'block');
+                return;
+            }
+
+            var chujin_account_account2 = $('#chujin_account_account2').val();
+
+            if (chujin_account_account1_reg.test(chujin_account_account2) != true) {
+                $('#chujin_account_account2').parent().next().css('display', 'block');
+                return;
+            }
+
+       
+            if ($('#kaihu_bank_info2').val() == '') {
+                $('#kaihu_bank_info2').parent().next().css('display', 'block');
+                return;
+            }
+
+            var chujin_account_name1 = $('#chujin_account_name1').val();
+            var chujin_account_account1 = $('#chujin_account_account1').val();
+            var kaihu_bank_info1 = $('#kaihu_bank_info1').val();
+            var chujin_account_name2 = $('#chujin_account_name2').val();
+            var chujin_account_account2 = $('#chujin_account_account2').val();
+            var kaihu_bank_info2 = $('#kaihu_bank_info2').val();
+
+            //v1.0
+            $.ajax({
+                url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    submit_type: 'D',
+                    companyId: companyId,
+                    bankName1: kaihu_bank_info1,
+                    bankNo1: chujin_account_account1,
+                    accountName1: chujin_account_name1,
+                    bankName2: kaihu_bank_info2,
+                    bankNo2: chujin_account_account2,
+                    accountName2: chujin_account_name2,
+                    accountType1: 1,
+                    accountType2: 3
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    window.location.href = 'identification5.html';
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+        });
+
+
+        $('#chujin_account_name1').on('blur', function () {
+            if ($(this).val() == '') {
+                $(this).parent().next().css('display', 'block');
+                return;
+            } else {
+                $(this).parent().next().css('display', 'none');
+            }
+        });
+
+        $('#chujin_account_account1').on('blur', function () {
+            var chujin_account_account1 = $(this).val();
+            var chujin_account_account1_reg = /^\d{16}|\d{19}$/;
+
+            if (chujin_account_account1_reg.test(chujin_account_account1) != true) {
+                $(this).parent().next().css('display', 'block');
+                return;
+            } else {
+                $(this).parent().next().css('display', 'none');
+            }
+
+        });
+
+        $('#kaihu_bank_info1').on('blur', function () {
+            if ($(this).val() == '') {
+                $(this).parent().next().css('display', 'block');
+                return;
+            } else {
+                $(this).parent().next().css('display', 'none');
+            }
+        });
+
+        $('#chujin_account_name2').on('blur', function () {
+            if ($(this).val() == '') {
+                $(this).parent().next().css('display', 'block');
+                return;
+            } else {
+                $(this).parent().next().css('display', 'none');
+            }
+        });
+
+        $('#chujin_account_account2').on('blur', function () {
+
+            var chujin_account_account2 = $(this).val();
+            var chujin_account_account1_reg = /^\d{16}|\d{19}$/;
+
+            if (chujin_account_account1_reg.test(chujin_account_account2) != true) {
+                $(this).parent().next().css('display', 'block');
+                return;
+            } else {
+                $(this).parent().next().css('display', 'none');
+            }
+        });
+
+        $('#kaihu_bank_info2').on('blur', function () {
+            if ($(this).val() == '') {
+                $(this).parent().next().css('display', 'block');
+                return;
+            } else {
+                $(this).parent().next().css('display', 'none');
+            }
+        });
+
+        //是否是修改
+        $.ajax({
+            url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                type: 'D',
+                companyId: companyId,
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.company.qualificationStatus);
+
+                if (data.data.company.qualificationStatus != 0) {
+
+                    $('input[type=file]').attr('disabled',true);
+                    $('input[type=text]').attr('disabled',true);
+                    $('input[type=radio]').attr('disabled',true);
+
+                    update_info();
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+/*        if ($('.btn.weiRenZheng.next_btn').hasClass('xiaoshi')) {*/
+        // if (window.localStorage.getItem('add-flag') == 'true'){
+
+            function update_info(){
+                $(".weiRenZheng").addClass('xiaoshi');
+
+                $('.header ul li a').each(function (i, ele) {
+                    $(this)[0].href = './identification'+(i+1)+'.html';
+                });
+
+                //v1.0
+                $.ajax({
+                    url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+                    type: 'post',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        token: token
+                    },
+                    data: {
+                        companyId: companyId,
+                        type: 'D'
+                    },
+                    cache: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.code == 1) {
+                            console.log(data);
+
+                            $('#chujin_account_name1').val(data.data.accounts[0].bankName);
+                            $('#chujin_account_account1').val(data.data.accounts[0].bankNo);
+                            $('#kaihu_bank_info1').val(data.data.accounts[0].accountName);
+
+                            $('#chujin_account_name2').val(data.data.accounts[1].bankName);
+                            $('#chujin_account_account2').val(data.data.accounts[1].bankNo);
+                            $('#kaihu_bank_info2').val(data.data.accounts[1].accountName);
+                            
+                            
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
+
+            
+
+        // }
+
+         $(document).on('click', '.btn.update_btn', function () {
+            $('.wj').css('display', 'block');
+            $(this).css('display', 'none');
+            $('.update_btn2').css('display', 'block');
+        });
+
+
+        $(document).on('click', '.submit_btn', function () {
+
+            if ($('#chujin_account_name1').val() == '') {
+                $('#chujin_account_name1').parent().next().css('display', 'block');
+                return;
+            }
+
+            var chujin_account_account1 = $('#chujin_account_account1').val();
+            var chujin_account_account1_reg = /^\d{16}|\d{19}$/;
+
+            if (chujin_account_account1_reg.test(chujin_account_account1) != true) {
+                $('#chujin_account_account1').parent().next().css('display', 'block');
+                return;
+            }
+
+
+            if ($('#kaihu_bank_info1').val() == '') {
+                $('#kaihu_bank_info1').parent().next().css('display', 'block');
+                return;
+            }
+
+            if ($('#chujin_account_name2').val() == '') {
+                $('#chujin_account_name2').parent().next().css('display', 'block');
+                return;
+            }
+
+            var chujin_account_account2 = $('#chujin_account_account2').val();
+
+            if (chujin_account_account1_reg.test(chujin_account_account2) != true) {
+                $('#chujin_account_account2').parent().next().css('display', 'block');
+                return;
+            }
+
+
+       
+            if ($('#kaihu_bank_info2').val() == '') {
+                $('#kaihu_bank_info2').parent().next().css('display', 'block');
+                return;
+            }
+
+            if ($('#wenjian_name').val() == '') {
+                $('#wenjian_name').parent().next().css('display', 'block');
+                return;
+            }
+
+            var chujin_account_name1 = $('#chujin_account_name1').val();
+            var chujin_account_account1 = $('#chujin_account_account1').val();
+            var kaihu_bank_info1 = $('#kaihu_bank_info1').val();
+            var chujin_account_name2 = $('#chujin_account_name2').val();
+            var chujin_account_account2 = $('#chujin_account_account2').val();
+            var kaihu_bank_info2 = $('#kaihu_bank_info2').val();
+
+            if (file_url != null) {
+                $('#wenjian_name').parent().next().css('display', 'none');
+                //v1.0
+                $.ajax({
+                    url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                    type: 'post',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        token: token
+                    },
+                    data: {
+                        submit_type: 'D',
+                        companyId: companyId,
+                        bankName1: kaihu_bank_info1,
+                        bankNo1: chujin_account_account1,
+                        accountName1: chujin_account_name1,
+                        bankName2: kaihu_bank_info2,
+                        bankNo2: chujin_account_account2,
+                        accountName2: chujin_account_name2,
+                        accountType1: 1,
+                        accountType2: 3
+                    },
+                    cache: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        window.parent.update_chujin();
+                        
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            } else {
+                $('#wenjian_name').parent().next().html('文件正在上传').css('display', 'block');
+            }
+            
+
+        });
+
+    });
+
+
+    $(window.parent.document).on('click', '.ok_ok', function () {
+        
+        window.location.reload();
+    });
+
+    //修改企业信息(放开可修改)
+    $(document).on('click','.update_btn',function(){
+        $('input[type=file]').attr('disabled',false);
+        $('input[type=text]').attr('disabled',false);
+        $('input[type=radio]').attr('disabled',false);
+        $(this).addClass('yiRenZheng');
+        $(this).text('修改完成');
+    })
+
+
+
+
+
+
+
+    /*if ($('#chujin_account_name1').val() == '') {
+        $('#chujin_account_name1').parent().next().html('出金账户名称不能为空');
+        $('#chujin_account_name1').focus();
+        return;
+    }
+
+    if ($('#chujin_account_account1').val() == '') {
+        $('#chujin_account_account1').parent().next().html('出金账户账号不能为空');
+        $('#chujin_account_account1').focus();
+        return;
+    }
+
+    if ($('#kaihu_bank_info1').val() == '') {
+        $('#kaihu_bank_info1').parent().next().html('开户银行信息不能为空');
+        $('#kaihu_bank_info1').focus();
+        return;
+    }
+
+    if ($('#chujin_account_name2').val() == '') {
+        $('#chujin_account_name2').parent().next().html('出金账户名称不能为空');
+        $('#chujin_account_name2').focus();
+        return;
+    }
+
+    if ($('#chujin_account_account2').val() == '') {
+        $('#chujin_account_account2').parent().next().html('出金账户账号不能为空');
+        $('#chujin_account_account2').focus();
+        return;
+    }
+
+    if ($('#kaihu_bank_info2').val() == '') {
+        $('#kaihu_bank_info2').parent().next().html('开户银行信息不能为空');
+        $('#kaihu_bank_info2').focus();
+        return;
+    }*/
+
+
+
+    /*$('#chujin_account_name1').on('blur', function () {
+        if ($(this).val() == '') {
+            $(this).parent().next().css('visibility', 'visible');
+            $(this).focus();
+            return;
+        } else {
+            $(this).parent().next().css('visibility', 'hidden');
+        }
+    });
+
+    $('#chujin_account_account1').on('blur', function () {
+        if ($(this).val() == '') {
+            $(this).parent().next().html('出金账户账号不能为空');
+            $(this).focus();
+            return;
+        } else {
+            $(this).parent().next().html('');
+        }
+    });
+
+    $('#kaihu_bank_info1').on('blur', function () {
+        if ($(this).val() == '') {
+            $(this).parent().next().html('开户银行信息不能为空');
+            $(this).focus();
+            return;
+        } else {
+            $(this).parent().next().html('');
+        }
+    });
+
+    $('#chujin_account_name2').on('blur', function () {
+        if ($(this).val() == '') {
+            $(this).parent().next().html('出金账户名称不能为空');
+            $(this).focus();
+            return;
+        } else {
+            $(this).parent().next().html('');
+        }
+    });
+
+    $('#chujin_account_account2').on('blur', function () {
+        if ($(this).val() == '') {
+            $(this).parent().next().html('出金账户账号不能为空');
+            $(this).focus();
+            return;
+        } else {
+            $(this).parent().next().html('');
+        }
+    });
+
+    $('#kaihu_bank_info2').on('blur', function () {
+        if ($(this).val() == '') {
+            $(this).parent().next().html('开户银行信息不能为空');
+            $(this).focus();
+            return;
+        } else {
+            $(this).parent().next().html('');
+        }
+    });*/
+
+</script>
+</body>
+</html>

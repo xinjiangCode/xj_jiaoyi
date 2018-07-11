@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/myPurchase-requirementDetail.css">
+    <style>
+        .componyName {
+            margin: 0px;
+            width: 204px;
+            height: 63px;
+            display: table;
+            padding: 0px 12px;
+            box-sizing: border-box;
+        }
+
+        .componyName span {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .baojia_li {
+            margin-left: 20px;
+        }
+
+        .baojia_li li {
+            float: left;
+            margin-left: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .baojia_li li span {
+            display: inline-block;
+            width: 65px;
+            height: 100%;
+        }
+
+        .baojia_li .current{
+            border-bottom: 4px solid #397de5;
+        }
+
+        .mprDetail-title {
+            justify-content: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="mprDetail-title">
+            <span class="ml18">收到报价</span>
+            <ul class="clearfix baojia_li">
+                <li><span class="current" data-index="1">待确认</span></li>
+                <li><span data-index="4">已拒绝</span></li>
+                <li><span data-index="2">已完成</span></li>
+                <li><span data-index="6">已失效</span></li>
+            </ul>
+            <!-- <span class="mr24 state_info"></span>    -->
+        </div>
+        <div class="mprDetail-orders">
+            <div class="ordersHead bacFD clearfix">
+                <span>企业名称</span>
+                <span>报价时间</span>
+                <span>供应数量</span>
+                <span>总价</span>
+                <span>交割</span>
+                <span>状态</span>
+                <span>详情</span>
+            </div>
+            <div class="ordersCont" id="orderInfo">
+                
+            </div>
+        </div>
+        <div class="mprDetail-require">
+            <div class="title">采购需求</div>
+            <div class="requireCont" id="requireContInfo">
+                
+            </div>
+        </div>
+        <div class="mprDetail-footer">
+            <div class="btn closeBtn">关闭采购需求</div>
+        </div>
+    </div>
+    
+    <script src="./../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/template.js"></script>
+    <script type="text/html" id="orderTpl">
+        <%for (i in list) {%>
+        <div class="orderItem clearfix">
+            <div class="componey Lf"><div class="componyName"><span><%=list[i].companyNameA%></span></div></div>
+            <div class="date Lf"><%=list[i].submitTime%></div>
+            <div class="number Lf"><span><%=list[i].sum%></span><%=list[i].unit%></div>
+            <div class="sumPrice Lf">
+                <%if(list[i].paymentMethod == 1){%>
+                <div>现汇</div>
+                <%}else if(list[i].paymentMethod == 2) {%>
+                <div>承兑汇票</div>
+                <%}else if(list[i].paymentMethod == 3) {%>
+                <div>现汇+承兑</div>
+                <%}else if(list[i].paymentMethod == 0) {%>
+                <div>不限</div>
+                <%}%>
+                <div><span><%=list[i].total%></span>元</div>
+            </div>
+            <%if(list[i].deliveryType == 1){%>
+            <div class="orderMode Lf">包到</div>
+            <%}else if(list[i].deliveryType == 2) {%>
+            <div class="orderMode Lf">自提</div>
+            <%}%>
+            <%if(list[i].state == 1){%>
+            <div class="orderStatus Lf">等待确认</div>
+            <%}else if(list[i].state == 2){%>
+            <div class="orderStatus Lf">已完成</div>
+            <%} else if (list[i].state == 4) {%>
+            <div class="orderStatus Lf">已拒绝</div>
+            <%} else if (list[i].state == 5) {%>
+            <div class="orderStatus Lf">已取消</div>
+            <%} else if (list[i].state == 6) {%>
+            <div class="orderStatus Lf">已失效</div>
+            <%}%>
+            <div class="btn orderBtn Lf" data-interestId=<%=list[i].interestId%>><a style="display: block;width: 100%;height: 100%;" href="javascript:;">查看详情</a></div>
+        </div>
+        <%}%>
+    </script>
+
+    <script type="text/html" id="requireContTpl">
+        <div class="requireHead bacFD clearfix">
+            <div class="endTime ml44 Lf">最后有限期： <span><%=deliveryDate%></span></div>
+            <div class="reqireNo Lf">采购需求编号：<span><%=buyingId%></span></div>
+            <div class="updateTime Lf">发布时间： <span><%=releaseTime%></span></div>
+        </div>
+        <div class="requireInfo clearfix">
+            <div class="left ml44 Lf">
+                <div class="name">品名：<span><%=chemicalName%></span></div>
+                <div>纯度：<span><%=productPurity%>%</span></div>
+                <div>收货地：<span><%=deliveryJson.warehouseProvince%><%=deliveryJson.warehouseCity%><%=deliveryJson.warehouseArea%></span></div>
+                <div>采购总量：<span><%=sum%>吨</span></div>
+                <div>剩余数量：<span><%=remain%>吨</span></div>
+                <div>最小供量：<span><%=minAmount%>吨</span></div>
+                <div>支付方式：
+                <%if(paymentMethod == 1){%>
+                <span>现汇</span>
+                <%} else if(paymentMethod == 2) {%>
+                <span>承兑汇票</span>
+                <%} else if(paymentMethod == 3){%>
+                <span>现汇+承兑</span>
+                <%} else if(paymentMethod == 0) {%>
+                <span>不限</span>
+                <%}%>
+                </div>
+                <div>所需发票类型：
+                <%if(invoiceType == 1){%>
+                <span>增值税普通发票</span>
+                <%} else if(invoiceType == 2){%>
+                <span>增值税专用发票</span>
+                <%} else if(invoiceType == 3){%>
+                <span>不限</span>
+                <%}%>
+                </div>
+                <div>收票地址： <span><%=invoicePeople%>&nbsp;&nbsp;<%=invoicePhone%>&nbsp;&nbsp;<%=invoiceAddr%></span></div>
+            </div>
+            <div class="middle">
+                <div>级别要求：
+                <%if(productLevel == 1){%>
+                <span>工业级I</span>
+                <%} else if(productLevel == 2) {%>
+                <span>医药级MI</span>
+                <%} else if(productLevel == 3) {%>
+                <span>食品级F</span>
+                <%} else if(productLevel == 4) {%>
+                <span>化妆级M</span>
+                <%}%>
+                </div>
+                <div>规格要求：<span><%=productPacking%></span></div>
+                <div>产地要求：<span><%=productOrigin%></span></div>
+                <div>备注：<span><%=note%></span></div>
+            </div>
+            <div class="right">
+                <div>采购企业：<span><%=publishCompanyName%></span></div>
+                <div>联系人：<span><%=contactName%></span></div>
+                <div>联系电话：<span><%=contactPhone%></span></div>
+            </div>
+        </div>
+    </script>
+    <script>
+
+        var buyingId = window.localStorage.getItem('data-caigou');
+        var state = window.localStorage.getItem('data-state');
+
+        // if (state == 1) {
+        //     $('.state_info').html('等待确认');
+        // } else if (state == 2) {
+        //     $('.state_info').html('已达成');
+        // } else if (state == 3) {
+        //     $('.state_info').html('未达成');
+        // } else if (state == 4) {
+        //     $('.state_info').html('已拒绝');
+        // } else if (state == 5) {
+        //     $('.state_info').html('已取消');
+        // } else if (state == 6) {
+        //     $('.state_info').html('已失效');
+        // }
+
+        $(document).on('click', '.baojia_li li', function() {
+            $('.baojia_li li span').removeClass('current');
+            $(this).find('span').addClass('current');
+            baojia_list($(this).find('span').attr('data-index'));
+        });
+
+        var result = '';
+        var result1 = '';
+
+        baojia_list(1);
+
+        //报价列表
+        function baojia_list(state) {
+            $.ajax({
+                type:"post",
+                url:pubIP + "offerMoney/getOfferMoneyInfoList",//v1.0
+                cache:false,
+                dataType: "json",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    sEcho: 0,
+                    pageNum: 1,
+                    buyingId: buyingId,
+                    state: state,
+                    name: $('.search_input_info').val()
+                },
+                success: function(data){
+                    console.log(data);
+
+                    if(data.aData && data.aData.length>0){
+
+                        $.each(data.aData, function(i, item){
+                            // 提交时间
+                            item.submitTime = new Date(item.submitTime).Format("yyyy-MM-dd hh:mm:ss");
+
+                        });
+
+
+                        result = template('orderTpl', {list: data.aData});
+                        $('#orderInfo').html(result);
+
+
+                    } else {
+                        result = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';
+                        $('#orderInfo').html(result);
+                    }
+
+                }, 
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+        }
+
+        //采购需求
+        $.ajax({
+            type:"post",
+            url:pubIP + "offerMoney/getOfferMoneyInfoByByIngId",//v1.0
+            cache:false,
+            dataType: "json",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                byIngId: buyingId
+            },
+            success: function(data){
+                console.log(data);
+
+                if(data.data){
+
+                    if (data.data.state == 3) {
+                        $('.closeBtn').html('已完成');
+                    } else if(data.data.state == 4) {
+                        $('.closeBtn').html('已关闭');
+                    } else if(data.data.state == 5) {
+                        $('.closeBtn').html('已失效');
+                    } else if(data.data.state == 2) {
+                        $('.closeBtn').addClass('close_requirement');
+                    }
+
+                    data.data.releaseTime = new Date(data.data.releaseTime).Format("yyyy-MM-dd hh:mm:ss");
+                    data.data.deliveryDate = new Date(data.data.deliveryDate).Format("yyyy-MM-dd hh:mm:ss");
+
+                    data.data.deliveryJson = JSON.parse(data.data.deliveryJson);
+
+                    result1 = template('requireContTpl', data.data);
+                    $('#requireContInfo').html(result1);
+
+                } else {
+                    result1 = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';
+                    $('#requireContInfo').html(result1);
+                }
+
+                
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+
+        $(document).on('click', '.close_requirement', function () {
+
+            window.parent.closeRequirement();
+
+        });
+
+        $(window.parent.document).on('click', '.closeRequirement .sure_ok', function() {
+            // console.log('确认');
+            $.ajax({
+                type:"post",
+                url: pubIP + "offerMoney/backOfferMoneyByByIngId",//v1.0
+                cache:false,
+                dataType: "json",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    byIngId: buyingId
+                },
+                success: function(data){
+                    console.log(data);
+                    if (data.code == 1) {
+                        window.parent.okClose();
+                        window.location.reload();
+                    }
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        });
+
+        $(document).on('click', '.orderBtn', function() {
+
+            window.localStorage.setItem('data-interestid', $(this).attr('data-interestid'));
+
+            // $(this).find('a').attr('href', './myPurchase-requirementDetailView.html');
+            window.location.href="./myPurchase-requirementDetailView.html";
+
+        })
+
+
+    </script>
+</body>
+</html>

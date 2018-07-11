@@ -1,0 +1,733 @@
+<!--仓库地址管理-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title adct1="2">新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/shopManage/shopManage.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/companyWeiRenzheng/accountManage.css">
+    
+</head>
+<style>
+    .add_address_btn {
+        margin-left: 95px;
+        height: 42px;
+        line-height: 42px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .moren {
+        margin-left: 96px;
+    }
+
+    .address_manage {
+        border-bottom: 1px solid #EBE9EA;
+    }
+
+    input[type='text'] {
+        padding-left: 10px;
+    }
+
+    select {
+        text-indent: 7px;
+    }
+
+    .cancel {
+        margin-left: 16px;
+        border: 1px solid #666666;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .add_address>ul {
+        margin-left: 240px;
+    }
+
+    input[type='text'].shouhuo_person {
+        width: 341px;
+    }
+
+    .add_address {
+        margin-top: 33px;
+    }
+</style>
+<body>
+    <!-- 企业已认证 - 账户管理 - 仓库地址管理  -->
+    <div class="main">
+        <div class="address_manage">仓库地址管理</div>
+        <div class="add_address outer">
+            <ul>
+                <li class="clearfix">
+                    <div class="fl">
+                        <label class="ml" for=""><span class="required">*</span>仓库名称：</label>
+                        <input type="text" class="shouhuo_person" id="name" placeholder="请输入仓库名称">
+                    </div>
+                    <span class="tishi fl"></span>
+                </li>
+                <li class="clearfix" style="line-height: 37px;">
+                    <div class="fl">
+                        <label class="ml" for=""><span class="required">*</span>仓库类型：</label>
+                        <div class="selectPub cangku_type" id="type" data-selectedindex="1">
+                            <span>园区库</span>
+                            <img src="../../img/prl-select.jpg" alt="">
+                            <ul>
+                                <li data-index="1" value="1">园区库</li>
+                                <li data-index="2" value="2">私有库</li>
+                            </ul>
+                        </div>
+                        <!--<select name="" id="type" class="cangku_type">-->
+                            <!--<option value="1">园区库</option>-->
+                            <!--<option value="2">私有库</option>-->
+                        <!--</select>-->
+                    </div>
+                    <span class="tishi1 fl"></span>
+                </li>
+                <li class="clearfix" style="line-height: 37px;">
+                    <div class="fl">
+                        <label for="" class="ml"><span class="required">*</span>仓库地址：</label>
+                        <div style="float: right;margin-left: 4px;">
+                            <div class="selectPub provice1" id="province" data-selectedindex="-1" style="float: left;width: 115px;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择省</span>
+                                <img src="../../img/prl-select.jpg" alt="">
+                                <ul>
+
+                                </ul>
+                            </div>
+                            <div class="selectPub city1" id="city" data-selectedindex="-1" style="float: left;width: 115px;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择市</span>
+                                <img src="../../img/prl-select.jpg" alt="">
+                                <ul>
+
+                                </ul>
+                            </div>
+
+                            <div class="selectPub town1" id="area" data-selectedindex="-1" style="float: left;width: 115px;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择区</span>
+                                <img src="../../img/prl-select.jpg" alt="">
+                                <ul>
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <!--<select name="province" id="province" class="provice1">-->
+                            <!--<option value="">请选择省</option>-->
+                        <!--</select>-->
+                        <!--<select name="city" id="city" class="city1">-->
+                            <!--<option value="">请选择市</option>-->
+                        <!--</select>-->
+                        <!--<select name="area" id="area" class="town1">-->
+                            <!--<option value="">请选择区</option>-->
+                        <!--</select>-->
+                    </div>
+                    <span class="tishi1 fl"></span>
+                </li>
+                <li class="clearfix">
+                    <div class="fl">
+                        <label for="" class="ml"><span class="required">*</span>详细地址：</label>
+                        <input type="text" class="shouhuo_person" id="detail_address" placeholder="请输入详细地址">
+                    </div>
+                    <span class="tishi fl"></span>
+                </li>
+                <li class="clearfix">
+                    <input type="checkbox" name="" class="moren" id="moren_address" value="设置为默认的收货地址"  />设置为默认的收货地址
+                </li>
+                <li class="clearfix">
+                    <span class="add_address_btn">添加该地址</span>
+                    <span class="cancel">取消</span>
+                </li>
+            </ul>
+        </div>
+        <div class="shouhuo_person_list shop_list_table">
+            <table>
+                <thead>
+                    <th>仓库名称</th>
+                    <th>仓库类型</th>
+                    <th>仓库地址</th>
+                    <th>操作</th>
+                    <th>状态</th>
+                </thead>
+                <tbody id="templateInfo">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <!-- <script src="../../js/template.js"></script> -->
+    <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
+    
+    <script type="text/html" id="templateTpl">
+        <%for (i in list) { %>
+            <%if (list[i].deleteFlag == 0) { %>
+                <tr data-dbid=<%=list[i].warehouseIds%>>
+                    <td><%=list[i].warehouseName%></td>
+                    <td>
+                        <%if (list[i].warehouseType == 1) { %> 
+                            园区库
+                        <%}else if (list[i].warehouseType == 2) {%>
+                            私有库
+                        <%}%>
+                    </td>
+                    <td data-province=<%=list[i].warehouseProvince%> data-city=<%=list[i].warehouseCity%> data-area=<%=list[i].warehouseArea%> data-detailAddress=<%=list[i].warehouseAddr%> ><%=list[i].warehouseProvince%> <%=list[i].warehouseCity%> <%=list[i].warehouseArea%> <%=list[i].warehouseAddr%></td>
+                    <td>
+                        <a href="javascript:;" class="edit">修改</a>
+                        <a href="javascript:;" class="del">删除</a>
+                    </td>
+                    <td>
+                        <%if (list[i].defaultFlag == '1') { %>
+                            <span class="moren_setting">默认地址</span>
+                        <%}%>
+                    </td>
+                </tr>
+            <%}%>
+        <%}%>
+    </script>
+
+    <script>    
+        /*收货地址列表查询*/
+        shouhuo_list();
+        function shouhuo_list() {
+            $.ajax({
+                url: pubIP + 'warehouse/listWarehouse', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: false,
+                data: {companyId: companyId},
+                dataType: 'json',
+                success: function (data) {
+                    //console.log(data);
+
+                    var result =  template("templateTpl",{list:data.data});
+                    $('#templateInfo').html(result);
+
+                    if ($('.moren_setting')) { 
+                        $('.moren_setting').parent().parent().prependTo($('#templateInfo'))
+                    }
+
+                     /* document.write(JSON.stringify(data.data));*/
+                    
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+
+        /*查询所有省份*/
+        $.ajax({
+            url: pubIP + 'address/listProvince', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            dataType: 'json',
+            success: function (data) {
+               console.log(data);
+                var str = '';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<li  data-index="'+i+'" value="'+i+'" data-proviceId="'+data.data[i].provinceid+'" data-province="'+data.data[i].province+'">'+data.data[i].province+'</li>';
+                }
+
+                $('#province ul').html(str);
+
+                $('#province ul li').click(function(){
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().attr('data-proviceid', $(this).attr('data-proviceid'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                    $(this).parent().css('display','none');
+                    var provinceID =$("#province").attr('data-proviceid');
+                    $('#city span').text('请选择市');
+                    $('#area span').html('请选择区');
+                    $('#area ul').html("");
+                    $('#city').removeClass('id_id1');
+
+                    selectCity(provinceID,null);
+
+                });
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+
+
+        /*查询所有城市*/
+//        $(document).on('change', '#province', function () {
+//
+//            /*console.log($("#province  option:selected").attr('data-proviceid'));*/
+//            var provinceID = $("#province  option:selected").attr('data-proviceid');
+//
+//            var province_select = $('#province').val();
+//            if (province_select == '') {
+//                $('#city option:selected').text('请选择市');
+//                $('#area option:selected').text('请选择区');
+//                return;
+//            }
+//
+//            $('#city option:selected').text('请选择市');
+//            $('#area').html('<option>请选择区</option>');
+//
+//            $('#city').removeClass('id_id1');
+//
+//            selectCity(provinceID,null);
+//        });
+            
+        /*查询所有城市*/ 
+        function selectCity(provinceID,$this) {
+            $.ajax({
+                url: pubIP + 'address/listCityByProvinceId', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                data: {provinceID: provinceID},
+                dataType: 'json',
+                success: function (data) {
+                     console.log(data.data);
+                    var str = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<li data-index="'+i+'"  value="'+i+'" data-cityId="'+data.data[i].cityid+'" data-city="'+data.data[i].city+'">'+data.data[i].city+'</li>';
+                    }
+
+                    $('#city ul').html(str);
+
+                    $('#city ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                        var cityID =$("#city").attr('data-cityid');
+                        $('#area span').text('请选择市');
+
+
+                        $('#city').removeClass('id_id1');
+
+                        selectArea(cityID, $this);
+
+                    });
+
+                    // 编辑回显城市
+                    if ($('#city').hasClass('id_id1')) {
+                        var data_province = $this.parent().parent().find('td')[2];
+                        $('#city ul li').each(function (index, element) {
+                            if ($(this).attr('data-city') == $(data_province).attr('data-city')) {
+                                //$(this)[0].selected = true;
+                                $(this).parent().parent().attr("data-cityid",$(this).attr("data-cityid"));
+                                $(this).parent().parent().attr("data-selectedindex",$(this).attr("data-index"));
+                                $(this).parent().parent().find("span").text($(this).text());
+                            }
+                        });
+
+                        var cityID = $("#city").attr('data-cityid');
+                        $('#area').addClass('id_id2');
+                        selectArea(cityID, $this);
+
+
+
+                    }
+                $('#city').parent().next().html('');
+                        
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+        // 查询所有区域
+//        $(document).on('change', '#city', function () {
+//            var cityID = $("#city").attr('data-cityid');
+//
+//
+//            $('#area').removeClass('id_id1');
+//
+//            var city_select = $('#city').val();
+//            if (city_select == '') {
+//                $('#area option:selected').text('请选择区');
+//                return;
+//            }
+//
+//            $('#area').html('<option>请选择区</option>');
+//            $('#area').removeClass('id_id2');
+//
+//            selectArea(cityID, null);
+//
+//        });
+
+        function selectArea(cityID, $this) {
+            $.ajax({
+                url: pubIP + 'address/listAreaByCityID', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                data: {cityID: cityID},
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    var str = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<li data-index="'+i+'" value="'+i+'" data-areaId="'+data.data[i].areaid+'" data-area="'+data.data[i].area+'">'+data.data[i].area+'</li>';
+                    }
+
+                    $('#area ul').html(str);
+
+                    $('#area ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                        var areaID =$("#area").attr('data-cityid');
+
+
+                    });
+
+
+//
+                    if ($('#area').hasClass('id_id2')) {
+                        var data_province = $this.parent().parent().find('td')[2];
+                        $('#area ul li').each(function (index, element) {
+                            if ($(this).attr('data-area') == $(data_province).attr('data-area')) {
+                              //  $(this)[0].selected = true;
+                                $(this).parent().parent().attr("data-areaid",$(this).attr("data-areaid"));
+                                $(this).parent().parent().attr("data-selectedindex",$(this).attr("data-index"));
+                                $(this).parent().parent().find("span").text($(this).text())
+                            }
+                        });
+                    }
+//
+//                    $('#area').parent().next().html('');
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+
+        $('#name').on('blur', function () {
+            if ($('#name').val() == null || $('#name').val() == '') {
+                $('#name').parent().next().html('收货人不能为空');
+            } else {
+                $('#name').parent().next().html('');
+
+            }
+        });
+
+        $('#province').on('blur', function () {
+            if ($('#province option:selected').text() == '请选择省') {
+                $('#province').parent().next().html('请选择省');
+            } else {
+                $('#province').parent().next().html('');
+            }
+        });
+
+        $('#city').on('blur', function () {
+            if ($('#province option:selected').text() != '请选择省' && $('#city option:selected').text() == '请选择市') {
+                $('#city').parent().next().html('请选择市');
+            } else {
+                $('#city').parent().next().html('');
+            }
+        });
+
+        $('#area').on('blur', function () {
+            if ($('#province option:selected').text() != '请选择省' && $('#city option:selected').text() != '请选择市' && $('#town option:selected').text() == '请选择区') {
+                $('#town').parent().next().html('请选择区');
+            } else {
+                $('#town').parent().next().html('');
+            }
+        });
+
+        $('#detail_address').on('blur' ,function (){
+            if ($('#detail_address').val() == null || $('#detail_address').val() == '') {
+                $('#detail_address').parent().next().html('详细地址不能为空');
+            } else {
+                $('#detail_address').parent().next().html('');
+            }
+        });
+
+
+        /*添加仓库地址*/
+        $('.add_address_btn').on('click', function () {
+
+            var name = $("#name").val();
+            var type = $('#type').attr('data-selectedindex');
+            var province = $("#province").val();
+            var city = $("#city").val();
+            var area = $("#area").val();
+            var detail_address = $("#detail_address").val();
+            var phone = $("#phone").val();
+            var moren_address = $('#moren_address')[0].checked;
+
+
+
+            province = $("#province span").text();
+            city = $("#city span").text();
+            area = $("#area span").text();
+
+
+            if (moren_address == false) {
+                moren_address = 0;
+            }else {
+                moren_address = 1;
+            }
+
+
+            if ($('#name').val() == null || $('#name').val() == '') {
+                $('#name').parent().next().html('收货人不能为空');
+                return;
+            } 
+
+            var error=$('#province').parent().parent().parent().find(".tishi1");
+            if ($('#province span').text() == '请选择省') {
+                error.html('请选择省');
+                return;
+            }else if($('#city span').text() == '请选择市'){
+                error.html('请选择市');
+                return;
+            }else if($('#area span').text() == '请选择市'){
+                error.html('请选择市');
+                return;
+            }else{
+                error.html('');
+            }
+
+
+            if ($('#detail_address').val() == null || $('#detail_address').val() == '') {
+                $('#detail_address').parent().next().html('详细地址不能为空');
+                return;
+            }
+
+            var dbid = $(this).attr('data-dbid');
+/*            console.log(dbid);
+            console.log(name);
+            console.log(province);
+            console.log(city);
+            console.log(area);
+            console.log(detail_address);
+            console.log(type);
+            console.log(moren_address);*/
+
+            if ($(this).attr('data-dbid')) {
+                edit(dbid,name, province, city, area, detail_address, type, moren_address);
+            } else {
+                /*v1.0*/
+                $.ajax({
+                    url: pubIP + 'warehouse/addWarehouse',
+                    type: 'post',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        token: token
+                    },
+                    cache: false,
+                    data: {warehouseName: name, warehouseProvince: province, warehouseCity: city, warehouseArea: area, warehouseAddr: detail_address, warehouseType: type, ownedCompanyId: companyId, defaultFlag: moren_address},
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 1) {
+                            window.parent.addAddress();
+                            shouhuo_list();
+                            $('.cancel').click();
+                        }else {
+                            alert('添加失败！');
+                        }
+
+
+                    },
+                    error: function(err){
+                        console.log(err);
+                    }
+                });
+            }
+
+            $('.add_address_btn').attr('data-dbid', '');
+
+        });
+
+        // 取消按钮
+        $('.cancel').on('click', function () {
+            $(".add_address_btn").removeAttr('data-dbid')
+            $('#name').val('');
+            $('#province span').text('请选择省');
+            $("#province").attr("data-selectedindex","");
+            $('#city span').text('请选择市');
+            $("#city").attr("data-selectedindex","");
+            $('#area span').text('请选择区');
+            $("#area").attr("data-selectedindex","");
+            $('#detail_address').val('');
+
+            $('#moren_address')[0].checked = false;
+
+            $('#name').parent().next().html('');
+            $('#province').parent().next().html('');
+            $('#city').parent().next().html('');
+            $('#area').parent().next().html('');
+            $('#detail_address').parent().next().html('');
+        });
+
+
+        /*编辑仓库地址*/
+        $(document).on('click', '.edit', function () {   
+   
+            $('#name').val($(this).parent().parent().find('td')[0].innerText);
+
+            /*类型*/
+            var data_type = $(this).parent().parent().find('td')[1];
+            $('#type ul li').each(function () {
+                if ($(this).text() == $(data_type)[0].innerText) {
+                    //$(this)[0].selected = true;
+                    $(this).parent().parent().attr("data-selectedindex",$(this).attr("data-index"))
+                    $(this).parent().parent().find("span").text($(this).text())
+                }
+            });
+
+            /*省*/
+            var data_province = $(this).parent().parent().find('td')[2];
+            console.log(data_province);
+            $('#province ul li').each(function () {
+                console.log($(this).attr('data-province'));
+                console.log($(data_province).attr('data-province'));
+                if ($(this).attr('data-province') == $(data_province).attr('data-province')) {
+                    //$(this)[0].selected = true;
+
+                    $(this).parent().parent().attr("data-proviceid",$(this).attr("data-proviceid"))
+                    $(this).parent().parent().attr("data-selectedindex",$(this).attr("data-index"))
+                    $(this).parent().parent().find("span").text($(this).attr('data-province'))
+
+                }
+            });
+
+            var provinceID = $("#province").attr('data-proviceid');
+            $('#city').addClass('id_id1');
+            selectCity(provinceID,$(this));
+
+
+            $('#detail_address').val($(data_province).attr('data-detailAddress'));
+
+            var td_moren = $(this).parent().next()[0];
+            if ($(td_moren).find('.moren_setting').length != 0) {
+                $('#moren_address')[0].checked = true;
+            }else {
+                $('#moren_address')[0].checked = false;
+            }
+
+
+            var dbid = $(this).parent().parent().attr('data-dbid');
+
+            $('.add_address_btn').attr('data-dbid', dbid);
+
+        });
+
+        function edit(dbid, name, province, city, area, detail_address, type, moren_address) {
+            /*v1.0*/
+            $.ajax({
+                url: pubIP + 'warehouse/editWarehouse', 
+                type: 'post',
+                headers: {
+                    
+                    token: token
+                },
+                cache: false,
+                data:{
+                    ownedCompanyId: companyId,
+                    warehouseId: dbid, 
+                    warehouseName: name, 
+                    warehouseProvince: province, 
+                    warehouseCity: city, 
+                    warehouseArea: area, 
+                    warehouseAddr: detail_address, 
+                    warehouseType: type, 
+                    defaultFlag: moren_address
+                }, 
+                dataType: 'json',
+                success: function (data) {
+                   /* console.log(data);*/
+                    if (data.code == 1) {
+                        window.parent.updateSuccess();
+                        shouhuo_list();
+                        $('.cancel').click();
+
+                    } else {
+                        alert('编辑失败！');
+                    }
+
+                    
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+
+        /*删除仓库地址*/
+        $(document).on('click', '.del', function () {
+            var warehouseId = $(this).parent().parent().attr('data-dbid');
+            // var result = confirm('是否删除！');  
+            window.parent.delAddress();
+
+            $(window.parent.document).on('click', '.del_sure', function () {
+                $.ajax({
+                    url: pubIP + 'warehouse/editWarehouse', 
+                    type: 'post',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        token: token
+                    },
+                    cache: false,
+                    data:{warehouseId: warehouseId, deleteFlag: 1}, 
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 1) {
+                            window.parent.delSuccess();
+                            shouhuo_list();
+                        }
+                    },
+                    error: function(err){
+                        console.log(err);
+                    }
+                });
+            });
+            
+            
+        });
+       
+    </script>
+</body>
+</html>

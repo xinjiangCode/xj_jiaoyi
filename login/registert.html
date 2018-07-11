@@ -1,0 +1,706 @@
+﻿<!--注册-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title>新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="../css/registert.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+		<link rel="stylesheet" href="../css/index.css">
+		<style type="text/css">
+			body{
+				background: #ffffff;
+			}
+			input{
+				outline:none;
+			}
+
+			.topTitle>.phone {
+				margin-top: 13px;
+			}
+		</style>
+		<style>
+			.mianCont_box,.tabLinkMaxBox{display: none}
+			.topTitle>.logo1{
+				height: 100%;
+			}
+			.topTitle>.logo1>img{
+				vertical-align: middle;
+			}
+			.menu {width: 760px;height: 100%;}
+			.menu .menuTop { background-color: #F10215; color: #fff; width: 140px; height: 40px; padding-left: 20px; line-height: 40px; cursor: pointer; }
+			.menu ul {padding-top: 7px;  background-color: #5892f3;position: relative;color: #fff;width: 245px;}
+			.menu ul li { padding-left: 21px; text-align: left;  font-size: 14px; z-index: 2; padding-top: 21px;padding-bottom: 12px;}
+			.menu ul li h3{ font-size: 17px;font-weight: bold;margin-bottom: 8px;}
+			.menu ul li a:hover {cursor: pointer; }
+			.menu ul li:hover { border-right: 0; background-image: none;background: #fff;color: #5892f3; }
+			.menu ul li:hover .submenu { display: block; }
+			.menu ul li .submenu {font-size: 16px;box-sizing: border-box;padding-top: 25px;padding-left: 30px;color: #282828; position: absolute;left: 245px;top: 7px;width: 533px;height: 446px; background-color: #FFF; z-index: 3; display: none; }
+			.menu ul li .submenu .subleft { margin-left: 0px;  }
+			.subTit{margin-bottom: 35px;}
+			.objType{margin-bottom: 48px;}
+			.objType>span{display: inline-block;padding: 8px 15px;}
+			.objType>span:hover {background: #eff5fd;}
+			.subleft>div>p{color: #5892f3;margin-bottom: 21px;}
+			.hotObj{margin-right: 11px;text-align: center;float: left;}
+			.hotObj div{width: 110px;height: 110px;margin-bottom: 23px;}
+			.hotObj p{margin-bottom: 11px;color: #fc6721;font-size: 14px;}
+			.rightUsBg{width: 282px;height: 460px;background: #000;opacity: 0.3;position: absolute;right: 0;top: 0;z-index: 2;}
+			.rightUsIner{background: #fff;position: absolute;right: 9px;top: 9px;z-index: 3;width: 264px;height: 442px;}
+			.headImg{width: 69px;height: 69px;border-radius:100%;float: left;}
+			.usBox{margin-top: 46px;color: #282828;}
+			.usBox p{margin-bottom: 10px;}
+			.rightUsIner{padding: 0px 21px; box-sizing: border-box;font-size: 14px;}
+		</style>
+	</head>
+	<body>
+		<script src="../js/header.js" ></script>
+
+		<div class="topTitle mianCont">
+			<div class="logo1 Lf" style="margin-top: 21px;">
+				<a href="../index.html" ><img src="../img/cf_logo.png" alt=""></a>
+			</div>
+			<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 14px;">（工作日9:00-18:00）</i></div>
+		</div>
+		<div class="mainCenter" style="background-position: center center; ">
+			<div class="mainCenterRegist">
+				<div class="mainCenterRegistTitle"><div class="Lf title">欢迎注册</div><a href="./login.html" class="Rt login">马上登录</a></div>
+
+				<ul class="reg-box">
+					<li>
+						<span>
+							<i style="color: #FB6047;vertical-align: middle;">*&nbsp;</i>
+							用户名:
+						</span>
+						<input type="text"  id="user" placeholder="长度5-16个字母、数字、下划线组成" onkeyup="this.value=chaneseCheck(this.value)" class="account" data-idx="1" maxlength="16" onchange="textBlur(this,1)" onFocus="textFocus(this,1)"/>
+						<i class="error error1"></i>
+					</li>
+					<li>
+						<span>
+							<i style="color: #FB6047;vertical-align: middle;">*&nbsp;</i>
+							设置密码:
+						</span>
+						<input type="password" id="passWord1" autocomplete = 'new-password' onkeyup="this.value=chaneseCheck(this.value)" placeholder="长度6-20个字母、数字、特殊符号组成" class="account" data-idx="2" maxlength="20"  onchange="textBlur(this,2)" onFocus="textFocus(this)"/>
+						<i class="error error1"></i>
+					</li>
+					<li>
+						<span>
+							<i style="color: #FB6047;vertical-align: middle;">*&nbsp;</i>
+							确认密码:
+						</span>
+						<input type="password" id="passWord2" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)" class="account" maxlength="20" data-idx="3"  onchange="textBlur(this,3)" onFocus="textFocus(this)"/>
+						<i class="error error1"></i>
+					</li>
+					<li>
+						<span>
+							<i style="color: #FB6047;vertical-align: middle;">*&nbsp;</i>
+							验证手机:
+						</span>
+						<input type="text" id="phone" placeholder="请输入正确的手机号" onkeyup="this.value=chaneseCheck(this.value)" class="account" maxlength="11" data-idx="4"   onFocus="textFocus(this)"/>
+						<i class="error error1"></i>
+					</li>
+					<li>
+						<span style="float:left;">
+							<i style="color: #FB6047;vertical-align: middle;">*&nbsp;</i>
+							验证码:
+						</span>
+						<input style="float:left;"  id="code" type="text" placeholder="请输入验证码" class="account code" maxlength="8" data-idx="5" onkeyup="this.value=chaneseCheck(this.value)"  onchange="textBlur(this,5)" onFocus="textFocus(this)"/>
+						<div style="float:left;" class="codeImg" ><img onclick="getCode()" id="checkImg" src="" alt=""></div>
+						<i style="float:left;" class="error error1"></i>
+					</li>
+					<li>
+						<span style="float:left;">
+							<i style="color: #FB6047;vertical-align: middle;">*&nbsp;</i>
+							短信验证码:
+						</span>
+						<input style="float:left;" type="text" id="SMScode" placeholder="请输入短信验证码" class="account smsCode" maxlength="6" data-idx="6" onkeyup="this.value=chaneseCheck(this.value)"   onFocus="textFocus(this)"/>
+						<button style="float:left;" class="sendCode" id="getSMSCode" onclick="getSMSCode(this)">获取验证码</button>
+						<i style="float:left;" class="error error1"></i>
+					</li>
+					<li>
+						<span class="box"></span><i>&nbsp;我已阅读并同意&nbsp;</i><i class="xieyi" onclick="down_moban()">用户服务协议</i>
+					</li>
+				</ul>
+				<div class="sub" onclick="sub()">
+					提交注册
+					<!--<input type="button" value="立即注册" />-->
+				</div>
+			</div>
+
+		</div>
+
+		<div class="mainFooter mianCont">
+			<ul>
+				<li><a href="##">首 页</a></li>
+				<li class="line"></li>
+				<li><a href="##">合作伙伴</a></li>
+				<li class="line"></li>
+				<li><a href="##">关于我们</a></li>
+				<li class="line"></li>
+				<li><a href="##">联系我们</a></li>
+				<li class="line"></li>
+				<li><a href="##">服务条款</a></li>
+				<li class="line"></li>
+				<li><a href="##">金融服务</a></li>
+			</ul>
+			<div class="mainFooterQuanxian">Copyright © 2016 www.xjv56.com All Rights Reserved 新疆化学品经营服务平台版权所有   新ICP备 16003842号-1</div>
+		</div>
+
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/register.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" >
+             //下载协议模板
+            function down_moban(){
+                $.ajax({
+                    url: pubIP + 'agreement/findAgreementInfo?agreementId=1',
+                    type: 'get',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        location.href = data.data.fileUrl;
+                    
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                })
+            }
+
+			getCode();
+			//禁止输入中文
+            function chaneseCheck(str){
+                var temp=""
+                for(var i=0;i<str.length;i++)
+                    if(str.charCodeAt(i)>0&&str.charCodeAt(i)<255)
+                        temp+=str.charAt(i)
+                return temp
+            }
+            var imgCodeRedisKey="";
+            var user=new RegExp("[^a-zA-Z0-9\_]","i");//用户名校验
+            var phoneTest=new RegExp("^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$");//手机号校验
+            var code=new RegExp("[^a-zA-Z0-9]","i");//验证码校验
+            var userReg = new RegExp(/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/);//字母与数字校验
+          $(function () {
+              sessionStorage["isok"]=0;
+              $(".box").eq(0).click(function () {
+                  $(this).toggleClass("active");
+              })
+              $(".mainCenter") .css({"background-image":"url(../img/cf_registertBackGround.png)","min-width":"1230px"});
+              $("#code").attr("disabled","disabled");
+              $("#SMScode").attr("disabled","disabled")
+              getCode();
+          })
+
+
+          ////////////////////---------------------写入验证      start----------------------/////////////////////
+
+//          //用户名验证
+            $('#user').bind('input propertychange', function() {
+              var that=$(this).eq(0);
+              var text=$(this).eq(0).val();
+
+              if(text==""){
+                  $(that).parent().find(".error").text("用户名不能为空");
+              }else if(text.length<5){
+                  $(that).parent().find(".error").text("用户名长度小于5");
+              }else if(user.test(text)===true){
+                  $(that).parent().find(".error").text("不能输入非法字符");
+              }else if(userReg.test(text)===false){
+              	  $(that).parent().find(".error").text("未包含字母或数字");
+              }else{
+                  $(that).parent().find(".error").text("");
+              }
+//            console.log(userReg.test(text))
+//            console.log($(this).eq(0).val())
+
+          })
+            //校验密码
+            $('#passWord1').bind('input propertychange',function () {
+                var that=$(this).eq(0);
+                var text=$(this).eq(0).val();
+                if($("#passWord2").val()!=text && $("#passWord2").val()!=""){
+                    $("#passWord2").parent().find(".error").eq(0).text("两次密码不一致");
+                }else{
+                    $("#passWord2").parent().find(".error").eq(0).text("");
+                }
+
+                if(text==""){
+                    $(that).parent().find(".error").eq(0).text("密码不能为空");
+                }else if(text.length<6){
+                    $(that).parent().find(".error").eq(0).text("密码长度小于6");
+                }else{
+                    $(that).parent().find(".error").eq(0).text("");
+                }
+            });
+            //二次校验密码
+            $('#passWord2').bind('input propertychange',function () {
+                var that=$(this).eq(0);
+                var text=$(this).eq(0).val();
+                if($("#passWord2").val()!=text && $("#passWord2").val()!=""){
+                    $("#passWord2").parent().find(".error").eq(0).text("两次密码不一致");
+                }else{
+                    $("#passWord2").parent().find(".error").eq(0).text("");
+                }
+
+                if(text==""){
+                    $(that).parent().find(".error").eq(0).text("密码不能为空");
+                }else if($("#passWord1").val()!=text){
+                    $(that).parent().find(".error").eq(0).text("两次密码不一致");
+                }else{
+                    $(that).parent().find(".error").eq(0).text("");
+                }
+            });
+            //校验手机号
+            $('#phone').bind('input propertychange',function () {
+                var that=$(this).eq(0);
+                var text=$(this).eq(0).val();
+
+                if(text==""){
+                    $(that).parent().find(".error").eq(0).text("手机号不能为空");
+                    $("#code").attr("disabled","disabled");
+                }else if(phoneTest.test(text)===false){
+                    $(that).parent().find(".error").eq(0).text("手机号不合法");
+                    $("#code").attr("disabled","disabled");
+                }else{
+                    $(that).parent().find(".error").eq(0).text("");
+                    $("#code").removeAttr("disabled")
+                }
+            });
+			//校验图片吗
+            $('#code').bind('input propertychange',function () {
+                var that=$(this).eq(0);
+                var text=$(this).eq(0).val();
+                $.ajax({
+                    url: pubIP + 'user/validImgCode', /*v1.0*/
+                    type: 'post',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        //token: token
+                    },
+                    cache: false,
+                    ansyc: true,
+                    dataType: 'json',
+                    data:{
+                        imgCodeRedisKey:sessionStorage.getItem("imgCodeRedisKey"),
+                        imgRandomCode:text
+                    },
+                    success: function (data) {
+                      if(data.code==1){
+                          $(that).parent().find(".error").eq(0).text("");
+                          sessionStorage["isok"]=1;
+					  }else{
+                          $(that).parent().find(".error").eq(0).text("验证码错误");
+                          sessionStorage["isok"]=0;
+					  }
+
+                    },
+                    error: function(err){
+                        console.log(err);
+                    }
+                });
+            });
+			//校验短信码
+            $('#SMScode').bind('input propertychange',function () {
+                var that = $(this).eq(0);
+                var text = $(this).eq(0).val();
+               // $("#SMScode").attr("disabled", "disabled");
+                $.ajax({
+                    url: pubIP + 'user/validSmsCode', /*v1.0*/
+                    type: 'post',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        //token: token
+                    },
+                    cache: false,
+                    ansyc: true,
+                    dataType: 'json',
+                    data: {
+                        mobile: $("#phone").val(),
+                        smsRandomCode: text
+                    },
+                    success: function (data) {
+                        if (data.code == 1) {
+                            $(that).parent().find(".error").eq(0).text("");
+                        } else {
+                            $(that).parent().find(".error").eq(0).text("验证码错误");
+                        }
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            })
+          ////////////////////---------------------写入验证     end----------------------/////////////////////
+
+		//失去焦点的校验  暂不做操作
+          /*function textBlur(that1,idx1) { //离开时做校验
+             var user=new RegExp("[^a-zA-Z0-9\_]","i");//用户名校验
+             var phoneTest=new RegExp("^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$");//手机号校验
+             var code=new RegExp("[^a-zA-Z0-9]","i");//验证码校验
+
+              var that=$(this).eq(0);
+              var idx=$(that).attr("data-idx");
+              console.log(idx)
+              var text=that.val();
+			 //console.log($(that).parent().find(".error").eq(0).text("用户名不能为空"))
+
+			 switch (idx){
+				 case 1:
+				     console.log(11)
+						 if(text==""){
+							 $(that).parent().find(".error").eq(0).text("用户名不能为空");
+						 }else if(text.length<5){
+						 	$(that).parent().find(".error").eq(0).text("用户名长度小于5");
+						 }else if(user.test(text)===true){
+							 $(that).parent().find(".error").eq(0).text("不能输入非法字符");
+						 }else{
+							 $(that).parent().find(".error").eq(0).text("");
+						 }
+						 break;//账户名验证
+                 case 2:
+						 if($("#passWord2").val()!=text&& $("#passWord2").val()!=""){
+							 $("#passWord2").parent().find(".error").eq(0).text("两次密码输入不一致");
+						 }else{
+							 $("#passWord2").parent().find(".error").eq(0).text("");
+						 }
+
+						 if(text==""){
+							 $(that).parent().find(".error").eq(0).text("密码不能为空");
+						 }else if(text.length<6){
+							 $(that).parent().find(".error").eq(0).text("密码长度小于6");
+						 }else{
+							 $(that).parent().find(".error").eq(0).text("");
+						 }
+						 break;//密码验证
+				 case 3:
+						 if(text==""){
+							 $(that).parent().find(".error").eq(0).text("密码不能为空");
+						 }else if($("#passWord1").val()!=text){
+							 $(that).parent().find(".error").eq(0).text("两次密码输入不一致");
+						 }else{
+							 $(that).parent().find(".error".eq(0)).text("");
+						 }
+						 break;//再次输入密码
+                 case 4:
+						 if(text==""){
+							 $(that).parent().find(".error").eq(0).text("手机号不能为空");
+						 }else if(phoneTest.test(text)===false){
+							 $(that).parent().find(".error").eq(0).text("手机号不合法");
+						 }else{
+							 $(that).parent().find(".error").eq(0).text("");
+						 }
+						 break;//手机号
+                 case 5:
+
+
+
+						 if(text==""){
+							 $(that).parent().find(".error").eq(0).text("验证码不能为空");
+						 }else if(code.test(text)===true){
+							 $(that).parent().find(".error").eq(0).text("验证码不合法");
+						 }else{
+							 $(that).parent().find(".error").eq(0).text("");
+						 }
+						 break;//验证码
+                 case 6:
+                     if(text==""){
+                         $(that).parent().find(".error").eq(0).text("短信验证码不能为空");
+                     }else if(code.test(text)===true){
+                         $(that).parent().find(".error").eq(0).text("短信验证码不合法");
+                     }else{
+                         $(that).parent().find(".error").eq(0).text("");
+                     }
+                     break;//短信验证码
+			 }
+         }*/
+          function textBlur() {
+
+          }
+         //获取焦点   暂不做操作
+          function textFocus(that) {
+
+          }
+          //获取图片码
+          function getCode(){
+
+                var timestamp = Date.parse(new Date());
+                imgCodeRedisKeynew =timestamp+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10);
+
+                sessionStorage["imgCodeRedisKey"]=timestamp+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10);
+                console.log(sessionStorage["imgCodeRedisKey"]);
+                $("#checkImg").attr("src",pubIP+"codeImage/ImageCodePic?imgCodeRedisKey="+sessionStorage["imgCodeRedisKey"]);
+            }
+          //获短信取验证码前
+          function getSMSCode(){
+              if(sessionStorage["isok"]==0){
+                  return;
+			  }
+              var errorlist='';
+
+			  for(var i=0;i<$(".error").length;i++){
+                  errorlist+=$(".error").eq(i).text();
+			  }
+              if($("#user").val()===""){
+                  $("#user").parent().find(".error").text("用户名不能为空");
+                  return;
+              }else if($("#passWord1").val()===""){
+                  $("#passWord1").parent().find(".error").text("密码不能为空");
+                  return;
+              }else if($("#passWord2").val()===""){
+                  $("#passWord2").parent().find(".error").text("密码不能为空");
+                  return;
+              }else if($("#phone").val()===""){
+                  $("#phone").parent().find(".error").text("手机号不能为空");
+                  return;
+              }else if(errorlist!=""){
+              	if(errorlist == '验证码错误'){
+              		
+              	}else{
+              		return;
+              	}
+			  }
+              
+              yanZhengUser();
+          }
+            //获短信取验证码前验证用户名
+          function yanZhengUser() { //验证用户名是否存在
+             $.ajax({
+                 url: pubIP + 'user/validLoginName', /*v1.0*/
+                 type: 'post',
+                 headers: {
+                     Accept: "application/json; charset=utf-8",
+                     //token: token
+                 },
+                 cache: false,
+                 ansyc: true,
+                 dataType: 'json',
+				 data:{loginName:$("#user").val()},
+                 success: function (data) {
+                    console.log(data.code);
+                    if(data.code==1){
+                        yanZhengPhone();
+					}else{
+                        $("#user").parent().find(".error").text(data.msg);
+                        return;
+					}
+                 },
+                 error: function(err){
+                     console.log(err);
+                 }
+             });
+         }
+            //获短信取验证码前验证手机号
+          function yanZhengPhone() { //验证手机号是否存在
+              $.ajax({
+                  url: pubIP + 'user/validMobile', /*v1.0*/
+                  type: 'post',
+                  headers: {
+                      Accept: "application/json; charset=utf-8",
+                     // token: token
+                  },
+                  cache: false,
+                  ansyc: true,
+                  dataType: 'json',
+                  data:{mobile:$("#phone").val()},
+                  success: function (data) {
+                      console.log(data.code);
+                      if(data.code==1){
+                          getSCode();
+                      }else{
+                          $("#phone").parent().find(".error").text(data.msg);
+                          return;
+                      }
+                  },
+                  error: function(err){
+                      console.log(err);
+                  }
+              });
+          }
+            //获短信取验证码
+          function getSCode() {
+              $.ajax({
+                  url: pubIP + 'user/getMessageCode', /*v1.0*/
+                  type: 'post',
+                  headers: {
+                      Accept: "application/json; charset=utf-8",
+                      token: token
+                  },
+                  cache: false,
+                  ansyc: true,
+                  dataType: 'json',
+                  data: {mobile: $("#phone").val()},
+                  success: function (data) {
+                      if (data.code == 1) {
+                          //alert("发送验证码成功");
+                          $("#SMScode").removeAttr("disabled");
+                          var time=60;
+                          $("#getSMSCode").attr("disabled","disabled");
+                          $("#getSMSCode").css("background-color","#aaaaaa");
+                          var timer=setInterval(function () {
+                              time--;
+                              $("#getSMSCode").text(""+time+"s")
+                              if(time==0){
+                                  clearInterval(timer);
+                                  $("#getSMSCode").removeAttr("disabled");
+                                  $("#getSMSCode").css("background-color","#3582F8");
+                                  $("#getSMSCode").text("获取验证码")
+                              }
+                          },1000);
+
+                      } else {
+                          alert(data.msg);
+                          return;
+                      }
+                  },
+                  error: function (err) {
+                      console.log(err);
+                  }
+              })
+          }
+		//提交
+          function sub() {
+              var errorlist='';
+              for(var i=0;i<$(".error").length;i++){
+                  errorlist+=$(".error").eq(i).text();
+              }
+              if($("#user").val()===""){
+                  $("#user").parent().find(".error").text("用户名不能为空");
+                  return;
+              }else
+              if($("#passWord1").val()===""){
+                  $("#passWord1").parent().find(".error").text("密码不能为空");
+                  return;
+              }else if($("#passWord2").val()===""){
+                  $("#passWord2").parent().find(".error").text("密码不能为空");
+                  return;
+              }else if($("#phone").val()===""){
+                  $("#phone").parent().find(".error").text("手机号不能为空");
+                  return;
+              }else if($("#code").val()===""){
+                  $("#code").parent().find(".error").text("验证码不能为空");
+                  return;
+              }else if($("#SMScode").val()===""){
+                  $("#SMScode").parent().find(".error").text("短信验证码不能为空");
+                  return;
+              }else if(errorlist!=""){
+                  return;
+              }else if(!$(".box").eq(0).hasClass("active")){
+                  alert("您还未同意服务协议");
+                  //后期改为弹窗
+                  return;
+              }
+              var pw=$("#passWord2").val();
+              var leav=-1;
+              var numC=0;
+              var strC=0;
+              var str_C=0;
+              for(var i=0;i<pw.length;i++){
+                  if(pw[i]<=9 && pw[i]>=0){
+                      numC=1;
+				  }else if(pw[i]=="_"){
+                      str_C=1;
+				  }else{
+                      strC=1;
+				  }
+			  }
+				leav=leav+parseInt(numC)+parseInt(strC)+parseInt(str_C);//安全等级
+              $.ajax({
+                  url: pubIP + 'user/userRegister', /*v1.1*/
+                  type: 'post',
+                  headers: {
+                      Accept: "application/json; charset=utf-8",
+                      //token: token
+                  },
+                  cache: false,
+                  ansyc: true,
+                  dataType: 'json',
+                  data:{
+                      loginName:$("#user").val(),
+                      password:$("#passWord1").val(),
+                      reg_mobile:$("#phone").val(),
+                      securityGrade:leav
+				  },
+                  success: function (data) {
+                      console.log(data);
+                      if(data.code==1){
+                      		$.ajax({ 
+					          type:"post",
+					          url:pubIP+"user/login",//v1.0
+					          cache:false,
+					          dataType: "json",
+					          data:{
+						        	  'mobileOrLoginName':$("#user").val(),
+						        	  'password':$("#passWord1").val(),
+				                   "isAuto":0
+					          },
+					          success: function(json){
+					            	console.log(json);
+					                if(json.code == '1'){
+				                        localStorage.setItem("isAuto",0);
+				                        localStorage.setItem("token",json.data.token);
+					                	   window.location.href='./registertSuccess.html';
+					                }else{
+					                	//alert(json.msg)
+										$(".error").eq(0).text(json.msg);
+					                }
+					          },
+					          error:function(xhr,statues,error){
+					              
+					          }
+					       });
+                      }else{
+                          alert(data.msg);
+                      }
+                  },
+                  error: function(err){
+                      console.log(err);
+                  }
+              });
+
+          }
+		
+		  //拦截链接
+	    $(document).on('click','a',function(e){
+       		e.preventDefault();
+       		var isOld = localStorage.getItem('isOld');
+       		if(isOld != '2'){
+       			var ttxt = $.trim($(this).text());
+       			console.log(ttxt);
+       			if(ttxt == '用户中心'  ){
+       				if(isOld == '1'){
+       					$('#effect .contTitle span').text('您尚未登录');
+						missedLogin() ;
+       				}else if(isOld == '0'){
+       					missedLogin() ;
+       				}else if(isOld == '-1'){
+       					$('#effect .contTitle span').text('您尚未认证');
+       					$('#effect .contTitle i').text('认证');
+       					$('#popLogin').text('认证');
+						missedLogin() ;
+       				}else if(isOld == '-2'){
+       					$('#effect .contTitle span').text('您的认证正在审核中');
+       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+       					$('#popLogin').hide();
+						missedLogin() ;
+       				}
+       			}else{
+       				window.location.href = this.href;
+       			}
+       		}else{
+       			window.location.href = this.href;
+       		}
+       })
+
+
+	  </script>
+	</body>
+</html>

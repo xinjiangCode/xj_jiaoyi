@@ -1,0 +1,235 @@
+<!--我的询盘-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/myPurchase-enquiry.css">
+    <style type="text/css">
+    		.purchaseInfo .search{
+    			color: #fff;
+    			border-color: #5590F6;
+    		}
+    </style>
+</head>
+<body style="background: #fff;">
+    <div class="main">
+        <div class="myPurchase-title clearfix">
+            <div class="Lf">我的询盘</div>
+        </div>
+        <div class="purchaseInfo">
+            <div>
+                <label>企业名称:<input class="companyNameInput" type="text"></label>
+                <label>产品名称:<input class="productNameInput" type="text"></label>
+                <span class="search btn">查询</span>
+            </div>
+            <div>
+                <label>询盘编号:<input class="xunpanNoInput" type="text"></label>
+                <label>询盘时间:
+                    <input class="enquiryDate laydate-icon" id="test1" type="text">
+                    <i class="enquiryDateLine"></i>
+                    <input class="enquiryDate laydate-icon" id="test2" type="text">
+                </label>
+                <span class="reset btn">重置</span>
+            </div>
+        </div>
+        <div class="myPurchase-tab">
+            <!-- //1：等待确认 2：已达成 3：未达成（包括已被拒绝或过期未确认） 4询盘-商家拒绝 5询盘-买家取消’ -->
+            <span data-state='' class="active">全部询盘</span>
+            <span data-state='1'>待处理</span>
+            <span data-state='2'>已确认</span>
+            <span data-state='5'>已取消</span>
+            <!-- <span data-state='4'>已完成</span> -->
+            <span data-state='4'>已拒绝</span>
+        </div>
+        
+        <div class="myPurchase-orders">
+            <script type="text/html" id="enquiryListTpl">
+                <%for (i in list) {%>
+                    <div class="orderItem">
+                        <div class="orderItemHeader">
+                            <span>询盘编号：<%=list[i].interestId%></span>
+                            <span><%=list[i].companyName%></span>
+                            <span class="Rt">询盘日期：<%=list[i].submitTimes%></span>
+                        </div>
+                        <div class="orderItemCont clearfix">
+                            <div class="orderContItem orderNum"><span><%=i-0+1%></span></div>
+                            <div class="orderContItem orderName">
+                                <div><%=list[i].productName%></div>
+                                <div>有效期至<%=list[i].effectiveTime%></div>
+                            </div>
+                            <div class="orderContItem orderNumber">采购量：<%=list[i].sum%><%=list[i].unit%></div>
+                            <!-- 支付方式  支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限 -->
+                            <%if (list[i].paymentMethod==1){%>
+                                <div class="orderContItem orderPayWay">支付方式：现汇</div>
+                            <%}else if (list[i].paymentMethod==2){%>
+                                <div class="orderContItem orderPayWay">支付方式：承兑汇票</div>
+                            <%}else if (list[i].paymentMethod==3){%>
+                                <div class="orderContItem orderPayWay">支付方式：现汇+承兑</div>
+                            <%}else if (list[i].paymentMethod==0){%>
+                                <div class="orderContItem orderPayWay">支付方式：不限</div>
+                            <%}%>
+                            <div class="orderContItem buyerMoney yellow">￥<%=list[i].total%></div>
+                            <!-- "state": 1   询盘状态   1：等待确认 2：已达成 3：未达成（包括已被拒绝或过期未确认） 4询盘-商家拒绝  5询盘-买家取消', -->
+                            <%if (list[i].state == 1) {%>
+                                <div class="orderContItem toSure yellow"><img src="../img/wenhao_icon.png" style="vertical-align: middle;">待确认</div>
+                            <%}else if (list[i].state == 2) {%>
+                                <div class="orderContItem toSure green"><img src="../img/yiOk_icon.png" style="vertical-align: middle;">已确认</div>
+                            <%}else if (list[i].state == 4) {%>
+                                <div class="orderContItem toSure red"><img src="../img/jujue_icon.png" style="vertical-align: middle;">已拒绝</div>
+                            <%}else if (list[i].state == 5) {%>
+                                <div class="orderContItem toSure quxiao red"><!-- <img src="../img/cancel_icon.png" style="vertical-align: middle;"> -->已取消</div>
+                            <%}%>
+                            
+                            <div class="orderContItem orderViewdetail" onclick="waitiao('./myPurchase-enquiryDetaill.html?interestId=<%=list[i].interestId%>&from=mypurchase')">查看询盘</div>
+                        </div>
+                    </div>
+                <%}%>
+            </script>
+        </div>
+        <div class="pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 30px auto">
+            <ul class="pagination" id="page1"></ul>
+            <div class="pageJump">
+                <span class="allPageN">1/1</span>
+                共1页，
+                <span>到第</span>
+                <input type="text"/>
+                <span>页</span>
+                <button type="button" class="button">GO</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/template.js"></script>
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        laydate({
+            elem: '#test1'
+        })
+        laydate({
+            elem: '#test2'
+        })
+        laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
+        
+        $(function(){
+            // 获取我的询盘列表
+            var enquiryListTpl = '',pageNum=1,
+                interestId='',productName='',
+                companyName='',startTime='',
+                endTime='',state='';
+            getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state);
+            
+            // 点击查询按钮查询
+            $('.search').on('click', function(){
+                productName = $('.productNameInput').val();
+                companyName = $('.companyNameInput').val();
+                interestId = $('.xunpanNoInput').val();
+                startTime = $('#test1').val();
+                endTime = $('#test2').val();
+                console.log(interestId,startTime, endTime);
+                getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state);
+            });
+            // 点击重置清空查询条件
+            $('.reset').click(function(){
+                $('.productNameInput').val('');
+                $('.companyNameInput').val('');
+                $('.xunpanNoInput').val('');
+                $('#test1').val('');
+                $('#test2').val('');
+                productName = '';
+                companyName = '';
+                interestId = '';
+                startTime = '';
+                endTime = '';
+            });
+            // 点击状态栏查询
+            $('.myPurchase-tab span').click(function(){
+                $('.myPurchase-tab span').removeClass('active');
+                $(this).addClass('active');
+                state = $(this).attr('data-state');
+                getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state)
+            });
+            // 点击分页刷新数据
+            $('.pageCont').on('click', '.button',function(){
+                pageNum = $('.pageCont li.active>a').text();
+                // console.log(pageNum,'------');
+                getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state);
+            })
+            $('.pageCont').on('click', 'li>a',function(){
+                pageNum = $('.pageCont li.active>a').text();
+                getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state);
+            })
+        });
+        // 获取我的询盘列表
+        function getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state){
+            $.ajax({
+                type:"post",
+                url:pubIP+"inquiries/getInquiriesList",//v1.0
+                cache:false,
+                dataType: "json",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    sEcho: 1,//记录操作的次数:
+                    pageNum: pageNum,//页码
+                    companyId: companyId,
+                    type: 'A',//A：买家列表 B：卖家列表
+                    interestId: interestId,//询盘编号--not required
+                    productName: productName,//产品名称--not required
+                    companyName: companyName,//公司名称--not required
+                    startTime: startTime,//--not required
+                    endTime: endTime,//--not required
+                    state: state,//1：等待确认 2：已达成 3：未达成（包括已被拒绝或过期未确认） 4询盘-商家拒绝 5询盘-买家取消’,--not required
+                    timeNum: '',//时间参数 直接传数字 7 30--not required
+                },
+                success: function(res){
+                    console.log(res);
+                    // 分页
+                    $('.pageJump').html('<span class="allPageN">'+pageNum+'/'+res.pages+'</span>'+
+                            '共'+res.pages+'页，'+
+                            '<span>到第</span>'+
+                            '<input type="text"/>'+
+                            '<span>页</span>'+
+                            '<button type="button" class="button">GO</button>');
+                    Page({
+                        // num: 3,
+                        num: res.pages,
+                        elem: $('#page1'),
+                        callback: function(n) {
+                            console.log(n);
+                        }
+                    });
+                    
+                    if(res.aData && res.aData.length>0){
+                        $.each(res.aData, function(i, item){
+                            // 提交时间
+                            item.submitTimes = new Date().Format("yyyy-MM-dd hh:mm:ss");
+                        });
+                        enquiryListTpl = template('enquiryListTpl', {list: res.aData});
+                        $('.myPurchase-orders').html(enquiryListTpl);
+                    } else {
+                        enquiryListTpl = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';
+                        $('.myPurchase-orders').html(enquiryListTpl);
+                    }
+                    
+                    
+                },
+                error: function(res){
+                    console.log(res);
+                }
+            });
+        }
+        // 点击查看详情
+        function waitiao(src) {
+            window.parent.location.href=src;
+        }
+    </script>
+</body>
+</html>

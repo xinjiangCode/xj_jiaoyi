@@ -1,0 +1,145 @@
+<!--账户 销售管理-           不要了     -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <style type="text/css">
+         img{float: left;}
+        .demo-input{padding-left: 10px; height: 38px; min-width: 149px;width: 149px; line-height: 38px; border: 1px solid #e6e6e6;  background-color: #fff;  border-radius: 2px;}
+         .btn{width: 139px;height: 42px;line-height:42px;background-color: #007aff;color: white;text-align: center;border-radius: 5px;margin-left: 14px;}
+          html,body{ width: 986px;background-color: white; min-width: 986px;}
+         .container{width: 986px;height: 1418px;overflow: hidden;border: 1px solid #f1f1f1;}
+         .container>.title{height: 50px;line-height: 50px;padding:0 18px;font-size: 16px;border-bottom: 1px solid #f1f1f1;overflow: hidden;}
+         .container>.title>.search{ margin-top:10px;height: 30px;width: 280px;float: right;margin-right: 15px;border-radius: 15px;overflow: hidden;}
+         .container>.title>.search>.left{overflow: hidden;width: 235px;height: 30px; }
+         .container>.title>.search>.left>input{float: left;border: 1px solid #f1f1f1; width: 235px;height: 30px;margin: 0;padding: 0;background-color: #f1f1f1;text-indent: 20px;outline: none;}
+         .container>.title>.search>.right{float:right;width: 44px;height: 30px;background-color: #007aff;}
+         .container>.title>.search>.right>img{ margin-top: 10px;  margin-left: 15px;}
+
+
+
+
+         table div,table td{text-align: center;}
+         table tr{border-bottom: 1px solid #f1f1f1;height: 60px;}
+         table tr td{overflow: hidden; vertical-align: middle;}
+         table tr td a{color: #007aff;}
+         a{color: #007aff;}
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="title">
+        <div class="Lf">我的采购订单</div>
+        <div class="search">
+            <div class="left Lf"><input type="text" ></div>
+            <div class="right Lf"><img src="../img/cf_search.png" alt=""></div>
+        </div>
+    </div>
+    <div class="orderList">
+        <ul>
+            <li>全部订单</li>
+            <li>代发货</li>
+            <li>全部订单</li>
+            <li>全部订单</li>
+            <li>全部订单</li>
+        </ul>
+    </div>
+    <table border="1"  width="985px" align="center" style="font-size: 12px;">
+        <tr style="height: 35px;line-height: 35px;background-color: #fdfdfd;">
+            <th>时间</th>
+            <th>流水号 | 商户订单号</th>
+            <th>类型</th>
+            <th>交易对方</th>
+            <th>收入/支出(元)</th>
+            <th>余额(元)</th>
+            <th>详情</th>
+        </tr>
+        <tr>
+            <td>
+                <div>2018-04-10</div>
+                <div>10:41:22</div>
+            </td>
+            <td>
+                <div>流水号：3001804091631062138</div>
+                <div>订单号：3001804091631062137</div>
+            </td>
+            <td style="margin-top: 27px;">现汇交易</td>
+            <td>
+                <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
+                <div>账户号：3113710033455221943</div>
+            </td>
+            <td>-1049000.00</td>
+            <td>0.00</td>
+            <td><a href="##">查看</a></td>
+        </tr>
+        <tr>
+            <td>
+                <div>2018-04-10</div>
+                <div>10:41:22</div>
+            </td>
+            <td>
+                <div>流水号：3001804091631062138</div>
+                <div>订单号：3001804091631062137</div>
+            </td>
+            <td style="margin-top: 27px;">现汇交易</td>
+            <td>
+                <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
+                <div>账户号：3113710033455221943</div>
+            </td>
+            <td>-1049000.00</td>
+            <td>0.00</td>
+            <td><a href="##">查看</a></td>
+        </tr>
+    </table>
+    <div style="text-align: center;margin-top: 29px;">
+        <ul class="pagination" id="page1"></ul>
+        <div class="pageJump">
+            <span class="allPageN">1/200</span>
+            共200页，
+            <span>到第</span>
+            <input type="text"/>
+            <span>页</span>
+            <button type="button" class="button">GO</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
+
+<script type="text/javascript">
+    lay('#version').html('-v'+ laydate.v);
+
+    //执行一个laydate实例
+    laydate.render({
+        elem: '#test1' //指定元素
+    });
+    //执行一个laydate实例
+    laydate.render({
+        elem: '#test2' //指定元素
+    });
+    $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+    Page({
+        num: 200,
+        elem: $('#page1'),
+        callback: function(n) {
+            console.log(n);
+        }
+    });
+
+</script>
+</body>
+</html>

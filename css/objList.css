@@ -1,0 +1,176 @@
+body{
+	background: #fff;
+}
+.breadcrumb a{
+	font-size: 16px;
+	color: #282828;
+	margin-right: 10px;			
+	display: inline-block;
+	margin-left: 10px;
+}
+.breadcrumb a:first-child{
+	margin-left: 0px;
+}
+.breadcrumb span{
+	padding: 6px 14px;
+	background: #fff;
+	display: inline-block;
+}
+.breadcrumb{
+	padding:13px 0px 14px 0px;
+}
+.breadcrumb img{
+	vertical-align: middle;
+    margin-left: 22px;
+}
+.objFilter{
+	border: 1px #e1e1e1 solid;
+	height: 107px;
+}
+.objFilter>div{
+	height: 53px;
+	line-height: 53px;
+	font-size: 14px;
+	color: #282828;
+	overflow: hidden;
+}
+.breadcrumbType{
+	padding-left: 18px;
+	border-bottom:  1px #e1e1e1 solid;
+}
+.breadcrumbType>span{
+	padding:  7px 23px; 
+}
+.breadcrumbType .act{
+	color: #fff;
+	background: #6a9ef7;
+}
+.breadcrumbType2>span{
+	padding: 20px 25px;
+	position: relative;
+}
+.breadcrumbType2 img{
+	margin-left: 6px;
+}
+.breadcrumbType2>span:after{
+	content: '';
+	width: 2px;
+	height: 15px;
+	background: #e6e6e6;
+	position: absolute;
+	right: 0;
+	top: 20px;
+}
+.breadcrumbType2 .act{
+	background: #6a9ef7;
+	color: #fff;
+}
+.breadcrumbType2 .act:after{
+	display: none;
+}
+.breadcrumbType2 div{
+	float: right;
+	margin-right: 15px;
+}
+.breadcrumbType2 div span{
+	margin-left: 6px;
+	margin-right: 6px;
+}
+.blueFt{
+	color: #4079d7;
+}
+.breadcrumbType2 div i{
+	border: 1px #d0d0d0 solid;
+	color: #d0d0d0;
+	width: 20px;
+	height: 22px;
+	display: inline-block;
+    line-height: 20px;
+    text-align: center;
+}
+.breadcrumbType2 div i:hover{
+	background: #699ef7;
+    color: #fff;
+}
+.breadcrumbType2 div .nrbd{
+	border-right: 0px;
+}
+.objListBox{
+	margin-top: 30px;
+	margin-bottom: 45px;
+}
+.objListBox>div{
+	width: 230px;
+    height: 386px;
+    border: 1px #DFDFDF solid;
+    position: relative;
+    font-size: 14px;
+    margin-right: 17px;
+    float: left;
+    overflow: hidden;
+    margin-bottom: 19px;
+}
+
+.objListBox .wei,.objListBox .pu{
+	top: 0;
+    position: absolute;
+    right: 0;
+    background: #e33b3b;
+    color: #fff;
+    width: 23px;
+    height: 23px;
+    text-align: center;
+    line-height: 23px;
+}
+.objListBox .pu{
+	background: #5992f3;
+}
+.objListBox .objImg{
+	width: 196px;
+    height: 196px;
+    margin: 0 auto;
+    background: #ccc;
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+.objgg{
+	text-align: center;
+	color: #FC6721;
+	font-size: 16px;
+	margin-bottom: 17px;
+}
+.objName{
+	width: 172px;
+	margin-bottom: 24px;
+	margin: 0 auto;
+}
+.objSeller{
+	background: #fbfbfb;
+	width:99%;
+	height: 55px;
+	line-height: 55px;
+	font-size: 11px;
+	position: absolute;
+	bottom: 0;
+}
+.objSeller .wei2{
+	width: 21px;
+	height: 21px;
+	background: #e33b3b;
+	color: #fff;
+	margin-right: 22px;
+	display: inline-block;
+	line-height: 22px;
+	text-align: center;
+}
+.objSeller img{
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.objSellerName{
+	margin-left: 15px;
+	margin-right: 5px;
+}
+.objListBox>div:hover{
+	border: 1px #6a9ef7 solid;
+}

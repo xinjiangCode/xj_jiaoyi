@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title  adct="首页">新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mCustomScrollbar.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/home.css"/>
+		<script src="js/header.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.leftTabBox{
+				display: block;
+			}
+			.menu{
+				width: auto;
+				overflow:visible ;
+			}
+			.hsUser{
+				display: none;
+			}
+			.hsUser .loginBox button{
+				width: 96px;
+				height: 32px;
+				font-size: 12px;
+			}
+			.hsUser .loginBox div{
+				display: inline-block;
+				width: 49%;
+				color: #282828;
+			}
+		
+			.loginBox {
+				padding: 0 12px; 
+			}
+
+			.hsUser .loginBox div span{
+				color: #ff6d33;
+				margin-left: 4px;
+			}
+			.webInfoScroll{
+				width: 100%;
+				height: 112px;
+				overflow: hidden;
+			}
+			.wiBox p{
+				margin-bottom: 21px;
+				margin-top: 0px;
+			}
+			.webInfoTit{
+				margin-bottom: 21px;
+			}
+			.card {
+			  perspective: 1000;
+			  -webkit-perspective: 1000;
+			  -ms-perspective: 1000;
+			  -moz-perspective: 1000;
+			  -o-perspective: 1000;
+		      width: 193px;
+		      height: 411px;
+		      margin-left: 6px;
+			}
+			.face{
+			    position: absolute;
+			    transition: all 1s ease;
+			    -webkit-transition: all 1s ease;
+			    -moz-transition: all 1s ease;
+			    -o-transition: all 1s ease;
+			    -ms-transition: all 1s ease;
+			    transition: all 1s ease;
+			    backface-visibility: hidden;
+			    -ms-backface-visibility: hidden;
+			    -moz-backface-visibility: hidden;
+			    -webkit-backface-visibility: hidden;
+			    -o-backface-visibility: hidden;
+			    /*background-color: rgb(178, 39, 49);*/
+			}
+			.front {
+			    z-index: 10;
+			}
+			.back{
+			    transform:rotate3d(0,1,0,-180deg);
+			    -ms-transform:rotate3d(0,1,0,-180deg);  /* IE 9 */
+			    -moz-transform:rotate3d(0,1,0,-180deg); /* Firefox */
+			    -webkit-transform:rotate3d(0,1,0,-180deg); /* Safari 和 Chrome */
+			    -o-transform:rotateY(0,1,0,-180deg);  /* Opera */
+			    z-index: 8;
+			}
+			.card-flipped .front{
+			    transform:rotate3d(0,1,0,180deg);
+			    -ms-transform:rotate3d(0,1,0,180deg);/* IE 9 */
+			    -moz-transform:rotate3d(0,1,0,180deg);/* Firefox */
+			    -webkit-transform:rotate3d(0,1,0,180deg);/* Safari 和 Chrome */
+			    -o-transform:rotate3d(0,1,0,180deg);  /* Opera */
+			    z-index: 8;
+			}
+			.card-flipped .back{
+			    transform:rotate3d(0,1,0,0deg);
+			    -ms-transform:rotate3d(0,1,0,0deg);/* IE 9 */
+			    -moz-transform:rotate3d(0,1,0,0deg);/* Firefox */
+			    -webkit-transform:rotate3d(0,1,0,0deg);/* Safari 和 Chrome */
+			    -o-transform:rotate3d(0,1,0,0deg);  /* Opera */
+			    z-index: 10;
+			}
+			.ddt{
+				width: 192px;
+			}
+			.ddt h1{
+				font-size: 24px;
+			    margin-top: 60px;
+			    margin-bottom: 19px;
+			    font-weight: bold;
+			    max-height: 24px;
+			    line-height: 24px;
+			}
+			.ddt button{
+				width: 152px;
+				height: 42px;
+			}
+			.card .financeLike , .card .ddt{
+				margin-left: 0;
+			} 
+			/* 模态框 */
+	        .modelBox{
+	            z-index: 9999;
+	            display: none;
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            right: 0;
+	            bottom: 0;
+	            background-color: rgba(0, 0, 0, 0.5);
+	        }
+			.modelCont{
+	            position: absolute;
+	            width: 650px;
+	            min-height: 276px;
+	            left: 50%;
+	            top: 50%;
+	            margin-left: -225px;
+	            margin-top: -200px;
+	            font-family: 'microsoft yahei';
+	            /* background-color: red; */
+	        }
+			.modeltitle{
+	            width: 650px;
+	            height: 48px;
+	            background-image: url(img/gsxq.gif);
+	            background-size: 100% 100%;
+	            background-repeat: no-repeat; 
+	            font-size: 16px;
+	            color: #5690f6;
+	            line-height: 50px;
+	        }
+	        .modeltitle span{
+	            margin-left: 16px;
+	        }
+	        .modelcontent{
+	            width: 650px;
+	            min-height: 226px;
+	            background-image: url('img/gsxq_cont.gif');
+	            background-size: 100% 100%;
+	            background-repeat: no-repeat; 
+	            font-size: 18px;
+	        }
+	        
+			.modelBtnBox{
+	            width: 302px;
+	            height: 45px;
+	            overflow: hidden;
+	            margin: 0 auto;
+				padding-bottom: 30px;
+	        }
+	        .modelbtn{
+	            width: 140px;
+	            height: 45px;
+	            border: 1px solid #5690f6;
+	            font-size: 18px;
+	            color: #fff;
+	            box-sizing: border-box;
+	            text-align: center;
+	            line-height: 45px;
+	            border-radius: 3px;
+	            cursor: pointer;
+	            margin: 0 auto;
+	        }
+	        .logisticsLeft button:hover{
+	        		background: #ebc260;
+	        		color: #b34e4e;
+	        }
+	        .swiper-pagination{
+				bottom: 14px;
+			}
+
+			.mr24 {
+				margin-right: 24px;
+			}
+
+			.purchaseObjBox .bjNum span {
+				margin-left: 1px;
+				margin-right: 1px;
+			}
+
+			/*.menu ul li {
+				padding-top: 22px;
+				padding-left: 22px;
+			}
+
+			.menu ul li:nth-child(1) {
+				padding-top: 29px;
+			}*/
+
+			div#hotSaleShopInfo {
+			    padding: 0 20px 51px 20px;
+			}
+
+			.wcRightBox p {
+				text-align: left;
+			}
+
+			span.span_name {
+			    width: 82px;
+			    display: inline-block;
+			    text-overflow: ellipsis;
+			    overflow: hidden;
+			    white-space: nowrap;
+			    vertical-align: text-bottom;
+			}
+
+			.go_dcl {
+				margin-left: 3px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<!--首页-->
+		<div class="maxWidth bannerBox">
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide"></div>
+			        <div class="swiper-slide"></div>
+			        <div class="swiper-slide"></div>
+			    </div>
+			    <!-- 如果需要分页器 -->
+   			 	<div class="swiper-pagination"></div>
+			</div>
+			<div class="mianCont leftTabBoxout">
+				<div class="rightUsBg"></div>
+				<div class="rightUsIner">
+					<div class="ntUser">
+						<div class="usBox">
+							<div class="headImg" style="background: url(img/dfHeadImg.png) no-repeat;background-position: center;background-size:cover ;"></div>
+							<p>Hi,你好</p>
+							<p>欢迎来到新疆化学品</p>
+							<p>经营服务平台</p>
+						</div>
+						<div class="loginBox">
+							<a href="login/registert.html"><button>免费注册</button></a>
+							<p>已有账号？<a href="login/login.html">立即登录</a></p>
+						</div>
+					</div>
+					<div class="hsUser">
+						<div class="usBox" style="overflow: hidden;">
+							<div class="headImg" style="background: url(img/hsdfHeadImg.png) no-repeat;background-position: center;background-size:cover ;"></div>
+							<p style="margin-top: 10px;">亲爱的商家，<span>上午好</span></p>
+							<p style="color: #5992f3;"><a href="account/account.html"><img src="img/indexUserIcon.png" style="margin-right: 5px;"/>进入我的商家中心</a></p>
+						</div>
+						<div class="loginBox" id="baojia_caigou_info">
+							<!-- <button class="go_fbxq">发布采购</button>
+							<div class="go_dbj">待报价<span>(0)</span></div>
+							<div class="go_sdbj">已收到的报价<span>(0)</span></div>
+							<div class="go_dcl">待处理的订单<span>(0)</span></div> -->
+						</div>
+					</div>
+					<div class="webInfo">
+						<div class="webInfoTit"><img src="img/announcement.png" class="announcement" />网络公告</div>
+						<div class="webInfoScroll">
+							<div class="wiBox">
+								<!-- <p><a href="industryInformation/industryInformationDeatils.html">【公告】平台维护通知: 1月21日系统 维护升级，请注意。</a></p>
+								<p><a href="industryInformation/industryInformationDeatils.html">【公告】平台维护通知: 2月21日系统 维护升级，请注意。</a></p>
+								<p><a href="industryInformation/industryInformationDeatils.html">【公告】平台维护通知: 3月21日系统 维护升级，请注意。</a></p>
+								<p><a href="industryInformation/industryInformationDeatils.html">【公告】平台维护通知: 1月21日系统 维护升级，请注意。</a></p> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mianCont supplier">
+			<div class="supplierTit">热门供应商</div>
+			<div class="supplierBox">
+				<!-- <div>
+					<a href="shopManage/storeIndex.html"><div class="supplierLogo" style="background: url(img/gys1.png) no-repeat; background-position: center;background-size:contain ;"></div></a>
+				</div>
+				<div>
+					<a href="##"><div class="supplierLogo" style="background: url(img/gys2.png) no-repeat; background-position: center;background-size:contain ;"></div></a>
+				</div>
+				<div>
+					<a href="##"><div class="supplierLogo" style="background: url(img/gys3.png) no-repeat; background-position: center;background-size:contain ;"></div></a>
+				</div>
+				<div>
+					<a href="##"><div class="supplierLogo" style="background: url(img/gys4.png) no-repeat; background-position: center;background-size:contain ;"></div></a>
+				</div>
+				<div>
+					<a href="##"><div class="supplierLogo" style="background: url(img/gys5.png) no-repeat; background-position: center;background-size:contain ;"></div></a>
+				</div>
+				<div>
+					<a href="##"><div class="supplierLogo" style="background: url(img/gys6.png) no-repeat; background-position: center;background-size:contain ;"></div></a>
+				</div>
+				<div>
+					<a href="##"><div class="supplierLogo" style="background: url(img/gys7.png) no-repeat; background-position: center;background-size:contain ;"></div></a>
+				</div>
+				<div>
+					<a href="##"><div class="supplierLogo" style="background: url(img/gys8.png) no-repeat; background-position: center;background-size:contain ;"></div></a>
+				</div>
+				<div>
+					<a href="##"><div class="supplierLogo" style="background: url(img/gys9.png) no-repeat; background-position: center;background-size:contain ;"></div></a>
+				</div>
+				<div>
+					<a href="##"><div class="supplierLogo" style="background: url(img/gys10.png) no-repeat; background-position: center;background-size:contain ;"></div></a>
+				</div> -->
+			</div>
+			<img src="img/AD.png" class="adImg" />
+		</div>
+		<div class="maxWidth webCn">
+			<div class="mianCont">
+				<div class="wcTit"><span class="wcBigTit">现货商城</span><span class="wcSmTit">货源充足，大家买起来</span></div>
+				<div class="wcObjBox">
+					<div class="wcleftBox" style="height: 582px;">
+						<div class="wcleftBoxTit">
+							<img src="./img/wcTitImg.jpg"/>
+							<p>热货现搜</p>
+							<img src="./img/wcTitImg.jpg"/>
+						</div>
+						<div class="wcObjType">有机化学品</div>
+						<a href="./search/productNameSearch_precise.html">氨基酸</a>
+						<a href="./search/productNameSearch_precise.html">二氧化硫</a>
+						<div class="wcObjType">无机化学品</div>
+						<a href="./search/productNameSearch_precise.html">氨基酚</a>
+						<a href="./search/productNameSearch_precise.html">盐酸</a>
+						<button class="hzf_fbsp">发布商品</button>
+					</div>
+					<div class="wcCenterBox">
+						<!--<div class="wcCtTab">
+							<span class="act">有机化学</span>
+							<span>无机化学</span>
+							<span>农药化学</span>
+							<a href="spotGoods/spotGoods.html"><span>更多现货</span>></a>
+						</div>-->
+						<div class="wcCtObjBox">
+							<div>
+								<div>
+									<a href="obj/objDetails.html">
+										<div class="redRT">危</div>
+										<div class="objImg" style="background: url(img/objDemo.png) no-repeat;background-size:cover ;background-position:center ;"></div>
+										<div class="objTxt">
+											<p>6880元/吨</p>
+											<span>中顺鑫和供应链管理</span>
+										</div>
+										<div class="hideInfo">
+											<div></div>
+											<div class="hidetxt">
+												<p>纯度：—  </p>
+												<p>级别：工业级</p>
+												<p>规格：25kg/箱</p>
+												<h3>价格：<span>¥550.00箱</span></h3>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div>
+								<div>
+									<div class="redRT">危</div>
+									<div class="objImg" style="background: url(img/objDemo.png) no-repeat;background-size:cover ;background-position:center ;"></div>
+									<div class="objTxt">
+										<p>6880元/吨</p>
+										<span>中顺鑫和供应链管理</span>
+									</div>
+									<div class="hideInfo">
+										<div></div>
+										<div class="hidetxt">
+											<p>纯度：—  </p>
+											<p>级别：工业级</p>
+											<p>规格：25kg/箱</p>
+											<h3>价格：<span>¥550.00箱</span></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lastObj">
+								<div>
+									<div class="redRT">危</div>
+									<div class="objImg" style="background: url(img/objDemo.png) no-repeat;background-size:cover ;background-position:center ;"></div>
+									<div class="objTxt">
+										<p>6880元/吨</p>
+										<span>中顺鑫和供应链管理</span>
+									</div>
+									<div class="hideInfo">
+										<div></div>
+										<div class="hidetxt">
+											<p>纯度：—  </p>
+											<p>级别：工业级</p>
+											<p>规格：25kg/箱</p>
+											<h3>价格：<span>¥550.00箱</span></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div>
+									<div class="redRT">危</div>
+									<div class="objImg" style="background: url(img/objDemo.png) no-repeat;background-size:cover ;background-position:center ;"></div>
+									<div class="objTxt">
+										<p>6880元/吨</p>
+										<span>中顺鑫和供应链管理</span>
+									</div>
+									<div class="hideInfo">
+										<div></div>
+										<div class="hidetxt">
+											<p>纯度：—  </p>
+											<p>级别：工业级</p>
+											<p>规格：25kg/箱</p>
+											<h3>价格：<span>¥550.00箱</span></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div>
+									<div class="redRT">危</div>
+									<div class="objImg" style="background: url(img/objDemo.png) no-repeat;background-size:cover ;background-position:center ;"></div>
+									<div class="objTxt">
+										<p>6880元/吨</p>
+										<span>中顺鑫和供应链管理</span>
+									</div>
+									<div class="hideInfo">
+										<div></div>
+										<div class="hidetxt">
+											<p>纯度：—  </p>
+											<p>级别：工业级</p>
+											<p>规格：25kg/箱</p>
+											<h3>价格：<span>¥550.00箱</span></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="lastObj">
+								<div>
+									<div class="redRT bluebg">普</div>
+									<div class="objImg" style="background: url(img/objDemo.png) no-repeat;background-size:cover ;background-position:center ;"></div>
+									<div class="objTxt">
+										<p>6880元/吨</p>
+										<span>中顺鑫和供应链管理</span>
+									</div>
+									<div class="hideInfo">
+										<div></div>
+										<div class="hidetxt">
+											<p>纯度：—  </p>
+											<p>级别：工业级</p>
+											<p>规格：25kg/箱</p>
+											<h3>价格：<span>¥550.00箱</span></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="wcRightBox" style="height: 582px;">
+						<h1>热销商品</h1>
+						<div id="hotSaleShopInfo"></div>
+						<!-- <p><a href="search/productNameSearch_precise.html"><span class="num">&nbsp;1</span><span>高猛酸钾</span><span class="gg">500万吨</span></a></p>
+						<p><span class="num">&nbsp;2</span><span>高猛酸钾</span><span class="gg">500万吨</span></p>
+						<p><span class="num">&nbsp;3</span><span>高猛酸钾</span><span class="gg">500万吨</span></p>
+						<p><span class="num">&nbsp;4</span><span>高猛酸钾</span><span class="gg">500万吨</span></p>
+						<p><span class="num">&nbsp;5</span><span>高猛酸钾</span><span class="gg">500万吨</span></p>
+						<p><span class="num">&nbsp;6</span><span>高猛酸钾</span><span class="gg">500万吨</span></p>
+						<p><span class="num">&nbsp;7</span><span>高猛酸钾</span><span class="gg">500万吨</span></p>
+						<p><span class="num">&nbsp;8</span><span>高猛酸钾</span><span class="gg">500万吨</span></p>
+						<p><span class="num">&nbsp;9</span><span>高猛酸钾</span><span class="gg">500万吨</span></p>
+						<p><span class="num">10</span><span>高猛酸钾</span><span class="gg">500万吨</span></p> -->
+					</div>
+				</div>
+				<div class="wcTit"><span class="wcBigTit">采购资源</span><span class="wcSmTit">货源充足，大家买起来</span></div>
+				<div class="wcObjBox" style="padding-top: 10px;margin-top: -10px;">
+					<div class="wcleftBox purchaseLeft" style="background: url(img/purchaseLeft.png) no-repeat;background-size: contain;background-position:center ;">
+						<button class="go_fbxq">发布采购</button>
+					</div>
+					<div class="purchaseObjBox" style="overflow: visible;" id="caigouResourceInfo">
+						<!-- <div>
+							<h3>甲醇钠甲醇溶液</h3>
+							<p>数量: <span class="mr24">10吨</span>交货地: 乌鲁木齐 <span class="bjNum">已有<span>99</span>家报价</span></p>
+							<div>
+								<a href="freeSearch/offer.html"><button>立即报价</button></a>
+								<p class="lastTimetxt">剩余时间：</p>
+								<p class="lasrTimeNum"><span>00</span>天<span>24</span>时<span>09</span>分<span>56</span>秒</p>
+							</div>
+						</div>
+						<div>
+							<h3>甲醇钠甲醇溶液</h3>
+							<p>数量: <span class="mr24">10吨</span>交货地: 乌鲁木齐 <span class="bjNum">已有<span>99</span>家报价</span></p>
+							<div>
+								<a href="freeSearch/offer.html"><button>立即报价</button></a>
+								<p class="lastTimetxt">剩余时间：</p>
+								<p class="lasrTimeNum"><span>00</span>天<span>24</span>时<span>09</span>分<span>56</span>秒</p>
+							</div>
+						</div>
+						<div>
+							<h3>甲醇钠甲醇溶液</h3>
+							<p>数量: <span class="mr24">10吨</span>交货地: 乌鲁木齐 <span class="bjNum">已有<span>99</span>家报价</span></p>
+							<div>
+								<a href="freeSearch/offer.html"><button>立即报价</button></a>
+								<p class="lastTimetxt">剩余时间：</p>
+								<p class="lasrTimeNum"><span>00</span>天<span>24</span>时<span>09</span>分<span>56</span>秒</p>
+							</div>
+						</div>
+						<div>
+							<h3>甲醇钠甲醇溶液</h3>
+							<p>数量: <span class="mr24">10吨</span>交货地: 乌鲁木齐 <span class="bjNum">已有<span>99</span>家报价</span></p>
+							<div>
+								<a href="freeSearch/offer.html"><button>立即报价</button></a>
+								<p class="lastTimetxt">剩余时间：</p>
+								<p class="lasrTimeNum"><span>00</span>天<span>24</span>时<span>09</span>分<span>56</span>秒</p>
+							</div>
+						</div> -->
+					</div>
+				</div>
+				<div class="wcTit"><span class="wcBigTit">金融服务</span><span class="wcSmTit">货源充足，大家买起来</span></div>
+				<div class="wcObjBox" style="padding-top: 20px;margin-top: -20px;">
+					<div class="wcleftBox financeLeft" style="background: #fff;">
+						<img src="img/cfleftBoxBg.png" style="margin-left: -15px;"/>
+						<a href="##"><button>立即申请</button></a>
+					</div>
+					<div class="financeR" style="overflow: visible;">
+						<div class="card" >
+						  <div class="face front">
+						    <div class="financeLike">
+								<div>
+									<img src="img/dingdantong_03.jpg" />
+									<p>订单通</p>
+									<span>针对销售业务</span>
+								</div>
+								<span class="FL1">
+									<p>最高100%   </p>
+									<span>采购融资</span>
+								</span>
+								<span class="FL2">
+									<p>最长90天    </p>
+									<span>融资期限</span>
+								</span>
+								<span class="FL3">多种还款方式 </span>
+								<span class="FL4">多种还款方式 </span>
+							</div>
+						  </div>
+						  <div class="face back cardAK">
+						    <div class="ddt">
+								<h1>订单通</h1>
+								<div class="hasbord">针对销售业务</div>
+								<div>
+									<p>最高100%  </p>
+									<p>采购融资 </p>
+								</div>
+								<div>
+									<p>最长90天   </p>
+									<p>融资期限  </p>
+								</div>
+								<div style="max-height: 16px;line-height: 16px;">多种还款方式 </div>
+								<button>立即申请</button>
+							</div>
+						  </div>
+						</div>
+						
+						<div class="card" >
+						  <div class="face front">
+						    <div class="financeLike">
+								<div>
+									<img src="img/liuzhuantong.png" />
+									<p>流转通</p>
+									<span>针对买卖双方</span>
+								</div>
+								<span class="FL1">
+									<p>最高100%   </p>
+									<span>采购融资</span>
+								</span>
+								<span class="FL2">
+									<p>最长90天    </p>
+									<span>融资期限</span>
+								</span>
+								<span class="FL3">多种还款方式 </span>
+								<span class="FL4">多种还款方式 </span>
+							</div>
+						  </div>
+						  <div class="face back cardAK">
+						    <div class="ddt">
+								<h1>流转通</h1>
+								<div class="hasbord">针对买卖双方</div>
+								<div>
+									<p>最高100%  </p>
+									<p>采购融资 </p>
+								</div>
+								<div>
+									<p>最长90天   </p>
+									<p>融资期限  </p>
+								</div>
+								<div style="max-height: 16px;line-height: 16px;">多种还款方式 </div>
+								<button>立即申请</button>
+							</div>
+						  </div>
+						</div>
+						
+						<div class="card" >
+						  <div class="face front">
+						    <div class="financeLike">
+								<div>
+									<img src="img/cangkutong.png" />
+									<p>仓库通</p>
+									<span>针对存货业务</span>
+								</div>
+								<span class="FL1">
+									<p>最高100%   </p>
+									<span>采购融资</span>
+								</span>
+								<span class="FL2">
+									<p>最长90天    </p>
+									<span>融资期限</span>
+								</span>
+								<span class="FL3">多种还款方式 </span>
+								<span class="FL4">多种还款方式 </span>
+							</div>
+						  </div>
+						  <div class="face back cardAK">
+						    <div class="ddt">
+								<h1>仓库通</h1>
+								<div class="hasbord">针对存货业务</div>
+								<div>
+									<p>最高100%  </p>
+									<p>采购融资 </p>
+								</div>
+								<div>
+									<p>最长90天   </p>
+									<p>融资期限  </p>
+								</div>
+								<div style="max-height: 16px;line-height: 16px;">多种还款方式 </div>
+								<button>立即申请</button>
+							</div>
+						  </div>
+						</div>
+						
+						<div class="card" >
+						  <div class="face front">
+						    <div class="financeLike">
+								<div>
+									<img src="img/yufutong.png" />
+									<p>预付通</p>
+									<span>针对购货业务</span>
+								</div>
+								<span class="FL1">
+									<p>最高100%   </p>
+									<span>采购融资</span>
+								</span>
+								<span class="FL2">
+									<p>最长90天    </p>
+									<span>融资期限</span>
+								</span>
+								<span class="FL3">多种还款方式 </span>
+								<span class="FL4">多种还款方式 </span>
+							</div>
+						  </div>
+						  <div class="face back cardAK">
+						    <div class="ddt">
+								<h1>预付通</h1>
+								<div class="hasbord">针对购货业务</div>
+								<div>
+									<p>最高100%  </p>
+									<p>采购融资 </p>
+								</div>
+								<div>
+									<p>最长90天   </p>
+									<p>融资期限  </p>
+								</div>
+								<div style="max-height: 16px;line-height: 16px;">多种还款方式 </div>
+								<button>立即申请</button>
+							</div>
+						  </div>
+						</div>
+						
+						<div class="card" >
+						  <div class="face front">
+						    <div class="financeLike">
+								<div>
+									<img src="img/fukuantong.png" />
+									<p>付款通</p>
+									<span>针对付款业务</span>
+								</div>
+								<span class="FL1">
+									<p>最高100%   </p>
+									<span>采购融资</span>
+								</span>
+								<span class="FL2">
+									<p>最长90天    </p>
+									<span>融资期限</span>
+								</span>
+								<span class="FL3">多种还款方式 </span>
+								<span class="FL4">多种还款方式 </span>
+							</div>
+						  </div>
+						  <div class="face back cardAK">
+						    <div class="ddt">
+								<h1>付款通</h1>
+								<div class="hasbord">针对付款业务</div>
+								<div>
+									<p>最高100%  </p>
+									<p>采购融资 </p>
+								</div>
+								<div>
+									<p>最长90天   </p>
+									<p>融资期限  </p>
+								</div>
+								<div style="max-height: 16px;line-height: 16px;">多种还款方式 </div>
+								<button>立即申请</button>
+							</div>
+						  </div>
+						</div>
+						
+						<div class="financeBtm">
+							<span>申请流程</span>
+							<img src="img/liuchengImg.png" style="height: 100%;margin-left: 109px;"/>
+						</div>
+					</div>
+				</div>
+				<div class="wcTit"><span class="wcBigTit">物流服务</span><span class="wcSmTit">货源充足，大家买起来</span></div>
+				<div class="wcObjBox">
+					<div class="wcleftBox logisticsLeft">
+						<img src="img/logisticsIcon.png" class="logisticsIcon"/>
+						<p>路线咨询</p>
+						<div class="logisticsIpt">
+							<img src="img/iptDDNum.png" class="iptDDNum" />
+							<input type="text"  placeholder="输入交易订单号"/>
+						</div>
+						<div class="logisticsIpt" style="margin-bottom:0;">
+							<img src="img/iptWLNum.png" class="iptWLNum"/>
+							<input type="text"  placeholder="输入物流订单号"/>
+						</div>
+						<a href="##"><button><img src="img/iptSC.png" style="margin-right: 4px;vertical-align: middle;"/>路线查询</button></a>
+						<div class="zixunNumBox">
+							<p>
+								<img src="img/zixunNum.png" />
+								<span>资讯热线</span>
+							</p>
+							<p class="num">0991-23456</p>
+						</div>
+						<img src="img/wlkf.png" class="wlkf"/>
+					</div>
+					<a href="##" class="wlShiSchImg"><img src="img/shishichaxunWL.png" /></a>
+					<div class="RtBoxScroll">
+						<div class="rtTIT">
+							<span>实时委托 </span>             
+							<a href="##"><span>查看更多 ></span></a>
+						</div>
+						<div class="RtimeDele">
+							<div class="RtDItem">
+								<span class="num">1</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+							<div class="RtDItem">
+								<span class="num">2</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+							<div class="RtDItem">
+								<span class="num">3</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+							<div class="RtDItem">
+								<span class="num">4</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+							<div class="RtDItem">
+								<span class="num">5</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+							<div class="RtDItem">
+								<span class="num">6</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+							<div class="RtDItem">
+								<span class="num">7</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+							<div class="RtDItem">
+								<span class="num">8</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+							<div class="RtDItem">
+								<span class="num">9</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+							<div class="RtDItem">
+								<span class="num">10</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+							<div class="RtDItem">
+								<span class="num">11</span>
+								<span class="time">2018.03.01</span>
+								<span class="add">新疆乌鲁木齐  — 北京</span>
+								<span class="gg">片碱 1000吨</span>
+								<span class="type">已完成</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<div class="fxd">
+			<a href="##"><img src="img/indexKefu.png" style="margin-top: 9px;"/> </a>
+			<a href="##" id="showCd">
+				<img src="img/indexEcode.png"/> 
+				<div class="showCode">
+					<img src="img/fuwuhao.png" style="width: 57px;"/>
+				</div>
+			</a>
+			<a href="##" id="tousu"><img src="img/indedxBi.png"/> </a>
+			<a href="##" id="gotop"><img src="img/indexDing.png"/> </a>
+		</div>
+		<div class="tsBg"></div>
+		<div class="tsBox">
+			<div class="modeltitle" style="width: 100%;">
+	            <span>投诉建议</span>
+	            <img class="close" style="float: right;cursor: pointer;" height="50" src="img/gsxq_del.png" alt="" id="colseAlert">
+	        </div>
+			<!--<img src="img/breadcrumbCloseIcon.png" id="colseAlert"/>-->
+			<!--<p>投诉建议</p>-->
+			<div class="modelcontent" style="width: 100%;padding-top: 19px;">
+	            <div>
+					<span>资讯类别</span>
+					<select name="">
+						<option value="建议">建议</option>
+						<option value="投诉">投诉</option>
+					</select>
+				</div>
+				<div>
+					<span>联系人电话</span> <input type="text" placeholder="请输入手机号码"/>
+				</div>
+				<div>
+					<span>联系人 </span><input type="text" placeholder="请输入联系人"/>
+				</div>
+				<div style="height: auto;">
+					<span>问题描述 </span><textarea style="vertical-align: text-top;" placeholder="请输入您的问题"></textarea>
+				</div>
+	            <div class="modelBtnBox">
+	                <div style="background:#5690f6;" class="modelbtn confirm">立即提交</div>
+	            </div>
+	        </div>
+		</div>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mCustomScrollbar.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/html" id="bannerTm"> 
+			 <% for (i in list) { %>
+                <div class="swiper-slide" style="background: url(<%=list[i].picUrl%>) no-repeat;background-size: cover;background-position: center;">
+                		<a href="<%=list[i].link%>" style="display: block;width: 100%;height: 100%;"></a>
+                </div>
+		     <% } %>
+		</script>
+		<script type="text/html" id="objTj1"> 
+			 <% for (i in list) { %>
+                	<div objid="<%=list[i].supplyId%>" thisCmpId = "<%=list[i].publishCompanyId%>">
+					<div>
+						<div class="redRT">危</div>
+						<div class="objImg" style="background: url(<%=list[i].productPicList[0]%>) no-repeat;background-size:cover ;background-position:center ;"></div>
+						<div class="objTxt">
+							<p style="font-size: 14px;" class="pcep"><%=list[i].unitPrice%> <span style="font-size: 13px;">元/吨</span></p>
+							<span style="font-size: 14px;"><%=list[i].companyName%> </span>
+						</div>
+						<div class="hideInfo">
+							<div></div>
+							<div class="hidetxt">
+								<p>纯度：<%=list[i].productPurity%>  </p>
+								<p>级别：<%=list[i].levelName%></p>
+								<p>规格：<%=list[i].productSpecUnitStr%></p>
+								<h3>价格：<span>¥ <%=list[i].unitPrice%>/吨 </span></h3>
+							</div>
+						</div>
+					</div>
+				</div>
+		     <% } %>
+		</script>
+
+		<script type="text/html" id="hotSaleShopTpl">
+			<%for (i in list) {%>
+			<p class="hot_sale_a" data-chemicalId="<%=list[i].chemicalId%>"><a href="javascript:;"><span class="num">&nbsp;<%=(i-0+1)%></span><span class="span_name"><%=list[i].chemicalName%></span><span class="gg"><%=list[i].salesVolume%><%=list[i].productUnit%></span></a></p>
+			<%}%>
+			
+		</script>
+
+		<script type="text/javascript" >   
+
+			//点击跳转到账户（开始）
+			//发布采购需求
+			$(document).on("click", ".go_fbxq", function(){
+				var isOld = localStorage.getItem('isOld');
+				if(isOld != '2'){
+					var ttxt = $.trim($(this).text());
+					console.log(ttxt);
+					if(isOld == '1'){
+						$('#effect .contTitle span').text('您尚未登录');
+						missedLogin() ;
+					}else if(isOld == '0'){
+						missedLogin() ;
+					}else if(isOld == '-1'){
+						$('#effect .contTitle span').text('您尚未认证');
+						$('#effect .contTitle i').text('认证');
+						$('#popLogin').text('认证');
+						missedLogin() ;
+					}else if(isOld == '-2'){
+						$('#effect .contTitle span').text('您的认证正在审核中');
+						$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+						$('#popLogin').hide();
+						missedLogin() ;
+					}
+				}else{
+					window.location.href='account/account.html';
+					sessionStorage.setItem('hzf_showPage','flag_mfzh');
+				}
+			})
+
+			$(document).on('click', '.hot_sale_a', function() {
+				window.localStorage.setItem('jzSeachName', $(this).attr('data-chemicalid'));
+				window.location.href="search/productNameSearch_precise.html";
+			});
+
+			
+			var str = '';
+			//右侧报价订单数据显示
+			if (companyId) {
+				$.ajax({
+					type:"post",
+	                url:pubIP+"store/getStoreData",//v1.0
+	                cache:false,
+	                dataType: "json",
+	                headers: {
+	                    Accept: "application/json; charset=utf-8",
+	                    token: token
+	                },
+	                data: {
+	                    companyId: companyId
+	                },
+	                success: function(data){
+	                    console.log(data);
+
+
+	                    str += '<button class="go_fbxq">发布采购</button>'
+								+'<div class="go_dbj">待报价<span>('+data.data.waitOfferCount+')</span></div>'
+								+'<div class="go_sdbj">已收到的报价<span>('+data.data.getOfferCount+')</span></div>'
+								+'<div class="go_dcl">待处理的订单<span>('+data.data.treatedOrderCount+')</span></div>';
+
+						$('#baojia_caigou_info').html(str);
+
+	                },
+	                error: function(err) {
+	                	console.log(err);
+	                }
+				});
+			} else {
+
+				str += '<button class="go_fbxq">发布采购</button>'
+						+'<div class="go_dbj">待报价<span>(0)</span></div>'
+						+'<div class="go_sdbj">已收到的报价<span>(0)</span></div>'
+						+'<div class="go_dcl">待处理的订单<span>(0)</span></div>';
+
+				$('#baojia_caigou_info').html(str);
+			}
+			
+
+
+
+			//发布商品
+			$(document).on("click", ".hzf_fbsp", function(){
+				var isOld = localStorage.getItem('isOld');
+				if(isOld != '2'){
+					var ttxt = $.trim($(this).text());
+					console.log(ttxt);
+					if(isOld == '1'){
+						$('#effect .contTitle span').text('您尚未登录');
+						missedLogin() ;
+					}else if(isOld == '0'){
+						missedLogin() ;
+					}else if(isOld == '-1'){
+						$('#effect .contTitle span').text('您尚未认证');
+						$('#effect .contTitle i').text('认证');
+						$('#popLogin').text('认证');
+						missedLogin() ;
+					}else if(isOld == '-2'){
+						$('#effect .contTitle span').text('您的认证正在审核中');
+						$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+						$('#popLogin').hide();
+						missedLogin() ;
+					}
+				}else{
+					window.location.href='account/account.html';
+					sessionStorage.setItem('hzf_showPage','hzf_fbsp');
+				}
+			})
+			//待报价
+			$(document).on("click", ".go_dbj", function(){
+				var isOld = localStorage.getItem('isOld');
+				if(isOld != '2'){
+					var ttxt = $.trim($(this).text());
+					console.log(ttxt);
+					if(isOld == '1'){
+						$('#effect .contTitle span').text('您尚未登录');
+						missedLogin() ;
+					}else if(isOld == '0'){
+						missedLogin() ;
+					}else if(isOld == '-1'){
+						$('#effect .contTitle span').text('您尚未认证');
+						$('#effect .contTitle i').text('认证');
+						$('#popLogin').text('认证');
+						missedLogin() ;
+					}else if(isOld == '-2'){
+						$('#effect .contTitle span').text('您的认证正在审核中');
+						$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+						$('#popLogin').hide();
+						missedLogin() ;
+					}
+				}else{
+					window.location.href='account/account.html';
+					sessionStorage.setItem('hzf_showPage','flag_wdbj');
+				}
+			})
+			//已经收到的报价
+			$(document).on("click", ".go_sdbj", function(){
+				var isOld = localStorage.getItem('isOld');
+				if(isOld != '2'){
+					var ttxt = $.trim($(this).text());
+					console.log(ttxt);
+					if(isOld == '1'){
+						$('#effect .contTitle span').text('您尚未登录');
+						missedLogin() ;
+					}else if(isOld == '0'){
+						missedLogin() ;
+					}else if(isOld == '-1'){
+						$('#effect .contTitle span').text('您尚未认证');
+						$('#effect .contTitle i').text('认证');
+						$('#popLogin').text('认证');
+						missedLogin() ;
+					}else if(isOld == '-2'){
+						$('#effect .contTitle span').text('您的认证正在审核中');
+						$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+						$('#popLogin').hide();
+						missedLogin() ;
+					}
+				}else{
+					window.location.href='account/account.html';
+					sessionStorage.setItem('hzf_showPage','flag_wdbj_sdbj');
+				}
+			})
+			//待处理订单
+			$(document).on("click", ".go_dcl", function(){
+				var isOld = localStorage.getItem('isOld');
+				if(isOld != '2'){
+					var ttxt = $.trim($(this).text());
+					console.log(ttxt);
+					if(isOld == '1'){
+						$('#effect .contTitle span').text('您尚未登录');
+						missedLogin() ;
+					}else if(isOld == '0'){
+						missedLogin() ;
+					}else if(isOld == '-1'){
+						$('#effect .contTitle span').text('您尚未认证');
+						$('#effect .contTitle i').text('认证');
+						$('#popLogin').text('认证');
+						missedLogin() ;
+					}else if(isOld == '-2'){
+						$('#effect .contTitle span').text('您的认证正在审核中');
+						$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+						$('#popLogin').hide();
+						missedLogin() ;
+					}
+				}else{
+					window.location.href='account/account.html';
+					sessionStorage.setItem('hzf_showPage','flag_wdbj_dcl');
+				}
+			})
+			//点击跳转到账户（结束）
+
+			$('.tsBg').height($(window).height());
+			
+			$(document).on('mouseover','.wcCtObjBox>div',function(){
+				$(this).find('.pcep').css('opacity','0');
+				$(this).find('.hideInfo').show();
+			})
+			$(document).on('mouseleave','.wcCtObjBox>div',function(){
+				$(this).find('.pcep').css('opacity','1');
+				$(this).find('.hideInfo').hide();
+			})
+			
+			
+			$(".RtimeDele").mCustomScrollbar();
+			$('#colseAlert').click(function(){
+				$('.tsBg').hide();
+				$('.tsBox').hide();
+			})
+			$('#tousu').click(function(){
+				$('.tsBg').show();
+				$('.tsBox').fadeIn();
+			})
+			$(document).on('click','.wcCtTab>span',function(){
+				$('.act').removeClass('act');
+				$(this).addClass('act');
+			})
+
+			//热销商品列表
+			$.ajax({
+				type:"get",
+		        url:pubIP+"buyingInfo/getHotSale",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+		        success: function(data){
+		        	console.log(data);
+
+		        	var result = template('hotSaleShopTpl', {list: data.data});
+                    $('#hotSaleShopInfo').html(result);
+
+		        },
+		        error: function (err) {
+		        	console.log(err);
+		        }
+		    });
+
+
+
+			//热门供应商列表
+			// $.ajax({
+			// 	type:"post",
+		 //        url:pubIP+"store/getStoreWithHome",//v1.0
+		 //        cache:false,
+		 //        dataType: "json",
+		 //        async:false,
+		 //        headers: {
+   //                  Accept: "application/json; charset=utf-8",
+   //                  token: token
+   //              },
+		 //        success: function(data){
+		 //        	console.log(data);
+
+		 //        	var str = '';
+		 //        	if (data.data && data.data.length > 0) {
+
+		 //        		for (var i = 0; i < data.data.length; i++) {
+		 //        			str += '<div data-companyId="'+data.data[i].companyId+'"  data-storeId="'+data.data[i].storeId+'">'
+			// 						+'<a href="javascript:;"><div class="supplierLogo" style="background: url('+data.data[i].storeImage+') no-repeat; background-position: center;background-size:contain ;"></div></a>'
+			// 					+'</div>';
+		 //        		}
+
+		 //        		$('.supplierBox').html(str);
+		 //        	}
+		 //        },
+		 //        error: function(err) {
+		 //        	console.log(err);
+		 //        }
+			// });
+
+			// $(document).on('click','.supplierBox div', function () {
+			// 	window.localStorage.setItem('thisCompanyId', $(this).attr('data-companyId'));
+			// 	window.location.href="shopManage/storeIndex.html";
+			// });
+
+
+
+			$.ajax({
+				type:"post",
+		        url:pubIP+"advertisement/findAdvertisementByPosition",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                	position: 86
+                },
+		        success: function(data){
+		        	console.log(data);
+
+		        	var str = '';
+		        	if (data.data && data.data.length > 0) {
+
+		        		for (var i = 0; i < data.data.length; i++) {
+		        			str += '<div data-companyId="'+data.data[i].companyId+'">'
+									+'<a href="javascript:;"><div class="supplierLogo" style="background: url('+data.data[i].url+') no-repeat; background-position: center;background-size:contain ;"></div></a>'
+								+'</div>';
+		        		}
+
+		        		$('.supplierBox').html(str);
+		        	}
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    });
+
+		    $(document).on('click','.supplierBox div', function () {
+				window.localStorage.setItem('thisCompanyId', $(this).attr('data-companyid'));
+				window.location.href="shopManage/storeIndex.html";
+			});
+
+
+			var timer;
+
+
+			//采购资源
+			$.ajax({
+				type:"get",
+		        url:pubIP+"buyingInfo/getHomePageBuyingInfo",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        data:{
+		        	size: 4
+		        },
+		        success: function(data){
+		        	console.log(data);
+
+		        	var str = '';
+		        	for (var i = 0; i < data.data.length; i++) {
+		        		
+		        		data.data[i].deliveryJson = JSON.parse(data.data[i].deliveryJson);
+		        	
+			        	str += '<div>'
+								+'<h3>'+data.data[i].chemicalName+'</h3>'
+								+'<p>数量: <span class="mr24">'+data.data[i].remain+'吨</span>交货地: '+data.data[i].deliveryJson.warehouseProvince+' <span class="bjNum">已有<span>'+data.data[i].allQuoteNumber+'</span>家报价</span></p>'
+								+'<div>'
+									+'<a href="javascript:;" class="liji_baojia" data-baojiaid_id="'+data.data[i].buyingId+'"><button>立即报价</button></a>'
+									+'<p class="lastTimetxt">剩余时间：</p>'
+									+'<p class="lasrTimeNum" id="distanceTime'+i+'">'
+										+'<span>00</span>天'
+										+'<span>24</span>时'
+										+'<span>09</span>分'
+										+'<span>56</span>秒'
+									+'</p>'
+								+'</div>'
+							+'</div>';
+					}
+
+					$('#caigouResourceInfo').html(str);
+
+					for (var i = 0; i < data.data.length; i++) {
+
+                		var time2 = new Date(data.data[i].validityData).Format("yyyy-MM-dd,hh:mm:ss");
+                		
+                		distanceTime2("distanceTime"+i+"", time2);
+                	}
+
+
+		        	// var result1 = template('caigouResourceTpl', {list: data.data});
+           //          $('#caigouResourceInfo').html(result1);
+
+		        },
+		        error: function (err) {
+		        	console.log(err);
+		        }
+			});
+
+			//立即报价
+			$(document).on('click', '.liji_baojia', function () {
+
+				window.localStorage.setItem('baojiaid', $(this).attr('data-baojiaid_id'));
+
+				$(this).attr('href', 'freeSearch/offer.html');
+			});
+
+			function distanceTime2(id, deadtime) {  
+                var endtime = new Date(deadtime); //结束时间  
+                var nowtime = new Date(); //当前时间  
+                var lefttime = parseInt(((endtime.getTime() - nowtime.getTime()) / 1000));  
+                //parseInt可以只取整数部分，返回一个整数  
+                var d = parseInt(lefttime / (24 * 60 * 60));  
+                var h = parseInt(lefttime / (60 * 60) % 24);  
+                var m = parseInt((lefttime / 60) % 60);  
+                var s = lefttime % 60; 
+                if (d < 0) {
+                	d = '0' + d;
+                }
+
+                if (h < 0) {
+                	h = '0' + h;
+                }
+
+                if (m < 0) {
+                	m = '0' + m;
+                }
+
+                if (s < 0) {
+                	s = '0' + s;
+                }
+
+                if (document.getElementById(id) == null) {
+                	return false;
+                }
+
+                document.getElementById(id).innerHTML = '<span>'+d+'</span>天'
+        				+'<span>'+h+'</span>时'
+        				+'<span>'+m+'</span>分'
+        				+'<span>'+s+'</span>秒'
+                	// d + '天' + h + '时' + m + '分' + s + '秒';  
+                if(lefttime <= 0) {  
+                    document.getElementById(id).innerHTML = '<span>00</span>天'
+        				+'<span>00</span>时'
+        				+'<span>00</span>分'
+        				+'<span>00</span>秒';  
+                    clearTimeout(timer);  
+                }  
+                timer = setTimeout("distanceTime2('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  
+            }
+
+
+			$.ajax({ 
+	          type:"post",
+	          url:pubIP+"advertisement/getAdvertisementByPosition",//v1.0
+	          cache:false,
+	          dataType: "json",
+	          async:false,
+	          data:{
+	        	  'position':'1'
+	          },
+	          success: function(json){
+	            //console.log(json);
+	            var result =  template("bannerTm",{list:json.data});
+	            $('.swiper-wrapper').append(result);
+	            var mySwiper = new Swiper ('.swiper-container', {
+				    loop: true,
+				    autoplay : 5000,
+				    pagination: '.swiper-pagination',
+				    paginationClickable: true
+				})       
+	          },
+	          error:function(xhr,statues,error){
+	              
+	          }
+	       });
+
+
+			//网络公告
+	       $.ajax({
+	       		type:"post",
+		        url:pubIP+"platform/getNetArticle",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        success: function(json){
+		        	//console.log(json);
+		        	var str = '';
+		        	for (var i = 0; i < json.data.length; i++) {
+		        		str += '<p style="height: 44px; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2;display: -webkit-box; -webkit-box-orient: vertical;" data-id = '+json.data[i].articleid+'><a href="industryInformation/industryInformationDeatils.html">【公告】<span>'+json.data[i].description+'</span></a></p>';
+		        	}
+
+		        	$('.webInfoScroll .wiBox').html(str);
+
+		        },
+		        error:function(error){
+		            console.log(error);
+		        }
+
+	       });
+
+	        $('.webInfoScroll .wiBox p').on('click', function () {
+                window.localStorage.setItem('id',$(this).attr('data-id'));
+            });
+
+
+	       var msgTop = 65;
+	       var msgTime = null;
+	       scrollInfo();
+	       function scrollInfo(){
+		       msgTime = setInterval(function(){
+		       		if(msgTop > $('.wiBox p').length*65-130){
+		       			msgTop = 0;
+		       		}
+		       		$('.wiBox').animate({'marginTop':'-'+msgTop+'px'});
+		       		msgTop+=65;
+		       },3000);
+	       }
+	       
+	       $('.webInfoScroll').hover(function(){
+	       		clearInterval(msgTime);
+	       },function(){
+	       		scrollInfo();
+	       })
+	       
+	       $('.financeR .card').hover(function(){
+	       		$(this).addClass('card-flipped');
+	       },function(){
+	       		$(this).removeClass('card-flipped');
+	       })
+	       //推荐1
+		   $.ajax({ 
+	          type:"get",
+	          url:pubIP+"productApi/getProductListByRecommend",//v1.0
+	          cache:false,
+	          dataType: "json",
+	          data:{
+	        	  'size':'6',
+	        	  'place':1
+	          },
+	          success: function(json){
+	            console.log(json);
+	            if(json.code != 1){
+	            		alert(json.msg);
+	            		return false;
+	            }
+	            var result =  template("objTj1",{list:json.data});
+	            $('.wcCtObjBox').html(result);
+	            $('.wcCtObjBox>div:nth-child(3n)').css('padding-right','0');
+	          },
+	          error:function(xhr,statues,error){
+	              
+	          }
+	       });
+	       
+	       $(document).on('click','.wcCtObjBox>div',function(){
+	       		localStorage.setItem('objid',$(this).attr('objid'));
+	       		localStorage.setItem('thisCompanyId',$(this).attr('thisCmpId'));
+	       		location.href = 'obj/objDetails.html';
+	       })
+	       
+	       //拦截链接
+	       $(document).on('click','a',function(e){
+	       		e.preventDefault();
+	       		var isOld = localStorage.getItem('isOld');
+	       		if(isOld != '2'){
+	       			var ttxt = $.trim($(this).text());
+	       			console.log(ttxt);
+	       			if(ttxt == '用户中心' || ttxt == '发布商品' || ttxt == '发布采购' || ttxt == '立即报价' || ttxt == '路线查询' || ttxt == '立即申请' || ttxt == '发布求购' ){
+	       				if(isOld == '1'){
+	       					$('#effect .contTitle span').text('您尚未登录');
+							missedLogin() ;
+	       				}else if(isOld == '0'){
+	       					missedLogin() ;
+	       				}else if(isOld == '-1'){
+	       					$('#effect .contTitle span').text('您尚未认证');
+	       					$('#effect .contTitle i').text('认证');
+	       					$('#popLogin').text('认证');
+							missedLogin() ;
+	       				}else if(isOld == '-2'){
+	       					$('#effect .contTitle span').text('您的认证正在审核中');
+	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	       					$('#popLogin').hide();
+							missedLogin() ;
+	       				}
+	       			}else{
+	       				window.location.href = this.href;
+	       			}
+	       		}else{
+	       			window.location.href = this.href;
+	       		}
+	       })
+	  </script>
+	</body>
+</html>

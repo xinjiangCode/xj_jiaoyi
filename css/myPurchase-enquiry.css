@@ -1,0 +1,255 @@
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+.main {
+    width: 986px;
+    color: #282828;
+    background: #fff;
+}
+.myPurchase-title{
+    font-size: 16px;
+    height: 48px;
+    border: 1px solid #EBE9EA;
+    line-height: 48px;
+}
+.myPurchase-title .Lf{
+    margin-left: 18px;
+}
+.myPurchase-tab{
+    height: 50px;
+    border: 1px solid #EBE9EA;
+    border-top: none;
+    line-height: 50px;
+    font-size: 16px;
+}
+.myPurchase-tab span{
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    cursor: pointer;
+}
+.myPurchase-tab span::before{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: #5590F6;
+    transform: scaleX(0);
+    transform-origin: 100% 0;
+    transition: transform 0.5s;
+}
+.myPurchase-tab span:hover::before{
+    transform: scaleX(1);
+    transform-origin: 0 0;
+}
+.myPurchase-tab span:nth-child(1){
+    margin-left: 18px;
+}
+.myPurchase-tab span:nth-child(2){
+    margin-left: 65px;
+}
+.myPurchase-tab span:nth-child(3){
+    margin-left: 74px;
+}
+.myPurchase-tab span:nth-child(4){
+    margin-left: 65px;
+}
+.myPurchase-tab span:nth-child(5){
+    margin-left: 65px;
+}
+.myPurchase-tab span:nth-child(6){
+    margin-left: 65px;
+}
+.myPurchase-tab span:nth-child(7){
+    margin-left: 65px;
+}
+.active{
+    color: #5590F6;
+    position: relative;
+}
+.myPurchase-tab .active::before{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: #5590F6;
+    transform: scaleX(1);
+    transform-origin: 0 0;
+}
+
+.purchaseInfo{
+    padding-top: 30px;
+    padding-bottom: 13px;
+    border: 1px solid #EBE9EA; 
+    border-top: none;
+}
+.purchaseInfo label{
+    display: inline-block;
+    width: 333px;
+    margin-left: 57px;
+    line-height: 35px;
+}
+.purchaseInfo input{
+    box-sizing: border-box;
+    float: right;
+    width: 254px;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 10px;
+    border: 1px solid #EBE9EA;
+    vertical-align: middle;
+}
+.purchaseInfo .enquiryDate{
+    width: 115px;
+}
+.purchaseInfo .enquiryDateLine{
+    float: right;
+    width: 10px;
+    height: 2px;
+    background: #D3D3D3;
+    margin: 15px 5px 0;
+}
+.purchaseInfo div{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.purchaseInfo .btn{
+    float: right;
+    width:99px; 
+    height:35px;
+    margin-right: 40px;
+    text-align: center;
+    line-height: 35px;
+    border: 1px solid #EBE9EA;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.purchaseInfo .search{
+    background: #5590F6;
+}
+.purchaseInfo .reset{
+    background: #fff;
+}
+
+/* myPurchase-orders */
+.myPurchase-orders .orderItem{
+    margin-bottom: 12px;
+    font-size: 14px;
+    border: 1px solid #EBE9EA;
+}
+.myPurchase-orders .orderItem:nth-child(1){
+    border-top: none;
+}
+.orderItem .orderItemHeader{
+    padding-right: 24px;
+    padding-left: 60px;
+    line-height: 33px;
+    font-size:12px;
+    color:rgba(102,102,102,1);
+    background: #FDFDFD;
+    border-bottom: 1px solid #EBE9EA;
+}
+.orderItemHeader span:nth-child(2){
+    margin-left: 184px;
+}
+.orderItem .orderItemCont{
+    height: 89px;
+    /* border-bottom: 1px solid #EBE9EA; */
+    line-height: 89px;
+}
+.orderContItem{
+    float: left;
+}
+.orderItemCont .orderNum{
+    width: 60px;
+    font-size:11px; 
+    font-family:MicrosoftYaHei;
+    color:rgba(255,255,255,1);
+}
+.orderNum span{
+    margin-left: 21px;
+    margin-top: 30px;
+    line-height: 18px;
+    text-align: center;
+    display: inline-block;
+    width:18px;
+    height:18px; 
+    background:rgba(176,205,255,1);
+    border-radius: 50%;
+}
+
+.orderItemCont .orderName{
+    margin-top: 20px;
+    width: 190px;
+    font-size:16px; 
+    color:rgba(40,40,40,1);
+    line-height:23px; 
+}
+.orderItemCont .orderNumber{
+    width: 185px;
+    text-align: center;
+}
+
+.orderItemCont .orderPayWay{
+    width: 176px;
+    text-align: center;
+}
+
+.orderItemCont .buyerMoney{
+    width: 133px;
+    text-align: center;
+}
+
+.orderItemCont .toSure{
+    width: 112px;
+    text-align: center;
+}
+.toSure.finshed{
+    background-image: url(../img/mp_ywc.png);
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 22px 15px;
+}
+.toSure.quxiao{
+    /*background-image: url(../img/mp_yjj.png);*/
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 22px 15px;
+}
+.orderItemCont .orderViewdetail{
+    margin-left: 20px;
+    margin-top: 29px;
+    width:78px;
+    height:30px; 
+    border-radius: 2px;
+    background: #5590F6;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+.red{
+    color: #FF4A4A;
+}
+.blue{
+    color: #5590F6;
+}
+.green{
+    color: #79C254;
+}
+.yellow{
+    color: #FF7550;
+}

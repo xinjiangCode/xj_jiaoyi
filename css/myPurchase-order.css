@@ -1,0 +1,245 @@
+body{
+    background-color: white;
+}
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+.main {
+    width: 986px;
+    color: #282828;
+    background: #fff;
+}
+.myPurchase-title{
+    font-size: 16px;
+    height: 48px;
+    border: 1px solid #EBE9EA;
+    line-height: 48px;
+}
+.myPurchase-title .Lf{
+    margin-left: 18px;
+}
+.myPurchase-title .Rt{
+    margin-right: 16px;
+    margin-top: 11px;
+    width:272px;
+    height:30px;
+    line-height: 30px; 
+    border-radius: 15px;
+    background-image: url(../img/mp_search.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 42px 30px;
+    background-color:rgba(245,245,245,1);
+}
+.myPurchase-title .Rt input{
+    box-sizing: border-box;
+    width: 230px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    padding-left: 17px;
+    border: none;
+    outline: none;
+    background:rgba(245,245,245,1);
+}
+.myPurchase-tab{
+    height: 50px;
+    border: 1px solid #EBE9EA;
+    border-top: none;
+    line-height: 50px;
+    font-size: 16px;
+}
+.active{
+    color: #5590F6;
+    position: relative;
+}
+.myPurchase-tab .active::before{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: #5590F6;
+    transform: scaleX(1);
+    transform-origin: 0 0;
+}
+.myPurchase-tab span{
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    cursor: pointer;
+}
+.myPurchase-tab span::before{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: #5590F6;
+    transform: scaleX(0);
+    transform-origin: 100% 0;
+    transition: transform 0.5s;
+}
+.myPurchase-tab span:hover::before{
+    transform: scaleX(1);
+    transform-origin: 0 0;
+}
+.myPurchase-tab span:nth-child(1){
+    margin-left: 18px;
+}
+.myPurchase-tab span:nth-child(2){
+    margin-left: 65px;
+}
+.myPurchase-tab span:nth-child(3){
+    margin-left: 70px;
+}
+.myPurchase-tab span:nth-child(4){
+    margin-left: 65px;
+}
+.myPurchase-tab span:nth-child(5){
+    margin-left: 65px;
+}
+.myPurchase-status{
+    height: 42px;
+    line-height: 42px;
+    font-size:14px;
+    color:rgba(79,79,79,1);
+    border-left: 1px solid #EBE9EA;
+    border-right: 1px solid #EBE9EA;
+    border-bottom: 1px solid #EBE9EA;
+    padding-left: 60px;
+}
+.myPurchase-status span{
+    display: block;
+    float: left;
+}
+.myPurchase-status span:nth-child(1){
+    width: 190px;
+    text-align: center;
+}
+.myPurchase-status span:nth-child(2),
+.orderItemCont .orderPurity{
+    width: 165px;
+    text-align: center;
+}
+.myPurchase-status span:nth-child(3),
+.orderItemCont .orderQuantity{
+    width: 95px;
+    text-align: center;
+}
+.myPurchase-status span:nth-child(4),
+.orderItemCont .buyerName{
+    width: 133px;
+    text-align: center;
+}
+.myPurchase-status span:nth-child(5),
+.orderItemCont .sumMoney{
+    width: 95px;
+    text-align: center;
+}
+.myPurchase-status span:nth-child(6),
+.orderItemCont .orderStatus{
+    width: 126px;
+    text-align: center;
+}
+.myPurchase-status span:nth-child(7){
+    width: 120px;
+    text-align: center;
+}
+/* myPurchase-orders */
+.myPurchase-orders .orderItem{
+    margin-bottom: 12px;
+    font-size: 14px;
+    border: 1px solid #EBE9EA;
+}
+.myPurchase-orders .orderItem:nth-child(1){
+    border-top: none;
+}
+.orderItem .orderItemHeader{
+    padding-right: 24px;
+    padding-left: 60px;
+    line-height: 33px;
+    font-size:12px;
+    color:rgba(102,102,102,1);
+    background: #FDFDFD;
+    border-bottom: 1px solid #EBE9EA;
+}
+.orderItem .orderItemCont{
+    height: 89px;
+    /* border-bottom: 1px solid #EBE9EA; */
+    line-height: 89px;
+}
+.orderContItem{
+    float: left;
+}
+.orderItemCont .orderNum{
+    width: 60px;
+    font-size:11px; 
+    font-family:MicrosoftYaHei;
+    color:rgba(255,255,255,1);
+}
+.orderNum span{
+    margin-left: 21px;
+    margin-top: 30px;
+    line-height: 18px;
+    text-align: center;
+    display: inline-block;
+    width:18px;
+    height:18px; 
+    background:rgba(176,205,255,1);
+    border-radius: 50%;
+}
+.orderItemCont .orderName{
+    margin-top: 20px;
+    width: 190px;
+    font-size:16px; 
+    color:rgba(40,40,40,1);
+    line-height:23px; 
+}
+.orderItemCont .orderPurity{
+    color: #5590F6;
+}
+.orderItemCont .sumMoney{
+    line-height: 23px;
+    margin-top: 25px;
+}
+.orderItemCont .sumMoney .money{
+    line-height: 23px;
+    color: #FF7550;
+}
+.orderItemCont .orderStatus{
+    color: #79C254;
+}
+.orderItemCont .orderViewdetail{
+    margin-left: 20px;
+    margin-top: 29px;
+    width:78px;
+    height:30px; 
+    border-radius: 2px;
+    background: #5590F6;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+.red{
+    color: #FF4A4A;
+}
+.blue{
+    color: #5590F6;
+
+}
+.green{
+    color: #79C254;
+}

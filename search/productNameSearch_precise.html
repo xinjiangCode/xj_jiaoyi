@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title>新疆化学品经营服务平台</title>
+		<!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mCustomScrollbar.css"/> -->
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/home.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/search/productNameSearch_precise.css"/>
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/* .leftTabBox{
+				display: block;
+			} */
+			/*.tabLinkMaxBox{
+				border-bottom: none;
+			}*/
+			.search_left_top{
+				width: 325px;
+				height: 381px;
+				position: relative;
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+			.search_left_top .img1{
+				width: 205px;
+				height: 185px;
+				box-sizing: border-box;
+			}
+			.search_left_top .img1 img{
+				width: 100%;
+				height: 100%;
+			}
+			.search_left_top .weiIcon{
+				position:absolute ;
+				right: 16px;
+				top: -1px;
+			}
+			.search_left_top .huaxue_name{
+				max-height: 18px;
+				line-height: 18px;
+			}
+			.search_left_top .cas_num{
+				max-height: 14px;
+				line-height: 14px;
+				margin-bottom: 13px;
+			}
+			.search_left_bottom{
+				display: none;
+			}
+
+			.search_select select:first-child {
+			    margin-left: 10px;
+			}
+
+			.search_select select {
+				margin-left: 1px;
+			}
+
+			.selected1 ul li {
+				margin-left: 10px;
+				width: 96px;
+				display: none;
+			}
+
+			.selected1 ul li:nth-child(1) {
+				margin-left: 0px;
+			}
+
+			.search_precise_list ul li .search_title span>img {
+			    margin-left: 5px;
+			}
+
+			.li {
+				text-align: center;
+			}
+
+			.search_precise_list ul li .list ul li .gc {
+				margin-right: 0px;
+				width: 340px;
+			}
+
+			.disnone {
+				display: none;
+			}
+
+			.li span {
+				cursor: pointer;
+			}
+
+
+		</style>
+	</head>
+	<body>
+	<!--产品搜索 精准搜索-->
+		<div class="main" style="height: 700px;margin-top: 10px;">
+			<!--<div class="mianbao_nav">
+				<ul class="clearfix">
+					<li>首页&nbsp;></li>
+					<li>&nbsp;免费找货</li>
+				</ul>
+			</div>-->
+			<div class="clearfix">
+				<div class="fl left">
+					<div class="search_left_top">
+						<img src="../img/weiqi.png" class="weiIcon"/>
+						<div class="img1"><img src="../img/search_pic1.jpg" alt=""></div>
+						<div class="padd">
+							<p class="huaxue_name">氢氧化钠</p>
+							<p class="cas_num">CAS号：84-74-2</p>
+							<p class="cas_num">别称：邻酞酸二丁酯、邻苯二甲酸二丁酯</p>
+						</div>
+						<div class="left_btn">共7家供应商</div>
+					</div>
+					<div class="search_left_center">
+						<a href="javascript:;">查看化学品详细信息<img src="../img/search_left_xiajiantou.png" alt=""></a>
+					</div>
+					<div class="search_left_bottom" id="searchLeftBottomInfo">
+						<!-- <ul>
+							<li class="clearfix"><span class="fl">用途：</span><div class="fl div1">用于制特种肥皂/杀虫剂，也用于硬水软化/甜菜糖精制/锅炉除垢/玻璃润滑等，用于有机合成好/和钡盐制备</div></li>
+							<li class="clearfix"><span class="fl">危险类列：</span><div class="fl div2">第8.2类 碱性腐蚀品</div></li>
+							<li class="clearfix"><span class="fl">外观与形状：</span><div class="fl div3">无臭白色固体</div></li>
+							<li class="clearfix"><span class="fl">化学式：</span><div class="fl div4">HNaO</div></li>
+							<li class="clearfix"><span class="fl">熔点：</span><div class="fl div5">318</div></li>
+							<li class="clearfix"><span class="fl">沸点：</span><div class="fl div6">1388</div></li>
+							<li class="clearfix"><span class="fl">PH值：</span><div class="fl div7">ddwdw</div></li>
+							<li class="clearfix"><span class="fl">闪点：</span><div class="fl div8">ddwdw</div></li>
+							<li class="clearfix"><span class="fl">溶解性：</span><div class="fl div9">易溶于水/乙醇/甘油，不溶于丙醇</div></li>
+							<li class="clearfix"><span class="fl">稳定性：</span><div class="fl div10">稳定</div></li>
+							<li class="clearfix"><span class="fl">敏感性：</span><div class="fl div11">潮湿空气</div></li>
+							<li class="clearfix"><span class="fl">禁配物：</span><div class="fl div12">强酸/易燃或可燃物/二氧化碳/过氧化物/水</div></li>
+							<li class="clearfix"><span class="fl">UN编号：</span><div class="fl div13">1823</div></li>
+							<li class="clearfix"><span class="fl">CN编号：</span><div class="fl div14">82001</div></li>
+						</ul> -->
+					</div>
+				</div>
+				<div class="fr right">
+					<div class="info">
+						共有<span>4</span>种不同规格的产品 现销售：<span>￥200 RMB</span>起
+					</div>
+					<div class="search_select">
+						<select name="" id="vendor" class="n1">
+							<option value="">供应商类型</option>
+							<option value="0">厂家</option>
+							<option value="1">贸易商</option>
+							<option value="2">终端</option>
+						</select>
+						<select name="" id="guige_size" class="n2">
+							<option value="">规格</option>
+							<option value="1">规格2</option>
+						</select>
+						<select name="" id="purity_chundu" class="n3">
+							<option value="">纯度</option>
+							<option value="1">纯度2</option>
+						</select>
+						<select name="" id="payment" class="n4">
+							<option value="">支付方式</option>
+							<option value="1">现汇</option>
+							<option value="2">承兑汇票</option>
+							<option value="3">现汇+承兑</option>
+						</select>
+						<select name="province" id="province" class="n5">
+							<option value="">请选择省</option>
+						</select>
+						<select name="city" id="city" class="n6">
+							<option value="">请选择市</option>
+						</select>
+						<select name="area" id="area" class="n7">
+							<option value="">请选择区</option>
+						</select>
+					</div>
+					<div></div>
+					<div class="selected1 clearfix">
+						<span class="fl">您已选择 &nbsp;> &nbsp;</span>
+						<ul class="clearfix fl">
+							<li class="gys_select" data-isSelect="0" data-n='n1'><span></span><img class="select_close_png" src="../img/select_close.png" alt=""></li>
+							<li class="gg_select" data-isSelect="0" data-n='n2'><span></span><img class="select_close_png" src="../img/select_close.png" alt=""></li>
+							<li class="cd_select" data-isSelect="0" data-n='n3'><span></span><img class="select_close_png" src="../img/select_close.png" alt=""></li>
+							<li class="pay_select" data-isSelect="0" data-n='n4'><span></span><img class="select_close_png" src="../img/select_close.png" alt=""></li>
+							<li class="province_provice" data-isSelect="0" data-n='n5'><span></span><img class="select_close_png" src="../img/select_close.png" alt=""></li>
+							<li class="city_city" data-isSelect="0" data-n='n6'><span></span><img class="select_close_png" src="../img/select_close.png" alt=""></li>
+							<li class="area_area" data-isSelect="0" data-n='n7'><span></span><img class="select_close_png" src="../img/select_close.png" alt=""></li>
+						</ul>
+					</div>
+					<div class="search_precise_list">
+						<ul id="searchPreciseListInfo">
+							<!-- <li>
+								<div class="search_title">
+									<img src="../img/search_tuijian.png" alt="">
+									<span class="title img_title">新疆中顺鑫和供应链管理股份有限责任公司</span>
+									<span>
+										<img src="../img/cf_qiye.png" alt="">
+										<img src="../img/cf_weixian.png" alt="">
+										<img src="../img/search_mao.png" alt="">
+										<img src="../img/search_sheng.png" alt="">
+									</span>
+								</div>
+								<div class="list">
+									<ul>
+										<li>
+											<div class="inline-block gc">
+												<img src="../img/search_list_guige.jpg" alt="">
+												<span class="guige_chundu">规格：25kg/袋</span>
+												<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+												<span class="guige_chundu">纯度：98%</span>
+											</div>
+											<div class="inline-block">
+												<span class="money">￥<span>200.00</span>元/吨</span>
+											</div>
+											<a href="##"><span class="xunpan">立即询盘</span></a>
+										</li>
+										<li>
+											<div class="inline-block gc">
+												<img src="../img/search_list_guige.jpg" alt="">
+												<span class="guige_chundu">规格：25kg/袋</span>
+												<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+												<span class="guige_chundu">纯度：98%</span>
+											</div>
+											<div class="inline-block">
+												<span class="money">￥<span>200.00</span>元/吨</span>
+											</div>
+											<a href="##"><span class="xunpan">立即询盘</span></a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div class="search_title">
+									<span class="title">新疆中顺鑫和供应链管理股份有限责任公司</span>
+									<span>
+										<img src="../img/cf_qiye.png" alt="">
+										<img src="../img/cf_weixian.png" alt="">
+										<img src="../img/search_mao.png" alt="">
+									</span>
+								</div>
+								<div class="list developer">
+									<ul>
+										<li>
+											<div class="inline-block gc">
+												<img src="../img/search_list_guige.jpg" alt="">
+												<span class="guige_chundu">规格：25kg/袋</span>
+												<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+												<span class="guige_chundu">纯度：98%</span>
+											</div>
+											<div class="inline-block">
+												<span class="money">￥<span>200.00</span>元/吨</span>
+											</div>
+											<a href="##"><span class="xunpan">立即询盘</span></a>
+										</li>
+										<li>
+											<div class="inline-block gc">
+												<img src="../img/search_list_guige.jpg" alt="">
+												<span class="guige_chundu">规格：25kg/袋</span>
+												<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+												<span class="guige_chundu">纯度：98%</span>
+											</div>
+											<div class="inline-block">
+												<span class="money">￥<span>200.00</span>元/吨</span>
+											</div>
+											<a href="##"><span class="xunpan">立即询盘</span></a>
+										</li>
+										<li>
+											共有4中规格 <span>展开&nbsp; <img src="../img/search_left_xiajiantou.png" alt=""></span>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div class="search_title">
+									<span class="title">新疆中顺鑫和供应链管理股份有限责任公司</span>
+									<span>
+										<img src="../img/cf_qiye.png" alt="">
+										<img src="../img/cf_weixian.png" alt="">
+									</span>
+								</div>
+								<div class="list developer">
+									<ul>
+										<li>
+											<div class="inline-block gc">
+												<img src="../img/search_list_guige.jpg" alt="">
+												<span class="guige_chundu">规格：25kg/袋</span>
+												<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+												<span class="guige_chundu">纯度：98%</span>
+											</div>
+											<div class="inline-block">
+												<span class="money">￥<span>200.00</span>元/吨</span>
+											</div>
+											<a href="##"><span class="xunpan">立即询盘</span></a>
+										</li>
+										<li>
+											<div class="inline-block gc">
+												<img src="../img/search_list_guige.jpg" alt="">
+												<span class="guige_chundu">规格：25kg/袋</span>
+												<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+												<span class="guige_chundu">纯度：98%</span>
+											</div>
+											<div class="inline-block">
+												<span class="money">￥<span>200.00</span>元/吨</span>
+											</div>
+											<a href="##"><span class="xunpan">立即询盘</span></a>
+										</li>
+										<li>
+											<div class="inline-block gc">
+												<img src="../img/search_list_guige.jpg" alt="">
+												<span class="guige_chundu">规格：25kg/袋</span>
+												<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+												<span class="guige_chundu">纯度：98%</span>
+											</div>
+											<div class="inline-block">
+												<span class="money">￥<span>200.00</span>元/吨</span>
+											</div>
+											<a href="##"><span class="xunpan">立即询盘</span></a>
+										</li>
+										<li>
+											<div class="inline-block gc">
+												<img src="../img/search_list_guige.jpg" alt="">
+												<span class="guige_chundu">规格：25kg/袋</span>
+												<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+												<span class="guige_chundu">纯度：98%</span>
+											</div>
+											<div class="inline-block">
+												<span class="money">￥<span>200.00</span>元/吨</span>
+											</div>
+											<a href="##"><span class="xunpan">立即询盘</span></a>
+										</li>
+										<li>
+											共有4中规格 <span>收起&nbsp; <img src="../img/search_shou.png" alt=""></span>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div class="search_title">
+									<span class="title">新疆中顺鑫和供应链管理股份有限责任公司</span>
+									<span>
+										<img src="../img/cf_qiye.png" alt="">
+										<img src="../img/cf_weixian.png" alt="">
+									</span>
+								</div>
+								<div class="list developer">
+									<ul>
+										<li>
+											<div class="inline-block gc">
+												<img src="../img/search_list_guige.jpg" alt="">
+												<span class="guige_chundu">规格：25kg/袋</span>
+												<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+												<span class="guige_chundu">纯度：98%</span>
+											</div>
+											<div class="inline-block">
+												<span class="money">￥<span>200.00</span>元/吨</span>
+											</div>
+											<a href="##"><span class="xunpan">立即询盘</span></a>
+										</li>
+									</ul>
+								</div>
+							</li> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/template.js"></script>
+
+		<script type="text/html" id="searchLeftBottomTpl">
+			<ul>
+				<li class="clearfix"><span class="fl">用途：</span><div class="fl div1"><%=chemicalPurpose%></div></li>
+				<li class="clearfix"><span class="fl">危险类列：</span><div class="fl div2"><%=chemicalDangerClasses%></div></li>
+				<li class="clearfix"><span class="fl">外观与形状：</span><div class="fl div3"><%=chemicalCharacter%></div></li>
+				<li class="clearfix"><span class="fl">化学式：</span><div class="fl div4"><%=chemicalFormula%></div></li>
+				<li class="clearfix"><span class="fl">熔点：</span><div class="fl div5"><%=chemicalMeltingPoint%></div></li>
+				<li class="clearfix"><span class="fl">沸点：</span><div class="fl div6"><%=chemicalBoilingPoint%></div></li>
+				<li class="clearfix"><span class="fl">PH值：</span><div class="fl div7"><%=chemicalPh%></div></li>
+				<li class="clearfix"><span class="fl">闪点：</span><div class="fl div8"><%=chemicalFlashPoint%></div></li>
+				<li class="clearfix"><span class="fl">溶解性：</span><div class="fl div9"><%=chemicalSolubility%></div></li>
+				<li class="clearfix"><span class="fl">稳定性：</span><div class="fl div10"><%=chemicalStability%></div></li>
+				<li class="clearfix"><span class="fl">敏感性：</span><div class="fl div11"><%=chemicalSusceptibility%></div></li>
+				<li class="clearfix"><span class="fl">禁配物：</span><div class="fl div12"><%=chemicalForbidden%></div></li>
+				<li class="clearfix"><span class="fl">UN编号：</span><div class="fl div13"><%=chemicalUn%></div></li>
+				<li class="clearfix"><span class="fl">CN编号：</span><div class="fl div14"><%=chemicalCn%></div></li>
+			</ul>
+		</script>
+
+		<script type="text/html" id="searchPreciseListTpl">
+			<%for(i in list){%>
+			<li>
+				<div class="search_title">
+					<%if(list[i].isRecommend == 1){%>
+					<img src="../img/search_tuijian.png" alt="">
+					<span class="title img_title">新疆中顺鑫和供应链管理股份有限责任公司</span>
+					<%}else{%>
+					<span class="title">新疆中顺鑫和供应链管理股份有限责任公司</span>
+					<%}%>
+					<span>
+						<img src="../img/cf_qiye.png" alt="">
+						<img src="../img/cf_weixian.png" alt="">
+						<img src="../img/search_mao.png" alt="">
+						<img src="../img/search_sheng.png" alt="">
+					</span>
+				</div>
+				<div class="list">
+					<ul>
+						<li>
+							<div class="inline-block gc">
+								<img src="../img/search_list_guige.jpg" alt="">
+								<span class="guige_chundu">规格：25kg/袋</span>
+								<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+								<span class="guige_chundu">纯度：98%</span>
+							</div>
+							<div class="inline-block">
+								<span class="money">￥<span>200.00</span>元/吨</span>
+							</div>
+							<a href="##"><span class="xunpan">立即询盘</span></a>
+						</li>
+						<!-- <li>
+							<div class="inline-block gc">
+								<img src="../img/search_list_guige.jpg" alt="">
+								<span class="guige_chundu">规格：25kg/袋</span>
+								<img class="shuidi" src="../img/search_list_shuidi.png" alt="">
+								<span class="guige_chundu">纯度：98%</span>
+							</div>
+							<div class="inline-block">
+								<span class="money">￥<span>200.00</span>元/吨</span>
+							</div>
+							<a href="##"><span class="xunpan">立即询盘</span></a>
+						</li> -->
+						<li>
+							共有4中规格 <span>展开&nbsp; <img src="../img/search_left_xiajiantou.png" alt=""></span>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<%}%>
+		</script>
+
+		<script type="text/javascript">
+            var bianliang=[];//传入精确查询的  数组
+		var chemicalId = window.localStorage.getItem('jzSeachName');
+        searchGoods(chemicalId,"","","","","");
+        //精确查询
+		function searchGoods(chemicalId1,companyType,productSpec,productPurity,paymentMethod,deliveryAddress) {
+		    var data={};
+		    if(chemicalId1!=""){
+                data.chemicalId=chemicalId1;
+			}
+
+            if(companyType!=""){
+                data.companyType=companyType;
+            }
+            if(productSpec!=""){
+                data.productSpec=productSpec;
+            }
+            if(productPurity!=""){
+                data.productPurity=productPurity;
+            }
+            if(paymentMethod!=""){
+                data.paymentMethod=paymentMethod;
+            }
+            if(deliveryAddress!=""){
+                data.deliveryAddress=deliveryAddress;
+            }
+
+			$.ajax({
+				type: "get",
+				url: pubIP + "product/glabolProductSearch",//v1.0
+				cache: false,
+				dataType: "json",
+				headers: {
+					token: token
+				},
+				data:data,
+	//				{
+	//				chemicalId: chemicalId1,
+//					 categoryName: categoryName,
+//					 companyType:companyType,
+//					 productSpec: productSpec,
+//					 productPurity: productPurity,
+//					 paymentMethod: paymentMethod
+//				},
+				success: function(json){
+
+					console.log(json);
+                    json.data.productPurityList
+					var CDoptions="<option value>纯度</option>";
+					for (var j=0;j<json.data.productPurityList.length;j++){
+                        CDoptions+='<option value='+j+'>'+json.data.productPurityList[j]+'</option>'
+					}
+					$("#purity_chundu").html(CDoptions);
+					var result =  template("searchLeftBottomTpl",json.data);
+					$('#searchLeftBottomInfo').html(result);
+
+					// var result1 = template("searchPreciseListTpl", {list: json.data.storeProductsVoList});
+					// $('#searchPreciseListInfo').html(result1);
+
+					var str = ''
+					for (var i = 0; i < json.data.storeProductsVoList.length; i++) {
+						str += '<li>'
+							+'<div class="search_title">'
+						if (json.data.storeProductsVoList[i].isRecommend == 1) {
+							str+='<img src="../img/search_tuijian.png" alt="">'
+								+'<span class="title img_title">'+json.data.storeProductsVoList[i].companyName+'</span>'
+						}else {
+							str+='<span class="title">'+json.data.storeProductsVoList[i].companyName+'</span>'
+						}
+						str+='<span>';
+
+						str += '<img src="../img/cf_qiye.png" alt="">';
+
+						if (json.data.storeProductsVoList[i].num >0) {
+							str += '<img src="../img/cf_weixian.png" alt="">';
+						}
+						if (json.data.storeProductsVoList[i].companyTypeTraders == true) {
+							str += '<img src="../img/search_mao.png" alt="">';
+						}
+						if (json.data.storeProductsVoList[i].companyTypeManufacturer == true) {
+							str += '<img src="../img/search_sheng.png" alt="">';
+						}
+
+						str += '</span>'
+							+'</div>'
+							+'<div class="list">'
+							+'<ul>';
+						for(var j = 0; j < json.data.storeProductsVoList[i].productListVo.length; j++) {
+							str+='<li class="li_dis'+j+'">'
+								+'<div class="inline-block gc">'
+								+'<img src="../img/search_list_guige.jpg" alt="">'
+								+'<span class="guige_chundu">规格：'+json.data.storeProductsVoList[i].productListVo[j].productSpecNum+json.data.storeProductsVoList[i].productListVo[j].productSpecUnitName+'/'+json.data.storeProductsVoList[i].productListVo[j].productSpecName+'</span>'
+								+'<img class="shuidi" src="../img/search_list_shuidi.png" alt="">'
+								+'<span class="guige_chundu">纯度：'+json.data.storeProductsVoList[i].productListVo[j].productPurity+'%</span>'
+								+'</div>'
+								+'<div class="inline-block" style="width:300px; text-align:center;">'
+								+'<span class="money">￥<span>'+json.data.storeProductsVoList[i].productListVo[j].unitPrice+'</span>元/'+json.data.storeProductsVoList[i].productListVo[j].productSpecName+'</span>'
+								+'</div>'
+								+'<a href="##"><span class="xunpan xunpan_detail" data-supplyid="'+json.data.storeProductsVoList[i].productListVo[j].supplyId+'">立即询盘</span></a>'
+								+'</li>';
+
+
+						}
+
+						if (json.data.storeProductsVoList[i].productListVo.length > 2) {
+							str+='<li class="li">'
+								+'共有'+json.data.storeProductsVoList[i].productListVo.length+'中规格 <span><span>展开</span>&nbsp; <img src="../img/search_left_xiajiantou.png" alt=""></span>'
+								+'</li>';
+						}
+
+
+						str += '</ul>'
+							+'</div>'
+							+'</li>';
+					}
+
+					$('#searchPreciseListInfo').html(str);
+
+					for (var i = 0; i < json.data.storeProductsVoList.length; i++) {
+						for (var j = 0; j < json.data.storeProductsVoList[i].productListVo.length; j++) {
+							if (json.data.storeProductsVoList[i].productListVo.length > 2) {
+								$('.li_dis'+(j+2)).addClass('disnone');
+							}
+						}
+					}
+
+					$(document).on('click', '.xunpan_detail', function() {
+						window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
+						window.location.href="../obj/objDetails.html";
+					});
+
+
+					$(document).on('click', '.li span', function() {
+
+						if ($(this).parent().parent().find('li').hasClass('disnone')) {
+							$(this).parent().parent().find('li').removeClass('disnone');
+							$(this).find('span').html('收起');
+							$(this).find('img').attr('src', '../img/search_shou.png');
+							$(this).find('img').css('marginBottom', '2px');
+						} else {
+							$(this).parent().parent().find('li').addClass('disnone');
+							$(this).parent().parent().find('li.li_dis0').removeClass('disnone');
+							$(this).parent().parent().find('li.li_dis1').removeClass('disnone');
+							$(this).parent().parent().find('li:last-child').removeClass('disnone');
+							$(this).find('span').html('展开');
+							$(this).find('img').attr('src', '../img/search_left_xiajiantou.png');
+							$(this).find('img').css('marginBottom', '0px');
+						}
+
+					});
+				},
+				error: function(error) {
+					console.log(error);
+				}
+
+			});
+		}
+
+//        $("select").bind("change",function(){
+//			var list=$(".selected1 ul li");
+//			var bianliang=[];
+//			for(var i=0;i<list.length;i++){
+//			    if(list.eq(i).attr("data-isSelect")==1){
+//                    bianliang[i]=list.eq(i).text();
+//				}else{
+//                    bianliang[i]="";
+//				}
+//			}
+//            console.log(bianliang)
+//            searchGoods(chemicalId,bianliang[0],bianliang[1],bianliang[2],bianliang[3],bianliang[4]);
+//		})
+
+		//根据不同选择  向查询接口放不同的数据
+function sear() {
+    var list=$(".selected1 ul li");
+    for(var i=0;i<list.length;i++){
+        if(list.eq(i).attr("data-isSelect")==1){//等于1 就是选中的
+			if(i==3){
+                bianliang[i]=list.eq(i).attr("data-val");
+			}else{
+                bianliang[i]=list.eq(i).text();
+			}
+        }else{
+            bianliang[i]="";
+        }
+    }
+    console.log(bianliang)
+    searchGoods(chemicalId,bianliang[0],bianliang[1],bianliang[2],bianliang[3],bianliang[5]);
+}
+
+
+		//点击X关闭
+		$(document).on('click', '.select_close_png', function() {
+
+            $(this).parent().attr('data-isSelect', '0');
+			$(this).parent().css('display', 'none');
+			$('.search_select').find('.'+$(this).parent().attr('data-n')).find('option[value=""]').attr('selected', 'selected');
+            sear();
+		});
+
+		// 供应商
+		$(document).on('click', '#vendor', function () {
+
+			if (!($("#vendor option:selected").val() == '')) {
+				$('.selected1 ul li.gys_select').css('display', 'block');
+                $('.selected1 ul li.gys_select').attr('data-isSelect', '1');
+            	$('.selected1 ul li.gys_select span').html($("#vendor  option:selected").text());
+                sear();
+			}
+
+		});
+
+		//规格
+		$(document).on('click', '#guige_size', function () {
+
+			if (!($("#guige_size option:selected").val() == '')) {
+				$('.selected1 ul li.gg_select').css('display', 'block');
+                $('.selected1 ul li.gg_select').attr('data-isSelect', '1');
+	            $('.selected1 ul li.gg_select span').html($("#guige_size  option:selected").text());
+                sear();
+	        }
+
+		});
+
+		//纯度
+		$(document).on('click', '#purity_chundu', function () {
+
+			if (!($("#purity_chundu  option:selected").val() == '')) {
+				$('.selected1 ul li.cd_select').css('display', 'block');
+                $('.selected1 ul li.cd_select').attr('data-isSelect', '1');
+            	$('.selected1 ul li.cd_select span').html($("#purity_chundu  option:selected").text());
+                sear();
+			}
+
+		});
+
+		//支付方式
+		$(document).on('click', '#payment', function () {
+
+			if (!($("#payment  option:selected").val() == '')) {
+				$('.selected1 ul li.pay_select').css('display', 'block');
+                //($("#payment  option[value]")
+                $('.selected1 ul li.pay_select').attr('data-val', $("#payment  option:selected").val());
+                $('.selected1 ul li.pay_select').attr('data-isSelect', '1');
+	            $('.selected1 ul li.pay_select span').html($("#payment  option:selected").text());
+                sear();
+           	}
+
+		});
+
+		/*查询所有省份*/
+        $.ajax({
+            url: pubIP + 'address/listProvince', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            dataType: 'json',
+            success: function (data) {
+               /* console.log(data);*/
+                var str = '<option value="">请选择省</option>';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<option value="'+i+'" data-proviceId="'+data.data[i].provinceid+'" data-province="'+data.data[i].province+'">'+data.data[i].province+'</option>';
+                }
+
+                $('#province').html(str);
+
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+
+
+
+        /*查询所有城市*/
+        $(document).on('change', '#province', function () {
+            /*console.log($("#province  option:selected").attr('data-proviceid'));*/
+            
+            if (!($("#province  option:selected").val() == '')) {
+            	$('.selected1 ul li.province_provice').css('display', 'block');
+                $('.selected1 ul li.province_provice').attr('data-isSelect', '1');
+            	$('.selected1 ul li.province_provice span').html($("#province  option:selected").text());
+                sear();
+            }
+            
+            var str1 = '<li><span>'+$("#province  option:selected").text()+'</span><img src="../img/select_close.png" alt=""></li>';
+            $('.selected1 ul').append(str1);
+
+            var provinceID = $("#province  option:selected").attr('data-proviceid');
+
+            var province_select = $('#province').val();
+            if (province_select == '') {
+                $('#city option:selected').text('请选择市');
+                $('#area option:selected').text('请选择区');
+                return;
+            }
+
+            $('#city option:selected').text('请选择市');
+            $('#area').html('<option>请选择区</option>');
+
+            $('#city').removeClass('id_id1');
+
+            selectCity(provinceID,null);
+        });
+
+        /*查询所有城市*/ 
+        function selectCity(provinceID,$this) {
+            $.ajax({
+                url: pubIP + 'address/listCityByProvinceId', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                data: {provinceID: provinceID},
+                dataType: 'json',
+                success: function (data) {
+                    // console.log(data.data);
+                    var str = '<option value="">请选择市</option>';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<option value="'+i+'" data-cityId="'+data.data[i].cityid+'" data-city="'+data.data[i].city+'">'+data.data[i].city+'</option>';
+                    }
+
+                    $('#city').html(str);
+
+                    // 编辑回显城市
+                    if ($('#city').hasClass('id_id1')) {
+                        var data_province = $this.parent().parent().find('td')[2];
+                        $('#city option').each(function (index, element) {
+                            if ($(this).attr('data-city') == $(data_province).attr('data-city')) {
+                                $(this)[0].selected = true;
+                            }
+                        });
+
+                        var cityID = $("#city  option:selected").attr('data-cityid');
+                        selectArea(cityID, $this);
+
+                        $('#area').addClass('id_id2');
+
+                    }
+                $('#city').parent().next().html('');
+                        
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+        // 查询所有区域
+        $(document).on('change', '#city', function () {
+            var cityID = $("#city  option:selected").attr('data-cityid');
+
+            if (!($("#city  option:selected").val() == '')) {
+	            $('.selected1 ul li.city_city').css('display', 'block');
+                $('.selected1 ul li.city_city').attr('data-isSelect', '1');
+	            $('.selected1 ul li.city_city span').html($("#city  option:selected").text());
+                sear();
+	        }
+
+            $('#area').removeClass('id_id1');
+
+            var city_select = $('#city').val();
+            if (city_select == '') {
+                $('#area option:selected').text('请选择区');
+                return;
+            }
+
+            $('#area').html('<option>请选择区</option>');
+            $('#area').removeClass('id_id2');
+            
+            selectArea(cityID, null);
+
+        });
+
+        function selectArea(cityID, $this) {
+            $.ajax({
+                url: pubIP + 'address/listAreaByCityID', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                data: {cityID: cityID},
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    var str = '<option value="">请选择区</option>';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<option value="'+i+'" data-areaId="'+data.data[i].areaid+'" data-area="'+data.data[i].area+'">'+data.data[i].area+'</option>';
+                    }
+
+                    $('#area').html(str);
+
+
+                    if ($('#area').hasClass('id_id2')) {
+                        var data_province = $this.parent().parent().find('td')[2];
+                        $('#area option').each(function (index, element) {
+                            if ($(this).attr('data-area') == $(data_province).attr('data-area')) {
+                                $(this)[0].selected = true;
+                            }
+                        });
+                    }
+
+                    $('#area').parent().next().html('');
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+
+        $(document).on('change', '#area', function () {
+
+        	if (!($("#area option:selected").val() == '')) {
+	        	$('.selected1 ul li.area_area').css('display', 'block');
+                $('.selected1 ul li.area_area').attr('data-isSelect', '1');
+	            $('.selected1 ul li.area_area span').html($("#area  option:selected").text());
+                sear();
+           	}
+
+        });
+
+
+
+			$('.search_left_center').click(function(){
+				$('.search_left_bottom').slideToggle();
+			})
+			
+		   //拦截链接
+	       $(document).on('click','a',function(e){
+	       		e.preventDefault();
+	       		var isOld = localStorage.getItem('isOld');
+	       		if(isOld != '2'){
+	       			var ttxt = $.trim($(this).text());
+	       			console.log(ttxt);
+	       			if(ttxt == '用户中心' || ttxt == '立即询盘' ){
+	       				if(isOld == '1'){
+	       					$('#effect .contTitle span').text('您尚未登录');
+							missedLogin() ;
+	       				}else if(isOld == '0'){
+	       					missedLogin() ;
+	       				}else if(isOld == '-1'){
+	       					$('#effect .contTitle span').text('您尚未认证');
+	       					$('#effect .contTitle i').text('认证');
+	       					$('#popLogin').text('认证');
+							missedLogin() ;
+	       				}else if(isOld == '-2'){
+	       					$('#effect .contTitle span').text('您的认证正在审核中');
+	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	       					$('#popLogin').hide();
+							missedLogin() ;
+	       				}
+	       			}else{
+	       				window.location.href = this.href;
+	       			}
+	       		}else{
+	       			window.location.href = this.href;
+	       		}
+	       })
+		</script>
+	</body>
+</html>

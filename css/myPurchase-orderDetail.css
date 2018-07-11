@@ -1,0 +1,267 @@
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+.red{
+    color: #FF4A4A;
+}
+.yellow{
+    color: #FF9453;
+}
+.blue{
+    color: #6EA3FF;
+}
+.bacFD{
+    background-color: #FDFDFD;
+}
+.btn{
+    display: inline-block;
+    width:150px; 
+    height:38px;
+    line-height: 38px;
+    text-align: center;
+    color: #282828;
+    background: #fff;
+    border-radius: 2px;
+    border: 1px solid #EBE9EA;
+    cursor: pointer;
+}
+.btnActive{
+    background: #6EA3FF;
+    color: #fff;
+}
+.orderDetailMain {
+    width: 986px;
+    background: #fff;
+    border: 1px solid #EBE9EA;
+    color: #282828;
+    font-size: 14px;
+}
+.title{
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    border-bottom: 1px solid #EBE9EA;
+    padding-left: 18px;
+    padding-right: 28px;
+    box-sizing: border-box;
+}
+.od_head .Rt img{
+    margin-left: 65px;
+    vertical-align: middle;
+}
+.orderStatus_progress{
+    height: 164px;
+    padding-top: 50px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #EBE9EA;
+}
+.statusProgress{
+    width: 768px;
+    margin: 0 auto;
+    position: relative;
+}
+.cicle{
+    float: left;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #EBE9EA;
+    border-radius: 50%;
+    background: #fff;
+    margin-left: 160px;
+    z-index: 2;
+}
+.cicle:nth-child(1){
+    margin-left: 0;
+}
+.cicle span{
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border: 1px solid #EBE9EA;
+    border-radius: 50%;
+}
+.progressBar{
+    left: 24px;
+    position: absolute;
+    top: 10px;
+    vertical-align: middle;
+    width:162px;
+    height:4px;
+    background: #EEEEEE;
+}
+.statusProgress div:nth-child(4){
+    left: 208px;
+}
+.statusProgress div:nth-child(6){
+    left: 392px;
+}
+.statusProgress div:nth-child(8){
+    left: 576px;
+}
+.levelActive{
+    background-color: #6EA3FF;
+    border: none;
+}
+.statusInfo{
+    margin: 0 auto;
+    width: 930px;
+}
+.infoItem{
+    float: left;
+    width: 19.9%;
+    text-align: center;
+}
+.infoItem .infoItemCont{
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 30px;
+}
+.infoItem .infoItemTime{
+    font-size: 12px;
+    color: #8F8F8F;
+}
+.orderStatus_order{
+    /* height: 140px; */
+    border-bottom: 1px solid #EBE9EA;
+    text-align: center;
+}
+.orderStatus_order p{
+    /* margin-top: 25px; */
+    font-size: 16px;
+    line-height: 40px;
+    /*padding: 50px;*/
+    padding: 33px 122px 24px 122px;
+}
+.orderStatus_order p span{ 
+    font-size: 20px;
+    font-weight: bold;
+}
+.btnBox{
+    min-width: 150px;
+    margin: 0 auto;
+    /*margin-top: 15px;*/
+    margin-top:0px;
+    margin-bottom: 28px;
+}
+.btnBox>div{
+    margin-left: 16px;
+}
+.btnBox>div:nth-child(1){
+    margin-left: 0;
+}
+.downLoadBtn{
+    background: #FF9453;
+    color: #fff;
+}
+.orderInfo{
+    line-height: 35px;
+    min-height: 228x;
+    border-bottom: 1px solid #EBE9EA;
+    padding: 10px 0 15px;
+}
+.orderInfo .left{
+    width: 329px;
+    margin-left: 18px;
+}
+.orderInfo .middle{
+    width: 318px;
+}
+.goodsInfoTitle{
+    text-align: center;
+    color: #666666;
+    line-height: 53px;
+    overflow: hidden;
+    height: 53px;
+    border-bottom: 1px solid #EBE9EA;
+}
+.goodsInfoTitle span{
+    float: left;
+    width: 10%;
+}
+/* .goodsInfoTitle span:nth-child(1),
+.goodsItem .goodsName{
+    width: 108px;
+}
+.goodsInfoTitle span:nth-child(2),
+.goodsItem .shape{
+    width: 64px;
+}
+.goodsInfoTitle span:nth-child(3),
+.goodsItem .specifications{
+    width: 76px;
+}
+.goodsInfoTitle span:nth-child(4),
+.goodsItem .singlePrice{
+    width: 49px;
+}
+.goodsInfoTitle span:nth-child(5),
+.goodsItem .number{
+    width: 50px;
+}
+.goodsInfoTitle span:nth-child(6),
+.goodsItem .level{
+    width: 59px;
+}
+.goodsInfoTitle span:nth-child(7),
+.goodsItem .payWay{
+    width: 111px;
+}
+.goodsInfoTitle span:nth-child(8),
+.goodsItem .orderTime{
+    width: 148px;
+}
+.goodsInfoTitle span:nth-child(9),
+.goodsItem .thords{
+    width: 230px;
+}
+.goodsInfoTitle span:nth-child(10),
+.goodsItem .status{
+    width: 88px;
+} 
+.goodsInfoTitle span:nth-child(4),
+.goodsInfoTitle span:nth-child(5),
+.goodsItem .thords{
+    line-height: 18px;
+    margin-top: 7px;
+}*/
+.goodsItem{
+    height: 53px;
+    border-bottom: 1px solid #EBE9EA;
+    line-height: 53px;
+    color: #4F4F4F;
+    text-align: center;
+    overflow: hidden;
+}
+.goodsItem>div{
+    float: left;
+    width: 10%;
+    line-height: 20px;
+    padding: 16px 0;
+}
+/* .goodsItem .thords{
+    padding: 0 5px;
+    box-sizing: border-box;
+} */
+.orderSum{
+    overflow: hidden;
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+}
+.orderSum>div{
+    margin-right: 40px;
+}

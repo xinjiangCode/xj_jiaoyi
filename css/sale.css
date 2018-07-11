@@ -1,0 +1,93 @@
+.swiper-slide{
+	background: url(../img/xianhuoBg.png) no-repeat;
+	background-size:cover ;
+	background-position:center ;
+}
+.saleObjBox{
+	margin-top: 48px;
+	padding-bottom: 10px;
+}
+.saleObjBox>div{
+	width: 402px;
+	height: 341px;
+	border: solid 1px #E7E7E7;
+	margin-right: 11px;
+	margin-bottom: 12px;
+	padding-left: 13px;
+	padding-right: 14px;
+	box-sizing: border-box;
+	float: left;
+}
+.saleObjBox>div:nth-child(3n){
+	margin-right: 0;
+}
+.compTit{
+	height: 55px;
+	line-height: 55px;
+	width: 375px;
+	border-bottom: #E7E7E7 1px solid;
+	position: relative;
+	padding-left: 62px;
+	box-sizing: border-box;
+	color: #66A7FF;
+	font-size: 18px;
+}
+.compTit img{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 46px;
+	height: 48px;
+}
+.saleObjImg{
+	width:154px ;
+	height: 140px;
+	border: solid #E7E7E7 1px;
+	margin-bottom: 29px;
+	float:left;
+	background: #f5f5f5;
+	margin-right: 16px;
+	box-sizing: border-box;
+}
+.saleObjInfo{
+	overflow: hidden;
+	color: #666;
+	margin-top: 18px;
+	font-size: 16px;
+	height: 140px;
+	margin-bottom: 30px;
+}
+.saleObjInfo p{
+	line-height: 16px;
+	max-height: 16px;
+	margin-bottom: 15px;
+}
+.saleTime{
+	max-height: 14px;
+	line-height: 14px;
+	color: #666666;
+	margin-bottom: 20px;
+}
+.saleTime img{
+	vertical-align: middle;
+	margin-right: 8px;
+}
+.saleObjBox>div>button{
+	width: 157px;
+	height: 48px;
+	background: #66A7FF;
+	color: #fff;
+	border: none;
+	border-radius:2px ;
+	font-size: 15px;
+	display: block;
+	margin: 0 auto;
+}
+.saleObjBox>div>button:hover{
+	background: rgb(67,121,245);
+}
+#page1{
+	position: relative;
+		bottom: 0;
+		margin-bottom: 27px;
+}

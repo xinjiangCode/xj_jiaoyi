@@ -1,0 +1,197 @@
+.member_top {
+	/*background: url('../../img/member_bg.png') no-repeat center center;
+	width: 100%;
+	height: 460px;*/
+	position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
+
+.member_width {
+	width: 1229px;
+	margin: 0 auto;
+}
+
+.member_info {
+	background: url('../../img/member_list_bg.png');
+	width: 416px;
+	height: 460px;
+}
+
+.progress_bg {
+	background: url('../../img/progress_bg.png');
+	width: 143px;
+	height: 16px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.fl.member_logo {
+    width: 175px;
+    padding-left: 13px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.white_bg {
+	padding-top: 38px;
+	height: 171px;
+}
+
+.member_info2 {
+	font-size: 16px;
+	color: #282828;
+	padding-top: 15px;
+	box-sizing: border-box;
+}
+
+.yellow_member {
+	color: #fd9b30;
+	font-size: 16px;
+}
+
+.yellow_member img {
+	vertical-align: middle;
+}
+
+.member_info2 p {
+	height: 34px;
+}
+
+.progress_bg span {
+	width: 84px;
+	background: #5892f3;
+	display: inline-block;
+	vertical-align: text-top;
+	height: 15px;
+	border-radius: 10px;
+}
+
+.gay_bottom {
+	width: 390px;
+	height: 217px;
+	padding-left: 35px;
+	box-sizing: border-box;
+}
+
+.gay_bottom .service_title {
+	color: #6a9ef7;
+}
+
+.gay_bottom ul li span {
+    margin-right: 17px;
+    cursor: pointer;
+}
+
+.gay_bottom ul li {
+	margin-top: 25px;
+}
+
+.gay_bottom .more_info a {
+	float: right;
+	color: #6a9ef7;
+	font-size: 16px;
+	margin-top: 18px;
+	cursor: pointer;
+}
+
+.gay_bottom .more_info img {
+	margin-left: 5px;
+}
+
+.fa {
+	padding-bottom: 38px;
+	border-bottom: 4px solid #f5f5f5;
+	margin-bottom: -35px;
+}
+
+.member_content ul li {
+	padding-top: 26px;
+	float: left;
+	width: 227px;
+	height: 265px;
+	border: 1px solid #efedee; 
+	text-align: center;
+	margin-left: 8px;
+	margin-top: 7px;
+	position: relative;
+}
+
+.member_list ul, .member_title {
+	float: left;
+	/*height: 63px;*/
+	line-height: 53px;
+	display: inline-block;
+	height: 56px;
+	margin-top: 20px;
+}
+
+.fa .member_width:first-child .member_list ul, .fa .member_width:first-child .member_title {
+	margin-top: 9px;
+}
+
+.member_list ul {
+	margin-left: 20px;
+}
+
+.member_list ul li {
+	margin-right: 24px; 
+	cursor: pointer;
+}
+
+
+.member_list .member_title {
+	font-size: 24px;
+	color: #666;
+
+}
+
+.member_list ul li.current {
+	color: #5892f3;
+	border-bottom: 3px solid #5892f3;
+}
+
+.member_list ul li {
+	float: left;
+	font-size: 18px;
+	width:76px;
+	color: #999999;
+}
+
+.member_content {
+	width: 1227px;
+	border: 1px solid #ebe9ea; 
+	height: auto;
+	padding: 8px 24px 15px 16px;
+	box-sizing: border-box;
+}
+
+p.integral_money {
+    margin: 10px;
+    color: #fc6721;
+    font-size: 14px;
+}
+
+p.shop_name {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #282828;
+}
+
+.duihuan_button {
+	cursor: pointer;
+}
+
+.member_content .wei_icon {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+
+}
+
+.swiper-slide {
+	background: url('../../img/member_bg.png') no-repeat;
+	background-position: center;
+	background-size: cover;
+}

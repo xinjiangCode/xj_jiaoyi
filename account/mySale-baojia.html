@@ -1,0 +1,394 @@
+<!--我的报价-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/myPurchase-requirement.css">
+    <style>
+        .yellow{
+            color: #FF7E28;
+        }
+        .gray{
+            color: #909090;
+        }
+        .line{
+            height: 15px;
+            width: 2px;
+            background: #EBE9EA;
+            margin: 10px 20px 0;
+        }
+        .orderItemFooter{
+            color: #666;
+        }
+        .orderContItem.orderN{
+            width: 410px;
+        }
+        .orderItemCont .orderStatus {
+            margin-left: 0;
+            width: 380px;
+            text-align: center;
+        }
+        .orderItemCont .orderViewdetail {
+            margin-left: 15px;
+            float: right;
+        }
+        
+        .orderItem .orderItemCont, .orderItem .orderItemHeader {
+            padding-right: 17px;
+        }
+
+        .orderItemCont .orderViewdetail a {
+            font-size: 12px;
+        }
+
+        .orderItem .orderItemHeader {
+            font-size: 12px;
+        }
+
+        .orderItemCont {
+            font-size: 16px;
+        }
+
+        .orderItemFooter {
+            font-size: 14px;
+        }
+
+        .myPurchase-title .Rt {
+            margin-top: 9px;
+            margin-right: 17px;
+        }
+
+        .orderContItem.orderStatus.yellow img, .orderContItem.orderStatus.red img {
+            vertical-align: middle;
+        }
+
+        .orderContItem.orderStatus.gray.cancel img {
+            margin-right: 3px;
+        }
+
+        .orderContItem.orderStatus.invalid img, .orderContItem.orderStatus.green img {
+            vertical-align: middle;
+            margin-right: 2px;
+        }
+
+        .orderItemCont .orderStatus {
+            float: right;
+        }
+
+    </style>
+</head>
+<body style="background: #fff;">
+    <div class="main">
+        <div class="myPurchase-title clearfix">
+            <div class="Lf">我的报价</div>
+            <div class="Rt">
+                <input type="text Lf" class="search_input_info" placeholder="按需求编号/商品名称查询">
+                <span class="search Rt search_input_info_btn" style="width: 42px;height:30px;margin:0;cursor:pointer;"></span>
+            </div>
+        </div>
+        <div class="myPurchase-tab">
+            <span class="active" data-value="">全部报价</span>
+            <span data-value="1">待处理</span>
+            <span data-value="2">已完成</span>
+            <span data-value="5">已取消</span>
+            <span data-value="4" style="margin-left:75px;">已拒绝</span>
+            <span data-value="6" style="margin-left:75px;">已失效</span>
+        </div>
+        <div class="myPurchase-orders" id="listInfo">
+            <!-- <div class="orderItem">
+                <div class="orderItemHeader">
+                    <span>报价编号：3001707271606350063</span>
+                    <span style="margin-left:150px;">新疆中泰化学有限公司</span>
+                    <span class="Rt">采购日期：2017-07-27  16: 06: 30</span>
+                </div>
+                <div class="orderItemCont clearfix">
+                    <div class="orderContItem orderNum"><span>1</span></div>
+                    <div class="orderContItem orderN">迭氮（化）铅[含水或水加乙醇≥20%]</div>
+                    <div class="orderContItem orderStatus yellow"><img src="../img/wenhao_icon.png" alt="">待处理</div>
+                    <div class="orderContItem orderViewdetail"><a href="./mySale-baojiaDetailStatus.html" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
+                </div>
+                <div class="orderItemFooter clearfix">
+                    <div class="Lf">纯度98%</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">提供数量：1吨</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">支付方式：现汇</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">单价：1.00元</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemHeader">
+                    <span>报价编号：3001707271606350063</span>
+                    <span style="margin-left:150px;">新疆中泰化学有限公司</span>
+                    <span class="Rt">报价日期：2017-07-27  16: 06: 30</span>
+                </div>
+                <div class="orderItemCont clearfix">
+                    <div class="orderContItem orderNum"><span>2</span></div>
+                    <div class="orderContItem orderN">迭氮（化）铅[含水或水加乙醇≥20%]</div>
+                    <div class="orderContItem orderStatus red"><img src="../img/jujue_icon.png" alt="">已拒绝</div>
+                    <div class="orderContItem orderViewdetail"><a href="./mySale-baojiaDetailStatus.html" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
+                </div>
+                <div class="orderItemFooter clearfix">
+                    <div class="Lf">纯度98%</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">提供数量：1吨</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">支付方式：现汇</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">单价：1.00元</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemHeader">
+                    <span>报价编号：3001707271606350063</span>
+                    <span style="margin-left:150px;">新疆中泰化学有限公司</span>
+                    <span class="Rt">采购日期：2017-07-27  16: 06: 30</span>
+                </div>
+                <div class="orderItemCont clearfix">
+                    <div class="orderContItem orderNum"><span>3</span></div>
+                    <div class="orderContItem orderN">迭氮（化）铅[含水或水加乙醇≥20%]</div>
+                    <div class="orderContItem orderStatus gray cancel"><img src="../img/cancel_icon.png" alt="">已取消</div>
+                    <div class="orderContItem orderViewdetail"><a href="./mySale-baojiaDetailStatus.html" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
+                </div>
+                <div class="orderItemFooter clearfix">
+                    <div class="Lf">纯度98%</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">提供数量：1吨</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">支付方式：现汇</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">单价：1.00元</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemHeader">
+                    <span>报价编号：3001707271606350063</span>
+                    <span style="margin-left:150px;">新疆中泰化学有限公司</span>
+                    <span class="Rt">采购日期：2017-07-27  16: 06: 30</span>
+                </div>
+                <div class="orderItemCont clearfix">
+                    <div class="orderContItem orderNum"><span>3</span></div>
+                    <div class="orderContItem orderN">迭氮（化）铅[含水或水加乙醇≥20%]</div>
+                    <div class="orderContItem orderStatus invalid"><img src="../img/shixiao_icon.png" alt="">已失效</div>
+                    <div class="orderContItem orderViewdetail"><a href="./mySale-baojiaDetailStatus.html" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
+                </div>
+                <div class="orderItemFooter clearfix">
+                    <div class="Lf">纯度98%</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">提供数量：1吨</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">支付方式：现汇</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">单价：1.00元</div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemHeader">
+                    <span>报价编号：3001707271606350063</span>
+                    <span style="margin-left:150px;">新疆中泰化学有限公司</span>
+                    <span class="Rt">采购日期：2017-07-27  16: 06: 30</span>
+                </div>
+                <div class="orderItemCont clearfix">
+                    <div class="orderContItem orderNum"><span>3</span></div>
+                    <div class="orderContItem orderN">迭氮（化）铅[含水或水加乙醇≥20%]</div>
+                    <div class="orderContItem orderStatus green"><img src="../img/yiOk_icon.png" alt="">已确认</div>
+                    <div class="orderContItem orderViewdetail"><a href="./mySale-baojiaDetailStatus.html" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
+                </div>
+                <div class="orderItemFooter clearfix">
+                    <div class="Lf">纯度98%</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">提供数量：1吨</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">支付方式：现汇</div>
+                    <div class="Lf line"></div>
+                    <div class="Lf">单价：1.00元</div>
+                </div>
+            </div> -->
+        </div>
+        <div class=" pageCont" style="text-align: center;width: 986px;">
+                <ul class="pagination" id="page1"></ul>
+            <div class="pageJump">
+                <span class="allPageN">1/200</span>
+                <span style="margin-left: 10px;">共<span class="allPageSize">200</span>页，</span>
+                <span>到第</span>
+                <input class="page_page" type="text"/>
+                <span>页</span>
+                <button type="button" class="button goPage">GO</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/template.js"></script>
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/html" id="listTpl">
+        <%for(i in list){%>
+        <div class="orderItem">
+            <div class="orderItemHeader">
+                <span>报价编号：<%=list[i].interestId%></span>
+                <span style="margin-left:150px;"><%=list[i].companyNameB%></span>
+                <span class="Rt">报价日期：<%=list[i].submitTime%></span>
+            </div>
+            <div class="orderItemCont clearfix">
+                <div class="orderContItem orderNum"><span><%=i-0+1%></span></div>
+                <div class="orderContItem orderN"><%=list[i].productName%></div>
+                <div class="orderContItem orderViewdetail tiao_btn" data-baojia="<%=list[i].interestId%>" data-state1="<%=list[i].state%>" data-caigou1="<%=list[i].buyingId%>"><a href="javascript:;" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
+                <%if (list[i].state == 1) {%>
+                <div class="orderContItem orderStatus" style="color: #FF7E28;"><img style="vertical-align: middle;" src="../img/wenhao_icon.png" alt="">待确认</div>
+                <%} else if (list[i].state == 2) {%>
+                <div class="orderContItem orderStatus" style="color: #6EA3FF; margin-left: 0px;"><img style="margin-right: 4px;" src="../img/mp_ywc.png" alt="">已完成</div>
+                <%} else if (list[i].state == 4) {%>
+                <div class="orderContItem orderStatus" style="color: #ff4a4a;"><img style="margin-right: 2px;" src="../img/chahao_icon.png" alt="">已拒绝</div>
+                <%} else if (list[i].state == 5) {%>
+                <div class="orderContItem orderStatus" style="color: #666;"><img style="margin-right: 4px;" src="../img/mp_yjj.png" alt="">已取消</div>
+                <%} else if (list[i].state == 6) {%>
+                <div class="orderContItem orderStatus" style="color: #565656;"><img style="margin-right: 4px; vertical-align: middle;" src="../img/shixiao_icon.png" alt="">已失效</div>
+                <%}%>
+
+                
+            </div>
+            <div class="orderItemFooter clearfix">
+                <div class="Lf">纯度<%=list[i].productPurity%>%</div>
+                <div class="Lf line"></div>
+                <div class="Lf">提供数量：<%=list[i].sum%><%=list[i].unit%></div>
+                <div class="Lf line"></div>
+                <%if (list[i].paymentMethod == 1) {%>
+                <div class="Lf">支付方式：现汇</div>
+                <%} else if(list[i].paymentMethod == 2) {%>
+                <div class="Lf">支付方式：承兑汇票</div>
+                <%} else if(list[i].paymentMethod == 3) {%>
+                <div class="Lf">支付方式：现汇+承兑</div>
+                <%} else if(list[i].paymentMethod == 0) {%>
+                <div class="Lf">支付方式：不限</div>
+                <%}%>
+                
+                <div class="Lf line"></div>
+                <div class="Lf">单价：<%=list[i].unitPrice%>元</div>
+            </div>
+        </div>
+        <%}%>
+    </script>
+    <script type="text/javascript">
+
+        var j = 1;
+
+        var isFirst = true;
+        var first = true;
+        var enquiryListTpl = '';
+        if(sessionStorage.getItem('hzf_showPage')=="flag_wdbj"){
+            purchaseList(1, 1);
+            $(".myPurchase-tab span").removeClass("active");
+            $(".myPurchase-tab span:nth-child(2)").addClass("active");
+        }else if(sessionStorage.getItem('hzf_showPage')=="flag_wdbj_all"){
+            purchaseList('', 1);
+        }else{
+            purchaseList('', 1);
+        }
+
+        
+
+        //报价列表
+        function purchaseList(category, num) {
+            $.ajax({
+                type:"post",
+                url:pubIP + "offerMoney/getOfferMoneyInfoList",//v1.0
+                cache:false,
+                dataType: "json",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    companyId: companyId,
+                    sEcho: 0,
+                    pageSize:5,
+                    state: category,
+                    pageNum: num,
+                    name: $('.search_input_info').val(),
+                },
+                success: function(data){
+                    console.log(data);
+
+                    if(data.aData && data.aData.length>0){
+                        $.each(data.aData, function(i, item){
+                            // 提交时间
+                            item.submitTime = new Date(item.submitTime).Format("yyyy-MM-dd hh:mm:ss");
+                            // item.deliveryJson = JSON.parse(item.deliveryJson);
+
+                        });
+
+                        enquiryListTpl = template('listTpl', {list: data.aData});
+                        $('#listInfo').html(enquiryListTpl);
+
+
+                        if (isFirst) {
+
+                            Page({
+                                num: data.pages,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    console.log(n);
+                                    purchaseList(category, n);
+                                }
+                            });
+
+                            $('.total').text(data.pages);
+
+                            isFirst = false;
+
+                        }
+
+                        $('.allPageN').text(num+'/'+data.pages);
+
+                    } else {
+                        enquiryListTpl = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';
+                        $('#listInfo').html(enquiryListTpl);
+                    }
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+        $(document).on('click', '.myPurchase-tab span', function () {
+
+            $('.myPurchase-tab span').removeClass('active');
+            $(this).addClass('active');
+
+            var category = $(this).attr('data-value');
+
+            if (first && category == '') {
+                return;
+            }
+
+            first = false;
+
+            isFirst = true;
+            purchaseList(category, 1);
+
+       });
+
+
+        $(document).on('click', '.search_input_info_btn', function() {
+            purchaseList('', 1);
+        });
+
+        $(document).on('click', '.tiao_btn', function () {
+            window.localStorage.setItem('data-baojia', $(this).attr('data-baojia'));
+            window.localStorage.setItem('data-state1', $(this).attr('data-state1'));
+            window.localStorage.setItem('data-caigou1', $(this).attr('data-caigou1'));
+
+
+            window.location.href = './mySale-baojiaDetailStatus.html';
+        });
+    </script>
+</body>
+</html>

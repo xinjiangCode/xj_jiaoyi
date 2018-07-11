@@ -1,0 +1,368 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	font-family:”Microsoft YaHei”;
+	-moz-user-select: none; 
+	-webkit-user-select: none; 
+	-ms-user-select: none; 
+	-khtml-user-select: none; 
+	user-select: none;
+	min-width: 1230px;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	color: inherit;
+	text-decoration:none;
+}
+.maxWidth{
+	width:100%;
+	overflow: hidden;
+}
+.headBox{
+	background: #4f4f4f;
+	height:40px;
+	color: #b6b6b6;
+	line-height: 40px;
+	font-size: 14px;
+}
+.mianCont{
+	width:1229px;
+	overflow: hidden;
+	height: auto;
+	margin: 0 auto;
+}
+.Lf{
+	float: left;
+}
+.Rt{
+	float:right;
+	overflow: hidden;
+}
+.collect{
+	margin-right: 26px;
+}
+.icon{
+	display: inline-block;
+	vertical-align: middle;
+	width: 18px;
+	height:17px;
+	background: url(../img/headIcon.png) no-repeat;
+}
+.userIcon{
+	background-position: -2px -3px;
+}
+.Rt>div{
+	float: left;
+}
+.fontI{
+	font-weight: bold;
+	font-size: 12px;
+    margin-left: 16px;
+    margin-right: 16px;
+    color:#585858;
+}
+.objIcon{
+	background-position: -26px -1px;
+}
+.webIcon{
+	background-position: -49px -1px;
+}
+.ssIcon{
+	background-position: -70px -1px;
+}
+
+.topTitle{
+	height: 112px;
+	line-height: 112px;
+}
+.topTitle>.logo{
+	height: 100%;
+}
+.topTitle>.logo>img{
+	vertical-align: middle;
+}
+.topTitle>.phone{
+	color:#666666;
+	font-size: 22px;
+}
+
+
+/* 主内容 */
+
+.logo.Lf span {
+	font-size:30px;
+	font-family:'HiraginoSansGB-W3';
+	color:rgba(102,102,102,1);
+	/* line-height:38px; */
+	margin-left: 50px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.mainCenter {
+	height: 670px;
+	width: 100%;
+	background-color: #EEEEEE;
+	padding-top: 74px;
+	box-sizing: border-box;
+}
+
+.mian_center {
+	width: 1152px;
+	height: 409px;
+	border: 1px solid #EBE9EA;
+	background-color: #fff;
+	margin: 0px auto;
+}
+
+.required {
+	color: #FB6047;
+}
+
+.phone_input {
+	height: 35px;
+	width: 337px;
+	padding-left: 5px;
+	box-sizing: border-box;
+	/* border-radius: 2px; */
+}
+
+.code_input {
+	width: 157px;
+	/* border-radius: 2px; */
+	height: 35px;
+	padding-left: 5px;
+	box-sizing: border-box;
+}
+
+.code .send_code {
+	color: #fff;
+	width:162px;
+	height:36px; 
+	background:rgba(53,130,248,1);
+	-webkit-border-radius: 2px; 
+    -moz-border-radius: 2px; 
+    -ms-border-radius: 2px;  
+    -o-border-radius: 2px;  
+	border-radius: 2px; 
+	display: inline-block;
+	text-align: center;
+	font-family: 'Adobe Heiti Std R';
+	font-size: 17px;
+	line-height: 36px;
+	margin-left: 12px;
+}
+
+.span {
+	color: #333;
+	font-family: 'HiraginoSansGB-W3';
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.phone1, .code {
+	text-align: center;
+}
+
+.phone1 {
+	margin-bottom: 20px;
+	padding-top: 50px;
+	box-sizing: border-box;
+}
+
+.code {
+    padding-right: 37px;
+    line-height: 40px;
+}
+
+.nextbtn {
+	width:204px;
+	height:36px; 
+	opacity:0.5;
+	/* older safari/Chrome browsers */  
+    -webkit-opacity: 0.5;  
+    /* Netscape and Older than Firefox 0.9 */  
+    -moz-opacity: 0.5;  
+    /* Safari 1.x (pre WebKit!) 老式khtml内核的Safari浏览器*/  
+    -khtml-opacity: 0.5;  
+    /* IE9 + etc...modern browsers */  
+    opacity: .5;  
+    /* IE 4-9 */  
+    filter:alpha(opacity=50);  
+    /*This works in IE 8 & 9 too*/  
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";  
+    /*IE4-IE9*/  
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=50);  
+	border: 1px solid #3582F8;
+	color: #3582F8;
+	text-align: center;
+	line-height: 36px;
+	margin: 25px auto 0;
+}
+
+.submit {
+	width:204px;
+	height:36px; 
+	border: 1px solid #3582F8;
+	color: #fff;
+	text-align: center;
+	line-height: 36px;
+	margin: 25px auto 0;
+	background-color: #3582F8;
+	margin-left: 55px;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.mt {
+	margin-top: 20px;
+}
+
+.ml55 {
+	margin-left: 55px;
+}
+
+.ml72 {
+	margin-left: 72px;
+}
+
+.login_code {
+	margin-left: 12px;
+	margin-right: 25px;
+}
+
+.login_code img {
+	width: 160px;
+	height: 34px;
+}
+
+.another {
+	color: #689cfa;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.code.code0 {
+	padding-right: 0px;
+}
+
+.code .clearfix {
+	margin-right: 6px;
+}
+
+.code.code0 .clearfix {
+	margin-left: 4px;
+}
+
+.code.code2 .clearfix {
+	margin-right: 0px;
+}
+
+
+
+/*清除浮动*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+.fl {
+	float: left;
+}
+
+.code.code1 {
+	padding-left: 18px;
+}
+
+.update_pass_success {
+	text-align: center;
+	padding-top: 50px;
+	box-sizing: border-box;
+}
+
+
+
+
+
+/*底部*/
+.mainFooter{
+	text-align: center;
+}
+.mainFooter>ul{
+	margin: 0 auto;
+	margin-top: 28px;
+	display: block;
+	overflow: hidden;
+}
+.mainFooter>ul>li{
+	font-size: 12px;
+	/*//float: left;*/
+	display: inline-block;
+	height: 13px;
+	padding: 2px 10px;
+}
+.mainFooter>ul>.line {
+	padding: 0;
+	width: 0;
+	vertical-align: middle;
+	height: 13px;
+	border-right: 1px solid #757575;
+}
+.mainFooter>ul>li>a{
+
+}
+.mainFooterQuanxian{
+	margin: 14px 0 32px 0;
+	display: block;
+}

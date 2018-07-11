@@ -1,0 +1,575 @@
+<!--账户 概览-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <style type="text/css">
+        .xiaoshi{display: none;}
+        img{float: left;}
+        a{color: #80acf8;}
+
+         html,body{ width: 980px;background-color: white; min-width: 980px;}
+        .header1{width: 980px;border: 1px solid #f1f1f1;overflow: hidden;}
+        .header1>.title{font-size:16px;padding:18px 0;margin: 0 15px;border-bottom: 1px solid #f1f1f1;}
+        .header1>.head{height: 207px;margin-left: 45px;border-bottom: 1px solid #f1f1f1;}
+        .header1>.head>.left1{margin-top:20px;;overflow: hidden;}
+        .header1>.head>.left1>img{width: 139px;height: 139px;border-radius: 50%;margin-bottom: 15px;}
+        .header1>.head>.right1{margin-left: 40px;font-size: 14px;}
+        .header1>.head>.right1>.top1{margin-top: 45px;font-size: 24px;}
+        .header1>.head>.right1>.top1>.duanWei{font-size: 12px;color: #ff8d46;margin-left: 5px;   }
+        .header1>.head>.right1>.bottom1{margin-top: 15px;overflow: hidden;}
+        .header1>.head>.right1>.bottom1>div{margin-right: 40px;}
+        .header1>.head>.right1>.bottom1 .intell{margin-top: 29px;}
+        .header1>.head>.right1>.bottom1 .intell span{float: left;}
+        .header1>.head>.right1>.bottom1 .intell img{width: 25px;height: 29px;margin-left: 15px;margin-top: -5px;}
+        .header1>.head>.right1>.bottom1>div>div{margin-top: 25px; font-size: 14px;}
+        .header1>.bottom2{margin-left: 40px;color: #ff6559;padding: 10px 0;}
+
+        .header1>.head>.right2{padding-top: 20px;}
+        .header1>.head>.right2>div{margin-top: 22px;font-size: 14px;}
+
+        .header1>.head>.right3{float:right;padding-top: 40px;margin-right: 15px;font-size: 13px;}
+        .header1>.head>.right3>.btn{width: 136px;height: 32px;line-height:32px;text-align:center;color: white;background-color: #007aff;border-radius: 15px;}
+        .header1>.head>.right3>.btn:hover{background-color: #056ee0;}
+
+        .header2{width: 980px;border: 1px solid #f1f1f1;overflow: hidden;}
+        .header2>.title{font-size:18px;padding:18px 0;margin: 0 15px;border-bottom: 1px solid #f1f1f1;}
+        .header2>.integ{padding: 0 24px;margin-top: 22px;}
+        .header2>.growValue{padding: 0 24px;margin-top: 22px;}
+        .header2>.growValue>.progBar{overflow:hidden;width: 200px;height: 20px;border-radius: 10px;background-color: #e7e7e7;position: relative;}
+        .header2>.growValue>.progBar>.lan{position: absolute; top:0; left: 0;bottom: 0;background-color: #007aff;width: 50%;border-radius: 10px;}
+        .order{width: 980px;border: 1px solid #f1f1f1;overflow: hidden; margin-top: 10px;}
+        .order>.title{font-size:18px;padding:18px 0;margin: 0 15px;border-bottom: 1px solid #f1f1f1;}
+        .order>.order1{overflow: hidden;}
+        .order>.order1>.state{font-size:18px;width: 45px;padding: 40px 0 40px 40px;}
+        .order>.order1>.orderList{padding: 25px 0;width: 875px;}
+        .order>.order1>.orderList>ul>li{padding: 0 55px;}
+        .order>.order1>.orderList>ul>li>.imgs{overflow: hidden;}
+        .order>.order1>.orderList>ul>li>.imgs>img{float: left;width: 59px; height: 59px;}
+        .order>.order1>.orderList>ul>li>.orderItemTitle{text-align: center;margin-top: 10px;font-size: 14px;color: #333333;}
+
+        .offer{width: 485px;height: 185px;margin: 10px 0;border: 1px solid #f1f1f1;overflow: hidden;}
+        .offer>.title{font-size:18px;padding:18px 0;margin: 0 15px;border-bottom: 1px solid #f1f1f1;margin-bottom: 30px;}
+        .offer>.left1{margin-left: 70px;}
+        .offer>.left1>.left2{overflow: hidden;margin-right: 10px;}
+        .offer>.left1>.left2>img{width: 65px;height: 65px;}
+        .offer>.left1>.right1>.num{font-size: 24px;color: red;text-align: center;margin-top: 5px;}
+        .offer>.left1>.right1>.name{font-size: 12px;text-align: center;margin-top: 5px;color: #666666;}
+
+         .safe{width: 980px;border: 1px solid #f1f1f1;overflow: hidden;}
+         .safe>.title{font-size:18px;padding:18px 0;margin: 0 15px;border-bottom: 1px solid #f1f1f1;margin-bottom: 5px;}
+         .safe>.safeGrade{padding: 10px 0 10px 20px;margin: 0 15px; border: 1px solid #fbca79;background-color: #fff7e9;overflow: hidden;  }
+         .safe>.safeGrade>div>img{margin-left: 20px;padding-top: 2px;margin-right: 14px;}
+         .safe>.loginSafe{margin: 0 50px; padding: 17px 10px ;overflow: hidden;}
+         .safe>.loginSafe>.imgs{overflow: hidden;}
+         .safe>.loginSafe>.imgs>img{float: left;height: 75px;width: 75px;margin-right: 20px;}
+         .safe>.loginSafe>.title1{float: left;margin-top:10px;font-size: 18px;}
+         .safe>.loginSafe>.edit{color: #007aff;margin-top: 30px;font-size: 14px;cursor: pointer;}
+         .safe>.loginSafe>.isSet{color: #8BC34A;border: 1px solid #8BC34A;padding: 8px 15px;margin-top: 20px;font-size: 14px;margin-right: 60px;}
+
+         /*清除浮动*/
+        .clearfix:before, .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1; /*IE/7/6*/
+        }
+
+        .ul {
+            padding-left: 50px;
+        }
+
+        .span_cread {
+            font-size: 12px;
+            color: #666; 
+           text-align: center;
+        }
+
+        .cread_num {
+            color: #8BC34A;
+        }
+    </style>
+</head>
+<body>
+    <div class="header1">
+        <div class="title">账号概览</div>
+        <div class="head">
+            <div class="left1 Lf">
+                
+                <img class="head_img" src="../img/cf_headImg.png" alt="">
+                
+                <div class="span_cread">商户信用：<span class="cread_num" style="margin-right: 5px;"> 0</span>分</div>
+            </div>
+            <div class="right1 Lf">
+                <div class="top1"><span>会员账号:</span>
+                    <!--<i class="duanWei">黄金会员</i>-->
+                </div>
+                <div class="bottom1 weiRenZheng">
+                    <div class="Lf">
+                        <div class="userPhone">会员手机号：</div>
+                        <div class="intell">
+                            <span>企业认证：</span><img src="../img/cf_qiyeNo.png" alt=""><span style="color: #fd867d;">&nbsp;未认证</span>
+                            <span style="margin-left: 20px;">资质认证：</span><img src="../img/cf_dengerNo.png" alt=""><span style="color: #fd867d;">&nbsp;未认证</span></div>
+                    </div>
+                </div>
+                <div class="bottom1 yiRenZheng" style="display: none;">
+                    <div class="Lf">
+                        <div class="userPhone">会员手机号：</div>
+                        <div class="intell" id="deanger">
+                            <span>企业认证：</span><img src="../img/cf_qiyerenzheng.png" alt=""><span style="color: #282828;">&nbsp;企业认证</span>
+                            <span  style="margin-left: 20px;">资质认证：</span><img src="../img/cf_denger.png" alt=""><span style="color: #282828;">&nbsp;危险化学品认证</span>
+                        </div>
+                        <div class="intell" id="deangerNo">
+                            <span>企业认证：</span><img src="../img/cf_qiyerenzheng.png" alt=""><span style="color: #282828;">&nbsp;企业认证</span>
+                            <span  style="margin-left: 20px;">资质认证：</span><img src="../img/cf_dengerNo.png" alt=""><span style="color: #fd867d;">&nbsp;未认证</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right2 Lf weiRenZheng">
+                <div>所属企业：<i style="color: #fe776d;">&nbsp;--&nbsp;</i></div>
+                <div>所属部门：<i style="color: #fe776d;">&nbsp;--&nbsp;</i></div>
+                <div>企业类型：<i style="color: #fe776d;">&nbsp;--&nbsp;</i></div>
+                <!--<div>店铺二级域名:<i style="color: #fe776d;">&nbsp;&#45;&#45;&nbsp;</i></div>-->
+            </div>
+            <div class="right2 Lf yiRenZheng" style="display: none;">
+                <div class="">所属企业：<span id="companyName">&nbsp;中泰化学&nbsp;</span></div>
+                <div>所属部门：<span id="orgName">&nbsp;供应商&nbsp;</span></div>
+                <div>企业类型：<span  id="companyNameType">&nbsp;黄金会员&nbsp;</span></div>
+                <div>店铺二级域名：<a style="color: #007aff;">&nbsp;添加二级域名&nbsp;</a></div>
+            </div>
+            <div class="right3 Lf yiRenZheng">
+                <div class="btn" onclick="waitiao('../shopManage/storeIndex.html')">进入店铺</a></div>
+            </div>
+        </div>
+        <div class="bottom2"><img style="margin-top: 5px;" src="../img/cf_laba.png" alt="">&nbsp;平台按安监局相关规定，不向个人出售。请提交公司及购买资质信息进行认证才可交易</div>
+    </div>
+    <div class="header2">
+        <div class="title">会员信息</div>
+        <div class="weiRenZhengID" style="padding: 15px 24px;overflow: hidden;"><img style="margin-top: -2px;"  src="../img/cf_weirenzheng.png" alt="">&nbsp;实名认证：<span style="color: #ff796e; cursor: pointer;" class="weiRenZheng_btn">未认证</span></div>
+        <div class="yiRenZhengID" style="padding: 15px 24px;overflow: hidden;font-size: 14px; display: none;">
+            <img  src="../img/cf_weirenzheng.png" alt=""> <span class="Lf">&nbsp;实名认证：</span>
+            <span class="Lf" style="color: #8dc44d;">&nbsp;已认证&nbsp;</span>
+            <img style="margin-top: 5px;" src="../img/cf_shimingok.png" alt="">
+            <!--<div class="Rt" style="padding-right: 20px;">-->
+                <!--<img style="margin-top: 2px;" src="../img/cf_wenhao.png" alt=""><a class="Lf" style="color: #007aff;font-size: 14px;" href="##">&nbsp;如何获得成长值&nbsp;&nbsp;</a>-->
+                <!--<img style="margin-top: 2px;margin-left: 35px;" src="../img/cf_wenhao.png" alt=""><a class="Lf" style="color: #007aff;font-size: 14px;" href="##">&nbsp;如何获得积分&nbsp;</a>-->
+            <!--</div>-->
+        </div>
+        <!--<div class="yiRenZheng integ">-->
+            <!--<span style="margin-right: 300px;">公司总积分:  100000分</span>-->
+            <!--<span>公司总积分:  100000分</span>-->
+        <!--</div>-->
+        <!--<div class="yiRenZheng growValue">-->
+            <!--<div class="Lf">个人成长值:&nbsp;</div>-->
+            <!--<div class="Lf progBar">-->
+                <!--<div class="lan"></div>-->
+            <!--</div>-->
+            <!--<a href="##">&nbsp;&nbsp;查看个人成长值</a>-->
+        <!--</div>-->
+        <!--<div class="yiRenZheng integ" style="margin-bottom: 25px;"><span>每日贡献积分:  100000分</span></div>-->
+    </div>
+
+<div class="order yiRenZheng">
+    <div class="title">订单管理</div>
+    <div class="order1">
+        <div class="state Lf">销售订单</div>
+        <div class="orderList Lf" style="border-bottom: 1px solid #e3e3e3;">
+            <ul class="clearfix ul">
+                <li class="orderItem Lf">
+                    <div class="imgs"><img src="../img/cf_order0.png" alt=""></div>
+                    <div class="orderItemTitle">全  部 0</div>
+                </li>
+                <li class="orderItem Lf">
+                    <div class="imgs"><img src="../img/cf_order1.png" alt=""></div>
+                    <div class="orderItemTitle">待支付 0</div>
+                </li>
+                <li class="orderItem Lf">
+                    <div class="imgs"><img src="../img/cf_order2.png" alt=""></div>
+                    <div class="orderItemTitle">待发货 0</div>
+                </li>
+                <li class="orderItem Lf">
+                    <div class="imgs"><img src="../img/cf_order3.png" alt=""></div>
+                    <div class="orderItemTitle">待收货 0</div>
+                </li>
+                <!--<li class="orderItem Lf">-->
+                    <!--<div class="imgs"><img src="../img/cf_order4.png" alt=""></div>-->
+                    <!--<div class="orderItemTitle">待结算 0</div>-->
+                <!--</li>-->
+                <!--<li class="orderItem Lf">-->
+                    <!--<div class="imgs"><img src="../img/cf_order5.png" alt=""></div>-->
+                    <!--<div class="orderItemTitle">待完成 0</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="order1">
+        <div class="state Lf">采购订单</div>
+        <div class="orderList Lf">
+            <ul class="clearfix ul">
+                <li class="orderItem Lf">
+                    <div class="imgs"><img src="../img/cf_order0.png" alt=""></div>
+                    <div class="orderItemTitle">全  部 0</div>
+                </li>
+                <li class="orderItem Lf">
+                    <div class="imgs"><img src="../img/cf_order1.png" alt=""></div>
+                    <div class="orderItemTitle">待支付 0</div>
+                </li>
+                <li class="orderItem Lf">
+                    <div class="imgs"><img src="../img/cf_order2.png" alt=""></div>
+                    <div class="orderItemTitle">待发货 0</div>
+                </li>
+                <li class="orderItem Lf">
+                    <div class="imgs"><img src="../img/cf_order3.png" alt=""></div>
+                    <div class="orderItemTitle">待收货 0</div>
+                </li>
+                <!--<li class="orderItem Lf">-->
+                    <!--<div class="imgs"><img src="../img/cf_order4.png" alt=""></div>-->
+                    <!--<div class="orderItemTitle">待结算 0</div>-->
+                <!--</li>-->
+                <!--<li class="orderItem Lf">-->
+                    <!--<div class="imgs"><img src="../img/cf_order5.png" alt=""></div>-->
+                    <!--<div class="orderItemTitle">待完成 0</div>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="offer Lf yiRenZheng">
+    <div class="title">我的询盘</div>
+    <div class="left1 Lf">
+        <div class="left2 Lf">
+            <img src="../img/cf_offer1.png" alt="">
+        </div>
+        <div class="right1 Lf">
+            <div class="num yifa_xunpan"></div>
+            <div class="name">已发询盘</div>
+        </div>
+    </div>
+    <div class="left1 Lf">
+        <div class="left2 Lf">
+            <img src="../img/cf_offer2.png" alt="">
+        </div>
+        <div class="right1 Lf">
+            <div class="num shoudao_baojia"></div>
+            <div class="name">收到报价</div>
+        </div>
+    </div>
+</div>
+<div class="offer yiRenZheng" style="float: right;">
+    <div class="title">我的报价</div>
+    <div class="left1 Lf">
+        <div class="left2 Lf">
+            <img src="../img/cf_offer3.png" alt="">
+        </div>
+        <div class="right1 Lf">
+            <div class="num baojia_daochuli"></div>
+            <div class="name">待处理</div>
+        </div>
+    </div>
+    <div class="left1 Lf">
+        <div class="left2 Lf">
+            <img src="../img/cf_offer4.png" alt="">
+        </div>
+        <div class="right1 Lf">
+            <div class="num baojia_yijujue"></div>
+            <div class="name">已拒绝</div>
+        </div>
+    </div>
+</div>
+
+<div class="safe">
+    <div class="title">账号安全</div>
+    <div class="safeGrade">
+        <div><span style="float: left;font-size: 14px;">您的账户安全等级为: </span><img id="safeGradeImg" src="../img/cf_safeGrade1.png" alt=""><i id="safeGrade" style="font-size: 14px;">低</i></div>
+    </div>
+    <div class="loginSafe" style="border-bottom: 1px solid #e3e3e3;">
+        <div class="imgs Lf"><img src="../img/cf_safeLogin.png" alt=""></div>
+        <div class="title1 Lf">
+            <div class="title">登录安全</div>
+            <div style="font-size: 14px;margin-top: 10px;">建议您定期更改密码以保护账户安全</div>
+        </div>
+
+        <div class="edit  Rt" onclick="show1('#updataPwd')">修改</div>
+        <div class="isSet Rt">已设置</div>
+    </div>
+    <div class="loginSafe" >
+        <div class="imgs Lf"><img src="../img/cf_safe2.png" alt=""></div>
+        <div class="title1 Lf">
+            <div class="title">手机验证</div>
+            <div style="font-size: 14px;margin-top: 10px;">验证后，手机号可用于登陆，找回密码等功能</div>
+        </div>
+        <div class="edit  Rt" onclick="show2('#updataPhone')">修改</div>
+        <div class="isSet Rt">已设置</div>
+    </div>
+    <div class="loginSafe yiRenZheng" style="border-top: 1px solid #e3e3e3;">
+        <div class="imgs Lf"><img src="../img/cf_safe1.png" alt=""></div>
+        <div class="title1 Lf">
+            <div class="title">交易密码</div>
+            <div style="font-size: 14px;margin-top: 10px;">交易密码请慎重，必须进行手机验证</div>
+        </div>
+        <div class="edit  Rt jiyi_pass_edit">修改</div>
+        <div class="isSet Rt">已设置</div>
+    </div>
+</div>
+
+
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        
+        getUser();
+    })
+
+    //右侧报价订单数据显示
+    $.ajax({
+        type:"post",
+        url:pubIP+"store/getStoreData",//v1.0
+        cache:false,
+        dataType: "json",
+        headers: {
+            Accept: "application/json; charset=utf-8",
+            token: token
+        },
+        data: {
+            companyId: companyId
+        },
+        success: function(data){
+            console.log(data);
+
+            //已发询盘
+            $('.yifa_xunpan').html(data.data.inquiryCount);
+
+            //收到报价
+            $('.shoudao_baojia').html(data.data.getOfferCount);
+
+            //我的报价待处理
+            $('.baojia_daochuli').html(data.data.treatedOfferCount);
+
+            //我的报价已拒绝
+            $('.baojia_yijujue').html(data.data.refuseOfferCount);
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
+
+    // //是否进行危险化学品认证
+    // $.ajax({
+    //     type:"post",
+    //     headers: {
+    //         Accept: "application/json; charset=utf-8",
+    //         token: token
+    //     },
+    //     url: pubIP+"companyCertification/getQualificationStateByCompanyId",//v1.0
+    //     cache:false,
+    //     data:{
+    //         companyId: companyId
+    //     },
+    //     dataType: "json",
+    //     success: function(json){
+    //         console.log(json);
+
+    //         if (json.data.aType == 0 && json.data.aState == 1) {
+
+    //         }
+
+    //     },
+    //     error: function (err) {
+    //         console.log(err);
+    //     }
+    // })
+
+    function getUser() {
+        $.ajax({
+            type:"post",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"user/getUserInfoByToken",//v1.0
+            cache:false,
+            data:{
+            },
+            dataType: "json",
+            success: function(json){
+                console.log(json);
+                if(json.code == '1'){
+                    $(".header1 .top1 span").text("会员账号："+json.data.loginName);
+                    $(".header1 .bottom1.yiRenZheng .userPhone").text("会员手机号："+json.data.mobile);
+                    $(".header1 .bottom1.weiRenZheng .userPhone").text("会员手机号："+json.data.mobile);
+
+                   // $(".weiRenZheng").css("display","none");//测试使用
+					localStorage.setItem('mobile',json.data.mobile);
+                    //身份认证
+                    if(json.data.idCard==null){
+                        $(".yiRenZhengID").css("display","none");
+                        $(".weiRenZhengID").css("display","block");
+                    }else{
+                        $(".weiRenZhengID").css("display","none");
+                        $(".yiRenZhengID").css("display","block");
+                    }
+                    //账户的安全等级
+                    if(json.data.securityGrade==0){
+                        $("#safeGradeImg").attr("src",'../img/cf_safeGrade1.png')
+                        $("#safeGrade").text("低")
+                        $("#safeGrade").css("color","#ff6709")
+                    }else if(json.data.securityGrade==1){
+                        $("#safeGradeImg").attr("src",'../img/cf_safeGrade2.png')
+                        $("#safeGrade").text("中")
+                        $("#safeGrade").css("color","#ffb945")
+                    }else{
+                        $("#safeGradeImg").attr("src",'../img/cf_safeGrade3.png')
+                        $("#safeGrade").text("高")
+                        $("#safeGrade").css("color","#8bc34a")
+                    }
+
+                    getCompany(companyId);
+
+                }else{
+
+                }
+            }
+        });
+    }
+    function getCompany(companyId) {
+        $.ajax({
+            type:"post",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"store/getStoreInfoByUserId",//v1.0
+            cache:false,
+            data:{
+                companyId:companyId
+            },
+            dataType: "json",
+            success: function(json){
+                console.log(json);
+                if (json.data.storeImage == null) {
+                    $('.head_img').attr('src', '../img/cf_headImg.png');
+                } else {
+                    $('.head_img').attr('src', json.data.storeImage);    
+                }
+                
+
+                //企业已经认证
+                if(json.code == '1'){
+                    if(json.data.qualificationStatus==2){//企业已经认证
+                        $(".weiRenZheng").css("display","none");
+                        $(".yiRenZheng").show();
+                        $(".weiRenZhengID").css("display","none");
+                        $(".yiRenZhengID").show();
+                        sessionStorage.setItem("storeId",json.data.storeId);
+                        $("#orgName").text(json.data.orgName == null ? " " : json.data.orgName);
+                        $("#companyNameType").text(json.data.companyType)
+                        $("#companyName").text(json.data.companyName)
+                    }else{//企业未认证
+                        $(".yiRenZheng").css("display","none");
+                    }
+                //危险化学品认证
+                    if(json.data.aType==0){//危险化学品认证
+                        if(json.data.aState==1){//已认证
+                        	   $(".yiRenZheng").show();
+                            $("#deangerNo").css("display","none");
+                        }else{
+                        	   $(".yiRenZheng").show();
+                            $("#deanger").css("display","none");
+                        }
+                    }else{
+                        $("#deanger").css("display","none");
+                    }
+                }else{
+
+                }
+            }
+        });
+
+    }
+    function waitiao(src) {
+    		localStorage.setItem('thisCompanyId',companyId);
+        window.parent.location.href=src;
+    }
+    //展示外部弹框
+    function show1(ids) {
+        window.parent.$(ids).css("display","block");
+    }
+	function show2(ids) {
+        window.parent.$(ids).css("display","block");
+        var mobile = localStorage.getItem('mobile');
+        window.parent.$('#oldPhone').val(mobile);
+    }
+
+    $(document).on('click', '.jiyi_pass_edit', function () {
+       
+        window.parent.updataPayPwd();
+    });
+    
+
+
+    //实名认证
+    $(document).on('click', '.weiRenZheng_btn', function () {
+        window.parent.renzheng();
+    });
+
+	//销售订单统计接口
+	$.ajax({ 
+		  type:"get",
+		  url:pubIP+"orderApi/countOrderSales",//v1.0
+		  cache:false,
+		  dataType: "json",
+		  async:false,
+		  headers: {
+		  	token: token
+		  },
+		  success: function(json){
+		    //console.log(json.data);
+		  	$('.yiRenZheng .orderItemTitle').eq(0).text('全  部 '+json.data.orderAll);
+		  	$('.yiRenZheng .orderItemTitle').eq(1).text('待支付 '+json.data.stayPayOrder);
+		  	$('.yiRenZheng .orderItemTitle').eq(2).text('待发货 '+json.data.stayDeliveryOrder);
+		  	$('.yiRenZheng .orderItemTitle').eq(3).text('待收货 '+json.data.stayClosedOrder);
+		  },
+		  error:function(xhr,statues,error){
+		      
+		  }
+	});
+	//采购订单统计接口
+	$.ajax({ 
+		  type:"get",
+		  url:pubIP+"orderApi/countOrderProcurement",//v1.0
+		  cache:false,
+		  dataType: "json",
+		  async:false,
+		  headers: {
+		  	token: token
+		  },
+		  success: function(json){
+		    //console.log(json.data);
+		  	$('.yiRenZheng .orderItemTitle').eq(4).text('全  部 '+json.data.orderAll);
+		  	$('.yiRenZheng .orderItemTitle').eq(5).text('待支付 '+json.data.stayPayOrder);
+		  	$('.yiRenZheng .orderItemTitle').eq(6).text('待发货 '+json.data.stayDeliveryOrder);
+		  	$('.yiRenZheng .orderItemTitle').eq(7).text('待收货 '+json.data.stayClosedOrder);
+		  },
+		  error:function(xhr,statues,error){
+		      
+		  }
+	});
+</script>
+</body>
+</html>

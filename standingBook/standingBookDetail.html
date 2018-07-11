@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+	<title adct1="1">新疆化学品经营服务平台</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/standingBook/standingBookDetail.css">
+</head>
+<body>
+
+	<!-- 台账列表详情页 -->
+	<div class="standingBookDetail">
+		<div class="standingBookDetailTitle">
+			<span>台账列表详情页</span>
+			<span class="fr duizhang_btn"><a href="accountCheck.html">兑账</a></span>
+		</div>
+		<div>
+			<ul class="clearfix yingshou_yingfu_title">
+				<li><span class="current">应收</span></li>
+				<li><span>应付</span></li>
+			</ul>
+		</div>
+		<div class="yingshou_title">
+			<img src="../img/yingshou.png">
+			<span>应收</span>
+			<!-- <img src="../img/yingfu.png">
+			<span>应付</span> -->
+		</div>
+		<div>
+			<div class="standingBookList">
+				<ul class="clearfix list_title">
+					<li class="list_title_one"><input type="radio" name=""></li>
+					<li class="list_title_two">订单编号</li>
+					<li class="list_title_three">商品名称</li>
+					<li class="list_title_four">订单金额</li>
+					<li class="list_title_five">账期</li>
+					<li class="list_title_six">账期到期时间</li>
+				</ul>
+				<ul class="list_cont">
+					<li>
+						<span class="yingshou_radio"><input type="radio" name="yingshou"></span>
+						<span class="yingshou_order_num">1321231231231231232</span>
+						<span class="yingshou_shop_name">氢氧化钠</span>
+						<span class="yingshou_order_money">
+							<div><span class="span_text">现汇：</span><span class="orange">100元</span></div>
+							<div><span class="span_text">承兑：</span><span class="orange">1000元</span></div>
+							<div><span class="span_text">总计：</span><span class="orange">1100元</span></div>
+						</span>
+						<span class="yinsghou_account_date">30元</span>
+						<span class="yingshou_jiezhi_date">2018-04-13 13:20:20</span>
+					</li>
+				</ul>
+			</div>
+			<div class="standingBookList">
+				<ul class="clearfix list_title">
+					<li class="list_title_one"><input type="radio" name=""></li>
+					<li class="list_title_two">订单编号</li>
+					<li class="list_title_three">商品名称</li>
+					<li class="list_title_four">订单金额</li>
+					<li class="list_title_five">账期</li>
+					<li class="list_title_six">账期到期时间</li>
+				</ul>
+				<ul class="list_cont">
+					<li>
+						<span class="yingshou_radio"><input type="radio" name="yingshou"></span>
+						<span class="yingshou_order_num">1321231231231231232</span>
+						<span class="yingshou_shop_name">氢氧化钠</span>
+						<span class="yingshou_order_money">
+							<div><span class="span_text">现汇：</span><span class="orange">100元</span></div>
+							<div><span class="span_text">承兑：</span><span class="orange">1000元</span></div>
+							<div><span class="span_text">总计：</span><span class="orange">1100元</span></div>
+						</span>
+						<span class="yinsghou_account_date">30元</span>
+						<span class="yingshou_jiezhi_date">2018-04-13 13:20:20</span>
+					</li>
+				</ul>
+			</div>
+			<div class="standingBookList">
+				<ul class="clearfix list_title">
+					<li class="list_title_one"><input type="radio" name=""></li>
+					<li class="list_title_two">订单编号</li>
+					<li class="list_title_three">商品名称</li>
+					<li class="list_title_four">订单金额</li>
+					<li class="list_title_five">账期</li>
+					<li class="list_title_six">账期到期时间</li>
+				</ul>
+				<ul class="list_cont">
+					<li>
+						<span class="yingshou_radio"><input type="radio" name="yingshou"></span>
+						<span class="yingshou_order_num">1321231231231231232</span>
+						<span class="yingshou_shop_name">氢氧化钠</span>
+						<span class="yingshou_order_money">
+							<div><span class="span_text">现汇：</span><span class="orange">100元</span></div>
+							<div><span class="span_text">承兑：</span><span class="orange">1000元</span></div>
+							<div><span class="span_text">总计：</span><span class="orange">1100元</span></div>
+						</span>
+						<span class="yinsghou_account_date">30元</span>
+						<span class="yingshou_jiezhi_date">2018-04-13 13:20:20</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    	$(document).on('click', '.yingshou_yingfu_title li span', function () {
+    		$('.yingshou_yingfu_title li span').removeClass('current');
+    		$(this).addClass('current');
+    	});
+    </script>
+</body>
+</html>

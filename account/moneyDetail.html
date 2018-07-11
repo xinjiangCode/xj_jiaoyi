@@ -1,0 +1,226 @@
+<!--账户 资金 账务明细-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <style type="text/css">
+        .time>.demo-input{padding-left: 10px; height: 38px; min-width: 129px;width: 129px; line-height: 38px; border: 1px solid #e6e6e6;  background-color: #fff;  border-radius: 2px;}
+         .btn{width: 139px;height: 42px;line-height:42px;background-color: #007aff;color: white;text-align: center;border-radius: 5px;margin-left: 14px;}
+          html,body{ width: 986px;background-color: white; min-width: 986px;}
+         .container{width: 986px;height: 1418px;overflow: hidden;border: 1px solid #f1f1f1;}
+         .container>.title{height: 50px;line-height: 50px;padding:0 18px;font-size: 16px;border-bottom: 1px solid #f1f1f1;}
+         .head{overflow: hidden;padding: 33px;border-bottom: 1px solid #f1f1f1;    font-size: 14px;color:#282828;}
+         .head>.left1{overflow: hidden;margin-left: 34px;margin-right: 25px;}
+         .head>.left1>img{float:left;width: 160px;height: 104px;}
+         .head>.right1{font-size: 14px;}
+         .head>.right1>.top1{margin-bottom: 8px;}
+         .head>.right2{margin-right: 21px;font-size: 14px;}
+         .head>.right2>.btns{margin-top: 42px;}
+         .fast{border-bottom: 1px solid #f1f1f1;padding:0 18px 0 33px;height: 35px;line-height: 35px;font-size: 14px; }
+         .fast i{margin-left: 4px;margin-right: 4px;}
+         .orderList{padding: 19px 42px ;border-bottom: 1px solid #f1f1f1;overflow: hidden;}
+         .orderList>div{height: 15px;font-size: 14px;}
+         .orderList>.row{width: 0;border-left: 2px solid #f1f1f1;margin: 2px 20px;}
+          /*td,th{padding-left: 49px;}*/
+         table div,table td{text-align: center;}
+         table tr{border-bottom: 1px solid #f1f1f1;height: 60px;}
+         table tr td{overflow: hidden; vertical-align: middle;}
+         table tr td a{color: #007aff;margin-right:10px; }
+         a{color: #007aff;}
+        .selec>div>input[type="radio"]{margin-left: 49px;}
+        table tr td a:last-child{margin-right: 5px;}
+    </style>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="title">账务明细 <a style="margin-left: 490px;font-size: 14px;">日账单下载</a><a style="margin-left: 35px;font-size: 14px;">月账单下载</a> <span class="Rt" style="font-size: 14px;">可用金额：<i class="cashBalance" style="color: #ff7929;">56.00</i>元</span></div>
+    <div class="head">
+        <div class="selec" style="display: block;overflow: hidden">
+            <div class="Lf" style="width: 426px;">
+                资&nbsp;金&nbsp;流&nbsp;向&nbsp;:
+                <input type="radio" name="flow" style="margin-left: 15px;">所有
+                <input type="radio" name="flow" style="">收入
+                <input type="radio" name="flow" style="">支付
+            </div>
+
+            <div class="Lf" style="width: 426px;margin-left: 45px;">
+                类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;:
+                <input type="radio" name="leixing" style="margin-left: 15px">所有
+                <input type="radio" name="leixing" style="">支付
+                <input type="radio" name="leixing" style="">充值
+                <input type="radio" name="leixing" style="">提现
+            </div>
+        </div>
+
+        <div class="selec" style="margin-top: 20px;overflow: hidden;">
+            <div class="orderNum Lf" style="width: 426px;overflow: hidden;"><span style="height: 38px;line-height: 38px;">商户订单号: </span><input type="text" style="width: 332px;height: 36px;padding-left: 10px;"></div>
+            <div class="time Lf" style="margin-left: 45px;width: 426px;overflow: hidden;">
+                <span style="height: 38px;line-height: 38px;">起止时间: </span>
+                <input type="text" class="demo-input laydate-icon" placeholder="请选择日期" id="test1">
+                <span style="height: 38px;line-height: 38px;">&nbsp;-&nbsp; </span>
+                <input type="text" class="demo-input laydate-icon" placeholder="请选择日期" id="test2">
+            </div>
+        </div>
+        <div class="btn" style="margin-top: 30px;height: 42px; line-height: 42px;width: 240px;margin-left: 0;">搜索</div>
+
+
+    </div>
+    <div class="fast">收入(2)：
+    		<i style="color: #3ebc28;">8000.00</i>元
+    		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支出(1)：
+    		<i style="color: #ff342e;">-3000.00</i>元 <a href="##" class="Rt downWd" >下载账单</a></div>
+
+
+    <table border="1"  width="985px" align="center" style="font-size: 12px;color: #282828;">
+        <tr style="height: 35px;line-height: 35px;background-color: #fdfdfd;">
+            <th>时间</th>
+            <th>流水号 | 商户订单号</th>
+            <th>类型</th>
+            <th>交易对方</th>
+            <th>收入/支出(元)</th>
+            <th>余额(元)</th>
+            <th>详情</th>
+        </tr>
+        <tr>
+            <td>
+                <div>2018-04-10</div>
+                <div>10:41:22</div>
+            </td>
+            <td>
+                <div>流水号：3001804091631062138</div>
+                <div>订单号：3001804091631062137</div>
+            </td>
+            <td style="margin-top: 27px;">现汇交易</td>
+            <td>
+                <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
+                <div>账户号：3113710033455221943</div>
+            </td>
+            <td style="color: #FF782E;">-1049000.00</td>
+            <td>0.00</td>
+            <td><a href="./mySale-orderDetailStatus.html">查看</a><a href="##">下载</a></td>
+        </tr>
+        <tr>
+            <td>
+                <div>2018-04-10</div>
+                <div>10:41:22</div>
+            </td>
+            <td>
+                <div>流水号：3001804091631062138</div>
+                <div>订单号：3001804091631062137</div>
+            </td>
+            <td style="margin-top: 27px;">现汇交易</td>
+            <td>
+                <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
+                <div>账户号：3113710033455221943</div>
+            </td>
+            <td style="color: #FF782E;">-1049000.00</td>
+            <td>0.00</td>
+            <td><a href="##">查看</a><a href="##">下载</a></td>
+        </tr>
+    </table>
+    <div style="text-align: center;margin-top: 29px;">
+        <ul class="pagination" id="page1"></ul>
+        <div class="pageJump">
+            <span class="allPageN">1/200</span>
+            共200页，
+            <span>到第</span>
+            <input type="text"/>
+            <span>页</span>
+            <button type="button" class="button">GO</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+    laydate({
+        elem: '#test1'
+    })
+    laydate({
+        elem: '#test2'
+    })
+    laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
+    $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+    Page({
+        num: 200,
+        elem: $('#page1'),
+        callback: function(n) {
+            console.log(n);
+        }
+    });
+
+    // 资金账户余额
+    $.ajax({
+        type:"get",
+        headers: {
+            Accept: "application/json; charset=utf-8",
+            token: token
+        },
+        url: pubIP+"financialApi/getBalanceOfCompany",//v1.0
+        cache:false,
+        data:{
+        },
+        dataType: "json",
+        success: function(response){
+            console.log(response);
+            if(response.code == 1){
+                $('.cashBalance').text(response.data);
+            }
+        }   
+    });
+
+    //账务明细接口－中信银行接口V1.0------暂无数据
+    $.ajax({
+        type:"get",
+        headers: {
+            Accept: "application/json; charset=utf-8",
+            token: token
+        },
+        url: pubIP+"financialApi/getFinancialList",
+        cache:false,
+        data:{
+            moneyFlow: '',//资金流向 D收入； C 支出
+            tranType: 0,//交易类型 0 所有 ； 15 现金交易 ； 23 充值 ； 11 提现；
+            orderId: '',//订单编号
+            startTime:'',//开始时间，timeSlot＝4时必填
+            endTime: '',//结束时间 ，timeSlot＝4时必填
+            timeSlot: 1//起止时间类型 1当天，2最近一周 ，3 最近一个月 4 自选时间段
+        },
+        dataType: "json",
+        success: function(response){
+            console.log('账务明细', response);
+            if(response.code == 1){
+                // 收入金额
+                var income = response.data.countData.income;
+                // 收入笔数
+                var incomeNum = response.data.countData.incomeNum;
+                // 支出金额
+                var expend = response.data.countData.expend;
+                // 支出金额笔数
+                var expendNum = response.data.countData.expendNum;
+                $('.fast').html('收入('+ incomeNum +')：<i style="color: #3ebc28;">'+ income +'</i>元'+
+                            '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支出('+ expendNum +')：<i style="color: #ff342e;">-'+ expend +'</i>元'+
+                            '<a href="##" class="Rt">下载账单</a>');
+                //TODO-----------
+            }
+        }
+    });
+</script>
+</body>
+</html>

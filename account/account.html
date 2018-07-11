@@ -1,0 +1,2696 @@
+<!--账户公共部分-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/account.css"/>
+
+
+    <style>
+        input{
+            outline:none;
+        }
+        .xiaoshi{display: none;}
+        .mianCont_box{display: none;}
+        .topTitle{height: 130px;line-height: 130px;}
+        .topTitle>.logo1{height: 100%;}
+        .topTitle>.logo1>img{vertical-align: middle;}
+        .topTitle>.userTitle{ margin-left: 26px;padding-left: 26px;border-left: 2px solid #f1f1f1;  height: 66px;  line-height: 66px;  margin-top: 25px;  color: #090405;  font-size: 30px;  font-family:MicrosoftYaHei-Bold;  }
+
+        .red{color: red;}
+        /*#updataPhone{display: block;}*/
+        .pop{display: none;}
+        .pop{position: fixed;top: 0;left: 0;right:0;bottom: 0;width: 100%;height: 100%;z-index: 999;background-color: rgba(102,102,102,0.5);}
+        .pop>.cont{position: fixed;top: 50%;left: 50%;width: 628px;height: 363px;background-color: #ffffff;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);}
+        /*.pop>.cont>.cancel{text-align: right;color: #9E9E9E;margin-bottom: 37px;margin-top: 18px;margin-right: 18px;}*/
+        /*.pop .close{background: }*/
+        .pop>.cont>.cance2{margin: 0;padding: 0 20px;height: 50px;line-height: 50px;background: url("../img/cf_popbackgr.png") no-repeat ; margin-bottom: 27px;background-size: contain;}
+        .pop>.cont>.cance2>.popTitle{color:#5992f3;font-size: 16px;}
+        .pop>.cont>div{overflow: hidden;padding: 0;}
+        .pop>.cont>div>.leftTitle{margin-left:53px;width: 120px;text-align: right;margin-right: 18px;height:36px;line-height: 36px;}
+        .pop>.cont>div>.popInput{width: 337px;height:38px;}
+        .pop>.cont>div>.popInput>input{width: 100%;height:28px;line-height: 28px;margin-top: 1px;border: 1px solid #C6C6C6;text-indent: 10px;}
+        .pop>.cont>.forget2{text-align: right;margin-right: 100px;margin-top: 10px;}
+        .pop>.cont>.forget2>a{color: #007aff;}
+        .pop>.cont>.popBottom{margin-left: 90px;margin-top: 35px;}
+        .pop>.cont>.popBottom>.btn{margin-left: 58px;width: 137px;height: 39px;line-height: 39px;background-color: #007aff;color: white;text-align: center;border-radius: 5px;}
+
+        .pop>.cont>.popBottom>.popReset{color:#ff7524;border: 1px solid #ff7524;background-color: white;}
+        .pop>.cont>.popBottom>.popReset:hover{color:#ffffff;border: 1px solid #ff7524;background-color: #ff7524;}
+        .pop>.cont>.popBottom>.popCancel{background-color: white;border: 1px solid #007aff;color: #007aff;}
+        .pop>.cont>.popBottom>.popCancel:hover{background-color: #007aff;color: #ffffff;}
+        .pop>.cont>.popBottom>.popSure:hover{background-color: #026ee4;color: #ffffff;}
+
+         .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail {
+            z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        
+
+        .modelBox3 .modelcontent p, .modelBox4 .modelcontent p, .modelBox5 .modelcontent p, .modelBox6 .modelcontent p, .modelBox7 .modelcontent p, .modelBox10 .modelcontent p, .modelBox14 .modelcontent p, .modelBox15 .modelcontent p, .modelBox16 .modelcontent p, .modelBox18 .modelcontent p, .modelBox19 .modelcontent p, .modelBox20 .modelcontent p, .modelBox21 .modelcontent p,  .modelBox23 .modelcontent p, .modelBox24 .modelcontent p, .modelBox25 .modelcontent p, .modelBox26 .modelcontent p, .modelBox27 .modelcontent p,.modelBox28 .modelcontent p,.modelBox29 .modelcontent p,.modelBox30 .modelcontent p, .okClose p, #renzheng1 p {
+            text-align: center;
+        }
+
+        /*清除浮动*/
+        .clearfix:before, .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1; /*IE/7/6*/
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+        
+        #addCustomerRelationship .modelCont {
+            height: 390px;
+        }
+
+        #addCustomerRelationship .modelCont, #addCustomerRelationship .modeltitle, #addCustomerRelationship .modelcontent {
+            width: 650px;
+        }
+
+        #addCustomerRelationship .modelcontent {
+            height: 340px;
+        }
+
+        #addCustomerRelationship .modelBtnBox {
+            height: auto;
+        }
+
+        .info .span {
+            font-size: 14px;
+            color: #282828;
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+            padding-right: 10px;
+            box-sizing: border-box;
+            margin-left: 25px;
+            line-height: 36px;
+        }
+
+        #lijiBaoming .info .span {
+            width: 110px;
+        }
+
+         #lijiBaoming .modelCont {
+            height: 300px;
+        }
+
+        #lijiBaoming .modelCont, #lijiBaoming .modeltitle, #lijiBaoming .modelcontent {
+            width: 500px;
+        }
+
+        #lijiBaoming .modelcontent {
+            height: 300px;
+        }
+
+        #lijiBaoming .modelBtnBox {
+            height: auto;
+        }
+
+        input.pay_pass_input, .phone_num, .code_input {
+            height: 32px;
+            width: 235px;
+            text-indent: 10px;
+        }
+
+        .phone_num_kuang {
+            margin: 20px auto;
+        }
+
+        .huoqu_code {
+            color: #5590F6;
+            font-size: 14px;
+            line-height: 36px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        div#lijiBaoming .info {
+            padding-top: 15px;
+        }
+
+        .baozhnegjin_kuang {
+            margin-bottom: 10px;
+        }
+
+        .qiye_name_input {
+            width: 481px;
+            height: 34px;
+            border-color: #d3d3d3;
+            border-width: 1px;
+            border-style: solid;
+            text-indent: 10px;
+        }
+
+        .selectPub {
+            width: 483px;
+            height: 38px;
+            border: 1px solid #d3d3d3;
+            margin-right: 0px;
+        }
+
+        .selectPub>ul {
+            border: 1px solid #d3d3d3;
+            width: 483px;
+        }
+
+        .qiye_type_kuang {
+            margin: 25px 0;
+        }
+
+        #addCustomerRelationship .info {
+            padding-top: 32px;
+        }
+
+        #addCustomerRelationship .modelbtn {
+            margin: 50px auto 0 80px;
+            width: 192px;
+            height: 41px;
+            line-height: 41px;
+            font-size: 16px;
+        }
+
+
+        .modelCont{
+            position: fixed;
+            width: 450px;
+            /*height: 276px;*/
+            /*left: 50%;
+            top: 50%;
+            margin-left: -225px;
+            margin-top: -138px;*/
+        }
+
+        .pop>.cont>.cancel {
+            width: 100%;
+            height: 50px;
+            background-image: url(../img/gsxq.gif);
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 16px;
+            color: #5690f6;
+            line-height: 50px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        .modeltitle{
+            width: 450px;
+            height: 50px;
+            background-image: url(../img/gsxq.gif);
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 16px;
+            color: #5690f6;
+            line-height: 50px;
+        }
+        .modeltitle span{
+            margin-left: 16px;
+        }
+        .modelcontent{
+            width: 450px;
+            background-image: url('../img/gsxq_cont.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 18px;
+        }
+
+
+        .modelBox22 .modelCont, .modelBox22 .modeltitle, .modelBox22 .modelcontent {
+            width: 642px;
+        }
+
+        .modelBox22 .modelcontent {
+            height: 460px;
+            font-size: 16px;
+        }
+
+        .uploade {
+            position: relative;
+            width: 150px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            background: url('../img/product_pic.png');
+        }
+
+        .uploade>input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            width: 100%;
+        }
+
+        .input_height input {
+            height: 30px;
+            width: 190px;
+            margin-bottom: 17px;
+            text-indent: 10px;
+            border: 1px solid #A8A8A8;
+        }
+
+        .info label {
+            width: 110px;
+            text-align: right;
+            display: inline-block;
+        }
+
+        .input_height.pn {
+            padding-top: 25px;
+        }
+
+        .input_height {
+            margin-left: 105px;
+        }
+
+        .id_card_pic {
+            margin-left: 105px;
+        }
+
+        .id_card_pic1 {
+            margin-left: 5px;
+        }
+
+        .id_card_pic2 {
+            margin-left: 11px;
+        }
+
+        input#test1 {
+            width: 172px;
+            border: 1px solid #A8A8A8;
+        }
+
+        .modelbtn1.upload_info, .modelbtn1.cancel_info.confirm {
+            
+            float: left;
+        }
+
+        .modelbtn1.upload_info {
+            margin-left: 220px;
+        }
+
+        .modelbtn1.cancel_info.confirm {
+            margin-left: 30px;
+        }
+
+        .modelBtnBox.width100 {
+            width: 100%;
+        }
+
+        .clearfix.id_card_pic span {
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        
+        .modelbtn1 {
+            width: 145px;
+            height: 45px;
+            border: 1px solid #5690f6;
+            font-size: 18px;
+            color: #fff;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 18px;
+            
+        }
+
+        .modelBox23 .modelcontent p {
+            padding: 5px 68px;
+        }
+
+        .modelcontent p {
+            color: #949495;
+            font-size: 14px;
+            padding: 0 80px;
+        }
+
+        .modelcontent p span {
+            color: #5992f3;
+        }
+
+        .img_div {
+            width: 100%; 
+            height: 42px; 
+            text-align: center; 
+            padding-top: 40px; 
+            margin-bottom: 19px;
+            overflow: hidden;
+        }
+        .yiRenZheng,.weiRenZheng{
+        		display: none;
+        }
+
+        /* 模态框 */
+        .modelBox{
+            z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+		.modelCont{
+            position: absolute;
+            width: 450px;
+            min-height: 276px;
+            left: 50%;
+            top: 50%;
+            /*margin-left: -225px;
+            margin-top: -200px;*/
+           margin-left: 0 !important;
+           margin-top: 0 !important;
+            transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);
+            font-family: 'microsoft yahei';
+            /* background-color: red; */
+        }
+		.modeltitle{
+            width: 450px;
+            height: 50px;
+            background-image: url(../img/gsxq.gif);
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 16px;
+            color: #5690f6;
+            line-height: 50px;
+        }
+        .modeltitle span{
+            margin-left: 16px;
+        }
+
+        .modelcontent, .cont{
+            width: 450px;
+            min-height: 226px;
+            background-image: url('../img/gsxq_cont.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 18px;
+        }
+        
+		.modelBtnBox{
+            width: 302px;
+            height: 45px;
+            overflow: hidden;
+            margin: 0 auto;
+			padding-bottom: 30px;
+        }
+        .modelbtn{
+            float: left;
+            width: 145px;
+            height: 45px;
+            border: 1px solid #5690f6;
+            font-size: 18px;
+            color: #fff;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 18px auto 0 80px;
+        }
+
+        .modelbtn.ml75 {
+            margin: 18px auto 0 75px;
+        }
+
+        .modelbtn.modelbtn2 {
+            margin: 18px 0px;
+        }
+
+        .modelbtn.modelbtn2.ml10 {
+            margin-left: 10px;
+        }
+
+        .ts {
+            display: none;
+        }
+
+        i.ts {
+            line-height: 100px;
+        }
+
+        .pop>.cont>div>.lineHeight {
+            line-height: 38px;
+        }
+
+        .pop>.cont>div>.popInput.infoCont {
+            width: 337px;
+            height: auto;
+            max-height: 195px;
+            overflow: auto;
+        }
+
+        .money_num {
+            font-size: 14px;
+            color: #282828;
+            display: inline-block;
+            line-height: 36px;
+        }
+
+
+        #activityDetail .info {
+            font-size: 14px;
+        }
+
+        #activityDetail span.title, #activityDetail .fl.activity_cont, #activityDetail .xianzhi, #activityDetail .baozhengjin {
+            display: inline-block;
+            width: 290px;
+            margin-top: 8px;
+        }
+
+    </style>
+
+</head>
+<body>
+<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+<div class="topTitle mianCont">
+    <div class="logo1 Lf">
+        <a href="../index.html"><img src="../img/cf_logo1.png" alt=""></a>
+    </div>
+    <div class="userTitle Lf">用户中心</div>
+</div>
+
+<div class="line"></div>
+<div class="stateList mianCont">
+    <div class="weizhi"><img src="../img/didian.png" style="vertical-align: text-bottom; margin-right: 4px;" alt=""><span>当前位置：</span></div>
+    <div class="first"><a href="../index.html">首页</a>&nbsp;></div>
+    <div>用户中心&nbsp;></div>
+    <div class="last"> 账户概览</div>
+</div>
+<div class="countContainer mianCont">
+    <div class="manageList Lf yiRenZheng">
+        <ul>
+            <li>
+                <a href="javascript:;" class="manage"><strong>账户管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx acconut_box">
+                    <li><a href="javascript:;" class="manageItem" data-src="./accountOverView.html" data-height="1600">账户概览</a></li>
+                    <!-- <li><a href="javascript:;" class="manageItem " data-src="./companyRenzheng/promptCompanyRenzheng.html" data-height="1600">账户资料</a></li> -->
+                    <li><a href="javascript:;" class="manageItem qiye" data-src="./identification1.html" data-height="1600">企业认证</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="./Special1.html" data-height="1600">资质认证</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/limitManage.html" data-height="1600">权限管理</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/cangkuAddressManage.html" data-height="1600">仓库地址管理</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">收货地址管理</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/myCollect.html" data-height="1600">我的收藏</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="manage"><strong>店铺管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx">
+                    <li><a href="javascript:;" class="manageItem" data-src="../shopManage/storeContentManage.html" data-height="1380">店铺内容管理</a></li>
+                    <li><a href="javascript:;" class="manageItem hzf_spfb" data-src="../shopManage/shopManage.html" data-height="1380">商品管理</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="../shopManage/customerRelationship.html" >客户关系管理</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="../shopManage/dataAnalysis.html">数据分析</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="manage"><strong>销售管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx">
+                    <li><a href="javascript:;" class="manageItem hzf_wdbj" data-src="./mySale-baojia.html" data-height="1500">我的报价</a></li>
+                    <li><a href="javascript:;" class="manageItem " data-src="./mySale-enquiry.html" data-height="1380">收到询盘</a></li>
+                    <li><a href="javascript:;" class="manageItem hzf_wdxsdd" data-src="./mySale-order.html" data-height="1380">我的销售订单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="manage"><strong>采购管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx">
+                    <li><a href="javascript:;" class="manageItem hzf_wdxp" data-src="./myPurchase-enquiry.html" data-height="1380">我的询盘</a></li>
+                    <li><a href="javascript:;" class="manageItem hzf_xzcgxq" data-src="./myPurchase-addRequire.html" data-height="1380">新增采购需求</a></li>
+                    <li><a href="javascript:;" class="manageItem hzf_wdcgxq" data-src="./myPurchase-requirement.html" data-height="1380">我的采购需求</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="./myPurchase-order.html" data-height="1380">我的采购订单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="manage"><strong>活动中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx">
+                    <li><a href="javascript:;" class="manageItem" data-src="../activityCenter/activityCenter.html">活动列表</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-height="1455" data-src="../activityCenter/marginReturnRecord.html">保证金退还记录</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="manage"><strong>会员中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx">
+                    <li><a href="javascript:;" class="manageItem" data-src="../memberCenter/personalGrowthValue.html">个人成长值</a></li>
+                    <li><a href="javascript:;" class="manageItem " data-src="../memberCenter/ConvertibilityRecord.html">积分兑换记录</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="../memberCenter/memberShopOrder.html">会员商品订单</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="manage"><strong>我的钱包</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx">
+                    <li><a href="javascript:;" class="manageItem" data-src="./moneyOverView.html">资金账户概览</a></li>
+                    <li><a href="javascript:;" class="manageItem " id="moneyMange" data-src="./moneyMange.html" data-height="1418">资金账户管理</a></li>
+                    <li><a href="javascript:;" class="manageItem" id="moneyDetail" data-src="./moneyDetail.html">账户明细</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="../standingBook/standingBook.html">台账</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="./accountOverView.html">兑账订单列表</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="manage"><strong>消息中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx">
+                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/messageNotice.html" data-height="1600">我的消息</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="manage"><strong>操作日志</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx">
+                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/operateLog.html" data-height="1600">操作日志</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="manageList Lf weiRenZheng">
+        <ul>
+            <li>
+                <a href="javascript:;" class="manage"><strong>账户管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx">
+                    <li><a href="javascript:;" class="manageItem" data-src="./accountOverView.html" data-height="1600">账户概览</a></li>
+                    <li><a href="javascript:;" class="manageItem " data-src="./companyRenzheng/promptCompanyRenzheng.html" data-height="1600">账户资料</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/myCollect.html" data-height="1600">我的收藏</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">地址管理</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="manage"><strong>消息中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
+                <ul class="common_mbx">
+                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/messageNotice.html" data-height="1600">消息列表</a></li>
+                </ul>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <div class="countRight Rt">
+        <iframe src="./moneyDetail.html"
+                name="ifd"
+                width="990"
+                frameborder="0"
+                id="Iframe"
+                style="overflow: hidden;"
+                scrolling="no"
+        ></iframe>
+    </div>
+</div>
+
+<!-- 危险化学品认证信息审核中的弹框 -->
+    <div class="modelBox0">
+        <div class="modelCont">
+            <div class="modeltitle">
+                <span>消息提示</span>
+                <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+            </div>
+            <div class="modelcontent">
+                <div class="info">
+                    <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                    <p><span>危险化学品认证提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
+                </div>
+                <div class="modelBtnBox">
+                    <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modelBox1">
+        <div class="modelCont">
+            <div class="modeltitle">
+                <span>消息提示</span>
+                <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+            </div>
+            <div class="modelcontent">
+                <div class="info">
+                    <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                   <!--  <p><span>危险化学品认证信息审核中</span>，请等待危险化学品认证审核通过后，再进行特殊资质认证！</p> -->
+                   <p><span>危险化学品认证信息正在审核或未进行危险化学品认证！</span></p>
+                </div>
+                <div class="modelBtnBox">
+                    <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modelBox2">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                <p>未进行危险化学品认证，请先进行危险化学品认证！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox9">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p><span>特殊资质认证提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox10">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p><span>其他资质认证提交成功！</span></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改手机号弹框-->
+<div class="pop" id="updataPhone" >
+    <div class="cont" style="width: 650px;">
+        <div class="cance2">
+            <span class="popTitle Lf">获取验证码</span>
+            <span class="close Rt" onclick="close1(this)"><img src="../img/cf_close1.png" alt=""></span>
+        </div>
+        <div style="width: 650px; height: 35px;line-height: 35px;color: #fb6047;background-color: #fff7e9;font-size: 14px;margin: auto;text-align: center;margin-bottom: 20px;">提示：若手机丢失或者损坏，则不能直接更换手机，请联系客服400-0012-556（10:00～19:00）</div>
+        <div>
+            <div class="leftTitle Lf"> <!--<i class="red">*</i>-->
+                <span>您当前手机号</span>
+            </div>
+            <div class="popInput Lf">
+                <input type="text" id="oldPhone" maxlength="11" placeholder="" onkeyup="this.value=chaneseCheck(this.value)" disabled="disabled">
+                
+            </div>
+        </div>
+        <div>
+            <div class="leftTitle Lf"> <!--<i class="red">*</i>-->
+                <span>手机验证码</span>
+            </div>
+            <div class="popInput Lf">
+                <input id="newPhone" type="text"  maxlength="20" placeholder="" onkeyup="this.value=chaneseCheck(this.value)" style="width: 50%;">
+                <button style="outline:none;border:none;padding: 6px 15px;background-color: #00ABEB;color: #fff;border-radius: 15px;font-size: 16px;cursor: pointer;margin-left: 15px;min-width: 142px;" the-id='getCode'>获取手机验证码</button>
+            </div>
+        </div>
+        <!--<div>
+            <div class="leftTitle Lf"> <i class="red">*</i>
+                <span>确认密码</span>
+            </div>
+            <div class="popInput Lf">
+                <input id="newPwd2" type="text" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)">
+            </div>
+        </div>-->
+
+        <!--<div class="forget2"><a href="##">忘记密码?</a></div>-->
+        <div class="popBottom">
+            <div class="btn Lf popCancel theNext" onclick="show1('#updataNewPhone')">下一步</div>
+            <!--<div class="btn Lf popReset" onclick="reset(this)">重置</div>
+            <div class="btn Lf popSure" id="updataPhoneSub">确定</div>-->
+        </div>
+    </div>
+</div>
+<!--修改新手机号弹框-->
+<div class="pop" id="updataNewPhone">
+    <div class="cont" style="width: 650px;">
+        <div class="cance2">
+            <span class="popTitle Lf">新手机号更换</span>
+            <span class="close Rt" onclick="close1(this)"><img src="../img/cf_close1.png" alt=""></span>
+        </div>
+        <div style="width: 650px; height: 35px;line-height: 35px;color: #fb6047;background-color: #fff7e9;font-size: 14px;margin: auto;text-align: center;margin-bottom: 20px;">提示：若手机丢失或者损坏，则不能直接更换手机，请联系客服400-0012-556（10:00～19:00）</div>
+        <div>
+            <div class="leftTitle Lf"> <!--<i class="red">*</i>-->
+                <span>新手机号</span>
+            </div>
+            <div class="popInput Lf">
+                <input type="text" id="oldNewPwd" maxlength="11" placeholder="" onkeyup="this.value=chaneseCheck(this.value)">
+                
+            </div>
+        </div>
+        <div>
+            <div class="leftTitle Lf"> <!--<i class="red">*</i>-->
+                <span>手机验证码</span>
+            </div>
+            <div class="popInput Lf">
+                <input id="newNewPwd1" type="text"  maxlength="20" placeholder="" onkeyup="this.value=chaneseCheck(this.value)" style="width: 50%;">
+                <button style="outline:none;border:none;padding: 6px 15px;background-color: #00ABEB;color: #fff;border-radius: 15px;font-size: 16px;cursor: pointer;" the-id='getNewCode'>获取手机验证码</button>
+            </div>
+        </div>
+        <!--<div>
+            <div class="leftTitle Lf"> <i class="red">*</i>
+                <span>确认密码</span>
+            </div>
+            <div class="popInput Lf">
+                <input id="newPwd2" type="text" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)">
+            </div>
+        </div>-->
+
+        <!--<div class="forget2"><a href="##">忘记密码?</a></div>-->
+        <div class="popBottom">
+        	<div class="btn Lf popSure" id="updataPhoneSub">提交</div>
+            <div class="btn Lf popCancel close">取消</div>
+            <!--<div class="btn Lf popReset" onclick="reset(this)">重置</div>-->
+            
+        </div>
+    </div>
+</div>
+
+<!--修改密码弹框-->
+<div class="pop" id="updataPwd">
+    <div class="cont">
+        <div class="cance2">
+            <span class="popTitle Lf">修改密码</span>
+            <span class="close Rt" onclick="close1(this)"><img src="../img/gsxq_del.png" alt=""></span>
+        </div>
+        
+            <div style="margin-bottom: 20px;">
+                <div class="leftTitle Lf"> <i class="red">*</i>
+                    <span>您的密码：</span>
+                </div>
+                <div class="popInput Lf">
+                    <input type="password" id="oldPwd" maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
+                </div>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <div class="leftTitle Lf"> <i class="red">*</i>
+                    <span>新密码：</span>
+                </div>
+                <div class="popInput Lf">
+                    <input id="newPwd1" type="password"  maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
+                </div>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <div class="leftTitle Lf"> <i class="red">*</i>
+                    <span>确认密码：</span>
+                </div>
+                <div class="popInput Lf">
+                    <input id="newPwd2" type="password" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)">
+                </div>
+            </div>
+            <div class="forget2"><a href="../login/findPass.html">忘记密码?</a></div>
+            <div class="popBottom">
+                <!--<div class="btn Lf popCancel close" onclick="close1()">取消</div>-->
+                <div class="btn Lf popReset" onclick="reset(this)">重置</div>
+                <div class="btn Lf popSure" id="updataPwdSub">确定</div>
+            </div>
+        
+    </div>
+</div>
+
+<!--修改交易密码弹框-->
+<div class="pop " id="updataPayPwd">
+    <div class="cont">
+        <div class="cancel">
+            <span class="popTitle Lf">修改密码</span>
+            <span class="close" style="float: right;cursor: pointer;" onclick="close1(this)"><img src="../img/gsxq_del.png" alt=""></span>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <div class="leftTitle Lf"> <i class="red">*</i>
+                <span>原支付密码：</span>
+            </div>
+            <div class="popInput Lf">
+                <input type="password" id="oldPayPwd" maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
+            </div>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <div class="leftTitle Lf"> <i class="red">*</i>
+                <span>新密码：</span>
+            </div>
+            <div class="popInput Lf">
+                <input id="newPayPwd1" type="password"  maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
+            </div>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <div class="leftTitle Lf"> <i class="red">*</i>
+                <span>确认密码：</span>
+            </div>
+            <div class="popInput Lf">
+                <input id="newPayPwd2" type="password" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)">
+            </div>
+        </div>
+
+        <div class="forget2"><a href="../payPass.html">忘记密码?</a></div>
+        <div class="popBottom">
+            <div class="btn Lf popCancel close" onclick="close1(this)">取消</div>
+            <div class="btn Lf popSure" id="updataPayPwdSub">确定</div>
+        </div>
+    </div>
+</div>
+
+<div class="pop " id="forget">
+    <div class="cont">
+        <div class="cancel"><img class="close" style="float: right;cursor: pointer;" src="../img/gsxq_del.png" alt=""></div>
+        <div>
+            <div class="leftTitle Lf"> <i class="red">*</i>
+                <span>消息标题:</span>
+            </div>
+            <div class="popInput lineHeight Lf DetTit">
+               
+            </div>
+        </div>
+        <div>
+            <div class="leftTitle Lf"> <i class="red">*</i>
+                <span>消息内容:</span>
+            </div>
+            <div class="popInput infoCont Lf DeCont">
+                
+            </div>
+        </div>
+        <div>
+            <div class="leftTitle Lf"> <i class="red">*</i>
+                <span>发送时间:</span>
+            </div>
+            <div class="popInput Lf Detime" style="line-height: 38px;">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 企业认证基本信息是否审核 -->
+<div class="modelBox3">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                <p>企业认证正在等待审核中</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 企业认证正在审核中 -->
+<div class="modelBox4">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                <p>企业认证正在审核中</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>新增收货地址</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="modelTxt"></div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="color:#5690f6;margin-left: 12px;" class="modelbtn cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox5">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                <p>企业认证的审核未通过，请重新修改提交</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox6">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                <p><span>企业资料正在审核中</span>，请耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox7">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                <p><span>出金账户资料正在审核中</span>，请耐心等待!</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox8">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p><span>企业认证信息提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox11">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                <p>欢迎回来，请继续您的填写企业信息！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox12">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p><span>出金账户修改提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox13">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p><span>企业信息修改提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox14">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p>运营者信息修改成功！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox15">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p>发票信息修改成功！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modelBox16">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p>财务信息修改成功！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 删除资质 -->
+<div class="modelBox17">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p style="text-align:center;">删除成功！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm ok_ok1">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 资质正在审核 -->
+<div class="modelBox18">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                <p><span>资质正在审核</span>，请您耐心等待！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 资质审核未通过 -->
+<div class="modelBox19">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                <p><span>资质审核未通过</span>，请您重新填写进行认证！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 添加商品成功 -->
+<div class="modelBox20">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p><span>商品添加成功</span>，您可以：</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too confirm" data-src="../shopManage/addShop.html">继续添加商品</div>
+                <div style="background:#5690f6;" class="modelbtn modelbtn2 ml10 backShopList confirm" data-src="../shopManage/shopManage.html">返回商品列表</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 修改商品成功 -->
+<div class="modelBox21">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+                <p><span>商品修改成功</span>，您可以：</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn backShopList ml75 confirm" data-src="../shopManage/shopManage.html">返回商品列表</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 实名认证 642px -->
+<div class="modelBox22">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>实名认证信息</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="input_height pn">
+                    <label for="">个人姓名：</label>
+                    <input type="text" class="person_name">
+                    <span class="ts">个人姓名不能为空</span>
+                </div>
+                <div class="input_height">
+                    <label for="">出生日期：</label>
+                    <input type="text" class="date-input laydate-icon date_of_birth" style="text-indent: 4px;" placeholder="请选择日期" id="test1">
+                    <span class="ts">出生日期不能为空</span>
+                </div>
+                <div class="input_height">
+                    <label for="">从事的职业：</label>
+                    <input type="text" class="job">
+                    <span class="ts">职业不能为空</span>
+                </div>
+                <div class="input_height">
+                    <label for="">身份证号：</label>
+                    <input type="text" class="id_card_num">
+                    <span class="ts">身份证号格式不正确</span>
+                </div>
+                <div class="clearfix id_card_pic">
+                    <label for="" style="float: left;">身份证照片：</label>
+                    <div class="id_card_pic1" style="float: left;">
+                        <div class="uploade">
+                            <i style=""></i>
+                            <input type="file" class="input_blur" id="file_input1">
+                            <input type="hidden" class="hd0" id="hidden0" value="">
+                        </div>
+                        <span>身份证正面照</span>
+                    </div>
+                    <div class="id_card_pic2" style="float: left;">
+                        <div class="uploade">
+                            <i style=""></i>
+                            <input type="file" class="input_blur" id="file_input2">
+                            <input type="hidden" class="hd0" id="hidden1" value="">
+                        </div>
+                        <span>身份证背面照</span>
+                    </div>
+                    <i class="ts">照片不能为空</i>
+                </div>
+            </div>
+            <div class="modelBtnBox width100 clearfix">
+                <div style="background:#5690f6;" class="modelbtn1 upload_info">上传</div>
+                <div style="background:#5690f6;" class="modelbtn1 cancel_info confirm">取消</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 实名认证成功 -->
+<div class="modelBox23">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/gsxq_success.gif" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
+                margin-left: 10px; display: inline-block;">实名认证成功</span></span></div>
+                <p>恭喜您，<span>实名认证成功</span>，将获得*****的积分奖励！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 该地址添加成功 -->
+<div class="modelBox24">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/gsxq_success.gif" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
+                margin-left: 10px; display: inline-block;">该地址添加成功</span></span></div>
+                <p></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 确定要删除该地址吗 -->
+<div class="modelBox25">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/cf_denger1.png" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
+                margin-left: 10px; display: inline-block;">您确定要删除该地址吗？</span></span></div>
+                <p></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too del_sure confirm">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList del_back confirm">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 删除成功 -->
+<div class="modelBox26">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/gsxq_success.gif" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
+                margin-left: 10px; display: inline-block;">删除成功！</span></span></div>
+                <p></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 地址修改成功 -->
+<div class="modelBox27">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/gsxq_success.gif" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
+                margin-left: 10px; display: inline-block;">修改成功！</span></span></div>
+                <p></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 确认交易 -->
+<div class="modelBox28">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/cf_denger1.png" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
+                margin-left: 10px; display: inline-block;">您要确认该笔交易吗？</span></span></div>
+                <p></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm suerjiaoyi">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 拒绝交易 -->
+<div class="modelBox29">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/cf_denger1.png" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
+                margin-left: 10px; display: inline-block;">您要拒绝该笔交易吗？</span></span></div>
+                <p></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm jujuejiaoyi">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 确认交易 -->
+<div class="modelBox30">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/cf_denger1.png" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
+                margin-left: 10px; display: inline-block;">您要确认收货吗？</span></span></div>
+                <p></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm suershouhuo">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 删除成功 -->
+<!--<div class="modelBox26">-->
+    <!--<div class="modelCont">-->
+        <!--<div class="modeltitle">-->
+            <!--<span>消息提示</span>-->
+            <!--<img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">-->
+        <!--</div>-->
+        <!--<div class="modelcontent">-->
+            <!--<div class="info">-->
+                <!--<div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/gsxq_success.gif" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;-->
+                <!--margin-left: 10px; display: inline-block;">删除成功！</span></span></div>-->
+                <!--<p></p>-->
+            <!--</div>-->
+            <!--<div class="modelBtnBox">-->
+                <!--<div style="background:#5690f6;" class="modelbtn confirm">返回</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+
+
+
+<!-- 是否要关闭采购需求 -->
+<div class="closeRequirement">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/cf_denger1.png" alt=""></span></div>
+                <p>您是否确定要<span>关闭采购需求</span>，关闭后待确定的报价将自动拒绝</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm modelbtn2 sure_ok">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 confirm cancel_ok">取消</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 采购需求关闭成功 -->
+<div class="okClose">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></span></div>
+                <p>采购需求<span>关闭已成功</span></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 未进行危险化学品的认证 -->
+<div id="renzheng1">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/cf_denger1.png" alt=""></span></div>
+                <p><span>未进行危险化学品资质认证或经营范围不包含该化学品！</span></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 添加客户关系 -->
+<div id="addCustomerRelationship">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>添加客户关系</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+               <div class="qiye_name_kuang clearfix">
+                   <span class="span fl">企业名称：</span>
+                   <input type="text" class="qiye_name_input fl">
+               </div>
+               <div class="qiye_type_kuang clearfix">
+                   <span class="span fl">企业类型：</span>
+                   <div class="selectPub qiye_type_input fl" data-selectedindex="0">
+                        <span></span>
+                        <img src="../img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">10</li>
+                            <li data-index="2">20</li>
+                            <li data-index="3">30</li>
+                        </ul>
+                    </div>
+               </div>
+               <div class="up_down_relationship clearfix">
+                   <span class="span fl">上下游关系：</span>
+                   <div class="selectPub up_down_relationship_input fl" data-selectedindex="0">
+                        <span></span>
+                        <img src="../img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">10</li>
+                            <li data-index="2">20</li>
+                            <li data-index="3">30</li>
+                        </ul>
+                    </div>
+               </div>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 立即报名 -->
+<div id="lijiBaoming">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>交纳保证金</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+               <div class="baozhnegjin_kuang clearfix">
+                   <span class="span fl">保证金金额：</span>
+                   <span class="money_num">1000元</span>
+               </div>
+               <div class="pay_pass_kuang clearfix">
+                   <span class="span fl">输入支付密码：</span>
+                   <input type="text" class="pay_pass_input fl">
+               </div>
+               <div class="phone_num_kuang clearfix">
+                   <span class="span fl">手机号：</span>
+                   <input type="text" class="phone_num fl">
+                   <span class="huoqu_code">获取验证码</span>
+               </div>
+               <div class="code_kuang clearfix">
+                   <span class="span fl">输入验证码：</span>
+                   <input type="text" class="code_input fl">
+               </div>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 活动列表-查看活动详情 -->
+<div id="activityDetail">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+               <div class="activity_title_div clearfix">
+                   <span class="span fl">活动标题：</span>
+                   <span class="title fl">XXXXXX活动</span>
+               </div>
+               <div class="activity_cont_div clearfix">
+                   <span class="span fl">活动内容：</span>
+                   <div class="fl activity_cont">新发色热风的闪光点放电饭锅电饭锅的非官方</div>
+               </div>
+               <div class="baozhengjin_div clearfix">
+                   <span class="span fl">保证金：</span>
+                   <span class="baozhengjin fl">10元</span>
+               </div>
+               <div class="tiaojian_xianzhi_div clearfix">
+                   <span class="span fl">条件限制：</span>
+                   <div class="xianzhi fl">商家信用大于90分，指定鑫汇鑫、盛和兴参加</div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
+<script type="text/javascript" >
+
+    // $('.modelBox26').css('display', 'block');
+	var startTime1 = null;
+    laydate({
+        elem: '#test1',
+        format: 'YYYY-MM-DD',
+        choose: function(dates){ //选择好日期的回调
+            startTime1 = dates;
+            $('#test1').val(dates);
+            $('.date_of_birth').next().css('display', 'none');
+        }
+    });
+    
+    function alertModel(w,h,str){
+        if(w){
+            $('.modelCont').width(w);
+        }
+        if(h){
+            $('.modelCont').width(h);
+        }
+        if(str){
+            $('.modelTxt').html(str);
+        }
+        $('.modelBox').fadeIn();
+
+    }
+
+
+
+	$.ajax({
+        url: pubIP + 'companyCertification/getCompanyStateByUserToken', /*v1.0*/
+        type: 'post',
+        headers: {
+            Accept: "application/json; charset=utf-8",
+            token: token
+        },
+        cache: false,
+        ansyc: true,
+        dataType: 'json',
+        data:{
+            token: token
+        },
+        success: function (data) {
+            console.log(data)
+            if(data.data != 1){
+	            	$('.yiRenZheng').show();
+	            	$('.weiRenZheng').hide();
+            }else{
+                $('.weiRenZheng').show();
+          	    $('.yiRenZheng').hide();
+				/*$('.yiRenZheng').show();
+            		$('.weiRenZheng').hide();*/
+            }
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+
+    //实名认证
+
+    //个人姓名
+    
+    $(document).on('blur', '.person_name', function () {
+        
+        if ($(this).val() == '') {
+            $(this).next().css('display', 'inline-block');
+        } else {
+            $(this).next().css('display', 'none');
+        }
+
+    });
+
+    $(document).on('blur', '.person_name', function () {
+        
+        if ($(this).val() == '') {
+            $(this).next().css('display', 'inline-block');
+        } else {
+            $(this).next().css('display', 'none');
+        }
+
+    });
+
+//  $(document).on('blur', '.date_of_birth', function () {
+//      
+//      if (startTime1 == null) {
+//          $(this).next().css('display', 'inline-block');
+//      } else {
+//          $(this).next().css('display', 'none');
+//      }
+//
+//  });
+
+    $(document).on('blur', '.job', function () {
+        
+        if ($(this).val() == '') {
+            $(this).next().css('display', 'inline-block');
+        } else {
+            $(this).next().css('display', 'none');
+        }
+
+    });
+
+
+    $(document).on('blur', '.id_card_num', function () {
+        
+        var id_card_num_reg = $('.id_card_num').val();
+            
+        // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
+        var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+        if(reg.test(id_card_num_reg) === false) { 
+            $(this).next().css('display', 'inline-block');
+            return false; 
+        } else {
+            $(this).next().css('display', 'none');
+        }
+
+    });
+
+
+    $(document).on('click', '.upload_info', function () {
+
+
+        var person_name = $('.person_name').val();
+        var date_of_birth = $('.date_of_birth').val();
+        var job = $('.job').val();
+        var id_card_num = $('.id_card_num').val();
+
+        var file_input1 = $('#file_input1').parent().find('input[type="hidden"]').val();
+        var file_input2 = $('#file_input2').parent().find('input[type="hidden"]').val();
+
+
+        var id_card_num_reg = $('.id_card_num').val();
+            
+        // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
+        var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+
+        if ($('.person_name').val() == '') {
+
+            $('.person_name').next().css('display', 'inline-block');
+
+        } else if ($('.date_of_birth').val() == '') {
+
+            $('.date_of_birth').next().css('display', 'inline-block');
+
+        } else if ($('.job').val() == '') {
+
+            $('.job').next().css('display', 'inline-block');
+
+        }else if(reg.test(id_card_num_reg) === false) { 
+            $('.id_card_num').next().css('display', 'inline-block');
+            
+        } else if ($('#file_input1').parent().find('input[type="hidden"]').val().length == 0) {
+            
+            $('#file_input1').parent().parent().parent().find('.ts').css('display', 'inline-block');
+        
+        } else if ($('#file_input2').parent().find('input[type="hidden"]').val().length == 0) {
+         
+            $('#file_input2').parent().parent().parent().find('.ts').css('display', 'inline-block');
+        
+        } else {
+
+            $.ajax({
+                url: pubIP + 'user/realNameAuthen',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    birthday: date_of_birth,
+                    name: person_name,
+                    jobName: job,
+                    idCard: id_card_num,
+                    certificatesPic1: file_input1,
+                    certificatesPic2: file_input2
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.code == 1) {
+                        
+                        $('.modelBox23').css('display', 'block');
+
+                        $('.upload_info').parent().parent().parent().parent().css('display', 'none');
+                        $("#Iframe").attr("src","account.html");
+                    }
+                    
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+        }
+
+
+        
+
+        
+    });
+
+
+    $(document).on('change','#file_input1, #file_input2',function(){
+        xmTanUploadImg1(this);
+    })
+    
+    function xmTanUploadImg1(obj) {
+        var file = obj.files[0];
+        if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }
+
+        var formdata=new FormData();
+
+        formdata.append('file', file);
+        
+        $.ajax({
+            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                $(obj).parent().css({
+                        'background':'url('+data.url+') no-repeat',
+                        'background-position':'center',
+                        'background-size':'contain',
+                        'background-color':'#f6f6f6'
+                });
+                $(obj).parent().find('input[type="hidden"]').val(data.url);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+    }
+
+    // 活动列表-查看活动详情
+    function activityDetail() {
+        $('#activityDetail').css('display', 'block');
+    }
+
+    // 立即报名
+    function lijiBaoming() {
+        $('#lijiBaoming').css('display','block');
+    }
+
+    // 添加客户关系
+    function addCustomerRelationship() {
+        $('#addCustomerRelationship').css('display', 'block');
+    }
+
+    function forget() {
+        $('#forget').css('display', 'block');
+    }
+
+    function renzheng1() {
+        $('#renzheng1').css('display', 'block');
+    }
+
+    //是否要关闭采购需求
+    function closeRequirement() {
+        $('.closeRequirement').css('display', 'block');
+    }
+
+    //采购需求关闭成功
+    function okClose() {
+        $('.okClose').css('display', 'block');
+    }
+
+    // 危险化学品认证提交成功
+    function tan() {
+        $('.modelBox0').css('display', 'block');
+    }
+
+    //危险化学品认证信息审核中，请等待危险化学品认证审核通过后，再进行特殊资质认证！
+    function tan1() {
+        $('.modelBox1').css('display', 'block');
+    }
+
+    // 未进行危险化学品认证，请先进行危险化学品认证！
+    function tan2() {
+        $('.modelBox2').css('display', 'block');
+    }
+
+    //等待审核
+    function tan3() {
+        $('.modelBox3').css('display', 'block');
+    }
+
+    //审核中
+    function tan4() {
+        $('.modelBox4').css('display', 'block');
+    }
+
+    //已拒绝
+    function tan5() {
+        $('.modelBox5').css('display', 'block');
+    }
+
+    //企业资料二次审核中
+    function tan6() {
+        $('.modelBox6').css('display', 'block');
+    }
+
+    //出金账户资料二次审核中
+    function tan7() {
+        $('.modelBox7').css('display', 'block');
+    }
+
+    //添加企业认证提交后的弹框
+    function add_tan() {
+        $('.modelBox8').css('display', 'block');
+    }
+
+    //特殊资质认证提交后的弹框
+    function teshu_tan() {
+        $('.modelBox9').css('display', 'block');
+    }
+
+    //其他资质认证提交后的弹框
+    function other_tan() {
+        $('.modelBox10').css('display', 'block');
+    }
+
+    function tiao_tan () {
+        $('.modelBox11').css('display', 'block');
+    }
+
+    //修改出金账户成功
+    function update_chujin() {
+        $('.modelBox12').css('display', 'block');
+    }
+
+    //修改企业信息成功
+    function update_qiye() {
+        $('.modelBox13').css('display', 'block');
+    }
+
+    //修改运营者信息成功
+    function update_runPerson() {
+        $('.modelBox14').css('display', 'block');
+    }
+
+    //修改发票信息成功
+    function update_runFapiao() {
+        $('.modelBox15').css('display', 'block');
+    }
+
+    //修改财务信息成功
+    function update_runcaiwu() {
+        $('.modelBox16').css('display', 'block');
+    }
+
+    //删除资质
+    function del() {
+        $('.modelBox17').css('display', 'block');
+    }
+
+    //资质正在审核
+    function shenhe() {
+        $('.modelBox18').css('display', 'block');
+    }
+
+    //资质已拒绝
+    function jujue() {
+        $('.modelBox19').css('display', 'block');
+    }
+
+    //商品管理
+    function shopManage() {
+        $('.modelBox20').css('display', 'block');
+    }
+
+    //编辑商品成功
+    function editShopManage() {
+        $('.modelBox21').css('display', 'block');
+    }
+
+    //实名认证
+    function renzheng() {
+        $('.modelBox22').css('display', 'block');
+    }
+
+
+    //添加地址成功
+    function addAddress() {
+        $('.modelBox24').css('display', 'block');
+    }
+
+    //确定要删除该地址吗
+    function delAddress() {
+        $('.modelBox25').css('display', 'block');
+    }
+
+    //确定要删除该地址吗
+    function delSuccess() {
+        $('.modelBox26').css('display', 'block');
+    }
+
+    //地址修改成功
+    function updateSuccess() {
+        $('.modelBox27').css('display', 'block');
+    }
+
+
+    //确定交易
+    function surejiaoyi() {
+        $('.modelBox28').css('display', 'block');
+    }
+    //拒绝交易
+    function jujuejiaoyi() {
+        $('.modelBox29').css('display', 'block');
+    }
+
+    //确定收货
+    function sureshouhuo() {
+        $('.modelBox30').css('display', 'block');
+    }
+
+    function updataPayPwd() {
+        $('#updataPayPwd').css('display', 'block');
+    }
+
+
+    $(document).on('click', '.confirm', function () {
+        $(this).parent().parent().parent().parent().css('display', 'none');
+    });
+
+
+    $(document).on('click', '.close', function () {
+        $(this).parent().parent().parent().css('display', 'none');
+    });
+
+
+
+    $(document).on('click', '.backShopList', function () {
+        $("#Iframe").attr("src",$(this).attr("data-src"));
+    });
+
+    $(document).on('click', '.addShop_too', function () {
+        $("#Iframe").attr("src",$(this).attr("data-src"));
+    });
+
+    $('.qiye').on('click', function () {
+        $.ajax({
+            url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                token: token
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.state);
+
+                
+                if (data.data.type == 7) {  //等待审核
+                    window.parent.tan3();
+                } else if (data.data.type == 2) {  //正在审核
+                    window.parent.tan4();
+                } else if (data.data.type == 4) {  //已拒绝
+                    window.parent.tan5();
+                } else if (data.data.type == 5) {  //企业二次审核
+                    window.parent.tan6();
+                } else if (data.data.type == 6) {  //出金二次修改
+                    window.parent.tan7();
+                }
+                          
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    });
+
+
+    //禁止输入中文
+    function chaneseCheck(str){
+        var temp=""
+        for(var i=0;i<str.length;i++)
+            if(str.charCodeAt(i)>0&&str.charCodeAt(i)<255)
+                temp+=str.charAt(i)
+        return temp
+    }
+	var state=1;//未认证
+    $(function () {
+
+
+        if(state==0){
+            $(".yiRenZheng").addClass('xiaoshi');
+            $(".weiRenZheng .manage").each(function (index) {
+                if(index!=0){
+                    $(this).find('img').eq(0).attr('src',"../img/cf_close.png");
+                }
+            })
+        }else{
+            $(".weiRenZheng").addClass('xiaoshi');
+            $(".yiRenZheng .manage").each(function (index) {
+                if(index!=0){
+                    $(this).find('img').eq(0).attr('src',"../img/cf_close.png");
+                }
+            })
+        }
+       //
+
+        $(".manage").click(function () {
+            $(this).parent().find("ul").toggle();
+            $(this).find('img').eq(0).attr('src',$(this).find('img').eq(0).attr('src')==="../img/cf_open.png"?"../img/cf_close.png":"../img/cf_open.png");
+        });
+
+        if(state==0){
+            $(".weiRenZheng .manage").eq(0).parent().find("ul").toggle();
+            $(".weiRenZheng .manageItem").eq(sessionStorage.getItem('cf_showPage')).addClass("active1");
+            $("#Iframe").attr("src",$(".weiRenZheng .manageItem").eq(sessionStorage.getItem('cf_showPage')).attr("data-src"));
+            $("#Iframe").attr("height",$(".weiRenZheng .manageItem").eq(sessionStorage.getItem('cf_showPage')).attr("data-height"));
+        }else{
+            $(".yiRenZheng .manage").eq(0).parent().find("ul").toggle();
+            $(".yiRenZheng .manageItem").eq(sessionStorage.getItem('cf_showPage')).addClass("active1");
+            $("#Iframe").attr("src",$(".yiRenZheng .manageItem").eq(sessionStorage.getItem('cf_showPage')).attr("data-src"));
+            $("#Iframe").attr("height",$(".yiRenZheng .manageItem").eq(sessionStorage.getItem('cf_showPage')).attr("data-height"));
+        }
+
+
+         //判断从账户外跳转过来(这个不能往上移位置)
+        var jump_flag = sessionStorage.getItem('hzf_showPage');
+        if(jump_flag=="flag_mfzh"){//发布需求
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".hzf_xzcgxq").addClass("active1");
+            $(".hzf_xzcgxq").parent().parent().toggle();
+            $(".hzf_xzcgxq").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","myPurchase-addRequire.html");
+        }
+        if(jump_flag=="hzf_fbsp"){//发布商品
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".hzf_spfb").addClass("active1");
+            $(".hzf_spfb").parent().parent().toggle();
+            $(".hzf_spfb").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","../shopManage/addShop.html");
+        }
+        if(jump_flag=="flag_wdbj"){//我的报价 待报价
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".hzf_wdbj").addClass("active1");
+            $(".hzf_wdbj").parent().parent().toggle();
+            $(".hzf_wdbj").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","mySale-baojia.html");
+        }
+        if(jump_flag=="flag_wdbj_sdbj"){// 采购管理-我的采购需求
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".hzf_wdcgxq").addClass("active1");
+            $(".hzf_wdcgxq").parent().parent().toggle();
+            $(".hzf_wdcgxq").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","myPurchase-requirement.html");
+        }
+        if(jump_flag=="flag_wdbj_dcl"){//销售管理-我的销售订单
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".hzf_wdxsdd").addClass("active1");
+            $(".hzf_wdxsdd").parent().parent().toggle();
+            $(".hzf_wdxsdd").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","mySale-order.html");
+        }
+        if(jump_flag=="flag_wdxp"){//我的询盘
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".hzf_wdxp").addClass("active1");
+            $(".hzf_wdxp").parent().parent().toggle();
+            $(".hzf_wdxp").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","myPurchase-enquiry.html");
+        }
+        if(jump_flag=="flag_wdbj_all"){//我的报价（全部）
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".hzf_wdbj").addClass("active1");
+            $(".hzf_wdbj").parent().parent().toggle();
+            $(".hzf_wdbj").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","mySale-baojia.html");
+        }
+        //判断从账户外跳转过来(这个不能往上移位置)结束
+
+
+
+        $(".manageItem").hover(function () {
+            $(".manageItem").removeClass("active");
+            $(this).addClass("active");
+        },function () {
+            $(".manageItem").removeClass("active");
+            $(this).removeClass("active");
+        }).click(function () {
+
+            /*if (!companyId && $(this).attr("data-src") != './identification1.html') {
+                alert('请先进行企业认证！');
+                return false;
+            }*/
+            
+            $(".manageItem").removeClass("active1");
+            $(this).addClass("active1");
+            
+            $("#Iframe").attr("src",$(this).attr("data-src"));
+            $("#Iframe").attr("height",$(this).attr("data-height"));
+            $("#Iframe").css("height",$(this).attr("data-height"));
+        });
+    })
+
+   
+
+
+    //    关于pop的
+    function close1(that) {
+        var ipt=$(that).parent().parent().find("input")
+        for(var i=0;i<ipt.length;i++){
+            ipt[i].value="";
+        }
+        $(".pop").css("display","none");
+    }
+    function reset(that) {
+        var ipt=$(that).parent().parent().find("input")
+        for(var i=0;i<ipt.length;i++){
+            ipt[i].value="";
+        }
+    }
+             //密码pop
+    //校验旧密码
+    $('#oldPwd').bind('input propertychange',function () {
+        if($("#oldPwd").val()=="" || $("#oldPwd").val().length<6 ){
+            $("#oldPwd").css('border-color','red');
+        }else{
+            $("#oldPwd").css('border-color','#D3D3D3');
+        }
+    });
+    //校验密码
+    $('#newPwd1').bind('input propertychange',function () {
+        if($("#newPwd1").val()=="" || $("#newPwd1").val().length<6){
+            $("#newPwd1").css('border-color','red');
+        }else{
+            $("#newPwd1").css('border-color','#D3D3D3');
+        }
+    });
+    //二次校验密码
+    $('#newPwd2').bind('input propertychange',function () {
+        if($("#newPwd2").val()=="" || $("#newPwd2").val().length<6 || $("#newPwd2").val()!=$("#newPwd1").val()){
+            $("#newPwd2").css('border-color','red');
+            return;
+        }else{
+            $("#newPwd2").css('border-color','#D3D3D3');
+        }
+    });
+    //修改密码  提交
+    $("#updataPwdSub").click(function () {
+        //debugger;
+        if($("#oldPwd").val()=="" || $("#oldPwd").val().length<6  ){
+            $("#oldPwd").css('border-color','red');
+            return;
+        }else{
+            $("#oldPwd").css('border-color','#D3D3D3');
+        }
+        if($("#newPwd1").val()=="" || $("#newPwd1").val().length<6){
+            $("#newPwd1").css('border-color','red');
+            return;
+        }else{
+            $("#newPwd1").css('border-color','#D3D3D3');
+        }
+        if($("#newPwd2").val()=="" || $("#newPwd2").val().length<6 || $("#newPwd2").val()!=$("#newPwd1").val()){
+            $("#newPwd2").css('border-color','red');
+            return;
+        }else{
+            $("#newPwd2").css('border-color','#D3D3D3');
+        }
+
+        var pw=$("#newPwd2").val();
+        var leav=-1;
+        var numC=0;
+        var strC=0;
+        var str_C=0;
+        for(var i=0;i<pw.length;i++){
+            if(pw[i]<=9 && pw[i]>=0){
+                numC=1;
+            }else if(pw[i]>='A'&&pw[i]<='Z' || pw[i]>='a'&& pw[i]>='z'){
+                strC=1;
+            }else{
+                str_C=1;
+            }
+        }
+        leav=leav+parseInt(numC)+parseInt(strC)+parseInt(str_C);//安全等级
+
+        $.ajax({
+            url: pubIP + 'user/editPassword', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                newPassword:$("#newPwd1").val(),
+                oldPassword:$("#oldPwd").val(),
+                securityGrade:leav
+            },
+            success: function (data) {
+                console.log(data)
+                if(data.code==1){
+                    $("#updataPwd").hide();
+                    $("#Iframe").attr("src","accountOverView.html");
+                    alert("修改成功");
+                }else{
+                    alert(data.msg)
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+
+    })
+
+           //支付密码pop
+    //校验旧支付密码
+    $('#oldPayPwd').bind('input propertychange',function () {
+        if($("#oldPayPwd").val()=="" || $("#oldPayPwd").val().length<6 ){
+            $("#oldPayPwd").css('border-color','red');
+        }else{
+            $("#oldPayPwd").css('border-color','#D3D3D3');
+        }
+    });
+    //校验支付密码
+    $('#newPayPwd1').bind('input propertychange',function () {
+        if($("#newPayPwd1").val()=="" || $("#newPayPwd1").val().length<6){
+            $("#newPayPwd1").css('border-color','red');
+        }else{
+            $("#newPayPwd1").css('border-color','#D3D3D3');
+        }
+    });
+    //二次校验支付密码
+    $('#newPayPwd2').bind('input propertychange',function () {
+        if($("#newPayPwd2").val()=="" || $("#newPayPwd2").val().length<6 || $("#newPayPwd2").val()!=$("#newPayPwd1").val()){
+            $("#newPayPwd2").css('border-color','red');
+            return;
+        }else{
+            $("#newPayPwd2").css('border-color','#D3D3D3');
+        }
+    });
+    //修改支付密码  提交
+    $("#updataPayPwdSub").click(function () {
+        if($("#oldPayPwd").val()=="" || $("#oldPayPwd").val().length<6  ){
+            $("#oldPayPwd").css('border-color','red');
+            return;
+        }else{
+            $("#oldPayPwd").css('border-color','#D3D3D3');
+        }
+    if($("#newPayPwd1").val()=="" || $("#newPayPwd1").val().length<6){
+            $("#newPayPwd1").css('border-color','red');
+            return;
+        }else{
+        $("#newPayPwd1").css('border-color','#D3D3D3');
+    }
+        if($("#newPayPwd2").val()=="" || $("#newPayPwd2").val().length<6 || $("#newPayPwd2").val()!=$("#newPayPwd1").val()){
+            $("#newPayPwd2").css('border-color','red');
+            return;
+        }else{
+            $("#newPayPwd2").css('border-color','#D3D3D3');
+        }
+
+        $.ajax({
+            url: pubIP + 'user/editPayPassword', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data:{
+                newPayPassword:$("#newPayPwd1").val(),
+                oldPayPassword:$("#oldPayPwd").val()
+            },
+            success: function (data) {
+                console.log(data)
+                if(data.code==1){
+                    $("#updataPayPwd").hide();
+                    $("#Iframe").attr("src","accountOverView.html");
+                    alert("修改成功");
+                }else{
+                    alert(data.msg)
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+
+    })
+
+    // 面包屑
+    $(".common_mbx>li").on("click",function(){
+        var inner_html = $(this).find("a").html();
+        $(".last").html(inner_html);
+    })
+
+    $(function(){
+        // 获取用户信息，暂无数据
+    //     $.ajax({ 
+    //         type:"post",
+    //         url:pubIP+"store/getStoreInfoByUserId",//v1.0.0
+    //         cache:false,
+    //         dataType: "json",
+    //         headers: {
+    //             token: token
+    //         },
+    //         data:{
+    //             'companyId':companyId,
+    //         },
+    //         success: function(json){
+    //             console.log(json);
+    //         },
+    //         error:function(xhr,statues,error){
+                
+    //         }
+	//    });
+    })
+    
+     function show1(ids) {
+     	var newPhone = $('#newPhone').val();
+     	if(newPhone==''){
+     		alert('请输入验证码')
+     		return false;
+     	}
+        window.parent.$(ids).css("display","block");
+    }
+    
+    /**
+     * 修改手机号验证弹窗中下一步
+     */
+    $('.theNext').on("click",function(){
+    	
+    })
+	/**
+	 * 获取手机验证吗
+	 */
+//	var flag = false;
+//	var count = 10;
+//	var timer = '';
+//	$("[the-id=getCode]").on('click',function(){
+//		clearInterval(timer);
+//		var _this = $(this);
+//		if(flag==true){
+//			return false
+//		}
+//		var mobile = $('#oldPwd').val();
+////		if(mobile==''){
+////			
+////		}
+//		timer = setInterval(function(){
+//			_this.text(count--);
+//			if(count<-1){
+//				_this.text('获取手机验证码');
+//				clearInterval(timer);
+//				flag = true;
+//			}
+//			
+//		},1000);
+//		$.ajax({
+//			url: pubIP + 'user/getMessageCode', /*v1.0*/
+//          type: 'post',
+//			data:{mobile:mobile},
+//			success:function(msg){
+//				console.log(msg)
+//			}
+//		})
+//	})
+	var count = 60;
+	$("[the-id=getCode]").on('click',function(){
+		var _this = $(this);
+		_this.attr('disabled',true);
+		var mobile = $('#oldPhone').val();
+//		if(mobile==''){
+//			alert('请输入新手机号');
+//		}
+		var timer = setInterval(function(){
+			_this.text(count--);
+			if(count<-1){
+				_this.text('获取手机验证码');
+				clearInterval(timer);
+				_this.attr('disabled',false);
+			}
+			
+		},1000);
+		$.ajax({
+			url: pubIP + 'user/getMessageCode', /*v1.0*/
+            type: 'post',
+			data:{mobile:mobile},
+			success:function(msg){
+				console.log(msg)
+			}
+		})
+	})
+	
+	var newCount = 60;
+	$("[the-id=getNewCode]").on('click',function(){
+		var _this = $(this);
+		_this.attr('disabled',true);
+		var mobile = $('#oldNewPwd').val();
+		var newcode =  $('#newNewPwd1').val();
+		if(mobile==''){
+			alert('请输入新手机号');
+			return false;
+        }
+       
+		var timer = setInterval(function(){
+			_this.text(newCount--);
+			if(newCount<-1){
+				_this.text('获取手机验证码');
+				clearInterval(timer);
+				_this.attr('disabled',false);
+			}
+			
+		},1000);
+		$.ajax({
+			url: pubIP + 'user/getMessageCode', /*v1.0*/
+            type: 'post',
+			data:{mobile:mobile},
+			success:function(msg){
+				console.log(msg)
+			}
+		})
+	})
+	
+	//修改手机号提交
+    $(document).on('click','#updataPhoneSub',function(){
+        var mobile = $('#oldNewPwd').val();
+		var newcode =  $('#newNewPwd1').val();
+		if(mobile==''){
+			alert('请输入新手机号');
+			return false;
+        }
+		if(newcode==''){
+			alert('请先获取验证码');
+			return false;
+        }
+		$.ajax({
+			url: pubIP + 'user/editMobile', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+			data:{mobile:mobile},
+			success:function(msg){
+                if(msg.code==1){
+                    $('#updataNewPhone').hide();
+                    $('#updataPhone').hide();
+                }
+			}
+        })
+        $("#updataPhone").hide();
+        $("#Iframe").attr("src","accountOverView.html");
+    })
+
+
+    // 模拟下拉框
+    $('.qiye_type_input, .up_down_relationship_input').click(function(event){
+
+        if($(this).attr("disabled")=="disabled"){ //判断是否可以点击
+          return;
+        }
+
+        if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
+            $(this).children('img').attr('src', '../img/prl-select.jpg')
+        } else {
+            $(this).children('img').attr('src', '../img/prl-selected.jpg')
+        }
+
+        event.stopPropagation();
+
+        $(this).children('ul').toggle();
+        var that = $(this);
+        that.find('li').each(function(){
+            $(this).mouseover(function(){
+                $(this).addClass('hovered')
+            });
+            $(this).mouseleave(function(){
+                $(this).removeClass('hovered')
+            });
+            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+                $(this).css({'background': '#6ea3ff','color': '#fff'});
+                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+            }
+        });
+
+    }).mouseleave(function (event) {
+        $(this).children('img').attr('src', '../img/prl-select.jpg');
+        $(this).children('ul').hide();
+    });
+
+</script>
+</body>
+</html>

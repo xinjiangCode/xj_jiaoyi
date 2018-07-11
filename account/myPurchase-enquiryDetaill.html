@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/myPurchase-enquiryCancel.css">
+    <style>
+        .lastBtn{
+            cursor: pointer;
+        }
+        /* 已接受 */
+        .myPurchase-received{
+            width:935px;
+            height:232px; 
+            background-image: url(../img/mp_yjs.png);
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: 183px 142px;
+            background-color: #FDFDFD;
+            text-align: center;
+            font-size: 18px;
+            padding-top: 148px;
+            box-sizing: border-box;
+        }
+
+        .item .payWay, .item .sumPrice, .item .compony, .item .tel, .item .zuojiTel {
+            margin-left: 0px;
+        } 
+
+        .item .p_width {
+            width: 248px;
+        }
+
+
+    </style>
+</head>
+<body>
+<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+<div class="topTitle mianCont">
+    <a href="../index.html" class="logo1 Lf">
+        <img src="../img/cf_logo1.png" alt="">
+    </a>
+    <div class="userTitle Lf">用户中心</div>
+</div>
+<div class="line"></div>
+<div class="stateList mianCont">
+    <div class="first">首页&nbsp;></div>
+    <div>用户中心&nbsp;></div>
+    <div class="last"> 账户概览</div>
+</div>
+<div class="mainAll mianCont">
+    <div class="mainLeft Lf">
+        <div class="title">商品信息</div>
+        <ul>
+            <script type="text/html" id="leftTpl">
+                <li>
+                    <div>供应信息编号：<%=interestId%></div>
+                </li>
+                <li>
+                    <div>商品名称：<%=productName%></div>
+                </li>
+                <li>
+                    <div>形态：暂无数据</div>
+                </li>
+                <li>
+                    <div>纯度：暂无数据</div>
+                </li>
+                <li>
+                    <div>规格：<%=productSpec%></div>
+                </li>
+                <li>
+                    <div>级别：暂无数据</div>
+                </li>
+                <li>
+                    <div>厂家/产地：<%=productOrigin%></div>
+                </li>
+                <li>
+                    <div>供应总量：<%sum%><%=unit%></div>
+                </li>
+                <li>
+                    <div>剩余数量：暂无数据</div>
+                </li>
+                <li>
+                    <div>单位：<%=unit%></div>
+                </li>
+                <li>
+                    <div>联系人：<%=contactName%></div>
+                </li>
+                <li>
+                    <div>联系电话：<%=contactPhone%></div>
+                </li>
+            </script>
+        </ul>
+    </div>
+    <div class="main Lf">
+        <script type="text/html" id="rightTpl">
+            <!-- <%if(state != 2){%> -->
+                <div class="myPurchase-title clearfix">
+                    <div class="Lf">我的询盘</div>
+                    <!-- 交易状态 1：等待确认 2：已达成 3：未达成（包括已被拒绝或过期未确认） 4询盘-商家拒绝  5询盘-买家取消 6询盘-已失效-->
+                    <%if(state==1){%>
+                        <div class="Rt blue confirmWait">等待商家确认</div>
+                    <%}else if(state==2){%>
+                        <div class="Rt blue confirmed"></div>
+                    <%}else if(state==4){%>
+                        <div class="Rt red Refuse">已拒绝</div>
+                    <%}else if(state==5){%>
+                        <div class="Rt red cancel">已取消</div>
+                    <%}else if(state==6){%>
+                        <div class="Rt red invalid">已失效</div>
+                    <%}%>    
+                </div>
+                <div class="purchaseInfo">
+                    <div class="item">
+                        <p class="Lf p_width">采购数量：<%=sum%><%=unit%></p>
+                        <!-- "paymentMethod": 1,  支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限 -->
+                        <%if(paymentMethod == 1){%>
+                            <p class="Lf payWay p_width">支付方式：<span class="yellow">现汇</span></p>
+                        <%}else if(paymentMethod == 2){%>
+                            <p class="Lf payWay p_width">支付方式：<span class="yellow">承兑汇票</span></p>
+                        <%}else if(paymentMethod == 3){%>
+                            <p class="Lf payWay p_width">支付方式：<span class="yellow">现汇+承兑</span></p>
+                        <%}%>
+                        
+                        <p class="Lf sumPrice p_width">总价：<span style="font-weight:bold;" class="yellow"><%=dealTotal%></span>元</p>
+                        <!-- "deliveryType": 1,  交割方式 1：包到 2：自提 -->
+                        <%if (deliveryType == 1){%>
+                            <p class="Rt p_width0">交割方式：包到</p>
+                        <%}else if (deliveryType == 2){%>
+                            <p class="Rt p_width0">交割方式：自提</p>
+                        <%}%>
+                    </div>
+                    <div class="item">
+                        <!-- "invoiceType": 1,  发票类型 1：增值税普通发票 2：增值税专用发票 -->
+                        <%if(invoiceType == 1) {%>
+                            <p class="Lf p_width">发票类型：增值税普通发票</p>
+                        <%}else if(invoiceType == 2) {%>
+                            <p class="Lf p_width">发票类型：增值税专用发票</p>
+                        <%}%>
+                        
+                        <p class="Lf compony">询盘企业：无数据</p>
+                    </div>
+                    <div class="item address">
+                        <p class="Lf">收票地址：<%=invoicePeople%></p>
+                        <p class="Lf"><%=invoicePhone%></p>
+                        <p class="Lf"><%=invoiceAddr%></p>
+                    </div>
+                    <div class="item">
+                        <p class="Lf p_width">联系人: <%=contactName%></p>
+                        <p class="Lf p_width tel">手机号码：<%=contactPhone%></p>
+                        <p class="Lf zuojiTel">座机：<%=contactLandline%></p>
+                    </div>
+                    <div class="item">
+                        <%if(myfromPage=='mypurchase'){%>
+                            <p class="Lf">备注：<%=note%></p>
+                        <%}else if(myfromPage=='mysale'){%>
+                            <p class="Lf">备注：<%=note2%></p>
+                        <%}%>
+                    </div>
+                </div>
+            <!-- <%}%> -->
+            <%if(state==1){%>
+                <div class="myPurchase-refused2 confirmWait">
+                    <p>您的询盘时间为<span id="confirmWaitTime" style="margin-left: 10px;"></span></p>
+                    <p>您可以联系供应方进行确认，您也可以<span data-state="<%=state%>" class="blue lastBtn">&nbsp;&nbsp;取消询盘</span></p>
+                </div>
+            <%}else if(state==2){%>
+                <div class="myPurchase-title clearfix confirmed">
+                    <div class="Lf">商家确认信息</div>
+                    <div class="Rt blue">已被确认</div>
+                </div>
+                <div class="business confirmed">
+                    <div class="infoItem">
+                        <div class="sumMoney">成交总价：<span class="yellow"><%=dealTotal%></span>元</div>
+                        <div class="cd">承兑：<span class="yellow">1-1231</span>元</div>
+                        <div class="xh">现汇：<span class="yellow">1231</span>元</div>
+                    </div>
+                    <div class="infoItem">支持账期，账期时间<span class="yellow">30</span>天</div>
+                    <div class="infoItem">
+                        备注：<%=note%>
+                    </div>
+                </div>
+                <%if(myfromPage=='mypurchase'){%>
+                    <div class="myPurchase-refused1 confirmed">
+                        <p>确认时间&nbsp;&nbsp;<span class="blue" style="font-weight:bold;"><%=resultTime%></span>，您的询盘已被商家接受，您可以<span data-state="<%=state%>" class="blue lastBtn look_order"><a href="./mySale-orderDetailStatus.html?userType=0&id=<%=orderNoId%>">查看订单</a></span></p>
+                    </div>
+                <%}else if(myfromPage=='mysale'){%>
+                    <div class="myPurchase-refused1 myPurchase-received">
+                        <p>确认时间&nbsp;&nbsp;<span class="blue" style="font-weight:bold;"><%=resultTime%></span>您可以
+                            <span style="cursor: pointer;" class="blue look_order"><a href="./mySale-orderDetailStatus.html?userType=0&id=<%=orderNoId%>">查看订单</a></span>
+                        </p>
+                    </div>
+                <%}%>
+                
+            <%}else if(state==4){%>
+                <div class="myPurchase-refused4 Refuse">
+                    <p>拒绝时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=resultTime%></span>&nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span></p>
+                </div>
+            <%}else if(state==5){%>
+                <div class="myPurchase-refusedCancel cancel">
+                    <p>取消时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=resultTime%>1</span>&nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span></p>
+                </div>
+            <%}else if(state==6){%>
+                <div class="myPurchase-refused3 invalid">
+                    <p>失效时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=resultTime%></span>&nbsp;&nbsp;</p>
+                </div>
+            <%}%> 
+        </script>
+    </div>
+</div>
+<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js"></script>
+<script>
+    $(function(){
+        var params = window.location.search.substring(1).split('&');
+        for(var i = 0; i<params.length;i++){
+            var obj = {};
+            var item =params[i].split('=');
+            var name = item[0];
+            var value = item[1];
+            obj[name]=value;
+            params[i] = obj
+        }
+        var interestId=params[0]['interestId']?params[0]['interestId']:'';
+        var from = params[1]['from']?params[1]['from']:'';
+        
+        
+        // 获取询盘详情
+        getEnquiryInfo(interestId, from)
+    })
+
+    // $(document).on('click', '.look_order', function() {
+    //     window.location.href="";
+    //     <a href="./mySale-orderDetailStatus.html?userType=0&id=<%=data.data.orderNoId%>">
+
+    // });
+
+    $(document).on('click', '.two_xunjia', function() {
+
+        window.localStorage.setItem('objid', $(this).attr('data-supplierid'));
+        window.location.href = "../obj/objDetails.html";
+    });
+
+    // 获取询盘详情
+    function getEnquiryInfo(interestId, from){
+        $.ajax({
+            type:"post",
+            url:pubIP+"inquiries/getInquiriesInfoByInterestId",//v1.0
+            cache:false,
+            dataType: "json",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {interestId:interestId},
+            success: function(res){
+                console.log(res);
+                if(res.code == 1){
+                    //渲染左侧
+                    if(res.data){
+                        res.data.resultTime = new Date(res.data.resultTime).Format("yyyy-MM-dd hh:mm:ss");
+                        res.data.myfromPage=from;
+                        var leftTpl = template('leftTpl', res.data);
+                        $('.mainLeft.Lf ul').html(leftTpl);
+                        // 渲染右侧
+                        var rightTpl = template('rightTpl', res.data);
+                        $('.main.Lf').html(rightTpl);
+                        $('#confirmWaitTime').text(new Date(res.data.submitTime).Format("yyyy-MM-dd hh:mm:ss"));
+                        // 点击底部按钮
+                        $('.lastBtn').click(function(){
+                            var state = $(this).attr('data-state'); 
+                            // console.log(state);
+                            if(state == 1){// 1：等待确认
+                                // 去取消询盘
+                                $.ajax({
+                                    type:"post",
+                                    url:pubIP+"inquiries/cancelInquiriesInfo",//v1.0
+                                    cache:false,
+                                    dataType: "json",
+                                    headers: {
+                                        Accept: "application/json; charset=utf-8",
+                                        token: token
+                                    },
+                                    data: {interestId:interestId},
+                                    success: function(res){
+                                        console.log(res);
+                                        if(res.code == 1){
+                                            alert('取消成功');
+                                            window.location.reload();
+                                        }
+                                    },
+                                    error: function(err){
+                                        console.log(err);
+                                    }
+                                })
+                            } else if(state == 4 || state == 5){// 4询盘-商家拒绝
+                                // 去再次询盘
+                            }
+                        });
+                    } else {
+                        var rightTpl = '<h3 style="text-align:center;line-height:100px;">暂无数据<h3>';
+                        $('.main.Lf').html(rightTpl);
+                    }
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+</script>
+</body>
+</html>

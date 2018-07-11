@@ -1,0 +1,176 @@
+.standingBookDetail {
+	width: 984px;
+	border: 1px solid #eeeced;
+}
+
+.standingBookDetailTitle {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eeeced; 
+	padding-left: 19px;
+	font-size: 16px;
+	color: #282828;
+}
+
+.duizhang_btn {
+	width: 70px;
+	height: 26px;
+	background: #6EA3FF;
+	text-align: center;
+	line-height: 26px;
+	color: #fff;
+	font-size: 12px;
+	display: inline-block;
+    margin-top: 12px;
+    margin-right: 20px;
+    border-radius: 2px; 
+}
+
+.duizhang_btn a {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	border-radius: 2px;
+}
+
+.duizhang_btn a:hover {
+	background: rgb(67, 121, 245);
+}
+
+.yingshou_yingfu_title {
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+
+.yingshou_yingfu_title li {
+	float: left;
+	margin-right: 20px;
+}
+
+.yingshou_yingfu_title li span {
+	display: inline-block;
+	width: 65px;
+	color: #282828;
+	font-size: 14px;
+	height: 46px;
+	line-height: 46px;
+	color: #282828;
+	text-align: center;
+	cursor: pointer;
+}
+
+.yingshou_yingfu_title li span.current {
+	color: #5590F6;
+	border-bottom: 4px solid #5892f3;
+}
+
+.yingshou_title span {
+	color: #282828;
+	font-size: 16px;
+}
+
+.yingshou_title {
+	background: #fbfbfb;
+	height: 42px;
+	border-bottom: 1px solid #ebe9ea;
+	border-top: 1px solid #ebe9ea;
+	line-height: 42px;
+}
+
+.yingshou_title img {
+	margin-top: 9px;
+	margin-left: 19px;
+	margin-right: 8px;
+	vertical-align: top;
+}
+
+.standingBookList .list_title {
+	height: 48px;
+	line-height: 48px;
+	padding-left: 20px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #EBE9EA;
+}
+
+.standingBookList .list_title li {
+	float: left;
+	font-size: 14px;
+	color: #282828;
+}
+
+input[type="radio" i] {
+    margin: 0px;
+}
+
+.list_title_one {
+	width: 80px;
+}
+
+.list_title_two {
+	width: 185px;
+}
+
+.list_title_three {
+	width: 173px;
+}
+
+.list_title_four {
+	width: 197px;
+}
+
+.list_title_five {
+	width: 182px;
+}
+
+.list_cont li {
+	height: 103px;
+	display: table;
+	font-size: 14px;
+	border-bottom: 1px solid #EBE9EA;
+	padding-right: 29px;
+}
+
+.list_cont li>span {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.yingshou_radio {
+	width: 52px;
+}
+
+.yingshou_order_num {
+	width: 180px;
+}
+
+.yingshou_shop_name {
+    width: 163px;
+}
+
+.span_text {
+	width: 50px;
+	text-align: right;
+	display: inline-block;
+}
+
+.list_cont li>span.yingshou_order_money {
+	text-align: right;
+	width: 140px;
+}
+
+.yingshou_order_money div {
+	line-height: 25px;
+}
+
+.yinsghou_account_date {
+    width: 270px;
+}
+
+.yingshou_jiezhi_date {
+    width: 150px;
+}
+
+.orange {
+	color: #FF8921;
+}

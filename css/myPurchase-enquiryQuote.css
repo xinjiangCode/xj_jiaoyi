@@ -1,0 +1,137 @@
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+.red{
+    color: #F03131;
+}
+.blue{
+    color: #5590F6;
+}
+.green{
+    color: #79C254;
+}
+.yellow{
+    color: #FF8827;
+}
+.main {
+    width: 986px;
+    color: #282828;
+    background: #fff;
+    border: 1px solid #EBE9EA;
+    font-size: 14px;
+}
+.myPurchase-title{
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #EBE9EA;
+}
+.myPurchase-title .Lf{
+    font-size: 16px;
+    margin-left: 18px;
+}
+.purchaseInfo{
+    border-bottom: 1px solid #EBE9EA;
+    min-height: 250px;
+}
+.purchaseInfo p{
+    margin-top: 24px;
+}
+.purchaseInfo .top .left{
+    width: 255px;
+    margin-left: 18px;
+}
+.infoHandleTitle .Lf>span{
+    font-size: 14px;
+}
+.infoHandleTitle .Rt{
+    font-size: 16px;
+    margin-right: 40px
+}
+.infoHandleCont{
+    height: 511px;
+}
+.infoHandleCont .left{
+    float: left;
+    height: 511px;
+    width: 619px;
+    padding-left: 49px;
+    padding-top: 33px;
+    box-sizing: border-box;
+    border-right: 1px solid #EBE9EA;
+}
+.infoHandleCont .left>div{
+    overflow: hidden;
+    margin-bottom: 17px;
+
+}
+.input{
+    float: right;
+    width: 314px;
+}
+label{
+    line-height: 36px;
+    display: inline-block;
+    width: 407px;
+    /* overflow: hidden; */
+}
+input.input{
+    height: 36px;
+    line-height: 36px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.xhje{
+    float: right;
+    width: 162px;
+    text-align: center;
+}
+.di{
+    display: inline-block;
+    width: 75px;
+}
+.remark.input{
+    width:317px;
+    height:122px; 
+    float: right;
+}
+.infoHandleCont .left>div.scOrder{
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 155px;
+    display: inline-block;
+    width:240px;
+    height:50px; 
+    background: #528DF9;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    color: #fff;
+}
+.infoHandleCont .right{
+    overflow: hidden;
+    padding-top: 190px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+}
+.refuseBtn{
+    display: inline-block;
+    margin: 0 auto;
+    width:200px;
+    height:50px; 
+    font-size: 16px;
+    background: #F9F9F9;
+    border: 1px solid #EBE9EA;
+    border-radius: 3px;
+    cursor: pointer;
+}

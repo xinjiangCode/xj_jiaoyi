@@ -1,0 +1,281 @@
+.footerTop {
+	margin-top: 0px;
+	border-top: 4px #f5f5f5 solid;
+}
+
+.swiper-pagination {
+	bottom: 14px;
+}
+
+.swiper-slide {
+	background: url(../img/qgBanner.png) no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+#page1 {
+	position: relative;
+	bottom: 0;
+	margin-bottom: 27px;
+}
+
+.buyTab {
+	width: 1200px;
+	margin: 0 auto;
+	height: 61px;
+	border-bottom: 2px solid #E8E8E8;
+	line-height: 61px;
+}
+
+.buyTab span {
+	padding-left: 11px;
+	padding-right: 11px;
+	margin-left: 9px;
+	display: inline-block;
+	margin-right: 9px;
+	font-size: 18px;
+	color: #999999;
+}
+
+.buyTab .act {
+	color: #5892F3;
+	border-bottom: 2px solid #5892F3;
+}
+
+.pgBg {
+	width: 353px;
+	height: 14px;
+	background: url(../img/qgBg.png) no-repeat;
+	background-size: cover;
+	background-position: left;
+	display: inline-block;
+	border: none;
+	overflow: hidden;
+	position: relative;
+	border-radius: 10px;
+}
+
+.Progress {
+	width: 60%;
+	height: 14px;
+	/*background: url(../img/progress.png) no-repeat;
+	background-size: cover;
+	background-position: left;*/
+	background-color: #5892F3;
+	display: inline-block;
+	position: absolute;
+	border-radius: 10px;
+}
+
+.buyIngObj {
+	overflow: hidden;
+}
+
+.buyIngObj>div {
+	width: 1200px;
+	height: 298px;
+	border: 1px solid #E7E7E7;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.buyIngSt {
+	position: absolute;
+	top: -20px;
+	width: 132px;
+	left: 9px;
+	height: 39px;
+}
+
+.objHeadImg {
+	width: 250px;
+	height: 250px;
+	border: 1px solid #ADADAD;
+	background: url(../img/objDemo.png) no-repeat;
+	background-position: center;
+	background-size: cover;
+	margin-right: 56px;
+	margin-top: 29px;
+	margin-left: 34px;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.buyObjTit {
+	margin-top: 23px;
+	margin-bottom: 23px;
+}
+
+.buyObjTit .tit {
+	color: #66A7FF;
+	font-size: 24px;
+	margin-right: 24px;
+	max-height: 24px;
+	line-height: 24px;
+}
+
+.buyObjTit .gg {
+	color: #666666;
+	font-size: 14px;
+}
+
+.priceBox {
+	width: 839px;
+	height: 150px;
+	background: #F5F5F5;
+	border: 1px solid #E7E7E7;
+	box-sizing: border-box;
+	padding-left: 41px;
+	color: #666666;
+	overflow: hidden;
+	font-size: 14px;
+}
+
+.buyPrice {
+	color: #FF6458;
+	margin-right: 17px;
+	font-size: 18px;
+}
+
+.priceNum {
+	font-size: 33px;
+}
+
+.priceDv {
+	margin-top: 22px;
+	margin-bottom: 25px;
+	max-height: 33px;
+	line-height: 33px;
+}
+
+.oldPrice {
+	font-size: 14px;
+	text-decoration: line-through;
+}
+
+.lastTime {
+	margin-right: 66px;
+	margin-top: 60px;
+}
+
+.ltTIT {
+	color: #858585;
+	font-size: 14px;
+	max-height: 14px;
+	line-height: 14px;
+	margin-bottom: 12px;
+	display: block;
+}
+
+.lasrTimeNum span {
+	color: #FF8D54;
+	font-weight: bold;
+	margin-right: 6px;
+	margin-left: 6px;
+}
+
+.lasrTimeNum {
+	margin-left: 7px;
+}
+
+.buyIngBox {
+	margin-top: 21px;
+}
+
+.buyIngBox>span {
+	font-size: 14px;
+	color: #666666;
+	margin-right: 18px;
+}
+
+.buyIngBox>span>span {
+	color: #FF2C2C;
+	font-size: 20px;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.buyIngBox button {
+	width: 142px;
+	height: 43px;
+	border-radius: 2px;
+	background: #66A7FF;
+	color: #fff;
+	border: none;
+	font-size: 14px;
+	vertical-align: text-bottom;
+	cursor: pointer;
+}
+
+.buyIngBox button a {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	line-height: 43px;
+}
+
+.now .buyIngSt {
+	background: url(../img/jinxingzhong.png) no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.begin .buyIngSt {
+	background: url(../img/brgin.png) no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.finish .buyIngSt {
+	background: url(../img/finish.png) no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.begin .Progress {
+	display: none;
+}
+
+.finish .Progress {
+	display: none;
+}
+
+.finish .pgBg {
+	background: url(../img/finishJd.png) no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.begin .buyIngBox button,
+.finish .buyIngBox button {
+	background: #F5F5F5;
+	color: #666666;
+}
+
+.buyTab span:hover {
+	color: #5892F3;
+}
+
+.now .buyIngBox button:hover {
+	background: rgb(67, 121, 245);
+}
+
+.begin .buyIngBox button:hover,
+.finish .buyIngBox button:hover {
+	background: #dcdcdc;
+}
+
+
+.buying_a {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	line-height: 43px;
+}

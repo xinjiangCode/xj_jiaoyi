@@ -1,0 +1,195 @@
+.main {
+	width: 984px;
+	border: 1px solid #EBE9EA;
+	padding: 0px;
+}
+
+.address_manage {
+	height: 50px;
+	color: #282828;
+	font-size: 16px;
+	padding-left: 21px;
+	box-sizing: border-box;
+	line-height: 50px;
+}
+
+.add_address {
+	margin-top: 71px;
+	margin-bottom: 75px;
+}
+
+.add_address>ul>li {
+	margin-top: 19px;
+	font-size: 14px;
+}
+
+.add_address_btn {
+	margin-top: 7px;
+}
+
+.cancel {
+	margin-top: 7px;
+}
+
+.shouhuo_person_list.shop_list_table table thead tr {
+	background-color: #fdfdfd;
+}
+
+input[type='text'].shouhuo_person {
+	width: 339px;
+	height: 38px;
+}
+
+select {
+	width: 170px;
+	height: 38px;
+}
+
+.city {
+	margin-left: 11px;
+}
+
+label.ml {
+	margin-left: 16px;
+}
+
+label.ml10 {
+	margin-left: 12px;
+}
+
+.add_address .tishi {
+	color: #ff7854;
+	margin-left: 10px;
+	line-height: 42px;
+	float: left;
+}
+
+.add_address .tishi1 {
+	color: #ff7854;
+	margin-left: 10px;
+	line-height: 38px;
+	float: left;
+}
+
+.add_address>ul {
+	display: inline-block;
+	margin-left: 260px
+}
+
+.moren {
+	margin-left: 73px;
+	font-size: 14px;
+	display: inline-block;
+}
+
+.add_address_btn {
+	background-color: #5590F6;
+	color: #fff;
+	text-align: center;
+	line-height: 44px;
+	height: 44px;
+	width: 216px;
+	display: inline-block;
+	-webkit-border-radius:2px; 
+    -moz-border-radius:2px; 
+    -ms-border-radius:2px;  
+    -o-border-radius:2px;  
+    border-radius: 2px;
+    margin-left: 69px; 
+}
+
+.cancel {
+	color: #282828;
+	width: 112px;
+	height: 42px;
+	border: 1px solid #D3D3D3;
+	line-height: 42px;
+	text-align: center;
+	display: inline-block;
+	margin-left: 12px;
+	-webkit-border-radius:2px; 
+    -moz-border-radius:2px; 
+    -ms-border-radius:2px;  
+    -o-border-radius:2px;  
+    border-radius: 2px;
+}
+
+.shouhuo_person_list {
+	table-layout:fixed;
+}
+
+.shouhuo_person_list table {
+	width: 100%;
+}
+
+.shouhuo_person_list .td {
+	word-wrap:break-word;
+	width: 280px;
+}
+
+.shop_list_table td {
+	line-height: normal;
+}
+
+.shouhuo_person_list.shop_list_table td {
+	/* line-height: 2 !important; */
+	/* padding-top: 15px; */
+	box-sizing: border-box;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.shouhuo_person_list.shop_list_table td a {
+	color: #5590f6;
+}
+
+.shouhuo_person_list.shop_list_table td a:first-child {
+	margin-right: 10px;
+}
+
+.moren_setting {
+	color: #fff;
+	width: 62px;
+	height: 26px;
+	display: inline-block;
+	text-align: center;
+	line-height: 26px;
+	background-color: #ff7854;
+	font-size: 12px;
+	-webkit-border-radius:2px; 
+    -moz-border-radius:2px; 
+    -ms-border-radius:2px;  
+    -o-border-radius:2px;  
+    border-radius: 2px;
+}
+
+
+select.city1, select.provice1, select.town1 {
+	width: 110px;
+	height: 38px;
+}
+
+select.city1 {
+	margin-left: 8px;
+}
+
+select.town1 {
+	margin-left: 7px;
+}
+
+.shouhuo_person_list.shop_list_table thead {
+	background-color: #fff;
+	border-top: 1px solid #ebe9ea;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.shop_list_table th {
+	height: 49px;
+	line-height: 49px;
+}
+
+
+.cangku_type {
+	width: 353px;
+	margin-left: 4px;
+}

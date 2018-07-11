@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title  adct="免费找货">新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/freeSearch.css"/>
+		<style type="text/css">
+			.dtrankingList h1{
+				margin: 0;
+			    width: 100%;
+			    height: 40px;
+			    font-size: 18px;
+			    line-height: 40px;
+			    overflow: hidden;
+			    max-height: 40px;
+			    color: #fff;
+			    padding-left: 16px;
+			    box-sizing: border-box;
+			    background: url(../img/mfzhzxtBg.png) no-repeat;
+			    background-size: cover;
+			    background-position:left ;
+			}
+			.RtDItem{
+				margin: 0 auto;
+				width: 207px;
+				height: 65px;
+				color:#666 ;
+				font-size: 16px;
+				border-bottom: 1px #e8e8e8 solid;
+				max-height: 65px;
+				overflow: hidden;
+			}
+			.RtDItem:last-child{
+				border-bottom: 0;
+			}
+			.RtDItem span{
+				color:#666 ;
+			}
+			.RtDItem>div{
+				margin-top: 12px;
+				margin-bottom: 13px;
+			}
+			.RtDItem>div>span+span{
+				float: right;
+			}
+			.RtDItem>span{
+				color: #888;
+			}
+			.RtDItem .RtDItemRc{
+				color: #FF6666;
+			}
+			.RtDItem .RtDItemBc{
+				color: #66A7FF;
+			}
+			.flowBxo{
+				margin-top: 14px;
+			}
+			.fsObjItem p{
+				line-height: 13px;
+			}
+			.fsObjItem h1{
+				font-size: 16px;
+				max-height: 17px;
+				line-height: 17px;
+				font-weight: 500;
+			}
+			.bigFt{
+				margin-right: 4px;
+				margin-left: 4px;
+			}
+			.bigFt:first-child{
+				margin-left: 0px;
+			}
+			.leftFlow{
+				margin-bottom: 24px;
+			}
+			.gbRight{
+				margin-right: 20px;
+			}
+			.swiper-pagination-switch{
+				border: 1px solid #ebe9ea;
+			}
+			.fsObjBox{
+				padding-right:0 ;
+			}
+
+			.pageJump {
+			    margin: 20px auto 0px;
+			}
+
+			.pagination {
+			     position: static; 
+			     z-index: 0; 
+			     left: 0px; 
+			     bottom: 0px; 
+			     margin-top: 20px;
+			}
+
+			.pageJump .button, .pageJump input {
+	            text-align: center;
+	        }
+
+	        .fsObjItem h1 {
+	        	/*width: 228px;*/
+	        	width: 170px;
+	        	overflow: hidden;
+	        	text-overflow: ellipsis;
+			    -webkit-line-clamp: 1;
+			    display: -webkit-box;
+			    -webkit-box-orient: vertical;
+	        }
+			
+			.mianbaoqie_nav {
+				height: 43px;
+				line-height: 43px;
+				font-size: 14px;
+			}
+
+			.nav_ul li {
+				float: left;
+			}
+
+			.flowBxo {
+				margin-top: 0px;
+			}
+
+			.userBox button {
+				font-size: 14px;
+			}
+
+			.sechTit button {
+				font-size: 12px;
+				position: relative;
+    			top: -3px;
+			}
+
+			.sechTit {
+				font-size: 16px;
+			}
+
+			.fsObjItem button {
+				width: 96px;
+				height: 30px;
+				font-size: 12px;
+				margin-left: 60px;
+			}
+
+			.RtDItem span {
+				font-size: 14px;
+			}
+
+			.RtDItem .RtDItemBc, .RtDItem .RtDItemRc {
+				font-size: 12px;
+			}
+
+			.RtDItem span.chemical_name {
+				display: inline-block;
+			    width: 120px;
+			    text-overflow: ellipsis;
+			    overflow: hidden;
+			    white-space: nowrap;
+			    float: left;
+			}
+
+			/*清除浮动*/
+			.clearfix:before, .clearfix:after {
+			    content: "";
+			    display: table;
+			}
+
+			.clearfix:after {
+			    clear: both;
+			}
+
+			.clearfix {
+			    *zoom: 1; /*IE/7/6*/
+			}
+
+			.delivery_address{
+				width: 160px;
+			    display: inline-block;
+			    float: right;
+			    line-height: 14px;
+			}
+
+			.delivery_address1 {
+				width: 180px;
+			    display: inline-block;
+			    float: right;
+			    line-height: 14px;
+			}
+
+			.fsObjItem .button button {
+				margin-left: 70px;
+			}
+
+			.hasSechObj .fsObjItem:nth-child(4n) {
+				margin-right: 0px;
+			}
+
+			.dtrankingList {
+				overflow: hidden; 
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mianCont mianbaoqie_nav">
+			<ul class="clearfix nav_ul">
+				<li><a href="../index.html">首页</a>&nbsp;>&nbsp;</li>
+				<li>免费找货</li>
+			</ul>
+		</div>
+		<div class="mianCont flowBxo">
+			<div class="leftFlow">
+				<img src="../img/fsflow.png"/>
+				<div>
+					<span style="margin-left: 16px;margin-right: 33px;">发布需求</span>
+					<span style="margin-right: 37px;">选择保价</span>
+					<span>完成交易</span>
+				</div>
+				<p><span></span>更安全、更高效、更透明</p>
+				<p><span></span>给您带来最好的交易</p>
+				<p><span></span>为您提供更好的服务</p>
+				<!-- <a href="../account/myPurchase-addRequire.html"><button>立即发布需求</button></a> -->
+				<button class="go_account">立即发布需求</button>
+			</div>
+			<div class="fsObjBox  swiper-container">
+				<div class="swiper-wrapper">
+			        <div class="swiper-slide" id="tuijian_caigou">
+		        		<div class="fsObjItem">
+		        			<img src="../img/tuijian.png"/>
+		        			<h1>甲醇钠甲醇溶液</h1>
+		        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+		        			<p>交货地: 乌鲁木齐</p>
+		        			<p style="margin-top: 37px;">剩余时间：</p>
+		        			<p>
+		        				<span class="hasColoR bigFt">00</span>天
+		        				<span class="hasColoR bigFt">23</span>时
+		        				<span class="hasColoR bigFt">10</span>分
+		        				<span class="hasColoR bigFt">03</span>秒
+		        			</p>
+		        			<a href="offer.html"><button>立即报价</button></a>
+		        			<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p>
+		        		</div>
+		        		<div class="fsObjItem" id="tuijiaTwoInfo">
+		        			<!-- <img src="../img/tuijian.png"/>
+		        			<h1>甲醇钠甲醇溶液</h1>
+		        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+		        			<p>交货地: 乌鲁木齐</p>
+		        			<p style="margin-top: 37px;">剩余时间：</p>
+		        			<p>
+		        				<span class="hasColoR bigFt">00</span>天
+		        				<span class="hasColoR bigFt">23</span>时
+		        				<span class="hasColoR bigFt">10</span>分
+		        				<span class="hasColoR bigFt">03</span>秒
+		        			</p>
+		        			<a href="offer.html"><button>立即报价</button></a>
+		        			<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p> -->
+		        		</div>
+		        		<div class="fsObjItem">
+		        			<img src="../img/tuijian.png"/>
+		        			<h1>甲醇钠甲醇溶液</h1>
+		        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+		        			<p>交货地: 乌鲁木齐</p>
+		        			<p style="margin-top: 37px;">剩余时间：</p>
+		        			<p>
+		        				<span class="hasColoR bigFt">00</span>天
+		        				<span class="hasColoR bigFt">23</span>时
+		        				<span class="hasColoR bigFt">10</span>分
+		        				<span class="hasColoR bigFt">03</span>秒
+		        			</p>
+		        			<a href="offer.html"><button>立即报价</button></a>
+		        			<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p>
+		        		</div>
+			        </div>
+			   	</div>
+			   	<!-- 如果需要分页器 -->
+   			 	<!--<div class="swiper-pagination"></div>-->
+			</div>
+			<div class="userBox">
+				<div class="cpImgLogo"></div>
+				<p>欢迎，您还未登陆</p>
+				<button class="go_account_xp">我的询盘</button>
+				<button class="go_account_bj">我的报价</button>
+			</div>
+		</div>
+		<div class="mianCont" style="margin-bottom: 26px;">
+			<div class="hasSechLeft">
+				<div class="sechTit clearfix"><span class='fl'>产品名称搜索：</span><input class='fl' type="text" id="chemicalName" /> <button class="search fl">搜索</button> <a href="##">最新发布></a></div>
+				<div class="hasSechObj" id="templateInfo">
+					<!-- <div class="fsObjItem">
+		        			<h1>甲醇钠甲醇溶液</h1>
+		        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+		        			<p>交货地: 乌鲁木齐</p>
+		        			<p style="margin-top: 37px;">剩余时间：</p>
+		        			<p>
+		        				<span class="hasColoR bigFt time_day">00</span>天
+		        				<span class="hasColoR bigFt time_hour">23</span>时
+		        				<span class="hasColoR bigFt time_minute">10</span>分
+		        				<span class="hasColoR bigFt time_seconds">03</span>秒
+		        			</p>
+		        			<a href="offer.html"><button>立即报价</button></a>
+		        			<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p>
+		        	</div> -->
+	        		<!-- <div class="fsObjItem">
+	        			<h1>甲醇钠甲醇溶液</h1>
+	        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+	        			<p>交货地: 乌鲁木齐</p>
+	        			<p style="margin-top: 37px;">剩余时间：</p>
+	        			<p>
+	        				<span class="hasColoR bigFt">00</span>天
+	        				<span class="hasColoR bigFt">23</span>时
+	        				<span class="hasColoR bigFt">10</span>分
+	        				<span class="hasColoR bigFt">03</span>秒
+	        			</p>
+	        			<a href="offer.html"><button>立即报价</button></a>
+	        			<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p>
+	        		</div>
+	        		<div class="fsObjItem">
+		        			<h1>甲醇钠甲醇溶液</h1>
+		        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+		        			<p>交货地: 乌鲁木齐</p>
+		        			<p style="margin-top: 37px;">剩余时间：</p>
+		        			<p>
+		        				<span class="hasColoR bigFt">00</span>天
+		        				<span class="hasColoR bigFt">23</span>时
+		        				<span class="hasColoR bigFt">10</span>分
+		        				<span class="hasColoR bigFt">03</span>秒
+		        			</p>
+		        			<a href="offer.html"><button>立即报价</button></a>
+		        			<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p>
+	        		</div>
+	        		<div class="fsObjItem">
+	        			<h1>甲醇钠甲醇溶液</h1>
+	        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+	        			<p>交货地: 乌鲁木齐</p>
+	        			<p style="margin-top: 37px;">剩余时间：</p>
+	        			<p>
+	        				<span class="hasColoR bigFt">00</span>天
+	        				<span class="hasColoR bigFt">23</span>时
+	        				<span class="hasColoR bigFt">10</span>分
+	        				<span class="hasColoR bigFt">03</span>秒
+	        			</p>
+	        			<a href="offer.html"><button>立即报价</button></a>
+	        			<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p>
+	        		</div>
+	        		<div class="fsObjItem">
+	        			<h1>甲醇钠甲醇溶液</h1>
+	        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+	        			<p>交货地: 乌鲁木齐</p>
+	        			<p style="margin-top: 37px;">剩余时间：</p>
+	        			<p>
+	        				<span class="hasColoR bigFt">00</span>天
+	        				<span class="hasColoR bigFt">23</span>时
+	        				<span class="hasColoR bigFt">10</span>分
+	        				<span class="hasColoR bigFt">03</span>秒
+	        			</p>
+	        			<a href="offer.html"><button>立即报价</button></a>
+	        			<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p>
+	        		</div>
+	        		<div class="fsObjItem">
+	        			<h1>甲醇钠甲醇溶液</h1>
+	        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+	        			<p>交货地: 乌鲁木齐</p>
+	        			<p style="margin-top: 37px;">剩余时间：</p>
+	        			<p>
+	        				<span class="hasColoR bigFt">00</span>天
+	        				<span class="hasColoR bigFt">23</span>时
+	        				<span class="hasColoR bigFt">10</span>分
+	        				<span class="hasColoR bigFt">03</span>秒
+	        			</p>
+	        			<a href="offer.html"><button>立即报价</button></a>
+	        			<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p>
+	        		</div>
+	        		<div class="fsObjItem">
+	        			<h1>甲醇钠甲醇溶液</h1>
+	        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+	        			<p>交货地: 乌鲁木齐</p>
+	        			<p style="margin-top: 37px;">剩余时间：</p>
+	        			<p>
+	        				<span class="hasColoR bigFt">00</span>天
+	        				<span class="hasColoR bigFt">23</span>时
+	        				<span class="hasColoR bigFt">10</span>分
+	        				<span class="hasColoR bigFt">03</span>秒
+	        			</p>
+	        			<a href="offer.html"><button>立即报价</button></a>
+	        			<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p>
+	        		</div>
+	        		<div class="fsObjItem">
+	        			<h1>甲醇钠甲醇溶液</h1>
+	        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
+	        			<p>交货地: 乌鲁木齐</p>
+	        			<p style="margin-top: 37px;">剩余时间：</p>
+	        			<p>
+	        				<span class="hasColoR bigFt">00</span>天
+	        				<span class="hasColoR bigFt">23</span>时
+	        				<span class="hasColoR bigFt">10</span>分
+	        				<span class="hasColoR bigFt">03</span>秒
+	        			</p>
+	        			<a href="offer.html"><button>立即报价</button></a>
+	        			<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p>
+	        		</div> -->
+			    </div>
+			    <div class="mianCont" style="text-align: center;width: 975px;">
+			        <ul class="pagination" id="page1"></ul>
+			        <div class="pageJump">
+			                <span class="allPageN">1/200</span>
+			                <span style="margin-left: 10px;">共<span class="total">200</span>页，</span>
+			            <span>到第</span>
+			            <input class="page_page" type="text"/>
+			            <span>页</span>
+			            <button type="button" class="button goPage">GO</button>
+			        </div>
+			    </div>
+			</div>
+			<div class="dtrankingList">
+				<h1>最新动态</h1>
+				<div id="dtrankingListInfo"></div>
+				<!-- <div class="RtDItem">
+					<div>
+						<span>高猛酸钾</span>
+						<span class="RtDItemBc">报价已接受</span>
+					</div>
+					<span>98% </span>
+				</div>
+				<div class="RtDItem">
+					<div>
+						<span>高猛酸钾</span>
+						<span class="RtDItemRc">报价已拒绝</span>
+					</div>
+					<span>98% </span>
+				</div>
+				<div class="RtDItem">
+					<div>
+						<span>高猛酸钾</span>
+						<span class="RtDItemBc">报价已接受</span>
+					</div>
+					<span>98% </span>
+				</div>
+				<div class="RtDItem">
+					<div>
+						<span>高猛酸钾</span>
+						<span class="RtDItemBc">报价已接受</span>
+					</div>
+					<span>98% </span>
+				</div>
+				<div class="RtDItem">
+					<div>
+						<span>高猛酸钾</span>
+						<span class="RtDItemRc">报价已拒绝</span>
+					</div>
+					<span>98% </span>
+				</div>
+				<div class="RtDItem">
+					<div>
+						<span>高猛酸钾</span>
+						<span class="RtDItemBc">报价已接受</span>
+					</div>
+					<span>98% </span>
+				</div>
+				<div class="RtDItem">
+					<div>
+						<span>高猛酸钾</span>
+						<span class="RtDItemBc">报价已接受</span>
+					</div>
+					<span>98% </span>
+				</div>
+				<div class="RtDItem">
+					<div>
+						<span>高猛酸钾</span>
+						<span class="RtDItemRc">报价已拒绝</span>
+					</div>
+					<span>98% </span>
+				</div>
+				<div class="RtDItem">
+					<div>
+						<span>高猛酸钾</span>
+						<span class="RtDItemRc">报价已拒绝</span>
+					</div>
+					<span>98% </span>
+				</div> -->
+			</div>
+		</div>
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./../js/pager.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/template.js"></script>
+		<script type="text/html" id="tuijiaTwoTpl">
+			<!-- <img src="../img/tuijian.png"/>
+			<h1><%=chemicalName%></h1>
+			<p><span class="gbRight">数 量: <span class="hasColoR"><%=remain%>吨</span></span><span>纯 度: <span class="hasColoR"><%=productPurity%>%   </span></span></p>
+			<p>交货地: <span class="delivery_address"><%=deliveryAddress%></span></p>
+			<p style="margin-top: 37px;">剩余时间：</p>
+			<p>
+				<span class="hasColoR bigFt">00</span>天
+				<span class="hasColoR bigFt">23</span>时
+				<span class="hasColoR bigFt">10</span>分
+				<span class="hasColoR bigFt">03</span>秒
+			</p>
+			<a href="offer.html"><button>立即报价</button></a>
+			<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p> -->
+		</script>
+
+		<script type="text/html" id="dtrankingListTpl">
+			<%for (i in list) {%>
+			<div class="RtDItem" data-buyingids="<%=list[i].buyingIds%>">
+				<div class="clearfix">
+					<span class="chemical_name"><%=list[i].chemicalName%></span>
+					<%if(list[i].state == 2){%>
+					<span class="RtDItemRc" style="color: #5892F3">报价已接受</span>
+					<%} else if(list[i].state == 4) {%>
+					<span class="RtDItemRc">报价已拒绝</span>
+					<%} else if(list[i].state == 5) {%>
+					<span class="RtDItemRc" style="color: #666;">报价已取消</span>
+					<%}%>
+				</div>
+				<span><%=list[i].productPurity%>% </span>
+			</div>
+			<%}%>
+		</script>
+		<script type="text/javascript">
+//			var mySwiper = new Swiper('.swiper-container',{
+//			    pagination: '.swiper-pagination',
+//			    paginationClickable: true
+//			 })
+
+		//点击跳转到账户（开始）
+		//发布采购
+		$(".go_account").on("click",function(){
+			var isOld = localStorage.getItem('isOld');
+			if(isOld != '2'){
+				var ttxt = $.trim($(this).text());
+				console.log(ttxt);
+				if(isOld == '1'){
+					$('#effect .contTitle span').text('您尚未登录');
+					missedLogin() ;
+				}else if(isOld == '0'){
+					missedLogin() ;
+				}else if(isOld == '-1'){
+					$('#effect .contTitle span').text('您尚未认证');
+					$('#effect .contTitle i').text('认证');
+					$('#popLogin').text('认证');
+					missedLogin() ;
+				}else if(isOld == '-2'){
+					$('#effect .contTitle span').text('您的认证正在审核中');
+					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+					$('#popLogin').hide();
+					missedLogin() ;
+				}
+			}else{
+				window.location.href='../account/account.html';
+				sessionStorage.setItem('hzf_showPage','flag_mfzh');
+			}
+		})
+		//我的询盘
+		$(".go_account_xp").on("click",function(){
+			var isOld = localStorage.getItem('isOld');
+			if(isOld != '2'){
+				var ttxt = $.trim($(this).text());
+				console.log(ttxt);
+				if(isOld == '1'){
+					$('#effect .contTitle span').text('您尚未登录');
+					missedLogin() ;
+				}else if(isOld == '0'){
+					missedLogin() ;
+				}else if(isOld == '-1'){
+					$('#effect .contTitle span').text('您尚未认证');
+					$('#effect .contTitle i').text('认证');
+					$('#popLogin').text('认证');
+					missedLogin() ;
+				}else if(isOld == '-2'){
+					$('#effect .contTitle span').text('您的认证正在审核中');
+					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+					$('#popLogin').hide();
+					missedLogin() ;
+				}
+			}else{
+				window.location.href='../account/account.html';
+				sessionStorage.setItem('hzf_showPage','flag_wdxp');
+			}
+		})
+		//我的报价
+		$(".go_account_bj").on("click",function(){
+			var isOld = localStorage.getItem('isOld');
+			if(isOld != '2'){
+				var ttxt = $.trim($(this).text());
+				console.log(ttxt);
+				if(isOld == '1'){
+					$('#effect .contTitle span').text('您尚未登录');
+					missedLogin() ;
+				}else if(isOld == '0'){
+					missedLogin() ;
+				}else if(isOld == '-1'){
+					$('#effect .contTitle span').text('您尚未认证');
+					$('#effect .contTitle i').text('认证');
+					$('#popLogin').text('认证');
+					missedLogin() ;
+				}else if(isOld == '-2'){
+					$('#effect .contTitle span').text('您的认证正在审核中');
+					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+					$('#popLogin').hide();
+					missedLogin() ;
+				}
+			}else{
+				window.location.href='../account/account.html';
+				sessionStorage.setItem('hzf_showPage','flag_wdbj_all');
+			}
+		})
+		//点击跳转到账户（结束）
+
+
+			$('.hasSechObj .fsObjItem:nth-child(4n)').css('margin-right','0');
+
+
+	        
+
+			var isFirst = true;
+			var isSearch = 0;
+			var arr = [];
+			var timer1;
+
+
+
+			//推荐采购列表
+			$.ajax({
+				type: "get",
+                url: pubIP + "buyingInfo/getRecommendBuyingInfo",//v1.0
+                headers: {
+                    token: token
+                },
+                cache: false,
+                dataType: "json",
+                success: function(data){
+                	console.log(data);
+
+                	var str1 = '';
+
+                	str1 += '<img src="../img/tuijian.png"/>'
+						+'<h1>'+data.data.two.chemicalName+'</h1>'
+						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.two.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.two.productPurity+'%   </span></span></p>'
+						+'<p>交货地: <span class="delivery_address">'+data.data.two.deliveryAddress+'</span></p>'
+						+'<p style="margin-top: 37px;">剩余时间：</p>'
+						+'<p id="distanceTime0">'
+							+'<span class="hasColoR bigFt">00</span>天'
+							+'<span class="hasColoR bigFt">23</span>时'
+							+'<span class="hasColoR bigFt">10</span>分'
+							+'<span class="hasColoR bigFt">03</span>秒'
+						+'</p>';
+							if(data.data.two.remain==0){
+                                str1+='<a href="##" class="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'" style="background-color: #666666;"><button>立即报价</button></a>';
+							}else{
+                                str1+='<a href="offer.html" class="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'"><button>立即报价</button></a>';
+							}
+						str1+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.two.allQuoteNumber+' </span>家报价</p>';
+
+
+					$('#tuijiaTwoInfo').html(str1);
+
+					data.data.two.validityData = new Date(data.data.two.validityData).Format("yyyy-MM-dd hh:mm:ss");
+
+					console.log(data.data.two.validityData);
+
+					distanceTime2('distanceTime0', data.data.two.validityData);
+
+                	// var two = template('tuijiaTwoTpl', data.data.two);
+                 //    $('#tuijiaTwoInfo').html(two);
+
+                },
+                error: function (err) {
+                	console.log(err);
+                }
+			});
+
+			//立即报价
+			$(document).on('click', '.liji_baojia', function () {
+
+				window.localStorage.setItem('baojiaid', $(this).attr('data-baojiaid_id'));
+
+				$(this).attr('href', 'offer.html');
+			});
+
+
+   			//最新动态
+   			$.ajax({
+   				type: "get",
+                url: pubIP + "buyingInfo/listBuyingInfoByNewAction",//v1.0
+                headers: {
+                    token: token
+                },
+                data: {
+                	pageSize: 9,
+                	pageNum: 0
+                },
+                cache: false,
+                dataType: "json",
+                success: function(data){
+                	console.log(data);
+
+                	
+                	var result = template('dtrankingListTpl', {list: data.data});
+                    $('#dtrankingListInfo').html(result);
+
+                },
+                error: function (err) {
+                	console.log(err);
+                }
+   			});
+
+   			//免费找货列表页
+			freeZhaoHuo('',0);
+
+			$('.goPage').click(function(){
+
+	            if(isSearch==0){
+	            	clearInterval(timer);
+	            	num = $('.page_page').val()-1;
+	                freeZhaoHuo('', $('.page_page').val()-1);
+
+	            }else{
+	                freeZhaoHuo($('#chemicalName').val(), $('.page_page').val()-1);
+	            }
+	        })
+
+			// 
+	        function freeZhaoHuo(chemicalName, num) {
+
+				$.ajax({
+	                type: "get",
+	                url: pubIP + "buyingInfo/listBuyingInfoByPage",//v1.0
+	                headers: {
+	                    token: token
+	                },
+	                cache: false,
+	                data: {
+	                	chemicalName: chemicalName,
+	                	pageSize: 8,
+	                	pageNum: num
+	                },
+	                dataType: "json",
+	                success: function(data){
+	                	console.log(data);
+
+	                	// '2018/7/12,08:00:00'
+
+	                	// 分页
+	                	if(data.code == '0'){
+	                        $('.pageJump').hide();
+	                        $('.shop_list_table tbody').html('');
+	                        $('.notMsg').show();
+	                        return false;
+	                    } else if (data.code == '1') {
+
+	                    	if (isSearch == 1) {
+	                    		// if (isFirst) {
+		                    		Page({
+			                            num: data.data.totalPage,
+			                            elem: $('#page1'),
+			                            callback: function(n) {
+			                                num = n-1;
+			                                freeZhaoHuo(chemicalName, n-1);
+			                            }
+			                        });
+
+			                        console.log(data.data);
+			                        
+			                        $('.total').text(data.data.totalPage);
+			                        isFirst = false;
+
+			                    // }
+
+		                        $('.allPageN').text(num+1+'/'+data.data.totalPage);
+	                    	}
+
+	                    	isSearch = 0;
+
+	                    	if (isFirst) {
+
+			                    Page({
+		                            num: data.data.totalPage,
+		                            elem: $('#page1'),
+		                            callback: function(n) {
+		                                num = n-1;
+		                                freeZhaoHuo(chemicalName, n-1);
+		                            }
+		                        });
+
+		                        console.log(data.data);
+		                        
+		                        $('.total').text(data.data.totalPage);
+
+		                        isFirst = false;
+		                    }
+
+
+		                    $('.allPageN').text(num+1+'/'+data.data.totalPage);
+
+		                    var str = '';
+
+		                    for (var i = 0; i < data.data.list.length; i++) {
+		                		
+		                		var time2 = new Date(data.data.list[i].remainTime).Format("yyyy-MM-dd,hh:mm:ss");
+
+		                		str += '<div class="fsObjItem">'
+				        			+'<h1>'+data.data.list[i].chemicalName+'</h1>'
+				        			+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.list[i].remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.list[i].productPurity+'%   </span></span></p>'
+				        			+'<p>交货地: <span class="delivery_address1">'+data.data.list[i].warehouse.warehouseProvince+' '+data.data.list[i].warehouse.warehouseCity+' '+data.data.list[i].warehouse.warehouseArea+'</span></p>'
+				        			+'<p style="margin-top: 37px;">剩余时间：</p>'
+				        			+'<p class="p_span" id="distanceTime'+(num+1)+i+'">'
+				        				+'<span class="hasColoR bigFt time_day">00</span>天'
+				        				+'<span class="hasColoR bigFt time_hour">23</span>时'
+				        				+'<span class="hasColoR bigFt time_minute">10</span>分'
+				        				+'<span class="hasColoR bigFt time_seconds">03</span>秒'
+				        			+'</p>';
+                                if(data.data.list[i].remain==0){
+                                    str+='<a href="##" class="button "  ><button style="background-color: #999999;border: #999999;outline: none;">立即报价</button></a>';
+								}else{
+                                    str+='<a href="offer.html" class="button liji_baojia" data-baojiaid_id="'+data.data.list[i].buyingId+'"><button>立即报价</button></a>';
+								}
+
+				        			str+='<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.list[i].interestCount+' </span>家报价</p>'
+				        		+'</div>';
+
+		                	}
+
+		                	$('#templateInfo').html(str);
+
+		                	
+
+		                	for (var i = 0; i < data.data.list.length; i++) {
+
+		                		var time2 = new Date(data.data.list[i].remainTime).Format("yyyy-MM-dd hh:mm:ss");
+
+
+		                		distanceTime3("distanceTime"+(num+1)+i+"", time2, arr['timer'+i]);
+		                	}
+
+	                    }
+
+                        
+	                },	
+	                error: function (err) {
+	                	console.log(err);
+	                }
+	            });
+	        }
+
+			$(document).on('click', '.search', function () {
+				isSearch=1;
+				freeZhaoHuo($('#chemicalName').val(), 0);
+			});
+
+
+
+			function distanceTime2(id, deadtime) {  
+				// debugger;
+                var endtime1 = new Date(deadtime); //结束时间  
+                var nowtime1 = new Date(); //当前时间  
+                var lefttime1 = parseInt(((endtime1.getTime() - nowtime1.getTime()) / 1000));  
+                //parseInt可以只取整数部分，返回一个整数  
+                var d1 = parseInt(lefttime1 / (24 * 60 * 60));  
+                var h1 = parseInt(lefttime1 / (60 * 60) % 24);  
+                var m1 = parseInt((lefttime1 / 60) % 60);  
+                var s1 = lefttime1 % 60; 
+                if (d1 < 0) {
+                	d1 = '0' + d1;
+                }
+
+                if (h1 < 0) {
+                	h1 = '0' + h1;
+                }
+
+                if (m1 < 0) {
+                	m1 = '0' + m1;
+                }
+
+                if (s1 < 0) {
+                	s1 = '0' + s1;
+                }
+
+                if (document.getElementById(id) == null) {
+                	return false;
+                }
+
+                document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day">'+d1+'</span>天'
+        				+'<span class="hasColoR bigFt time_hour">'+h1+'</span>时'
+        				+'<span class="hasColoR bigFt time_minute">'+m1+'</span>分'
+        				+'<span class="hasColoR bigFt time_seconds">'+s1+'</span>秒'
+                	// d + '天' + h + '时' + m + '分' + s + '秒';  
+                if(lefttime1 <= 0) {  
+                    document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day">00</span>天'
+        				+'<span class="hasColoR bigFt time_hour">00</span>时'
+        				+'<span class="hasColoR bigFt time_minute">00</span>分'
+        				+'<span class="hasColoR bigFt time_seconds">00</span>秒';  
+                    clearTimeout(timer1);  
+                }  
+                timer1 = setTimeout("distanceTime2('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  
+
+            }  
+
+
+            
+            function distanceTime3(id, deadtime, i) {  
+
+				// debugger;
+                var endtime = new Date(deadtime); //结束时间  
+                var nowtime = new Date(); //当前时间  
+                var lefttime = parseInt(((endtime.getTime() - nowtime.getTime()) / 1000));  
+                //parseInt可以只取整数部分，返回一个整数  
+                var d = parseInt(lefttime / (24 * 60 * 60));  
+                var h = parseInt(lefttime / (60 * 60) % 24);  
+                var m = parseInt((lefttime / 60) % 60);  
+                var s = lefttime % 60; 
+                if (d < 0) {
+                	d = '0' + d;
+                }
+
+                if (h < 0) {
+                	h = '0' + h;
+                }
+
+                if (m < 0) {
+                	m = '0' + m;
+                }
+
+                if (s < 0) {
+                	s = '0' + s;
+                }
+
+                if (document.getElementById(id) == null) {
+                	return false;
+                }
+
+                document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day">'+d+'</span>天'
+        				+'<span class="hasColoR bigFt time_hour">'+h+'</span>时'
+        				+'<span class="hasColoR bigFt time_minute">'+m+'</span>分'
+        				+'<span class="hasColoR bigFt time_seconds">'+s+'</span>秒'
+                	// d + '天' + h + '时' + m + '分' + s + '秒';  
+                if(lefttime <= 0) {  
+                    document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day">00</span>天'
+        				+'<span class="hasColoR bigFt time_hour">00</span>时'
+        				+'<span class="hasColoR bigFt time_minute">00</span>分'
+        				+'<span class="hasColoR bigFt time_seconds">00</span>秒';  
+                    clearTimeout(i);  
+                }  
+                i = setTimeout("distanceTime3('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  
+            }  
+
+	        
+			//拦截链接
+	        $(document).on('click','a',function(e){
+	       		e.preventDefault();
+	       		var isOld = localStorage.getItem('isOld');
+	       		if(isOld != '2'){
+	       			var ttxt = $.trim($(this).text());
+	       			console.log(ttxt);
+	       			if(ttxt == '用户中心' || ttxt == '立即发布需求' || ttxt == '立即报价' || ttxt == '我的询盘' || ttxt == '我的报价' ){
+	       				if(isOld == '1'){
+	       					$('#effect .contTitle span').text('您尚未登录');
+							missedLogin() ;
+	       				}else if(isOld == '0'){
+	       					missedLogin() ;
+	       				}else if(isOld == '-1'){
+	       					$('#effect .contTitle span').text('您尚未认证');
+	       					$('#effect .contTitle i').text('认证');
+	       					$('#popLogin').text('认证');
+							missedLogin() ;
+	       				}else if(isOld == '-2'){
+	       					$('#effect .contTitle span').text('您的认证正在审核中');
+	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	       					$('#popLogin').hide();
+							missedLogin() ;
+	       				}
+	       			}else{
+	       				window.location.href = this.href;
+	       			}
+	       		}else{
+	       			window.location.href = this.href;
+	       		}
+	        })
+		</script>
+	</body>
+</html>

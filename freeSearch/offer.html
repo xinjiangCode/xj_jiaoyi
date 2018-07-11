@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title adct="现货商城" adct1="1">新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body{
+				background: #fff;
+			}
+			.offOrder,.myOffer{
+				float: left;
+			}
+			.offerBox{
+				position: relative;
+			}
+			.offOrder{
+				width: 397px;
+				height: 689px;
+				border:1px #EBE9EA solid;
+				position: relative;
+			}
+			.offOrderTit{
+				width: 357px;
+				height: 50px;
+				line-height: 50px;
+				/*color: #699BFA;*/
+				color: #333333;
+				/*font-size: 22px;*/
+				font-size: 16px;
+				border-bottom: #E6E6E6 1px solid;
+				margin-left: 18px;
+			}
+			.offInfo{
+				margin-top: 25px;
+				margin-bottom: 40px;
+				margin-left: 19px;
+				color: #666666;
+				font-size: 14px
+			}
+			.offInfo p{
+				margin-bottom: 13px;
+			}
+			.offNum{
+				padding-left: 20px;
+				font-size: 14px;
+				color: #699BFA;
+			}
+			.offFoot{
+				width: 100%;
+				height: 45px;
+				background: #699BFA;
+				color: #fff;
+				font-size: 14px;
+				position: absolute;
+				bottom: 0;
+				line-height: 45px;
+				padding-left: 20px;
+				box-sizing: border-box;
+			}
+			.offFoot>span{
+				float: right;
+				margin-right: 15px;
+			}
+			.offerNext{
+				position: absolute;
+				top: 265px;
+				margin-left: 33px;
+				margin-right: 26px;
+			}
+			.myOffer{
+				border: 1px #EBE9EA solid;
+				width: 740px;
+				height: 789px;
+				float: right;
+			}
+			.myOffer .offOrderTit{
+				width: 696px;
+				margin-bottom: 35px;
+			}
+			.myOffer>div{
+				height: 40px;
+				margin-bottom: 12px;
+				color: #333333;
+				/*font-size: 18px;*/
+				font-size: 16px;
+			}
+			.myOffer>div .inp{
+				width: 469px;
+				height: 40px;
+				border: 1px #E5E5E5 solid;
+				background: #fff;
+				box-sizing: border-box;
+				padding-left: 10px;
+			}
+			.myOffer>div>span>span{
+				color: #FB6047;
+				margin-right: 4px;
+			}
+			.myOffer>div>span{
+				width: 141px;
+				display: inline-block;
+				text-align: right;
+			}
+			.myOffer button{
+				width: 229px;
+				height: 40px;
+				background: #fff;
+				border: 1px #3582F8 solid;
+				color: #3582F8;
+				font-size: 17px;
+				margin-left: 255px;
+				margin-top: 68px;
+			}
+			.myOffer button:hover{
+				background: #3582F8;
+				color: #fff;
+			}
+			.myOffer>p{
+				position: absolute;
+				bottom: 17px;
+				right: 20px;
+				color: #FB6047;
+				font-size: 16px;
+			}
+			.offerBox{
+				margin-bottom: 50px;
+				overflow: hidden;
+			}
+			.footerTop{
+				border-top: 1px #e0e0e0 solid;
+			}
+
+			/*清除浮动*/
+			.clearfix:before, .clearfix:after {
+			    content: "";
+			    display: table;
+			}
+
+			.clearfix:after {
+			    clear: both;
+			}
+
+			.clearfix {
+			    *zoom: 1; /*IE/7/6*/
+			}
+
+			.fl {
+				float: left;
+			}
+
+			.fr {
+				float: right;
+			}
+			.modelBox4{
+				z-index: 9999;
+			    display: none;
+			    position: fixed;
+			    top: 0;
+			    left: 0;
+			    right: 0;
+			    bottom: 0;
+			    background-color: rgba(0, 0, 0, 0.5);
+			}
+			.modelCont{
+				position: absolute;
+			    width: 450px;
+			    min-height: 276px;
+			    left: 50%;
+			    top: 50%;
+			    margin-left: 0 !important;
+			    margin-top: 0 !important;
+			    transform: translate(-50%,-50%);
+			    -webkit-transform: translate(-50%,-50%);
+			    -ms-transform: translate(-50%,-50%);
+			    -moz-transform: translate(-50%,-50%);
+			    -o-transform: translate(-50%,-50%);
+			    font-family: 'microsoft yahei';
+			}
+			.modeltitle{
+				width: 450px;
+			    height: 50px;
+			    background-image: url(../img/gsxq.gif);
+			    background-size: 100% 100%;
+			    background-repeat: no-repeat;
+			    font-size: 16px;
+			    color: #5690f6;
+			    line-height: 50px;
+			}
+			.modelcontent, .cont{
+				width: 450px;
+			    min-height: 226px;
+			    background-image: url(../img/gsxq_cont.gif);
+			    background-size: 100% 100%;
+			    background-repeat: no-repeat;
+			    font-size: 18px;
+			}
+			.modeltitle span{
+      			margin-left: 16px;
+			}
+			.img_div{
+			    width: 100%;
+			    height: 42px;
+			    text-align: center;
+			    padding-top: 40px;
+			    margin-bottom: 19px;
+			    overflow: hidden;
+			}
+			.modelcontent p{
+				text-align: center;
+			}
+			.modelBtnBox{
+				width: 302px;
+			    height: 45px;
+			    overflow: hidden;
+			    margin: 0 auto;
+			    padding-bottom: 30px;
+			}
+			.modelbtn{
+				float: left;
+			    width: 145px;
+			    height: 45px;
+			    border: 1px solid #5690f6;
+			    font-size: 18px;
+			    color: #fff;
+			    box-sizing: border-box;
+			    text-align: center;
+			    line-height: 45px;
+			    border-radius: 3px;
+			    cursor: pointer;
+			    margin: 18px auto 0 80px;
+			}
+
+			.modelcontent p span {
+				display: block;
+				font-size: 14px;
+				color: #949495;
+			}
+		</style>
+	</head>
+	<body>
+		<!--立即报价-->
+		<div class="mianCont breadcrumb">
+			<a href="../index.html">首页</a>>
+			<a href="./freeSearch.html">免费找货</a>>
+			<a href="##">立即报价"></a>
+		</div>
+		<div class="mianCont offerBox">
+			<div class="offOrder">
+				<div class="offOrderTit">需求信息</div>
+				<div class="offInfo" id="xuqiuInfo">
+					
+				</div>
+				<p class="offNum">需求信息编号：<span>3001708091838591697</span></p>
+				<div class="offFoot">
+					已收到报价
+					<span>9 家</span>
+				</div>
+			</div>
+			<img src="../img/offerNext.png" class="offerNext"/>
+			<div class="myOffer">
+				<div class="offOrderTit">我的报价</div>
+				<div>
+					<span><span>*</span>单  价：</span>
+					<input type="number" placeholder="请输入报价" class="inp" id="oPrice"/>
+					元／吨
+				</div>
+				<div>
+					<span><span>*</span>供应数量：</span>
+					<input type="number" placeholder="请输入数量" class="inp" id="num"/>
+					吨
+				</div>
+				<div id="payType">
+					<span><span>*</span>承  兑：</span>
+					<input type="text" id="chPrice" placeholder="" style="height: 40px;width: 218px;border:1px #E5E5E5 solid;box-sizing: border-box;"/>
+					现  汇：<span id="payTypePrice">0</span>元
+				</div>
+				<div>
+					<span><span>*</span>总  价：</span>
+					<span style="color: #C6C6C6;font-size: 16px;display: inline;">¥ <span id="total">0
+						
+					</span>/元</span>
+				</div>
+				<div>
+					<span><span>*</span>支持账期：</span>
+					<input type="radio" name="dzs" id="zcdz" value="2"/>
+					<label for="zcdz">是</label>
+					<input type="radio" name="dzs" id="bcdz" value="1"/>
+					<label for="bcdz">否</label>
+				</div>
+				<div>
+					<span><span>*</span>账期时间：</span>
+					<input type="radio" name="dz" id="sst" value="30" disabled="disabled"/>
+					<label for="sst">30天</label>
+					<input type="radio" name="dz" id="lst" value="60" disabled="disabled"/>
+					<label for="lst">60天</label>
+					<input type="radio" name="dz" id="jst" value="90" disabled="disabled"/>
+					<label for="jst">90天</label>
+				</div>
+				<div class="clearfix">
+					<span class="fl" style="margin-right: 5px;"><span>*</span>报价有效期：</span>
+					<div class="selectPub fl inp" id="select_validity">
+				        <span></span>
+				        <img src="../img/prl-select.jpg" alt="">
+				        <ul>
+				            <li data-index="1">1</li>
+				            <li data-index="2">5</li>
+				            <li data-index="3">10</li>
+				            <li data-index="4">15</li>
+				        </ul>
+				    </div>
+					<!-- <select name="" class="inp">
+						<option value=""></option>
+					</select> -->
+				</div>
+				<div>
+					<span class="fl" style="margin-right: 5px;"><span>*</span>选择商品：</span>
+					<!-- <select name="" class="inp">
+						<option value=""></option>
+					</select> -->
+					<div class="selectPub fl inp" id="select_shop" >
+				        <span></span>
+				        <img src="../img/prl-select.jpg" alt="">
+				        <ul>
+				            <!-- <li data-index="1">10</li>
+				            <li data-index="2">20</li>
+				            <li data-index="3">30</li> -->
+				        </ul>
+				    </div>
+				</div>
+				<div>
+					<span><span>*</span>联系电话：</span>
+					<input type="text" placeholder="" class="inp" id="phone"/>
+				</div>
+				<div>
+					<span><span>*</span>备  注：</span>
+					<input type="text" placeholder="" class="inp" id="note"/>
+				</div>
+				<button id="sub">提交报价</button>
+				<p>此报价不包含运费，交割方式自提</p>
+			</div>
+		</div>
+		<div class="modelBox4" >
+		    <div class="modelCont">
+		        <div class="modeltitle">
+		            <span>消息提示</span>
+		            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+		        </div>
+		        <div class="modelcontent">
+		            <div class="info">
+		                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+		                <p></p>
+		            </div>
+		            <div class="modelBtnBox">
+		                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/template.js"></script>
+		<script type="text/html" id="xuqiuTpl">
+			<p>化学品名：<%=chemicalName%></p>
+			<p>纯  度：<%=info.productPurity%>%</p>
+			<p>采购数量：<%=info.remain%>吨</p>
+			<p>最小供量：<%=info.minAmount%>吨</p>
+			<%if(info.paymentMethod == 1){%>
+			<p>支付方式：现汇</p>	
+			<%}else if(info.paymentMethod == 2){%>
+			<p>支付方式：承兑汇票</p>
+			<%}else if(info.paymentMethod == 3){%>
+			<p>支付方式：现汇+承兑</p>
+			<%}else if(info.paymentMethod == 0) {%>
+			<p>支付方式：不限</p>
+			<%}%>
+			<p>收货地址：<%=address.warehouseProvince%> <%=address.warehouseCity%> <%=address.warehouseArea%></p>
+			<%if (info.invoiceType == 1) {%>
+			<p>发票类型：增值税普通发票 </p>
+			<%}else if(info.invoiceType == 2) {%>
+			<p>发票类型：增值税专用发票</p>
+			<%} else if(info.invoiceType == 3) {%>
+			<p>发票类型：不限</p>
+			<%}%>
+			<%if (info.productLevel == 1) {%>
+			<p>级别要求：工业级I</p>
+			<%} else if(info.productLevel == 2) {%>
+			<p>级别要求：医药级MI</p>
+			<%} else if(info.productLevel == 3) {%>
+			<p>级别要求：食品级F</p>
+			<%} else if(info.productLevel == 4){%>
+			<p>级别要求：化妆级M</p>
+			<%}%>
+			<p>包装要求：<%=info.productPacking%></p>
+			<p>产地要求：<%=info.productOrigin%></p>
+			<p>备注信息：<%=info.note%></p>
+			<p>公司名称：<%=companyName%></p>
+			<p>联系人：<%=info.contactName%></p>
+			<p>联系电话：<%=info.contactPhone%></p>
+			<p>发布时间：<%=info.releaseTime%></p>
+			<p>有效时间：<%=validityDate%></p>
+		</script>
+		<script>
+
+			var baojiaid = window.localStorage.getItem('baojiaid');
+			$('#chPrice').blur(function(){
+			    var thisval = Number($(this).val());
+				var toalVal = Number($('#total').text());
+				if(thisval>toalVal){
+					alert('承兑不能大于总价');
+                    $(this).val('');
+					$('#payTypePrice').text('');
+					return false;
+				}
+				var tot = Number($('#total').text()) - Number($(this).val());
+				$('#payTypePrice').text(tot);
+			})
+			
+			$('#oPrice,#num').blur(function(){
+				if($('#oPrice').val() == '' || $('#num').val() == ''){
+					return false;
+				}
+				var op = $('#oPrice').val() - 0;
+				var num = $('#num').val() - 0;
+				var h = op*num;
+				$('#total').text(h);
+				$('#payTypePrice').text(h);
+			});
+
+			$('#num').blur(function() {
+				
+				var minAmount = window.localStorage.getItem('data-minAmount');
+				var remain = window.localStorage.getItem('data-remain');
+				var num = $('#num').val();
+
+				if (parseInt(num) < parseInt(minAmount) || parseInt(num) > parseInt(remain)){
+					$('.modelcontent p').text('供应数量应大于采购最小供应量或小于采购数量');
+					$('.modelBox4').show();
+					return false;
+				}
+
+			});
+			
+			$('.confirm,.close').click(function(){
+				$('.modelBox4').hide();
+			})
+			
+			$('[name="dzs"]').change(function(){
+				if($(this).val() == '2'){
+					$('[name="dz"]').removeAttr('disabled');
+				}else{
+					$('[name="dz"]').attr('disabled','disabled');
+					$('[name="dz"]').attr('checked',false);
+				}
+			})
+			
+			var qgIfId = null;
+			var paymentMethod = null;
+
+			
+			$('#sub').click(function(){
+				var flg = true;
+				$('.myOffer input').each(function(){
+					if($(this).val() == ''){
+						$('.modelcontent p').text($.trim($(this).prev().text())+'未填写');
+						$('.modelBox4').show();
+						flg = false;
+						return false;
+					}
+				})
+				if(!flg){
+					return false;
+				}
+				
+				if(!$('[name="dzs"]:checked').val()){
+					$('.modelcontent p').text('未选择是否支持账期');
+					$('.modelBox4').show();
+					return false;
+				}else if($('[name="dzs"]:checked').val() == '2'){
+					if(!$('[name="dz"]:checked').val()){
+						$('.modelcontent p').text('未选择账期时间');
+						$('.modelBox4').show();
+						return false;
+					}else{
+						debtTerm = $('[name="dz"]:checked').val();
+					}
+				}else{
+					debtTerm = 1;
+				}
+				if(!$('#select_validity').attr('data-selectedindex')){
+					$('.modelcontent p').text('未选择报价有效期');
+					$('.modelBox4').show();
+					return false;
+				}
+				if(!$('#select_shop').attr('data-selectedindex')){
+					$('.modelcontent p').text('未选择商品');
+					$('.modelBox4').show();
+					return false;
+				}
+				
+				if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#phone').val()))) {
+	                $('.modelcontent p').text('手机号格式不正确');
+					$('.modelBox4').show();
+					return false;
+	            }
+                // var acceptanceTotal = $('#chPrice').val()
+				if(paymentMethod == '1'){
+					var cash = $('#payTypePrice').text();
+					var acceptanceTotal = 0;
+				}else if(paymentMethod == '2'){
+					var cash = 0;
+					var acceptanceTotal =$('#total').text() ;
+				}else {
+					var cash = $('#payTypePrice').text();
+					var acceptanceTotal = $('#chPrice').val();
+				}
+				
+				
+				
+				$.ajax({
+					type: "post",
+	                url: pubIP + "buyingInfo/addtradingInterestNow",//v1.0
+	                headers: {
+	                    token: token
+	                },
+	                cache: false,
+	                async:false,
+	                data: {
+	                		unitPrice: $('#oPrice').val(),
+	                		sum:$('#num').val(),
+	                		unit:'吨',
+	                		total:$('#total').text(),
+	                		acceptanceTotal:acceptanceTotal,
+                            // acceptanceTotal:$('#chPrice').val(),
+	                		cash:cash,
+	                		debtTerm:debtTerm,
+	                		buyingId:qgIfId,
+	                		validity:$('#select_validity').find('span').text(),
+	                		productId:$('#select_shop').attr('data-selectedindex'),
+	                		contactPhone:$('#phone').val(),
+	                		note:$('#note').val()
+	                },
+	                dataType: "json",
+	                success: function(data){
+						console.log(data);
+						if (data.code == 1){
+							console.log(data.msg);
+
+							$('.modelcontent .img_div img').attr('src', '../img/gsxq_success.gif');
+
+							$('.modelcontent p').html('<span>您的报价信息已经发送给了采购商！</span><span>请耐心等待采购商的回电和确认~</span>');
+
+							$('.modelBox4').show();
+
+                        }
+	                },
+	                error: function(err) {
+	                		console.log(err);
+	                }
+				});
+			})
+
+			$.ajax({
+				type: "get",
+                url: pubIP + "buyingInfo/getBuyingInfoById",//v1.0
+                headers: {
+                    token: token
+                },
+                cache: false,
+                async:false,
+                data: {
+                	buyingId: baojiaid
+                },
+
+                dataType: "json",
+                success: function(data){
+                    console.log(data);
+                	console.log(data.data);
+
+                	data.data.info.releaseTime = new Date(data.data.info.releaseTime).Format("yyyy-MM-dd hh:mm:ss");
+
+                	data.data.validityDate = new Date(data.data.validityDate).Format("yyyy-MM-dd hh:mm:ss");
+				
+				paymentMethod = data.data.info.paymentMethod;
+				
+				if(data.data.info.paymentMethod == '1'){
+					$('#payType').html('<span><span>*</span>现    汇：</span><span id="payTypePrice" style="display: inline; margin-left: 5px;">0</span>元');
+				}else if(data.data.info.paymentMethod == '2'){
+					$('#payType').html('<span><span>*</span>承    兑：</span><span id="payTypePrice" style="display: inline; margin-left: 5px;">0</span>元');
+				}
+				
+				qgIfId = data.data.info.buyingIds;
+
+					$('.offFoot span').html(data.data.interestCount+' 家');
+
+					$('.offNum span').html(qgIfId);
+
+                	var result = template('xuqiuTpl', data.data);
+                    $('#xuqiuInfo').html(result);
+
+                    //最小供应量
+                    window.localStorage.setItem('data-minAmount', data.data.info.minAmount);
+
+                    //采购数量
+                    window.localStorage.setItem('data-remain', data.data.info.remain);
+
+                },
+                error: function(err) {
+                	console.log(err);
+                }
+			});
+
+
+			//select商品数据
+			$.ajax({
+				type: "get",
+                url: pubIP + "buyingInfo/listProductOfState",//v1.0
+                headers: {
+                    token: token
+                },
+                cache: false,
+                async:false,
+                data: {
+                	companyId: companyId
+                },
+                dataType: "json",
+                success: function(data){
+                	console.log(data);
+
+                	var str = '<li data-index="" data-productId="">请选择</li>';
+                	for (var i = 0; i < data.data.length; i++) {
+                		str += '<li data-index="'+(i+1)+'" data-productId="'+data.data[i].productId+'">'+data.data[i].productName+'</li>';
+                	}
+
+                	$('#select_shop ul').html(str);
+
+                },
+                error: function(err) {
+                	console.log(err);
+                }
+			});
+
+			
+
+			// $('#select_validity ul li').click(function(){
+			//     event.stopPropagation();
+			//     $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+			//     $(this).parent().parent().find('span').text($(this).text());
+			//     $(this).parent().parent().children('img').attr('src', '../img/prl-selected.jpg')
+			//     $(this).parent().css('display','none');
+			// });
+
+			//选择商品select，校验商品是否符合
+			$('#select_shop ul li').click(function(){
+			    event.stopPropagation();
+			    // $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+			    // $(this).parent().parent().find('span').text($(this).text());
+			    // $(this).parent().parent().children('img').attr('src', '../img/prl-selected.jpg')
+			    // $(this).parent().css('display','none');
+
+			    var productId = $(this).attr('data-productid');
+			    console.log(productId);
+
+			    var _that = $(this);
+
+			    $.ajax({
+			    	type: "get",
+	                url: pubIP + "buyingInfo/validProduct",//v1.0
+	                headers: {
+	                    token: token
+	                },
+	                cache: false,
+	                async:false,
+	                data: {
+	                	buyingId: baojiaid,
+	                	productId: productId
+	                },
+	                dataType: "json",
+	                success: function(data){
+	                	console.log(data);
+
+	                	if (data.code == 1) {
+	                		
+	                		event.stopPropagation();
+						    $(_that).parent().parent().attr('data-selectedindex', $(_that).attr('data-productid'));
+						    $(_that).parent().parent().find('span').text($(_that).text());
+						    $(_that).parent().parent().children('img').attr('src', '../img/prl-selected.jpg')
+						    $(_that).parent().css('display','none');
+
+	                	} else {
+
+	                		$(_that).parent().css('display','block');
+	                	}
+
+	                },
+	                error: function(err) {
+	                	console.log(err);
+	                }
+			    });
+
+
+			});
+			$('.confirm').on('click',function(){
+                window.history.back(-1);
+            })
+		</script>
+	</body>
+</html>

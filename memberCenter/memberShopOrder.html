@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+	<title>新疆化学品经营服务平台</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/memberCenter/memberShopOrder.css"/>
+
+</head>
+<body>
+	
+	<!-- 会员商品订单 -->
+	<div class="memberShopOrder">
+		<div class="memberShopOrderTitle">
+			<span>会员商品订单</span>
+			<div class="fr sousuo_order clearfix">
+				<input class="fl" type="text" placeholder="按订单编号/商品名称查询"><img class="fl" src="../img/mp_search.png" alt="">
+			</div>
+		</div>
+		<div class="shop_order">
+			<ul class="clearfix">
+				<li class="current_order"><span>全部订单</span></li>
+				<li><span>待发货</span></li>
+				<li><span>待支付</span></li>
+				<li><span>待确认收货</span></li>
+				<li><span>已完成</span></li>
+			</ul>
+		</div>
+		<div class="order_title">
+			<ul class="clearfix">
+				<li style="width: 230px;">近三个月的订单</li>
+				<li style="width: 112px;">规格</li>
+				<li style="width: 160px;">数量</li>
+				<li style="width: 170px;">金额</li>
+				<li style="width: 145px;">全部状态</li>
+				<li>操作</li>
+			</ul>
+		</div>
+		<div class="order_list">
+			<ul>
+				<li>
+					<div class="shop_num_time clearfix">
+						<span class="shop_num fl">采购需求编号：3001707271606350063</span>
+						<span class="shop_time fr">订单日期：2017-07-27  16: 06: 30</span>
+					</div>
+					<div class="fs">
+						<ul class="clearfix">
+							<li style="width: 50px;"><span class="order_num">1</span></li>
+							<li style="font-size: 16px; width: 153px;">迭氮（化）铅[含水或水加乙醇≥20%] </li>
+							<li style="width: 124px; padding-left: 50px;">红色</li>
+							<li style="width: 110px;"><span class="dun_num">2.00</span>吨</li>
+							<li style="width: 162px; padding-left: 65px;">
+								<p>积分：<span class="dun_num">1000</span></p>
+								<p>现金：<span class="xinjin_num">￥20000000</span></p>
+							</li>
+							<li style="width: 110px; padding-right: 8px;">待支付</li>
+							<li>
+								<span class="wei_pay"><a href="##">立即支付</a></span>
+							</li>
+						</ul>
+						<ul class="clearfix">
+							<li style="width: 50px;"><span class="order_num">1</span></li>
+							<li style="font-size: 16px; width: 153px;">迭氮（化）铅[含水或水加乙醇≥20%] </li>
+							<li style="width: 124px; padding-left: 50px;">红色</li>
+							<li style="width: 110px;"><span class="dun_num">2.00</span>吨</li>
+							<li style="width: 162px; padding-left: 65px;">
+								<p>积分：<span class="dun_num">1000</span></p>
+								<p>现金：<span class="xinjin_num">￥20000000</span></p>
+							</li>
+							<li style="width: 110px; padding-right: 8px;">待支付</li>
+							<li>
+								<span class="cancel_order"><a href="##">取消订单</a></span>
+							</li>
+						</ul>
+						<ul class="clearfix">
+							<li style="width: 50px;"><span class="order_num">1</span></li>
+							<li style="font-size: 16px; width: 153px;">迭氮（化）铅[含水或水加乙醇≥20%] </li>
+							<li style="width: 124px; padding-left: 50px;">红色</li>
+							<li style="width: 110px;"><span class="dun_num">2.00</span>吨</li>
+							<li style="width: 162px; padding-left: 65px;">
+								<p>积分：<span class="dun_num">1000</span></p>
+								<p>现金：<span class="xinjin_num">￥20000000</span></p>
+							</li>
+							<li style="width: 110px; padding-right: 8px;">待支付</li>
+							<li>
+								<span class="look_order"><a href="##">查看订单</a></span>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 0px auto 40px;">
+	        <ul class="pagination" id="page1"></ul>
+	        <div class="pageJump">
+	                    <span class="allPageN">1/200</span>
+	                    <span class="total">共200页，</span>
+	            <span>到第</span>
+	            <input type="text" style="text-align: center; padding-left: 0px;"/>
+	            <span>页</span>
+	            <button type="button" class="button">GO</button>
+	        </div>
+	    </div>
+	</div>
+
+
+	<script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/common.js"></script>
+	<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		Page({
+            num: 3,
+            elem: $('#page1'),
+            callback: function(n) {
+                console.log(n);
+            }
+        });
+
+        $(document).on('click', '.wei_pay', function() {
+        	window.parent.location.href="../memberCenter/orderDetailWeiPay.html";
+        });
+	</script>
+</body>
+</html>

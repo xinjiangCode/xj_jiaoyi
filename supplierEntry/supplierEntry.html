@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title >新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/home.css"/>
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/supplierEntry.css"/>
+	</head>
+	<body>
+		<!--供应商入驻-->
+		<div class="maxWidth bg1">
+			<img src="../img/bg1Img.png"/>
+		</div>
+		<div class="maxWidth bg2">
+			<div class="mianCont">
+				<img src="../img/bg2InnerImg.png"/>
+				<div class="goEntry">
+					<div></div>
+					<a href="##">
+						立即入驻
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="maxWidth bg3">
+			<div class="mianCont">
+				<div class="qs" style="margin-bottom: 16px;">
+					<p>问：入驻新疆v56平台收取服务费吗？</p>
+					<p>答：企业入驻新疆v56平台是完全免费的，我们还会为您和您的客户提供</p>
+					<p style="text-indent: 35px;">最贴心的管家式撮合服务。</p>
+				</div>
+				<div style="margin-bottom: 25px;">
+					<p>问：新疆v56平台如何帮我卖货</p>
+      				<p>答：当您的产品上架后，新疆v56会通过大数据分析工具，帮您精准推送给</p>
+      				<p style="text-indent: 35px;">潜在需求客户，从而提高订单成交率</p>
+				</div>
+				<div style="margin-bottom: 32px;">
+					<p>问：入驻新疆v56平台如何帮我采购？</p>
+      				<p>答：当您发布采购需求后，新疆v56将会把信息推送至符合标准的供应商，</p>
+      				<p style="text-indent: 35px;">增加您需求的曝光率，并为您啤陪最合适的供应商</p>
+				</div>
+				<div>
+					<p>问：入驻新疆v56平台如何帮是否需要提供融资服务？</p>
+					<p style="width: 100%;">答：是的，目前平台已经开展金融服务链服务，有多个金融产品做支撑，您可以拨打4000012556进行线下咨询。</p>
+				</div>
+				<img src="../img/bg3Img.png"/>
+			</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<div class="fxd">
+			<a href="##"><img src="../img/indexKefu.png" style="margin-top: 9px;"/> </a>
+			<a href="##" id="showCd">
+				<img src="../img/indexEcode.png"/> 
+				<div class="showCode">
+					<img src="../img/erwCode.png" />
+				</div>
+			</a>
+			<a href="##" id="tousu"><img src="../img/indedxBi.png"/> </a>
+			<a href="##" id="gotop"><img src="../img/indexDing.png"/> </a>
+		</div>
+		<div class="tsBg"></div>
+		<div class="tsBox">
+			<img src="../img/breadcrumbCloseIcon.png" id="colseAlert"/>
+			<p>投诉建议</p>
+			<div>
+				<span>资讯类别</span>
+				<select name="">
+					<option value="建议">建议</option>
+					<option value="投诉">投诉</option>
+				</select>
+			</div>
+			<div>
+				<span>联系人电话</span> <input type="text" placeholder="请输入手机号码"/>
+			</div>
+			<div>
+				<span>联系人 </span><input type="text" placeholder="请输入联系人"/>
+			</div>
+			<div style="height: auto;">
+				<span>问题描述 </span><textarea style="vertical-align: text-top;" placeholder="请输入您的问题"></textarea>
+			</div>
+			<div >
+				<button>立即提交</button>
+			</div>
+		</div>
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" >      
+			$('.tsBg').height($(window).height());
+			$('#colseAlert').click(function(){
+				$('.tsBg').hide();
+				$('.tsBox').hide();
+			})
+			$('#tousu').click(function(){
+				$('.tsBg').show();
+				$('.tsBox').fadeIn();
+			})
+			//拦截链接
+		    $(document).on('click','a',function(e){
+	       		e.preventDefault();
+	       		var isOld = localStorage.getItem('isOld');
+	       		if(isOld != '2'){
+	       			var ttxt = $.trim($(this).text());
+	       			console.log(ttxt);
+	       			if(ttxt == '用户中心' ){
+	       				if(isOld == '1'){
+	       					$('#effect .contTitle span').text('您尚未登录');
+							missedLogin() ;
+	       				}else if(isOld == '0'){
+	       					missedLogin() ;
+	       				}else if(isOld == '-1'){
+	       					$('#effect .contTitle span').text('您尚未认证');
+	       					$('#effect .contTitle i').text('认证');
+	       					$('#popLogin').text('认证');
+							missedLogin() ;
+	       				}else if(isOld == '-2'){
+	       					$('#effect .contTitle span').text('您的认证正在审核中');
+	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	       					$('#popLogin').hide();
+							missedLogin() ;
+	       				}
+	       			}else{
+	       				window.location.href = this.href;
+	       			}
+	       		}else{
+	       			window.location.href = this.href;
+	       		}
+		    })
+	  </script>
+	</body>
+</html>

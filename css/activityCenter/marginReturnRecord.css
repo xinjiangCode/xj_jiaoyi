@@ -1,0 +1,93 @@
+.marginReturnRecord {
+	width: 984px;
+	border: 1px solid #eeeced;
+	height: 1418px;
+}
+
+.marginReturnRecordTitle {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eeeced; 
+	padding-left: 19px;
+	font-size: 16px;
+	color: #282828;
+}
+
+.sousuo_area {
+	height: 108px;
+	border-bottom: 1px solid #ebe9ea;
+	padding-left: 19px;
+	font-size: 14px;
+	color: #282828;
+}
+
+.sousuo_area div {
+	display: inline-block;
+	line-height: 108px;
+}
+
+.activity_name {
+	width: 269px;
+}
+
+.activity_time {
+	width: 182px;
+}
+
+.activity_name_sousuo input[type='text'] {
+	height: 34px;
+}
+
+.return_ul {
+	padding: 0 57px 0 64px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #fdfdfd;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.return_ul li {
+	float: left;
+	font-size: 14px;
+	color: #282828;
+}
+
+.return_ul li.one {
+	width: 265px;
+}
+
+.return_ul li.two {
+	width: 325px;
+}
+
+.return_ul li.three {
+	width: 225px;
+}
+
+.list_ul li {
+	height: 70px;
+	border-bottom: 1px solid #ebe9ea;
+	display: table;
+}
+
+.list_ul li span {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.activity_list_name {
+	width: 200px;
+}
+
+.activity_list_money {
+    width: 370px;
+}
+
+.activity_list_time {
+    width: 234px;
+}
+
+.activity_list_status {
+    width: 180px;
+}

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+	<title>新疆化学品经营服务平台</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/activityCenter/activityList.css">
+</head>
+<body>
+
+	<!-- 活动商品列表 -->
+	<div class="activityList">
+		<div class="activityListTitle">
+			<span>活动商品列表</span>
+			<div class="fr mp">
+				<span class="add_shop"><a href="addActivityShop.html">添加商品</a></span>
+			</div>
+		</div>
+		<div class="activityCenter">
+			<ul class="clearfix activityCenterTitle">
+				<li class="one"><input type="radio" name=""></li>
+				<li class="two">排序</li>
+				<li class="three">商品名称</li>
+				<li class="four">价格</li>
+				<li class="five">支付方式</li>
+				<li class="six">纯度</li>
+				<li class="seven">库存</li>
+				<li class="eight">销量</li>
+				<li class="nine">状态</li>
+				<li class="ten">操作</li>
+			</ul>
+			<ul class="clearfix center_list" id="listInfo">
+				<!-- <li>
+					<span class="radio_input"><input type="radio" name="activitylist"></span>
+					<span class="activity_shop_num">1</span>
+					<span class="activity_shop_name">32斯维尔娃儿产品产品</span>
+					<span class="activity_shop_price">100元/吨</span>
+					<span class="pay_method orange">现汇，承兑，现汇+承兑</span>
+					<span class="activity_shop_chundu">98%</span>
+					<span class="activity_shop_kucun">100吨</span>
+					<span class="activity_shop_xiaoliang">100吨</span>
+					<span class="orange activity_shop_status">待审核</span>
+					<span class="activity_shop_operate">
+						<span class="blue">查看</span>
+						<span class="operate_btn">取消</span>
+					</span>
+				</li>
+				<li>
+					<span class="radio_input"><input type="radio" name="activitylist"></span>
+					<span class="activity_shop_num">1</span>
+					<span class="activity_shop_name">32斯维尔娃儿产品产品</span>
+					<span class="activity_shop_price">100元/吨</span>
+					<span class="pay_method orange">现汇，承兑，现汇+承兑</span>
+					<span class="activity_shop_chundu">98%</span>
+					<span class="activity_shop_kucun">100吨</span>
+					<span class="activity_shop_xiaoliang">100吨</span>
+					<span class="orange activity_shop_status">已拒绝</span>
+					<span class="activity_shop_operate">
+						<span class="blue">查看</span>
+						<span class="operate_btn">编辑</span>
+					</span>
+				</li>
+				<li>
+					<span class="radio_input"><input type="radio" name="activitylist"></span>
+					<span class="activity_shop_num">1</span>
+					<span class="activity_shop_name">32斯维尔娃儿产品产品</span>
+					<span class="activity_shop_price">100元/吨</span>
+					<span class="pay_method orange">现汇，承兑，现汇+承兑</span>
+					<span class="activity_shop_chundu">98%</span>
+					<span class="activity_shop_kucun">100吨</span>
+					<span class="activity_shop_xiaoliang">100吨</span>
+					<span class="orange activity_shop_status">已取消</span>
+					<span class="activity_shop_operate">
+						<span class="blue">查看</span>
+						<span class="operate_btn">编辑</span>
+					</span>
+				</li>
+				<li>
+					<span class="radio_input"><input type="radio" name="activitylist"></span>
+					<span class="activity_shop_num">1</span>
+					<span class="activity_shop_name">32斯维尔娃儿产品产品</span>
+					<span class="activity_shop_price">100元/吨</span>
+					<span class="pay_method orange">现汇，承兑，现汇+承兑</span>
+					<span class="activity_shop_chundu">98%</span>
+					<span class="activity_shop_kucun">100吨</span>
+					<span class="activity_shop_xiaoliang">100吨</span>
+					<span class="orange activity_shop_status">待开始</span>
+					<span class="activity_shop_operate">
+						<span class="blue">查看</span>
+						<span class="operate_btn">编辑</span>
+					</span>
+				</li>
+				<li>
+					<span class="radio_input"><input type="radio" name="activitylist"></span>
+					<span class="activity_shop_num">1</span>
+					<span class="activity_shop_name">32斯维尔娃儿产品产品</span>
+					<span class="activity_shop_price">100元/吨</span>
+					<span class="pay_method orange">现汇，承兑，现汇+承兑</span>
+					<span class="activity_shop_chundu">98%</span>
+					<span class="activity_shop_kucun">100吨</span>
+					<span class="activity_shop_xiaoliang">100吨</span>
+					<span class="orange activity_shop_status">进行中</span>
+					<span class="activity_shop_operate">
+						<span class="blue">查看</span>
+						<span class="operate_btn">查看订单</span>
+					</span>
+				</li>
+				<li>
+					<span class="radio_input"><input type="radio" name="activitylist"></span>
+					<span class="activity_shop_num">1</span>
+					<span class="activity_shop_name">32斯维尔娃儿产品产品</span>
+					<span class="activity_shop_price">100元/吨</span>
+					<span class="pay_method orange">现汇，承兑，现汇+承兑</span>
+					<span class="activity_shop_chundu">98%</span>
+					<span class="activity_shop_kucun">100吨</span>
+					<span class="activity_shop_xiaoliang">100吨</span>
+					<span class="orange activity_shop_status">已结束</span>
+					<span class="activity_shop_operate">
+						<span class="blue">查看</span>
+						<span class="operate_btn">查看订单</span>
+					</span>
+				</li> -->
+			</ul>
+
+			<div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 10px auto 6px;">
+		        <ul class="pagination" id="page1"></ul>
+		        <div class="pageJump">
+		                    <span class="allPageN">1/200</span>
+		                    <span class="total">共200页，</span>
+		            <span>到第</span>
+		            <input type="text" style="text-align: center; padding-left: 0px;"/>
+		            <span>页</span>
+		            <button type="button" class="button">GO</button>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/common.js"></script>
+	<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/template.js"></script>
+	<script type="text/html" id="listTpl">
+		<%for (i in list) {%>
+		<li>
+			<span class="radio_input"><input type="radio" name="activitylist"></span>
+			<span class="activity_shop_num"><%=i-0+1%></span>
+			<span class="activity_shop_name"><%=list[i].productName%></span>
+			<span class="activity_shop_price">
+			<%if (list[i].productSpecUnit == 1) {%>
+			<%=list[i].unitPrice%>克/桶
+			<%} else if (list[i].productSpecUnit == 2){%>
+			<%=list[i].unitPrice%>千克/袋
+			<%} else if (list[i].productSpecUnit == 3) {%>
+			<%=list[i].unitPrice%>千克/件
+			<%}%>
+			</span>
+			<span class="pay_method orange">
+			<%if (list[i].paymentMethod == 1) {%>
+			现汇
+			<%} else if(list[i].paymentMethod == 2) {%>
+			承兑汇票
+			<%} else if (list[i].paymentMethod == 3) {%>
+			现汇+承兑
+			<%} else if (list[i].paymentMethod == 0) {%>
+			不限
+			<%}%>
+			</span>
+			<span class="activity_shop_chundu"><%=list[i].productPurity%>%</span>
+			<span class="activity_shop_kucun"><%=list[i].remain%>吨</span> <!-- 有问题============== -->
+			<span class="activity_shop_xiaoliang">100吨</span><!-- 有问题============== -->
+			<span class="orange activity_shop_status">
+			<%if (list[i].status == 0){%>
+			待审核
+			<%} else if(list[i].status == 2) {%>
+			已拒绝
+			<%} else if(list[i].status == 3) {%>
+			已取消
+			<%} else if (list[i].status == 4) {%>
+			待开始
+			<%} else if(list[i].status == 5) {%>
+			进行中
+			<%} else if (list[i].status == 6) {%>
+			已结束
+			<%}%>
+			</span>
+			<span class="activity_shop_operate">
+				<span class="blue">查看</span>
+				<span class="operate_btn">查看订单</span>
+			</span>
+		</li>
+		<%}%>
+	</script>
+	<script>
+		
+        var activityId = window.localStorage.getItem('activityId');
+
+        var isFirst = true;
+
+        activityList(1);
+
+
+        // 活动商品列表
+        function activityList(num){
+        	$.ajax({
+	        	type: "get",
+	            url: pubIP + "acticityApi/findActivityGoodsCompany",//v1.0
+	            headers: {
+	                token: token
+	            },
+	            cache: false,
+	            async:false,
+	            data: {
+	            	companyId: companyId,
+	            	activityId: activityId,
+	            	pageNum: num,
+	            	pageSize: 2
+	            },
+	            dataType: "json",
+	            success: function(data){
+					console.log(data);
+
+					
+					var result = template("listTpl",{list:data.data.result});
+			        $('#listInfo').html(result);
+
+			        if(data.data.code == '0'){
+		                    $('.pageJump').hide();
+		                    $('.shop_list_table tbody').html('');
+		                    $('.notMsg').show();
+		                    return false;
+		                }
+
+		                if (isFirst) {
+		                        
+		                    Page({
+		                        num: data.data.pages,
+		                        elem: $('#page1'),
+		                        callback: function(n) {
+		                            console.log(n);
+		                            activityList(n);
+		                        }
+		                    });
+		                    
+		                    $('.total').text('共'+data.data.pages+'页，');
+
+
+		                    isFirst = false;
+		               }
+
+		               $('.allPageN').text(num+'/'+data.data.pages);
+
+	            },
+	            error: function(err) {
+	            	console.log(err);
+	            }
+	        });
+        }
+
+
+	</script>
+</body>
+</html>

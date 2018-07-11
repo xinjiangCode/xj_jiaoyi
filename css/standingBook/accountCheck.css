@@ -1,0 +1,189 @@
+.accountCheck {
+	width: 984px;
+	border: 1px solid #eeeced;
+	height: 1400px;
+}
+
+.accountCheckTitle {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eeeced; 
+	padding-left: 19px;
+	font-size: 16px;
+	color: #282828;
+}
+
+.sousuo_ul {
+	height: 72px;
+	border-bottom: 1px solid #ebe9ea;
+	font-size: 14px;
+	color: #282828;
+}
+
+.sousuo_ul li {
+	float: left;
+	line-height: 72px;
+	margin-left: 17px;
+}
+
+input[type='text'].account_check_num, input[type='text'].account_check_qiye {
+	width: 193px;
+	height: 34px;
+}
+
+input[type='text']#test1, input[type='text']#test2 {
+	width: 102px;
+	height: 34px;
+}
+
+.account_check_list_ul {
+	height: 40px;
+	line-height: 40px;
+	padding-left: 40px;
+	box-sizing: border-box;
+	font-size: 14px;
+	color: #464646;
+	background: #fdfdfd;
+}
+
+.account_check_list_ul li {
+	float: left;
+}
+
+.account_check_list_li1 {
+	width: 105px;
+}
+
+.account_check_list_li2 {
+	width: 128px;
+}
+
+.account_check_list_li3 {
+	width: 125px;
+}
+
+.account_check_list_li4 {
+	width: 110px;
+}
+
+.account_check_list_li5 {
+	width: 120px;
+}
+
+.account_check_list_li6 {
+	width: 120px;
+}
+
+.ul_title {
+	height: 53px;
+	border-bottom: #ebe9ea;
+	padding-left: 20px;
+	box-sizing: border-box;
+	line-height: 53px;
+}
+
+.ul_title li {
+	float: left;
+}
+
+.ul_title_li1 {
+	width: 84px;
+}
+
+.ul_title_li2 {
+	width: 166px;
+}
+
+.ul_title_li3 {
+	width: 188px;
+}
+
+.ul_title_li4 {
+	width: 141px;
+}
+
+.ul_title_li5 {
+	width: 105px;
+}
+
+.ul_title_li6 {
+	width: 124px;
+}
+
+.ul_title_li7 {
+	width: 90px;
+}
+
+.account_check_list_ul {
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.ul_title {
+	font-size: 14px;
+	color: #282828;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.list_center li {
+	font-size: 14px;
+	height: 96px;
+	display: table;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.list_center li span {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.radio_width {
+	width: 60px;
+}
+
+.num_content {
+    width: 180px;
+}
+
+.qiye_name {
+    width: 140px;
+}
+
+.order_money .span {
+	width: 128px;
+	padding-left: 72px;
+}
+
+.order_money .span div {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+
+.orange {
+	color: #FF7E0C;
+}
+
+.hong {
+	color: #FF3C3C;
+}
+
+.pay_method {
+    width: 98px;
+}
+
+.order_num {
+    width: 120px;
+}
+
+.status {
+    width: 90px;
+}
+
+.operate {
+    width: 95px;
+}
+
+.blue {
+	color: #6EA3FF;
+}

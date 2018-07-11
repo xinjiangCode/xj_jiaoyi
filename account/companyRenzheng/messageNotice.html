@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/payPass.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/shopManage/shopManage.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/limitManage.css">
+</head>
+<style>
+    .message_notic_ul ul li {
+        float: left;
+        width: 12.5%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 16px;
+        color: #282828;
+    }
+    .sort {
+        width: 18px;
+        height: 18px;
+        background-color: #B0CDFF;
+        color: #fff;
+        text-align: center;
+        line-height: 18px;
+        -webkit-border-radius:50%;
+        -moz-border-radius:50%;
+        -ms-border-radius:50%;
+        -o-border-radius:50%;
+        border-radius: 50%;
+        display: inline-block;
+        font-size: 12px;
+    }
+
+    .shop_list_table .message_content_width {
+        width: 220px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow:ellipsis;
+        margin: 0 auto;
+    }
+
+    .look_detail_btn {
+        width: 78px;
+        height: 30px;
+        background-color: #6EA3FF;
+        line-height: 30px;
+        text-align: center;
+        -webkit-border-radius:2px;
+        -moz-border-radius:2px;
+        -ms-border-radius:2px;
+        -o-border-radius:2px;
+        border-radius: 2px;
+        display: inline-block;
+        color: #fff;
+    }
+
+    .mianCont {
+        margin-top: 33px;
+        margin-right: 240px;
+    }
+
+    .user_list_title span {
+        margin-left: 11px;
+    }
+
+    .shop_list_table thead tr th:first-child {
+        width: 70px;
+    }
+	 #forget{display: none;} 
+    .pop{position: fixed;top: 0;left: 0;right:0;bottom: 0;width: 100%;height: 100%;z-index: 999;background-color: rgba(102,102,102,0.5);}
+    .pop>.cont{position: fixed;top: 25%;left: 50%;width: 628px;height: 363px;background-color: #ffffff;margin-left: -314px;margin-top: -181.5px;}
+    .pop>.cont>.cancel{text-align: right;color: #9E9E9E;margin-bottom: 37px;margin-top: 18px;margin-right: 18px;}
+    .pop>.cont>div{overflow: hidden;padding: 0;margin-top: 10px;}
+    .pop>.cont>div>.leftTitle{margin-left:53px;width: 120px;text-align: right;margin-right: 18px;height:36px;}
+    .pop>.cont>div>.popInput{width: 337px;height:38px;}
+    .pop>.cont>div>.popInput>input{width: 100%;height:28px; color: #C6C6C6;margin-top: 1px;border: 1px solid #C6C6C6;text-indent: 10px;}
+    .pop>.cont>.forget2{text-align: right;margin-right: 100px;margin-top: 10px;}
+    .pop>.cont>.forget2>a{color: #007aff;}
+    .pop>.cont>.popBottom{margin-left: 90px;margin-top: 35px;}
+    .pop>.cont>.popBottom>.btn{margin-left: 58px;width: 137px;height: 39px;line-height: 39px;background-color: #007aff;color: white;text-align: center;border-radius: 5px;}
+    .pop>.cont>div>.DeCont{height: auto;}
+    input[type='text'].page_page{border-radius: 0;height: 42px;}
+</style>
+<body>
+<!-- 企业未认证-消息通知 900 -->
+<div class="main">
+    <div class="user_list">
+        <div class="user_list_title">
+            <span>消息通知</span>
+        </div>
+    </div>
+    <!--<div class="message_notic_ul" >-->
+    <!--<ul class="clearfix">-->
+    <!--<li>全部消息</li>-->
+    <!--<li>采购类</li>-->
+    <!--<li>销售类</li>-->
+    <!--<li>物流类</li>-->
+    <!--<li>认证类</li>-->
+    <!--<li>金融</li>-->
+    <!--<li>活动</li>-->
+    <!--<li>平台消息</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <table class="shop_list_table">
+        <thead>
+        <th>排序</th>
+        <th>消息标题</th>
+        <th>消息内容</th>
+        <th>状态</th>
+        <th>时间</th>
+        <th>操作</th>
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
+    <p class="notMsg" style="text-align: center;font-size: 18px;color: #666;margin-top: 40px;">暂无消息</p>
+</div>
+<div class="mianCont" style="text-align: center;">
+    <ul class="pagination" id="page1"></ul>
+    <div class="pageJump">
+        <span class="allPageN">1/200</span>
+        共<span class="allPageSize"></span>页，
+        <span>到第</span>
+        <input class="page_page" type="text"/>
+        <span>页</span>
+        <button type="button" class="button goPage">GO</button>
+    </div>
+</div>
+
+
+<script src="../../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/pager.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+	$('.goPage').click(function(){
+		addMsg($('.page_page').val()-1);
+	})
+	
+    $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+    
+    var isFirst = true;
+    addMsg(0);
+	function addMsg(num){
+		$.ajax({ 
+	      type:"post",
+	      url: pubIP + "notice/listMessageByPage",//v1.1
+	      cache:false,
+	      dataType: "json",
+	      async:false,
+		  headers: {
+		  	token: token
+		  },
+	      data:{
+	    	  	'pageNum':num,
+	    	  	'pageSize':'10'
+	      },
+	      success: function(json){
+	        console.log(json);
+	        if(json.code == '0'){
+	        		$('.pageJump').hide();
+	        		$('.shop_list_table tbody').html('');
+	        		$('.notMsg').show();
+	        		return false;
+	        }
+	        if(isFirst){
+	        		Page({
+			        num: json.data.totalPage,
+			        elem: $('#page1'),
+			        callback: function(n) {
+			            //console.log(n);
+			            addMsg(n-1);
+			        }
+			    });
+			    $('.allPageN').text(num+1+'/'+json.data.totalPage);
+			    $('.allPageSize').text(json.data.totalPage);
+			    isFirst = false;
+	        }
+	        var result = ''
+	      	$.each(json.data.list,function(i,t){
+	      		var isRead = t.isRead == 0 ? "未读" : "已读";
+	      		var time = new Date(t.noticeLasttime).Format("yyyy-MM-dd");
+	      		var timede = new Date(t.noticeLasttime).Format("yyyy-MM-dd HH:mm:ss");
+	      		result += '<tr>\
+				            <td><span class="sort">'+(i+1)+'</span></td>\
+				            <td>'+t.title+'</td>\
+				            <td><div class="message_content_width">'+t.context+'</div></td>\
+				            <td style="color: #007aff;">'+isRead+'</td>\
+				            <td time="'+timede+'">'+time+'</td>\
+				            <td><span class="look_detail_btn" id="'+t.noticeId+'">查看详情</span></td>\
+				           </tr>'	;
+	      	})
+	      	$('.notMsg').hide();
+           	$('.shop_list_table tbody').html(result);
+	      },
+	      error:function(xhr,statues,error){
+	          
+	      }
+	   });
+	}
+	$(document).on('click','.look_detail_btn',function(){
+		//查看详情 甲方未给弹框ui
+        window.parent.forget();
+
+		window.parent.$('.DetTit').text($(this).parents('tr').find('td').eq(1).text());
+		window.parent.$('.DeCont').text($(this).parents('tr').find('td').eq(2).text());
+		window.parent.$('.Detime').text($(this).parents('tr').find('td').eq(4).text());
+		$(this).parents('tr').find('td').eq(3).text('已读')
+		
+		$.ajax({ 
+	      type:"post",
+	      url:pubIP+"notice/getMessageInfo",//v1.1
+	      cache:false,
+	      dataType: "json",
+		  headers: {
+		  	token: token
+		  },
+	      data:{
+	    	  	'noticeId':$(this).attr('id'),
+	      },
+	      success: function(json){}
+	     })
+	})
+	// $('.cancel').click(function(){
+	// 	window.parent.$('#forget').hide();
+	// })
+</script>
+</body>
+</html>

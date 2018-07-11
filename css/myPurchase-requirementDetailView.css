@@ -1,0 +1,106 @@
+.main{
+    width: 986px;
+    background: #fff;
+    border: 1px solid #EBE9EA;
+    font-size:14px;
+    color:rgba(40,40,40,1);
+}
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+.btn{
+    background: #5791F6;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
+.ml18{
+    margin-left: 18px;
+}
+.ml44{
+    margin-left: 44px;
+}
+.mr37{
+    margin-right: 37px;
+}
+.bacFD{
+    background-color: #FDFDFD;
+}
+.title{
+    padding-left: 18px;
+    line-height: 50px;
+    border-bottom: 1px solid #EBE9EA;
+}
+.quotationHandleCon{
+    height: 164px;
+    border-bottom: 1px solid #EBE9EA;
+}
+.quotationHandleCon .prompt{
+    width: 164px;
+    height: 164px;
+    border-right: 1px solid #EBE9EA;
+    text-align: center
+}
+.prompt img{
+    width: 41px;
+    height: 41px;
+    margin: 0 auto;
+    margin-top: 55px;
+    margin-bottom: 9px;
+}
+.quotationHandleCon .handling{
+    padding-left: 95px;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+.handling .time{
+    color: #FF8F22;
+}
+.handling .btn{
+    width: 152px;
+    height: 38px;
+    line-height: 38px;
+    margin-top: 20px;
+}
+.handling .refuse{
+    margin-left: 16px;
+    background: #fff;
+    border: 1px solid #EBE9EA;
+    color: #282828;
+}
+.ceiContHead{
+    border-bottom: 1px solid #EBE9EA;
+    line-height: 36px;
+}
+.ceiContHead .reqireNo{
+    margin-left: 173px;
+}
+.ceiContHead .updateTime{
+    margin-left: 22px;
+}
+.ceiContInfo{
+    position: relative;
+    line-height:36px;
+    /* min-height: 302px; */
+    padding: 10px 0;
+    border-bottom: 1px solid #EBE9EA;
+}
+.ceiContInfo .middle{
+    position: absolute;
+    left: 324px;
+}
+.ceiContInfo .right{
+    position: absolute;
+    left: 636px;
+}

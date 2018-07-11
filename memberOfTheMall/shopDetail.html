@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta name="format-detection" content="telephone=no" />
+		<title>新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/objDetails.css"/>
+		<style>
+			html,body{
+				position: relative;
+				height: 100%;
+			}
+			.modelpop{
+				font-family: 'microsoft yahei';
+				display: none;
+				position: fixed;
+				top:0;
+				left:0;
+				right:0;
+				bottom:0;
+				background: rgba(0, 0, 0, 0.5);
+				z-index: 9999;
+			}
+			.modelpop .cont{
+				width: 650px;
+				height: 550px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -225px;
+				margin-left: -325px;
+			}
+			.modelpop .cont>.title{
+				height: 48px;
+				background-image: url(../img/gsxq.gif);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				overflow: hidden;
+				line-height: 48px; 
+				font-size: 16px;
+			}
+			.modelpop .cont>.title span{
+				float: left;
+				margin-left: 20px;
+				color: #5690f6;
+			}
+			.modelpop .cont>.title img{
+				float: right;
+				cursor: pointer;
+			}
+			.modelpop .cont>.main{
+				width: 650px;
+				height: 502px;
+				background: url(../img/gsxq_cont.gif);
+				background-size: 650px 502px;
+				background-repeat: no-repeat;
+				font-size: 16px;
+				padding-top: 19px;
+				box-sizing: border-box;
+			}
+			.modelpop .cont>.main li{
+				overflow: hidden;
+				line-height: 30px;
+				color: #999999;
+			}
+			.modelpop .cont>.main li.i{
+				margin-bottom: 16px;
+			}
+
+			.modelpop .cont>.main label{
+				font-size: 16px;
+				width: 177px;
+				padding-right: 10px;
+				box-sizing: border-box;
+				float: left;
+				text-align: right;
+				color: #282828;
+			}
+			.modelpop .cont>.main .input{
+				font-size: 14px;
+				float: left;
+				width: 223px;
+				height: 35px;
+				padding-left: 10px;
+				box-sizing: border-box;
+				border: 1px solid #e3e3e3;
+			}
+			::-webkit-input-placeholder { /* WebKit browsers */ 
+				color: #c9caca;
+			} 
+			:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+				color: #c9caca;
+			} 
+			::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+				color: #c9caca;
+			} 
+			:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+				color: #c9caca;
+			}
+			textarea.input{
+				height: 101px;
+				width: 309px;
+				font-family: 'microsoft yahei';
+			}
+			.commitBtn{
+				width: 140px;
+				height: 45px;
+				background-color: #5690f6;
+				font-size: 18px;
+				color: #fff;
+				line-height: 45px;
+				text-align: center;
+				border-radius: 3px;
+				margin: 0 auto;
+				cursor: pointer;
+				margin-top: 14px;
+			}
+			/* 修改售票地址 */
+			#editShoupiaoAddress .cont{
+				width: 450px;
+				min-height: 275px;
+				margin-left: -225px;
+			}
+			#editShoupiaoAddress .cont>.title,
+			#enquirySuccess .cont>.title{
+				width: 450px;
+				height: 45px;
+				line-height: 45px;
+			}
+			#editShoupiaoAddress .cont>.main{
+				width: 450px;
+				max-height: 600px;
+				overflow-y: scroll;
+				background: url(../img/gsxq_cont.gif);
+				background-size: 100% 100%;
+				font-size: 14px;
+			}
+			.addAddressBox{
+				overflow: hidden;
+			}
+			.addAddress{
+				float: right;
+				margin-right: 33px;
+				color: #5690f6;
+			}
+			.item{
+				overflow: hidden;
+				margin-bottom: 10px;
+			}
+			.item .left{
+				float: left;
+				width: 55px;
+			}
+			.item .left>input{
+				margin-left: 36px;
+			}
+			.item .right{
+				float: left;
+				width: 360px;
+				line-height: 20px;
+			}
+			#editShoupiaoAddress .btn{
+				display: inline-block;
+				width: 140px;
+				height: 45px;
+				background-color: #fff;
+				border: 1px solid #5690f6;
+				border-radius: 3px;
+				cursor: pointer;
+				color: #5690f6;
+				line-height: 45px;
+				text-align: center;
+				font-size: 16px;
+			}
+			#editShoupiaoAddress .btnbox{
+				width: 300px;
+				margin: 23px auto;
+			}
+			#editShoupiaoAddress .tosure{
+				background: #5690f6;
+				color: #fff;
+			}
+			/* 询价成功 */
+			#enquirySuccess .cont{
+				width: 450px;
+				height: 275px;
+				margin-left: -225px;
+				text-align: center;
+			}
+			#enquirySuccess .cont>.main{
+				width: 450px;
+				height: 228px;
+				background: url(../img/gsxq_cont.gif);
+				background-size: 100% 100%;
+				font-size: 14px;
+				color: #949495;
+				padding-top: 20px;
+				box-sizing: border-box;
+			}
+			.successMsgInfo{
+				font-size: 24px;
+				color: #5690f6;
+				line-height: 70px;
+			}
+			.successMsgInfo img{
+				width: 43px;
+				height: 42px;
+				vertical-align: middle;
+			}
+			.tosurebtn{
+				width: 140px;
+				height: 45px;
+				background: #5690f6;
+				line-height: 45px;
+				border-radius: 5px;
+				margin: 30px auto 0;
+				font-size: 18px;
+				color: #fff;
+				cursor: pointer;
+			}
+			.evBdBuyItem:hover p{
+				color:#2a63bd;
+			}
+
+			.objDIfInner>div input {
+				padding-left: 12px;
+			}
+
+			.modelpop .cont {
+				overflow: hidden;
+			}
+
+			.breadcrumb a {
+				font-size: 14px;
+				color: #444343;
+			}
+
+			.sellerRt {
+				margin-top: 0px;
+			}
+
+			.objPrice span {
+				margin-left: 44px;
+			}
+
+			.objPrice span.fs28 {
+				font-size: 28px;
+				margin-left: 3px;
+			}
+
+			.objPrice span.fs16 {
+				font-size: 16px;
+			}
+
+			.objPrice span.fs16.mljf {
+				margin-left: 13px;
+			}
+
+			.objPrice {
+				height: 98px;
+				line-height: normal;
+				padding-top: 12px;
+				margin-bottom: 11px;
+			}
+
+			.objDIfInner {
+				margin-left: 20px;
+			}
+
+			.objDgg {
+				padding-left: 20px;
+				margin-bottom: 20px;
+			}
+
+			.objDgg span {
+				margin-right: 0px;
+			}
+
+			.objDgg select {
+				border-color: #dddddd;
+				width: 85px;
+				height: 30px;
+				margin-left: 13px;
+			}
+
+			.objDgg select#area {
+				width: 154px;
+			}
+
+			.mljl {
+				margin-left: 22px;
+			}
+
+			.objDIfInner>div>div {
+				margin-left: 5px;
+			}
+
+			.objDIfInner a {
+				margin-top: 22px;
+			}
+
+			.cOr {
+				margin-left: 7px;
+			}
+
+			.infoBox ul li {
+				float: left;
+				font-size: 14px;
+			}
+
+			.infoBox ul li span.color_bg {
+				color: #347ae9;
+			}
+
+			.objDtsTit {
+				margin-bottom: 12px;
+			}
+			
+			.objDtsTit1 {
+				font-size: 16px;
+	    		color: #333333;
+			}
+
+			.objDetails {
+				width: 956px;
+				
+			}
+
+			.objEditorDtls .infoBox {
+				padding-left: 0px;
+			}
+
+			.infoBox img {
+				width: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--商品详情页<-->
+		<div class="mianCont breadcrumb">
+			<a href="memberOfTheMall.html">会员商城</a>>
+			<a href="##">晨光A4纸张</a>
+		</div>
+		<div class="mianCont objDetailsBox">
+			<div class="objDetails objBorder">
+				<div class="objDetails" style="height:539px;">
+					<div class="headGoodsImgsBox">
+						<div class="objDetailsImg ">
+							<img src="../img/shop_detail_pic.png" class="zoom cloudzoom" data-cloudzoom="zoomSizeMode:'image',zoomImage: '../img/shop_detail_pic.png',startMagnification:2,easeTime:'0',variableMagnification:false"/>
+						</div>
+						<div class="objDetailsImgList swiper-container swiper-container-horizontal">
+							<div class="swiper-button-prev"><img src="../img/ltSwiper.png" /></div>
+							<div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+								<div class="swiper-slide"><img class="cloudzoom-gallery actImg"  src="../img/cf_shop.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/cf_shop.png',zoomImage:'../img/cf_shop.png'"/></div>
+								<div class="swiper-slide"><img class="cloudzoom-gallery actImg"  src="../img/shop_detail_small_pic.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/shop_detail_small_pic.png',zoomImage:'../img/shop_detail_small_pic.png'"/></div>
+								<div class="swiper-slide"><img class="cloudzoom-gallery" src="../img/shop_detail_small_pic2.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/shop_detail_small_pic2.png',zoomImage:'../img/shop_detail_small_pic2.png'"/></div>
+							</div>
+							<div class="swiper-button-next"><img src="../img/rtSwiper.png"/></div>
+						</div>
+					</div>
+					<div class="objDInfo">
+						<h1>优质 液氨 价格电议【工业级I】</h1>
+						<div class="objPrice">
+							<p><i style="font-size:16px;">价格：</i><span class="fs16">¥<span class="fs28">1440.00</span>/吨</span></p>
+							<p><i style="font-size:16px;">会员价格：</i><span class="fs16 mljf">¥<span class="fs28">188</span>积分 + <span class="fs28">1440.00</span>/包</span></p>
+						</div>
+						<p class="objDgg">
+							<!-- <span>纯度：erf</span>
+							<span>规格：fdfd</span>
+							<span>工业级别：df</span>
+							<span>形态：dfdf</span> -->
+							<span>配送至：</span>
+							<select name="province" id="province">
+								<option value="">省</option>
+							</select>
+							<select name="city" id="city">
+								<option value="">市</option>
+							</select>
+							<select name="area" id="area">
+								<option value="">区（县）</option>
+							</select>
+						</p>
+						<div class="objDIfInner">
+							<p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">运</span>费：<span style="letter-spacing: 1px;" class="mljl">免费/1,499.00</span></p>
+							<p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">颜</span>色：
+								<input type="radio" name="colorSort" class="mljl" id="red" value="红" checked="" />
+								<lable for="red" style="margin-right: 13px;">红</lable>
+								<input type="radio" name="colorSort" id="yellow" value="黄" />
+								<lable for="yellow" style="margin-right: 15px;">黄</lable>
+								<input type="radio" name="colorSort" id="blue" value="蓝" />
+								<lable for="blue">蓝</lable>
+							</p>
+							<p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">尺</span>寸：
+								<input type="radio" name="cmSort" class="mljl" id="3cm" value="3cm" checked="" />
+								<lable for="3cm">3cm</lable>
+								<input type="radio" name="cmSort" id="5cm" value="5cm" />
+								<lable for="5cm">5cm</lable>
+								<input type="radio" name="cmSort" id="10cm" value="10cm" />
+								<lable for="10cm">10cm</lable>
+							</p>
+							<div>
+								购买数量：
+								<div class="addOrSubGoodsNum">
+									<span class="spanBtn subBtn" style="cursor: pointer; font-size: 22px;">-</span>
+									<input type="number" min="1" step="1" style="text-align: center;"/>
+									<span class="spanBtn addBtn" style="cursor: pointer; font-size: 22px;">+</span>
+								</div>
+								盒/袋/瓶
+							</div>
+							<p>商品总价：<span class="cOr goodsTotalMoney">￥1440.00元</span></p>
+							<p>购买资格：<span style="margin-top: 20px; display: inline-block; margin-left: 10px">黄金会员 信用5级 （每个账号限兑换5个）</span></p>
+							<a class="toXunpanBtn" href="javascript:;">立即兑换</a>
+							
+						</div>
+					</div>
+				</div>
+				<div class="objEditorDtls objDetails">
+					<div class="objDtsTit">商品详情</div>
+					<div class="infoBox">
+						<ul class="clearfix">
+							<li style="width: 250px;">商品名称：<span class="color_bg">丘比恋</span></li>
+							<li style="width: 205px;"><span style="letter-spacing: 5px;">材</span>质：银</li>
+							<li>颜色分类：商务款01 英伦款02 精英款03</li>
+						</ul>
+					</div>
+					<div class="objDtsTit1">商品详细信息</div>
+					<div class="infoBox" style="border-bottom: 0; margin-bottom: 0px; padding-bottom: 19px; text-align: center;">
+						<!-- <div class="img_title">新绿天章70克A4复印纸 5包/箱</div> -->
+						<img src="../img/shop_detail_img1.png"  />
+						<img src="../img/shop_detail_img2.png"  />
+						<img style="margin-top: -45px;" src="../img/shop_detail_img3.png"  />
+					</div>
+				</div>
+			</div>
+			<div class="sellerRt">
+				<div>
+					<div class="sellerRtTit">
+						 大家都在买
+					</div>
+					<div class="evBdBuyItem">
+						<div class="evbgImg"></div>
+						<p>[汉姆]非离子表面活性</p>
+						<span>￥1440.00/吨</span>
+					</div>
+					<div class="evBdBuyItem">
+						<div class="evbgImg"></div>
+						<p>[汉姆]非离子表面活性</p>
+						<span>￥1440.00/吨</span>
+					</div>
+					<div class="evBdBuyItem">
+						<div class="evbgImg"></div>
+						<p>[汉姆]非离子表面活性</p>
+						<span>￥1440.00/吨</span>
+					</div>
+					<div class="evBdBuyItem">
+						<div class="evbgImg"></div>
+						<p>[汉姆]非离子表面活性</p>
+						<span>￥1440.00/吨</span>
+					</div>
+				</div>
+			</div>
+			<!-- 弹窗 -->
+			<div class="modelpop" id="toXunpan">
+				<div class="cont">
+					<div class="title">
+						<span>我要询价</span>
+						<img src="../img/gsxq_del.png" height="48" alt="" class="close">
+					</div>
+					<div class="main">
+						<ul>
+							<li>
+								<label for="xj_goodsNum">购买数量</label>
+								<span id="xj_goodsNum">0</span>
+							</li>
+							<li>
+								<label for="xj_sumMoney">总价</label>
+								<span id="xj_sumMoney" style="color: #E50B19;">0元</span>
+							</li>
+							<li>
+								<label for="xj_payType">支付方式</label>
+								<span id="xj_payType">现汇</span>
+							</li>
+							<li>
+								<label for="xj_fapiaoType">发票类型</label>
+								<input class="xj_fapiaoType" name="xj_fapiaoType" value="1" type="radio"><span style="margin-right:40px;">普通发票</span>
+								<input class="xj_fapiaoType" name="xj_fapiaoType" value="2" type="radio"><span>专用发票</span>
+							</li>
+							<li class="i">
+								<label for="xj_shoupiaoAddress">收票地址</label>
+								<span class="xj_shoupiaoAddress" style="width: 235px;float:left;">北京</span>
+								<span class="editAddress" style="color: #5690f6;float:left;margin-left:30px;cursor:pointer;">修改收票地址</span>
+							</li>
+							<li class="i">
+								<label for="xj_concatMan">联系人</label>
+								<input class="input" placeholder="请输入联系人" name="xj_concatMan" type="text" id="xj_concatMan">
+							</li>
+							<li class="i">
+								<label for="xj_tel">联系电话</label>
+								<input class="input" placeholder="请输入手机号" name="xj_tel" type="tel" id="xj_tel">
+							</li>
+							<li class="i">
+								<label for="xj_bei">备注</label>
+								<textarea style="width:385px;height: 101px;" class="input" placeholder="请输入您的问题" name="xj_bei" id="xj_bei"></textarea>
+							</li>
+							<li class="i">
+								<div class="commitBtn">提交</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="modelpop" id="editShoupiaoAddress">
+				<div class="cont">
+					<div class="title">
+						<span>地址管理</span>
+						<img src="../img/gsxq_del.png" height="45" alt="" class="close">
+					</div>
+					<div class="main">
+						<div class="addAddressBox"><span class="addAddress">添加地址</span></div>
+						<div class="addAddressBoxCont">
+							<script type="text/html" id="editAddressTpl">
+								<%for (i in list) {%>
+									<div class="item" data-id="<%=list[i].dbid%>">
+										<div class="left">
+											<input type="radio" name="address" value="1">
+										</div>
+										<div class="right">
+											<p><%=list[i].addressStr +'&nbsp;&nbsp;'+ list[i].detailedAddress%></p>
+											<p><%=list[i].receiver+'&nbsp;&nbsp;'+list[i].phone%></p>
+										</div>
+									</div>
+								<%}%>
+							</script>
+						</div>
+						<div class="btnbox">
+							<div class="tosure btn" style="margin-right: 10px;">确&nbsp;&nbsp;定</div>
+							<div class="goback btn">返&nbsp;&nbsp;回</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modelpop" id="enquirySuccess">
+				<div class="cont">
+					<div class="title">
+						<span>消息提示</span>
+						<img src="../img/gsxq_del.png" height="45" alt="" class="close">
+					</div>
+					<div class="main">
+						<div class="successImg"></div>
+						<div class="successMsg">
+							<div class="successMsgInfo">
+								<img src="../img/gsxq_success.gif" alt="">
+								<span style="margin-left: 9px;">提交成功</span>
+							</div>
+							<p>您发起的询价<span>已成功提交</span>，请耐心等待商家反馈！</p>
+							<div class="tosurebtn">确认</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/imageZoom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
+		<script>
+			$(function () {
+
+				var swiper = new Swiper('.swiper-container', {
+					slidesPerView: 4,
+				});
+				$('.swiper-button-prev').click(function(){
+					swiper.swipePrev(); 
+				})
+				$('.swiper-button-next').click(function(){
+					swiper.swipeNext(); 
+				})
+				CloudZoom.quickStart();
+
+			});
+		</script>
+	</body>
+
+</html>

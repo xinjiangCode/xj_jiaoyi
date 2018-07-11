@@ -1,0 +1,218 @@
+.customerRelationshipTitle {
+	height: 40px;
+}
+.customerRelationship {
+	width: 984px;
+}
+
+.customerRelationshipTitle span, .person_relation_wang_title span {
+	font-size: 18px;
+	color: #666666;
+	margin-left: 5px;
+}
+
+.add_customer_relationship {
+	width: 203px;
+	height: 38px;
+	border: 1px solid #5892F3;
+	text-align: center;
+	font-size: 16px;
+	color: #5892F3;
+	line-height: 38px;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+.customerRelationship_wang {
+	margin-top: 4px;
+	border: 1px solid #EBE9EA;
+	height: 780px;
+	width: 984px;
+}
+
+.person_relation_wang {
+	margin-top: 15px;
+}
+
+.person_relation_wang_title div {
+	width: 573px;
+	height: 36px;
+	background: #397de5;
+	line-height: 36px;
+}
+
+.person_relation_wang_title div input[type="text"] {
+	width: 479px;
+	height:  30px;
+	border: none;
+	margin-top: 2px;
+	margin-left: 2px;
+	float: left;
+	text-indent: 10px;
+}
+
+.person_relation_wang_title div span {
+	display: inline-block;
+	float: left;
+	width: 75px;
+	height: 100%;
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+.person_relation_list {
+	height: 237px;
+	border: 1px solid #ebe9ea;
+	margin-top: 7px;
+	font-size: 14px;
+	color: #4F4F4F;
+}
+
+.person_relation_list ul.clearfix {
+	height: 42px;
+	line-height: 42px;
+	background: #fdfdfd;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.person_relation_list ul li {
+	float: left;
+}
+
+.person_relation_li1 {
+	margin-left: 69px;
+	width: 136px;
+}
+
+.person_relation_li2 {
+	width: 170px;
+}
+
+.person_relation_li3 {
+	width: 165px;
+}
+
+.person_relation_li4 {
+	width: 155px;
+}
+
+.person_relation_li5 {
+	width: 175px;
+}
+
+.cont_list li {
+	border-bottom: 1px solid #ebe9ea;
+	height: 64px;
+	display: table;
+	padding-right: 43px;
+}
+
+.cont_list li>span {
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.person_num span {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 18px;
+	background: #B0CDFF;
+	color: #fff;
+}
+
+.person_num {
+    width: 164px;
+}
+
+.qiye_name {
+	width: 140px;
+}
+
+.qiye_type {
+    width: 200px;
+}
+
+.yewuyuan {
+    width: 120px;
+}
+
+.add_time {
+    width: 205px;
+}
+
+.del_btn {
+	margin-left: 20px;
+	color: #FF7524;
+}
+
+.operate {
+    width: 110px;
+}
+
+.edit_btn {
+	color: #6EA3FF;
+}
+
+.cont_list li:last-child {
+	border-bottom: none;
+}
+
+.relationship_div {
+	background: url('../../img/relationship_bg.png');
+	width: 155px;
+	height: 177px;
+}
+
+.padding_div {
+	width: 138px;
+    box-sizing: border-box;
+    margin-left: 11px;
+    padding-top: 5px;
+}
+
+.qiye_name_bg {
+	background: #6EA3FF;
+	font-size: 12px;
+	color: #fff;
+	line-height: 30px;
+	height: 30px;
+	width: 100%;
+	padding-left: 7px;
+	box-sizing: border-box;
+}
+
+.qiye_leixing, .yujingzhi, .yingshoukuan, .yingfukuan {
+	color: #666;
+	font-size: 12px;
+}
+
+.yingshoukuan span, .yingfukuan span {
+	display: block;
+	margin-left: 20px;
+}
+
+.yingfukuan span {
+	color: #FF7524;
+}
+
+.qiye_info div {
+	line-height: 21px;
+	padding-left: 7px;
+	box-sizing: border-box;
+}
+
+.customerRelationship_wang {
+	position: relative;
+}
+
+.add_customer_relationship {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 10;
+}

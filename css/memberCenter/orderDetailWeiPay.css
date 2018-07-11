@@ -1,0 +1,260 @@
+.mianCont_box, .tabLinkMaxBox {
+    display: none;
+}
+
+.local {
+	height: 55px;
+	line-height: 55px;
+	font-size: 16px;
+	color: #282828;
+}
+
+.local ul li {
+	float: left;
+}
+
+.local img {
+	margin-right: 4px;
+}
+
+.weipay_order {
+	border: 1px solid #ebe9ea;
+}
+
+.weipay_order_num {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #ebe9ea;
+	padding-left: 18px;
+	padding-right: 21px;
+}
+
+.weipay_order_num span.num {
+	color: #F66132;
+	font-weight: 600;
+}
+
+.weipay_order_num .kefu {
+	color: #6EA3FF;
+	cursor: pointer;
+}
+
+.weipay_order_num .kefu img {
+	margin-right: 5px;
+	vertical-align: middle;
+}
+
+.step-header ul li div {
+	color: #8F8F8F;
+	font-size: 12px;
+}
+
+.order_info {
+	color: #282828;
+	font-size: 16px;
+	text-align: center; 
+	margin: 34px auto 24px; 
+}
+
+.order_info span {
+	color: #F66132;
+	font-weight: 600;
+}
+
+.pay_btn {
+	/*display: inline-block;
+	margin: 0 auto;*/
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	display: inline-block;
+	margin-left: -162px;
+
+}
+
+.pay_btn .pay {
+	display: inline-block;
+	width: 152px;
+	height: 38px;
+	background: #6EA3FF;
+	border: 1px solid #5791F6;
+	color: #fff;
+	text-align: center;
+	line-height: 38px;
+	font-weight: 14px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.pay_btn .pay:hover {
+	background-color: #5791F6;
+}
+
+
+.pay_btn .cancel_pay {
+	display: inline-block;
+	width: 152px;
+	height: 38px;
+	background: #fff;
+	border: 1px solid #ADADAD;
+	color: #282828;
+	text-align: center;
+	line-height: 38px;
+	font-weight: 14px;
+	border-radius: 2px;
+	margin-left: 16px;
+	cursor: pointer;
+}
+
+.pay_btn .cancel_pay:hover {
+	background: #adadad;
+	color: #fff;
+}
+
+.shop_info_title {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #ebe9ea;
+	padding-left: 19px;
+	color: #282828;
+	font-size: 16px;
+}
+
+.shop_info_content {
+	height: 203px;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.shop_pic {
+	border-right: 1px solid #ebe9ea;
+	width: 475px;
+	height: 203px;
+	padding-top: 22px;
+	padding-left: 20px;
+	box-sizing: border-box;
+}
+
+.pic {
+	width: 123px;
+	height: 123px;
+	overflow: hidden;
+	background: url('../../img/shop_pic.png') no-repeat center;
+	margin-right: 20px;
+}
+
+.pic_info p {
+	font-size: 14px;
+}
+
+.pic_info p:nth-child(2) {
+	margin-top: 15px;
+}
+
+.pic_info p:nth-child(3) {
+	margin-top: 45px;
+}
+
+.pic_info p span {
+	color: #F66132;
+}
+
+.no_shop {
+	text-align: center;
+	width: 752px;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.info_all {
+	height: 189px;
+}
+
+.shouhuoren_info {
+	width: 425px;
+	border-right: 1px solid #ebe9ea;
+	padding: 21px 0 0 25px;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+.shouhuoren_info p, .peisong_info p, .fukuan_info p {
+ 	font-size: 14px;
+	color: #4F4F4F;
+	line-height: 35px;
+}
+
+.shr_info {
+	margin-bottom: 15px;
+}
+
+.shr_info img {
+	vertical-align: middle;
+	margin-right: 11px;
+}
+
+.peisong_info {
+	width: 405px;
+	border-right: 1px solid #ebe9ea;
+	height: 100%;
+	padding: 22px 0 0 24px;
+	box-sizing: border-box;
+}
+
+.fukuan_info {
+	/*width: 392px;*/
+	height: 100%;
+	padding: 22px 0 0 24px;
+	box-sizing: border-box;
+}
+
+.line {
+	margin-top: 30px;
+	border: 1px solid #e0e0e0;
+}
+
+
+.ok_shou {
+	display: inline-block;
+	width: 182px;
+	height: 38px;
+	text-align: center;
+	line-height: 38px;
+	color: #fff;
+	font-size: 14px;
+	background-color: #F66132;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.pay_btn {
+	margin-left: -91px;
+}
+
+.no_shop_pic {
+	display: none;
+	text-align: center; 
+	margin-top: 37px;
+
+}
+
+.no_shop ul {
+	text-align: left;
+	display: block;
+	padding: 25px 123px 25px 20px;
+	font-size: 14px;
+	color: #282828;  
+}
+
+.no_shop ul li {
+	line-height: 30px;
+}
+
+.no_shop ul li .wl_info_span {
+	margin-left: 30px;
+	display: inline-block;
+	width: 410px;
+}
+
+img.wl_info_pic {
+    vertical-align: sub;
+}

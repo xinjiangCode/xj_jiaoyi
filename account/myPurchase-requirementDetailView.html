@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/myPurchase-requirementDetailView.css">
+</head>
+<style>
+    .handling .time {
+        margin: 0 2px;
+    }
+
+    .handling .invalid {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 33px;
+    }
+</style>
+<body>
+    <div class="main">
+        <div class="mprvDetail-quotationHandle">
+            <div class="title">报价处理</div>  
+            <div class="quotationHandleCon clearfix bacFD">
+                <div class="prompt Lf">
+                    <img src="../img/mp_tishi.png" alt="温馨提示">
+                    <p>温馨提示</p>
+                </div>
+                <div class="handling Lf" id="state_baojia">
+                    <!-- <div>报价最后有效期为<span class="time"></span>。超过报价将会失效。您可以</div>
+                    <div>
+                        <div class="btn confirm ok_jiaoyi Lf">确认交易</div>
+                        <div class="btn refuse refuse_jiaoyi Lf">拒绝</div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="mprvDetail-quotationReceis">
+            <div class="quotationReceiItem">
+                <div class="title">收到报价</div>
+                <div class="quotationReceiCont" id="baojiaInfo">
+                    
+                </div>
+            </div>   
+            <div class="quotationReceiItem">
+                <div class="title">采购需求</div>
+                <div class="quotationReceiCont" id="requireContInfo">
+                    <!-- <div class="ceiContHead clearfix bacFD">
+                        <div class="endTime Lf ml44">最后有限期：<span>300017232132423423</span></div>
+                        <div class="reqireNo Lf">采购需求编号：<span>300017232132423423</span></div>
+                        <div class="updateTime Lf">发布时间： <span>2017-08-01 10:30:29</span></div>
+                    </div>
+                    <div class="ceiContInfo clearfix">
+                        <div class="left ml44 Lf">
+                            <div>品名：<span>氢氧化钠</span></div>
+                            <div>纯度：<span>98.00%</span></div>
+                            <div>收货地：<span>新疆昌吉回族自治州</span></div>
+                            <div>采购总量：<span>123.00吨</span></div>
+                            <div>剩余数量：<span>121.00吨</span></div>
+                            <div>最小供量：<span>2.00吨</span></div>
+                            <div>支付方式：<span>现汇。现汇+承兑</span></div>
+                            <div>收票地址： <span>张三 130 1234 1234 新疆乌鲁木齐头屯河阳澄湖路39号</span></div>
+                        </div>
+                        <div class="middle">
+                            <div>级别要求：<span>不限</span></div>
+                            <div>规格要求：<span>25公斤/袋</span></div>
+                            <div>产地要求：<span>中泰产的</span></div>
+                            <div>备注：<span>XXXXXXXXX</span></div>
+                        </div>
+                        <div class="right">
+                            <div>采购企业：<span>新疆中顺鑫和供应链管理股份有限公司</span></div>
+                            <div>联系人：<span>测试</span></div>
+                            <div>联系电话：<span>130 1234 1234</span></div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>   
+        </div>
+    </div>
+
+    <script src="./../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/template.js"></script>
+    <script type="text/html" id="baojiaTpl">
+        <div class="ceiContHead clearfix bacFD">
+            <div class="priceNo Lf ml44">报价编号：<span><%=interestId%></span></div>
+            <div class="date Rt mr37">发布时间：<span><%=submitTime%></span></div>
+        </div>
+        <div class="ceiContInfo clearfix">
+            <div class="left ml44 Lf">
+                <div>单价：<span><%=unitPrice%></span>元/吨</div>
+                <div>供应数量：<span><%=sum%></span><%=unit%></div>
+                <div>总价：<span><%=total%></span>元</div>
+                <%if(xianhuiTotal == null){%>
+                <div>承兑<span><%=acceptanceTotal%></span>元</div>
+                <%}else if(acceptanceTotal == null) {%>
+                <div>现汇：<span><%=xianhuiTotal%></span>元</div>
+                <%} else {%>
+                <div>现汇：<span><%=xianhuiTotal%></span>元，承兑<span><%=acceptanceTotal%></span>元</div>
+                <%}%>
+                <div>账期：<span><%=debtTerm%></span></div>
+                <div>备注：<span><%=note2%></span></div>
+            </div>
+            <div class="middle">
+                <div>商品名称：<span><%=productName%></span></div>
+                <div>品名：<span><%=chemicalName%></span></div>
+                <div>规格：<span><%=cateSpecName%>，<%=cateSpecEnumName%></span></div>
+                <div>产地：<span><%=productOrigin%></span></div>
+            </div>
+            <div class="right">
+                <div>联系人：<span><%=contactName%></span></div>
+                <div>联系电话：<span><%=contactPhone%></span></div>
+            </div>
+        </div>
+    </script>
+    
+    <script type="text/html" id="requireContTpl">
+        <div class="ceiContHead bacFD clearfix">
+            <div class="endTime ml44 Lf">最后有限期： <span><%=deliveryDate%></span></div>
+            <div class="reqireNo Lf">采购需求编号：<span><%=buyingId%></span></div>
+            <div class="updateTime Lf">发布时间： <span><%=releaseTime%></span></div>
+        </div>
+        <div class="ceiContInfo clearfix">
+            <div class="left ml44 Lf">
+                <div>品名：<span><%=chemicalName%></span></div>
+                <div>纯度：<span><%=productPurity%>%</span></div>
+                <div>收货地：<span><%=deliveryJson.warehouseProvince%><%=deliveryJson.warehouseCity%><%=deliveryJson.warehouseArea%></span></div>
+                <div>采购总量：<span><%=sum%>吨</span></div>
+                <div>剩余数量：<span><%=remain%>吨</span></div>
+                <div>最小供量：<span><%=minAmount%>吨</span></div>
+                <div>支付方式：
+                <%if(paymentMethod == 1){%>
+                <span>现汇</span>
+                <%} else if(paymentMethod == 2) {%>
+                <span>承兑汇票</span>
+                <%} else if(paymentMethod == 3){%>
+                <span>现汇+承兑</span>
+                <%} else if(paymentMethod == 0) {%>
+                <span>不限</span>
+                <%}%>
+                </div>
+                <div>所需发票类型：
+                <%if(invoiceType == 1){%>
+                <span>增值税普通发票</span>
+                <%} else if(invoiceType == 2){%>
+                <span>增值税专用发票</span>
+                <%} else if(invoiceType == 3){%>
+                <span>不限</span>
+                <%}%>
+                </div>
+                <div>收票地址： <span><%=invoicePeople%>&nbsp;&nbsp;<%=invoicePhone%>&nbsp;&nbsp;<%=invoiceAddr%></span></div>
+            </div>
+            <div class="middle">
+                <div>级别要求：
+                <%if(productLevel == 1){%>
+                <span>工业级I</span>
+                <%} else if(productLevel == 2) {%>
+                <span>医药级MI</span>
+                <%} else if(productLevel == 3) {%>
+                <span>食品级F</span>
+                <%} else if(productLevel == 4) {%>
+                <span>化妆级M</span>
+                <%}%>
+                </div>
+                <div>规格要求：<span><%=productPacking%></span></div>
+                <div>产地要求：<span><%=productOrigin%></span></div>
+                <div>备注：<span><%=note%></span></div>
+            </div>
+            <div class="right">
+                <div>采购企业：<span><%=publishCompanyName%></span></div>
+                <div>联系人：<span><%=contactName%></span></div>
+                <div>联系电话：<span><%=contactPhone%></span></div>
+            </div>
+        </div>
+    </script>
+
+    <script>
+
+        var interestid = window.localStorage.getItem('data-interestid');
+        var byIngId = window.localStorage.getItem('data-caigou');
+
+        var result1 = '';
+
+        //我的报价
+        $.ajax({
+            type:"post",
+            url: pubIP + "offerMoney/getOfferMoneyTradingInterestByInterestId",//v1.0
+            cache:false,
+            dataType: "json",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                interestId: interestid
+            },
+            success: function(data){
+                console.log(data);
+
+                if(data.data){
+
+                    data.data.submitTime = new Date(data.data.submitTime).Format("yyyy-MM-dd hh:mm:ss");
+                    data.data.bjyxq = new Date(data.data.bjyxq).Format("yyyy-MM-dd hh:mm:ss");
+
+                    var str = '';
+
+                    if (data.data.state == 1) {  //待确认
+                        str += '<div>报价最后有效期为<span class="time">'+data.data.bjyxq+'</span>。超过报价将会失效。您可以</div>'
+                                +'<div>'
+                                    +'<div class="btn confirm ok_jiaoyi Lf">确认交易</div>'
+                                    +'<div class="btn refuse refuse_jiaoyi Lf">拒绝</div>'
+                                +'</div>';
+                    } else if (data.data.state == 2) {  //确认
+                        str += '<div class="invalid">报价状态： 已确认</div>'
+                                +'<div>'
+                                    +'报价最后有效期为：<span class="yellow time time2">'+data.data.submitTime+'</span>&nbsp;'
+                                    +'您可以： <span class="look_order"><a href="./mySale-orderDetailStatus.html?userType=1&id='+data.data.orderNoId+'" style="color:#6A9EF7;">查看订单</a></span>'
+                                +'</div>';
+                                
+                    } else if (data.data.state == 4) { //拒绝
+                        str += '<div class="invalid">报价状态： 已拒绝</div>'
+                            +'<div>'
+                                +'拒绝时间：<span class="yellow time time1">'+data.data.submitTime+'</span>' 
+                            +'</div>';
+                    } else if (data.data.state == 5) {
+                        str += '<div class="invalid">报价状态： 已取消</div>'
+                            +'<div>'
+                                +'取消时间：<span class="yellow time time1">'+data.data.submitTime+'</span>'
+                            +'</div>';
+                    } else if (data.data.state == 6) {
+                        str += '<div class="invalid">报价状态： 已失效</div>'
+                            +'<div>'
+                                +'失效时间：<span class="yellow time time1">'+data.data.submitTime+'</span> '
+                            +'</div>';
+                    }
+
+                    $('#state_baojia').html(str);
+
+
+                    result1 = template('baojiaTpl', data.data);
+                    $('#baojiaInfo').html(result1);
+
+                } else {
+                    result1 = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';
+                    $('#baojiaInfo').html(result1);
+                }
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+
+
+        //采购订单
+        $.ajax({
+            type:"post",
+            url: pubIP + "offerMoney/getOfferMoneyInfoByByIngId",//v1.0
+            cache:false,
+            dataType: "json",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                byIngId: byIngId
+            },
+            success: function(data){
+                console.log(data);
+
+                if(data.data){
+
+                    data.data.releaseTime = new Date(data.data.releaseTime).Format("yyyy-MM-dd hh:mm:ss");
+                    data.data.deliveryDate = new Date(data.data.deliveryDate).Format("yyyy-MM-dd hh:mm:ss");
+
+                    data.data.deliveryJson = JSON.parse(data.data.deliveryJson);
+
+                    result1 = template('requireContTpl', data.data);
+                    $('#requireContInfo').html(result1);
+
+                } else {
+                    result1 = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';
+                    $('#requireContInfo').html(result1);
+                }
+
+                
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+        //确认交易
+        $(document).on('click', '.ok_jiaoyi', function () {
+                window.parent.surejiaoyi();
+        })
+        $(window.parent.document).on('click', '.suerjiaoyi', function () {
+            console.log($(this).text());
+            $.ajax({
+                type:"get",
+                url:pubIP + "orderApi/addTradingOrderByBuyingInfo",//v1.0
+                cache:false,
+                dataType: "json",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    interestId: interestid
+                },
+                success: function(data){
+                    console.log(data);
+
+                    if (data.code == 1) {
+                        console.log(data.msg);
+                        window.location.reload();
+                    }else{
+                        alert(data.msg)
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+        });
+
+        //拒绝交易
+        $(document).on('click', '.refuse_jiaoyi', function() {
+            window.parent.jujuejiaoyi();
+        })
+        $(window.parent.document).on('click', '.jujuejiaoyi', function() {
+             $.ajax({
+                type:"post",
+                url:pubIP + "offerMoney/refuseOfferMoneyByInterestId",//v1.0
+                cache:false,
+                dataType: "json",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    interestId: interestid
+                },
+                success: function(data){
+                    console.log(data);
+
+                    if (data.code == 1) {
+                        console.log(data.msg);
+                        window.location.reload();
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

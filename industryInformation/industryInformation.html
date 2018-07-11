@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title adct="行业资讯">新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <script src="../js/header.js"></script><!-- 公共头 -->
+    <link rel="stylesheet" href="../css/industryInformation.css">
+    <style>
+        .pageJump .button, .pageJump input {
+            text-align: center;
+        }
+
+        .list_rgt>p {
+            height: 41px;
+            font-size: 14px;
+        }
+
+        .tj_list_main_rt>p>em {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .tj_list_main_rt>p>i {
+            font-size: 12px;
+            color: #999;
+        }
+
+        .list_rgt>span {
+            font-size: 16px;
+        }
+
+        .list_btm>span, .list_btm>p>i, .list_btm>p>em {
+            font-size: 12px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 行业资讯 -->
+    <div class="top_ban">
+        <div>
+            <div class="lft_ban">
+                <img src="../img/top_ban.png" alt="">
+            </div>
+            <div class="rgt_ewm">
+                <div class="ewm_tp">
+                    <img src="../img/xjhx.png" alt="">
+                    <div class="ewm_tp_rgt">
+                        <span>新疆化学品经营平台论坛</span>
+                        <p>欢迎您关注化学品信息平台微信公共账号，以获得等多资讯信息交流！</p>
+                    </div>
+                </div>
+                <div class="ewm_btm">
+                    <div class="l_ewm">
+                        <img src="../img/dingyuhao.jpg" alt="">
+                        <span>微信订阅号</span>
+                        <i>扫码关注我们</i>
+                    </div>
+                    <div class="l_ewm">
+                        <img src="../img/fuwuhao.png" alt="">
+                        <span>微信服务号</span>
+                        <i>扫码关注我们</i>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btm_main">
+        <div class="main_lft">
+            <ul class="main_tab">
+                <li>
+                    <img src="../img/xjxj_logo1.png" alt="">
+                    <span>本网动态</span>
+                </li>
+                <li>
+                    <img src="../img/xjxj_logo2.png" alt="">
+                    <span>每日头条</span>
+                </li>
+                <li>
+                    <img src="../img/xjxj_logo3.png" alt="">
+                    <span>市场行情</span>
+                </li>
+                <li>
+                    <img src="../img/xjxj_logo4.png" alt="">
+                    <span>会议会展</span>
+                </li>
+                <li>
+                    <img src="../img/xjxj_logo5.png" alt="">
+                    <span>网络公告</span>
+                </li>
+                <li>
+                    <img src="../img/xjxj_logo6.png" alt="">
+                    <span>政策法规</span>
+                </li>
+                <li>
+                    <img src="../img/xjxj_logo7.png" alt="">
+                    <span>企业风采</span>
+                </li>
+            </ul>
+            <ul class="main_lists" id="listInfo">
+                <!-- <li>
+                    <a href="industryInformationDeatils.html" class="zx_list">
+                        <img src="../img/list_logo.png" alt="">
+                        <div class="list_rgt">
+                            <span>受供需关系影响 甲醇阶段性顶部将现</span>
+                            <p>受供应趋紧、贸易摩擦以及置换降准的影响，甲醇期货出现持续反弹走势，价格不但突破前期下跌通道，而且站上前期振荡区间</p>
+                            <div class="list_btm">
+                                <span>甲醇、甲醇</span>
+                                <p>
+                                    <em>123456</em>
+                                    <img src="../img/xyj.png" alt="">
+                                    <span>|</span>
+                                    <i>2018.04.19</i>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="##" class="zx_list">
+                        <img src="../img/list_logo.png" alt="">
+                        <div class="list_rgt">
+                            <span>受供需关系影响 甲醇阶段性顶部将现</span>
+                            <p>受供应趋紧、贸易摩擦以及置换降准的影响，甲醇期货出现持续反弹走势，价格不但突破前期下跌通道，而且站上前期振荡区间</p>
+                            <div class="list_btm">
+                                <span>甲醇、甲醇</span>
+                                <p>
+                                    <em>123456</em>
+                                    <img src="../img/xyj.png" alt="">
+                                    <span>|</span>
+                                    <i>2018.04.19</i>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+        <div class="main_rgt">
+            <div>资讯推荐</div>
+            <ul class="tj_list" id="tuijianInfo">
+                
+            </ul>
+        </div>
+    </div>
+    <div class="mianCont" style="text-align: left;">
+        <ul class="pagination" id="page1"></ul>
+        <div class="pageJump">
+                <span class="allPageN">1/200</span>
+                共<span class="total">200</span>页，
+            <span>到第</span>
+            <input type="text"/>
+            <span>页</span>
+            <button type="button" class="button">GO</button>
+        </div>
+    </div>
+    <div style="width: 100%; height: 15px; background-color: #F2F2F2;">
+        
+    </div>
+    <script src="../js/footer.js"></script><!-- 公共底 -->
+    <script src="./../js/pager.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <!-- <script src="../../js/template.js"></script> -->
+    <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
+
+    <script type="text/html" id="listTpl">
+        <%for (i in list) { %>
+            <% if (list[i].deleteFlag == 0) { %>
+            <li data-id="<%=list[i].id%>">
+                <a href="industryInformationDeatils.html" class="zx_list">
+                    <% if (list[i].articlePic != null) { %>
+                    <img src="<%=list[i].articlePic%>" alt="">
+                    <%} else {%>
+                    <img src="../img/list_logo.png" alt="">
+                    <%}%>
+                    <div class="list_rgt">
+                        <span><%=list[i].title%></span>
+                        <p><%=list[i].content%></p>
+                        <div class="list_btm">
+                            <span><%=list[i].source%></span>
+                            <p>      
+                                <% if (list[i].isRead == 0) { %>
+                                    <em style="color: #999;"><%=list[i].visitorCount%></em>
+                                    <img src="../img/xyj.png" alt="">
+                                <%} else if(list[i].isRead == 1) {%>
+                                    <em style="color: #548EF9;"><%=list[i].visitorCount%></em>
+                                    <img src="../img/lanyan.png" alt="">
+                                <%}%>
+                                <span>|</span>
+                                <i><%=list[i].timestamp%></i>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <%}%>
+        <%}%>
+    </script>
+
+    <script type="text/html" id="tuijianTpl">
+        <%for (i in tuijianList) { %>
+        <li data-id=<%=tuijianList[i].articleid%>>
+            <a href="industryInformationDeatils.html">
+                <div class="tj_list_main">
+                    <% if (tuijianList[i].articlePic != null) { %>
+                    <img src="<%=tuijianList[i].articlePic%>" alt="">
+                    <%} else {%>
+                    <img src="../img/list_logo.png" alt="">
+                    <%}%>
+                    <div class="tj_list_main_rt">
+                        <span><%=tuijianList[i].title%></span>
+                        <p>
+                            <i><%=tuijianList[i].timestamp%></i>
+                            <span>|</span>
+                            <% if (tuijianList[i].isRead == 0) { %>
+                                <img src="../img/xyj.png" alt="">
+                                <em style="color: #999;"><%=tuijianList[i].visitorCount%></em>
+                            <%} else if(tuijianList[i].isRead == 1) {%>
+                                <img src="../img/lanyan.png" alt="">
+                                <em style="color: #548EF9;"><%=tuijianList[i].visitorCount%></em>
+                            <%}%>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <%}%>
+    </script>
+
+    <script>
+
+        $('.goPage').click(function(){
+            zixun_list($('.page_page').val()-1);
+        })
+
+        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+        
+        var isActive = false;
+
+        var first = true;
+
+        var li = $('.main_tab li').eq(0)[0];
+        $(li).addClass('isActive');
+        $(li).find('img').css('width','36px').css('height', '36px');
+        $(li).find('img').attr('src', '../img/xjxj_logo11.png');
+        $(li).find('span').css('color','#8ab5ff');
+
+
+        $('.main_tab li').on('mouseover', function () {
+            $(this).find('img').css('width','36px').css('height', '36px');
+            $(this).find('span').css('color', '#8ab5ff');
+            var img = $(this).find('img')[0];
+            var index = $(this).index() + 1;
+            $(img).attr('src', '../img/xjxj_logo'+index+index+'.png');
+
+        }).on('mouseleave', function () {
+            if (!isActive) {
+                if (!($(this).hasClass('isActive'))) {
+                    $(this).find('img').css('width','').css('height', '');
+                    $(this).find('span').css('color', '');
+                    var img = $(this).find('img')[0];
+                    var index = $(this).index() + 1;
+                    $(img).attr('src', '../img/xjxj_logo'+index+'.png');
+                }
+            }
+            isActive = false;
+        }).on('click', function () {
+            isActive = true;
+            $('.main_tab li').find('img').css('width','').css('height', '');
+            $('.main_tab li').find('span').css('color', '');
+
+            $('.main_tab li').each(function(i, elem) {
+                $(this).find('img').attr('src', '../img/xjxj_logo'+(i+1)+'.png');
+            });
+
+            $(this).find('img').css('width','36px').css('height', '36px');
+            $(this).find('span').css('color', '#8ab5ff');
+
+            $('.main_tab li').removeClass('isActive');
+            $(this).addClass('isActive');
+
+            var img1 = $(this).find('img')[0];
+            var index1 = $(this).index() + 1;
+            $(img1).attr('src', '../img/xjxj_logo'+index1+index1+'.png');
+
+        });
+
+        var isFirst = true;
+        zixun_list('本网动态', 0);
+        function zixun_list(category, num) {
+            /*行业资讯-列表页查询*/
+            $.ajax({
+                url: pubIP+'platform/getArticleByCategory', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: false,
+                data: {
+                    category: category,
+                    pageNum: num,
+                    pageSize: 10
+                },
+                dataType: 'json',
+                success: function (data) {
+                    /*console.log(data.data);
+                    console.log(category);
+                    console.log(num);*/
+                    
+                    for (var i = 0; i < data.data.data.length; i++) {
+                        data.data.data[i].timestamp = new Date(data.data.data[i].timestamp).Format("yyyy.MM.dd");
+                    }
+
+
+
+                    var result =  template("listTpl",{list:data.data.data});
+                    $('#listInfo').html(result);
+
+                    if(data.code == '0'){
+                        $('.pageJump').hide();
+                        $('.shop_list_table tbody').html('');
+                        $('.notMsg').show();
+                        return false;
+                    }
+                    
+                 if (isFirst) {
+                        
+                        Page({
+                            num: data.data.totalPage,
+                            elem: $('#page1'),
+                            callback: function(n) {
+                                /*console.log(n);
+                                console.log(category);*/
+                                zixun_list(category ,n-1);
+                            }
+                        });
+
+                        console.log(data.data);
+                        
+                        $('.total').text(data.data.totalPage);
+
+
+                        isFirst = false;
+                   }
+
+                   $('.allPageN').text(num+1+'/'+data.data.totalPage);
+
+                    $('.main_lists li').on('click', function () {
+                        window.localStorage.setItem('id',$(this).attr('data-id'));
+                    });
+                    
+                    
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+
+
+        
+        var category_li = $('.main_tab li');
+
+        $(category_li).on('click', function () {
+            var category = $(this).find('span').text();
+            
+
+            if (first && category == '本网动态') {
+                return;
+            }
+
+            first = false;
+
+            isFirst = true;
+            zixun_list(category, 0);
+            
+        });
+
+        
+        $.ajax({
+            url: pubIP + 'platform/listRecommendArticle', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            data: {
+                recommendation: 1
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+
+                for (var i = 0; i < data.data.length; i++) {
+                    data.data[i].timestamp = new Date(data.data[i].timestamp).Format("yyyy.MM.dd");
+                }
+
+                var result =  template("tuijianTpl",{tuijianList:data.data});
+                $('#tuijianInfo').html(result);
+
+                $('.tj_list li').on('click', function() {
+                    window.localStorage.setItem('id',$(this).attr('data-id'));
+                });
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+        
+       //拦截链接
+	   $(document).on('click','a',function(e){
+       		e.preventDefault();
+       		var isOld = localStorage.getItem('isOld');
+       		if(isOld != '2'){
+       			var ttxt = $.trim($(this).text());
+       			console.log(ttxt);
+       			if(ttxt == '用户中心' ){
+       				if(isOld == '1'){
+       					$('#effect .contTitle span').text('您尚未登录');
+						missedLogin() ;
+       				}else if(isOld == '0'){
+       					missedLogin() ;
+       				}else if(isOld == '-1'){
+       					$('#effect .contTitle span').text('您尚未认证');
+       					$('#effect .contTitle i').text('认证');
+       					$('#popLogin').text('认证');
+						missedLogin() ;
+       				}else if(isOld == '-2'){
+       					$('#effect .contTitle span').text('您的认证正在审核中');
+       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+       					$('#popLogin').hide();
+						missedLogin() ;
+       				}
+       			}else{
+       				window.location.href = this.href;
+       			}
+       		}else{
+       			window.location.href = this.href;
+       		}
+	     })
+    </script>
+</body>
+</html>

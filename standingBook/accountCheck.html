@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+	<title adct1="1">新疆化学品经营服务平台</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/standingBook/accountCheck.css">
+</head>
+<body>
+
+	<!-- 兑账信息列表页 -->
+	<div class="accountCheck">
+		<div class="accountCheckTitle">
+			<span>兑账信息列表页</span>
+		</div>
+		<div>
+			<ul class="clearfix sousuo_ul">
+				<li>
+					<span>兑账订单号：</span>
+					<input type="text" name="" class="account_check_num">
+				</li>
+				<li>
+					<span>兑账企业：</span>
+					<input type="text" name="" class="account_check_qiye">
+				</li>
+				<li>
+					<span>时间筛选：</span>
+					<input type="text" class="date-input laydate-icon" id="test1">
+                    <span style="height: 38px;line-height: 38px;">&nbsp;-&nbsp; </span>
+                    <input type="text" class="date-input laydate-icon" id="test2">
+				</li>
+			</ul>
+		</div>
+		<ul class="clearfix account_check_list_ul">
+			<li class="account_check_list_li1">全部</li>
+			<li class="account_check_list_li2">待确定</li>
+			<li class="account_check_list_li3">待支付</li>
+			<li class="account_check_list_li4">已完成</li>
+			<li class="account_check_list_li5">已拒绝</li>
+			<li class="account_check_list_li6">已失效</li>
+			<li class="account_check_list_li7">已取消</li>
+		</ul>
+		<ul class="clearfix ul_title">
+			<li class="ul_title_li1"><input type="radio" name=""></li>
+			<li class="ul_title_li2">兑账订单号</li>
+			<li class="ul_title_li3">对账企业名称</li>
+			<li class="ul_title_li4">订单金额</li>
+			<li class="ul_title_li5">支付方式</li>
+			<li class="ul_title_li6">兑账订单数</li>
+			<li class="ul_title_li7">状态</li>
+			<li class="ul_title_li8">操作</li>
+		</ul>
+		<ul class="list_center">
+			<li>
+				<span class="radio_width"><input type="radio" name="account_check_name"></span>
+				<span class="num_content">1321231231231231232</span>
+				<span class="qiye_name">氢氧化钠</span>
+				<span class="order_money">
+					<span class="span">
+						<div><span>应收：</span><span class="orange">10万</span></div>
+						<div><span>应付：</span><span class="orange">12万</span></div>
+						<div><span>付款：</span><span class="hong">10万</span></div>
+					</span>
+				</span>
+				<span class="pay_method">现汇+承兑</span>
+				<span class="order_num">5笔订单</span>
+				<span class="status">待确定</span>
+				<span class="operate"><a href="accountCheckOrderStatus.html" class="blue">查看详情</a></span>
+			</li>
+			<li>
+				<span class="radio_width"><input type="radio" name="account_check_name"></span>
+				<span class="num_content">1321231231231231232</span>
+				<span class="qiye_name">氢氧化钠</span>
+				<span class="order_money">
+					<span class="span">
+						<div><span>应收：</span><span class="orange">10万</span></div>
+						<div><span>应付：</span><span class="orange">12万</span></div>
+						<div><span>付款：</span><span class="hong">10万</span></div>
+					</span>
+				</span>
+				<span class="pay_method">现汇+承兑</span>
+				<span class="order_num">5笔订单</span>
+				<span class="status">待确定</span>
+				<span class="operate"><a href="accountCheckOrderStatus.html" class="blue">查看详情</a></span>
+			</li>
+			<li>
+				<span class="radio_width"><input type="radio" name="account_check_name"></span>
+				<span class="num_content">1321231231231231232</span>
+				<span class="qiye_name">氢氧化钠</span>
+				<span class="order_money">
+					<span class="span">
+						<div><span>应收：</span><span class="orange">10万</span></div>
+						<div><span>应付：</span><span class="orange">12万</span></div>
+						<div><span>付款：</span><span class="hong">10万</span></div>
+					</span>
+				</span>
+				<span class="pay_method">现汇+承兑</span>
+				<span class="order_num">5笔订单</span>
+				<span class="status">待确定</span>
+				<span class="operate"><a href="accountCheckOrderStatus.html" class="blue">查看详情</a></span>
+			</li>
+		</ul>
+	</div>
+
+	<script src="../account/laydate/laydate.js"></script> <!-- 改成你的路径 -->
+	<script type="text/javascript">
+		laydate({
+		    elem: '#test1',
+		    format: 'YYYY-MM-DD',
+		    istime: false,
+		    choose: function(dates){ //选择好日期的回调
+
+		    }   
+		});
+
+		laydate({
+		    elem: '#test2',
+		    format: 'YYYY-MM-DD',
+		    istime: false,
+		    choose: function(dates){ //选择好日期的回调
+		        
+		    } 
+		});
+	</script>
+</body>
+</html>

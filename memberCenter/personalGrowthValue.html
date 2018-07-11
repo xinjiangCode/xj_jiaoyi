@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+	<title>新疆化学品经营服务平台</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/memberCenter/personalGrowthValue.css"/>
+</head>
+<body>
+	
+	<!-- 个人成长值 -->
+	<div class="personalGrowthValue">
+		<div class="personalGrowthValueTitle">
+			<span>个人成长值</span>
+			<div class="fr mp">
+				<span class="clearfix disblock">
+					<input type="text" class="date-input laydate-icon fl" placeholder="请选择日期" id="test1"><span class="data_search search1 fl">搜索</span>
+				</span>
+				<span class="clearfix disblock">
+					<input type="text" class="search_input fl"><span class="data_search search fl">搜索</span>
+				</span>
+			</div>
+		</div>
+		<div class="personal_info clearfix">
+			<div class="avatar_bg fl"></div>
+			<div class="fl mt32">
+				<p>
+					<span class="gongxian">贡献：<img src="../img/gongxian.png" alt=""><span class="gongxian_num">8000</span>分</span>
+					<span class="jifen">可用积分：<img src="../img/jifen.png" alt=""><span class="jifen_num">300</span>分</span>
+				</p>
+				<p>
+					<span>等级：</span>
+					<span class="progress_width"><span></span></span>
+					<span class="cha">还差<span class="cha_num">6000</span>分升级</span>
+				</p>
+				<p>
+					目前等级：<span class="gold_member">黄金会员</span>
+				</p>
+			</div>
+		</div>
+		<div class="table">
+			<div class="table_title">
+				<ul class="clearfix">
+					<li>排序</li>
+					<li>日期</li>
+					<li>来源</li>
+					<li>获得积分</li>
+				</ul>
+			</div>
+			<div class="table_body">
+				<ul class="clearfix">
+					<li><span class="sort">1</span></li>
+					<li>2018-01-02 10:02:30</li>
+					<li><span class="qiandao">签到</span></li>
+					<li><span class="jifen_list"><span style="color: #f66132;">100</span>分</span></li>
+				</ul>
+				<ul class="clearfix">
+					<li><span class="sort">1</span></li>
+					<li>2018-01-02 10:02:30</li>
+					<li><span class="qiandao">签到</span></li>
+					<li><span class="jifen_list"><span style="color: #f66132;">100</span>分</span></li>
+				</ul>
+				<ul class="clearfix">
+					<li><span class="sort">1</span></li>
+					<li>2018-01-02 10:02:30</li>
+					<li><span class="qiandao">签到</span></li>
+					<li><span class="jifen_list"><span style="color: #f66132;">100</span>分</span></li>
+				</ul>
+				<ul class="clearfix">
+					<li><span class="sort">1</span></li>
+					<li>2018-01-02 10:02:30</li>
+					<li><span class="qiandao">签到</span></li>
+					<li><span class="jifen_list"><span style="color: #f66132;">100</span>分</span></li>
+				</ul>
+				<ul class="clearfix">
+					<li><span class="sort">1</span></li>
+					<li>2018-01-02 10:02:30</li>
+					<li><span class="qiandao">签到</span></li>
+					<li><span class="jifen_list"><span style="color: #f66132;">100</span>分</span></li>
+				</ul>
+			</div>
+			<div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 20px auto">
+		        <ul class="pagination" id="page1"></ul>
+		        <div class="pageJump">
+		                    <span class="allPageN">1/200</span>
+		                    <span class="total">共200页，</span>
+		            <span>到第</span>
+		            <input type="text" style="text-align: center; padding-left: 0px;"/>
+		            <span>页</span>
+		            <button type="button" class="button">GO</button>
+		        </div>
+		    </div>
+		</div>
+	</div>
+
+	<script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../account/laydate/laydate.js"></script> <!-- 改成你的路径 -->
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		laydate({
+		    elem: '#test1',
+		    format: 'YYYY-MM-DD hh:mm:ss',
+		    istime: true,
+		    choose: function(dates){ //选择好日期的回调
+		        
+		    }   
+		});
+
+		Page({
+            num: 3,
+            elem: $('#page1'),
+            callback: function(n) {
+                console.log(n);
+            }
+        });
+	</script>
+</body>
+</html>

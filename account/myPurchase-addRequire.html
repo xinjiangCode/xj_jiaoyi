@@ -1,0 +1,580 @@
+<!--发布采购需求-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title adct1="1">新疆化学品经营服务平台-新增采购需求</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/myPurchase-addRequire.css">
+
+</head>
+<style>
+    .leftCont p {
+        margin-top: 7px;
+    }
+
+    .ml {
+        margin-left: 7px;
+    }
+
+    .leftCont1 {
+        top: 40%;
+    }
+
+    .leftCont2 {
+        top: 39%;
+    }
+
+    .leftCont3 {
+        top: 28%;
+    }
+
+    .right .input {
+        /*//line-height: 30px;*/
+    }
+
+    .toRelease {
+        padding: 53px 0 53px 78px;
+    }
+    #invoice,#validity,#address,#payWay,#requireLevel{
+        /*margin-right: 291px;*/
+        float: left;
+    }
+    #prope{
+        position: absolute;top: 68px;left:372px;background-color: white;z-index: 1;height: 180px;width: 309px;overflow-y: auto;border: 1px solid #D3d3d3;padding:0 5px;
+        box-shadow: 1px 2px 3px #ccc;
+        -webkit-box-shadow: 1px 2px 3px #ccc;
+        -ms-box-shadow: 1px 2px 3px #ccc;
+        -o-box-shadow: 1px 2px 3px #ccc;
+        -moz-box-shadow: 1px 2px 3px #ccc;
+        display: none;
+    }
+    #prope>li{
+        margin: 0; border-bottom: 1px solid #d3d3d3;padding: 5px 0;
+    }
+    .invoiceAddress::after{content: "";display: block;clear: both;}
+    .err{color: red;line-height: 38px;}
+    .item::after{content: "";display: block;clear: both;}
+</style>
+<body>
+    <div class="contBox">
+        <!-- 面包屑导航 -->
+        <div class="mainbaoxieNav"></div> 
+        <div class="addReq-Cont">
+            <form action="">
+                <div class="contTile">发布采购需求</div>
+                <div class="mpInfo addItem">
+                    <div class="left">
+                        <div class="leftCont leftCont1">
+                            <img width="42" height="47" src="../img/mp_fbmpxx.png" alt="发布采购信息">
+                            <p>发布采购信息</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="name item">
+                            <label for="shop_attr" ><i class="red">*</i>品名</label>
+                            <input class="input" data-chemicalid="-1" name="" type="text" id="shop_attr">
+
+                            <ul id="prope">
+                            </ul>
+                            <!-- <select class="input" name="name" id="chemistryName">
+                                <option value="name1">化学品名1</option> 
+                                <option value="name2">化学品名2</option> 
+                            </select> -->
+                            <!--<div class="selectPub" data-selectedindex="-1" style="width: 321px;margin-right: 290px;">-->
+                                <!--<span>显示条数</span>-->
+                                <!--<img src="../img/prl-select.jpg" alt="">-->
+                                <!--<ul>-->
+                                    <!--<li data-index="1">10</li>-->
+                                    <!--<li data-index="2">20</li>-->
+                                    <!--<li data-index="3">30</li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                            <span class="err"></span>
+                        </div>
+                        <div class="purity item">
+                            <label for="chemistryPur"><i class="red">*</i>纯度:</label>
+                            <input class="input" name="purity" type="number" id="chemistryPur">
+                            <span>%</span>
+                            <span class="err"></span>
+                        </div>
+                        <div class="number item">
+                            <label for="chemistryNum"><i class="red">*</i>采购数量:</label>
+                            <input class="input" name="num" type="number" id="chemistryNum">
+                            <span>吨</span>
+                            <span class="err"></span>
+                        </div>
+                        <div class="minNum item">
+                            <label for="chemistryMinNum">最小供量:</label>
+                            <input class="input" name="minNum" id="chemistryMinNum" type="number">
+                            <span>吨</span>
+                            <span class="err"></span>
+                        </div>
+                        <div class="address item" style="position: relative;">
+                            <label for="address"><i class="red">*</i>收货地:</label>
+                            <div class="selectPub input" data-selectedindex="-1" id="address" data-addressId="-1">
+                                <span>请选择仓库</span>
+                                <img src="../img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="2">甘泉堡仓库</li>
+                                </ul>
+                            </div>
+
+                            <!--<select class="input" name="address" id="address">-->
+                                <!--<option value="address1">甘泉堡仓库</option>-->
+                            <!--</select>-->
+                            <!--<span class="blue btn" style="position: absolute;left: 460px;top: 11px;"><i class="mi">+</i>新增收仓库</span>-->
+                            <span class="err"></span>
+                        </div>
+                      
+                        <div class="payWay item">
+                            <label for="payWay">支付方式:</label>
+                            <div class="selectPub input" data-selectedindex="0" id="payWay">
+                                <span>不限</span>
+                                <img src="../img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="0">不限</li>
+                                    <li data-index="1">现汇</li>
+                                    <li data-index="2">承兑汇票</li>
+                                    <li data-index="3">现汇+承兑</li>
+                                </ul>
+                            </div>
+
+                            <!--<select class="input" name="payWay" id="payWay">-->
+                                <!--<option value="way1">现汇+承兑</option>-->
+                            <!--</select>-->
+                            <span class="err"></span>
+                        </div>
+                        <div class="validity item">
+                            <label for="validity">采购需求有效期:</label>
+
+                            <div class="selectPub input" data-selectedindex="0" id="validity">
+                                <span>1天</span>
+                                <img src="../img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="0" data-val="1">1天</li>
+                                    <li data-index="1" data-val="5">5天</li>
+                                    <li data-index="2" data-val="10">10天</li>
+                                    <li data-index="3" data-val="15">15天</li>
+                                </ul>
+                            </div>
+
+                            <!--<select class="input" name="validity" id="validity">-->
+                                <!--<option value="period1">10天</option>-->
+                                <!--<option value="period2">20天</option>-->
+                            <!--</select>-->
+                            <span class="err"></span>
+                        </div>
+                        <div class="invoice item">
+                            <label for="invoice">所需发票类型:</label>
+                            <div class="selectPub input" data-selectedindex="1" id="invoice">
+                                <span>增值税普通发票</span>
+                                <img src="../img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="1">增值税普通发票</li>
+                                    <li data-index="2">增值税专用发票</li>
+                                    <li data-index="3">不限</li>
+
+                                </ul>
+                            </div>
+                            <!--<select class="input" name="invoice" id="invoice">-->
+                                <!--<option value="invoice1">普通发票1</option>-->
+                                <!--<option value="invoice2">普通发票2</option>-->
+                            <!--</select>-->
+                            <span class="err"></span>
+                        </div>
+                        <div class="invoiceAddress item" >
+                            <label class="fl" style="line-height: 38px;">收票地址:</label>
+                            <!--<div class="invoiceAddressCont fl" style="height: 38px;">-->
+                                <div class="selectPub input" data-selectedindex="-1" id="shoupiaoAddre" data-addressId="-1" style="border: 1px solid #ebe9ea;height: 38px;float: left;">
+                                    <span>请选择地址</span>
+                                    <img src="../img/prl-select.jpg" alt="">
+                                    <ul>
+                                    </ul>
+                                </div>
+
+                                <!--<select class="input" name="payWay" id="payWay">-->
+                                <!--<option value="way1">现汇+承兑</option>-->
+                                <!--</select>-->
+
+                                <!--<input class="input" id="namePhone" name="name_tel" type="text" value="张三 130 1234 1234">-->
+                                <!--<input class="input" id="addre" name="add" type="text" value="新疆乌鲁木齐高新区 xxxx">-->
+                            <span class="err"></span>
+                            </div>
+                            <!--<span class="blue fl btn ml"><i class="mi"></i>修改收票地址</span>-->
+                        </div>
+                    </div>
+                <!--</div>-->
+                <div class="productRequire addItem">
+                    <div class="left">
+                        <div class="leftCont leftCont2">
+                            <img width="42" height="47" src="../img/mp_fbcpyq.png" alt="发布采购信息">
+                            <p>发布产品要求</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="requireLevel item">
+                            <label for="requireLevel">级别要求:</label>
+                            <div class="selectPub input" data-selectedindex="0" id="requireLevel">
+                                <span>1</span>
+                                <img src="../img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="0">1</li>
+                                    <li data-index="1">2</li>
+                                </ul>
+                            </div>
+                            <!--<select class="input" name="requireLevel" id="requireLevel">-->
+                                <!--<option value="level1">工业级I</option>-->
+                                <!--<option value="level2">工业级II</option>-->
+                            <!--</select>-->
+                            <span class="err"></span>
+                        </div>
+                        <div class="specsRequire item">
+                            <label for="specsRequire">规格要求:</label>
+                            <input class="input" name="specsRequire" id="specsRequire" type="text" placeholder="请输入包装规格要求">
+                            <span class="err"></span>
+                        </div>
+                        <div class="addressRequire item">
+                            <label for="addressRequire">产地要求:</label>
+                            <input class="input" name="addressRequire" id="addressRequire" type="text" placeholder="请输入产地要求">
+                            <span class="err"></span>
+                        </div>
+                        <div class="remark item">
+                            <label class="fl" for="remark">备 注:</label>
+                            <textarea class="input fl" name="remark" id="remark"></textarea>
+                            <span class="err"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contactMethods addItem">
+                    <div class="left">
+                        <div class="leftCont leftCont3">
+                            <img width="42" height="47" src="../img/mp_txlxfs.png" alt="发布采购信息">
+                            <p>填写联系方式</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="concatPerson item">
+                            <label for="concatPerson"><i class="red">*</i>联系人:</label>
+                            <input class="input" name="concatPerson" type="text" id="concatPerson" value="">
+                            <span class="err"></span>
+                            <span><input type="checkbox" id="isPublic" style="vertical-align: middle;">对外公开公司及联系人信息</span>
+                        </div>
+                        <div class="concatPerson item">
+                            <label for="concatPerson"><i class="red">*</i>联系电话:</label>
+                            <input class="input" name="concatPerson" type="text" id="concatPhone" maxlength="11" placeholder="请输入电话">
+                            <span class="err"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="toRelease">
+                    <input type="button" onclick="sub() " value="立即发布">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer"></div>
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+
+
+
+        var addressId="-1";
+        $('#shop_attr').bind('input propertychange',function () {
+            //console.log()
+            var text=$(this).eq(0).val();
+            if($('#shop_attr').val() == ''){
+                $('#prope').html('').hide();
+                return false;
+            }
+            $.ajax({
+                url: pubIP + 'productApi/listChemicalLikeByName', /*v1.0*/
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    chemicalStr:text
+                },
+                success: function (data) {
+                    //console.log(data)
+                    if(data.code==1){
+                        if(data.data.length==0){
+                            $("#prope").css("display","none");
+                        }else{
+                            $("#prope").css("display","block");
+                            var str="";
+                            for (var i=0;i<data.data.length;i++){
+                                str+='<li data-chemicalId="'+data.data[i].chemicalId+'" onclick="selectStr(this)">'+data.data[i].chemicalName+'</li>';
+                            }
+                            $("#prope").html(str);
+                        }
+                    }else{
+                        $("#prope").css("display","none");
+                    }
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        })
+        function selectStr(that) {
+            $("#shop_attr").eq(0).val($(that).eq(0).text())
+                .attr('data-chemicalId', $(that).attr('data-chemicalId'));
+            $("#shop_attr").eq(0).val($(that).eq(0).text()).attr('data-text', $(that).text());
+            $("#prope").css("display","none");
+        }
+
+        /*收货地址列表查询*/
+        shouhuo_list();
+        function shouhuo_list() {
+            $.ajax({
+                url: pubIP + 'address/listAddressByShopUserId', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: false,
+                dataType: 'json',
+                success: function (data) {
+                   // console.log(data.data);
+                    var str = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<li  data-index="'+i+'" value="'+i+'" data-addressId="'+data.data[i].dbid+'">'+data.data[i].receiver+" "+data.data[i].phone+" "+data.data[i].addressStr+" "+data.data[i].detailedAddress+'</li>';
+                    }
+
+                    $('#shoupiaoAddre ul').html(str);
+
+                    $('#shoupiaoAddre ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-addressId', $(this).attr('data-addressId'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+
+
+                    });
+//                    $("#namePhone").val(data.data[0].receiver+" "+data.data[0].phone)
+//                    $("#addre").val(data.data[0].addressStr+" "+data.data[0].detailedAddress)
+//                    addressId=data.data[0].dbid;
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+        /*收货仓库地址列表查询*/
+        shouhuoc_list();
+        function shouhuoc_list() {
+            $.ajax({
+                url: pubIP + 'warehouse/listWarehouse', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: false,
+                data: {companyId: companyId},
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    var str = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<li  data-index="'+i+'" value="'+i+'" data-addressId="'+data.data[i].warehouseIds+'">'+data.data[i].warehouseName+'</li>';
+                    }
+
+                    $('#address ul').html(str);
+
+                    $('#address ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-addressId', $(this).attr('data-addressId'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                    });
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+        //提交
+        function sub() {
+            var isPublic=0;
+            if(document.getElementById("isPublic").checked){
+                isPublic=1;
+            }else{
+                isPublic=0;
+            }
+           //品名判断
+            if($("#shop_attr").val()=="" || $("#shop_attr").val()=="undefined" ||  $("#shop_attr").val()==undefined){
+                $("#shop_attr").parent().find(".err").text("品名不能为空");
+                return;
+             }else if($("#shop_attr").attr("data-text")!=$("#shop_attr").val()){
+                $("#shop_attr").parent().find(".err").text("品名不存在");
+                return;
+            } else{
+                $("#shop_attr").parent().find(".err").text("");
+            }
+            //纯度判断
+
+            if($("#chemistryPur").val()<=0 || $("#chemistryPur").val()>100 || $("#chemistryPur").val()==""){
+                $("#chemistryPur").parent().find(".err").text("请输入1-100内的数字");
+            }else{
+                $("#chemistryPur").parent().find(".err").text("");
+            }
+            //采购数量判断
+
+            if($("#chemistryNum").val()=="" || $("#chemistryNum").val()<=0){
+                $("#chemistryNum").parent().find(".err").text("请输入正确的数字");
+                return;
+            }else{
+                $("#chemistryNum").parent().find(".err").text("");
+
+            }
+            //最小数量
+
+            if($("#chemistryMinNum").val()=="" || $("#chemistryMinNum").val()<=0){
+                $("#chemistryMinNum").parent().find(".err").text("请输入正确的数字");
+                return;
+            }else{
+                $("#chemistryMinNum").parent().find(".err").text("");
+            }
+            if(($("#chemistryMinNum").val()-0)>($("#chemistryNum").val()-0)){
+                $("#chemistryMinNum").parent().find(".err").text("最小数量应小于采购数量");
+                return;
+            }else{
+                $("#chemistryMinNum").parent().find(".err").text("");
+            }
+            //收货地
+           if( $("#address").attr("data-selectedindex")==-1){
+               $("#address").parent().find(".err").text("请选择收货地址");
+               return;
+           }else{
+               $("#address").parent().find(".err").text("");
+           }
+            //收票地
+            if( $("#shoupiaoAddre").attr("data-selectedindex")==-1){
+                $("#shoupiaoAddre").parent().find(".err").text("请选择收票地址");
+                return;
+            }else{
+                $("#shoupiaoAddre").parent().find(".err").text("");
+            }
+            //规格要求
+            if( $("#specsRequire").val()==""){
+                $("#specsRequire").parent().find(".err").text("请填写规格要求");
+                return;
+            }else{
+                $("#specsRequire").parent().find(".err").text("");
+            }
+            //产地要求
+            if( $("#addressRequire").val()==""){
+                $("#addressRequire").parent().find(".err").text("请填写产地要求");
+                return;
+            }else{
+                $("#addressRequire").parent().find(".err").text("");
+            }
+            //备注
+            if($("#remark").val()==""){
+                $("#remark").parent().find(".err").text("请填写备注");
+                return;
+            }else{
+                $("#remark").parent().find(".err").text("");
+            }
+            //联系人
+            if( $("#concatPerson").val()==""){
+                $("#concatPerson").parent().find(".err").text("请填写联系人");
+                return;
+            }else{
+                $("#concatPerson").parent().find(".err").text("");
+            }
+            //电话
+            if( $("#concatPhone").val()==""){
+                $("#concatPhone").parent().find(".err").text("请填写联系电话");
+                return;
+            }else{
+                $("#concatPhone").parent().find(".err").text("");
+            }
+                var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+                if (!myreg.test($("#concatPhone").val())) {
+                    $("#concatPhone").parent().find(".err").text("联系电话格式不正确");
+                    return;
+                } else {
+                    $("#concatPhone").parent().find(".err").text("");
+                }
+
+            var validity=$("#validity").find("li").eq($("#validity").attr("data-selectedindex")).attr("data-val");//有效期
+            var invoice=$("#invoice").attr("data-selectedindex");//发票类型
+            var payWay=$("#payWay").attr("data-selectedindex");//支付方式
+            console.log(validity)
+            //return;
+
+            $.ajax({
+                url: pubIP + 'buyingInfo/addBuyingInfo', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    chemicalId:$("#shop_attr").eq(0).attr('data-chemicalId'),
+                    sum:$("#chemistryNum").val(),
+                    productPurity:$("#chemistryPur").val(),
+                    minAmount:$("#chemistryMinNum").val(),
+                    deliveryAddress:$("#address").attr("data-addressid"),
+                    validity:validity,
+                    invoiceType:invoice,
+                    productLevel:$("#requireLevel span").text(),
+                    productPacking:$("#specsRequire").val(),
+                    productOrigin:$("#addressRequire").val(),
+                    note:$("#remark").val(),
+                    paymentMethod:payWay,
+                    contactName:$("#concatPerson").val(),
+                    contactPhone:$("#concatPhone").val(),
+                    isPublic:isPublic,
+                    invoiceId:$("#shoupiaoAddre").attr("data-addressid")
+                },
+                success: function (data) {
+                    console.log(data)
+                    if(data.code==1){
+                        window.parent.$(".manageItem").removeClass("active1");
+                        window.parent.$(".manageItem").each(function (idx,item) {
+                            if($(this).text()=="我的采购需求"){
+                                $(this).addClass("active1");
+                            }else{
+
+                            }
+                        })
+                        window.parent.$("#Iframe").attr("src","./myPurchase-requirement.html");
+
+                    }else{
+                        alert(data.msg)
+                    }
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1109 @@
+<!--账户 编辑.提交审核-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <style type="text/css">
+        .xiaoshi{display: none;}
+        .btn{width: 359px;height: 51px;line-height:51px;background-color: #007aff;border-radius: 5px;text-align: center;color: white;margin-left: 122px;margin-top: 35px;}
+        .red{color: red;}
+        img{float: left;}
+         a{color: #80acf8;}
+         html,body{min-width: 988px;width: 988px;height:980px;background-color: white;overflow: hidden;margin: auto;font-size: 14px;}
+        .container{width:986px;border: 1px solid #f1f1f1;height: 975px;}
+        .header{padding-top:21px;padding-left:61px;height:62px;box-sizing:border-box;border-bottom: 1px solid #f1f1f1;}
+        .header>ul{overflow: hidden;}
+        .header>ul>li{float: left;height: 18px;line-height: 18px;font-size: 16px;}
+        .header>ul>.row{line-height: 10px;margin-left: 4px;}
+        .header>ul>li>a{}
+        .header>ul>li>a>div{color: white;height: 18px;line-height: 18px; text-align: center; width: 18px;border-radius: 50%;font-size:11px;margin: 0 4px; }
+        .header>ul>li>a>.orange{background-color: #ffae4c;}
+        .header>ul>li>a>.lan{background-color: #80aeff;}
+
+
+        .bottom1{overflow: hidden;padding-left: 200px;}
+        .bottom1>.left1{margin: 91px 60px 0 0;}
+        .bottom1>.right2{ margin-left: 15px;}
+        .bottom1>.right2>ul{}
+        .bottom1>.right2>ul>li{overflow: hidden;/* margin-top: 17px; */ padding-bottom: 17px; position: relative;}
+        .bottom1>.right2>ul>li>.left1{width:100px;height: 38px;line-height: 38px;text-align: right;margin-right: 20px;}
+        .bottom1>.right2>ul>li>.right1{overflow: hidden;}
+        .bottom1>.right2>ul>li>.right1>input{width: 359px;height: 32px;font-size: 14px;color: #666666;text-indent: 10px;}
+        .bottom1>.right2>ul>li>.right1>.date-input{width: 169px;}
+        .bottom1>.right2>ul>li>.right1>.uploade{position: relative;width: 150px;height: 100px;line-height: 100px;text-align: center;margin-right: 20px; border: 1px solid #ebe9ea;}
+        .bottom1>.right2>ul>li>.right1>.uploade>i{position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
+        .bottom1>.right2>ul>li>.right1>.uploade>img{position: absolute;top: 0;left: 0;right: 0;bottom: 0;width: 100%;height: 100%;}
+        .bottom1>.right2>ul>li>.right1>.uploade>input{position: absolute;top: 0;left: 0;right: 0;bottom: 0;opacity: 0;width: 100%;}
+        .bottom1>.right2>ul>li>.right2{line-height: 38px;margin-left: -30px;}
+        .bottom1>.right2>ul>li>.right2>input{margin-left: 30px;}
+        .ts {
+            margin-left: 125px;
+            display: none;
+        }
+
+        .bottom1>.right2>ul>li.pay_pass {
+            width: 490px;
+        }
+
+        /*清除浮动*/
+        .clearfix:before, .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1; /*IE/7/6*/
+        }
+
+        
+        .submit_btn {
+            width: 173px;
+            height: 51px;
+            background-color: #6CA0FF;
+            display: inline-block;
+            margin-left: 121px;
+            text-align: center;
+            line-height: 51px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-top: 35px;
+        }
+
+        .cancel_btn {
+            width: 172px;
+            height: 49px;
+            border: 1px solid #C5C5C5;
+            display: inline-block;
+            background-color: #F6F6F6;
+            margin-left: 13px;
+            text-align: center;
+            line-height: 51px;
+            font-size: 16px;
+            color: #282828;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-top: 35px;
+        }
+
+        .update_phone_btn {
+            width: 88px;
+            height: 36px;
+            background-color: #6CA0FF;
+            color: #fff;
+            font-size: 14px;
+            line-height: 38px;
+            text-align: center;
+            margin-left: 7px;
+            border-radius: 2px;
+            display: inline-block; 
+            cursor: pointer;
+        }
+
+        .current input{
+            width: 265px !important;
+        }
+
+        .yincang {
+            display: none;
+        }
+
+        .xianshi {
+            display: inline-block;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .update_yincang {
+            display: none;
+        }
+
+        .yiRenZheng, .weiRenzheng {
+            display: none;
+        }
+        
+        .yanzheng {
+            position: absolute;
+            top: 41px;
+            font-size: 12px;
+            max-height: 12px;
+            line-height: 12px;
+        }
+
+        i.red {
+            margin-right: 3px;    
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <ul>
+            <li>
+                <a href="javascript:;">
+                    <div class="Lf lan">1</div>
+                    企业基本信息
+                </a>
+            </li>
+            <li class="row">
+                ..................
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="Lf lan">2</div>
+                    运营者信息
+                </a>
+            </li>
+            <li class="row">
+                ..................
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="Lf lan">3</div>
+                    发票信息
+                </a>
+            </li>
+            <li class="row">
+                ..................
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="Lf lan">4</div>
+                    出金账户绑定
+                </a>
+            </li>
+            <li class="row">
+                ..................
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <div class="Lf orange">5</div>
+                    财务信息
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="bottom1" style="padding-top: 69px;">
+        <div class="right2 Lf">
+            <ul>
+                <li class="clearfix">
+                    <div class="left1 Lf"><i class="red">*</i>财务姓名:</div>
+                    <div class="right1 Lf"><input type="text" id="caiwu_name"></div>
+                    <div class="ts">财务姓名不能为空</div>
+                </li>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>身份证号:</div>
+                    <div class="right1 Lf"><input type="text" id="id_number"></div>
+                    <div class="ts">身份证号格式不正确</div>
+                </li>
+                <li>
+                    <div class="left1 Lf"><i class="red">*</i>身份证上传:</div>
+                    <div class="right1 Lf">
+                        <div class="uploade Lf">
+                            <i style=""></i>
+                            <img src="../img/list_logo.png" alt="" id="id_card_preview1">
+                            <input type="file" id="id_card_pic1" onchange="xmTanUploadImg1(this);">
+                            <input type="hidden" name="" value="" id="zhengjian_hidden1">
+                        </div>
+                        <div class="uploade Lf">
+                            <i style=""></i>
+                            <img src="../img/list_logo.png" alt="" id="id_card_preview2">
+                            <input type="file" id="id_card_pic2" onchange="xmTanUploadImg2(this);">
+                            <input type="hidden" name="" value="" id="zhengjian_hidden2">
+                        </div>
+                    </div>
+                    <div class="ts">身份证上传不能为空</div>
+                </li>
+            </ul>
+        </div>
+        <div class="right3 Lf weiRenZheng shenhezhong" style="margin-top: 10px;">
+            <div style="font-size: 12px;width: 128px;height: 73px;margin-left: 55px;">所有赎回中、支付中、 融资中、提票中和托收中 的总金额每笔交易资金， 都将在银行全称记录。</div>
+            <div style="margin-left: 32px;margin-top: 14px;font-size: 14px;"><img style="width: 13px;height: 13px;margin-top: 3px;" src="../img/wenhao.png" alt=""><a href="">为什么要进行出金账户绑定</a></div>
+        </div>
+        <div class="right3 Lf yiRenZheng mei">
+            <div style="margin-left: 27px;margin-top: 34px;font-size: 14px;"><img style="width: 13px;height: 13px;margin-top: 3px; margin-right: 3px;" src="../img/wenhao.png" alt=""><a href="">操作步骤帮助</a></div>
+        </div>
+    </div>
+
+    <div class="bottom1">
+        <div class="right2 Lf">
+            <ul class="ul">
+                <li class="pay_pass weiRenZheng">
+                    <div class="left1 Lf"><i class="red">*</i>支付密码:</div>
+                    <div class="right1 Lf"><input type="password" id="pay_pass"></div>
+                    <div class="ts">请输入6位的支付密码</div>
+                </li>
+                <li class="pay_pass weiRenZheng">
+                    <div class="left1 Lf"><i class="red">*</i>确认密码:</div>
+                    <div class="right1 Lf"><input type="password" id="ok_pass"></div>
+                    <div class="ts">确认密码和密码不一致</div>
+                </li>
+                <li class="pay_pass" style="width: 573px;">
+                    <div class="left1 Lf"><span class="fr yincang">手机号:</span><span class="fr bb xianshi">验证手机号:</span><i class="red fr">*</i></div>
+                    <div class="right1 Lf rz"><input type="text" id="yanzheng_phone" class="Lf"><a href="##" class="weiRenZheng" id="huoqu_code" style="margin-left: 15px; line-height: 38px;">获取验证码</a><span class="bb Lf yincang update_phone_btn">修改手机号</span></div>
+                    <div class="ts bukeyong">手机号格式不正确</div>
+                </li>
+                <li class="pay_pass weiRenZheng">
+                    <div class="left1 Lf"><i class="red">*</i>验证码:</div>
+                    <div class="right1 Lf"><input type="text" id="code"></div>
+                    <div class="ts">验证码不能为空</div>
+                </li>
+                <li class="update_yincang">
+                    <div class="left1 Lf"><i class="red">*</i>新手机号:</div>
+                    <div class="right1 Lf"><input type="text" id='new_phone'><a href="##" id="huoqu_code1" style="margin-left: 15px;">获取验证码</a></div>
+                    <div class="ts bukeyong2 yanzheng">手机号码格式不正确</div>
+                </li>
+                <li class="pay_pass update_yincang">
+                    <div class="left1 Lf"><i class="red">*</i>验证码:</div>
+                    <div class="right1 Lf"><input type="text" id="new_code"></div>
+                    <div class="ts yanzheng">验证码不能为空</div>
+                </li>
+                <li class="update_yincang pay_pass">
+                    <div class="left1 Lf"><i class="red">*</i>输入支付密码:</div>
+                    <div class="right1 Lf"><input type="text" id="pay_pass2"></div>
+                    <div class="ts yanzheng">支付密码输入有误</div>
+                </li>
+            </ul>
+
+            <div class="btn weiRenZheng next_btn">提交</div>
+            <div class="btn yiRenZheng update_btn">修改信息</div>
+            
+            <div class="yincang bb">
+                <span class="submit_btn">提交</span>
+                <span class="cancel_btn">取消</span>
+            </div>
+            <div class="" style="margin-left: 188px;margin-top: 26px;">
+                <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
+                <a href="##">客服QQ</a>
+                <span>(工作日10 : 00 - 19 : 00)</span>
+            </div>
+            <div style="margin-left: 166px;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##">400-1234567</a></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
+<script type="text/javascript">
+
+        var img_url1 = null;
+        var img_url2 = null;
+
+        /*var companyId1 = window.localStorage.getItem('companyId');
+        console.log(companyId1);*/
+        var yanzheng_phone = '';
+
+        var new_phone = '';
+
+//不同浏览器下的路径不同
+function getObjectURL(file) {
+    var url = null;
+    if (window.createObjectURL != undefined) { // basic
+
+        url = window.createObjectURL(file);
+
+    } else if (window.URL != undefined) { // mozilla(firefox)
+
+        url = window.URL.createObjectURL(file);
+
+    } else if (window.webkitURL != undefined) { // webkit or chrome
+
+        url = window.webkitURL.createObjectURL(file);
+    }
+
+    return url;
+}
+
+//选择图片，马上预览
+function xmTanUploadImg1(obj) {
+    var file = obj.files[0];
+
+    //添加图片路径到img src中进行预览
+    $("#id_card_preview1").attr('src', getObjectURL(file));
+
+    var formdata=new FormData();
+
+    var c = $('#id_card_preview1')[0];
+    var path = $(c).attr('src');
+
+    formdata.append('file', file);
+    
+    formdata.append('path', path);
+
+
+    $.ajax({
+        url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+        type: 'post',
+        processData: false,  // 告诉jQuery不要去处理发送的数据
+        contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+        data: formdata,
+        cache: false,
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+
+            img_url1 = data.url;
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+
+}
+
+function xmTanUploadImg2(obj) {
+
+    var file = obj.files[0];
+
+    //添加图片路径到img src中进行预览
+    $("#id_card_preview2").attr('src', getObjectURL(file));
+
+    var formdata=new FormData();
+
+    var c = $('#id_card_preview2')[0];
+    var path = $(c).attr('src');
+
+    formdata.append('file', file);
+    
+    formdata.append('path', path);
+
+
+    $.ajax({
+        url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+        type: 'post',
+        processData: false,  // 告诉jQuery不要去处理发送的数据
+        contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+        data: formdata,
+        cache: false,
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            img_url2 = data.url;
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+    $(function () {
+
+        
+       // if (window.localStorage.getItem('add-flag') == 'true') {
+
+            //v1.0
+            $.ajax({
+                url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    token: token
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.data.type == 7) {  //等待审核
+                        $('.weiRenZheng.shenhezhong').css('display', 'inline-block');
+                        $('.yiRenZheng.mei').css('display', 'none');
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".yiRenZheng.update_btn").css('display', 'none');
+                    } else if (data.data.type == 2) {  //正在审核
+                        $('.weiRenZheng.shenhezhong').css('display', 'inline-block');
+                        $('.yiRenZheng.mei').css('display', 'none');
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".yiRenZheng.update_btn").css('display', 'none');
+                        
+                    } else if (data.data.type == 3) {  //已认证
+                        $('.weiRenZheng.shenhezhong').css('display', 'none');
+                        $('.yiRenZheng.mei').css('display', 'inline-block');
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".yiRenZheng.update_btn").css('display', 'inline-block');
+                        
+                    } else if (data.data.type == 4) {  //已拒绝
+                        $('.weiRenZheng.shenhezhong').css('display', 'inline-block');
+                        $('.yiRenZheng.mei').css('display', 'none');
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".yiRenZheng.update_btn").css('display', 'inline-block');
+                        
+                    } else if (data.data.type == 5) {  //企业资料二次审核中
+                        if (window.localStorage.getItem('add-flag') == 'true') {   //认证过
+                            $('.weiRenZheng.shenhezhong').css('display', 'none');
+                            $('.yiRenZheng.mei').css('display', 'inline-block');
+                            $(".weiRenZheng").addClass('xiaoshi');
+                            $(".yiRenZheng.update_btn").css('display', 'inline-block');
+                        } else {
+                            $('.weiRenZheng').css('display', 'inline-block');
+                        }
+
+                    } else if (data.data.type == 6) {  //出金账户资料二次审核
+                        if (window.localStorage.getItem('add-flag') == 'true') {   //认证过
+                            $('.weiRenZheng.shenhezhong').css('display', 'none');
+                            $('.yiRenZheng.mei').css('display', 'inline-block');
+                            $(".weiRenZheng").addClass('xiaoshi');
+                            $(".yiRenZheng.update_btn").css('display', 'inline-block');
+                        } else {
+                            $('.weiRenZheng').css('display', 'inline-block');
+                        }
+                        
+                    } else if (data.data.type == 1) {  //没有提交
+                        $('.weiRenZheng').css('display', 'inline-block');
+                        $(".update_btn").addClass('xiaoshi');
+                        $('#yanzheng_phone').attr('disabled', false);
+                    }
+                    
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+
+    
+       
+        $(document).on('click', '.yiRenZheng.btn', function () {
+
+            $('.dianji_yincang').css('display', 'none;');
+            if ($('.ul li.yincang')) {
+                $('.ul li.yincang').removeClass('yincang').addClass('xianshi');
+            }
+            $('.bb').removeClass('yincang').addClass('xianshi');
+
+            $('.rz').addClass('current');
+
+            $('.bl').removeClass('xianshi').addClass('yincang');
+
+            $(this).css('display', 'none');
+
+            $('.update_yincang').css('display', 'block').css('visibility', 'hidden');
+
+        });
+
+       $(document).on('click', '.update_phone_btn', function () {
+            $('.update_yincang').css('visibility', 'visible');
+       });
+
+        $(document).on('click', '.weiRenZheng.btn', function () {
+
+            if ($('#caiwu_name').val() == '') {
+                $('#caiwu_name').parent().next().css('display', 'block');
+                return;
+            }
+
+            var id_number_reg = $('#id_number').val();
+            
+            // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+            if(reg.test(id_number_reg) === false) { 
+                $('#id_number').parent().next().css('display', 'block');
+                return; 
+            }
+
+            if ($('#id_card_preview1').attr('src') == '../img/list_logo.png' && $('#id_card_preview2').attr('src') == '../img/list_logo.png') {
+                $('#id_card_preview2').parent().next().css('display', 'block');
+                return;
+            }
+
+            var pay_pass_reg = $("#pay_pass").val().trim();      
+            if(pay_pass_reg.length != 6){      
+                var reg=/^\w{6,20}$/;;      
+                if(!reg.test(pay_pass_reg)){      
+                    $("#pay_pass").parent().next().css('display', 'block');
+                    return;
+                }  
+            } 
+
+            var ok_pass_yanzheng = $("#ok_pass").val().trim(); 
+            if (ok_pass_yanzheng != $("#pay_pass").val().trim()) {
+                $("#ok_pass").parent().next().css('display', 'block');
+                return;
+            } 
+
+            if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
+                $('#yanzheng_phone').parent().next().css('display', 'block');
+                return;
+            }
+
+            if ($('#code').val().trim() == '') {
+                $('#code').parent().next().css('display', 'block');
+                return;
+            }
+
+            var caiwu_name = $('#caiwu_name').val();
+            var id_number = $('#id_number').val();
+            var pay_pass = $('#pay_pass').val();
+            var ok_pass = $('#ok_pass').val();
+            yanzheng_phone = $('#yanzheng_phone').val();
+
+            if (img_url1 != null && img_url2 != null) {
+                //v1.0
+                $.ajax({
+                    url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                    type: 'post',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        token: token
+                    },
+                    data: {
+                        submit_type: 'E',
+                        companyId: companyId,
+                        financeName: caiwu_name,
+                        financeIdNumber: id_number,
+                        passwordOne: pay_pass,
+                        passwordTwo: ok_pass,
+                        financePhoneNumber: yanzheng_phone,
+                        upload_file8: img_url1,
+                        upload_file9: img_url2
+                    },
+                    cache: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                       /* code_num.val(data.data);*/
+                       window.parent.add_tan();
+                       $('.weiRenZheng').css('display', 'none');
+                       // window.localStorage.removeItem('add-flag');
+                       window.localStorage.setItem('add-flag', 'true');
+                       
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            } else {
+                $('#id_card_preview2').parent().next().html('图片正在上传').css('display', 'block');
+            }
+            
+
+
+        });
+
+
+
+        //获取验证码
+        $('#huoqu_code').on('click', function () {
+			if(!clickFlgCode){
+        			return false;
+        		}
+            
+            if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
+                $('#yanzheng_phone').parent().next().css('display', 'block');
+                return;
+            }
+            
+            var mobile = $('#yanzheng_phone').val();
+
+            //console.log(mobile);
+            var code_num = $('#code');
+			console.log(phoneIshas);
+			if(!phoneIshas){
+				$("#huoqu_code").css('color','#ccc');
+				return false;
+			}else{
+				$("#huoqu_code").css("color","#80acf8");
+			}
+			
+            //v1.0
+            $.ajax({
+                url: pubIP + 'user/getMessageCode',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    mobile: mobile
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if(data.code == 1){
+                    	   alert(data.msg);
+                    	   clickFlgCode = false;
+                    	   var time = 60;
+	                   var timer=setInterval(function () {
+		                      time--;
+		                      $("#huoqu_code").text(""+time+"s");
+		                      $("#huoqu_code").css('color','#ccc');
+		                      if(time==0){
+		                          clearInterval(timer);
+		                          $("#huoqu_code").css("color","#80acf8");
+		                          $("#huoqu_code").text("获取验证码");
+		                          clickFlgCode = true;
+		                      }
+		                },1000);
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+        });
+		var clickFlgCode = true;
+        $('#huoqu_code1').on('click', function () {
+            var mobile = $('#new_phone').val();
+
+            //console.log(mobile);
+            var code_num = $('#new_code');
+            console.log(phoneIshas);
+            if(!phoneIshas){
+				$("#huoqu_code").css('color','#ccc');
+				return false;
+			}else{
+				$("#huoqu_code").css("color","#80acf8");
+			}
+            
+            //v1.0
+            $.ajax({
+                url: pubIP + 'user/getMessageCode',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    mobile: mobile
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+//                  console.log(data);
+				    if(data.code == 1){
+                    	   alert(data.msg);
+                    	   clickFlgCode = false;
+                    	   var time = 60;
+	                   var timer=setInterval(function () {
+		                      time--;
+		                      $("#huoqu_code1").text(""+time+"s");
+		                      $("#huoqu_code1").css('color','#ccc');
+		                      if(time==0){
+		                          clearInterval(timer);
+		                          $("#huoqu_code1").css("color","#80acf8");
+		                          $("#huoqu_code1").text("获取验证码");
+		                          clickFlgCode = true;
+		                      }
+		                },1000);
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+        });
+
+        $('#caiwu_name').on('blur', function () {
+            if ($('#caiwu_name').val() == '') {
+                $('#caiwu_name').parent().next().css('display', 'block');
+                return;
+            } else {
+                $('#caiwu_name').parent().next().css('display', 'none');
+            }
+        });
+
+        $('#id_number').on('blur', function () {
+            var id_number_reg = $('#id_number').val();
+            
+            // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+            if(reg.test(id_number_reg) === false) { 
+                $('#id_number').parent().next().css('display', 'block');
+                return; 
+            } else {
+                $('#id_number').parent().next().css('display', 'none');
+            }
+
+        });
+
+
+
+        $('#id_card_pic1').on('blur', function () {
+            if ($('#id_card_preview1').attr('src') == '../img/list_logo.png' && $('#id_card_preview2').attr('src') == '../img/list_logo.png') {
+                $('#id_card_preview2').parent().next().css('display', 'block');
+            } else {
+                $('#id_card_preview2').parent().next().css('display', 'none');
+            }
+        });
+
+        $('#id_card_pic2').on('blur', function () {
+            if ($('#id_card_preview2').attr('src') == '../img/list_logo.png' && $('#id_card_preview1').attr('src') == '../img/list_logo.png') {
+                $('#id_card_preview2').parent().next().css('display', 'block');
+            } else {
+                $('#id_card_preview2').parent().next().css('display', 'none');
+            }
+        });
+
+
+        $('#pay_pass').on('blur', function () {
+            var pay_pass_reg = $("#pay_pass").val().trim();      
+            if(pay_pass_reg.length != 6){      
+                var reg=/^\w{6,20}$/;     
+                if(!reg.test(pay_pass_reg)){      
+                    $("#pay_pass").parent().next().css('display', 'block');
+                }  
+            } else {
+                $('#pay_pass').parent().next().css('display', 'none');
+            }
+        });
+
+        $('#ok_pass').on('blur', function () {
+            var ok_pass_yanzheng = $(this).val().trim(); 
+            if (ok_pass_yanzheng != $("#pay_pass").val().trim()) {
+                $(this).parent().next().css('display', 'block');
+            } else {
+                $(this).parent().next().css('display', 'none');
+            }
+        });
+
+        $('#yanzheng_phone').on('blur', function () {
+            if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
+                $('#yanzheng_phone').parent().next().css('display', 'block');
+                return;
+            } else {
+                $('#yanzheng_phone').parent().next().css('display', 'none');
+
+                
+                yanzheng_phone = $('#yanzheng_phone').val();
+            
+                console.log(yanzheng_phone);
+
+                sendAjax(yanzheng_phone, $(this));
+
+            }
+
+        });
+
+        $('#new_phone').on('blur', function () {
+            if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#new_phone').val().trim()))) {
+                $('#new_phone').parent().next().css('display', 'block');
+                return;
+            } else {
+                $('#new_phone').parent().next().css('display', 'none');
+
+                
+                new_phone = $('#new_phone').val();
+            
+                //console.log(new_phone);
+
+                sendAjax(new_phone, $(this));
+
+            }
+
+        });
+
+
+		var phoneIshas = true;
+        function sendAjax(phone_num, _this) {
+
+            //v1.0
+            $.ajax({
+                url: pubIP + 'companyCertification/getMobileHaveCompanyState',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    mobile: phone_num
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    
+                    console.log($(phone_num).parent().next().css('display', 'block'));
+                    if (data.code == 1) {
+                        if (data.data == 'true') {
+                        	   phoneIshas = false;
+                            _this.parent().next().html('手机号码已加入企业');
+                            _this.parent().next().css('display', 'block');
+                            return;
+                        }else{
+                        	   phoneIshas = true;
+                        }
+                    } else if (data.code == -1001 ) {
+                        alert(data.msg);
+                    }
+                    
+                   /* code_num.val(data.data);*/
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+        $('#code').on('blur', function () {
+            if ($('#code').val().trim() == '') {
+                $('#code').parent().next().css('display', 'block');
+                return;
+            } else {
+                $('#code').parent().next().css('display', 'none');
+            }
+        });
+
+        $('#new_code').on('blur', function () {
+            if ($('#new_code').val().trim() == '') {
+                $('#new_code').parent().next().css('display', 'block');
+                return;
+            } else {
+                $('#new_code').parent().next().css('display', 'none');
+            }
+        });
+
+
+
+        $('#pay_pass2').on('blur', function () {
+            if ($('#pay_pass2').val().trim() == '') {
+                $('#pay_pass2').parent().next().css('display', 'block');
+                return;
+            } else {
+                $('#pay_pass2').parent().next().css('display', 'none');
+            }
+
+            var pay_pass2 = $(this).val();
+
+            //v1.0
+            $.ajax({
+                url: pubIP + 'companyCertification/getCompanyFinanceStateByFinancePassword',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    companyId: companyId,
+                    financePassword: pay_pass2
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.data == 'false') {
+                        $('#pay_pass2').parent().next().css('display', 'block');
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+        });
+
+
+        //是否是修改
+        $.ajax({
+            url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                type: 'E',
+                companyId: companyId,
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.company.qualificationStatus);
+
+                if (data.data.company.qualificationStatus != 0) {
+
+                    $('input[type=file]').attr('disabled',true);
+                    $('input[type=text]').attr('disabled',true);
+                    $('input[type=radio]').attr('disabled',true);
+
+                    update_info();
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+        // if (window.localStorage.getItem('add-flag') == 'true') {
+
+            function update_info() {
+                $(".weiRenZheng").addClass('xiaoshi');
+
+                $('.header ul li a').each(function (i, ele) {
+                    $(this)[0].href = './identification'+(i+1)+'.html';
+                });
+
+                //v1.0
+                $.ajax({
+                    url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+                    type: 'post',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        token: token
+                    },
+                    data: {
+                        companyId: companyId,
+                        type: 'E'
+                    },
+                    cache: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.code == 1) {
+                            console.log(data);
+                            $('#caiwu_name').val(data.data.company.financeName);
+                            $('#id_number').val(data.data.company.financeIdNumber);
+
+                            $('#yanzheng_phone').val(data.data.company.financePhoneNumber);
+                            $('#yanzheng_phone').attr('disabled', 'disabled');
+                            
+                            
+                            $('#id_card_preview1').attr('src', data.data.picInfos[7].picUrl);
+                            $('#id_card_preview1').attr('data-picId8', data.data.picInfos[7].ids);
+
+                            $('#id_card_preview2').attr('src', data.data.picInfos[8].picUrl);
+                            $('#id_card_preview2').attr('data-picId9', data.data.picInfos[8].ids);
+
+                            $('#zhengjian_hidden1').val(data.data.picInfos[7].ids);
+                            $('#zhengjian_hidden2').val(data.data.picInfos[8].ids);
+
+                           
+                            
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
+        // }
+
+
+        $(document).on('click', '.submit_btn', function () {
+            
+            if ($('#caiwu_name').val() == '') {
+                $('#caiwu_name').parent().next().css('display', 'block');
+                return;
+            }
+
+            var id_number_reg = $('#id_number').val();
+            
+            // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+            if(reg.test(id_number_reg) === false) { 
+                $('#id_number').parent().next().css('display', 'block');
+                return; 
+            }
+
+            if ($('#id_card_preview1').attr('src') == '../img/list_logo.png' && $('#id_card_preview2').attr('src') == '../img/list_logo.png') {
+                $('#id_card_preview2').parent().next().css('display', 'block');
+                return;
+            }
+
+            if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#new_phone').val().trim()))) {
+
+                $('#new_phone').parent().next().css('display', 'block');
+                
+            }
+
+
+            if ($('#new_code').val().trim() == '') {
+                $('#new_code').parent().next().css('display', 'block');
+                
+            }
+
+            if ($('#pay_pass2').val().trim() == '') {
+                $('#pay_pass2').parent().next().css('display', 'block');
+            }
+
+            var caiwu_name = $('#caiwu_name').val();
+            var id_number = $('#id_number').val();
+            new_phone = $('#new_phone').val();
+
+            var pay_pass2 = $('#pay_pass2').val();
+
+            var picId8 = $('#id_card_preview1').attr('data-picid8');
+            var picId9 = $('#id_card_preview2').attr('data-picid9');
+            
+            console.log(picId9);
+			
+			
+            //v1.0
+            $.ajax({
+                url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    submit_type: 'E',
+                    companyId: companyId,
+                    financeName: caiwu_name,
+                    financeIdNumber: id_number,
+                    financePhoneNumber: new_phone,
+                    picId8: picId8,
+                    picId9: picId9,
+                    upload_file8: img_url1,
+                    upload_file9: img_url2,
+                    pay_pass2: pay_pass2
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                   
+                    window.parent.update_runcaiwu();
+                    window.location.reload();
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+
+        });
+
+    });
+
+$(window.parent.document).on('click', '.ok_ok', function () {
+    
+    window.location.reload();
+});
+
+//修改企业信息(放开可修改)
+    $(document).on('click','.update_btn',function(){
+        $('input[type=file]').attr('disabled',false);
+        $('input[type=text]').attr('disabled',false);
+        $('input[type=radio]').attr('disabled',false);
+        $(this).addClass('yiRenZheng');
+        $(this).text('修改完成');
+    })
+</script>
+</body>
+</html>

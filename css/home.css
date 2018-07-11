@@ -1,0 +1,435 @@
+body{background: #ffffff;}
+button{
+	transition:background-color 0.3s;
+	-webkit-transition:background-color 0.3s;
+	-ms-transition:background-color 0.3s;
+	-o-transition:background-color 0.3s;
+	-moz-transition:background-color 0.3s;
+}
+.rightUsBg{width: 282px;height: 100%;background: #000;opacity: 0.1;position: absolute;right: 0;top: 0;z-index: 2;
+/* older safari/Chrome browsers */  
+    -webkit-opacity: 0.1;  
+    /* Netscape and Older than Firefox 0.9 */  
+    -moz-opacity: 0.1;  
+    /* Safari 1.x (pre WebKit!) 老式khtml内核的Safari浏览器*/  
+    -khtml-opacity: 0.1;  
+    /* IE9 + etc...modern browsers */  
+    opacity: .1;  
+    /* IE 4-9 */  
+    filter:alpha(opacity=10);  
+    /*This works in IE 8 & 9 too*/  
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";  
+    /*IE4-IE9*/  
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=10);  }
+.rightUsIner{background: #fff;position: absolute;right: 9px;top: 9px;z-index: 3;width: 264px;height: 441px;}
+.headImg{width: 69px;height: 69px;border-radius:100%;float: left;margin-right: 13px;}
+.usBox{margin-top: 46px;color: #282828; padding: 0px 20px;}
+.usBox p{margin-bottom: 10px;}
+.rightUsIner{box-sizing: border-box;font-size: 14px;}
+.loginBox{text-align: center;margin-top: 31px; padding: 0px 21px;}
+.loginBox a{color:#5992f3;}
+.loginBox a:hover{color:#8ab5ff;}
+.loginBox button{width: 224px;height: 45px;background: #5892f3;border-radius:2px ;border: none;color: #fff; font-size: 14px;margin-bottom: 18px;}
+.loginBox button:hover{background:rgb(67,121,245);}
+.webInfo{font-size: 14px;height:191px ;position: absolute;bottom:0; padding: 0px 21px;width: 100%;box-sizing: border-box;background: #fcfcfc;}
+.wiBox{color: #666666;}
+.webInfoTit{margin-top: 29px;max-height: 14px;}
+.webInfoTit img{width: 17px;vertical-align: middle;margin-right: 10px;}
+.wiBox p{margin-top: 21px;line-height: 22px;}
+.wiBox p:hover{color:#8ab5ff;}
+.supplierTit{width: 122px;height: 38px;background: #5992f3;margin-top: 35px;line-height: 38px;text-align: center;color: #fff;}
+.supplierBox>div{padding: 9px;float: left;width:246px;height:115px; border: 1px #e7e7e7 solid;box-sizing: border-box;transition:all 0.3s;
+	-webkit-transition:all 0.3s;
+	-ms-transition:all 0.3s;
+	-o-transition:all 0.3s;
+	-moz-transition:all 0.3s;}
+.supplierBox>div:hover{border: 1px #5992f3 solid;}
+.supplierBox>div div{width: 100%;height: 100%;}
+.supplierBox{margin-bottom: 35px;overflow: hidden;}
+.adImg{width: 100%;}
+.supplier{padding-bottom: 35px;}
+.webCn{background: #f5f5f5;}
+.wcTit{margin-top: 35px;margin-bottom: 19px;}
+.wcBigTit{color: #282828;font-size: 20px;margin-right: 16px;}
+.wcSmTit{color: #666666;font-size: 16px;}
+.wcObjBox{overflow: hidden;margin-bottom: 34px;}
+.wcObjBox>div{float: left;}
+.wcleftBox{margin-right: 6px;; position: relative; width: 234px; height: 628px;background: #ff8743; color: #fff;box-sizing: border-box;padding-left: 15px;
+background: url(../img/wcleftBoxBg.png) no-repeat;background-size:contain ;background-color: #ff8743;background-position:center ;}
+.wcleftBox>div{margin-bottom: 17px;margin-top: 17px;}
+.wcleftBox button{width:206px;height:45px;background: #508fff;font-size: 16px;color: #fff;border-radius: 2px;position: absolute;bottom: 36px;left: 50%;margin-left: -103px;border: none;}
+.wcleftBox button:hover{background:#4886f3;}
+.wcCenterBox{width: 749px;margin-right: 5px;}
+.wcCtTab{background: #fff;height: 41px;line-height: 41px;font-size: 14px;margin-bottom: 7px;}
+.wcCtTab>a{float: right;margin-right: 15px;color: #666;}
+.wcCtTab>a>span{display: inline-block; vertical-align: top;margin-right: 5px;}
+.wcCtTab>span{margin-left: 15px;display: inline-block;height: 91%;}
+.wcCtTab>.act{border-bottom: 3px #5992f3 solid;color: #5992f3;}
+.wcCtObjBox{height: 580px;overflow: hidden;}
+.wcCtObjBox>div{padding-bottom: 6px;padding-right: 5px;overflow: hidden;height: 292px;float: left;box-sizing: border-box;}
+.wcCtObjBox .lastObj{padding-right: 0px;}
+.wcCtObjBox>div>div{width:246px;height:287px;background: #fff;position: relative;overflow: hidden;}
+.redRT{position: absolute;right: 0;top: 0;width: 23px;height: 23px;background: #e33b3b;text-align: center;line-height: 23px;color: #fff;}
+.objImg{width:151px;height:151px;margin-top: 40px;margin-left: 47px;}
+.objTxt{text-align: center;margin-top: 23px;}
+.objTxt>p{color: #FC6721;margin-bottom: 13px;}
+.bluebg{background: #5992f3;}
+.wcRightBox{width:236px;height:628px;background-color: #fff;overflow: hidden;font-size: 14px;text-align: center;background: url(../img/hotBgtop.png) no-repeat;background-position: top;background-size: contain;background-color: #fff;}
+.wcRightBox>h1{line-height: 24px;height: 24px; margin-top: 78px;text-align: center;margin-bottom: 22px;font-size: 24px;color: #282828;font-weight: bold;}
+.wcRightBox .num{color: #FC6721;margin-right: 14px;}
+.wcRightBox .gg{color:#979797;margin-left: 29px;}
+.wcRightBox p{margin-bottom: 30px;font-size:14px;max-height:14px;}
+.wcRightBox p:hover span{color:#8ab5ff;}
+.purchaseLeft{margin-right: 0px; text-align: center; height: 388px;width: 233px; background: url(../img/purchaseLeftBg.png) no-repeat; background-size:contain ;background-position:center ;}
+.purchaseLeft button{background: #FF8D54;bottom: 11px;}
+.purchaseLeft button:hover{background: #e47137;}
+.purchaseLeft h1{font-size: 24px;text-align: center;margin-top: 20px;margin-bottom: 14px;}
+.purchaseLeft img{width: 80px; display: block;margin: 0 auto;} 
+.purchaseObjBox{overflow: hidden;width: 997px;}
+.purchaseObjBox>div{overflow: hidden; font-size: 14px;color: #666; float: left;background: #fff;margin-left: 6px;margin-bottom: 6px;width:490px;height:191px;padding-left: 35px;padding-top: 41px;box-sizing: border-box;}
+.purchaseObjBox>div:hover{
+	box-shadow: 0px 1px 10px #ccc;
+	-webkit-box-shadow:0px 1px 10px #ccc;
+    -moz-box-shadow: 0px 1px 10px #ccc;
+    -ms-box-shadow: 0px 1px 10px #ccc;
+    -o-box-shadow: 0px 1px 10px #ccc;
+}
+.purchaseObjBox button{margin-right: 40px; float: right;width: 142px; height: 42px; background: #66A7FF; border: none; border-radius: 2px; color: #fff;font-size: 14px;margin-top: 2px;}
+.purchaseObjBox h3{font-size: 16px;color: #282828;margin-bottom: 13px;    max-height: 16px; line-height: 16px;}
+.purchaseObjBox .lastTimetxt{color: #858585;margin-bottom: 6px;    max-height: 14px; line-height: 14px;}
+.purchaseObjBox>div p>span{color: #FF8D54;}
+.purchaseObjBox .bjNum{float: right;color: #666666 ;margin-right: 64px;}
+.purchaseObjBox .bjNum span{color: #FF2C2C;}
+.purchaseObjBox>div>p{margin-bottom: 26px;    max-height: 14px; line-height: 14px;}
+.lasrTimeNum{margin-left: -4px;}
+.lasrTimeNum>span{font-size: 24px;margin-right: 4px;margin-left: 4px;    max-height: 24px;  line-height: 24px;}
+.financeLeft{height: 568px;width: 233px;margin-right: 0px;}
+.financeR{width: 995px; overflow: hidden;}
+.financeR>div{float: left;}
+.ddt,.financeLike{margin-left: 6px; overflow: hidden; width:222px; height:411px; background:rgba(251,215,189,1); color: #954C2C;font-size: 16px;position: relative;text-align: center;}
+.ddt button{width:186px;height:45px;border: none;background: #f78c5e;color: #fff; border-radius: 2px;font-size: 16px;}
+.ddt h1{font-size: 24px;margin-top: 43px;margin-bottom: 19px;font-weight: bold;}
+.ddt>div{margin-bottom: 29px;}
+.ddt p{max-height: 16px;line-height: 16px;}
+.ddt>div>p+p{
+	margin-top: 7px;
+}
+.hasbord{width:147px;height:32px;background:#FFF2E3;margin: 0 auto;line-height: 32px;position: relative;}
+.hasbord:before{content:'';width: 3px;height: 34px;position: absolute;left: 0;top:-1px;background: #954c2c;}
+.hasbord:after{content:'';width: 3px;height: 34px;position: absolute;right: 0;top:-1px;background: #954c2c;}
+.financeLike{width: 193px;background: #fff;color: #666666;font-size: 16px;}
+.financeLike>div{height: 147px;background: #90B9FE;color: #fff;font-size: 14px;}
+.financeLike>div img{width: 41px;margin-top: 30px;margin-bottom: 14px;}
+.financeLike>div>p{font-size: 18px;margin-bottom: 10px;max-height: 18px;}
+.financeLike>span{display: block;}
+.financeLike>.FL1{margin-top: 28px;height: 39px;}
+.financeLike>.FL2{margin-top: 37px;height: 39px;}
+.financeLike>.FL3{margin-top: 33px;line-height: 16px;max-height: 16px;}
+.financeLike>.FL4{margin-top: 26px;line-height: 16px;max-height: 16px;}
+.financeLike>span>p{margin-bottom: 7px;line-height: 16px;max-height: 16px;}
+.financeBtm{width: 991px;height: 151px;background: #fff;margin-left: 6px;margin-top: 6px;}
+.financeBtm>span{float: left;margin-left: 100px;margin-top: 60px;font-size: 20px;color: #282828;}
+.logisticsLeft{width:235px; height:510px;background: #6DA5F0;text-align: center;padding-left: 0px;overflow: hidden;}
+.logisticsLeft>img{margin-top: 41px;margin-bottom: 12px;}
+.logisticsLeft>p{font-size: 24px;color: #fff;margin-bottom: 30px;    max-height: 24px;    line-height: 24px;}
+.logisticsLeft .logisticsIpt{ width:188px; height:40px;background: #fff;display: inline-block;margin-top: 0px;margin-bottom: 7px;}
+.logisticsIpt input{border: none;height: 91%;outline: none;font-size: 14px;    width: 75%;margin-left: 7px;}
+.logisticsIpt img{margin-top: 12px;margin-left: 13px;float: left;}
+.iptDDNum{width: 17px;}
+.iptWLNum{width: 18px;}
+.logisticsLeft button{position: inherit;left: 0;margin-left: 0;display: inline-block;bottom: 0;border-radius: 0;background: #FFCF5B;width: 188px;height: 45px;color: #943f3f;}
+.logisticsLeft button{vertical-align: middle; margin-right: 5px;margin-top: 15px;}
+.logisticsLeft .zixunNumBox{background:#F3F9FF;color: #68a7ee;width:188px;height:74px;margin: 0 auto;box-sizing: border-box;padding-top: 15px;margin-top: 50px;margin-bottom: 0px;}
+.zixunNumBox p{margin-bottom: 8px;font-size: 16px;font-weight: bold;max-height: 16px;}
+.zixunNumBox .num{font-size: 25px;font-weight: bold;}
+.logisticsLeft .wlkf{margin-top: 0px;}
+.wlShiSchImg{width: 320px;height: 510px;overflow: hidden;float: left;}
+.RtimeDele{width: 600px;height: 387px;background: #fff;margin: 0 auto;}
+.RtimeDele div{border-radius: 0 !important;}
+.rtTIT{width: 600px; margin: 0 auto;margin-top: 30px;font-size: 16px;color: #282828;margin-bottom: 25px;background: #fff;box-sizing: border-box;}
+.rtTIT a{float: right;color: #717171;}
+.RtimeDele .RtDItem{width: 596px; margin: 0 auto;margin-bottom: 30px;color: #666666;overflow: hidden;font-size: 14px;}
+.RtimeDele .RtDItem .num{    margin-right: 27px; display: inline-block; width: 24px;}
+.RtimeDele .RtDItem .time{margin-right: 38px;}
+.RtimeDele .RtDItem .add{margin-right: 67px;}
+.RtimeDele .RtDItem .gg{margin-right: 60px;}
+.RtBoxScroll{
+	float: left;
+	width: 661px;
+	background: #fff;
+	height: 510px;
+	overflow: hidden;
+}
+.mCSB_dragger_bar{background: #68A7EE !important;}
+.mCSB_draggerRail{background: #D2E6FC !important;}
+.fxd{
+	position: fixed;
+	top: 414px;
+	right: 0;
+	z-index: 20;
+}
+.fxd>a{
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	background: #5992f3;
+	display: block;
+	border-radius: 5px;
+	margin-bottom: 1px;
+	position: relative;
+}
+.fxd>a img{
+	margin-top: 12px;
+}
+.showCode{
+	position: absolute;
+    right: 54px;
+    background: #5992f3;
+    padding: 10px;
+    top: -18px;
+    height: 57px;
+    display: none;
+}
+.fxd .showCode img{
+	margin-top: 0;
+}
+.showCode:after{
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #5992f3;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    margin-top: -10px; 
+}
+#showCd:hover .showCode{
+	display: block;
+}
+.tsBg{
+	width: 100%;
+    background: #000;
+    opacity: 0.7;
+    /* older safari/Chrome browsers */  
+    -webkit-opacity: 0.7;  
+    /* Netscape and Older than Firefox 0.9 */  
+    -moz-opacity: 0.7;  
+    /* Safari 1.x (pre WebKit!) 老式khtml内核的Safari浏览器*/  
+    -khtml-opacity: 0.7;  
+    /* IE9 + etc...modern browsers */  
+    opacity: .7;  
+    /* IE 4-9 */  
+    filter:alpha(opacity=70);  
+    /*This works in IE 8 & 9 too*/  
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";  
+    /*IE4-IE9*/  
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=70);  
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    display: none;
+}
+.tsBox{
+	background: #fff;
+	position: fixed;
+	left:50%;
+	top: 50%;
+	z-index: 31;
+	display: none;
+    width: 651px;
+    height: 455px;
+    margin-left: -325.5px;
+    margin-top: -227.5px;
+}
+#colseAlert{
+	position: absolute;
+	right: 24px;
+	top: 21px;
+}
+.tsBox>p{
+	font-size: 19px;
+	color:#282828;
+	text-align: center;
+	margin-top: 66px;
+	margin-bottom: 48px;
+}
+.modelcontent>div{
+	height: 35px;
+	width: 479px;
+	line-height: 35px;
+	margin: 0 auto;
+	overflow: hidden;
+	margin-bottom: 28px;
+}
+.modelcontent>div span{
+	width: 80px;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	font-size: 16px;
+	text-align: right;
+	margin-right: 14px;
+}
+.modelcontent>div input , .tsBox>div textarea , .tsBox>div select{
+	width: 385px;
+	background: #fff;
+	border: 1px #9FA0A0 solid;
+	height: 35px;
+	float: left;
+	outline: none;
+	font-size: 17px;
+	padding-left: 8px;
+	box-sizing: border-box;
+}
+.modelcontent>div select{ 
+	width:385px ;
+}
+.modelcontent>div textarea{
+	height: 101px;
+	resize: none;
+}
+.tsBox button{
+	width: 381px;
+	height: 54px;
+	color: #fff;
+	font-size: 19px;
+	background: #5992f3;
+	border: none;
+	border-radius: 2px;
+	margin-left: 96px;
+}
+.hideInfo{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	overflow: hidden;
+}
+.hideInfo>div{
+	background: #333;
+	width: 100%;
+	height: 100%;
+	opacity: 0.2;
+	/* older safari/Chrome browsers */  
+    -webkit-opacity: 0.2;  
+    /* Netscape and Older than Firefox 0.9 */  
+    -moz-opacity: 0.2;  
+    /* Safari 1.x (pre WebKit!) 老式khtml内核的Safari浏览器*/  
+    -khtml-opacity: 0.2;  
+    /* IE9 + etc...modern browsers */  
+    opacity: .2;  
+    /* IE 4-9 */  
+    filter:alpha(opacity=20);  
+    /*This works in IE 8 & 9 too*/  
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";  
+    /*IE4-IE9*/  
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=20);  
+}
+.hideInfo>button{
+	position: absolute;
+	width: 142px;
+	height: 43px;
+	top: 50%;
+	left: 50%;
+	margin-top: -21px;
+	margin-left: -71px;
+	background: #66A7FF;
+	border-radius: 2px;
+	border: none;
+	font-size: 16px;
+	color: #fff;
+	outline: none;
+}
+.supplierBox>div:hover .hideInfo{
+	display: block;
+}
+.wcCtObjBox .hideInfo>div:first-child{
+	opacity: 0.65;
+	/* older safari/Chrome browsers */  
+    -webkit-opacity: 0.65;  
+    /* Netscape and Older than Firefox 0.9 */  
+    -moz-opacity: 0.65;  
+    /* Safari 1.x (pre WebKit!) 老式khtml内核的Safari浏览器*/  
+    -khtml-opacity: 0.65;  
+    /* IE9 + etc...modern browsers */  
+    opacity: .65;  
+    /* IE 4-9 */  
+    filter:alpha(opacity=65);  
+    /*This works in IE 8 & 9 too*/  
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";  
+    /*IE4-IE9*/  
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=65);  
+}
+.wcCtObjBox .hideInfo{
+	color: #fff;
+}
+.wcCtObjBox .hidetxt{
+	position: absolute;
+	z-index: 1;
+	opacity: 1;
+	position: absolute;
+	line-height: 25px;
+	text-align: center;
+	top: 73px;
+	background: transparent;
+	font-size: 14px;
+	text-align: left;
+	left: 60px;
+}
+.wcCtObjBox .hidetxt h3{
+	margin-top: 43px;
+}
+
+/*.wcCtObjBox>div:hover .hideInfo{
+	display: block;
+}*/
+.wcleftBoxTit{font-size: 24px;}
+
+.wcleftBox .wcleftBoxTit{
+	margin-top: 14px;
+    max-height: 45px;
+    margin-bottom: 15px;
+    position: relative;
+	height: 45px;
+	font-weight: bold;
+}
+.wcleftBoxTit img{
+	float: left;
+	height: 6px;
+}
+.wcleftBoxTit p{
+	position: absolute;
+    left: 0;
+    top: 9px;
+	max-height:24px;
+	line-height: 24px;
+}
+.wcleftBoxTit img+p+img{
+	position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.wcObjType{
+	font-size: 17px;
+	font-weight: bold;
+}
+.wcleftBox>a{
+	font-size: 14px;
+}
+.wcleftBox>a:hover{
+	text-decoration: underline;
+}
+.purchaseLeft{
+	padding-left: 0;
+}
+.swiper-active-switch{
+	background: #5892f3;
+}
+.purchaseObjBox button:hover{
+	background: rgb(67,121,245);
+}

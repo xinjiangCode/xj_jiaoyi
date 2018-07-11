@@ -1,0 +1,208 @@
+.activityCenter {
+	width: 984px;
+	border: 1px solid #eeeced;
+	height: 1000px;
+}
+
+.activityCenterTitle {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eeeced; 
+	padding-left: 19px;
+	font-size: 16px;
+	color: #282828;
+}
+
+.sousuo_area {
+	height: 108px;
+	border-bottom: 1px solid #ebe9ea;
+	padding-left: 19px;
+	font-size: 14px;
+	color: #282828;
+}
+
+.sousuo_area .activity_name_sousuo {
+	display: inline-block;
+	line-height: 108px;
+}
+
+.activity_name {
+	width: 269px;
+}
+
+.selectPub.activity_state {
+    margin-top: 35px;
+    width: 180px;
+    border: 1px solid #d3d3d3;
+}
+
+.activity_time {
+	width: 210px;
+}
+
+.activity_name_sousuo input[type='text'] {
+	height: 34px;
+}
+
+.qiang_buy span {
+	width: 38px;
+	height: 20px;
+	background-color: #ff4a4a;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	line-height: 20px;
+}
+
+.baoming a {
+	display: inline-block;
+	width: 95px;
+	height: 30px;
+	color: #fff;
+	text-align: center;
+	line-height: 30px;
+	font-size: 14px;
+	border-radius: 2px;
+}
+
+.baoming.orange a {
+	background-color: #FF946F;
+}
+
+.baoming.blue a {
+	background-color: #7BABFD;
+	font-size: 12px;
+}
+
+.baoming.glay a {
+	background-color: #f8f8f8;
+	color: #333333;
+	border: 1px solid #d8d8d8;
+	font-size: 12px;
+}
+
+.activity_ul {
+	font-size: 14px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #fdfdfd;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.activity_ul li {
+	float: left;
+}
+
+.activity_ul li.one {
+	/*font-size: 14px;
+	margin-left: 20px;
+	width: 116px;*/
+	width: 96px;
+    margin-left: 0px;
+    text-align: center;
+}
+
+.activity_ul li.two {
+	/*width: 145px;*/
+	width: 150px;
+	text-align: center;
+}
+
+.activity_ul li.three {
+	/*width: 170px;*/
+	width: 185px;
+	text-align: center;
+}
+
+.activity_ul li.four {
+	/*width: 175px;*/
+	width: 120px;
+	text-align: center;
+}
+
+.activity_ul li.five {
+	width: 180px;
+    text-align: center;
+}
+
+.activity_detail a {
+	color: #6599f7;
+}
+
+
+.activity_center li {
+	height: 70px;
+	border-bottom: 1px solid #ebe9ea;
+	display: table;
+}
+
+.activity_center li span {
+	text-align: center;
+	/*display: inline-block;*/
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.qiang_buy {
+    width: 65px;
+    padding-left: 28px;
+}
+
+.activity_title {
+    width: 158px;
+}
+
+.activity_start_end_time {
+	width: 170px;
+	font-size: 12px;
+	color: #666666;
+	line-height: 20px;
+}
+
+.jiezhi_time {
+    width: 142px;
+    font-size: 12px;
+}
+
+.status {
+    width: 160px;
+}
+
+.baoming {
+	width: 140px;
+}
+
+.activity_detail {
+    width: 121px;
+    font-size: 12px;
+}
+
+.activity_detail a img {
+	margin-right: 4px;
+	vertical-align: middle;
+}
+
+.orange a:hover {
+	background-color: #ff7c4e;
+}
+
+.blue a:hover {
+	background: rgb(67, 121, 245);
+}
+
+.glay a:hover {
+	background-color: #d8d8d8;
+}
+
+/*分页*/
+.total {
+	margin-left: 15px;
+}
+
+.pageJump .button, .pageJump input {
+	height: 44px;
+}
+
+.pagination {
+	margin-bottom: 0px;
+}

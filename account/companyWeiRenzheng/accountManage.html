@@ -1,0 +1,100 @@
+<!--不用-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/shopManage/shopManage.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/companyWeiRenzheng/accountManage.css">
+</head>
+<style>
+    .address_manage {
+        border-bottom: 1px solid #ebe9ea;
+    }
+</style>
+<body>
+    <!-- 企业未认证 - 账户管理 - 收货地址  -->
+    <div class="main">
+        <div class="address_manage">地址管理</div>
+        <div class="add_address outer">
+            <ul>
+                <li>
+                    <label class="ml" for="">收货人：</label>
+                    <input type="text" class="shouhuo_person" placeholder="请输入收货人姓名">
+                </li>
+                <li>
+                    <label for="">所在地区：</label>
+                    <select name="province" id="province" class="provice">
+                        <option value="">请选择省</option>
+                    </select>
+                    <select name="city" id="city" class="city">
+                        <option value="">请选择市区</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="">详细地址：</label>
+                    <input type="text" class="shouhuo_person" placeholder="请输入详细地址">
+                </li>
+                 <li>
+                    <label for="">手机号码：</label>
+                    <input type="text" class="shouhuo_person" placeholder="请输入手机号码">
+                </li>
+                <li>
+                    <input type="checkbox" name="" class="moren" value="设置为默认的收货地址" checked="checked" />设置为默认的收货地址
+                </li>
+                <li>
+                    <span class="add_address_btn">添加该地址</span>
+                    <span class="cancel">取消</span>
+                </li>
+            </ul>
+        </div>
+        <div class="shouhuo_person_list shop_list_table">
+            <table>
+                <thead>
+                    <th>收货人</th>
+                    <th>所在地区</th>
+                    <th>详细地址</th>
+                    <th>联系电话</th>
+                    <th>操作</th>
+                    <th>状态</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>麦合木提 阿里木</td>
+                        <td>新疆 乌鲁木齐</td>
+                        <td class="td">经济开发区阳澄湖路39号中泰化学办公楼中泰化学办公楼</td>
+                        <td>139 0987 3501</td>
+                        <td>
+                            <a href="javascript:;">修改</a>
+                            <a href="javascript:;">删除</a>
+                        </td>
+                        <td><span class="moren_setting">默认地址</span></td>
+                    </tr>
+                    <tr>
+                        <td>麦合木提 阿里木</td>
+                        <td>新疆 乌鲁木齐</td>
+                        <td class="td">经济开发区阳澄湖路39号中泰化学办公楼中泰化学办公楼</td>
+                        <td>139 0987 3501</td>
+                        <td>
+                            <a href="javascript:;">修改</a>
+                            <a href="javascript:;">删除</a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/area.js"></script>
+    <script src="../../js/select.js"></script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+.mianCont_box, .tabLinkMaxBox {
+	display: none;
+}
+
+.logo1 {
+	margin-top: 17px;
+}
+
+.checkTitle {
+	height: 75px;
+	border-left: 1px solid #eeeeee;
+	margin-top: 18px;
+	line-height: 75px;
+	font-size: 16px;
+	color: #666666;
+	padding-left: 19px;
+	margin-bottom: 17px;
+	margin-left: 20px;
+}
+
+.checkTitle span.jsy {
+	margin-right: 355px;
+}
+
+.checkTitle ul li {
+	float: left;
+}
+
+.checkTitle ul li span.steps {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background-color: #80AEFF;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 18px;
+	color: #fff;
+	margin-right: 10px;
+	font-size: 16px;
+}
+
+.checkTitle ul li span.steps.current {
+	background-color: #FFAE4C;
+}
+
+.mianCont1 {
+	width: 1274px;
+    overflow: hidden;
+    height: auto;
+    margin: 0 auto;
+}
+
+.line {
+    width: 100%;
+    height: 0;
+    min-width: 1229px;
+    border-bottom: 2px solid #e1e1e8;
+}
+
+.checkOrderInformationTitle span {
+	width: 2px;
+	height: 13px;
+	background-color: #80aeff;
+	display: inline-block;
+	margin-right: 9px;
+}
+
+.checkOrderInformationTitle {
+	color: #80aeff;
+	font-size: 16px;
+	margin-top: 21px;
+	margin-bottom: 17px;
+}
+
+.info_title {
+	font-size: 18px; 
+	color: #333; 
+	border-bottom: 1px solid #ebe9ea; 
+	padding-bottom: 5px;
+	width: 99.2%;
+}
+
+.info_ul {
+	margin-top: 4px;
+}
+
+.info_ul li {
+	padding-left: 20px;
+	padding-right: 30px;
+	box-sizing: border-box;
+	margin-top: 3px;
+	float: left;
+	width: 305px;
+	height: 173px;
+	background: url('../../img/order_info.png') no-repeat;
+}
+
+.info_ul li.li_current {
+	padding-left: 20px;
+	padding-right: 30px;
+	box-sizing: border-box;
+	width: 310px;
+	margin-top: 0px;
+	background: url('../../img/order_info_current.png');
+}
+
+.info_ul li.add_new_address {
+	background: url('../../img/add_new_address.png') no-repeat;
+}
+
+.shouhuo_name {
+	font-size: 14px;
+	color: #333333;
+	margin-top: 18px;
+}
+
+.shouhuo_phone {
+	margin-top: 25px;
+}
+
+.shouhuo_address {
+	margin-top: 15px;
+}
+
+.shouhuo_phone, .shouhuo_address {
+	color: #666666;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+.info_ul li.li_current .shouhuo_address span.addr {
+	display: inline-block;
+	width: 218px;
+}
+
+.info_ul li .shouhuo_address span.addr {
+	display: inline-block;
+	width: 213px;
+}
+
+.add_new_address {
+	cursor: pointer;
+}
+
+.hot_line span {
+	color: #80AEFF;
+	border-bottom: 2px solid #c6d9ff;
+	display: inline-block;
+	width: 86px;
+}
+
+.hot_line {
+	color: #333333;
+	font-size: 16px;
+	height: 40px;
+	padding-top: 12px;
+    box-sizing: border-box;
+    padding-left: 40px;
+}
+
+.convey {
+	text-align: right;
+	font-size: 16px;
+	padding-top: 5px;
+	padding-right: 25px;
+	box-sizing: border-box;
+}
+
+.convey span span {
+	font-size: 24px;
+}
+
+.buy_shop_pic {
+	border: 1px solid #c9c9c9;
+	width: 118px;
+	height: 108px;
+	background: url('../../img/buy_shop_pic.png') center center;
+}
+
+.buy_shop_info ul li {
+	padding: 14px 0px 14px 11px;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.buy_shop_name {
+	width: 208px;
+	font-size: 16px;
+	color: #333333;
+	margin-left: 45px;
+	line-height: 110px;
+}
+
+.buy_shop_money {
+	font-size: 16px;
+	width: 160px;
+	line-height: 110px;
+}
+
+.buy_shop_money .money_span,.buy_shop_total {
+	color: #ff3232;
+}
+
+.buy_shop_guige {
+	width: 400px;
+	font-size: 14px;
+	color: #333333;
+	line-height: 110px;
+}
+
+.buy_shop_total {
+	text-align: right;
+	width: 260px;
+	line-height: 110px;
+}
+
+.preson_info {
+	height: 152px;
+	background: #f4f4f4;
+}
+
+.preson_info_bg {
+	padding: 8px 12px;
+	border-bottom: 1px solid #ece9ea;
+}
+
+.info_width {
+	width: 441px;
+	height: 152px;
+	color: #333333;
+	font-size: 16px;
+}
+
+.info_width span.span {
+	color: #ff3232;
+	font-size: 20px;
+}
+
+.info_width div {
+	margin-top: 15px;
+}
+
+.info_width p {
+	margin-top: 7px;
+}
+
+.info_width p span.span {
+	display: inline-block;
+	width: 75px;
+	text-align: right;
+}
+
+.send_addr {
+	margin-top: 11px;
+	padding-right: 12px;
+}
+
+.send_addr_bg {
+	width: 440px;
+	height: 140px;
+	background: url('../../img/send_addr.png');
+	padding-bottom: 12px;
+	box-sizing: border-box;
+}
+
+.inner {
+	padding-left: 20px;
+}
+
+.inner .div1 {
+	height: 60px;
+    line-height: 28px;
+    display: table;
+    margin-top: 12px;
+}
+
+.inner .div1 span {
+	display: table-cell;
+	vertical-align: middle;
+	color: #666666;
+}
+
+.inner .div2 {
+	height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+    color: #333333;
+}
+
+.inner .div2 span {
+	color: #666;
+	margin-left: 34px;
+}
+
+.line1 {
+    width: 100%;
+    height: 0;
+    min-width: 1229px;
+    border-bottom: 1px solid #e1e1e8;
+}

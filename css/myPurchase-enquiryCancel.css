@@ -1,0 +1,178 @@
+.mianCont_box,.tabLinkMaxBox{display: none;}
+html,body{width: 100%;background-color: white}
+.topTitle{height: 130px;line-height: 130px;background-color: white;}
+.topTitle>.logo1{height: 100%;}
+.topTitle>.logo1>img{vertical-align: middle;}
+.topTitle>.userTitle{ margin-left: 26px;padding-left: 26px;border-left: 2px solid #f1f1f1;  height: 100px;  line-height: 100px;  margin-top: 18px;  color: #090405;  font-size: 30px;  font-family:MicrosoftYaHei-Bold;  }
+.stateList{background-color: white;padding: 14px 0;}
+.stateList>div{float:left; padding: 2px 6px;  }
+.line{width: 100%; height: 0; min-width: 1229px;border-bottom: 2px solid #e1e1e8;  }
+.footerTop{border-top: 1px solid #e1e1e8;}
+.mainLeft{width: 272px;height: 705px;border: 1px solid #e1e1e8;margin-right: 10px;}
+.mainLeft>.title{height: 50px;line-height: 50px;border-bottom: 1px solid #e1e1e8;padding-left: 21px;}
+.mainLeft>ul{padding-left: 21px;font-size: 14px;}
+.mainLeft>ul>li{margin-top: 20px;}
+
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+.red{
+    color: #F03131;
+}
+.blue{
+    color: #5590F6;
+}
+.green{
+    color: #79C254;
+}
+.yellow{
+    color: #FF8827;
+}
+.main {
+    width: 937px;
+    color: #282828;
+    background: #fff;
+    border: 1px solid #EBE9EA;
+    font-size: 14px;
+}
+.myPurchase-title{
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #EBE9EA;
+}
+.myPurchase-title .Lf{
+    font-size: 16px;
+    margin-left: 18px;
+}
+.myPurchase-title .Rt{
+    margin-right: 40px;
+}
+.purchaseInfo{
+    border-bottom: 1px solid #EBE9EA;
+    min-height: 250px;
+}
+.purchaseInfo .item{
+    margin-top: 24px;
+    margin-left: 20px;
+    margin-right: 24px;
+    overflow: hidden;
+}
+.item .payWay{
+    margin-left: 150px;
+}
+.item .sumPrice{
+    margin-left: 125px;
+}
+.item .compony{
+    margin-left: 80px;
+}
+.item.address p{
+    margin-right: 50px;
+}
+.item.address p:last-child{
+    margin: 0;
+}
+.item .tel{
+    margin-left: 170px;
+}
+.item .zuojiTel{
+    margin-left: 85px;
+}
+.myPurchase-refusedCancel{
+    width:935px;
+    height:232px; 
+    background-image: url(../img/mp_xpqx.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 183px 142px;
+    background-color: #FDFDFD;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 148px;
+    box-sizing: border-box;
+}
+
+.myPurchase-refused4{
+    width:935px;
+    height:232px;
+    background-image: url(../img/mp_xpjj.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 183px 142px;
+    background-color: #FDFDFD;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 148px;
+    box-sizing: border-box;
+}
+
+.myPurchase-refused3{
+    width:935px;
+    height:232px;
+    background-image: url(../img/mp_xpsx.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 183px 142px;
+    background-color: #FDFDFD;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 148px;
+    box-sizing: border-box;
+}
+
+.myPurchase-refused2{
+    width:935px;
+    height:232px;
+    background-image: url(../img/mp_ddsjqr.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 66px 123px;
+    background-color: #FDFDFD;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 148px;
+    box-sizing: border-box;
+}
+
+.myPurchase-refused1{
+    width:935px;
+    height:232px;
+    background-image: url(../img/mp_yqr.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 298px 137px;
+    background-color: #FDFDFD;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 148px;
+    box-sizing: border-box;
+}
+.business{
+    height: 156px;
+    padding-left: 18px;
+    box-sizing: border-box;
+    line-height: 38px;
+    border-bottom: 1px solid #EBE9EA;
+}
+.infoItem{
+    overflow: hidden;
+}
+.infoItem>div{
+    float: left;
+}
+.sumMoney{
+    width: 285px;
+}
+.cd{
+    width:150px;
+}

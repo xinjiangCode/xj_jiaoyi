@@ -1,0 +1,282 @@
+html,body { 
+	width: 986px;
+	background-color: white;
+	min-width: 986px;
+}
+
+.main {
+	border: 1px solid #EBE9EA;
+	width: 986px;
+	position: relative;
+}
+
+.step_title .text_center>div {
+	float: left;
+}
+
+.step_title {
+	height: 62px;
+	line-height: 62px;
+	text-align: center;
+	border-bottom: 1px solid #EBE9EA;
+}
+
+.step_title .step_p {
+	width:18px;
+	height:18px; 
+	display: inline-block;
+	-webkit-border-radius:50%; 
+    -moz-border-radius:50%; 
+    -ms-border-radius:50%;  
+    -o-border-radius:50%;  
+    border-radius: 50%;
+	font-size: 12px;
+	text-align: center;
+	line-height: 18px;
+	color: #fff;
+}
+
+.step_title .step_p.current {
+	background:rgba(130,176,255,1);
+}
+
+.step_title .step_p {
+	background:rgba(255,173,86,1);
+}
+
+.step_title .step {
+	color: #282828;
+	font-size: 16px;
+}
+
+.step_title .line {
+	margin: 0 5px;
+	color: #939393;
+	font-size: 16px;
+}
+
+.step_title .text_center {
+	display: inline-block;
+}
+
+/* 主内容左侧 */
+.shop_name {
+	width: 357px;
+	height: 36px;
+}
+
+.shop_attr {
+	width: 268px;
+	height: 36px;
+}
+
+.export_btn {
+	width: 79px;
+	height: 30px;
+	color: #282828;
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+	-webkit-border-radius:2px; 
+    -moz-border-radius:2px; 
+    -ms-border-radius:2px;  
+    -o-border-radius:2px;  
+    border-radius: 2px;
+	border: 1px solid #D3D3D3;
+	display: inline-block;
+	margin-left: 4px;
+}
+
+.main_content {
+	padding-left: 62px;
+	box-sizing: border-box;
+}
+
+.ul {
+	padding-top: 15px;
+}
+
+.ul li {
+	margin-top: 17px;
+}
+
+.up_down {
+	width: 28px;
+	height: 40px;
+	background-color: #5892F3;
+	display: inline-block;
+	-webkit-border-radius: 0px 2px 2px 0px; 
+    -moz-border-radius: 0px 2px 2px 0px; 
+    -ms-border-radius: 0px 2px 2px 0px;  
+    -o-border-radius: 0px 2px 2px 0px;  
+	border-radius: 0px 2px 2px 0px;                    
+}
+
+.border-radius {
+	-webkit-border-radius: 2px 0 0 2px; 
+    -moz-border-radius: 2px 0 0 2px; 
+    -ms-border-radius: 2px 0 0 2px;  
+    -o-border-radius: 2px 0 0 2px; 
+	border-radius: 2px 0 0 2px;
+}
+
+.up_down img {
+	display: block;
+	width: 11px;
+	height: 7px;
+	margin: auto;
+	cursor: pointer;
+}
+
+.up_down .up_icon {
+	margin-top: 10px;
+}
+
+.up_down .down_icon {
+	margin-top: 5px;
+}
+
+.shop_sort_first {
+	width: 125px;
+}
+
+.shop_sort_second {
+	width: 152px;
+	margin-left: 18px;
+}
+
+.shop_sort {
+	width: 330px;
+}
+
+.padding-left {
+	padding-left: 27px;
+}
+
+.jibie {
+	width: 108px;
+}
+
+.chundu {
+	width: 122px;
+}
+
+.ml16 {
+	margin-left: 16px;
+}
+
+.xingtai {
+	width: 94px;
+}
+
+.chandi {
+	width: 174px;
+}
+
+.padding-left15 {
+	padding-left: 15px;
+}
+
+.img .upload_img {
+	width: 150px; 
+	height: 100px;
+	margin-left: 3px;
+	display: block;
+	background: url('../../img/product_pic.png');
+}
+
+#file {
+	display: block;
+	margin-left: 24px;
+	margin-bottom: 30px;
+}
+
+.img1 .upload_img1 {
+	width: 130px;
+	margin-left: 3px;
+	height: 100px;
+	background: url('../../img/product_pic.png');
+}
+
+.ml11 {
+	margin-left: 11px;
+}
+
+.upload_info {
+	color: #FF8D8D;
+	font-size: 14px;
+	margin-left: 24px;
+}
+
+.fr_div {
+	width: 329px;
+	height: 451px;
+	border: 1px solid #EBE9EA;
+}
+
+.position {
+	position: absolute;
+	right: 63px;
+	top: 90px;
+}
+
+.fr_div {
+	padding-left: 19px;
+	box-sizing: border-box;
+	padding-top: 10px;
+}
+
+.fr_div p {
+	color: #666666;
+	font-size: 14px;
+	line-height: 1.75;
+}
+
+.p span {
+	display: inline-block;
+	width:359px;
+	height:51px; 
+	background-color: #5590f6;
+	color: #fff;
+	text-align: center;
+	line-height: 51px;
+	-webkit-border-radius:2px; 
+    -moz-border-radius:2px; 
+    -ms-border-radius:2px;  
+    -o-border-radius:2px;  
+	border-radius: 2px; 
+	margin: 48px 0 133px 180px;
+}
+
+#file1 {
+	margin-top: 40px;
+	margin-left: 20px;
+}
+
+
+
+.shop_sort_first1 {
+	width: 153px;
+	height: 38px;
+}
+
+.shop_sort_first2 {
+	width: 180px;
+	height: 38px;
+	margin-left: 26px;
+}
+
+.shop_sort_select {
+	width: 364px;
+	height: 38px;
+}
+
+.jibie_select {
+	width: 142px;
+	height: 38px;
+}
+
+.xingtai_select, .guige_select {
+	width: 130px;
+	height: 38px;
+}

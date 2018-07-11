@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/shopManage/shopManage.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/limitManage.css">
+</head>
+<style>
+    .user_list_title span {
+       margin-left: 18px; 
+    }
+
+    .shop_list_table {
+        color: #4F4F4F;
+    }
+
+    .shop_list_table td {
+        height: 63px;
+        line-height: 63px;
+    }
+    .pageJump .yeshu{
+    		height: 42px;
+    }
+    .notData{
+    		color: #666;
+    		font-size: 14px;
+    		text-align: center;
+    		display: none;
+    		margin-top: 20px;
+    }
+</style>
+<body>
+    <!-- 企业已认证-操作日志 1418px -->
+    <div class="main">
+        <div class="user_list">
+            <div class="user_list_title">
+                <span>账户管理</span>
+            </div>
+        </div>
+        <table class="shop_list_table">
+            <thead>
+                <th>登陆账号</th>
+                <th>时间</th>
+                <th>IP</th>
+                <th>地区</th>
+                <th>登录方式</th>
+                <th>姓名</th>
+                <th>职务</th>
+                <th>操作描述</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12312312312</td>
+                    <td>2020-03-20 13:03:22</td>
+                    <td>183.14.135.1</td>
+                    <td>乌鲁木齐</td>
+                    <td>PC端登陆</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>12312312312</td>
+                    <td>2020-03-20 13:03:22</td>
+                    <td>183.14.135.1</td>
+                    <td>乌鲁木齐</td>
+                    <td>PC端登陆</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>12312312312</td>
+                    <td>2020-03-20 13:03:22</td>
+                    <td>183.14.135.1</td>
+                    <td>乌鲁木齐</td>
+                    <td>PC端登陆</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>12312312312</td>
+                    <td>2020-03-20 13:03:22</td>
+                    <td>183.14.135.1</td>
+                    <td>乌鲁木齐</td>
+                    <td>PC端登陆</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>12312312312</td>
+                    <td>2020-03-20 13:03:22</td>
+                    <td>183.14.135.1</td>
+                    <td>乌鲁木齐</td>
+                    <td>PC端登陆</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>12312312312</td>
+                    <td>2020-03-20 13:03:22</td>
+                    <td>183.14.135.1</td>
+                    <td>乌鲁木齐</td>
+                    <td>PC端登陆</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="notData">暂无操作数据</p>
+        <div class="mianCont pagerBox" style="text-align: center;margin-top: 39px;">
+	        <ul class="pagination" id="page1"></ul>
+	        <div class="pageJump">
+	                <span class="allPageN">1/200</span>
+	                共<span class="allPageSize"></span>页，
+	            <span>到第</span>
+	            <input type="number" class="yeshu"/>
+	            <span>页</span>
+	            <button type="button" class="button">GO</button>
+	        </div>
+	    </div>
+    </div>
+   	<script src="../../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+   	<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+   	<script src="../../js/pager.js" type="text/javascript" charset="utf-8"></script>
+   	<script type="text/javascript">
+   		var isFirst = true;
+   		getData(0);
+   		
+   		//$('.pageJump .button').click(function(){
+   		$(document).on('click','.pageJump .button',function(){
+   			console.log($('.yeshu').val());
+   			if($('.yeshu').val() != ''){
+   				getData($('.yeshu').val());
+   			}
+   		})
+   		
+   		function getData(num){
+   			$.ajax({ 
+	          type:"post",
+	          url:pubIP+"store/getStoreOperationrecordList",//v1.0
+	          cache:false,
+	          dataType: "json",
+			  headers: {
+			  	token: token
+			  },
+	          data:{
+	        	  'companyId':companyId,
+	        	  'sEcho':num,
+	        	  'pageNum':num
+	          },
+	          success: function(json){
+	            //console.log(json);
+	            if(json.aData.length == 0){
+	            		$('.shop_list_table tbody').html('');
+	            		$('.notData').show();
+	            		if(num == 0){
+	            			$('.pagerBox').hide();
+	            		}
+	            		return false;
+	            }else{
+	            		$('.notData').hide();
+	            }
+	            if(isFirst){
+	            		Page({
+				        num: json.pages,
+				        elem: $('#page1'),
+				        callback: function(n) {
+				            //console.log(n);
+				            getData(n-1);
+				        }
+				    });
+				    $('.allPageN').text(num+1+'/'+json.pages);
+				    $('.allPageSize').text(json.pages);
+				    isFirst = false;
+	            }
+	            addDom(json.aData);
+	          },
+	          error:function(xhr,statues,error){
+	              
+	          }
+	       });
+   		}
+   		function addDom(data){
+   			var str = '';
+   			$.each(data,function(i,t){
+   				str += '<tr>\
+		                    <td>'+t.loginName+'</td>\
+		                    <td>'+new Date(t.currentDateTime).Format("yyyy-MM-dd hh:mm:ss")+'</td>\
+		                    <td>'+t.currentIp+'</td>\
+		                    <td>'+t.currentAddress+'</td>\
+		                    <td>'+(t.loginType == 1 ? "PC" : "移动")+'端登录</td>\
+		                    <td>'+(t.name == null ? "" : t.name)+'</td>\
+		                    <td>'+(t.orgName == null ? "" : t.orgName)+'</td>\
+		                    <td>'+(t.record == null ? "" : t.record)+'</td>\
+		                </tr>';
+   			})
+   			$('.shop_list_table tbody').html(str);
+   		}
+   	</script>
+</body>
+</html>

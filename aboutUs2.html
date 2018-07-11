@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title  adct="首页">新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<script src="js/header.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/aboutUs.css"/>
+		<style type="text/css">
+			body{
+				background: #fdfdfd;
+			}
+			.compBox{
+				width: 1029px;
+				height: 211px;
+				margin: 0 auto;
+				margin-top: 118px;
+				color: #333333;
+				text-align: left;
+			}
+			.compBox .tit{
+				color: #333;
+				font-size: 28px;
+				max-height: 28px;
+				line-height: 28px;
+				margin-bottom: 52px;
+			}
+			.compBox .tit span{
+				color: #666666;
+				font-size: 14px;
+			}
+			.compBox .txt{
+				text-indent: 30px;
+				font-size: 18px;
+				line-height: 34px;
+			}
+			.compBox2{
+				width: 1196px;
+				height: 170px;
+				border: 1px #D3D3D3 solid;
+				margin: 0 auto;
+				margin-top: 36px;
+				margin-bottom: 39px;
+				box-shadow:1px 1px 3px #ccc;
+				overflow: hidden;
+				background: url(img/compBox2bg.png) no-repeat;
+				background-position:1036px 17px ;
+			}
+			.compBox2 .lft{
+				height: 75px;
+				width: 231px;
+				border-right: 2px #D9D9D9 solid;
+				float: left;
+				margin-left: 23px;
+				margin-top: 50px;
+			}
+			.lft h2{
+				color: #5690F6;
+				font-size: 28px;
+				max-height: 28px;
+				line-height: 28px;
+				margin-bottom: 30px;
+			}
+			.lft p{
+				color: #888888;
+				font-size: 14px;
+				max-height: 14px;
+				line-height: 14px;
+			}
+			.compBox2 .rt{
+				width: 786px;
+				margin-top: 30px;
+				margin-right: 80px;
+				float: right;
+				line-height: 37px;
+				color: #666;
+				font-size: 14px;
+			}
+			.twkItem{
+				overflow: hidden;
+			}
+			.twkItem:first-child .year{
+				border-right: 0px #568ff6 solid;
+			}
+			.twkItem:last-child .detailBoxItem:last-child .time{
+				padding-bottom: 0;
+			}
+			.year{
+				color: #5690F6;
+				font-size: 27px;
+				max-height: 30px;
+				line-height: 30px;
+				width: 147px;
+				text-align: right;
+				padding-right: 10px;
+				box-sizing: border-box;
+				border-right: 2px #568ff6 solid;
+			}
+			.year span{
+				float: left;
+				width: 16px;
+				height: 16px;
+				background: #5690F6;
+				margin-top: 9px;
+				margin-left: 8px;
+			}
+			.detailBoxItem{
+				width: 100%;
+				overflow: hidden;
+				color: #585757;
+			}
+			.detailBoxItem:first-child .time,.detailBoxItem:first-child .hpn{
+				padding-top: 30px;
+			}
+			
+			.detailBoxItem .time{
+				color: #585757;
+				font-size: 16px;
+				margin-right: 22px;
+				padding-top: 22px;
+				border-right: 2px #5690F6 solid;
+				float:left;
+				width: 147px;
+				padding-left: 57px;
+				box-sizing: border-box;
+				position: relative;
+				padding-bottom: 25px;
+				font-size: 16px;
+			}
+			.detailBoxItem .time div{
+				border-radius: 100%;
+				width: 16px;
+				height: 16px;
+				background: #5690F6;
+				position: absolute;
+			    right: -9px;
+    				top: 24px;
+			}
+			.timeWk{
+				width: 1196px;
+				overflow: hidden;
+				padding-bottom: 248px;
+			}
+			.detailBoxItem .hpn{
+				padding-left: 27px;
+				float: left;
+				padding-top: 22px;
+				font-size: 18px;
+			}
+			.detailBoxItem:first-child .time div{
+				top: 32px;
+			}
+			.hpn p:first-child{
+				margin-top: -15px;
+    				margin-bottom: 8px;
+    				max-height: 18px;
+    				line-height: 18px;
+			}
+			.detailBoxItem:last-child .time{
+				padding-bottom: 37px;
+			}
+			
+			
+			.year,.detailBoxItem{
+				opacity: 0;
+				transition: all 0.3s;
+			}
+			.detailBoxItem:hover{
+				color: #5690F6;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--关于我们-->
+		<div class="aboutHeader maxWidth">
+			<div class="mianCont">
+				<img src="img/cf_logo.png" />
+				<div class="mianCont tabLink">
+					<a href="index.html" class="actTabLink"><span>首页</span></a>		
+					<a href="spotGoods/spotGoods.html"><span>现货商城</span></a>		
+					<a href="spotGoods/spotGoods.html"><span>试剂商城</span></a>		
+					<a href="freeSearch/freeSearch.html"><span>免费找货</span></a>		
+					<a href="##"><span>金融服务</span></a>		
+					<a href="##"><span>物流服务</span></a>		
+					<a href="##"><span>抢购</span></a>		
+					<a href="##"><span>抢货</span></a>		
+					<a href="industryInformation.html"><span>行业资讯</span></a>		
+					<a href="##" class="notPd"><span>会员商场</span></a>	
+				</div>
+			</div>
+		</div>
+		<div class="maxWidth bg1">
+			<div class="compBox">
+				<div class="tit">公司介绍 <span>COMPANY INTRODUCTION</span></div>
+				<div class="txt">
+					新疆中顺鑫和供应链管理股份有限公司成立于2015年12月，
+					由新疆中泰（集团）有限责任公司参股，注册资本5000万元，
+					其开发建设及运营的新疆化学品经营服务平台（www.xjv56.com）于2016年8月正式上线，
+					是新疆维吾尔自治区安全生产监督管理局唯一指定危化品交易试点平台、
+					新疆维吾尔自治区经济和信息化委员会唯一指定危化品交易大数据分析平台。
+				</div>
+			</div>
+		</div>
+		<div class="mianCont">
+			<div class="compBox2">
+				<div class="lft">
+					<h2>发展历程</h2>
+					<p>DEVELOPMENT HISTORY</p>
+				</div>
+				<div class="rt">
+					 新疆化学品经营服务平台由一批拥有丰富互联网经验的43人技术团队提供研发支撑，
+					 致力于构建危化品全产业链新生态系统，
+					 为化工企业提供产品发布、交易撮合、在线支付、物流仓储、供应链金融等全方位立体化服务，
+					 上线至今撮合企业400余家，撮合交易50亿元。
+				</div>
+			</div>
+		</div>
+		<div class="mianCont timeWk">
+			<div class="twkItem">
+				<div class="year">
+					<span></span>
+					<h2>2016年</h2>
+				</div>
+				<div class="detailBox">
+					<div class="detailBoxItem">
+						<div class="time">
+							<span>2016.08</span>
+							<div></div>
+						</div>
+						<div class="hpn">
+							新疆化学品经营服务平台1.0版本正式上线
+						</div>
+					</div>
+					<div class="detailBoxItem">
+						<div class="time">
+							<span>2016.09</span>
+							<div></div>
+						</div>
+						<div class="hpn">
+							新疆化学品经营服务平台1.0版本正式上线
+						</div>
+					</div>
+					<div class="detailBoxItem">
+						<div class="time">
+							<span>2016.11</span>
+							<div></div>
+						</div>
+						<div class="hpn">
+							自治区安全生产监督管理局党组副书记、局长盛少琨一行莅临指导
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="twkItem">
+				<div class="year">
+					<span></span>
+					<h2>2017年</h2>
+				</div>
+				<div class="detailBox">
+					<div class="detailBoxItem">
+						<div class="time">
+							<span>2017.04</span>
+							<div></div>
+						</div>
+						<div class="hpn">
+							新疆化学品经营服务平台1.5版本全新上线
+						</div>
+					</div>
+					<div class="detailBoxItem">
+						<div class="time">
+							<span>2017.05</span>
+							<div></div>
+						</div>
+						<div class="hpn">
+							新疆化学品经营服务平台列入新疆化工行业安全生产“十三五”规划重点项目
+						</div>
+					</div>
+					<div class="detailBoxItem">
+						<div class="time">
+							<span>2017.07</span>
+							<div></div>
+						</div>
+						<div class="hpn">
+							<p>新疆化学品经营服务平台交易额突破10亿大关 </p>
+							<p>新疆化学品经营服务平台参与第四届新疆创新创业大赛</p>
+						</div>
+					</div>
+					<div class="detailBoxItem">
+						<div class="time">
+							<span>2017.08</span>
+							<div></div>
+						</div>
+						<div class="hpn">
+							新疆化学品经营服务平台与新疆蓝天石油化学物流有限责任公司达成长期战略合作关系
+						</div>
+					</div>
+					<div class="detailBoxItem">
+						<div class="time">
+							<span>2017.11</span>
+							<div></div>
+						</div>
+						<div class="hpn">
+							首届自治区化工（危险化学品）生产企业主要负责人和安全管理人员安全生产管理知识培训正式开班
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="twkItem">
+				<div class="year">
+					<span></span>
+					<h2>2018年</h2>
+				</div>
+				<div class="detailBox">
+					<div class="detailBoxItem">
+						<div class="time">
+							<span>2018.01</span>
+							<div></div>
+						</div>
+						<div class="hpn">
+							新疆化学品经营服务平台交易额突破50亿
+						</div>
+					</div>
+					<div class="detailBoxItem">
+						<div class="time">
+							<span>2018.05</span>
+							<div></div>
+						</div>
+						<div class="hpn">
+							新疆中顺鑫和供应链管理股份有限公司与新疆库尔勒华力运销有限责任公司签署战略合作框架协议
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cityBg"></div>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var first = false;
+			$(window).scroll(function(){
+				var yd = 0;
+				if(first){
+					return false;
+				}
+				if($(window).scrollTop() > 409){
+					var sett = setInterval(function(){
+					if(yd == $('.year,.detailBoxItem').length){
+							clearInterval(sett);
+						}
+						$($('.year,.detailBoxItem')[yd]).css({
+							'opacity':'1',
+						})
+						yd++;
+					},300)
+					first = true;
+				}
+			})
+//			$.ajax({ 
+//	          type:"post",
+//	          url:"http://192.168.1.80:7777/service/platform/getAboutUsByTitle",//v1.0
+//	          cache:false,
+//	          dataType: "json",
+//	          async:false,
+//			  headers: {
+//			  	token: token
+//			  },
+//	          data:{
+//	        	  'title':'关于xjv56',
+//	        	  ''
+//	          },
+//	          success: function(json){
+//	            console.log(json);
+//	          },
+//	          error:function(xhr,statues,error){
+//	              
+//	          }
+//	       });
+		</script>
+	</body>
+</html>

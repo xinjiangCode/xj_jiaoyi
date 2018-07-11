@@ -1,0 +1,114 @@
+.standingBook {
+	width: 984px;
+	border: 1px solid #eeeced;
+}
+
+.standingBookTitle {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eeeced; 
+	padding-left: 19px;
+	font-size: 16px;
+	color: #282828;
+}
+
+.standing_book_ul li {
+	float: left;
+}
+
+.standing_book_ul {
+	padding-left: 18px;
+	font-size: 14px;
+	height: 39px;
+	line-height: 39px;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.standing_book_li_one {
+	width: 87px;
+}
+
+.standing_book_li_two {
+	width: 170px;
+}
+
+.standing_book_li_three {
+	width: 129px;
+}
+
+.standing_book_li_four {
+	width: 112px;
+}
+
+.standing_book_li_five {
+	width: 158px;
+}
+
+.standing_book_li_six {
+	width: 73px;
+}
+
+.standing_book_li_seven {
+	width: 121px;
+}
+
+.standing_list li {
+	height: 40px;
+	border-bottom: 1px solid #ebe9ea;
+	display: table;
+}
+
+.standing_list li span {
+	text-align: center; 
+	font-size: 14px;
+	display: table-cell;
+    vertical-align: middle;
+}
+
+.standing_sort {
+	width: 58px;
+}
+
+.standing_name {
+	width: 170px;
+}
+
+.standing_qiye_type {
+    width: 152px;
+}
+
+.standing_yujing_edu {
+    width: 103px;
+}
+
+.standing_yujing_addTime {
+    width: 155px;
+}
+
+.yingshou {
+	width: 100px;
+}
+
+.yingfu {
+    width: 48px;
+}
+
+.operate {
+    width: 195px;
+}
+
+.set_yujing_edu {
+	margin-left: 10px;
+}
+
+.orange {
+	color: #FF8921;
+}
+
+.blue {
+	color: #5590F6;
+}
+
+.standing_list li:last-child {
+	border-bottom: none;
+}

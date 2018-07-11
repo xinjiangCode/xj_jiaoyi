@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/myPurchase-orderDetail.css">
+    <style>
+        .orderStatus_order.overtime{
+            margin: 0 auto;
+            text-align: center;
+            overflow: hidden;
+            height: 110px;
+        }
+        .orderStatus_order p.overtime{
+            float: left;
+            margin-left: 110px;
+        }
+        .orderStatus_order .payBtn.overtime{
+            float: left;
+            margin-top: 35px;
+        }
+        /* 模态框 */
+        .modelBox{
+            z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modelCont{
+            position: absolute;
+            width: 450px;
+            height: 276px;
+            left: 50%;
+            top: 50%;
+            margin-left: -225px;
+            margin-top: -138px;
+            font-family: 'microsoft yahei';
+            /* background-color: red; */
+        }
+        .modeltitle{
+            width: 450px;
+            height: 50px;
+            background-image: url(../img/gsxq.gif);
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 16px;
+            color: #5690f6;
+            line-height: 50px;
+        }
+        .modeltitle span{
+            margin-left: 16px;
+        }
+        .modelcontent{
+            width: 450px;
+            height: 226px;
+            background-image: url('../img/gsxq_cont.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 18px;
+        }
+        .modelcontent label{
+            margin-left: 70px;
+        }
+        .modelcontent select{
+            width: 230px;
+            height: 40px;
+            border: 1px solid #8B8B8B;
+            line-height: 40px;
+            border-radius: 3px;
+            margin: 50px auto;
+            background: #F8F8F8;
+        }
+        .modelBtnBox{
+            width: 302px;
+            height: 45px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .modelbtn{
+            float: left;
+            width: 145px;
+            height: 45px;
+            border: 1px solid #5690f6;
+            font-size: 18px;
+            color: #fff;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .od_head .Rt img {
+            margin-right: -5px;
+        }
+    </style>
+</head>
+<body style="background: #fff;">
+    <div class="orderDetailMain">
+        <div class="od_head title clearfix">
+            <div class="Lf">订单状态</div>
+            <div class="Rt">
+                <span>重要提醒：暂无数据</span>
+                <img src="../img/mp_qiE.png" alt="在线客服">
+                <span class="blue">在线客服</span>
+            </div>
+        </div>
+        <!-- 订单超时,订单已取消 不展示进度条 <div class="orderStatus_progress bacFD">-->
+        <div class="orderStatusProgressBox">
+            <script type="text/html" id="orderStatus_progressTpl">
+                <%if(state==8){%>
+                    <div class="orderStatus_progress bacFD" style="display:none;"></div>
+                <%} else {%>
+                    <div class="orderStatus_progress bacFD">
+                        <%if(state==1 || state==2){%>
+                            <%if(logisticsOrderState==1){%><!-- 待发货，待付款 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待支付</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待发货</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待确认收货</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}else if(logisticsOrderState==2){%><!-- 已发货，待付款 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已发货</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待支付</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待确认收货</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}else if(logisticsOrderState==3){%><!-- 已收货未支付 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已收货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待支付</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}%>
+                        <%} else if(state==3){%><!-- 订单等待确认收货（支付成功，物流未完成） -->
+                            <div class="statusProgress clearfix">
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar" style="left:579px;"></div>
+                                <div class="cicle"><span></span></div>
+                            </div>
+                            <div class="statusInfo clearfix">
+                                <div class="infoItem">
+                                    <div class="infoItemCont">提交订单</div>
+                                    <div class="infoItemTime">暂无数据</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">已支付</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">已发货</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">待确认收货</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">完成</div>
+                                    <div class="infoItemTime"></div>
+                                </div>
+                            </div>
+
+                        <%} else if(state==4){%><!-- 待结算（支付完成已确认收货） -->
+                            <div class="statusProgress clearfix">
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar" style="left:579px;"></div>
+                                <div class="cicle"><span></span></div>
+                            </div>
+                            <div class="statusInfo clearfix">
+                                <div class="infoItem">
+                                    <div class="infoItemCont">提交订单</div>
+                                    <div class="infoItemTime">暂无数据</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">已支付</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">已收货</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">待结算</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">完成</div>
+                                    <div class="infoItemTime"></div>
+                                </div>
+                            </div>
+
+                        <%} else if(state==5){%><!-- 待完成（已结算） -->
+                            <%if(logisticsOrderState==1){%><!-- 未发货 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已支付</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已结算</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}else if(logisticsOrderState==2){%><!-- 已发货 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已结算</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待确认收货</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+
+                            <%}else if(logisticsOrderState==3){%><!-- 已确认收货 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已结算</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已收货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}%>
+                        <%} else if(state==6){%><!-- 订单完成 -->
+                            <div class="statusProgress clearfix">
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive" style="left:579px;"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                            </div>
+                            <div class="statusInfo clearfix">
+                                <div class="infoItem">
+                                    <div class="infoItemCont">提交订单</div>
+                                    <div class="infoItemTime">暂无数据</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">已发货</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">已收货</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">已支付</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">完成</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                            </div>
+                        
+                        <%} else if(state==7 || state==9){%><!-- 超时未支付 -->
+                            <%if(logisticsOrderState==1){%><!-- 未发货 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">未支付</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">未发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待确认收货</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}else if(logisticsOrderState==2){%><!-- 已发货 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">未支付</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待确认收货</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}else if(logisticsOrderState==3){%><!-- 已确认收货 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">未支付</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已收货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}%>
+                        <%} else if(state==10){%><!-- 逾期支付完成 -->
+                            <%if(logisticsOrderState==1){%><!-- 未发货 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">支付完成</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">未发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待确认收货</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}else if(logisticsOrderState==2){%><!-- 已发货 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">支付完成</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待确认收货</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}else if(logisticsOrderState==3){%><!-- 已确认收货 -->
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">支付完成</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已收货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}%>
+
+                        
+                        <%} else if(state==11){%><!-- 订单异常 -->
+                            <%if(logisticsOrderState==1){%>
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">兑账支付</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待确认收货</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                    
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}else if(logisticsOrderState==2){%>
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar"></div>
+                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">兑账支付</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">待确认收货</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                    
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}else if(logisticsOrderState==3){%>
+                                <div class="statusProgress clearfix">
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
+                                </div>
+                                <div class="statusInfo clearfix">
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">提交订单</div>
+                                        <div class="infoItemTime">暂无数据</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">兑账支付</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已发货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">已收货</div>
+                                        <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                    </div>
+                    
+                                    <div class="infoItem">
+                                        <div class="infoItemCont">完成</div>
+                                        <div class="infoItemTime"></div>
+                                    </div>
+                                </div>
+                            <%}%>
+                        <%}else if(state==12 || state==13){%>
+                            <div class="statusProgress clearfix">
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                                <div class="progressBar levelActive" style="left:579px;"></div>
+                                <div class="cicle levelActive"><span></span></div>
+                            </div>
+                            <div class="statusInfo clearfix">
+                                <div class="infoItem">
+                                    <div class="infoItemCont">提交订单</div>
+                                    <div class="infoItemTime">暂无数据</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">已发货</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">已收货</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">已支付</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                                <div class="infoItem">
+                                    <div class="infoItemCont">完成</div>
+                                    <div class="infoItemTime">2017-07-28 15:09:05</div>
+                                </div>
+                            </div>
+                        <%}%>
+                    </div>
+                <%}%>
+                
+            </script>
+        </div>
+        <div class="orderStatus_order">
+            <script type="text/html" id="statusDescTpl">
+                <%if(state==1 || state==2){%>
+                    <%if(logisticsOrderState==1){%><!-- 待发货，待付款 -->
+                        <p>订单状态：订单已经提交成功，等待买家付款。剩余支付时间：<span class="yellow time_djs">29天8时45分25秒</span>，您可以：</p>
+                        <div class="btnBox clearfix">
+                            <div class="payBtn btn btnActive toSendGoodsBtn">发货</div>
+                            <div class="receiveBtn btn toCancelOrderbtn">取消订单</div>
+                        </div>
+                    <%}else if(logisticsOrderState==2){%><!-- 已发货，待付款 -->
+                        <p>订单状态：卖家已发货，等待买家完成付款、确认收货。剩余支付时间：<span class="yellow time_djs">29天8时45分25秒</span></p>
+                    <%}else if(logisticsOrderState==3){%><!-- 已收货未支付 --> 
+                        <p>订单状态：买家及确认收货，等待买家付款。剩余支付时间：<span class="yellow time_djs">29天8时45分25秒</span></p>
+                    <%}%>
+                <%} else if(state==3){%><!-- 订单等待确认收货（支付成功，物流未完成） -->
+                    <p>订单状态：订单已经支付成功，等待确认收货。</p>
+                <%} else if(state==4){%><!-- 待结算（支付完成已确认收货） -->
+                    <p>订单状态：订单已经支付完成，买家已确认收货，等待结算。</p>
+                <%} else if(state==5){%><!-- 待完成（已结算） -->
+                    <%if(logisticsOrderState==1){%><!-- 未发货 -->
+                        <p>订单状态：订单已经已结算，等待完成，等待卖家发货。您可以：</p>
+                        <div class="btnBox clearfix">
+                            <div class="payBtn btn btnActive toSendGoodsBtn">发货</div>
+                        </div>
+                    <%}else if(logisticsOrderState==2){%><!-- 已发货 -->
+                        <p>订单状态：订单已经已结算，等待完成，卖家已发货。</p>
+                    <%}else if(logisticsOrderState==3){%><!-- 已确认收货 -->
+                        <p>订单状态：订单已经已结算，等待完成，买家已收货。</p>
+                    <%}%>
+                <%} else if(state==6){%><!-- 订单完成 -->
+                    <p>订单状态：已完成</p>
+                
+                <%} else if(state==8){%><!-- 订单已取消 -->
+                    <p>订单状态：已取消&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;取消时间：<%=stateTimeMap.trading_cancel%></p>
+                <%} else if(state==7 || state==9){%><!-- 超时未支付 -->
+                    <%if(logisticsOrderState==1){%><!-- 未发货 -->
+                        <p class="overtime">订单状态：未发货，未支付，支付超时&nbsp;&nbsp;&nbsp;&nbsp;超时时间：<%=stateTimeMap.trading_submit_success%>&nbsp;&nbsp;&nbsp;&nbsp;您可以：</p>
+                        <div class="btnBox clearfix"  style="float: left;">
+                            <div style="margin-top:15px;" class="payBtn btn btnActive overtime extendPayTimebtn">延长支付时间</div>
+                        </div>
+                    <%}else if(logisticsOrderState==2){%><!-- 已发货 -->
+                        <p class="overtime">订单状态：已发货，未支付，支付超时&nbsp;&nbsp;&nbsp;&nbsp;超时时间：<%=stateTimeMap.logistics_finished_delivery%>&nbsp;&nbsp;&nbsp;&nbsp;您可以：</p>
+                        <div class="btnBox clearfix" style="float: left;">
+                            <div style="margin-top:15px;" class="payBtn btn btnActive overtime extendPayTimebtn">延长支付时间</div>
+                        </div>
+                    <%}else if(logisticsOrderState==3){%><!-- 已确认收货 -->
+                        <p class="overtime">订单状态：已确认收货，未支付，支付超时&nbsp;&nbsp;&nbsp;&nbsp;超时时间：<%=stateTimeMap.logistics_finished_receiving%>&nbsp;&nbsp;&nbsp;&nbsp;您可以：</p>
+                        <div class="btnBox clearfix" style="float: left;">
+                            <div style="margin-top:15px;" class="payBtn btn btnActive overtime extendPayTimebtn">延长支付时间</div>
+                        </div>
+                    <%}%>
+                    <!-- 采购时<div class="payBtn btn btnActive overtime">立即支付</div> -->
+                <%} else if(state==10){%><!-- 逾期支付完成  -->
+                    <%if(logisticsOrderState==1){%><!-- 未发货 -->
+                        <p>订单状态：订单已经已结算，等待完成，等待卖家发货，支付完成&nbsp;&nbsp;&nbsp;&nbsp;完成时间：<%=stateTimeMap.trading_overdue_pay%>。&nbsp;&nbsp;&nbsp;&nbsp;您可以：</p>
+                        <div class="btnBox clearfix">
+                            <div class="payBtn btn btnActive toSendGoodsBtn">发货</div>
+                        </div>
+                    <%}else if(logisticsOrderState==2){%><!-- 已发货 -->
+                        <p>订单状态：订单已经已结算，等待完成，卖家已发货，支付完成&nbsp;&nbsp;&nbsp;&nbsp;完成时间：<%=stateTimeMap.trading_overdue_pay%>。</p>
+                    <%}else if(logisticsOrderState==3){%><!-- 已确认收货 -->
+                        <p>订单状态：订单已经已结算，等待完成，买家已收货，支付完成&nbsp;&nbsp;&nbsp;&nbsp;完成时间：<%=stateTimeMap.trading_overdue_pay%>。</p>
+                    <%}%>
+
+                    <!-- <p class="overtime">订单状态：支付完成，支付超时&nbsp;&nbsp;&nbsp;&nbsp;超时时间：2018.04.12 12: 34: 35&nbsp;&nbsp;&nbsp;&nbsp;您可以：</p> -->
+                    
+                <%} else if(state==11){%><!-- 异常订单(兑账)处理后的状态 -->
+                    <%if(logisticsOrderState==1){%>
+                        <p>订单状态：买家已付款，等待卖家发货。</p>
+                        <div class="btnBox clearfix">
+                            <div class="payBtn btn btnActive toSendGoodsBtn">发货</div>
+                        </div>
+                    <%}else if(logisticsOrderState==2){%>
+                        <p>订单状态：买家已付款，卖家已发货。</p>
+                    <%}else if(logisticsOrderState==3){%>
+                        <p>订单状态：买家已付款，已确认收货。
+                    <%}%>
+                <%} else if(state==12 || state==13){%><!-- 异常订单（后台异常）处理后的状态-完成 -->
+                    <p>订单状态：后台异常订单处理，将订单完结</p>
+                <%}%>
+            </script>
+            
+        </div>
+        <div class="od_orderInfo">
+            <script type="text/html" id="orderInfoTpl">
+                <div class="title">订单信息</div>
+                <div class="orderInfo clearfix">
+                    <div class="left Lf">
+                        <div>订单编号：<%=transactionOrderIdStr%></div>
+                        <div>采购商：<%=companyName%></div>
+                        <div>联系人：<%=contactName%></div>
+                        <div>联系电话：<%=contactPhone%></div>
+                    </div>
+                    <div class="middle Lf">
+                        <div>创建时间：<%=submitTime%></div>
+                        <%if (accountPeriodType == 0) {%>
+                        <div>账期时间：<%=debtTerm%>天</div>
+                        <%} else if (accountPeriodType == 1) {%>
+                        <div>账期时间：24小时</div>
+                        <%}%>
+                    </div>
+                    <div class="right Lf">
+                        <div>增值税发票：<%=companyName%></div>
+                        <div>账税识别号：<%=taxId%></div>
+                        <div>企业电话：<%=contact%></div>
+                        <div>企业开户银行：<%=accountBank%></div>
+                        <div>银行账号：<%=accountId%></div>
+                    </div>
+                </div>
+            </script>
+        </div>
+        <div class="od_goodsInfo">
+            <div class="title">商品明细</div>
+            <div class="goodsInfo">
+                <div class="goodsInfoTitle">
+                    <span>商品名称</span>
+                    <span>形态</span>
+                    <span>规格</span>
+                    <span>单价(元/吨)</span>
+                    <span>数量(元/吨)</span>
+                    <span>级别</span>
+                    <span>支付方式</span>
+                    <span>订单时间</span>
+                    <span>交割方式</span>
+                    <span>状态</span>
+                </div>
+                <div class="goodsList">
+                    <div class="goodsItem">
+                        <script type="text/html" id="goodsInfoTpl">
+                            <div class="goodsName"><%=productName%></div>
+                            <div class="shape"><%=productFormStr%></div>
+                            <div class="specifications"><%=productSpecStr?productSpecStr:'暂无数据'%></div>
+                            <div class="singlePrice"><%=unitPrice%></div>
+                            <div class="number"><%=sum%></div>
+                            <div class="level"><%=productLevelStr%></div>
+                            <div class="payWay"><%=paymentMethodStr%></div>
+                            <div class="orderTime"><%=submitTime%></div>
+                            <!-- <div class="thords">平台物流&nbsp;&nbsp;&nbsp;&nbsp;新疆经济开发区39号中泰化学</div> -->
+                            <div class="thords"><%=deliveryTypeStr%></div>
+
+                            <%if(state==1 || state==2){%>
+                                <%if(logisticsOrderState==1){%>
+                                    <div class="status">未支付未发货</div>
+                                <%}else if(logisticsOrderState==2){%>
+                                    <div class="status">未支付已发货</div>
+                                <%}else if(logisticsOrderState==3){%>
+                                    <div class="status">未支付已确认收货</div>
+                                <%}%>
+                            <%}else if(state==3 || state==4 || state==5){%>
+                                <%if(logisticsOrderState==1){%>
+                                    <div class="status">已支付未发货</div>
+                                <%}else if(logisticsOrderState==2){%>
+                                    <div class="status">已支付已发货</div>
+                                <%}else if(logisticsOrderState==3){%>
+                                    <div class="status">已支付已确认收货</div>
+                                <%}%>
+                            
+                            <%}else if(state==6){%>
+                                <div class="status">已完成</div>
+                            <%}else if(state == 7){%>
+                                <div class="status">订单超时失败</div>
+                            <%}else if(state == 8){%>
+                                <div class="status">订单已取消</div>
+                            <%}else if(state==9 || state==10){%>
+                                <%if(logisticsOrderState==1){%>
+                                    <div class="status">逾期未发货</div>
+                                <%}else if(logisticsOrderState==2){%>
+                                    <div class="status">逾期已发货</div>
+                                <%}else if(logisticsOrderState==3){%>
+                                    <div class="status">逾期已确认收货</div>
+                                <%}%>
+                            <%}else if(state==11){%>
+                                <%if(logisticsOrderState==1){%>
+                                    <div class="status">兑帐支付未发货</div>
+                                <%}else if(logisticsOrderState==2){%>
+                                    <div class="status">兑帐支付已发货</div>
+                                <%}else if(logisticsOrderState==3){%>
+                                    <div class="status">兑帐支付已确认收货</div>
+                                <%}%>
+                                
+                            <%}else if(state==12 || state==13){%>
+                                <div class="status">关闭订单</div>
+                            <%}%>
+                        </script>
+                    </div>
+                </div>
+                <div class="orderSum">
+                    <script id="sumTpl" type="text/html">
+                        <div style="margin-left: 18px;" class="Lf">订单总金额：<span class="yellow"><%=total%></span>元</div>
+                        <div class="Lf">现汇金额：<span class="yellow"><%=cash%></span>元</div>
+                        <div class="Lf">承兑汇票：<span class="yellow"><%=total-cash%></span>元</div>
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modelBox">
+        <div class="modelCont">
+            <div class="modeltitle">
+                <span>账期延长</span>
+                <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+            </div>
+            <div class="modelcontent">
+                <label for="yqsj">延长账期</label>
+                <select name="" id="yqsj">
+                    <option selected="selected" value="1">1</option>
+                    <option value="30">30</option>
+                    <option value="60">60</option>
+                    <option value="90">90</option>
+                </select>
+                <div class="modelBtnBox">
+                    <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                    <div style="color:#5690f6;margin-left: 12px;" class="modelbtn cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js"></script>
+<script>
+    $(function(){
+         // 点击关闭
+        $('.modelBox .close').click(function(){
+            $('.modelBox').css('display','none');
+        });
+        // 点击取消
+        $('.modelBox .cancel').click(function(){
+            $('.modelBox').css('display','none');
+        });
+        var params = window.location.search.substring(1).split('&');
+        for(var i = 0; i<params.length;i++){
+            var obj = {};
+            var item =params[i].split('=');
+            var name = item[0];
+            var value = item[1];
+            obj[name]=value;
+            params[i] = obj
+        }
+        var userType=params[0]['userType']?params[0]['userType']:'';
+        var id = params[1]['id']?params[1]['id']:'';
+        getOrderInfo(userType, id);
+
+        console.log(id);
+        
+    });
+    // 获取信息
+    function getOrderInfo(userType, id){
+        $.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"orderApi/getOrderDetail",//v1.0
+            cache:false,
+            data:{
+                userType: userType,
+                transaction_order_id: id
+            },
+            success: function(res){
+                console.log(res);
+                if(res.code == 1){
+                    res.data.submitTime = new Date(res.data.submitTime).Format("yyyy-MM-dd hh:mm:ss");
+                    //渲染进度条
+                    var orderStatusTpl = template('orderStatus_progressTpl', res.data);
+                    $('.orderStatusProgressBox').html(orderStatusTpl); 
+                    // 渲染状态描述
+                    //<!-- 订单超时是<div class="orderStatus_order overtime"> -->
+                    //<!-- 其他情况不叫overtime -->
+                    if(res.data.state == 7){
+                        $('.orderStatus_order').addClass('overtime');
+                    } else {
+                        $('.orderStatus_order').removeClass('overtime');
+                    }
+
+                    var statusDescriptpl = template('statusDescTpl', res.data);
+                    $('.orderStatus_order').html(statusDescriptpl);
+
+                    res.data.deptTime = new Date(res.data.deptTime).Format("yyyy-MM-dd hh:mm:ss");
+
+                    distanceTime2("time_djs", res.data.deptTime);
+
+                    var orderInfoTpl = template('orderInfoTpl', res.data);
+                    $('.od_orderInfo').html(orderInfoTpl);
+                    // 订单信息
+                    var orderDetailTpl = template('goodsInfoTpl', res.data);
+                    $('.goodsItem').html(orderDetailTpl);
+                    // 底部price
+                    var sumTpl = template('sumTpl', res.data);
+                    $('.orderSum').html(sumTpl);
+                    // 发货
+                    $('.toSendGoodsBtn').click(function(){
+                        toSendGoods(id);
+                    });
+                    // 取消订单
+                    $('.toCancelOrderbtn').click(function(){
+                        toCancelOrder(id);
+                    });
+                    // 延长支付时间
+                    $('.extendPayTimebtn').click(function(){
+                        $('.modelBox').css('display','block');
+                        var extendTime = $(".modelBox option:selected").val();
+                        $('.modelBox select').change(function(){
+                            extendTime = $(this).val();
+                        });
+                        $('.modelBox .confirm').click(function(){
+                            console.log(extendTime);
+                            // 延长订单支付时间
+                            extendPayTime(id, extendTime);
+                            $('.modelBox').css('display','none');
+                        });
+                       
+
+                    });
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+
+    var timer1;
+
+    function distanceTime2(id, deadtime) {  
+        // debugger;
+        var endtime1 = new Date(deadtime); //结束时间  
+        var nowtime1 = new Date(); //当前时间  
+        var lefttime1 = parseInt(((endtime1.getTime() - nowtime1.getTime()) / 1000));  
+        //parseInt可以只取整数部分，返回一个整数  
+        var d1 = parseInt(lefttime1 / (24 * 60 * 60));  
+        var h1 = parseInt(lefttime1 / (60 * 60) % 24);  
+        var m1 = parseInt((lefttime1 / 60) % 60);  
+        var s1 = lefttime1 % 60; 
+        if (d1 < 0) {
+            d1 = '0' + d1;
+        }
+
+        if (h1 < 0) {
+            h1 = '0' + h1;
+        }
+
+        if (m1 < 0) {
+            m1 = '0' + m1;
+        }
+
+        if (s1 < 0) {
+            s1 = '0' + s1;
+        }
+
+        if (document.getElementsByClassName(id)[0] == null) {
+            return false;
+        }
+
+
+        document.getElementsByClassName(id)[0].innerHTML = d1+'天'
+                +h1+'时'
+                +m1+'分'
+                +s1+'秒'
+            // d + '天' + h + '时' + m + '分' + s + '秒';  
+        if(lefttime1 <= 0) {  
+            document.getElementsByClassName(id)[0].innerHTML = '00天'
+                +'00时'
+                +'00分'
+                +'00秒';  
+            clearTimeout(timer1);  
+        }  
+        timer1 = setTimeout("distanceTime2('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  
+
+    }
+
+    // 订单发货
+    function toSendGoods(id){
+        $.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"orderApi/updateOrderDelivery",//v1.0
+            cache:false,
+            data:{
+                orderId: id
+            },
+            success: function(res){
+                console.log(res);
+                if(res.code == 1){
+                    alert('订单发货成功');
+                    window.location.reload();
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    // 订单取消
+    function toCancelOrder(id){
+        $.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"orderApi/updateOrderCancel",//v1.0
+            cache:false,
+            data:{
+                orderId: id
+            },
+            success: function(res){
+                console.log(res);
+                if(res.code == 1){
+                    alert('订单取消成功');
+                    window.location.reload();
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+    // 延长订单支付时间
+    function extendPayTime(id, extendDay){
+        $.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"orderApi/updateOrderTime",//v1.0
+            cache:false,
+            data:{
+                orderId: id,
+                extendDay: extendDay
+            },
+            success: function(res){
+                console.log(res);
+                if(res.code == 1){
+                    alert('延长订单支付时间成功');
+                    window.location.reload();
+                }
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+</script>
+</html>

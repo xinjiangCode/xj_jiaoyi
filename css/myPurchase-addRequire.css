@@ -1,0 +1,199 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	width: 986px;
+    height: 1418px;
+	margin: 0 auto;
+	background: #f5f5f5;
+	font-family:”Microsoft YaHei”;
+	-moz-user-select: none; 
+	-webkit-user-select: none; 
+	-ms-user-select: none; 
+	-khtml-user-select: none; 
+    user-select: none; 
+    background: #fff; 
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+	color: inherit;
+	text-decoration:none;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.blue{
+    color: #5590F6;
+}
+.red{
+    color: #FF4A4A;
+}
+.btn{
+    cursor: pointer;
+}
+.maxWidth{
+	width:100%;
+	overflow: hidden;
+}
+.contBox{
+    width: 986px;
+    /*margin: 0 auto;*/
+    color: #282828;
+    font-size: 14px;
+}
+.addReq-Cont{
+    border: 1px solid #EBE9EA;
+}
+.contTile{
+    height: 75px;
+    font-size:24px;
+    line-height: 75px;
+    text-align: center;
+    border-bottom: 1px solid #EBE9EA;
+}
+.addItem{
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 25px;  
+    border-bottom: 1px solid #EBE9EA;
+}
+.addItem .left{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 243px;
+    text-align: center;
+    overflow: hidden;
+}
+.leftCont{
+    position: absolute;
+    width: 100%;
+    top: 35%;
+    font-size: 16px;
+}
+.addItem .left img{
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
+.addItem .right{
+    margin-left: 243px;
+}
+.right .item{
+    margin-bottom: 18px;
+}
+.right label{
+    display: inline-block;
+    padding-right: 5px;
+    width: 120px;
+    text-align: right;
+    line-height: 38px;
+    float: left;
+}
+.right .input{
+    box-sizing: border-box;
+    width:321px; 
+    height:38px;
+    line-height: 38px;
+    padding-left: 10px;
+    border: 1px solid #EBE9EA;
+    outline: none;
+    margin-right: 10px;
+}
+select{
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    background: url(../img/mp_select.png) no-repeat scroll 297px 14px transparent;
+    padding-right: 25px;
+}
+.right i.mi{
+    margin: 0 3px;
+}
+.right .invoiceAddress{
+    /*overflow: hidden;*/
+    line-height: 20px;
+}
+.right .invoiceAddress label{
+    line-height: 20px;
+}
+.right .invoiceAddress .mi{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(../img/mp_xgspdz.png) no-repeat;
+    vertical-align: middle;
+}
+.right .invoiceAddressCont{
+    width:321px;
+    margin-right: 10px;
+}
+.invoiceAddressCont .input{
+    border: none;
+    height: 20px;
+}
+.productRequire .remark{
+    overflow: hidden;
+}
+.productRequire .remark label{
+    line-height: 20px;
+}
+.productRequire .remark textarea{
+    min-height: 130px;
+}
+.toRelease{
+    padding: 53px 0;
+}
+.toRelease input{
+    border: none;
+    outline: none;
+    margin: 0 auto;
+    display: block;
+    background: #5590F6;
+    border-radius: 2px;
+    width:315px;
+    height:50px;
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+    font-size: 16px;
+}

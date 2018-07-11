@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta name="format-detection" content="telephone=no" />
+		<title>新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/objDetails.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/buyIngStyle.css"/>
+		<style>
+
+			html,body{
+				position: relative;
+				height: 100%;
+			}
+
+			/*清除浮动*/
+			.clearfix:before, .clearfix:after {
+			    content: "";
+			    display: table;
+			}
+
+			.clearfix:after {
+			    clear: both;
+			}
+
+			.clearfix {
+			    *zoom: 1; /*IE/7/6*/
+			}
+
+			.fl {
+				float: left;
+			}
+
+			.fr {
+				float: right;
+			}
+
+			.objDIfInner>div>div {
+				width: 109px;
+			}
+
+			.objDIfInner>div input {
+				width: 55px;
+				padding-left: 0px;
+			}
+
+			input[type="radio"]#xianhui {
+			    margin-left: 0px;
+			}
+
+			.goodsTotalNum {
+				margin-left: 10px;
+			}
+
+			.objDIfInner a {
+				margin-top: 18px;
+				margin-left: 73px;
+			}
+
+			.objInvoice {
+				padding-top: 22px;
+				padding-bottom: 0px;
+			}
+
+			.objDtsTit {
+				background: url('../img/detail_bg.png') no-repeat;
+				height: 50px;
+				width: 100%;
+				margin-bottom: 16px;
+				line-height: 50px;
+				padding-left: 18px;
+				box-sizing: border-box;
+			}
+
+			.box1 {
+				border: 1px solid #EBE9EA;
+				width: 958px;
+				padding-bottom: 5px;
+				margin-bottom: 16px;
+			}
+
+			.box1:last-child {
+				padding-bottom: 30px;
+			}
+
+			.objEditorDtls .infoBox {
+				border-bottom: none;
+			}
+
+			.objBorder .objEditorDtls {
+				border: none;
+				padding: 0px;
+				margin-right: 0px;
+				margin-top: 16px;
+				margin-bottom: 16px;
+			}
+
+			.objEditorDtls .infoBox {
+				padding-bottom: 0px;
+				margin-bottom: 0px;
+			}
+
+			.breadcrumb.a a {
+				font-size: 14px;
+				color: #333333;
+			}
+	
+			.objPrice span {
+				margin-left: 10px;
+			}
+
+			#pgBg {
+				vertical-align: middle;
+			}
+
+			.objDgg {
+				margin-bottom: 25px;
+			}
+
+			.objInvoice img {
+			    vertical-align: sub;
+			}
+
+			.objInvoice {
+				padding-left: 16px;
+			}
+
+			.goodsTotalNum {
+			    margin-left: 3px;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<!--商品详情页<-->
+		<div class="mianCont breadcrumb a">
+			<img src="../img/didian.png" style="vertical-align: middle;" alt="">
+			<a href="##">当前位置：</a>
+			<a href="../index.html">首页</a>>
+			<a href="##">抢购</a>>
+			<a href="##">商品详情页</a>
+		</div>
+		<div class="mianCont objDetailsBox">
+			<div class="objDetails objBorder">
+				<div class="objDetails">
+					<div class="headGoodsImgsBox">
+						<script type="text/html" id="headGoodsImgsTpl">
+							<div class="objDetailsImg ">
+								<img src="<%=productPicList[0]%>" class="zoom cloudzoom" data-cloudzoom="zoomSizeMode:'image',zoomImage: '<%=productPicList[0]%>',startMagnification:2,easeTime:'0',variableMagnification:false" />
+							</div>
+							<div class="objDetailsImgList swiper-container swiper-container-horizontal">
+								<div class="swiper-button-prev"><img src="../img/ltSwiper.png" /></div>
+								<div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+									<!-- <div class="swiper-slide"><img class="cloudzoom-gallery actImg" src="../img/objDemo.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/objDemo.png',zoomImage:'../img/objDemo.png'" /></div>
+									<div class="swiper-slide"><img class="cloudzoom-gallery" src="../img/cf_shop.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/cf_shop.png',zoomImage:'../img/cf_shop.png'" /></div>
+									<div class="swiper-slide"><img class="cloudzoom-gallery" src="../img/cf_shop.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/cf_shop.png',zoomImage:'../img/cf_shop.png'" /></div>
+									<div class="swiper-slide"><img class="cloudzoom-gallery" src="../img/cf_shop.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/cf_shop.png',zoomImage:'../img/cf_shop.png'" /></div>
+									<div class="swiper-slide"><img class="cloudzoom-gallery" src="../img/cf_shop.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/cf_shop.png',zoomImage:'../img/cf_shop.png'" /></div> -->
+									<%for(i in productPicList){%>
+									<div class="swiper-slide"><img class="cloudzoom-gallery" src="<%=productPicList[i]%>" data-cloudzoom="useZoom:'.cloudzoom',image:'<%=productPicList[i]%>',zoomImage:'<%=productPicList[i]%>'" /></div>
+									<%}%>
+								</div>
+								<div class="swiper-button-next"><img src="../img/rtSwiper.png" /></div>
+							</div>
+						</script>
+					</div>
+					<div class="objDInfo">
+						<script type="text/html" id="objDescriptTpl">
+							<h1><%=productName%></h1>
+							<div class="objPrice">
+								价格：
+								<span class="shiji">¥ <%=unitPrice%>/<%=productSpecStr%></span>
+							</div>
+							<p class="objDgg">
+								<span>纯度：<%=productPurity%>%</span>
+								<span>规格：<%=productSpecUnitStr%></span>
+								<span>工业级别：<%=levelName%></span>
+								<span>形态：<%=productFormStr%></span>
+							</p>
+							<div class="objDIfInner">
+								<p style="margin-bottom: 25px;">抢购进度：<span id="pgBg"> <span id="Progress"></span> </span></p>
+								<p style="margin-bottom: 25px;">仓库地址：
+									<%=deliveryAddress%>
+								</p>
+								<p id="shengyu_num" style="margin-bottom: 21px;">剩余数量：
+									<%=remain%><%=productSpecStr%>
+								</p>
+								<div>
+									购买数量：
+									<div class="addOrSubGoodsNum" style="width: auto;">
+										<span class="spanBtn subBtn" style="cursor: pointer;">－</span>
+										<input type="number" min="<%=minAmount%>" step="<%=changeAmount%>" value="<%=minAmount%>" style="width: 100px;text-align: center;" />
+										<span class="spanBtn addBtn" style="cursor: pointer;">+</span>
+									</div>
+									<span class="danwei" style="display: none;"><%=productSpecStr%></span>
+									<span style="margin-left: 19px;" class="dazong">最小起订量 <%=minAmount%> 吨</span>
+									<span style="margin-left: 19px;" class="shiji">最小起订量 <%=minAmount%> <%=productSpecStr%></span>
+									
+								</div>
+								<p style="margin-bottom: 25px;">
+									支付方式：
+									<!--  支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限 -->
+									<%if(paymentMethod == 0) {%>
+									<input type="radio" name="payType" style="margin-left: 0px;" id="xianhui" value="现汇" />
+									<lable for="xianhui">现汇</lable>
+									<input type="radio" name="payType" id="xhcd" value="现汇+承兑" />
+									<lable for="xhcd">现汇+承兑</lable>
+									<input type="radio" name="payType" id="chengdui" value="承兑" />
+									<lable for="chengdui">承兑</lable>
+									<%}else if(paymentMethod == 1) {%>
+									<input style="margin-left: 0;" type="radio" name="payType" id="xianhui" value="现汇" />
+									<lable for="xianhui">现汇</lable>
+									<%}else if(paymentMethod == 2) {%>
+									<input type="radio"  style="margin-left: 0px;" name="payType" id="xhcd" value="承兑" />
+									<lable for="xhcd">承兑</lable>
+									<%}else if(paymentMethod == 3) {%>
+									<input type="radio"  style="margin-left: 0px;" name="payType" id="chengdui" value="现汇+承兑" />
+									<lable for="chengdui">现汇+承兑</lable>
+									<%}%>
+								</p>
+								<p style="margin-bottom: 25px;">合计总量：<span class="cOr goodsTotalNum"> 0</span><span class="shiji"><%=productSpecStr%></span>
+								
+								<!-- <p style="margin-bottom: 29px;">合计总量: <span  class="cOr">1  </span>盒 ,<span>90ml</span></p> -->
+								<p>商品总价：<span style="margin-left: 2px;" class="cOr goodsTotalMoney">￥0元</span></p>
+								<a class="toXunpanBtn" href="javascript:;" style="margin-bottom: 15px;">我要抢购</a>
+
+							</div>
+							<div class="objInvoice">
+								发票提供：
+								<!-- 发票类型 1：增值税普通发票 2：增值税专用发票 3：不限 -->
+								<%if (invoiceType == 1) {%>
+								<span>
+										<img src="../img/objInvoice.png" />
+										普通发票
+									</span>
+								<%} else if (invoiceType == 2) {%>
+								<span style="margin-right: 23px;">
+										<img src="../img/objInvoice.png" />
+										专用发票
+									</span>
+								<%} else if (invoiceType == 3) {%>
+								<span>
+										<img src="../img/objInvoice.png" />
+										普通发票
+									</span>
+								<span style="margin-right: 23px;">
+										<img src="../img/objInvoice.png" />
+										专用发票
+									</span>
+								<%}%> 
+								配送支持：
+								<span><img src="../img/ckzt.png" style="margin-right: 3px;"/><%=deliveryTypeStr%></span>
+							</div>
+							<div class="qgliuc">
+								<div class="qglcTit">
+									<p>抢购</p>
+									<p>流程</p>
+								</div>
+								<div class="lcShow">
+									<img src="../img/lcImg.png"/>
+								</div>
+							</div>
+						</script>
+					</div>
+					<!-- <div class="hazardousArticle">
+						<div class="haIcon">
+							<img src="../img/hazardousArticle.png" />
+							<p>管制类商品：第一类易制毒化学品</p>
+						</div>
+						<div style="line-height:24px;margin-top: 2px;">
+							1、本品属于易制毒化学品，任何个人不得非法购买。 2、购买本品，贵司需取得主管部门核发的购买许 可证，法律规定需要备案的，应依法办理相关备案登记。 3、本品的物流、仓储均需为具有相应资质的物 流公司和仓储公司。严禁使用快递运送化学品，装卸、运输、仓储流程应按照相关法律法规的要求严格控 制。 4、本品仅供产品展示，不做交易使用，详情请参照《易制毒化学品管理条例》及相关法规。
+						</div>
+					</div> -->
+					<!-- <div class="shangpin" style="display: none;">
+						<div class="shangpin_title">管制类商品：</div>
+						<div class="jinggao clearfix">
+							<div class="fl img_bg">
+								<img src="../img/hazardousArticle.png" />
+								<p>第一类易制毒化学品</p>
+							</div>
+							<div class="shangpin_cont fl">
+								<p class="clearfix"><span class="fl">1、</span><span class="span_cont fl">本品属于易制毒化学品，任何个人不得非法购买。</span></p> 
+								<p class="clearfix"><span class="fl">2、</span><span class="span_cont fl">购买本品，贵司需取得主管部门核发的购买许可证，法律规定需要备案的，应依法办理相关备案登记。</span></p> 
+								<p class="clearfix"><span class="fl">3、</span><span class="span_cont fl">本品的物流、仓储均需为具有相应资质的物 流公司和仓储公司。严禁使用快递运送化学品，装卸、运输、仓储流程应按照相关法律法规的要求严格控 制。</span></p> 
+								<p class="clearfix"><span class="fl">4、</span><span class="span_cont fl">本品仅供产品展示，不做交易使用，详情请参照《易制毒化学品管理条例》及相关法规。</span></p>
+							</div>
+						</div>
+					</div> -->
+				</div>
+				<div class="objEditorDtls objDetails">
+					<div class="shangpin_div">
+						<div class="objDtsTit">商品详情</div>
+						<div class="infoBox">
+							<script type="text/html" id="goodsDetailInfoTpl">
+
+								<div class="spxq" style="margin-right: 53px;float: left;">
+									<p><i>商品名称：</i><span class="blueClor"><%=productName%></span> </p>
+									<p><i>规       格：</i><%=productSpecUnitStr%></p>
+									<p><i>产品等级：</i><%=levelName%></p>
+
+								</div>
+
+								<div class="spxq">
+									<p><i>形        态：</i><%=productFormStr%></p>
+									<p><i>纯        度：</i><%=productPurity%>%</p>
+									<p><i>厂家/产地：</i><%=productOrigin%></p>
+
+								</div>
+							</script>
+						</div>	
+					</div>
+					
+					<div class="shangpin_div">
+						<div class="objDtsTit">产品特性</div>
+						<div class="infoBox">
+							<script type="text/html" id="goodsSpecialInfoTpl">
+
+								<div class="cptx">
+									<p><i>化合物中文学名：</i><%=chemicalName%></p>
+									<p><i>CAS号：</i><%=chemicalCas%></p>
+									<p><i>危险类别：</i><%=chemicalDangerClasses%></p>
+									<p><i>外观与形状：</i><%=chemicalCharacter%></p>
+									<p><i>化学式：</i><%=chemicalFormula%></p>
+									<p><i>熔点：</i><%=chemicalMeltingPoint%></p>
+									<p><i>沸点：</i><%=chemicalBoilingPoint%></p>
+									<p><i>溶解性：</i><%=chemicalSolubility%></p>
+									<p><i>敏感性：</i><%=chemicalSusceptibility%></p>
+									<p><i>急救措施：</i>暂无数据</p>
+									<p><i>PH：</i> <%=chemicalPh%></p>
+									<p><i>密度：</i>HCI</p>
+									<p><i>闪点：</i><%=chemicalFlashPoint%></p>
+									<p><i>禁配物：</i><%=chemicalForbidden%></p>
+									<p><i>主要用途：</i><%=chemicalPurpose%></p>
+									<p><i>UN编号：</i><%=chemicalUn%></p>
+									<p><i>包装类别：</i>暂无数据</p>
+									<p><i>运输注意事项：</i>暂无数据</p>
+								</div>
+								
+							</script>
+						</div>
+					</div>
+					<div class="shangpin_div">
+						<div class="objDtsTit">产品用途</div>
+						<div class="infoBox">
+							<p>重要的无机化工原料，广泛用于染料/医药/食品/印染/皮革/冶金等行业</p>
+						</div>
+					</div>
+					<div class="shangpin_div">
+						<div class="objDtsTit">商品详细信息</div>
+						<div class="infoBox" style="border-bottom: 0;">
+							<img src="../img/demoImg.png" />
+							<img src="../img/demoImg.png" />
+							<img src="../img/demoImg.png" />
+							<img src="../img/demoImg.png" />
+							<img src="../img/demoImg.png" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sellerRt">
+				<div class="shopinfoBox">
+					<script type="text/html" id="shopInfoTpl">
+						<div class="sellerRtLogo" style="background: url(<%=storeImage%>) no-repeat;background-size: contain;background-position: center;"></div>
+						<p id="addGz" style="text-align: right;margin-top: 7px;margin-bottom: 8px;padding-right: 12px;font-size: 16px;color: #666;"><img src="../img/guanzhu.png" style="margin-right: 8px;" /><span>关注</span></p>
+						<p style="margin-bottom: 10px;padding-right:17px ;color: #666;line-height: 24px;">企业名称：
+							<%=companyName%>
+						</p>
+						<p style="color: #5590F6;margin-bottom: 5px;">企业认证 <img src="../img/qiIcon.png" style="margin-left: 8px;" /></p>
+						<p style="color: #FF665A;margin-bottom: 11px;">危险化学品认证 <img src="../img/weiIcon.png" style="margin-left: 8px;" /></p>
+						<p style="margin-bottom: 12px;">联系方式：<span style="color: #5590F6;"><%=contact%></span></p>
+						<p style="margin-bottom: 15px;padding-right: 17px;line-height: 24px;">所在地区：
+							<%=companyAddress2%>
+						</p>
+						<a href="##" style="display: block;margin-left: 19px;"><button><img src="../img/odkefu.png" style="margin-right: 13px;" />联系客服</button></a>
+					</script>
+				</div>
+				<div>
+					<div class="sellerRtTit">
+						大家都在买
+					</div>
+					<div class="buy_list">
+						
+					</div>
+					<!-- <div class="evBdBuyItem">
+						<div class="evbgImg"></div>
+						<p>[汉姆]非离子表面活性</p>
+						<span>￥1440.00/吨</span>
+					</div>
+					<div class="evBdBuyItem">
+						<div class="evbgImg"></div>
+						<p>[汉姆]非离子表面活性</p>
+						<span>￥1440.00/吨</span>
+					</div>
+					<div class="evBdBuyItem">
+						<div class="evbgImg"></div>
+						<p>[汉姆]非离子表面活性</p>
+						<span>￥1440.00/吨</span>
+					</div>
+					<div class="evBdBuyItem">
+						<div class="evbgImg"></div>
+						<p>[汉姆]非离子表面活性</p>
+						<span>￥1440.00/吨</span>
+					</div> -->
+				</div>
+			</div>
+			<!-- 弹窗 -->
+			<!-- <div class="modelBox" >
+				<div class="modelCont">
+					<div class="modeltitle">
+						<span>新增收货地址</span>
+						<img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+					</div>
+					<div class="modelcontent">
+						<div class="modelTxt">
+							<ul>
+								<li class="clearfix" style="padding-top: 20px;">
+									<div class="fl">
+										<label for="">收&nbsp;&nbsp;货&nbsp;&nbsp;人：</label>
+										<input type="text" class="input" id="receiver" placeholder="请输入收货人姓名">
+									</div>
+									<span class="tishi fl"></span>
+								</li>
+								<li class="clearfix" >
+									<div class="fl">
+										<label for="">所在地区：</label>
+										<select style="margin-left:0;" name="province" id="province" class="provice">
+										</select>
+										<select name="city" id="city" class="city">
+										</select>
+									</div>
+									<span class="tishi1 fl"></span>
+								</li>
+								<li class="clearfix">
+									<div class="fl">
+										<label for="">详细地址：</label>
+										<input type="text" class="input" id="detail_address" placeholder="请输入详细地址">
+									</div>
+									<span class="tishi fl"></span>
+								</li>
+								<li class="clearfix">
+									<div class="fl">
+										<label for="">手机号码：</label>
+										<input  type="text" class="input" id="cangkuName" placeholder="请输入手机号码">
+									</div>
+									<span class="tishi fl"></span>
+								</li>
+								<li class="clearfix">
+									<div class="fl"><label for=""></label><input type="checkbox" value="1" name="isdefault"><span>设为默认仓库地址</span></div>
+								</li>
+							</ul>
+						</div>
+						<div class="modelBtnBox">
+							<div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+							<div style="color:#5690f6;margin-left: 12px;" class="modelbtn cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modelpop" id="toXunpan">
+				<div class="cont">
+					<div class="title">
+						<span>我要询价</span>
+						<img src="../img/gsxq_del.png" height="48" alt="" class="close">
+					</div>
+					<div class="main">
+						<ul>
+							<li>
+								<label for="xj_goodsNum">购买数量</label>
+								<span id="xj_goodsNum">0</span>
+							</li>
+							<li>
+								<label for="xj_sumMoney">总价</label>
+								<span id="xj_sumMoney" style="color: #E50B19;">0元</span>
+							</li>
+							<li>
+								<label for="xj_payType">支付方式</label>
+								<span id="xj_payType">现汇</span>
+							</li>
+							<li>
+								<label for="">发票类型</label>
+								<input class="xj_fapiaoType" name="xj_fapiaoType" value="1" type="radio"><span style="margin-right:40px;">普通发票</span>
+								<input class="xj_fapiaoType" name="xj_fapiaoType" value="2" type="radio"><span>专用发票</span>
+							</li>
+							<li class="i">
+								<label for="">收票地址</label>
+								<span class="xj_shoupiaoAddress" style="width: 235px;float:left;"></span>
+								<span class="editAddress" style="color: #5690f6;float:left;margin-left:30px;cursor:pointer;">修改收票地址</span>
+							</li>
+							<li class="i">
+								<label for="xj_concatMan">联系人</label>
+								<input class="input" placeholder="请输入联系人" name="xj_concatMan" type="text" id="xj_concatMan">
+							</li>
+							<li class="i">
+								<label for="xj_tel">联系电话</label>
+								<input class="input" placeholder="请输入手机号" name="xj_tel" type="tel" id="xj_tel">
+							</li>
+							<li class="i">
+								<label for="xj_bei">备注</label>
+								<textarea style="width:385px;height: 101px;" class="input" placeholder="请输入您的问题" name="xj_bei" id="xj_bei"></textarea>
+							</li>
+							<li class="i">
+								<div class="commitBtn">提交</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="modelpop" id="editShoupiaoAddress">
+				<div class="cont">
+					<div class="title">
+						<span>地址管理</span>
+						<img src="../img/gsxq_del.png" height="45" alt="" class="close">
+					</div>
+					<div class="main">
+						<div class="addAddressBox"><span class="addAddress">添加地址</span></div>
+						<div class="addAddressBoxCont">
+							<script type="text/html" id="editAddressTpl">
+								<%for (i in list) {%>
+								<div class="item" data-id="<%=list[i].dbid%>">
+									<div class="left">
+										<input type="radio" name="address" value="1">
+									</div>
+									<div class="right">
+										<p>
+											<%=list[i].addressStr +'&nbsp;&nbsp;'+ list[i].detailedAddress%>
+										</p>
+										<p>
+											<%=list[i].receiver+'&nbsp;&nbsp;'+list[i].phone%>
+										</p>
+									</div>
+								</div>
+								<%}%>
+							</script>
+						</div>
+						<div class="btnbox">
+							<div class="tosure btn" style="margin-right: 10px;">确&nbsp;&nbsp;定</div>
+							<div class="goback btn">返&nbsp;&nbsp;回</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modelpop" id="enquirySuccess">
+				<div class="cont">
+					<div class="title">
+						<span>消息提示</span>
+						<img src="../img/gsxq_del.png" height="45" alt="" class="close">
+					</div>
+					<div class="main">
+						<div class="successImg"></div>
+						<div class="successMsg">
+							<div class="successMsgInfo">
+								<img src="../img/gsxq_success.gif" alt="">
+								<span style="margin-left: 9px;">提交成功</span>
+							</div>
+							<p>您发起的询价<span>已成功提交</span>，请耐心等待商家反馈！</p>
+							<div class="tosurebtn">确认</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/imageZoom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
+		<script type="text/javascript">
+
+
+			//大家都在买
+			$.ajax({
+				type:"get",
+		        url:pubIP+"productApi/getProductListByQuality",//v1.0
+		        cache:false,
+		        async:false,
+		        dataType: "json",
+				headers: {
+				  	token: token
+				},
+		        data:{
+		        	size: 4,
+		        	productCate: 1
+		        },
+		        success: function(data){
+		        	console.log(data);
+
+		        	var str = '';
+		        	for (var i = 0; i < data.data.length; i++) {
+
+						str += '<div class="evBdBuyItem" data-supplyid="'+data.data[i].supplyId+'">'
+								+'<div class="evbgImg" style="background: url('+data.data[i].productPicList[0]+') no-repeat center center; background-size: cover;"></div>'
+								+'<p>'+data.data[i].productName+'</p>'
+								+'<span>￥'+data.data[i].unitPrice+'/吨</span>'
+							+'</div>';
+		        	}
+
+		        	$('.buy_list').html(str);
+
+		        },
+		        error: function (err) {
+		        	console.log(err);
+		        }
+
+			});
+
+			$(document).on('click', '.evBdBuyItem', function () {
+				window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
+				window.location.href="./objDetails.html";
+			});
+
+
+			var isHasAddress=1;
+			//添加收货地址
+			
+			$('.cancel,.close').click(function() {
+				$('.modelBox').hide();
+			})
+			$('.addAddress').click(function() {
+				$('.modelBox').show();
+			})
+			/*添加仓库地址*/ 
+			$('.confirm').click(function(){
+//			   debugger
+//                $('#province option:selected').val()
+				var province = $(".modelBox #province").val(),
+					receiver = $('#receiver').val(),
+					city=$(".modelBox #city").val(), 
+					detail_address= $(".modelBox #detail_address").val(),
+					warehouseName = $(".modelBox #cangkuName").val();
+					//默认仓库：0：非默认；1：默认
+					var defaultFlag = $('.modelBox input[name="isdefault"]:checked').val();
+					defaultFlag=defaultFlag?defaultFlag:0;
+				if(!receiver){
+					alert('请填写收货人');
+					return false;
+				}
+				if(!province){
+					alert('请选择省份');
+					return false;
+				}
+				if(!city){
+					alert('请选择城市');
+					return false;
+				}
+				if(!detail_address){
+					alert('请输入详细地址');
+					return false;
+				}
+				if(!warehouseName){
+					alert('请输入手机号码');
+					return false;
+				}
+				//console.log(warehouseType);
+				/*添加仓库地址*/ 
+				addAddr(receiver,province,city,detail_address,warehouseName,defaultFlag);
+				
+			});
+			function addAddr(receiver,provenceId,cityId,detailedAddress,phone,defaultStr){
+				$.ajax({
+					url: pubIP + 'address/addHarvestAddress', /*v1.0*/
+					type: 'post',
+					headers: {
+						Accept: "application/json; charset=utf-8",
+						token: token
+					},
+					cache: false,
+					ansyc: false,
+					dataType: 'json',
+					data: {
+						receiver:receiver,
+						provenceId:provenceId,
+						cityId:cityId,
+						detailedAddress:detailedAddress,
+						phone:phone,
+						defaultStr:defaultStr,
+						companyId:companyId
+					},
+					success: function (data) {
+						console.log(data);
+						if(data.code == 1){
+							var objid = localStorage.getItem('objid');
+							$.ajax({
+								type: "post",
+								headers: {
+									Accept: "application/json; charset=utf-8",
+									token: token
+								},
+								async: false,
+								url: pubIP + "address/listAddressByShopUserId", //v1.0
+								cache: false,
+								data: {
+									supplyId: objid
+								},
+								success: function(resp) {
+									console.log(resp);
+									if(resp.code == 1) {
+										if(resp.data && resp.data.length > 0) {
+											shoupiaoAddressList = resp.data;
+											var editAddressTpl = template('editAddressTpl', {
+												list: resp.data
+											});
+											$('.addAddressBoxCont').html(editAddressTpl);
+
+											var defaultStrFlag = false;
+											$.each(resp.data, function(i, item) {
+												if(item.defaultStr == '1') {
+													defaultStrFlag = true;
+													shoupiaoAddress = item;
+													addressId = item.dbid;
+												}
+											});
+											if(!defaultStrFlag) {
+												shoupiaoAddress = resp.data[0];
+												addressId = resp.data[0].dbid;
+											}
+											$('.modelBox').css('display','none');
+										}
+									}
+								}
+							});
+						}
+					},
+					error: function(err){
+						console.log(err);
+					}
+				});
+			}
+			/*查询所有省份*/
+			getAllProvinces();
+			function getAllProvinces(){
+				$.ajax({
+					url: pubIP + 'address/listProvince', /*v1.0*/
+					type: 'post',
+					headers: {
+						Accept: "application/json; charset=utf-8",
+						token: token
+					},
+					cache: false,
+					ansyc: false,
+					dataType: 'json',
+					success: function (data) {
+						
+						var str = '<option value="">请选择省</option>';
+						for (var i = 0; i < data.data.length; i++) {
+							str += '<option value="'+data.data[i].provinceid+'" data-proviceId="'+data.data[i].provinceid+'">'+data.data[i].province+'</option>';
+						}
+						$('.modelBox #province').html(str);
+						$('#city').html('<option>请选择市</option>');
+						$('#area').html('<option>请选择区</option>');
+					},
+					error: function(err){
+						console.log(err);
+					}
+				});
+			}
+	
+	
+			 /*查询所有城市*/
+			 $(document).on('change','#province', function () {
+				
+				var provinceID = $("#province option:selected").attr('data-proviceId');
+				
+				if (!provinceID) {
+					alert('no provinceID');
+					return;
+				}
+				$.ajax({
+	                url: pubIP + 'address/listCityByProvinceId', /*v1.0*/
+	                type: 'post',
+	                headers: {
+	                    Accept: "application/json; charset=utf-8",
+	                    token: token
+	                },
+	                cache: false,
+	                ansyc: true,
+	                data: {provinceID: provinceID},
+	                dataType: 'json',
+	                success: function (data) {
+	                    console.log(data.data);
+						
+	                    var str = '<option value="">请选择市</option>';
+	                    for (var i = 0; i < data.data.length; i++) {
+	                        str += '<option value="'+data.data[i].cityid+'" data-cityId="'+data.data[i].cityid+'" data-city="'+data.data[i].city+'">'+data.data[i].city+'</option>';
+	                    }
+						$('.modelBox #city').html(str);
+						$('#area').html('<option>请选择区</option>');
+	                        
+	                },
+	                error: function(err){
+	                    console.log(err);
+	                }
+	            });
+			});
+	
+	        // 查询所有区域
+	        $(document).on('change', '#city', function () {
+	            var cityID = $(".modelBox #city option:selected").attr('data-cityId');
+				
+				if(!cityID){
+					alert('no cityid');
+					return;
+				}
+	
+				$.ajax({
+	                url: pubIP + 'address/listAreaByCityID', /*v1.0*/
+	                type: 'post',
+	                headers: {
+	                    Accept: "application/json; charset=utf-8",
+	                    token: token
+	                },
+	                cache: false,
+	                data: {cityID: cityID},
+	                dataType: 'json',
+	                success: function (data) {
+	                    console.log(data);
+	                    var str = '<option value="">请选择区</option>';
+	                    for (var i = 0; i < data.data.length; i++) {
+	                        str += '<option value="'+i+'" data-areaId="'+data.data[i].areaid+'" data-area="'+data.data[i].area+'">'+data.data[i].area+'</option>';
+	                    }
+	
+	                    $('.modelBox #area').html(str);
+	
+	                },
+	                error: function(err){
+	                    console.log(err);
+	                }
+	            });
+	
+			});
+			
+
+			$(function() {
+				// 获取商品供应id
+				//				var objid = window.location.search.substring(1).split('=')[1];
+				var objid = localStorage.getItem('objid');
+				var activityId = localStorage.getItem('activityId');
+				var rate = localStorage.getItem('rate');
+				var iStatus = localStorage.getItem('iStatus');
+				//console.log(objid);
+				// 获取商品详情的数据
+				//alert(objid);
+				getGoodsDetail(objid, activityId, rate, iStatus);
+				// 获取店铺信息
+				//				getshopInfo(companyId);
+			});
+			var companyId_this = localStorage.getItem('thisCompanyId');
+			// 获取商品详情的数据
+			function getGoodsDetail(objid, activityId, rate, iStatus) {
+				$.ajax({
+					type: "post",
+					headers: {
+						Accept: "application/json; charset=utf-8",
+						token: token
+					},
+					url: pubIP + "acticityApi/findActivityGoodsInfo", //v1.0
+					cache: false,
+					data: {
+						supplyId: objid,
+						activityId: activityId
+					},
+					success: function(response) {
+						console.log(response, 1);
+
+						
+						
+						var goodsinfoObj = response.data;
+						//发布者公司标识
+						var thisCompanyId = localStorage.getItem('thisCompanyId');
+						// 获取店铺信息
+						getshopInfo(localStorage.getItem('thisCompanyId'));
+						var chemical = response.data.chemical;
+						var productDetail = response.data.productDetail;
+						var minAmount = productDetail.minAmount; //最小购买量
+						var changeAmount = productDetail.changeAmount; //加减步数
+						var maxAmount = productDetail.remain; //最大购买量
+						var totalNum = 0,
+							totalMoney = 0;
+						var payTypeVal = ''; //支付方式
+						// 头部商品图片
+
+						//response.productDetail = response.productDetail.productPic
+						
+						// var arr = response.data.productDetail.productPic.split(','); 
+						// console.log(arr);
+
+
+						
+						var headGoodsImgsTpl = template('headGoodsImgsTpl', response.data.productDetail);
+						$('.headGoodsImgsBox').html(headGoodsImgsTpl);
+						var swiper = new Swiper('.swiper-container', {
+							slidesPerView: 4,
+						});
+						$('.swiper-button-prev').click(function() {
+							swiper.swipePrev();
+						})
+						$('.swiper-button-next').click(function() {
+							swiper.swipeNext();
+						})
+						CloudZoom.quickStart();
+
+
+
+						var objDescriptTpl = template('objDescriptTpl', productDetail);
+						$('.objDInfo').html(objDescriptTpl);
+
+
+						$('#Progress').css('width', rate);
+
+						$('.toXunpanBtn').attr('disabled', true);
+
+						if (iStatus == 1) {
+							$('.toXunpanBtn').attr('disabled', false);
+							$('.objDIfInner a').css('border', '1px solid #FF6458').css('color', '#FF6458');
+						}
+
+						if ($('.toXunpanBtn').attr('disabled') == 'disabled') {
+							$('.objDIfInner a').css('border', '1px solid #999').css('color', '#999');
+							return;
+						}
+
+						
+
+						// if (response.data.productDetail.productCate == 2) {  //试剂
+
+							$('.objDgg').css('paddingLeft','17px').css('color', '#999');
+							$('#shengyu_num').css('display','inline-block');
+
+							$('.danwei').css('display','inline-block');
+							$('.shiji').css('display', 'inline-block');
+							$('.dazong').css('display','none');
+							
+							$('.zhuanhuan').css('display','inline-block');
+							$('.jisuanqi').css('display','inline-block');
+							$('.objDIfInner a.toXunpanBtn').css('color','#FF6458').css('borderColor', '#FF6458').html('我要询价');
+
+							$('.hazardousArticle').css('display','none');
+							$('.shangpin').css('display', 'block');
+
+							$('.objEditorDtls').css('paddingTop', '0px').css('paddingLeft', '0px');
+							$('.objDtsTit').css('marginBottom', '18px').css('color', '#333').css('height', '50px').css('background', 'url(../img/detail_bg.png)').css('width', '939px').css('lineHeight', '50px').css('paddingLeft', '17px');
+							$('.objBorder .objEditorDtls.objDetails').css('border', 'none');
+
+							$('.shangpin_div').css('border', '1px solid #EBE9EA').css('marginBottom', '16px');
+							$('.shangpin_div .infoBox').css('border', 'none').css('marginBottom', '0px');
+						// }
+						// 化学品危险提示
+						
+							if (response.data.productDetail.productCate == 1) {
+								if(response.data.chemicalType && response.data.chemicalType != {}) {
+									var chemicalTypeTpl = ''
+									$('.hazardousArticle').css('display', 'block')
+									chemicalTypeTpl += '<div class="haIcon">' +
+										'<img src="../img/hazardousArticle.png"  />' +
+										'<p>' + response.data.chemicalType.typeName + '：' + response.data.chemicalType.msgTitle + '</p>' +
+										'</div>';
+									if(response.data.chemicalType.msgShow == 1) {
+										chemicalTypeTpl += '<div style="line-height:24px;margin-top: 2px;">' + response.data.chemicalType.msgContent + '</div>';
+									}
+
+									$('.hazardousArticle').html(chemicalTypeTpl);
+								} else {
+									$('.hazardousArticle').css('display', '')
+								}
+							} else if (response.data.productDetail.productCate == 2) {
+								if(response.data.chemicalType && response.data.chemicalType != {}) {
+									var chemicalTypeTpl = ''
+									$('.shangpin').css('display', 'block')
+									chemicalTypeTpl += '<div class="shangpin_title">'+ response.data.chemicalType.typeName + '：</div>'
+											+'<div class="jinggao clearfix">'
+												+'<div class="fl img_bg">'
+													+'<img src="../img/hazardousArticle.png" />'
+													+'<p>' + response.data.chemicalType.msgTitle + '</p>'
+												+'</div>';
+												if (response.data.chemicalType.msgShow == 1) {
+													chemicalTypeTpl += '<div class="shangpin_cont fl">'+ response.data.chemicalType.msgContent +'</div>';
+												}
+									chemicalTypeTpl+='</div>';
+									
+									$('.shangpin').html(chemicalTypeTpl);
+								} else {
+									$('.shangpin').css('display', '');
+								}
+							}
+						
+						// 商品详情
+						var goodsDetailInfoTpl = template('goodsDetailInfoTpl', productDetail);
+						$('.infoBox:eq(0)').html(goodsDetailInfoTpl);
+						// 商品特性
+						var goodsSpecialInfoTpl = template('goodsSpecialInfoTpl', chemical);
+						$('.infoBox:eq(1)').html(goodsSpecialInfoTpl);
+						// 产品用途
+						$('.infoBox:eq(2)').children('p').text(chemical.chemicalPurpose);
+
+						// 点击添加商品数量
+						var numInput = $('.addOrSubGoodsNum input');
+                        totalNum = numInput.val();
+                        totalMoney = numInput.val() * productDetail.unitPrice;
+                        $('.goodsTotalNum').text(Number(totalNum).toFixed(2));
+                        $('.goodsTotalMoney').text('￥' + Number(totalMoney).toFixed(2) + '元');
+
+                        numInput.on('blur', function() {
+							if((numInput.val() - 0) < minAmount) {
+								numInput.val(Number(minAmount).toFixed(2));
+								//alert('最小购买量：' + minAmount);
+							} else if((numInput.val()-0) > maxAmount) {
+								numInput.val(Number(maxAmount).toFixed(2));
+								//alert('最大购买量：' + maxAmount);
+							}
+                            numInput.val(Number(numInput.val()).toFixed(2))
+                            //Math.floor(numInput.val()*100)/100
+							totalNum = numInput.val();
+							totalMoney = numInput.val() * productDetail.unitPrice;
+							$('.goodsTotalNum').text(Number(totalNum).toFixed(2));
+							$('.goodsTotalMoney').text('￥' + Number(totalMoney).toFixed(2) + '元');
+						});
+
+						$('.addOrSubGoodsNum .addBtn').click(function() {
+                            var result=parseFloat($(this).parent().find("input").val())+1;
+                            var minNumber=parseFloat($(this).parent().find("input").attr("min"))
+                            if(result>maxAmount){
+                                $(this).parent().find("input").val(Number(maxAmount).toFixed(2));
+                            }else{
+                                $(this).parent().find("input").val(Number(result).toFixed(2));
+                            }
+                            totalNum = $(this).parent().find("input").val();
+                            totalMoney = numInput.val() * productDetail.unitPrice;
+                            $('.goodsTotalNum').text(Number(totalNum).toFixed(2));
+                            $('.goodsTotalMoney').text('￥' + Number(totalMoney).toFixed(2) + '元');
+
+//							if(numInput.val() >= maxAmount) {
+//								numInput.val(maxAmount);
+//							} else {
+//								numInput.val((numInput.val() - 0) + (changeAmount - 0));
+//							}
+//							totalNum = numInput.val();
+//							totalMoney = numInput.val() * productDetail.unitPrice;
+//							$('.goodsTotalNum').text(totalNum);
+//							$('.goodsTotalMoney').text('￥' + totalMoney + '元');
+						});
+						$('.addOrSubGoodsNum .subBtn').click(function() {
+						    var result=parseFloat($(this).parent().find("input").val())-1;
+						    var minNumber=parseFloat($(this).parent().find("input").attr("min"))
+						    if(result<minNumber){
+                                $(this).parent().find("input").val(Number(minNumber).toFixed(2));
+							}else{
+                                $(this).parent().find("input").val(Number(result).toFixed(2));
+							}
+                            totalNum = $(this).parent().find("input").val();
+                            totalMoney = numInput.val() * productDetail.unitPrice;
+                            $('.goodsTotalNum').text(Number(totalNum).toFixed(2));
+                            $('.goodsTotalMoney').text('￥' + Number(totalMoney).toFixed(2) + '元');
+
+
+
+
+//							if((numInput.val() - 0) <= minAmount) {
+//								numInput.val(minAmount);
+//							} else {
+//								numInput.val((numInput.val() - 0) - (changeAmount - 0));
+//							}
+
+						});
+
+						$(document).on('change', 'input:radio[name="payType"]', function() {
+							payTypeVal = $(this).val()
+						})
+						$('.toXunpanBtn').click(function() {
+
+							if(thisCompanyId==companyId){
+								alert("您不能询价本公司商品！");
+								return;
+							}
+							var isOld = localStorage.getItem('isOld');
+							if(isOld != '2') {
+								return;
+							}
+							if(totalNum <= 0) {
+								alert('您未购买商品');
+								return;
+							} else {
+								if(!payTypeVal) {
+									alert('您未购选择支付方式');
+									return;
+								} else {
+									var fapiaoType = '',
+										shoupiaoAddress = '';
+									var addressId;
+									// 获取收票地址
+									var shoupiaoAddressList = [];
+									$.ajax({
+										type: "post",
+										headers: {
+											Accept: "application/json; charset=utf-8",
+											token: token
+										},
+										async: false,
+										url: pubIP + "address/listAddressByShopUserId", //v1.0
+										cache: false,
+										data: {
+											supplyId: objid
+										},
+										success: function(resp) {
+											console.log(resp);
+											if(resp.code == 1) {
+											    // debugger;
+												if(resp.data && resp.data.length > 0) {
+													shoupiaoAddressList = resp.data;
+													var editAddressTpl = template('editAddressTpl', {
+														list: resp.data
+													});
+													$('.addAddressBoxCont').html(editAddressTpl);
+
+													var defaultStrFlag = false;
+													$.each(resp.data, function(i, item) {
+														if(item.defaultStr == '1') {
+															defaultStrFlag = true;
+															shoupiaoAddress = item;
+															addressId = item.dbid;
+														}
+													});
+													if(!defaultStrFlag) {
+														shoupiaoAddress = resp.data[0];
+														addressId = resp.data[0].dbid;
+													}
+                                                    isHasAddress=1;
+                                                    if(isHasAddress==1){
+                                                        $('.xj_shoupiaoAddress').text(
+                                                            shoupiaoAddress.addressStr + '  ' + shoupiaoAddress.detailedAddress +
+                                                            ' ' + shoupiaoAddress.receiver + ' ' + shoupiaoAddress.phone
+                                                        ).attr('data-dbid', addressId);
+                                                    }
+												}else{
+                                                    isHasAddress=0;
+												}
+											}else if(resp.code == 0){
+                                                isHasAddress=0;
+											}
+										}
+									});
+
+
+									// 修改收货地址
+									$('.editAddress').click(function() {
+										$('#editShoupiaoAddress').css('display', 'block');
+									});
+									// 点击X 关闭修改收货地址界面
+									$('#editShoupiaoAddress .close').click(function() {
+										$('#editShoupiaoAddress').css('display', 'none');
+									});
+									// 点击返回 关闭修改收货地址界面
+									$('#editShoupiaoAddress .goback').click(function() {
+										$('#editShoupiaoAddress').css('display', 'none');
+									});
+									// 点击确定 关闭修改收货地址界面
+									// debugger
+									var current_dbid = ''; //记录选中的售票地址id
+									$('#editShoupiaoAddress input').change(function() {
+									    // debugger;
+										current_dbid = $(this).parent().parent().attr('data-id');
+										// console.log(current_dbid);
+									});
+									//////////////////////////-----------------------------------------------------------
+									$('#editShoupiaoAddress .tosure').click(function() {
+										$('#editShoupiaoAddress').css('display', 'none');
+                                        $.ajax({
+                                            type: "post",
+                                            headers: {
+                                                Accept: "application/json; charset=utf-8",
+                                                token: token
+                                            },
+                                            async: false,
+                                            url: pubIP + "address/listAddressByShopUserId", //v1.0
+                                            cache: false,
+                                            data: {
+                                                supplyId: objid
+                                            },
+                                            success: function(resp) {
+                                                console.log(resp);
+                                                if(resp.code == 1) {
+
+                                                    if(resp.data && resp.data.length > 0) {
+                                                        shoupiaoAddressList = resp.data;
+                                                        current_dbid=$('input[name="address"]:checked').parent().parent().attr('data-id');
+                                                        addressId = current_dbid;
+                                                        for(var i=0;i<shoupiaoAddressList.length;i++){
+                                                            if(current_dbid == shoupiaoAddressList[i].dbid) {
+                                                                shoupiaoAddress = shoupiaoAddressList[i];
+                                                            }
+														}
+
+//                                                        $.each(shoupiaoAddressList, function(i, n) {
+//                                                            if(current_dbid == n.dbid) {
+//                                                                shoupiaoAddress = n;
+//                                                            }
+//                                                        })
+                                                        // console.log(shoupiaoAddress,'----------');
+                                                        // 重新渲染收票地址数据
+                                                        $('.xj_shoupiaoAddress').text(
+                                                            shoupiaoAddress.addressStr + '  ' + shoupiaoAddress.detailedAddress +
+                                                            ' ' + shoupiaoAddress.receiver + ' ' + shoupiaoAddress.phone
+                                                        ).attr('data-dbid', addressId);
+                                                    }else{
+                                                        isHasAddress=0;
+                                                    }
+                                                }else if(resp.code == 0){
+                                                    isHasAddress=0;
+                                                }
+                                            }
+                                        });
+
+									});
+
+									$('#toXunpan').css('display', 'block');
+									$('#toXunpan .close').click(function() {
+										$('#toXunpan').css('display', 'none');
+									});
+									$('#xj_goodsNum').text(totalNum + '吨');
+									$('#xj_sumMoney').text(totalMoney + "元");
+									$('#xj_payType').text(payTypeVal);
+									$('.xj_fapiaoType').on('change', function() {
+										fapiaoType = $(this).val();
+									})
+
+									$('#xj_tel').on('blur', function() {
+										if(!isPoneAvailable($('#xj_tel'))) {
+											alert('请输入正确的手机号');
+											return;
+										}
+									});
+									// 点击提交
+									$('#toXunpan').find('.commitBtn').click(function() {
+										// 支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限
+										var paymentMethod;
+										if(payTypeVal == '现汇') {
+											paymentMethod = 1;
+										} else if(payTypeVal == '承兑') {
+											paymentMethod = 2;
+										} else if(payTypeVal == '现汇+承兑') {
+											paymentMethod = 3;
+										}else if(payTypeVal == '不限') {
+											paymentMethod = 0;
+										}
+										//发票类型不能为空
+										if(!fapiaoType) {
+											alert('发票类型不能为空');
+											return;
+										}
+										//收票地址
+                                        if($(".xj_shoupiaoAddress").text()==""){
+                                            alert('收票地址不能为空');
+                                            return;
+                                        }
+										// 联系人不能为空
+										var concatMan = $('#xj_concatMan').val();
+										if(!$('#xj_concatMan').val() || $('#xj_concatMan').val() == ' ') {
+											alert('联系人不能为空');
+											return;
+										}
+
+										var tel = $('#xj_tel').val();
+										if(!isPoneAvailable($('#xj_tel'))) {
+											alert('请输入正确的手机号');
+											return;
+										}
+										var beizhu = $('#xj_bei').val();
+
+										// 添加询盘
+										$.ajax({
+											type: "post",
+											headers: {
+												Accept: "application/json; charset=utf-8",
+												token: token
+											},
+											async: false,
+											// url: 'http://192.168.1.179:7777/service/' + "inquiries/addInquiries",//v1.0
+											url: pubIP + "inquiries/addInquiries", //v1.0
+											cache: false,
+											data: {
+												productId: productDetail.productId,
+												sum: totalNum,
+												unit: '吨',
+												paymentMethod: paymentMethod,
+												contactName: concatMan,
+												contactPhone: tel,
+												note: beizhu,
+												invoiceType: fapiaoType,
+												invoiceId: addressId,
+												invoiceAddr: shoupiaoAddress.addressStr + '  ' + shoupiaoAddress.detailedAddress,
+												invoicePeople: shoupiaoAddress.receiver,
+												invoicePhone: shoupiaoAddress.phone,
+												datas: JSON.stringify(goodsinfoObj)
+											},
+											success: function(res2) {
+												console.log(res2);
+												if(res2.code == 1) { //success
+													$('#enquirySuccess').css('display', 'block');
+													$('#enquirySuccess .close').click(function() {
+														$('#enquirySuccess').css('display', 'none');
+													});
+													$('#toXunpan').css('display', 'none');
+													$('#enquirySuccess .tosurebtn').click(function() {
+														$('#enquirySuccess').css('display', 'none');
+													});
+												}
+											}
+										})
+
+									});
+								}
+							}
+						});
+					},
+					error: function(res) {
+						console.log(res);
+					}
+				});
+			}
+			// 获取店铺信息
+			var storeId = null;
+
+			function getshopInfo(companyId_this) {
+				$.ajax({
+					type: "post",
+					url: pubIP + "store/getStoreInfoByCompanyId", //v1.0
+					cache: false,
+					dataType: "json",
+					headers: {
+						token: token
+					},
+					data: {
+						companyId: companyId_this
+					},
+					success: function(response) {
+						console.log('shop==', response);
+						if(response.code == 1) {
+							// 店铺id
+							//debugger;
+							storeId = response.data.storeId;
+							var careFlag = false;
+							var msgObj = response.data;
+							var shopInfoHtml = template('shopInfoTpl', msgObj);
+							$('.shopinfoBox').html(shopInfoHtml);
+							$('.sellerRtLogo').attr('cmpid', companyId_this);
+							// 获取店铺关注信息
+							$.ajax({
+								type: "post",
+								url: pubIP + "store/getStoreCollectStateByTwoId", //v1.0
+								cache: false,
+								dataType: "json",
+								headers: {
+									Accept: "application/json; charset=utf-8",
+									token: token
+								},
+								data: {
+									companyId: companyId_this,
+									storeId: storeId
+								},
+								success: function(res) {
+									console.log('关注', res);
+									if(res.code == 1) {
+										careFlag = res.data;
+										msgObj.shopcareFlag = careFlag;
+										if(careFlag=="true"){
+											$('#addGz span').text('已关注');
+											$('#addGz img').attr("src","../img/yiguanzhu.png");
+										}else{
+											$('#addGz span').text('关注');
+											$('#addGz img').attr("src","../img/guanzhu.png");
+										}
+										
+									}
+								},
+								error: function(res) {
+									console.log(res);
+								}
+							})
+						}
+					},
+					error: function(xhr, statues, error) {
+
+					}
+				});
+			}
+			// 手机号正则
+			function isPoneAvailable($poneInput) {
+				var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+				if(!myreg.test($poneInput.val())) {
+					return false;
+				} else {
+					return true;
+				}
+			}
+
+			//关注/取消
+
+		   $(document).on('click','#addGz',function(){
+		   //$('#addGz').click(function(){
+		   		var isOld = localStorage.getItem('isOld');
+	       		if(isOld != '2'){
+	       			if(isOld == '1'){
+       					$('#effect .contTitle span').text('您尚未登录');
+						missedLogin() ;
+       				}else if(isOld == '0'){
+       					missedLogin() ;
+       				}else if(isOld == '-1'){
+       					$('#effect .contTitle span').text('您尚未认证');
+       					$('#effect .contTitle i').text('认证');
+       					$('#popLogin').text('认证');
+						missedLogin() ;
+       				}else if(isOld == '-2'){
+       					$('#effect .contTitle span').text('您的认证正在审核中');
+       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+       					$('#popLogin').hide();
+						missedLogin() ;
+       				}
+       				return;
+	       		}
+		   		if($.trim($(this).text()) == '关注'){
+		   			$.ajax({ 
+			          type:"post",
+			          url:pubIP+"store/addStoreCollect",//v1.0
+			          cache:false,
+			          dataType: "json",
+					  headers: {
+					  	token: token
+					  },
+			          data:{
+			        	  'companyId':companyId,
+			        	  'storeId':storeId
+			          },
+			          success: function(json){
+			            //console.log(json);
+			            if(json.code != 1){
+			            		console.log(json.msg);
+			            		return false;
+			            }else{
+			            		//alert('关注成功!');
+								$('#addGz span').html('已关注');
+								$('#addGz img').attr("src", "../img/yiguanzhu.png");
+			            }
+			          }
+			       });
+		   		}else{
+		   			$.ajax({ 
+			          type:"post",
+			          url:pubIP+"store/removeStoreCollectsByUserIdAndStoreId",//v1.0
+			          cache:false,
+			          dataType: "json",
+					  headers: {
+					  	token: token
+					  },
+			          data:{
+			        	  'companyId':companyId,
+			        	  'storeId':storeId
+			          },
+			          success: function(json){
+			            //console.log(json);
+			            if(json.code != 1){
+			            		console.log(json.msg);
+			            		return false;
+			            }else{
+			            		//alert('取消关注成功!');
+								$('#addGz span').html('关注');
+								$('#addGz img').attr("src", "../img/guanzhu.png");
+			            }
+			          }
+			       });
+		   		}
+
+			})
+			$(document).on('click', '.sellerRtLogo', function() {
+				localStorage.setItem('thisCompanyId', $(this).attr('cmpid'));
+				location.href = '../shopManage/storeIndex.html';
+			})
+
+			//拦截链接
+			$(document).on('click', 'a', function(e) {
+				e.preventDefault();
+				var isOld = localStorage.getItem('isOld');
+				if(isOld != '2') {
+					var ttxt = $.trim($(this).text());
+					console.log(ttxt);
+					if(ttxt == '用户中心' || ttxt == '立即询盘' || ttxt == '联系客服') {
+						if(isOld == '1') {
+							$('#effect .contTitle span').text('您尚未登录');
+							missedLogin();
+						} else if(isOld == '0') {
+							missedLogin();
+						} else if(isOld == '-1') {
+							$('#effect .contTitle span').text('您尚未认证');
+							$('#effect .contTitle i').text('认证');
+							$('#popLogin').text('认证');
+							missedLogin();
+						} else if(isOld == '-2') {
+							$('#effect .contTitle span').text('您的认证正在审核中');
+							$('#effect .contTitle i').text('等待审核通过').css('color', '#000');
+							$('#popLogin').hide();
+							missedLogin();
+						}
+					} else {
+						window.location.href = this.href;
+					}
+				} else {
+					window.location.href = this.href;
+				}
+			})
+		</script>
+	</body>
+
+</html>

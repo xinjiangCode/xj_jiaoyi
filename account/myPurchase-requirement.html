@@ -1,0 +1,301 @@
+<!--我的采购需求-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/myPurchase-requirement.css">
+</head>
+<style>
+
+    body {
+        background-color: #fff;
+    }
+
+    .orderContItem.orderViewdetail a {
+        font-size: 12px;
+    }
+
+    .orderItem .orderItemCont {
+        font-size: 16px;
+    }
+
+    .orderItemCont .orderStatus {
+        width: 89px;
+        margin-left: 8px;
+    }
+
+    .orderContItem.orderViewdetail {
+        margin-left: 0px;
+        float: right;
+        margin-right: 10px;
+    }
+    .orderItemCont .orderAddress {
+         margin-left: 0px; 
+        width: 280px;
+        text-align: center;
+    }
+
+    .orderItemCont .orderQuantity {
+         margin-left: 40px; 
+        width: 87px;
+        text-align: center;
+    }
+
+    .orderItemCont .orderPurity {
+        margin-left: 90px;
+        color: #5590F6;
+        width: 70px;
+        text-align: center;
+    }
+
+    .myPurchase-tab span:nth-child(5) {
+        margin-left: 82px;
+    }
+</style>
+<body>
+    <div class="main">
+        <div class="myPurchase-title clearfix">
+            <div class="Lf">我的采购需求</div>
+            <div class="Rt">
+                <input type="text Lf" class="search_input_info" placeholder="按需求编号/商品名称查询">
+                <span class="search Rt search_input_info_btn" style="width: 42px;height:30px;margin:0;cursor:pointer;"></span>
+            </div>
+        </div>
+        <div class="myPurchase-tab">
+            <span class="active" data-value="">全部报价</span>
+            <span data-value="2">发布中</span>
+            <span data-value="4">已关闭</span>
+            <span data-value="3">已完成</span>
+            <span data-value="5">已失效</span>
+        </div>
+        <div class="myPurchase-status">
+            <span>近三个月的订单</span>
+            <span>纯度</span>
+            <span>数量</span>
+            <span>收货地</span>
+            <span>状态</span>
+            <span>操作</span>
+        </div>
+        <div class="myPurchase-orders" id="listInfo">
+            <!-- <div class="orderItem">
+                <div class="orderItemHeader">
+                    <span>采购需求编号：3001707271606350063</span>
+                    <span class="Rt">采购日期：2017-07-27  16: 06: 30</span>
+                </div>
+                <div class="orderItemCont clearfix">
+                    <div class="orderContItem orderNum"><span>1</span></div>
+                    <div class="orderContItem orderName">迭氮（化）铅[含水或水加乙醇≥20%]</div>
+                    <div class="orderContItem orderPurity">98%</div>
+                    <div class="orderContItem orderQuantity">1吨</div>
+                    <div class="orderContItem orderAddress">乌鲁木齐经济法开发区阳澄湖路39号</div>
+                    <div class="orderContItem orderStatus green">√有效</div>
+                    <div class="orderContItem orderViewdetail"><a style="display: block;width: 100%;height: 100%;" href="./myPurchase-requirementDetail.html">查看详情</a></div>
+                </div>
+                <div class="orderItemFooter clearfix">
+                    <div class="Lf">收到报价<span class="treated blue">(1)</span></div>
+                    <div class="Lf"></div>
+                    <div class="Lf">待处理报价<span class="toTreated red">(1)</span></div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemHeader">
+                    <span>采购需求编号：3001707271606350063</span>
+                    <span class="Rt">采购日期：2017-07-27  16: 06: 30</span>
+                </div>
+                <div class="orderItemCont clearfix">
+                    <div class="orderContItem orderNum"><span>2</span></div>
+                    <div class="orderContItem orderName">迭氮（化）铅[含水或水加乙醇≥20%]</div>
+                    <div class="orderContItem orderPurity">98%</div>
+                    <div class="orderContItem orderQuantity">1吨</div>
+                    <div class="orderContItem orderAddress">乌鲁木齐经济法开发区阳澄湖路39号</div>
+                    <div class="orderContItem orderStatus red">X无效</div>
+                    <div class="orderContItem orderViewdetail"><a style="display: block;width: 100%;height: 100%;" href="./myPurchase-requirementDetail.html">查看详情</a></div>
+                </div>
+                <div class="orderItemFooter clearfix">
+                    <div class="Lf">收到报价<span class="treated blue">(1)</span></div>
+                    <div class="Lf"></div>
+                    <div class="Lf">待处理报价<span class="toTreated red">(1)</span></div>
+                </div>
+            </div>
+            <div class="orderItem">
+                <div class="orderItemHeader">
+                    <span>采购需求编号：3001707271606350063</span>
+                    <span class="Rt">采购日期：2017-07-27  16: 06: 30</span>
+                </div>
+                <div class="orderItemCont clearfix">
+                    <div class="orderContItem orderNum"><span>3</span></div>
+                    <div class="orderContItem orderName">迭氮（化）铅[含水或水加乙醇≥20%]</div>
+                    <div class="orderContItem orderPurity">98%</div>
+                    <div class="orderContItem orderQuantity">1吨</div>
+                    <div class="orderContItem orderAddress">乌鲁木齐经济法开发区阳澄湖路39号</div>
+                    <div class="orderContItem orderStatus green">√有效</div>
+                    <div class="orderContItem orderViewdetail"><a style="display: block;width: 100%;height: 100%;" href="./myPurchase-requirementDetail.html">查看详情</a></div>
+                </div>
+                <div class="orderItemFooter clearfix">
+                    <div class="Lf">收到报价<span class="treated blue">(1)</span></div>
+                    <div class="Lf"></div>
+                    <div class="Lf">待处理报价<span class="toTreated red">(1)</span></div>
+                </div>
+            </div> -->
+        </div>
+        <div class=" pageCont" style="text-align: center;width: 986px;">
+        		<ul class="pagination" id="page1"></ul>
+	        <div class="pageJump">
+	            <span class="allPageN">1/200</span>
+                <span style="margin-left: 10px;">共<span class="allPageSize">200</span>页，</span>
+                <span>到第</span>
+                <input class="page_page" type="text"/>
+                <span>页</span>
+                <button type="button" class="button goPage">GO</button>
+	        </div>
+	    </div>
+    </div>
+    <script src="./../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./../js/pager.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/template.js"></script>
+    <script type="text/html" id="listTpl">
+        <%for (i in list) {%>
+            <div class="orderItem">
+                <div class="orderItemHeader">
+                    <span>采购需求编号：<%=list[i].buyingId%></span>
+                    <span class="Rt">采购日期：<%=list[i].releaseTime%></span>
+                </div>
+                <div class="orderItemCont clearfix">
+                    <div class="orderContItem orderNum"><span><%=i-0+1%></span></div>
+                    <div class="orderContItem orderName"><%=list[i].chemicalName%></div>
+                    <div class="orderContItem orderPurity"><%=list[i].productPurity%>%</div>
+                    <div class="orderContItem orderQuantity"><%=list[i].sum%>吨</div>
+                    <div class="orderContItem orderAddress"><%=list[i].deliveryJson.warehouseProvince%> <%=list[i].deliveryJson.warehouseCity%> <%=list[i].deliveryJson.warehouseArea%></div>
+                    <%if (list[i].state == 2) {%>
+                        <div class="orderContItem orderStatus" style="color: #6EA3FF;"><img style="margin-right: 4px;  vertical-align: middle;" src="../img/saleTime.png" alt="">已发布</div>
+                    <%} else if (list[i].state == 3) {%>
+                        <div class="orderContItem orderStatus" style="color: #6EA3FF; margin-left: 0px;"><img style="margin-right: 4px;" src="../img/mp_ywc.png" alt="">已完成</div>
+                    <%} else if (list[i].state == 4) {%>
+                        <div class="orderContItem orderStatus" style="color: #ff4a4a;"><img style="margin-right: 4px;" src="../img/chahao_icon.png" alt="">已关闭</div>
+                    <%} else if (list[i].state == 5) {%>
+                        <div class="orderContItem orderStatus" style="color: #565656;"><img style="margin-right: 4px; vertical-align: middle;" src="../img/shixiao_icon.png" alt="">已失效</div>
+                    <%}%>
+
+                    <div class="orderContItem orderViewdetail tiao_btn" data-state="<%=list[i].state%>" data-caigou="<%=list[i].buyingId%>"><a style="display: block;width: 100%;height: 100%;" href="javascript:;">查看详情</a></div>
+                </div>
+                <div class="orderItemFooter clearfix">
+                    <div class="Lf">收到报价<span class="treated blue">(<%=list[i].receivedNum%>)</span></div>
+                    <div class="Lf"></div>
+                    <div class="Lf">待处理报价<span class="toTreated red">(<%=list[i].treatedTodoNum%>)</span></div>
+                </div>
+            </div>
+        <%}%>
+    </script>
+    <script type="text/javascript">
+    		
+        var j = 1;
+
+        var isFirst = true;
+        var first = true;
+        var enquiryListTpl = '';
+
+        purchaseList('', 1);
+
+        // 采购需求列表
+       function purchaseList(category, num) {
+        console.log($('.search_input_info').val());
+            $.ajax({
+                type:"post",
+                url:pubIP + "offerMoney/getOfferMoneyList",//v1.0
+                cache:false,
+                dataType: "json",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    companyId: companyId,
+                    sEcho: 0,
+                    pageSize:2,
+                    state: category,
+                    pageNum: num,
+                    name: $('.search_input_info').val()
+                },
+                success: function(data){
+                    console.log(data);
+
+                    if(data.aData && data.aData.length>0){
+                        $.each(data.aData, function(i, item){
+                            // 提交时间
+                            item.releaseTime = new Date(item.releaseTime).Format("yyyy-MM-dd hh:mm:ss");
+                            item.deliveryJson = JSON.parse(item.deliveryJson);
+
+                        });
+
+                        enquiryListTpl = template('listTpl', {list: data.aData});
+                        $('#listInfo').html(enquiryListTpl);
+
+
+                        if (isFirst) {
+
+                            Page({
+                                num: data.pages,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    console.log(n);
+                                    purchaseList(category, n);
+                                }
+                            });
+
+                            $('.total').text(data.pages);
+
+                            isFirst = false;
+
+                        }
+
+                        $('.allPageN').text(num+'/'+data.pages);
+
+                        
+                    } else {
+                        enquiryListTpl = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';
+                        $('.myPurchase-orders').html(enquiryListTpl);
+                    }
+
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+       }
+
+       $(document).on('click', '.myPurchase-tab span', function () {
+
+            $('.myPurchase-tab span').removeClass('active');
+            $(this).addClass('active');
+
+            var category = $(this).attr('data-value');
+
+            if (first && category == '') {
+                return;
+            }
+
+            first = false;
+
+            isFirst = true;
+            purchaseList(category, 1);
+
+       });
+
+       $(document).on('click', '.search_input_info_btn', function() {
+            purchaseList('', 1);
+       });
+
+       $(document).on('click', '.tiao_btn', function () {
+            window.localStorage.setItem('data-caigou', $(this).attr('data-caigou'));
+            window.localStorage.setItem('data-state', $(this).attr('data-state'));
+
+            window.location.href = './myPurchase-requirementDetail.html';
+       });
+    </script>
+</body>
+</html>

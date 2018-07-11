@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <script src="../js/header.js"></script><!-- 公共头 -->
+    <link rel="stylesheet" href="../css/fuzzySearch.css">
+</head>
+<body>
+    <!-- 模糊搜索 -->
+    <div class="breadcrumb">
+        <a href="##">首页</a>><a href="##">搜索结果页</a>><span>氢氧化钠<img src="../img/breadcrumbCloseIcon.png" /></span>
+    </div>
+
+    <div class="mianCont" style="text-align: center;">
+        <ul class="pagination" id="page1"></ul>
+        <div class="pageJump">
+                <span class="allPageN">1/200</span>
+                共200页，
+            <span>到第</span>
+            <input type="text"/>
+            <span>页</span>
+            <button type="button" class="button">GO</button>
+        </div>
+    </div>
+    <script src="../js/footer.js"></script><!-- 公共底 -->
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+        Page({
+            num: 200,
+            elem: $('#page1'),
+            callback: function(n) {
+                console.log(n);
+            }
+        });
+    </script>
+</body>
+</html>

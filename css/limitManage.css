@@ -1,0 +1,53 @@
+.main {
+	border: 1px solid #EBE9EA;
+	width: 986px;
+	height: 780px;
+	padding: 0px;
+}
+
+.user_list {
+	height: 49px;
+	line-height: 49px;
+	border-bottom: 1px solid #EBE9EA;
+}
+
+.user_list_title {
+	color: #282828;
+	font-size: 16px;
+	margin-left: 7px;
+}
+
+.user_list_btn span {
+	width: 68px;
+	height: 26px;
+	border: 1px solid #EBE9EA;
+	border-radius: 3px;
+	color: #282828;
+	text-align: center;
+	line-height: 26px;
+	display: inline-block;
+	font-size: 14px;
+}
+
+.shop_list_table th {
+	height: 42px;
+	line-height: 42px;
+}
+
+.shop_list_table thead {
+	background-color: #fdfdfd; 
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.user_list_title img {
+	margin-left: 20px;
+}
+
+input[type="radio"] {
+    margin-left: 18px;
+}
+
+.edit {
+	margin: 0 10px; 
+}
+

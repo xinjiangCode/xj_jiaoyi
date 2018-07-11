@@ -1,0 +1,138 @@
+.navbar{
+    height: 41px;
+    line-height: 41px;
+
+}
+.navbar>ul>.allNav{
+    background-color: #6da4ff;
+    color: white;
+    width: 189px;
+    padding-left: 39px;
+}
+.navbar>ul li{
+    float: left;
+    width: 100px;
+    font-size: 16px;
+    text-align: center;
+}
+.navbar>ul .active{
+    color: #6a9ef7;
+}
+.line{
+    width: 100%;
+    height: 0;
+    min-width: 1229px;
+    border-bottom: 4px solid #6a9ef7;
+}
+
+
+.stateList{
+    margin-top: 14px;
+}
+.stateList>div{
+    float:left;
+    padding: 2px 6px;
+}
+.stateList>.last{
+    background-color: #e1e1e8;
+}
+
+
+.navbar2{
+    padding: 10px 0;
+    overflow: hidden;
+    border: 1px solid #e1e1e8;
+
+}
+.navbar2>.title{
+    float: left;
+    padding: 0 6px;
+}
+.navbar2>ul{
+    float: left;
+}
+.navbar2>ul li{
+    float: left;
+    padding: 0 6px;
+}
+.navbar2>ul .active{
+    background-color: #6a9ef7;
+}
+
+.address{
+    padding: 10px 0;
+    border: 1px solid #e1e1e8;
+    border-top: none;
+    overflow: hidden;
+}
+.address>.title{
+    float: left;
+    padding: 0 6px;
+}
+.address>select{
+    float: left;
+    width: 100px;
+    padding-left: 2%;
+    overflow: hidden;
+}
+
+
+.shoplist{
+
+}
+.shoplist>ul li{
+    overflow: hidden;
+    padding: 29px 0;
+    border-bottom: 2px solid #e1e1e8;
+}
+.shoplist>ul li>.leftImg{
+    width: 200px;
+    height: 125px;
+    overflow: hidden;
+}
+.shoplist>ul li>.leftImg>img{
+    float: left;
+    width: 200px;
+    height: 125px;
+}
+.shoplist>ul li>.leftTitle{
+    float: left;
+    color: #4079D7;
+    overflow: hidden;
+}
+.shoplist>ul li>.leftTitle>div{
+    margin-top: 10px;
+}
+.shoplist>ul li>.leftTitle>.title{
+    margin-bottom: 30px;
+}
+.shoplist>ul li>.leftTitle img{
+    padding-top: 2.5px;
+    float: right;
+    margin-left: 2px;
+    width: 17px;
+    height: 17px;
+}
+.shoplist>ul li>.right{
+    float: right;
+}
+.shoplist>ul li>.right>.rightImg{
+    overflow: hidden;
+}
+.shoplist>ul li>.right>.rightImg>img{
+    float: left;
+    width: 125px;
+    height: 125px;
+}
+ .shoplist>ul li>.right>.rightTitle{
+    overflow: hidden;
+ }
+.shoplist>ul li>.right>.rightTitle>.img>img{
+    width: 14px;
+    height: 14px;
+}
+.shoplist>ul li>.right>.rightTitle>.title{
+    width: 15px;
+    font-size: 14px;
+    margin-right: 18px;
+}

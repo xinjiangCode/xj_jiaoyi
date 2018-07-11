@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Cache-Control" CONTENT="no-cache">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta name="format-detection" content="telephone=no" />
+		<title>新疆化学品经营服务平台</title>
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/helpCenter.css"/>
+	</head>
+	<body>
+		<!--帮助中心-->
+		<div class="mianCont breadcrumb">
+			<a href="../index.html">首页</a>>
+			<a href="##">优质 液氨 价格电议【工业级I】</a>
+		</div>
+		<div class="mianCont">
+			<div class="hcTab">
+				<div class="hctabTit"><div class="qsN">常见问题分类</div></div>
+				<div class="qsitem actQs">
+					<div class="qsN"><span>账号管理</span><span class="rtIcon"></span></div>
+					<div class="qsBox">
+						<a href="##">如何管理产品</a>
+						<a href="##" class="actqsA">发布商品</a>
+						<a href="##">如何修改店铺信息</a>
+					</div>
+				</div>
+				<div class="qsitem">
+					<div class="qsN"><span>报价与询盘</span><span class="rtIcon"></span></div>
+					<div class="qsBox">
+						<a href="##">如何管理产品</a>
+						<a href="##">发布商品</a>
+						<a href="##">如何修改店铺信息</a>
+					</div>
+				</div>
+				<div class="qsitem">
+					<div class="qsN"><span>购买问题</span><span class="rtIcon"></span></div>
+					<div class="qsBox">
+						<a href="##">如何管理产品</a>
+						<a href="##">发布商品</a>
+						<a href="##">如何修改店铺信息</a>
+					</div>
+				</div>
+				<div class="qsitem">
+					<div class="qsN"><span>采购问题</span><span class="rtIcon"></span></div>
+					<div class="qsBox">
+						<a href="##">如何管理产品</a>
+						<a href="##">发布商品</a>
+						<a href="##">如何修改店铺信息</a>
+					</div>
+				</div>
+				<div class="qsitem">
+					<div class="qsN"><span>订单问题</span><span class="rtIcon"></span></div>
+					<div class="qsBox">
+						<a href="##">如何管理产品</a>
+						<a href="##">发布商品</a>
+						<a href="##">如何修改店铺信息</a>
+					</div>
+				</div>
+			</div>
+			<div class="hcBody">
+				<div class="hcBodyTit">发布商品</div>
+				<p>1.登陆新疆化学品经营服务平台，点击网站右上角“用户中心”-“我的店铺”-选择商品管理，如下图所示：</p>
+				<img src="../img/qsDemo.png"/>
+				<p>2、将产品详情页的必填项信息按照要求填写完毕，点击“提交”即可。</p>
+			</div>
+		</div>
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.qsBox a:last-child').css('margin-bottom','18px');
+			$(document).on('click','.qsN',function(){
+				$('.actQs').removeClass('actQs');
+				$('.actqsA').removeClass('actqsA');
+				$(this).parent().addClass('actQs');
+			})
+			$(document).on('click','.qsBox a',function(){
+				$('.actqsA').removeClass('actqsA');
+				$(this).addClass('actqsA');
+			})
+			
+			//拦截链接
+	       $(document).on('click','a',function(e){
+	       		e.preventDefault();
+	       		var isOld = localStorage.getItem('isOld');
+	       		if(isOld != '2'){
+	       			var ttxt = $.trim($(this).text());
+	       			console.log(ttxt);
+	       			if(ttxt == '用户中心' ){
+	       				if(isOld == '1'){
+	       					$('#effect .contTitle span').text('您尚未登录');
+							missedLogin() ;
+	       				}else if(isOld == '0'){
+	       					missedLogin() ;
+	       				}else if(isOld == '-1'){
+	       					$('#effect .contTitle span').text('您尚未认证');
+	       					$('#effect .contTitle i').text('认证');
+	       					$('#popLogin').text('认证');
+							missedLogin() ;
+	       				}else if(isOld == '-2'){
+	       					$('#effect .contTitle span').text('您的认证正在审核中');
+	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	       					$('#popLogin').hide();
+							missedLogin() ;
+	       				}
+	       			}else{
+	       				window.location.href = this.href;
+	       			}
+	       		}else{
+	       			window.location.href = this.href;
+	       		}
+	       })
+		</script>
+	</body>
+</html>

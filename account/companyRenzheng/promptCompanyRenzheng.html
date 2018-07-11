@@ -1,0 +1,98 @@
+<!--认证-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" href="../../css/companyWeiRenzheng/promptCompanyRenzheng.css">
+</head>
+
+<body>
+    <!-- 企业未认证 - 提示企业进行认证 -->
+    <div class="main">
+        <div class="company_renzheng">企业认证</div>
+        <div class="renzheng_step">
+            <img src="../../img/prompt_renzheng.png" alt="">
+        </div>
+        <div class="step_list">
+            <ul class="inline-block">
+                <li class="clearfix">
+                    <img class="fl" src="../../img/blue_success.png" alt="">
+                    <span class="fl">拥有认证标识的独立店铺</span>
+                </li>
+                <li class="clearfix">
+                    <img class="fl" src="../../img/blue_success.png" alt="">
+                    <span class="fl">免费发布产品</span>
+                </li>
+                <li class="clearfix">
+                    <img class="fl" src="../../img/blue_success.png" alt="">
+                    <span class="fl">免费发布采购需求</span>
+                </li>
+            </ul>
+        </div>
+        <!-- <div class="apply_btn"><a href="../identification1.html"><span>立即申请</span></a></div> -->
+        <div class="apply_btn"><span>立即申请</span></div>
+    </div>
+</body>
+
+<script src="../../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    $('.apply_btn').on('click', function () {
+        $.ajax({
+            url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                token: token
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.state);
+
+                if (data.data.state && data.data.type == 1) {
+                    location.href="../identification"+data.data.state+".html"; 
+                    if (companyId) {
+                        window.parent.tiao_tan();
+                    }
+                    
+                } else {
+                    if (data.data.type == 7) {  //等待审核
+                        window.parent.tan3();
+                    } else if (data.data.type == 2) {  //正在审核
+                        window.parent.tan4();
+                    } else if (data.data.type == 4) {  //已拒绝
+                        window.parent.tan5();
+                    } else if (data.data.type == 5) {  //企业二次审核
+                        window.parent.tan6();
+                    } else if (data.data.type == 6) {  //出金二次修改
+                        window.parent.tan7();
+                    }
+  
+                    location.href="../identification1.html"; 
+                }
+
+                          
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    });
+
+   
+</script>
+</html>

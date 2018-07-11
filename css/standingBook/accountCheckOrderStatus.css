@@ -1,0 +1,236 @@
+.accountCheckOrderStatus {
+	width: 984px;
+	border: 1px solid #eeeced;
+}
+
+.accountCheckOrderStatusTitle {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eeeced; 
+	padding-left: 19px;
+	font-size: 16px;
+	color: #282828;
+}
+
+.kefu {
+	margin-right: 19px;
+	display: inline-block;
+	color: #6EA3FF;
+	font-size: 14px;
+}
+
+.kefu img {
+	vertical-align: middle;
+}
+
+.order_status {
+	height: 124px;
+	background: #fdfdfd;
+	line-height: 124px;
+	text-align: center;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.order_status1 {
+	height: 149px;
+	text-align: center;
+	border-bottom: 1px solid #ebe9ea;
+	background: #fdfdfd;
+	padding-top: 37px;
+	box-sizing: border-box;
+}
+
+.order_status1 .span_span {
+	font-size: 30px;
+	color: #FF9453;
+	vertical-align: initial;
+}
+
+.order_status1 p {
+	margin-top: 24px;
+}
+
+.order_status1 p span {
+	color: #FF9453;
+}
+
+.order_status span {
+	font-size: 30px;
+	color: #25BE71;
+	vertical-align: sub;
+}
+
+.order_status img {
+	vertical-align: middle;
+	margin-right: 12px;
+}
+
+.shengyu_time {
+	height: 111px;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.shengyu_time p {
+	color: #282828;
+	font-size: 16px;
+	margin-top: 32px;
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+.shengyu_time1 {
+	height: 144px;
+	line-height: 144px;
+	border-bottom: 1px solid #ebe9ea;
+}
+
+.shengyu_time1 p {
+	color: #282828;
+	font-size: 16px;
+	text-align: center;
+}
+
+.shengyu_time .time_time {
+	font-size: 20px;
+	color: #25BE71;
+}
+
+.shengyu_time1 .time_time {
+	font-size: 20px;
+	color: #25BE71;
+}
+
+
+.ok_order {
+	display: inline-block;
+	width: 152px;
+	height: 36px;
+	background: #6EA3FF;
+	border: 1px solid #5791F6;
+	text-align: center;
+	line-height: 36px;
+	font-size: 14px;
+	color: #fff;
+	border-radius: 2px; 
+	cursor: pointer;
+}
+
+.ok_order:hover {
+	background: #5791F6;
+}
+
+.jujue_order {
+	display: inline-block;
+	width: 152px;
+	height: 36px;
+	border: 1px solid #ADADAD;
+	border-radius: 2px; 
+	cursor: pointer;
+	font-size: 14px;
+	text-align: center;
+	line-height: 36px;
+	margin-left: 16px;
+}
+
+.jujue_order:hover {
+	background: #ADADAD;
+	color: #fff;
+}
+
+.operate_btn {
+	position: relative;
+}
+
+
+.operate_btn .span_btn {
+	position: absolute;
+	left: 50%;
+	margin-left: -164px;
+}
+
+.order_info {
+	height: 228px;	
+}
+
+.order_info .order_info_title{
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 1px solid #eeeced; 
+	padding-left: 19px;
+	font-size: 16px;
+	color: #282828;
+}
+
+.order_info_title .order_num {
+	font-size: 14px;
+	margin-right: 19px;
+}
+
+.order_info_cont {
+	height: 125px;
+	border-bottom: 1px solid #eeeced;
+	padding-top: 18px;
+	box-sizing: border-box;
+	font-size: 14px;
+	padding-left: 18px;
+}
+
+.order_info_cont ul li {
+	float: left;
+	width: 50%;
+	line-height: 28px;
+}
+
+.order_info_cont ul li:nth-child(1),
+.order_info_cont ul li:nth-child(3),
+.order_info_cont ul li:nth-child(5) {
+	width: 35%;
+}
+
+
+.order_money div {
+	color: #282828;
+	font-size: 14px;
+	display: inline-block;
+	margin-right: 25px;
+}
+
+.order_money {
+	line-height: 50px;
+	padding-left: 19px;
+	box-sizing: border-box;
+}
+
+.cancel_accountCheck_btn {
+	display: inline-block;
+	width: 196px;
+	height: 38px;
+	text-align: center;
+	line-height: 38px;
+	background: #EF585F;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 2px;
+	position: absolute;
+	left: 50%;
+	margin-left: -98px; 
+}
+
+.liji_pay_btn {
+	display: inline-block;
+	width: 196px;
+	height: 38px;
+	text-align: center;
+	line-height: 38px;
+	background: #6EA3FF;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 2px;
+	position: absolute;
+	left: 50%;
+	margin-left: -98px; 
+}
+
+.liji_pay_btn:hover {
+	background: rgb(67, 121, 245);
+}
