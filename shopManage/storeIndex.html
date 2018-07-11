@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+	    <meta http-equiv="Pragma" content="no-cache">
+	    <meta name="format-detection" content="telephone=no" />
+		<title>新疆化学品经营服务平台</title>
+		<!-- <link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mCustomScrollbar.css"/> -->
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/home.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/shopManage/storeIndex.css"/>
+		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/* .leftTabBox{
+				display: block;
+			} */
+			.tabLinkMaxBox{
+				border-bottom: none;
+			}
+			.footerTop{
+				border-top: 1px #e0e0e0 solid;
+				margin-top: 0;
+			}
+			.store_index_main{
+				margin-bottom: 23px;
+				width: 100%;
+   				overflow: hidden;
+			}
+			.left_top .span_name{
+				color: #666;
+			}
+			.left_top img{
+				width: 238px;
+				height: 109px;
+			}
+			.left_top{
+				padding: 8px 7px 6px 9px;
+				font-size: 14px;
+			}
+			.left_top ul{
+				margin-left: 13px;
+			}
+			.left_top ul li{
+				max-height: 14px;
+				line-height: 14px;
+				margin-bottom: 16px;
+			}
+			.padding{
+				border: 1px solid #F5F5F5;
+			}
+			.left_top .renzheng1{
+				width: 22px;
+    				height: 25px;
+			}
+			.left_top .renzheng2{
+				width: 22px;
+    				height: 25px;
+			}
+			.box1 .tuijian{
+				top: 0;
+				left: 0;
+			}
+			.ml{
+				margin-left: 0;
+				float: right;
+				width: 69%;
+				line-height: 18px;
+			}
+			.company_name img{
+				height: 173px;
+			}
+			.box1 li:hover{
+				border: 1px #528cf9 solid;
+			}
+
+			.box1 .img {
+				height: 140px;
+				width: 140px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 店铺首页 -->
+		<div class="store_index_main">
+			<div class="store_index_pic">
+				<div class="company_name clearfix">
+					<img class="fl" src="../img/product_pic.png" alt="">
+					<div class="fl">
+						<p class="name">XXX有限责任公司</p>
+						<p class="major">主营产品：<span id="comObj"></span></p>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix main_width">
+				<div class="fl">
+					<div class="main_left">
+						<div class="left_top">
+							<img src="../img/product_pic.png" alt="">
+							<p id="addGz" style="text-align: right;margin-top: 7px;margin-bottom: 8px;padding-right: 12px;font-size: 16px;color: #666; max-height: 16px;line-height: 16px;">
+								<img src="../img/guanzhu.png" style="margin-right: 8px;width: 18px;height: 16px; vertical-align: text-bottom;">
+								<span>关注</span>
+							</p>
+							<ul>
+								<li style="margin-bottom: 10px;">企业名称：<span class="span_name">XXX有限责任公司</span></li>
+								<li style="color: #5590F6;">企业认证 <img class="renzheng2" src="../img/qiIcon.png" alt=""></li>
+								<li style="color: #FF665A; ">危险化学品认证 <img class="renzheng1" src="../img/weiStore.png" alt=""></li>
+								<li>联系方式：<span class="span_phone">XXXX-XXX-XXX</span></li>
+								<li>所在地区：<span class="ml">XXXXXXXX</span></li>
+								<li class="callKf"><img class="contact_kefu" src="../img/contact_kefu.png" alt=""></li>
+							</ul>
+						</div>
+						<div class="left_bottom">
+							<div class="left_bottom_title">大家都在买</div>
+							<ul class="buy_list">
+								<!-- <li class="clearfix">
+									<img class="fl" src="../img/huafei_pic.png" alt="">
+									<div class="fl">
+										<p class="huafei_name">【汉姆】非离子表面活性</p>
+										<p class="huafei_danjia">￥1440.00/吨</p>
+									</div>
+								</li>
+								<li class="clearfix">
+									<img class="fl" src="../img/huafei_pic.png" alt="">
+									<div class="fl">
+										<p class="huafei_name">【汉姆】非离子表面活性</p>
+										<p class="huafei_danjia">￥1440.00/吨</p>
+									</div>
+								</li>
+								<li class="clearfix">
+									<img class="fl" src="../img/huafei_pic.png" alt="">
+									<div class="fl">
+										<p class="huafei_name">【汉姆】非离子表面活性</p>
+										<p class="huafei_danjia">￥1440.00/吨</p>
+									</div>
+								</li>
+								<li class="clearfix">
+									<img class="fl" src="../img/huafei_pic.png" alt="">
+									<div class="fl">
+										<p class="huafei_name">【汉姆】非离子表面活性</p>
+										<p class="huafei_danjia">￥1440.00/吨</p>
+									</div>
+								</li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="fr">
+					<div class="right_main">
+						<div class="centera">
+						  <ul id="oranger"> 
+							 <li class="hover">店铺首页</li>
+							 <li>热销产品</li>
+							 <li>主营产品</li>
+							 <li>公司简介</li>
+						  </ul>
+						  <div id="tablea" class="tablea">
+						    <div class="box">
+						    	<div class="major_product padding">
+						    		<div class="box1_title clearfix">
+							    		<span class="fl title">主营产品</span>
+										<a href="javascript:;" class="fr more major_product_more">更多 ></a>
+							    	</div>
+							    	<ul class="clearfix box1" id="majorProductInfo">
+							    		<!-- <li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/pu.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/pu.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li> -->
+							    	</ul>
+						    	</div>
+						    	<div class="sale_product padding">
+						    		<div class="box1_title clearfix">
+							    		<span class="fl title">热销产品</span>
+										<a href="javascript:;" class="fr more hot_sale_roduct_more">更多 ></a>
+							    	</div>
+							    	<ul class="clearfix box1" id="hotSaleProductInfo">
+							    		<!-- <li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    			<img class="tuijian" src="../img/storeJian.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    			<img class="tuijian" src="../img/storeJian.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/pu.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/pu.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li> -->
+							    	</ul>
+						    	</div>
+						    </div>
+						    <div class="box">
+						    	<div class="padding">
+						    		<div class="box1_title clearfix">
+							    		<span class="fl title">热销产品</span>
+										<!-- <a href="javascript:;" class="fr more">更多 ></a> -->
+							    	</div>
+							    	<ul class="clearfix box1" id="hotSaleProductInfo1">
+							    		<!-- <li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    			<img class="tuijian" src="../img/storeJian.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    			<img class="tuijian" src="../img/storeJian.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/pu.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/pu.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li> -->
+							    	</ul>
+							    	<div class="pageCont" style="text-align: center;width: 986px;position: relative; bottom: -50px;">
+							            <ul class="pagination" id="page2"></ul>
+							            <div class="pageJump">
+							                <span class="allPageN allPageN2">1/200</span>
+							                <span style="margin-left: 10px;">共<span class="allPageSize allPageSize2">200</span>页，</span>
+							                <span>到第</span>
+							                <input class="page_page" type="text" style='text-align: center; padding-left: 0px;'/>
+							                <span>页</span>
+							                <button type="button" class="button goPage">GO</button>
+							            </div>
+							        </div>
+						    	</div>
+						    </div>
+						    <div class="box">
+						    	<div class="major_product padding">
+						    		<div class="box1_title clearfix">
+							    		<span class="fl title">主营产品</span>
+										<!-- <a href="javascript:;" class="fr more">更多 ></a> -->
+							    	</div>
+							    	<ul class="clearfix box1" id="majorProductInfo1">
+							    		<!-- <li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/pu.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/pu.png" alt="">
+							    		</li>
+							    		<li>
+							    			<img class="img" src="../img/huafei_big_pic.png" alt="">
+							    			<p class="p_dun">6880元/吨</p>
+							    			<p class="box1_huafei_name">中顺鑫和供应链管理</p>
+							    			<img class="position_absolute" src="../img/wei.png" alt="">
+							    		</li> -->
+							    	</ul>
+							    	<div class=" pageCont" style="text-align: center;width: 986px;position: relative; bottom: -50px;">
+							            <ul class="pagination" id="page1"></ul>
+							            <div class="pageJump">
+							                <span class="allPageN">1/200</span>
+							                <span style="margin-left: 10px;">共<span class="allPageSize">200</span>页，</span>
+							                <span>到第</span>
+							                <input class="page_page" type="text" style='text-align: center; padding-left: 0px;'/>
+							                <span>页</span>
+							                <button type="button" class="button goPage">GO</button>
+							            </div>
+							        </div>
+						    	</div>
+						    </div>
+						    <div class="box company_profile">4444</div>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-3.2.1.min.js"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/template.js"></script>
+		<script type="text/html" id="majorProductTpl">
+			<%for(i in list) {%>
+			<li data-supplyid="<%=list[i].supplyId%>">
+    			<img class="img" src="<%=list[i].productPic[0]%>" alt="">
+    			<p class="p_dun"><%=list[i].unitPrice%>元/<%=list[i].unitStr%></p>
+    			<p class="box1_huafei_name"><%=list[i].productName%></p>
+    			<%if(list[i].chemicalDangerFlag == 1) {%>
+				<img class="position_absolute" src="../img/pu.png" alt="">
+    			<%} else if (list[i].chemicalDangerFlag == 2) {%>
+				<img class="position_absolute" src="../img/wei.png" alt="">
+    			<%} else if (list[i].chemicalDangerFlag == 3) {%>
+				<img class="position_absolute" src="../img/te.png" alt="">
+    			<%}%>
+    		</li>
+			<%}%>
+		</script>
+		<script type="text/html" id="hotSaleProductTpl">
+			<%for(i in list1) {%>
+			<li data-supplyid="<%=list1[i].supplyId%>">
+    			<img class="img" src="<%=list1[i].productPic[0]%>" alt="">
+    			<p class="p_dun"><%=list1[i].unitPrice%>元/<%=list1[i].unitStr%></p>
+    			<p class="box1_huafei_name"><%=list1[i].productName%></p>
+    			<%if(list1[i].chemicalDangerFlag == 1) {%>
+				<img class="position_absolute" src="../img/pu.png" alt="">
+    			<%} else if (list1[i].chemicalDangerFlag == 2) {%>
+				<img class="position_absolute" src="../img/wei.png" alt="">
+    			<%} else if (list1[i].chemicalDangerFlag == 3) {%>
+				<img class="position_absolute" src="../img/te.png" alt="">
+    			<%}%>
+    		</li>
+			<%}%>
+		</script>
+		<script>
+			$(function(){ 
+
+			  $(".tablea").find(".box:first").show();    //为每个BOX的第一个元素显示        
+			  $("#oranger li").on("click",function(){ //给a标签添加事件  
+			     var index=$(this).index();  //获取当前a标签的个数  
+			     $(this).parent().next().find(".box").hide().eq(index).show(); //返回上一层，在下面查找css名为box隐藏，然后选中的显示  
+			     $(this).addClass("hover").siblings().removeClass("hover"); //a标签显示，同辈元素隐藏 
+			     
+			     if ($(this).text() == '热销产品') {
+			     	productList(2, 12, 1);
+			     } else if ($(this).text() == '主营产品') {
+			     	productList(1, 12, 1);
+			     } else if ($(this).text() == '公司简介'){
+			     	$.ajax({
+			     		type:"post",
+				        url:pubIP+"store/getStoreBaseInfoByCompanyId",//v1.0
+				        cache:false,
+				        async:false,
+				        dataType: "json",
+						headers: {
+						  	token: token
+						},
+				        data:{
+				        	companyId: companyId,
+				        },
+				        success: function(data){
+				        	console.log(data);
+				        	if (data.data) {
+				        		$('.company_profile').html(data.data.briefIntroduction);
+				        	}
+				        },
+				        error: function (err) {
+				        	console.log(err);
+				        }
+			     	});
+			     }
+
+			  })  
+			}) ;
+
+			$(document).on('click', '#majorProductInfo li', function() {
+				window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
+				window.location.href = "../obj/objDetails.html";
+
+			});
+
+
+			$(document).on('click', '#hotSaleProductInfo li', function() {
+				window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
+				window.location.href = "../obj/objDetails.html";
+
+			});
+
+			$(document).on('click', '#hotSaleProductInfo1 li', function() {
+				window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
+				window.location.href = "../obj/objDetails.html";
+
+			});
+
+			$(document).on('click', '#majorProductInfo1 li', function() {
+				window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
+				window.location.href = "../obj/objDetails.html";
+
+			});
+
+			
+
+			//大家都在买
+			$.ajax({
+				type:"get",
+		        url:pubIP+"productApi/getProductListByQuality",//v1.0
+		        cache:false,
+		        async:false,
+		        dataType: "json",
+				headers: {
+				  	token: token
+				},
+		        data:{
+		        	size: 4,
+		        	productCate: 1
+		        },
+		        success: function(data){
+		        	console.log(data);
+
+		        	var str = '';
+		        	for (var i = 0; i < data.data.length; i++) {
+
+		        		str += '<li class="clearfix">'
+								+'<img class="fl" src="'+data.data[i].productPicList[0]+'" alt="">'
+								+'<div class="fl buy_info">'
+									+'<p class="huafei_name">'+data.data[i].productName+'</p>'
+									+'<p class="huafei_danjia">￥'+data.data[i].unitPrice+'/吨</p>'
+								+'</div>'
+							+'</li>';
+		        	}
+
+		        	$('.buy_list').html(str);
+
+		        },
+		        error: function (err) {
+		        	console.log(err);
+		        }
+
+			});
+
+
+			$(document).on('click', '.major_product_more', function () {
+				$("#oranger li:nth-child(3)").click();
+
+			});
+
+			$(document).on('click', '.hot_sale_roduct_more', function () {
+				$("#oranger li:nth-child(2)").click();
+			});
+
+			var storeId = null;
+			var companyId = localStorage.getItem('thisCompanyId');
+
+			var j = 1;
+
+	        var isFirst = true;
+	        var first = true;
+
+			productList(1, 8, 1);
+			productList(2, 8, 1);
+
+			function productList(marketingCategory, pageSize, num) {
+				$.ajax({
+					type:"post",
+			        url:pubIP+"store/getStoreProductCompanyId",//v1.0
+			        cache:false,
+			        async:false,
+			        dataType: "json",
+					headers: {
+					  	token: token
+					},
+			        data:{
+			        	companyId: companyId,
+			        	pageSize: pageSize,
+			        	sEcho: 0,
+			        	pageNum: num,
+			        	marketingCategory: marketingCategory
+			        },
+			        success: function(data){
+			      
+			        	if (marketingCategory == 1) {
+			        		console.log(data);
+
+			        		for (var i = 0; i < data.aData.length; i++) {
+			        			data.aData[i].productPic = data.aData[i].productPic.split(','); 
+			        		}
+			        		
+			        		var result = template('majorProductTpl', {list: data.aData});
+                    		$('#majorProductInfo').html(result);
+                    		$('#majorProductInfo1').html(result);
+
+
+                    		if (isFirst) {
+                    			console.log(data.pages-1);
+	                            Page({
+	                                num: data.pages-1,
+	                                elem: $('#page1'),
+	                                callback: function(n) {
+	                                    console.log(n);
+	                                    productList(1, 12, n);
+	                                }
+	                            });
+
+	                            $('.allPageSize1').text(data.pages-1);
+
+	                            isFirst = false;
+
+	                        }
+
+	                        $('.allPageN').text(num+'/'+data.pages);
+
+			        	} else if (marketingCategory == 2) {
+			        		
+			        		console.log(data);
+
+			        		
+			        		for (var i = 0; i < data.aData.length; i++) {
+			        			data.aData[i].productPic = data.aData[i].productPic.split(','); 
+			        			// console.log(data.aData[i].productPic[0]);
+			        		}
+			        		
+			        		var result = template('hotSaleProductTpl', {list1: data.aData});
+                    		$('#hotSaleProductInfo').html(result);
+                    		$('#hotSaleProductInfo1').html(result);
+
+                    		if (first) {
+                    			console.log(data.pages-1);
+	                            Page({
+	                                num: data.pages,
+	                                elem: $('#page2'),
+	                                callback: function(n) {
+	                                    console.log(n);
+	                                    productList(2, 12, n);
+	                                }
+	                            });
+
+	                            $('.allPageSize2').text(data.pages);
+
+	                            first = false;
+
+	                        }
+
+	                        $('.allPageN2').text(num+'/'+data.pages);
+			        	}
+
+			        },
+			        error: function(err) {
+			        	console.log(err);
+			        }
+
+				})
+			}
+
+
+	       $.ajax({ 
+	          type:"post",
+	          url:pubIP+"store/getStoreBaseInfoByCompanyId",//v1.0
+	          cache:false,
+	          async:false,
+	          dataType: "json",
+			  headers: {
+			  	token: token
+			  },
+	          data:{
+	        	  'companyId':companyId
+	          },
+	          success: function(json){
+	            //console.log(json);
+	            if(json.code != 1){
+	            		console.log(json.msg);
+	            		return false;
+	            }
+	            $('#comObj').text(json.data.mainProduct);
+	          },
+	          error:function(xhr,statues,error){
+	              
+	          }
+	       });
+	       $.ajax({ 
+	          type:"post",
+	          url:pubIP+"store/getStoreInfoByCompanyId",//v1.0
+	          cache:false,
+	          async:false,
+	          dataType: "json",
+			  headers: {
+			  	token: token
+			  },
+	          data:{
+	        	  'companyId':companyId
+	          },
+	          success: function(json){
+	            console.log(json);
+	            if(json.code != 1){
+	            		console.log(json.msg);
+	            		return false;
+	            }
+	            $('.ml').text(json.data.companyAddress2);
+	            $('.span_phone').text(json.data.contact);
+	            $('.company_name img').attr('src',json.data.storeImage);
+	            $('.fl .name,.fl .span_name').text(json.data.companyName == null ? ' ' : json.data.companyName);
+	            $('.left_top>img').attr('src',json.data.storeImage);
+	            storeId = json.data.storeId;
+	          },
+	          error:function(xhr,statues,error){
+	              
+	          }
+	       });
+	       //是否关注
+	       $.ajax({ 
+	          type:"post",
+	          url:pubIP+"store/getStoreCollectStateByTwoId",//v1.0
+	          cache:false,
+	          async:false,
+	          dataType: "json",
+			  headers: {
+			  	token: token
+			  },
+	          data:{
+	        	  'companyId':companyId,
+	        	  'storeId':storeId
+	          },
+	          success: function(json){
+	            console.log(json);
+	            if(json.code != 1){
+	            		console.log(json.msg);
+	            		return false;
+	            }else{
+	            		if(json.data == 'true'){
+	            			$('#addGz span').html('已关注');
+	            			$('#addGz img').attr("src","../img/yiguanzhu.png");
+	            		}
+	            }
+	          }
+	       });
+	       
+	       //关注/取消
+		   $('#addGz').click(function(){
+		   		if($.trim($(this).text()) == '关注'){
+		   			$.ajax({ 
+			          type:"post",
+			          url:pubIP+"store/addStoreCollect",//v1.0
+			          cache:false,
+			          dataType: "json",
+					  headers: {
+					  	token: token
+					  },
+			          data:{
+			        	  'companyId':companyId,
+			        	  'storeId':storeId
+			          },
+			          success: function(json){
+			            //console.log(json);
+			            if(json.code != 1){
+			            		console.log(json.msg);
+			            		return false;
+			            }else{
+			            		alert('关注成功!');
+			            		$('#addGz span').html('已关注');
+			            		$('#addGz img').attr("src","../img/yiguanzhu.png");
+			            }
+			          }
+			       });
+		   		}else{
+		   			$.ajax({ 
+			          type:"post",
+			          url:pubIP+"store/removeStoreCollectsByUserIdAndStoreId",//v1.0
+			          cache:false,
+			          dataType: "json",
+					  headers: {
+					  	token: token
+					  },
+			          data:{
+			        	  'companyId':companyId,
+			        	  'storeId':storeId
+			          },
+			          success: function(json){
+			            //console.log(json);
+			            if(json.code != 1){
+			            		console.log(json.msg);
+			            		return false;
+			            }else{
+			            		alert('取消关注成功!');
+			            		$('#addGz span').html('关注');
+			            		$('#addGz img').attr("src","../img/guanzhu.png");
+			            }
+			          }
+			       });
+		   		}
+			})
+		    //拦截链接
+	        $(document).on('click','a',function(e){
+	       		e.preventDefault();
+	       		var isOld = localStorage.getItem('isOld');
+	       		if(isOld != '2'){
+	       			var ttxt = $.trim($(this).text());
+	       			console.log(ttxt);
+	       			if(ttxt == '用户中心' || ttxt == '关注'){
+	       				if(isOld == '1'){
+	       					$('#effect .contTitle span').text('您尚未登录');
+							missedLogin() ;
+	       				}else if(isOld == '0'){
+	       					missedLogin() ;
+	       				}else if(isOld == '-1'){
+	       					$('#effect .contTitle span').text('您尚未认证');
+	       					$('#effect .contTitle i').text('认证');
+	       					$('#popLogin').text('认证');
+							missedLogin() ;
+	       				}else if(isOld == '-2'){
+	       					$('#effect .contTitle span').text('您的认证正在审核中');
+	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	       					$('#popLogin').hide();
+							missedLogin() ;
+	       				}
+	       			}else{
+	       				window.location.href = this.href;
+	       			}
+	       		}else{
+	       			window.location.href = this.href;
+	       		}
+	        })
+	        
+	        $('.callKf').click(function(){
+	        		var isOld = localStorage.getItem('isOld');
+	       		if(isOld != '2'){
+	       			var ttxt = $.trim($(this).text());
+	       			console.log(ttxt);
+       				if(isOld == '1'){
+       					$('#effect .contTitle span').text('您尚未登录');
+						missedLogin() ;
+       				}else if(isOld == '0'){
+       					missedLogin() ;
+       				}else if(isOld == '-1'){
+       					$('#effect .contTitle span').text('您尚未认证');
+       					$('#effect .contTitle i').text('认证');
+       					$('#popLogin').text('认证');
+						missedLogin() ;
+       				}else if(isOld == '-2'){
+       					$('#effect .contTitle span').text('您的认证正在审核中');
+       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+       					$('#popLogin').hide();
+						missedLogin() ;
+       				}
+	       		}
+	        })
+		</script>
+	</body>
+</html>

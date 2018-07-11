@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/payPass.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/shopManage/addShop.css"/>
+	
+
+	<script type="text/javascript" charset="utf-8" src="../plugin/ueditor/1.4.3/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../plugin/ueditor/1.4.3/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="../plugin/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+	<style>
+		#prope{
+			position: absolute;top: 39px;left:84px;background-color: white;z-index: 1;height: 180px;width: 263px;overflow-y: auto;border: 1px solid #D3d3d3;padding:0 5px;
+			box-shadow: 1px 2px 3px #ccc;
+			-webkit-box-shadow: 1px 2px 3px #ccc;
+			-ms-box-shadow: 1px 2px 3px #ccc;
+			-o-box-shadow: 1px 2px 3px #ccc;
+			-moz-box-shadow: 1px 2px 3px #ccc;
+			display: none;
+		}
+		#prope>li{
+			margin: 0; border-bottom: 1px solid #d3d3d3;padding: 5px 0;
+		}
+		.upload_img,.upload_img1{
+			position: relative;
+		}
+		#file0, .inputfile{
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			opacity: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0 !important;
+		}
+		
+		.img .upload_img, .img1 .upload_img1 {
+			border: 1px solid #ebe9ea;
+		}
+
+		.fr_div {
+			max-height: 451px;
+			overflow: auto; 
+		}
+	</style>
+</head>
+<body>
+	<!-- 编辑商品1 1380-->
+	<div class="main">
+		<div class="step_title">
+			<div class="text_center clearfix">
+				<div class="step">
+					<span class="step_p step1 current">1</span>
+					<span>填写产品信息</span>
+				</div>
+				<div class="line">-----------</div>
+				<div class="step">
+					<span class="step_p step2">2</span>
+					<span>填写供应信息</span>
+				</div>	
+				<div class="line">-----------</div>
+				<div class="step">
+					<span class="step_p step3">3</span>
+					<span>发布商品</span>
+				</div>
+			</div>
+		</div>
+		<div class="main_content clearfix">
+			<div class="fl">
+				<ul class="ul">
+					<li>
+						<span class="required">*</span>
+						<span class="span tit">商品名称：</span>
+						<input type="text" class="shop_name" placeholder="标题不超过50字">
+					</li>
+					<li style="position: relative;">
+						<span class="required">*</span>
+						<span class="span tit">产品属性：</span>
+						<input type="text" class="shop_attr" id="shop_attr">
+						<span style="cursor:pointer;" class="export_btn" onclick="daoru()">导入</span>
+						<ul id="prope">
+						</ul>
+					</li>
+					<li>
+						<span class="line-height fl">
+							<span class="required">*</span>
+							<span class="span tit">产品分类：</span>
+						</span>
+						<div class="clearfix inline-block">
+							<!-- <input type="text" value="有机化学" class="shop_sort_first border-radius fl">
+							<span class="up_down fl">
+								<img class="up_icon" src="../img/up_icon.png" alt="">
+								<img class="down_icon" src="../img/down_icon.png" alt="">
+							</span>
+							<div class="inline-block">
+								<input type="text" value="酚酮" class="shop_sort_second border-radius fl">
+								<span class="up_down fl">
+									<img class="up_icon" src="../img/up_icon.png" alt="">
+									<img class="down_icon" src="../img/down_icon.png" alt="">
+								</span>
+							</div> -->
+							<select name="" id="" class="shop_sort_first1">
+								<option value="">有机化学</option>
+							</select>
+							<select name="" id="" class="shop_sort_first2">
+								<option value="">请选择</option>
+							</select>
+						</div>
+					</li>
+					<li>
+						<span class="line-height fl">
+							<span class="required">*</span>
+							<span class="span tit">商品分类：</span>
+						</span>
+						<!-- <div class="inline-block">
+							<input type="text" value="大宗商品" class="shop_sort border-radius fl">
+							<span class="up_down fl">
+								<img class="up_icon" src="../img/up_icon.png" alt="">
+								<img class="down_icon" src="../img/down_icon.png" alt="">
+							</span>
+						</div> -->
+						<select name="" id="" class="shop_sort_select">
+							<option value="1">大宗商品</option>
+							<option value="2">试剂商品</option>
+						</select>
+					</li>
+					<li class="clearfix">
+						<div class="inline-block padding-left fl">
+							<span class="required">*</span>
+							<span class="span tit">纯度：</span>
+							<input type="text" class="chundu">
+							<span class="fuhao">%</span>
+						</div>
+						<div class="clearfix inline-block ml16 fl">
+							<span class="line-height fl">
+								<span class="required">*</span>
+								<span class="span tit">级别：</span>
+							</span>
+							<!-- <div class="inline-block">
+								<input type="text" value="不限" class="jibie border-radius fl">
+								<span class="up_down fl">
+									<img class="up_icon" src="../img/up_icon.png" alt="">
+									<img class="down_icon" src="../img/down_icon.png" alt="">
+								</span>
+							</div> -->
+							<select name="" id="" class="jibie_select">
+								<option value="">不限</option>
+							</select>
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="clearfix inline-block padding-left fl">
+							<span class="line-height fl">
+								<span class="required">*</span>
+								<span class="span tit">形态：</span>
+							</span>
+							<!-- <div class="inline-block">
+								<input type="text" value="液体" class="xingtai border-radius fl">
+								<span class="up_down fl">
+									<img class="up_icon" src="../img/up_icon.png" alt="">
+									<img class="down_icon" src="../img/down_icon.png" alt="">
+								</span>
+							</div> -->
+							<select name=""  class="xingtai_select" id="xingtaiSele">
+								<option value="1">固体</option>
+								<option value="2">液体</option>
+								<option value="3">气体</option>9
+							</select>
+						</div>
+						<div class="inline-block padding-left15 fl">
+							<span class="required">*</span>
+							<span class="span tit">厂家/产地：</span>
+							<input type="text" value="不限" class="chandi">
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="clearfix inline-block padding-left fl">
+							<span class="line-height fl">
+								<span class="required">*</span>
+								<span class="span tit">规格：</span>
+							</span>
+							<!-- <div class="inline-block">
+								<input type="text" value="净水" class="xingtai border-radius fl">
+								<span class="up_down fl">
+									<img class="up_icon" src="../img/up_icon.png" alt="">
+									<img class="down_icon" src="../img/down_icon.png" alt="">
+								</span>
+							</div> -->
+							<select name="" id="" class="guige_select">
+								<option value="">净水</option>
+							</select>
+							<input type="text" id="onum" value="" style="margin-left: 10px;width:130px;"/>
+							<select name="" id="productSpecUnit" style="width: 130px; height: 38px;margin-left: 10px;" >
+								<option value=""></option>
+							</select>
+						</div>
+					</li>
+					<li>
+						<div class="inline-block fl">
+							<span class="required">*</span>
+							<span class="span tit">产品主图：</span>
+						</div>
+						<div class="inline-block img">
+							<div class="upload_img inline-block">
+								<input type="file" name="file" id="file0" class="inputfile" /> 
+								<input type="hidden"  value="" />
+							</div>
+						</div>
+						<div class="inline-block">
+							<span class="upload_info">请上传营业执照或者扫描件！ 照片大小 < 2MB</span>
+						</div>
+					</li>
+					<li>
+						<div class="inline-block fl">
+							<span class="required">*</span>
+							<span class="span tit">产品图片：</span>
+						</div>
+						<div class="inline-block clearfix img1">
+							<div class="fl">
+								<div class="upload_img1 inline-block"><input type="file" name="file" class="inputfile file fl" id="file1"/> 
+								<input type="hidden"  value="" /></div>
+								<div class="upload_img1 inline-block"><input type="file" name="file" class="inputfile file fl" id="file2"/> 
+								<input type="hidden"  value="" /></div>
+								<div class="upload_img1 inline-block"><input type="file" name="file" class="inputfile file fl" id="file3"/> 
+								<input type="hidden"  value="" /></div>
+								<div class="upload_img1 inline-block"><input type="file" name="file" class="inputfile file fl" id="file4"/>
+								<input type="hidden"  value="" /></div>
+							</div>
+						</div>
+						<div class="inline-block">
+							
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="inline-block fl">
+							<span class="required">*</span>
+							<span class="span tit">详细信息：</span>
+						</div>
+						<div class="inline-block fl">
+							<script id="editor" type="text/plain" style="width:555px;height:210px;"></script>
+						</div>
+					</li>
+				</ul>
+
+				<p class="p">
+					<span class="nextSub">下一步，编辑供应信息</span>
+				</p>
+			</div>
+			<div class="position">
+				<div class="fr_div" id="fr_div">
+					<p>品名：</p> 
+					<p>中文别称：</p> 
+					<p>CAS号：</p> 
+					<p>危险类别：</p> 
+					<p>外观与形状：</p> 
+					<p>化学式：</p> 
+					<p>熔点：</p> 
+					<p>沸点：</p> 
+					<p>PH值：</p> 
+					<p>闪点：</p> 
+					<p>溶解性：</p> 
+					<p>稳定性：</p> 
+					<p>敏感性：</p> 
+					<p>禁配物：</p> 
+					<p>UN编号：</p> 
+					<p>包装类别：</p> 
+					<p>运输注意事项：</p> 
+					<p>密度：</p> 
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script type="text/javascript">
+		//商品id
+		var shopId = localStorage.getItem('objid');
+
+		
+        $("#prope").css("display","none");
+	    //实例化编辑器
+	    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+	    var ue = UE.getEditor('editor',{
+        		toolbars:[  
+            ['fullscreen', 'source', '|', 'undo',  '|',  
+                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',  
+                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',  
+                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',  
+                'directionalityltr', 'directionalityrtl', 'indent', '|',  
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',  
+                'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',  
+                'insertimage',  '|',  
+                'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', '|',  
+                'preview', 'help']  
+        		]  ,
+        });
+
+
+	    function isFocus(e){
+	        alert(UE.getEditor('editor').isFocus());
+	        UE.dom.domUtils.preventDefault(e)
+	    }
+	    function setblur(e){
+	        UE.getEditor('editor').blur();
+	        UE.dom.domUtils.preventDefault(e)
+	    }
+	    function insertHtml() {
+	        var value = prompt('插入html代码', '');
+	        UE.getEditor('editor').execCommand('insertHtml', value)
+	    }
+	    function createEditor() {
+	        enableBtn();
+	        UE.getEditor('editor');
+	    }
+	    function getAllHtml() {
+	        alert(UE.getEditor('editor').getAllHtml())
+	    }
+	    function getContent() {
+	        var arr = [];
+	        arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+	        arr.push("内容为：");
+	        arr.push(UE.getEditor('editor').getContent());
+	        alert(arr.join("\n"));
+	    }
+	    function getPlainTxt() {
+	        var arr = [];
+	        arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+	        arr.push("内容为：");
+	        arr.push(UE.getEditor('editor').getPlainTxt());
+	        alert(arr.join('\n'))
+	    }
+	    function setContent(isAppendTo) {
+	        var arr = [];
+	        arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+	        UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
+	        alert(arr.join("\n"));
+	    }
+	    function setDisabled() {
+	        UE.getEditor('editor').setDisabled('fullscreen');
+	        disableBtn("enable");
+	    }
+
+	    function setEnabled() {
+	        UE.getEditor('editor').setEnabled();
+	        enableBtn();
+	    }
+
+	    function getText() {
+	        //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+	        var range = UE.getEditor('editor').selection.getRange();
+	        range.select();
+	        var txt = UE.getEditor('editor').selection.getText();
+	        alert(txt)
+	    }
+
+	    function getContentTxt() {
+	        var arr = [];
+	        arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+	        arr.push("编辑器的纯文本内容为：");
+	        arr.push(UE.getEditor('editor').getContentTxt());
+	        alert(arr.join("\n"));
+	    }
+	    function hasContent() {
+	        var arr = [];
+	        arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+	        arr.push("判断结果为：");
+	        arr.push(UE.getEditor('editor').hasContents());
+	        alert(arr.join("\n"));
+	    }
+	    function setFocus() {
+	        UE.getEditor('editor').focus();
+	    }
+	    function deleteEditor() {
+	        disableBtn();
+	        UE.getEditor('editor').destroy();
+	    }
+	    function disableBtn(str) {
+	        var div = document.getElementById('btns');
+	        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+	        for (var i = 0, btn; btn = btns[i++];) {
+	            if (btn.id == str) {
+	                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+	            } else {
+	                btn.setAttribute("disabled", "true");
+	            }
+	        }
+	    }
+	    function enableBtn() {
+	        var div = document.getElementById('btns');
+	        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+	        for (var i = 0, btn; btn = btns[i++];) {
+	            UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+	        }
+	    }
+
+	    function getLocalData () {
+	        alert(UE.getEditor('editor').execCommand( "getlocaldata" ));
+	    }
+
+	    function clearLocalData () {
+	        UE.getEditor('editor').execCommand( "clearlocaldata" );
+	        alert("已清空草稿箱")
+	    }
+
+
+        $('#shop_attr').bind('input propertychange',function () {
+            //console.log()
+			var text=$(this).eq(0).val();
+			if($('#shop_attr').val() == ''){
+				$('#prope').html('').hide();
+				return false;
+			}
+            $.ajax({
+                url: pubIP + 'productApi/listChemicalLikeByName', /*v1.0*/
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    chemicalStr:text
+                },
+                success: function (data) {
+                    //console.log(data)
+                    if(data.code==1){
+						if(data.data.length==0){
+							$("#prope").css("display","none");
+						}else{
+                            $("#prope").css("display","block");
+						    var str="";
+						    for (var i=0;i<data.data.length;i++){
+						        str+='<li data-chemicalId="'+data.data[i].chemicalId+'" onclick="selectStr(this)">'+data.data[i].chemicalName+'</li>';
+							}
+                            $("#prope").html(str);
+						}
+                    }else{
+                        $("#prope").css("display","none");
+                    }
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+		})
+        function selectStr(that) {
+			$("#shop_attr").eq(0).val($(that).eq(0).text())
+				.attr('data-chemicalId', $(that).attr('data-chemicalId'));
+            $("#prope").css("display","none");
+        }
+
+        function daoru() {
+
+            $.ajax({
+                url: pubIP + 'productApi/getChemicalInfoById', /*v1.0*/
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                dataType: 'json',
+                data:{
+                    chemicalId:$("#shop_attr").eq(0).attr('data-chemicalId')
+                },
+                success: function (data) {
+                    //console.log(data)
+                    if(data.code==1){
+                    		$('#shop_attr').attr('did',data.data.chemicalId);
+                        var str="";
+							str='<p class="clearfix"><span class="fl">品名：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalName+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">中文别称：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalAlias+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">CAS号：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalCas+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">危险类别：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalDangerClasses+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">外观与形状：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalCharacter+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">化学式：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalFormula+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">熔点：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalMeltingPoint+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">沸点：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalBoilingPoint+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">PH值：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalPh+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">闪点：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalFlashPoint+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">溶解性：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalSolubility+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">稳定性：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalStability+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">敏感性：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalSusceptibility+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">禁配物：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalForbidden+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">UN编号：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+data.data.chemicalUn+'</span></p> \n' +
+	                            '<p class="clearfix"><span class="fl">包装类别：</span><span class="fl span_width" style="display:inline-block; width: 220px;word-break: break-all; word-wrap:break-word;">'+data.data.chemicalPacking+'</span></p> \n' 
+	//                                '<p>运输注意事项：'+data.data.+'</p> \n' +
+	//                                '<p>密度：'+data.data.+'</p> '
+							$("#fr_div").html(str);
+                    }else{
+                     	alert(data.msg)
+                    }
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+        //一级产品分类
+        $.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"productApi/getCategoryByLevel",//v1.0
+            cache:false,
+            async:false,
+            dataType: "json",
+            success: function(json){
+                //console.log(json);
+                if(json.code == '1'){
+                		var opt = '';
+                		$.each(json.data, function(i,t) {
+                			opt += '<option value="'+t.categoryId+'">'+t.categoryName+'</option>';
+                		});
+                		$('.shop_sort_first1').html(opt);
+                }
+            }
+        });
+		//2级产品分类
+		erType();
+		$('.shop_sort_first1').change(function(){
+			erType();
+		})
+		function erType(){
+			$.ajax({
+	            type:"get",
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            url: pubIP+"productApi/listCategoryByCategoryId",//v1.0
+	            cache:false,
+	            async:false,
+	            dataType: "json",
+	            data:{
+	            		categoryId:$('.shop_sort_first1').val()
+	            },
+	            success: function(json){
+	                //console.log(json);
+	                if(json.code == '1'){
+	                		var opt = '';
+	                		$.each(json.data, function(i,t) {
+	                			opt += '<option value="'+t.categoryId+'">'+t.categoryName+'</option>';
+	                		});
+	                		$('.shop_sort_first2').html(opt);
+	                }
+	            }
+	        });
+		}
+		
+		//级别
+		$.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"productApi/getProductLevelAll",//v1.0
+            cache:false,
+            async:false,
+            dataType: "json",
+            success: function(json){
+                //console.log(json);
+                if(json.code == '1'){
+                		var opt = '';
+                		$.each(json.data, function(i,t) {
+                			opt += '<option value="'+t.id+'">'+t.levelName+'</option>';
+                		});
+                		$('.jibie_select').html(opt);
+                }
+            }
+        });
+		
+		getguig();
+		$('#xingtaiSele').change(function(){
+			getguig()
+		})
+		function getguig(){
+			$.ajax({
+	            type:"get",
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            url: pubIP+"productApi/listSpecByForm",//v1.0
+	            cache:false,
+	            async:false,
+	            dataType: "json",
+	            data:{
+	            		form:$('#xingtaiSele').val(),
+	            		productType:1
+	            },
+	            success: function(json){
+	                //console.log(json);
+	                if(json.code == '1'){
+	                		var opt = '';
+	                		$.each(json.data, function(i,t) {
+	                			opt += '<option value="'+t.cateSpecId+'">'+t.cateSpecName+'</option>';
+	                		});
+	                		$('.guige_select').html(opt);
+	                }
+	            }
+	        });
+		}
+		getjiliang();
+		$('.guige_select').change(function(){
+			getjiliang();
+		})
+		function getjiliang(){
+			$.ajax({
+	            type:"get",
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            url: pubIP+"productApi/listSpecNameBySpec",//v1.0
+	            cache:false,
+	            async:false,
+	            dataType: "json",
+	            data:{
+	            		specId:$('.guige_select').val(),
+	            },
+	            success: function(json){
+	                //console.log(json);
+	                if(json.code == '1'){
+	                		var opt = '';
+	                		$.each(json.data, function(i,t) {
+	                			opt += '<option value="'+t.cateSpecEnumId+'">'+t.cateSpecEnumName+'</option>';
+	                		});
+	                		$('#productSpecUnit').html(opt);
+	                }
+	            }
+	        });
+		}
+
+		$.ajax({
+            type:"post",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP + "productApi/getProductInfoByIdForEdit",//v1.0
+            cache:false,
+            async:false,
+            dataType: "json",
+            data:{
+            		productId:shopId
+            },
+            success: function(json){
+                console.log(json);
+
+                //商品名称
+                $('.shop_name').val(json.data.product.productName);
+
+                //产品属性
+                $('#shop_attr').val(json.data.chemical.chemicalName);
+                $('#shop_attr').attr('readonly', 'readonly');
+
+                //产品分类
+                $('.shop_sort_first2 option[value="'+json.data.product.categoryId+'"]').attr('selected', true);
+                $('.shop_sort_first1').attr('disabled', true);
+                $('.shop_sort_first2').attr('disabled', true);
+
+                //商品分类
+                $('.shop_sort_select option[value="'+json.data.product.productCate+'"]').attr('selected', true);
+                $('.shop_sort_select').attr('disabled', true);
+
+                //级别
+                $('.jibie_select option[value="'+json.data.product.productLevel+'"]').attr('selected', true);
+                $('.jibie_select').attr('disabled', true);
+
+                //纯度
+                $('.chundu').val(json.data.product.productPurity);
+                $('.chundu').attr('readonly', 'readonly');
+
+                //形态
+                $('#xingtaiSele option[value="'+json.data.product.productForm+'"]').attr('selected', true);
+                $('#xingtaiSele').attr('disabled', true);
+
+                //规格量
+                $('#onum').val(json.data.product.productSpecNum);
+                $('#onum').attr('readonly', 'readonly');
+
+                //规格
+                $('.guige_select option[value="'+json.data.product.productSpecUnit+'"]').attr('selected', true);
+                $('.guige_select').attr('disabled', true);
+
+                $('#productSpecUnit option[value="'+json.data.product.productSpec+'"]').attr('selected', true);
+                $('#productSpecUnit').attr('disabled', true);
+
+
+                //厂家产地
+                $('.chandi').val(json.data.product.productOrigin);
+                $('.chandi').attr('readonly', 'readonly');
+
+                //产品主图
+                $('.inputfile').each(function (i , e) {
+                	$('#file'+i).next().attr('value', json.data.picArr[i]);
+                	$('#file'+i).parent().attr('style', 'background: url("'+json.data.picArr[i]+'") center center / contain no-repeat rgb(246, 246, 246);');
+                });
+
+                //详细信息
+                
+                //判断ueditor 编辑器是否创建成功
+		        UE.getEditor('editor').addListener("ready", function () {
+		        	// editor准备好之后才可以使用
+		        	UE.getEditor('editor').setContent(json.data.product.productDescribe);
+
+		        });
+               
+                var str = '';
+
+                // str += '<p>品名：'+json.data.chemical.chemicalName+'</p> \n' +
+		              //   '<p>中文别称：'+json.data.chemical.chemicalAlias+'</p> \n' +
+		              //   '<p>CAS号：'+json.data.chemical.chemicalCas+'</p> \n' +
+		              //   '<p>危险类别：'+json.data.chemical.chemicalDangerClasses+'</p> \n' +
+		              //   '<p>外观与形状：'+json.data.chemical.chemicalCharacter+'</p> \n' +
+		              //   '<p>化学式：'+json.data.chemical.chemicalFormula+'</p> \n' +
+		              //   '<p>熔点：'+json.data.chemical.chemicalMeltingPoint+'</p> \n' +
+		              //   '<p>沸点：'+json.data.chemical.chemicalBoilingPoint+'</p> \n' +
+		              //   '<p>PH值：'+json.data.chemical.chemicalPh+'</p> \n' +
+		              //   '<p>闪点：'+json.data.chemical.chemicalFlashPoint+'</p> \n' +
+		              //   '<p>溶解性：'+json.data.chemical.chemicalSolubility+'</p> \n' +
+		              //   '<p>稳定性：'+json.data.chemical.chemicalStability+'</p> \n' +
+		              //   '<p>敏感性：'+json.data.chemical.chemicalSusceptibility+'</p> \n' +
+		              //   '<p>禁配物：'+json.data.chemical.chemicalForbidden+'</p> \n' +
+		              //   '<p>UN编号：'+json.data.chemical.chemicalUn+'</p> \n' +
+		              //   '<p>包装类别：'+json.data.chemical.chemicalPacking+'</p> \n'
+
+
+		        str='<p class="clearfix"><span class="fl">品名：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalName+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">中文别称：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalAlias+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">CAS号：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalCas+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">危险类别：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalDangerClasses+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">外观与形状：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalCharacter+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">化学式：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalFormula+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">熔点：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalMeltingPoint+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">沸点：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalBoilingPoint+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">PH值：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalPh+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">闪点：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalFlashPoint+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">溶解性：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalSolubility+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">稳定性：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalStability+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">敏感性：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalSusceptibility+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">禁配物：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalForbidden+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">UN编号：</span><span class="fl span_width" style="display:inline-block; width: 220px;">'+json.data.chemical.chemicalUn+'</span></p> \n' +
+                    '<p class="clearfix"><span class="fl">包装类别：</span><span class="fl span_width" style="display:inline-block; width: 220px;word-break: break-all; word-wrap:break-word;">'+json.data.chemical.chemicalPacking+'</span></p> \n' 
+//                                '<p>运输注意事项：'+data.data.+'</p> \n' +
+//                                '<p>密度：'+data.data.+'</p> '
+
+                $("#fr_div").html(str);
+
+
+            }
+        });
+		
+		$('.nextSub').click(function(){
+			var can = true;
+			$('.main_content select,.main_content input[type="text"],.main_content input[type="hidden"]').each(function(){
+				if(this.tagName == 'INPUT'){
+					if($(this).val() == ''){
+						alert($(this).parents('li').find('.tit').text()+ '未填写!');
+						can = false;
+						return false;
+					}
+				}else{
+					if($(this).val() == ''){
+						alert($(this).parents('li').find('.tit').text()+ '未选择!');
+						can = false;
+						return false;
+					}
+				}
+			})
+			/*if(!$('#shop_attr').attr('did')){
+				alert('请导入产品属性！');
+			}*/
+			if(!can){
+				return false;
+			}
+			var productPic = [];
+			for(var i = 0; i < 5; i++){
+				productPic.push($('#file'+i).parent().find('input[type="hidden"]').val());
+			}
+			productPic = productPic.join(',');
+			console.log(productPic);
+			$.ajax({
+	            type:"post",
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            url: pubIP+"productApi/editProduct",//v1.0
+	            cache:false,
+	            async:false,
+	            dataType: "json",
+	            data:{
+	            		productId: shopId,
+	            		productName:$('.shop_name').val(),
+	            		productDescribe:UE.getEditor('editor').getContent(),
+	            		productPic:productPic
+	            },
+	            success: function(json){
+	                console.log(json);
+	                if(json.code == '1'){
+	                	window.location.href = "./editShop2.html";	
+	                }
+	            }
+	        });
+		})
+		
+		$(document).on('change','#file0,#file1,#file2,#file3,#file4',function(){
+			xmTanUploadImg1(this);
+		})
+		
+		function xmTanUploadImg1(obj) {
+	        var file = obj.files[0];
+	        if (file.size >= 2097152) {
+	            alert('上传的图片超过了2MB');
+	            return;
+	        }
+	
+	        var formdata=new FormData();
+	
+	        formdata.append('file', file);
+	        
+	        $.ajax({
+	            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+	            type: 'post',
+	            processData: false,  // 告诉jQuery不要去处理发送的数据
+	            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+	            data: formdata,
+	            cache: false,
+	            dataType: 'json',
+	            success: function (data) {
+	                //console.log(data);
+	                $(obj).parent().css({
+	                		'background':'url('+data.url+') no-repeat',
+	                		'background-position':'center',
+	                		'background-size':'contain',
+	                		'background-color':'#f6f6f6'
+	                });
+	                $(obj).parent().find('input[type="hidden"]').val(data.url);
+	            },
+	            error: function (err) {
+	                console.log(err);
+	            }
+	        });
+	
+	    }
+		
+	
+	</script>
+</body>
+
+</html>

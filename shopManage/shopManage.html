@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/payPass.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/shopManage/addShop.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/shopManage/shopManage.css"/>
+
+</head>
+
+<style>
+    .shop_list span {
+        font-size: 16px;
+        color: #000;
+    }
+
+    .shop_list_operate {
+        padding-left: 14px;
+        box-sizing: border-box;
+    }
+
+    .mr51, .ml7, .btn {
+        margin-top: 2px;
+    }
+
+    .mr51 {
+        margin-right: 44px;
+    }
+
+    input[type="text"].select_shop {
+        width: 277px;
+    }
+
+    .shop_list_table thead {
+        background-color: #e5e5e5; 
+    }
+</style>
+<body>
+    <!-- 商品管理 850-->
+    <div class="main">
+        <div class="shop_list">
+            <span>商品列表页</span>
+        </div>
+        <div class="shop_list_operate clearfix">
+            <a href="../shopManage/addShop.html"><div class="inline-block btn fl">添加</div></a>
+            <div class="inline-block btn fl ml7 export">导出</div>
+            <div class="inline-block fl clearfix">
+                <input type="text" class="select_shop fl" id="searchText" placeholder="按订单编号/商品名称查询">
+                <!-- <span class="shangjia fl">
+                    上架
+                    <div class="inline-block mr10 fr">
+                        <img class="up_icon" src="../img/up_icon.png" alt="">
+                        <img class="down_icon" src="../img/down_icon.png" alt="">
+                    </div>
+                </span> -->
+                <select name="" id="isok" class="shangjia fl">
+                    <option value="1">上架</option>
+                    <option value="2">下架</option>
+                </select>
+            </div>
+            <div class="inline-block btn fl ml15 mr51" onclick="search()">查询</div>
+            <div class="inline-block btn fl" id="putAway" onclick="putAway(1)">上架</div>
+            <div class="inline-block btn fl ml7" id="out" onclick="putAway(2)">下架</div>
+        </div>
+        
+        <table class="shop_list_table">
+            <thead>
+                <th></th>
+                <th>货号</th>
+                <th>商品名称</th>
+                <th>纯度</th>
+                <th>库存</th>
+                <th>单价</th>
+                <th>有效日期</th>
+                <th>状态</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="mianCont" style="text-align: center;">
+            <ul class="pagination" id="page1"></ul>
+            <div class="pageJump">
+                <span class="allPageN">1/1</span>
+                共<span class="allPageSize"></span>页，
+                <span>到第</span>
+                <input class="page_page" type="text"/>
+                <span>页</span>
+                <button type="button" class="button goPage">GO</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+        var isFirst = true;
+        var companyId1="";
+        var isSearch=0;
+        var currentPage=1;
+        var selectId="";
+        var isCli=0;
+
+        getUser();
+
+        $('.goPage').click(function(){
+            currentPage=$('.page_page').val()-1;
+            //addMsg($('.page_page').val()-1);
+            if(isSearch==0){
+                getShopList("","",companyId1,$('.page_page').val()-1);
+
+            }else{
+                getShopList($("#searchText").val(),$("#isok option:selected").val(),companyId1,$('.page_page').val()-1)
+            }
+
+        })
+
+        //获取用户信息
+        function getUser() {
+            $.ajax({
+                type:"post",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                url: pubIP+"user/getUserInfoByToken",//v1.0
+                cache:false,
+                data:{
+                },
+                dataType: "json",
+                success: function(json){
+                    console.log(json);
+                    if(json.code == '1'){
+                        companyId1=json.data.companyId;
+                        getShopList("","",companyId1,"0")
+                        currentPage=0;
+                    }else{
+
+                    }
+                }
+            });
+        }
+        //获取商品列表
+        function getShopList(cond,productState,companyId,currentPage) {
+            $.ajax({
+                type:"get",
+                headers: {
+                    token: token
+                },
+                url: pubIP + "productApi/listProductByCompanyId",//v1.0
+                cache:false,
+                data:{
+                    cond:cond,
+                    productState:productState,
+                    companyId:companyId,
+                    pageNum:currentPage,
+                    pageSize:10
+                },
+                dataType: "json",
+                success: function(json){
+                    console.log(json);
+                    if(json.code == '1'){
+
+                        if (isSearch == 1) {
+                            Page({
+                                num: json.data.totalPage,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    currentPage=n-1;
+                                    getShopList(cond,productState,companyId1,n-1);
+                                }
+                            });
+
+                            $('.allPageSize').text(json.data.totalPage);
+                            $('.allPageN').text(parseInt(currentPage)+1+'/'+json.data.totalPage);
+
+                        }
+
+                        isSearch=0;
+
+                        if(isFirst){
+                            Page({
+                                num: json.data.totalPage,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    currentPage=n-1;
+                                    getShopList(cond,productState,companyId1,n-1);
+
+                                }
+                            });
+
+                            $('.allPageSize').text(json.data.totalPage);
+                            isFirst = false;
+                        }
+                        $('.allPageN').text(parseInt(currentPage)+1+'/'+json.data.totalPage);
+                        var list=json.data.list;
+                        var str="";
+                        for(var i=0;i<list.length;i++){
+                            str+='<tr>';
+                            str+='<td><input type="radio" name="shop"></td>';
+                            str+='    <td class="shopId">'+list[i].productIds+'</td>';
+                            str+='    <td>'+list[i].productName+'</td>';
+                            str+='    <td>'+list[i].productPurity+'%</td>';
+                            str+='    <td>'+list[i].remain+'吨</td>';
+                            str+='    <td>'+list[i].unitPrice+'元/吨</td>';
+                            str+='    <td>'+list[i].endTime+'</td>';
+                            if(list[i].productState==1){
+                                str+='    <td><a href="##" class="blue state" >上架中</a></td>';
+                                str+='    <td>';
+                                str+='        <a href="##" class="blue" onclick="edit(\''+list[i].productIds+'\')">编辑</a>';
+                                str+='        <a href="##" class="detele" style="color: #999;">删除</a>';
+                                if(list[i].supplyId==null){
+                                    str+='        <a href="##" class="look" style="color: #999;">查看</a>';
+                                }else{
+                                    str+='        <a href="##" class="look" onclick="look(\''+list[i].supplyId+'\')">查看</a>';
+                                }
+                                
+                            }else{
+                                str+='    <td><a href="##" class="state">已下架</a></td>';
+                                str+='    <td>\n'
+                                str+='        <a href="##" class="blue" onclick="edit(\''+list[i].productIds+'\')">编辑</a>';
+                                str+='        <a href="##" class="detele" onclick="del(\''+list[i].productIds+'\')">删除</a>';
+                                if(list[i].supplyId==null){
+                                    str+='        <a href="##" class="look" style="color: #999;">查看</a>';
+                                }else{
+                                    str+='        <a href="##" class="look" onclick="look(\''+list[i].supplyId+'\')">查看</a>';
+                                }
+                            }
+                            str+='    </td>';
+                            str+='</tr>';
+                        }
+                        $(".shop_list_table tbody").html(str);
+                    }else if(json.code==0){
+
+                        $(".shop_list_table tbody").html("");
+                    }else{
+
+                    }
+                }
+            });
+        }
+        //编辑  未接
+        function edit(id) {
+            //console.log(id)
+            localStorage.setItem('objid',id);
+			location.href = 'editShop.html';
+        }
+        //查看  未接
+        function look(id) {
+            //console.log(id);
+            localStorage.setItem('objid',id);
+            localStorage.setItem('thisCompanyId',companyId);
+			window.parent.location.href = '../obj/objDetails.html';
+        }
+
+        //删除
+        function del(id) {
+            console.log(id)
+            $.ajax({
+                type:"post",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                url: pubIP+"productApi/removeProductById",//v1.0
+                cache:false,
+                data:{
+                    productId:id
+                },
+                dataType: "json",
+                success: function(json){
+                    console.log(json);
+                    if(json.code == '1'){
+                        alert("删除成功");
+                        if(isSearch==0){
+                            getShopList("","",companyId1,currentPage);
+
+                        }else{
+                            getShopList($("#searchText").val(),$("#isok option:selected").val(),companyId1,currentPage)
+                        }
+                    }else{
+
+                    }
+                }
+            });
+        }
+        //导出
+        $('.export').on('click',function(){
+            $.ajax({
+                url:pubIP+'',
+                type:'',
+                data:{},
+                success:function(){
+
+                }
+            })
+        })
+        //上、下架
+        function putAway(states) {
+            if(states!=isCli){
+                return;
+            }
+            $.ajax({
+                type:"post",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                url: pubIP+"productApi/editProductState",//v1.0
+                cache:false,
+                data:{
+                    productId:selectId,
+                    state:states
+                },
+                dataType: "json",
+                success: function(json){
+                    console.log(json);
+                    if(json.code == '1'){
+                        if(states==1){
+                            alert("上架成功");
+                        }else{
+                            alert("下架成功");
+                        }
+
+                        if(isSearch==0){
+                            getShopList("","",companyId1,currentPage);
+                        }else{
+                            getShopList($("#searchText").val(),$("#isok option:selected").val(),companyId1,currentPage)
+                        }
+                    }else{
+
+                    }
+                }
+            })
+
+        }
+
+        //单选框点击事件
+        $(document).on('change','input:radio[name="shop"]',function () {
+            selectId=$(this).parent().parent().find(".shopId").text();
+            if($(this).parent().parent().find(".state").text()=="已下架"){
+                $("#out").css("background-color","#eeeeee");
+                $("#putAway").css("background-color","#ffffff");
+                isCli=1;
+            }else{
+                isCli=2
+                $("#putAway").css("background-color","#eeeeee");
+                $("#out").css("background-color","#ffffff");
+            }
+        })
+        //搜索
+        function search() {
+            isSearch=1;
+            getShopList($("#searchText").val(),$("#isok option:selected").val(),companyId1,0)
+        }
+
+    </script>
+</body>
+</html>

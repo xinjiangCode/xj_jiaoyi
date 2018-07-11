@@ -337,37 +337,39 @@
     })
 
     //右侧报价订单数据显示
-    $.ajax({
-        type:"post",
-        url:pubIP+"store/getStoreData",//v1.0
-        cache:false,
-        dataType: "json",
-        headers: {
-            Accept: "application/json; charset=utf-8",
-            token: token
-        },
-        data: {
-            companyId: companyId
-        },
-        success: function(data){
-            console.log(data);
+    if (companyId) {
+        $.ajax({
+            type:"post",
+            url:pubIP+"store/getStoreData",//v1.0
+            cache:false,
+            dataType: "json",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                companyId: companyId
+            },
+            success: function(data){
+                console.log(data);
 
-            //已发询盘
-            $('.yifa_xunpan').html(data.data.inquiryCount);
+                //已发询盘
+                $('.yifa_xunpan').html(data.data.inquiryCount);
 
-            //收到报价
-            $('.shoudao_baojia').html(data.data.getOfferCount);
+                //收到报价
+                $('.shoudao_baojia').html(data.data.getOfferCount);
 
-            //我的报价待处理
-            $('.baojia_daochuli').html(data.data.treatedOfferCount);
+                //我的报价待处理
+                $('.baojia_daochuli').html(data.data.treatedOfferCount);
 
-            //我的报价已拒绝
-            $('.baojia_yijujue').html(data.data.refuseOfferCount);
-        },
-        error: function(err) {
-            console.log(err);
-        }
-    });
+                //我的报价已拒绝
+                $('.baojia_yijujue').html(data.data.refuseOfferCount);
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    }
 
     // //是否进行危险化学品认证
     // $.ajax({

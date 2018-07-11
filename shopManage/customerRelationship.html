@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+	<title adct1="1">新疆化学品经营服务平台</title>
+	<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/shopManage/customerRelationship.css">
+</head>
+<body>
+
+	<!-- 客户关系管理 -->
+	<div class="customerRelationship">
+		<div class="customerRelationshipTitle">
+			<span>客户关系网</span>
+		</div>
+		<div class="customerRelationship_wang">
+			<div class="add_customer_relationship">添加客户关系</div>
+			<div id="container" style="height: 782px; width: 984px;"></div>
+		</div>
+		<div class="person_relation_wang">
+			<div class="person_relation_wang_title clearfix">
+				<span>人工关系网</span>
+				<div class="fr clearfix">
+					<input type="text" class="" placeholder="企业名称/企业类型/授信额度/业务员">
+					<span>搜索</span>
+				</div>
+			</div>
+			<div class="person_relation_list">
+				<ul class="clearfix">
+					<li class="person_relation_li1">排序</li>
+					<li class="person_relation_li2">企业名称</li>
+					<li class="person_relation_li3">企业类型</li>
+					<li class="person_relation_li4">业务员</li>
+					<li class="person_relation_li5">添加时间</li>
+					<li class="person_relation_li6">操作</li>
+				</ul>
+				<ul class="cont_list">
+					<li>
+						<span class="person_num"><span>1</span></span>
+						<span class="qiye_name">中泰化工</span>
+						<span class="qiye_type">化工</span>
+						<span class="yewuyuan">陈槐三</span>
+						<span class="add_time">2018-02-25</span>
+						<span class="operate">
+							<a href="##" class="edit_btn">编辑</a>
+							<a href="##" class="del_btn">删除</a>
+						</span>
+					</li>
+					<li>
+						<span class="person_num"><span>2</span></span>
+						<span class="qiye_name">中泰化工</span>
+						<span class="qiye_type">化工</span>
+						<span class="yewuyuan">陈槐三</span>
+						<span class="add_time">2018-02-25</span>
+						<span class="operate">
+							<a href="##" class="edit_btn">编辑</a>
+							<a href="##" class="del_btn">删除</a>
+						</span>
+					</li>
+					<li>
+						<span class="person_num"><span>3</span></span>
+						<span class="qiye_name">中泰化工</span>
+						<span class="qiye_type">化工</span>
+						<span class="yewuyuan">陈槐三</span>
+						<span class="add_time">2018-02-25</span>
+						<span class="operate">
+							<a href="##" class="edit_btn">编辑</a>
+							<a href="##" class="del_btn">删除</a>
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+	<script>
+		$(document).on('click', '.add_customer_relationship', function() {
+			window.parent.addCustomerRelationship();
+		});
+	</script>
+	<script type="text/javascript">
+		var dom = document.getElementById("container");
+		var myChart = echarts.init(dom);
+		var app = {};
+		option = null;
+		option = {
+		    tooltip: {
+		    	trigger: 'item',
+		    	backgroundColor: 'transparent',
+                formatter:function(params){
+                    if(params.data.flow){
+                    	var str = '';
+                    	str += '<div class="relationship_div" style="position:absolute;left:0px;top:-95px;">'
+							+'<div class="padding_div">'
+								+'<div class="qiye_name_bg">'+params.data.flow.name+'</div>'
+								+'<div class="qiye_info">'
+									+'<div class="qiye_leixing">企业类型：'+params.data.flow.type+'</div>'
+									+'<div class="yujingzhi">预警值：'+params.data.flow.yujingzhi+'</div>'
+									+'<div class="yingshoukuan">应收账款：<span>￥'+params.data.flow.yingshou+'</span></div>'
+									+'<div class="yingfukuan">应付账款：<span>￥'+params.data.flow.yingfu+'</span></div>'
+								+'</div>'
+							+'</div>'
+						+'</div>';
+                        // return params.data.name + '到' + params.data.target + '的流量为'+ params.data.flow;
+                        return str;
+                    }
+                    else{
+                        return params.name;
+                    }
+                }
+		    },
+		    // emphasis: {
+		    // 	color:
+		    // },
+		    animationDurationUpdate: 1500,
+		    animationEasingUpdate: 'quinticInOut',
+		    series : [
+		        {
+		            type: 'graph',
+		            layout: 'none',
+		            symbolSize: 50,
+		            roam: true,
+		            label: {
+		                normal: {
+		                    show: true,
+		                    position: 'bottom',
+		                    color: '#666',
+		                    fontSize: 12,
+		                    formatter: function(data) {
+                               	var result = "";
+                                result += data.name + '\n' + data.data.flow.yingName;
+                                return result;
+                            },
+		                },
+		            },
+		            edgeSymbol: ['circle', 'arrow'],
+		            edgeSymbolSize: [4, 10],
+		            edgeLabel: {
+		                normal: {
+		                    textStyle: {
+		                        fontSize: 20
+		                    }
+		                },
+
+		            },
+		            data: [{
+		                name: '中泰化工',
+		                x: 30,
+		                y: 50,
+		                symbol:'image://../img/qiye_pic.png',
+		                symbolSize: [81,81],
+
+		                flow: {name:'中泰化工', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'1234.00', yingName: 'Website construction'}
+		            }, {
+		                name: '中泰化工111',
+		                x: 10,
+		                y: 10,
+		                symbol:'image://../img/qiye_pic.png',
+		                symbolSize: [81,81],
+		                flow: {name:'中泰化工111', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
+		            }, {
+		                name: '节点3',
+		                x: 30,
+		                y: 10,
+		                symbol:'image://../img/qiye_pic.png',
+		                symbolSize: [81,81],
+		                flow: {name:'中泰化工222', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
+		            }, {
+		                name: '节点4',
+		                x: 50,
+		                y: 10,
+		                symbol:'image://../img/qiye_pic.png',
+		                symbolSize: [81,81],
+		                flow: {name:'中泰化工', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
+		            }, {
+		                name: '节点5',
+		                x: 70,
+		                y: 80,
+		                symbol:'image://../img/qiye_pic.png',
+		                symbolSize: [81,81],
+		                flow: {name:'中泰化工', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
+		            }],
+		            // links: [],
+		            links: [{
+		                source: '中泰化工',
+		                target: '节点3',
+		                label: {
+		                	normal: {
+		                		show:true,
+		                		formatter: '上游',
+		                		fontSize: '12',
+		                		color: '#666'
+		                	}
+		                }
+		            }, {
+		                source: '中泰化工',
+		                target: '中泰化工111',
+		                label: {
+		                	normal: {
+		                		show:true,
+		                		formatter: '上游',
+		                		fontSize: '12',
+		                		color: '#666'
+		                	}
+		                }
+		            }, {
+		                source: '中泰化工',
+		                target: '节点4',
+		                label: {
+		                	normal: {
+		                		show:true,
+		                		formatter: '上游',
+		                		fontSize: '12',
+		                		color: '#666'
+		                	}
+		                }
+		            }, {
+		                source: '中泰化工',
+		                target: '节点5',
+		                label: {
+		                	normal: {
+		                		show:true,
+		                		formatter: '下游',
+		                		fontSize: '12',
+		                		color: '#666'
+		                	}
+		                }
+		            }],
+		            lineStyle: {
+		                normal: {
+		                    opacity: 0.9,
+		                    width: 2,
+		                    curveness: 0
+		                }
+		            }
+		        }
+		    ]
+		};;
+		if (option && typeof option === "object") {
+		    myChart.setOption(option, true);
+		}
+    </script>
+</body>
+</html>

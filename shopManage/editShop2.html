@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/payPass.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/shopManage/addShop.css"/>
+
+	<script type="text/javascript" charset="utf-8" src="../plugin/ueditor/1.4.3/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../plugin/ueditor/1.4.3/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="../plugin/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+	<style>
+		#prope{
+			position: absolute;top: 39px;left:84px;background-color: white;z-index: 1;height: 180px;width: 263px;overflow-y: auto;border: 1px solid #D3d3d3;padding:0 5px;
+			box-shadow: 1px 2px 3px #ccc;
+			-webkit-box-shadow: 1px 2px 3px #ccc;
+			-ms-box-shadow: 1px 2px 3px #ccc;
+			-o-box-shadow: 1px 2px 3px #ccc;
+			-moz-box-shadow: 1px 2px 3px #ccc;
+			display: none;
+		}
+		#prope>li{
+			margin: 0; border-bottom: 1px solid #d3d3d3;padding: 5px 0;
+		}
+		.upload_img,.upload_img1{
+			position: relative;
+		}
+		#file0, .inputfile{
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			opacity: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0 !important;
+		}
+		.p{
+			text-align: center;
+			width: 100%;
+			overflow: hidden;
+		}
+		.p span{
+			width: 315px;
+			margin-left: 0px;
+			margin-top: 63px;
+		}
+		.flLeft{
+			float: left;
+			margin-left: 46px;
+			width: 409px;
+			margin-top: 38px;
+			font-size: 14px;
+		}
+		.flLeft .iptxt{
+			width: 268px;
+			height: 38px;
+			box-sizing: border-box;
+		}
+		.flLeft>div{
+			margin-bottom: 33px;
+		}
+		.tit{
+		    width: 84px;
+		    display: inline-block;
+		}
+		.flRight{
+			width: 408px;
+			float: right;
+			margin-right: 49px;
+			margin-top: 38px;
+		}
+		.flRight .tit{
+			width: 70px;
+		}
+		.flRight .iptxt,.flRight select{
+			width:321px;
+			height: 38px;
+			box-sizing: border-box;
+		}
+		.flRight>div{
+			margin-bottom: 22px;
+			position: relative;
+		}
+		.add_address_btn{
+			width: 90px;
+			height: 38px;
+			background: #6EA3FF;
+			color: #fff;
+			display: inline-block;
+			margin-left: 8px;
+			position: absolute;
+			top: 0px;
+			border-radius: 3px;
+			text-align: center;
+			line-height: 38px;
+		}
+		
+	</style>
+	<style id="alertStyle">
+		/* 模态框 */
+        .modelBox{
+            z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+		.modelCont{
+            position: absolute;
+            width: 450px;
+            min-height: 276px;
+            left: 50%;
+            top: 50%;
+            margin-left: -225px;
+            margin-top: -200px;
+            font-family: 'microsoft yahei';
+            /* background-color: red; */
+        }
+		.modeltitle{
+            width: 450px;
+            height: 50px;
+            background-image: url(../img/gsxq.gif);
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 16px;
+            color: #5690f6;
+            line-height: 50px;
+        }
+		.modeltitle>span{
+            margin-left: 16px;
+        }
+        .modelcontent{
+            width: 450px;
+            min-height: 226px;
+            background-image: url('../img/gsxq_cont.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 16px;
+        }
+		.modelBtnBox{
+            width: 302px;
+            height: 45px;
+            overflow: hidden;
+            margin: 0 auto;
+			padding: 10px 0 30px;
+        }
+        .modelbtn{
+            float: left;
+            width: 145px;
+            height: 45px;
+            border: 1px solid #5690f6;
+            font-size: 18px;
+            color: #fff;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+		.modelcontent li{
+			margin-bottom: 12px;
+		}
+		.modelcontent label{
+            margin-left: 20px;
+			display: inline-block;
+			width:86px;
+        }
+        .modelcontent select{
+            width: 98px;
+            height: 40px;
+            border: 1px solid #8B8B8B;
+            line-height: 40px;
+            border-radius: 3px;
+            background: #fff;
+			margin-right: 3px;
+        }
+		.modelcontent .input{
+			width: 300px;
+			border: 1px solid #8B8B8B;
+            line-height: 40px;
+            border-radius: 3px;
+            background: #fff; 
+			padding-left: 3px;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<!-- 添加商品 1380-->
+	<div class="main">
+		<div class="step_title">
+			<div class="text_center clearfix">
+				<div class="step">
+					<span class="step_p step1 current">1</span>
+					<span>填写产品信息</span>
+				</div>
+				<div class="line">-----------</div>
+				<div class="step">
+					<span class="step_p step2 current">2</span>
+					<span>填写供应信息</span>
+				</div>	
+				<div class="line">-----------</div>
+				<div class="step">
+					<span class="step_p step3">3</span>
+					<span>发布商品</span>
+				</div>
+			</div>
+		</div>
+		<div class="main_content clearfix" style="padding-left: 0;">
+			<div class="fl" style="width: 100%;">
+				<div class="flLeft">
+					<div>
+						<span class="required">*</span>
+						<span class="span tit">供应总量：</span>
+						<input type="text" class="shop_name iptxt sum" placeholder="">
+						<span>吨</span>
+					</div>
+					<div class="paymentMethod">
+						<span class="required">*</span>
+						<span class="span tit">支付方式：</span>
+						<input type="radio" name="pay" id="xianhui" value="1"/><label for="xianhui" style="margin-right: 60px;">现汇</label>
+						<input type="radio" name="pay" id="chengdui" value="2"/><label for="chengdui" style="margin-right: 56px;">承兑</label>
+						<input type="radio" name="pay" id="xjiac" value="3"/><label for="xjiac">现汇+承兑</label>
+					</div>
+					<div>
+						<span class="required">*</span>
+						<span class="span tit">单&nbsp;&nbsp;&nbsp;价：</span>
+						<input type="text" class="shop_name iptxt unitPrice" placeholder="">
+						<span>元/吨</span>
+					</div>
+					<div class="marketingCategory">
+						<span class="required">*</span>
+						<span class="span tit">店铺分类：</span>
+						<input type="radio" name="objType" id="rexiao" value="1"/><label for="rexiao" style="margin-right: 65px;">热销产品</label>
+						<input type="radio" name="objType" id="zhuyiing" value="2"/><label for="zhuyiing" >主营产品</label>
+					</div>
+					<div>
+						<span class="required">*</span>
+						<span class="span tit">联&nbsp;系&nbsp;人：</span>
+						<input type="text" name="" id="concatName" value="" />
+						<input type="checkbox" name="concat" id="concat" value="1"/><label for="concat">对外公开联系人及联系信息</label>
+					</div>
+					<div>
+						<span class="required">*</span>
+						<span class="span tit" style="margin-right: 0;">联系人手机：</span>
+						<input type="text" class="shop_name iptxt" placeholder="" id="phone" style="width: 307px;" maxlength="11">
+					</div>
+				</div>
+				<div class="flRight">
+					<div>
+						<span class="required">*</span>
+						<span class="span tit">最小订量：</span>
+						<input type="text" class="shop_name iptxt minNum" placeholder="">
+					</div>
+					<div>
+						<span class="required">*</span>
+						<span class="span tit">交割方式：</span>
+						<select name="" class="deliveryType">
+							<option selected="selected" value="0">不限</option>
+							<option value="2">自提</option>
+							<option value="1">包到</option>
+						</select>
+					</div>
+					<div>
+						<span class="required">*</span>
+						<span class="span tit">提&nbsp;货&nbsp;地：</span>
+						<select class="selectAddr" name="" style="width: 223px;">
+							<!-- <option selected="selected" value="中泰化学">中泰化学</option> -->
+						</select>
+						<span style="cursor: pointer;" class="add_address_btn">新增提货地</span>
+					</div>
+					<div>
+						<span class="required">*</span>
+						<span class="span tit">有&nbsp;效&nbsp;期：</span>
+						<select name="" class="validity">
+							<option selected="selected" value="1">1</option>
+							<option value="30">30</option>
+							<option value="60">60</option>
+							<option value="90">90</option>
+						</select>
+					</div>
+					<div class="isUp">
+						<span class="required">*</span>
+						<span class="span tit" style="width: auto;">是否立即发布：</span>
+						<input type="radio" name="isUp" id="nowUp" value="2"/><label for="nowUp">立即上架</label>
+						<input type="radio" name="isUp" id="save" value="1"/><label for="save">保存在商品列表</label>
+					</div>
+				</div>
+				<p class="p">
+					<span class="nextSub">下一步，修改发布商品</span>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+		//商品id
+		var shopId = localStorage.getItem('objid');
+
+		 // 点击关闭模态框
+		 $(window.parent.document).find('.modelBox .close').click(function(){
+			$(window.parent.document).find('.modelBox').css('display','none');
+		});
+		// 点击取消模态框
+		$(window.parent.document).find('.modelBox .cancel').click(function(){
+			$(window.parent.document).find('.modelBox').css('display','none');
+		});
+		// 记录信息
+		var infoObj = {};
+
+		/*查询仓库地址列表*/
+        $.ajax({
+            url: pubIP + 'warehouse/listWarehouse', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+			dataType: 'json',
+			data: {
+				companyId: companyId
+			},
+            success: function (data) {
+				console.log(data,'list');
+				if(data.code == 1){
+					var str = '';
+					if(data.data && data.data.length>0){
+						$.each(data.data, function(i, item){
+							str += '<option value="'+item.warehouseIds+'">'+item.warehouseName+'</option>';
+						});
+					}else {
+						str='<option selected="selected" value="">请填写仓库地址</option>'
+					}
+					$('.selectAddr').html(str);
+					/*$('.selectAddr option:eq(0)').attr('selected', true);*/
+
+					
+					
+
+					
+					huixian();
+				}
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+
+		/*添加仓库地址*/ 
+		function addAddr(warehouseName, warehouseProvince, warehouseCity, warehouseArea, warehouseAddr, warehouseType, defaultFlag){
+			$.ajax({
+				url: pubIP + 'warehouse/addWarehouse', /*v1.0*/
+				type: 'post',
+				headers: {
+					Accept: "application/json; charset=utf-8",
+					token: token
+				},
+				cache: false,
+				ansyc: false,
+				dataType: 'json',
+				data: {
+					warehouseName: warehouseName,
+					warehouseProvince: warehouseProvince,
+					warehouseCity: warehouseCity,
+					warehouseArea: warehouseArea,
+					warehouseAddr: warehouseAddr,
+					warehouseType: warehouseType,//仓库类型 1：园区库 2：私有库
+					ownedCompanyId: companyId,//所属企业id
+					defaultFlag: defaultFlag//默认仓库：0：非默认；1：默认
+				},
+				success: function (data) {
+					if(data.code == 1){
+						// $('.selectAddr option:selected').text(warehouseName);
+                        $('.selectAddr').append('<option selected="selected">'+warehouseName+'</option>')
+					}
+				},
+				error: function(err){
+					console.log(err);
+				}
+			});
+		}
+		/*查询所有省份*/
+		function getAllProvinces(){
+			$.ajax({
+				url: pubIP + 'address/listProvince', /*v1.0*/
+				type: 'post',
+				headers: {
+					Accept: "application/json; charset=utf-8",
+					token: token
+				},
+				cache: false,
+				ansyc: false,
+				dataType: 'json',
+				success: function (data) {
+					
+					var str = '<option value="">请选择省</option>';
+					for (var i = 0; i < data.data.length; i++) {
+						str += '<option value="'+i+'" data-proviceId="'+data.data[i].provinceid+'">'+data.data[i].province+'</option>';
+					}
+					$(window.parent.document).find('.modelBox #province').html(str);
+					$(window.parent.document).find('#city').html('<option>请选择市</option>');
+					$(window.parent.document).find('#area').html('<option>请选择区</option>');
+				},
+				error: function(err){
+					console.log(err);
+				}
+			});
+		}
+
+
+		 /*查询所有城市*/
+		$(window.parent.document).on('change','#province', function () {
+			
+			var provinceID = $(window.parent.document).find("#province option:selected").attr('data-proviceId');
+			
+			if (!provinceID) {
+				alert('no provinceID');
+				return;
+			}
+			$.ajax({
+                url: pubIP + 'address/listCityByProvinceId', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                data: {provinceID: provinceID},
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data.data);
+					
+                    var str = '<option value="">请选择市</option>';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<option value="'+i+'" data-cityId="'+data.data[i].cityid+'" data-city="'+data.data[i].city+'">'+data.data[i].city+'</option>';
+                    }
+					$(window.parent.document).find('.modelBox #city').html(str);
+					$(window.parent.document).find('#area').html('<option>请选择区</option>');
+                        
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+		});
+
+        // 查询所有区域
+        $(window.parent.document).on('change', '#city', function () {
+            var cityID = $(window.parent.document).find(".modelBox #city option:selected").attr('data-cityId');
+			
+			if(!cityID){
+				alert('no cityid');
+				return;
+			}
+
+			$.ajax({
+                url: pubIP + 'address/listAreaByCityID', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                data: {cityID: cityID},
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    var str = '<option value="">请选择区</option>';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<option value="'+i+'" data-areaId="'+data.data[i].areaid+'" data-area="'+data.data[i].area+'">'+data.data[i].area+'</option>';
+                    }
+
+                    $(window.parent.document).find('.modelBox #area').html(str);
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+
+		});
+		
+
+		// 点击新增收货地址
+		$(document).on('click','.add_address_btn',function(){
+			var modelTplStr = '<ul>'+
+						'<li class="clearfix" style="padding-top: 20px;">'+
+							'<div class="fl">'+
+								'<label for="">所在地区：</label>'+
+								'<select style="margin-left:0;" name="province" id="province" class="provice">'+
+									'<option value="">请选择省</option>'+
+								'</select>'+
+								'<select name="city" id="city" class="city">'+
+									'<option value="">请选择市区</option>'+
+								'</select>'+
+								'<select name="area" id="area" class="town1">'+
+									'<option value="">请选择区</option>'+
+								'</select>'+
+							'</div>'+
+							'<span class="tishi1 fl"></span>'+
+						'</li>'+
+						'<li class="clearfix">'+
+							'<div class="fl">'+
+								'<label for="">详细地址：</label>'+
+								'<input type="text" class="input" id="detail_address" placeholder="请输入详细地址">'+
+							'</div>'+
+							'<span class="tishi fl"></span>'+
+						'</li>'+
+						'<li class="clearfix">'+
+							'<div class="fl">'+
+								'<label for="">仓&nbsp;&nbsp;库&nbsp;&nbsp;名：</label>'+
+								'<input type="text" class="input" id="cangkuName" placeholder="请输入仓库名">'+
+							'</div>'+
+							'<span class="tishi fl"></span>'+
+						'</li>'+
+						'<li class="clearfix">'+
+							'<div class="fl">'+
+								'<label for="">仓库类型：</label>'+
+								'<input type="radio" value="1" name="cangkuType"><span>园区库</span>'+
+								'<input type="radio" value="2" name="cangkuType"><span>私有库</span>'+
+							'</div>'+
+						'</li>'+
+						'<li class="clearfix">'+
+							'<div class="fl">'+
+								'<label for=""></label>'+
+								'<input type="checkbox" value="1" name="isdefault">'+
+								'<span>设为默认仓库地址</span>'+
+							'</div>'+
+						'</li>'+
+					'</ul>';
+			var styles = $('#alertStyle').clone();
+			// $(window.parent.document).find('body').remove($(window.parent.document).find('body style#alertStyle'));
+			$(window.parent.document).find('body').append(styles);
+			parent.alertModel('','',modelTplStr);
+			getAllProvinces();
+		})
+		
+		// 点击确定--关闭模态框
+		$(window.parent.document).find('.modelBox .confirm').click(function(){
+			var province = $(window.parent.document).find(".modelBox #province option:selected").text(), 
+				city=$(window.parent.document).find(".modelBox #city  option:selected").text(), 
+				area=$(window.parent.document).find(".modelBox #area option:selected").text(), 
+				detail_address= $(window.parent.document).find(".modelBox #detail_address").val(),
+				warehouseName = $(window.parent.document).find(".modelBox #cangkuName").val(),
+				//仓库类型 1：园区库 2：私有库
+				warehouseType = $(window.parent.document).find('.modelBox input[name="cangkuType"]:checked').val();
+				//默认仓库：0：非默认；1：默认
+				var defaultFlag = $(window.parent.document).find('.modelBox input[name="isdefault"]:checked').val();
+				defaultFlag=defaultFlag?defaultFlag:0;
+			
+			if(!province){
+				alert('请选择省份');
+				return;
+			}
+			if(!city){
+				alert('请选择城市');
+				return;
+			}
+			if(!area){
+				alert('请选择区域');
+				return;
+			}
+			if(!detail_address.trim()){
+				alert('请输入具体的地址');
+				return;
+			}
+			if(!warehouseName.trim()){
+				alert('请输入仓库名');
+				return;
+			}
+			if(!warehouseType){
+				alert('请选择仓库类型');
+				return;
+			}
+			console.log(warehouseType);
+			/*添加仓库地址*/ 
+			addAddr(warehouseName, province, city, area, detail_address, warehouseType, defaultFlag);
+			$('.modelBox').css('display','none');
+		});
+
+
+
+
+		
+		//校验手机号
+		var can=true;
+        $('#phone').blur(function () {
+            var that=$(this).eq(0);
+            var text=$(this).eq(0).val();
+			var phoneTest=new RegExp("^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$");//手机号校验
+            if(text==""){
+				$(this).css('border-color','red');
+				can = false;
+            }else if(phoneTest.test(text)===false){
+				can = false;
+                $(this).css('border-color','red');
+            }else{
+				can = true;
+                $(this).css('border-color','#D3D3D3');
+            }
+		});
+
+        //数据回显
+        function huixian() {
+			$.ajax({
+	            type:"post",
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            url: pubIP + "productApi/getSupplyInfoByProductIdForEdit",//v1.0
+	            cache:false,
+	            async:false,
+	            dataType: "json",
+	            data:{
+	            		productId:shopId
+	            },
+	            success: function(json){
+	                console.log(json);
+
+	                //供应总量
+	                $('.shop_name').val(json.data.sum);
+
+	                //支付方式
+	                $('.paymentMethod input[name="pay"][value="'+json.data.paymentMethod+'"]').attr('checked','true');
+
+	                //单价
+	                $('.unitPrice').val(json.data.unitPrice);
+
+	                //店铺分类
+	                $('.marketingCategory input[name="objType"][value="'+json.data.marketingCategory+'"]').attr('checked','true');
+
+	                //联系人
+	                $('#concatName').val(json.data.contactName);
+
+	                //对外公开$('#concat').val(
+	                if (json.data.isPublic == '0') {
+	                	$('#concat').attr('checked', true);
+	                }
+
+	                //联系人手机号
+	                $('#phone').val(json.data.contactPhone);
+
+	                //最小订量
+	                $('.minNum').val(json.data.minAmount);
+
+	                //交割方式 
+	                $('.deliveryType option[value="'+json.data.deliveryType+'"]').attr('selected', true);
+	               
+	                //提货地
+	                $('.selectAddr option[value="'+json.data.deliveryAddress+'"]').attr('selected', true);
+
+	                //有效期 
+	                $('.validity option[value="'+json.data.validity+'"]').attr('selected', true);
+
+	                //是否立即发布  
+	                $('.isUp input[name="isUp"][value="'+json.data.state+'"]').attr('checked','true');
+	            },
+	            error: function (err) {
+	            	console.log(err);
+	            }
+	        });
+        }
+		
+
+
+			
+
+		
+		// 点击下一步
+        $('.nextSub').click(function(){
+
+        	//交割方式 1：包到 2：自提 0：不限
+			infoObj.deliveryType = $(".deliveryType option:selected").val();
+			
+
+			//提货地（仓库位置）
+			infoObj.selectAddr = $(".selectAddr option:selected").val();
+			
+			
+			//有效期（天）
+			infoObj.validity = $(".validity option:selected").val();
+			
+
+			infoObj.paymentMethod = $('input[name="pay"]:checked').val();
+			//营销类型 1：主营产品 2：热销产品
+			infoObj.marketingCategory = $('input[name="objType"]:checked').val();
+			// 是否立即发布
+			infoObj.isUp = $('input[name="isUp"]:checked').val();
+			// 是否公开
+			infoObj.isPublic = $('input[name="concat"]:checked').val()?$('input[name="concat"]:checked').val():0;
+
+
+        	$('.main_content select,.main_content input[type="text"]').each(function(){
+				if(this.tagName == 'INPUT'){
+					if($(this).val() == ''){
+						alert($(this).parent().find('.tit').text()+ '未填写!');
+						can = false;
+						return false;
+					}
+				}else{
+					if($(this).val() == ''){
+						alert($(this).parent().find('.tit').text()+ '未选择!');
+						can = false;
+						return false;
+					}
+				}
+			})
+			if(!infoObj.paymentMethod){
+				alert('支付方式未选择');
+				return;
+			}
+			if(!infoObj.marketingCategory){
+				alert('店铺分类未选择');
+				return;
+			}
+			if(!infoObj.isUp){
+				alert('是否立即发布未选择');
+				return;
+			}
+			/*infoObj.productId = location.search.substring(1).split('=')[1]*/
+			infoObj.productId = shopId
+			console.log(infoObj.productId);
+			// 新增商品-发布供应信息
+			toAddShopInfo(infoObj);
+        	
+		})
+
+
+		// 修改商品-发布供应信息
+		function toAddShopInfo(infoObj){
+
+			$.ajax({
+	            type:"POST",
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            url: pubIP+"productApi/addSupplyInfo",//v1.0
+	            cache:false,
+	            dataType: "json",
+	            data:{
+	            	flag: 2,
+					publisherId: userId,//用户id	
+					publishCompanyId: companyId,//公司id
+					productId: infoObj.productId,//商品id
+					unitPrice: $('.unitPrice').val(),//单价
+					sum: $('.sum').val(),//供应数量
+					remain: $('.sum').val(),//剩余数量
+					deliveryType: infoObj.deliveryType,//交割方式 1：包到 2：自提 0：不限
+					deliveryAddress: infoObj.selectAddr,//提货地（仓库位置）
+					paymentMethod: infoObj.paymentMethod,//支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限
+					state: infoObj.isUp,//发布信息状态1：已提交 2：已发布 3：已完成 4：已关闭 5:后台违规处理
+					note: '',
+					validity:infoObj.validity,//有效期（天）
+					marketingCategory: infoObj.marketingCategory,//营销类型 1：主营产品 2：热销产品
+					contactName:$('#concatName').val(),
+					contactPhone:$('#phone').val(),
+					isPublic: infoObj.isPublic,//联系方式公开性 0：公开 1：不公开
+					minAmount: $('.minNum').val()//最小购买量(最少购买量应为规格的整数倍)
+	            },
+	            success: function(json){
+	                console.log(json);
+					if(json.code == 1){
+						$('.step_title .step_p').addClass('current');
+						window.parent.editShopManage();
+					}
+	            }
+	        });
+		}
+
+		
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title>新疆化学品经营服务平台</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/payPass.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/shopManage/addShop.css"/>
+
+	<script type="text/javascript" charset="utf-8" src="../plugin/ueditor/1.4.3/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../plugin/ueditor/1.4.3/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="../plugin/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+</head>
+<style>
+    .company_profile {
+        padding-left: 27px;
+    }
+
+    .company_logo {
+        padding-left: 15px;
+    }
+
+    .store_product textarea {
+        border-radius: 2px;
+        border: 1px #E5E5E5 solid;
+    }
+    
+    .update_btn {
+        width:229px;
+        height:49px; 
+        border: 1px solid #666;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 49px;
+        margin-top: 28px;
+        margin-bottom: 38px;
+        margin-left: 250px;
+        cursor: pointer;
+    }
+    .company_logo img {
+        width: 196px;
+        height: 98px;
+    }
+    .fileLgoBox{
+    		position: relative;
+    		display: inline-block;
+            border: 1px solid #ebe9ea;
+            height: 98px;
+            width: 196px;
+    }
+    #upL0go{
+    		position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	    opacity: 0;
+    }
+   	#zhuying{
+    		width: 559px;
+    		height: 155px;
+    		resize: none;
+    }
+    .modelBox24{
+        z-index: 9999;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .modelCont {
+        position: absolute;
+        width: 450px;
+        min-height: 276px;
+        left: 50%;
+        top: 50%;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        font-family: 'microsoft yahei';
+        /* background-color: red; */
+    }
+    .modeltitle {
+        width: 450px;
+        height: 50px;
+        background-image: url(../img/gsxq.gif);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        font-size: 16px;
+        color: #5690f6;
+        line-height: 50px;
+    }
+    .modeltitle span {
+        margin-left: 16px;
+    }
+    .modelcontent,.cont {
+        width: 450px;
+        min-height: 226px;
+        background-image: url(../img/gsxq_cont.gif);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        font-size: 18px;
+    }
+    .img_div {
+        width: 100%;
+        height: 42px;
+        text-align: center;
+        padding-top: 40px;
+        margin-bottom: 19px;
+        overflow: hidden;
+    }
+    .modelcontent p {
+        color: #949495;
+        font-size: 14px;
+        padding: 0 80px;
+    }
+    .modelBtnBox {
+        width: 302px;
+        height: 45px;
+        overflow: hidden;
+        margin: 0 auto;
+        padding-bottom: 30px;
+    }
+    .modelbtn {
+        float: left;
+        width: 145px;
+        height: 45px;
+        border: 1px solid #5690f6;
+        font-size: 18px;
+        color: #fff;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 45px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin: 18px auto 0 80px;
+    }
+</style>
+<body>
+<div class="modelBox24">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/gsxq_success.gif" alt=""><span class="msgInfo" style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
+                margin-left: 10px; display: inline-block;"></span></span></div>
+                <p></p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- 店铺内容管理 -->
+    <div class="main">
+        <div class="main_content">
+            <ul class="ul clearfix">
+                <li class="company_logo">
+                    <div class="inline-block fl">
+                        <span class="span">企业LOGO：</span>
+                    </div>
+                    <div class="fileLgoBox">
+                    		<img src="../img/list_logo.png" alt="logo">
+                    		<input type="file" name="upL0go" id="upL0go"  onchange="xmTanUploadImg1(this)"/>
+                    </div>
+                </li>
+                <li class="clearfix company_profile">
+                    <div class="inline-block fl">
+                        <span class="span">企业简介：</span>
+                    </div>
+                    <div class="inline-block fl">
+                        <script id="editor" type="text/plain" style="width:559px;height:272px;"></script>
+                    </div>
+                </li>
+                <li class="clearfix store_product">
+                    <div class="inline-block fl">
+                        <span class="span">店铺主营产品：</span>
+                    </div>
+                    <div class="inline-block fl">
+                        <textarea name="" id="zhuying" cols="76" rows="10"></textarea>
+                    </div>
+                </li>
+            </ul>
+            <div class="update_btn">修改</div>
+        </div>
+    </div>
+
+
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    		var img_url1 = null;
+    		function xmTanUploadImg1(obj) {
+	        var file = obj.files[0];
+	
+	        if (file.size >= 2097152) {
+	            alert('上传的图片超过了2MB');
+	            return;
+	        }
+	
+	        //添加图片路径到img src中进行预览
+	        //$("#yingye_zhizhao_preview").attr('src', getObjectURL(file));
+	
+	        var formdata=new FormData();
+	
+	        var c = $('#yingye_zhizhao_preview')[0];
+	        var path = $(c).attr('src');
+	
+	        formdata.append('file', file);
+	        
+	        formdata.append('path', path);
+	    
+	
+	        $.ajax({
+	            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+	            type: 'post',
+	            processData: false,  // 告诉jQuery不要去处理发送的数据
+	            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+	            data: formdata,
+	            cache: false,
+	            dataType: 'json',
+	            success: function (data) {
+	                // console.log(data);
+	                img_url1 = data.url;
+	                $('.fileLgoBox img').attr('src', data.url);
+	            },
+	            error: function (err) {
+	                console.log(err);
+	            }
+	        });
+	
+	    }
+    		
+    		$('.update_btn').click(function(){
+    			//接口店铺ID换成公司ID
+    			console.log(img_url1);
+    			$.ajax({ 
+		          type:"post",
+		          url:pubIP+"store/updateStoreBaseInfo",//v1.0
+		          cache:false,
+		          dataType: "json",
+				  headers: {
+				  	token: token
+				  },
+		          data:{
+		        	  	'companyId':companyId,
+		        	  	'storeImage':img_url1,
+		        	  	'briefIntroduction':UE.getEditor('editor').getContent(),
+		        	  	'mainProduct': $('#zhuying').val()
+		          },
+		          success: function(json){
+		            console.log(json);
+		            if(json.code == 1){
+		            		// alert('修改成功!');
+                        $('.msgInfo').text("修改成功");
+;                        $('.modelBox24').show();
+		            }
+		          },
+		          error:function(xhr,statues,error){
+		              
+		          }
+		    });
+    		})
+    	
+        //实例化编辑器
+        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+        var ue = UE.getEditor('editor',{
+        		toolbars:[  
+            ['fullscreen', 'source', '|', 'undo',  '|',  
+                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',  
+                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',  
+                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',  
+                'directionalityltr', 'directionalityrtl', 'indent', '|',  
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',  
+                'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',  
+                'insertimage',  '|',  
+                'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', '|',  
+                'preview', 'help']  
+        		]  ,
+        });
+		
+
+        function isFocus(e){
+            alert(UE.getEditor('editor').isFocus());
+            UE.dom.domUtils.preventDefault(e)
+        }
+        function setblur(e){
+            UE.getEditor('editor').blur();
+            UE.dom.domUtils.preventDefault(e)
+        }
+        function insertHtml() {
+            var value = prompt('插入html代码', '');
+            UE.getEditor('editor').execCommand('insertHtml', value)
+        }
+        function createEditor() {
+            enableBtn();
+            UE.getEditor('editor');
+        }
+        function getAllHtml() {
+            alert(UE.getEditor('editor').getAllHtml())
+        }
+        function getContent() {
+            var arr = [];
+            arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+            arr.push("内容为：");
+            arr.push(UE.getEditor('editor').getContent());
+            alert(arr.join("\n"));
+        }
+        function getPlainTxt() {
+            var arr = [];
+            arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+            arr.push("内容为：");
+            arr.push(UE.getEditor('editor').getPlainTxt());
+            alert(arr.join('\n'))
+        }
+        function setContent(isAppendTo) {
+            var arr = [];
+            arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+            UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
+            alert(arr.join("\n"));
+        }
+        function setDisabled() {
+            UE.getEditor('editor').setDisabled('fullscreen');
+            disableBtn("enable");
+        }
+
+        function setEnabled() {
+            UE.getEditor('editor').setEnabled();
+            enableBtn();
+        }
+
+        function getText() {
+            //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+            var range = UE.getEditor('editor').selection.getRange();
+            range.select();
+            var txt = UE.getEditor('editor').selection.getText();
+            alert(txt)
+        }
+
+        function getContentTxt() {
+            var arr = [];
+            arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+            arr.push("编辑器的纯文本内容为：");
+            arr.push(UE.getEditor('editor').getContentTxt());
+            alert(arr.join("\n"));
+        }
+        function hasContent() {
+            var arr = [];
+            arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+            arr.push("判断结果为：");
+            arr.push(UE.getEditor('editor').hasContents());
+            alert(arr.join("\n"));
+        }
+        function setFocus() {
+            UE.getEditor('editor').focus();
+        }
+        function deleteEditor() {
+            disableBtn();
+            UE.getEditor('editor').destroy();
+        }
+        function disableBtn(str) {
+            var div = document.getElementById('btns');
+            var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+            for (var i = 0, btn; btn = btns[i++];) {
+                if (btn.id == str) {
+                    UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+                } else {
+                    btn.setAttribute("disabled", "true");
+                }
+            }
+        }
+        function enableBtn() {
+            var div = document.getElementById('btns');
+            var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+            for (var i = 0, btn; btn = btns[i++];) {
+                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+            }
+        }
+
+        function getLocalData () {
+            alert(UE.getEditor('editor').execCommand( "getlocaldata" ));
+        }
+
+        function clearLocalData () {
+            UE.getEditor('editor').execCommand( "clearlocaldata" );
+            alert("已清空草稿箱")
+        }
+        
+        //回显
+		$.ajax({ 
+	          type:"post",
+	          url:pubIP+"store/getStoreBaseInfoByCompanyId",//v1.0
+	          cache:false,
+	          dataType: "json",
+			  headers: {
+			  	token: token
+			  },
+	          data:{
+	        	  'companyId':companyId
+	          },
+	          success: function(json){
+	            console.log(json);
+	            if(json.code != 1){
+	            		console.log(json.msg);
+	            		return false;
+	            }
+	            $('.fileLgoBox img').attr('src',json.data.storeImage);
+	            $('#zhuying').val(json.data.mainProduct);
+	            
+                console.log(json.data.briefIntroduction);
+                //判断ueditor 编辑器是否创建成功
+                UE.getEditor('editor').addListener("ready", function () {
+                    // editor准备好之后才可以使用
+                    UE.getEditor('editor').setContent(json.data.briefIntroduction);
+
+                });
+	          },
+	          error:function(xhr,statues,error){
+	              
+	          }
+	    });
+        $('.confirm').on('click',function(){
+            $('.modelBox24').hide();
+        })
+    </script>
+</body>
+</html>
