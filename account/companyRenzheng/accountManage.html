@@ -449,6 +449,7 @@
 
         // 取消按钮
         $('.cancel').on('click', function () {
+            $(".add_address_btn").removeAttr('data-dbid')
             $('#name').val('');
             $('#province span').text('请选择省');
             $("#province").attr("data-selectedindex","");
