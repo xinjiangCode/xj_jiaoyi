@@ -130,7 +130,7 @@ button{
     color:#585858;
 }
 .objIcon{
-	background-position: -26px -1px;
+	background-position: -26px -3px;
 }
 .webIcon{
 	background-position: -49px -1px;
@@ -720,6 +720,12 @@ input[type='text'].page_page {
 }
 
 
+#denglu {
+	cursor: pointer;
+	display: none;
+}
+
+
 .one {
 	font-size: 16px;
 }
@@ -780,9 +786,15 @@ footer .footerTop1 .ftphone{
 	margin-left: 15px;
 	/*height: 137px;*/
 }
+
 footer .footer2,.footer3,.footer4,.footer5{
-	margin-left: 62px;
+	margin-left: 67px;
 }
+
+footer .footer2 {
+	margin-left: 30px;
+}
+
 footer .footerTop1 .ftphoneImg{
 	height: 56px;
 	width:40px;

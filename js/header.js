@@ -7,6 +7,7 @@ document.writeln("<div class=\"Lf\">");
 document.writeln("<span class=\"collect\"><a href=\"javascript:void(0);\" onclick=\"AddFavorite('新疆化学品经营服务平台',location.href)\">收藏本站</a></span>");
 document.writeln("<span id='hello'>你好，游客</span>");
 document.writeln("<span id='logout'>退出</span>");
+document.writeln("<span id='denglu'>登录</span>");
 document.writeln("</div>");
 document.writeln(" <div class=\"Rt\">");
 document.writeln("<div>");
@@ -629,6 +630,8 @@ window.onload = function(){
 	       	  	location.href = '../obj/objDetails.html';
 	       	}
        })
+
+
        
        $(document).on('click','.headObjType a,.category',function(){
        	  localStorage.setItem('categoryId',$(this).attr('typeId'));
@@ -639,6 +642,14 @@ window.onload = function(){
        	  }
        	  
        })
+
+       $(document).on('mouseenter','.headObjType a',function(){
+       	  	$(this).css('color', '#056ee0');
+       }).on('mouseleave', '.headObjType a', function () {
+       		$(this).css('color', '#282828');
+       })
+
+
 		
 	   $('.seachListDp').css('left',(($(window).width()-1230)/2+294+56)+'px');
 		
@@ -792,9 +803,24 @@ window.onload = function(){
 
 	  if (window.localStorage.getItem('isOld') == 1) { //未登录
 	  	$('#logout').css('display', 'none');
+	  	if (adct == 'login') {
+	  		$('#denglu').css('display', 'none');
+	  	} else {
+	  		$('#denglu').css('display', 'inline-block');
+	  	}
+	  	
 	  } else {
 	  	$('#logout').css('display', 'inline-block');
+	  	$('#denglu').css('display', 'none');
 	  }
+
+	  $(document).on('click', '#denglu', function() {
+	  		if (adct == '首页') {
+	  			location.href="./login/login.html";
+	  		} else {
+	  			location.href="../login/login.html";
+	  		}
+	  });
 
 	  $(document).on('click', '#logout', function() {
 

@@ -282,7 +282,24 @@
 			</div>
 			<%}%>
 		</script>
-		<script type="text/javascript" >      
+		<script type="text/javascript" >    
+
+			$('.tsBg').height($(window).height());
+			$('.saleObjBox>div:nth-child(3n)').css('margin-right','0');
+			var mySwiper = new Swiper ('.swiper-container', {
+			    loop: true,
+			    autoplay: 5000,
+			    pagination: '.swiper-pagination',
+			    paginationClickable: true
+			  })        
+			$('#colseAlert').click(function(){
+				$('.tsBg').hide();
+				$('.tsBox').hide();
+			})
+			$('#tousu').click(function(){
+				$('.tsBg').show();
+				$('.tsBox').fadeIn();
+			})  
 			
 
 			$(document).on('click', '.buying_a', function () {
@@ -365,31 +382,6 @@
 		        });
 			}
 
-
-
-
-
-
-
-
-
-
-			$('.tsBg').height($(window).height());
-			$('.saleObjBox>div:nth-child(3n)').css('margin-right','0');
-			var mySwiper = new Swiper ('.swiper-container', {
-			    loop: true,
-			    autoplay: 5000,
-			    pagination: '.swiper-pagination',
-			    paginationClickable: true
-			  })        
-			$('#colseAlert').click(function(){
-				$('.tsBg').hide();
-				$('.tsBox').hide();
-			})
-			$('#tousu').click(function(){
-				$('.tsBg').show();
-				$('.tsBox').fadeIn();
-			})
 	       
 	        // $(document).on('click','.saleObjBox>div>button',function(){
 	       	// 	localStorage.setItem('objid',$(this).attr('objid'));

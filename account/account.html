@@ -48,7 +48,7 @@
         .pop>.cont>.popBottom>.popCancel:hover{background-color: #007aff;color: #ffffff;}
         .pop>.cont>.popBottom>.popSure:hover{background-color: #026ee4;color: #ffffff;}
 
-         .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail, #no_del {
+         .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail, #no_del, .modelBox190 {
             z-index: 9999;
             display: none;
             position: fixed;
@@ -61,7 +61,7 @@
 
         
 
-        .modelBox3 .modelcontent p, .modelBox4 .modelcontent p, .modelBox5 .modelcontent p, .modelBox6 .modelcontent p, .modelBox7 .modelcontent p, .modelBox10 .modelcontent p, .modelBox14 .modelcontent p, .modelBox15 .modelcontent p, .modelBox16 .modelcontent p, .modelBox18 .modelcontent p, .modelBox19 .modelcontent p, .modelBox20 .modelcontent p, .modelBox21 .modelcontent p,  .modelBox23 .modelcontent p, .modelBox24 .modelcontent p, .modelBox25 .modelcontent p, .modelBox26 .modelcontent p, .modelBox27 .modelcontent p,.modelBox28 .modelcontent p,.modelBox29 .modelcontent p,.modelBox30 .modelcontent p, .okClose p, #renzheng1 p, #no_del p {
+        .modelBox3 .modelcontent p, .modelBox4 .modelcontent p, .modelBox5 .modelcontent p, .modelBox6 .modelcontent p, .modelBox7 .modelcontent p, .modelBox10 .modelcontent p, .modelBox14 .modelcontent p, .modelBox15 .modelcontent p, .modelBox16 .modelcontent p, .modelBox18 .modelcontent p, .modelBox19 .modelcontent p, .modelBox20 .modelcontent p, .modelBox21 .modelcontent p,  .modelBox23 .modelcontent p, .modelBox24 .modelcontent p, .modelBox25 .modelcontent p, .modelBox26 .modelcontent p, .modelBox27 .modelcontent p,.modelBox28 .modelcontent p,.modelBox29 .modelcontent p,.modelBox30 .modelcontent p, .okClose p, #renzheng1 p, #no_del p, .modelBox190{
             text-align: center;
         }
 
@@ -1194,7 +1194,7 @@
     </div>
 </div>
 
-<!-- 资质审核未通过 -->
+<!-- 危险化学品认证资质审核未通过 -->
 <div class="modelBox19">
     <div class="modelCont">
         <div class="modeltitle">
@@ -1204,7 +1204,26 @@
         <div class="modelcontent">
             <div class="info">
                 <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
-                <p><span>资质审核未通过</span>，请您重新填写进行认证！</p>
+                <p><span>危险化学品资质认证审核未通过</span>，请您重新填写进行认证！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 特殊资质审核未通过 -->
+<div class="modelBox190">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息提示</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                <p><span>特殊资质认证审核未通过</span>，请您重新填写进行认证！</p>
             </div>
             <div class="modelBtnBox">
                 <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
@@ -2067,9 +2086,14 @@
         $('.modelBox18').css('display', 'block');
     }
 
-    //资质已拒绝
-    function jujue() {
+    //危险化学品认证资质已拒绝
+    function jujue_weixian() {
         $('.modelBox19').css('display', 'block');
+    }
+
+    //特殊认证资质已拒绝
+    function jujue_teshu() {
+        $('.modelBox190').css('display', 'block');
     }
 
     //商品管理

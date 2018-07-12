@@ -8,7 +8,7 @@
 	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
 	    <meta http-equiv="Pragma" content="no-cache">
 	    <meta name="format-detection" content="telephone=no" />
-		<title>新疆化学品经营服务平台</title>
+		<title adct="login">新疆化学品经营服务平台</title>
 		<link rel="stylesheet" type="text/css" href="../css/registert.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
 		<link rel="stylesheet" href="../css/index.css">
@@ -56,6 +56,47 @@
 			.usBox{margin-top: 46px;color: #282828;}
 			.usBox p{margin-bottom: 10px;}
 			.rightUsIner{padding: 0px 21px; box-sizing: border-box;font-size: 14px;}
+
+			.mainCenterRegistTitle>.title {
+				color: #666;
+			}
+
+			.reg-box>li>input {
+				/*border-width: 2px;
+			    border-style: solid;
+			    border-color: #e5e5e5;*/
+			    border-radius: 4px;
+			    border-style: groove;
+			    border: 2px solid #E5E5E5;
+			}
+
+			.reg-box>li>input.shadow {
+				background:none;  
+				outline:none;  
+				border:2px solid #76AAF2;
+				border-radius: 2px;
+			    background: #FFFFFF;
+			    box-shadow: rgba(118,170,242, 0.5) 0px 0px 20px;
+			    -moz-box-shadow: rgba(118,170,242, 0.5) 0px 0px 20px;
+			    -webkit-box-shadow: rgba(118,170,242, 0.5) 0px 0px 20px; 
+			}
+
+			.sendCode {
+				font-size: 15px;
+			}
+
+			.error {
+				margin-left: 0px;
+				padding-left: 20px;
+			}
+
+			.codeImg {
+				margin-right: 8px;
+			}
+
+			.sendCode {
+				margin-right: 9px;
+			}
 		</style>
 	</head>
 	<body>
@@ -63,7 +104,7 @@
 
 		<div class="topTitle mianCont">
 			<div class="logo1 Lf" style="margin-top: 21px;">
-				<a href="../index.html" ><img src="../img/cf_logo.png" alt=""></a>
+				<a href="../index.html" ><img src="../img/cf_logo1.png" alt=""></a>
 			</div>
 			<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 14px;">（工作日9:00-18:00）</i></div>
 		</div>
@@ -208,15 +249,15 @@
               var text=$(this).eq(0).val();
 
               if(text==""){
-                  $(that).parent().find(".error").text("用户名不能为空");
+                  $(that).parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("用户名不能为空");
               }else if(text.length<5){
-                  $(that).parent().find(".error").text("用户名长度小于5");
+                  $(that).parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("用户名长度小于5");
               }else if(user.test(text)===true){
-                  $(that).parent().find(".error").text("不能输入非法字符");
+                  $(that).parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("不能输入非法字符");
               }else if(userReg.test(text)===false){
-              	  $(that).parent().find(".error").text("未包含字母或数字");
+              	  $(that).parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("未包含字母或数字");
               }else{
-                  $(that).parent().find(".error").text("");
+                  $(that).parent().find(".error").css('background', 'url(../img/input_success.png) no-repeat').text("");
               }
 //            console.log(userReg.test(text))
 //            console.log($(this).eq(0).val())
@@ -227,17 +268,20 @@
                 var that=$(this).eq(0);
                 var text=$(this).eq(0).val();
                 if($("#passWord2").val()!=text && $("#passWord2").val()!=""){
-                    $("#passWord2").parent().find(".error").eq(0).text("两次密码不一致");
+                    $("#passWord2").parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').text("两次密码不一致");
                 }else{
-                    $("#passWord2").parent().find(".error").eq(0).text("");
+                	if ($('#passWord2').val() != '') {
+                		 $("#passWord2").parent().find(".error").eq(0).css('background', 'url(../img/input_success.png) no-repeat').text("");
+                	}
+                   
                 }
 
                 if(text==""){
-                    $(that).parent().find(".error").eq(0).text("密码不能为空");
+                    $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').text("密码不能为空");
                 }else if(text.length<6){
-                    $(that).parent().find(".error").eq(0).text("密码长度小于6");
+                    $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').text("密码长度小于6");
                 }else{
-                    $(that).parent().find(".error").eq(0).text("");
+                    $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_success.png) no-repeat').text("");
                 }
             });
             //二次校验密码
@@ -245,17 +289,17 @@
                 var that=$(this).eq(0);
                 var text=$(this).eq(0).val();
                 if($("#passWord2").val()!=text && $("#passWord2").val()!=""){
-                    $("#passWord2").parent().find(".error").eq(0).text("两次密码不一致");
+                    $("#passWord2").parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').text("两次密码不一致");
                 }else{
-                    $("#passWord2").parent().find(".error").eq(0).text("");
+                    $("#passWord2").parent().find(".error").eq(0).css('background', 'url(../img/input_success.png) no-repeat').text("");
                 }
 
                 if(text==""){
-                    $(that).parent().find(".error").eq(0).text("密码不能为空");
+                    $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').text("密码不能为空");
                 }else if($("#passWord1").val()!=text){
-                    $(that).parent().find(".error").eq(0).text("两次密码不一致");
+                    $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').text("两次密码不一致");
                 }else{
-                    $(that).parent().find(".error").eq(0).text("");
+                    $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_success.png) no-repeat').text("");
                 }
             });
             //校验手机号
@@ -264,13 +308,13 @@
                 var text=$(this).eq(0).val();
 
                 if(text==""){
-                    $(that).parent().find(".error").eq(0).text("手机号不能为空");
+                    $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').text("手机号不能为空");
                     $("#code").attr("disabled","disabled");
                 }else if(phoneTest.test(text)===false){
-                    $(that).parent().find(".error").eq(0).text("手机号不合法");
+                    $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').text("手机号不合法");
                     $("#code").attr("disabled","disabled");
                 }else{
-                    $(that).parent().find(".error").eq(0).text("");
+                    $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_success.png) no-repeat').text("");
                     $("#code").removeAttr("disabled")
                 }
             });
@@ -294,10 +338,10 @@
                     },
                     success: function (data) {
                       if(data.code==1){
-                          $(that).parent().find(".error").eq(0).text("");
+                          $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_success.png) no-repeat').css('background-position', 'left').text("");
                           sessionStorage["isok"]=1;
 					  }else{
-                          $(that).parent().find(".error").eq(0).text("验证码错误");
+                          $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').css('background-position', 'left').text("验证码错误");
                           sessionStorage["isok"]=0;
 					  }
 
@@ -328,9 +372,9 @@
                     },
                     success: function (data) {
                         if (data.code == 1) {
-                            $(that).parent().find(".error").eq(0).text("");
+                            $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_success.png) no-repeat').css('background-position', 'left').text("");
                         } else {
-                            $(that).parent().find(".error").eq(0).text("验证码错误");
+                            $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').css('background-position', 'left').text("验证码错误");
                         }
 
                     },
@@ -427,8 +471,19 @@
           }
          //获取焦点   暂不做操作
           function textFocus(that) {
-
           }
+
+          $(document).on('focus', '.reg-box>li>input', function () {
+          	$(this).addClass('shadow');
+          });
+
+          $(document).on('blur', '.reg-box>li>input', function () {
+          	$(this).removeClass('shadow');
+          });
+
+
+
+
           //获取图片码
           function getCode(){
 
@@ -440,26 +495,30 @@
                 $("#checkImg").attr("src",pubIP+"codeImage/ImageCodePic?imgCodeRedisKey="+sessionStorage["imgCodeRedisKey"]);
             }
           //获短信取验证码前
-          function getSMSCode(){
-              if(sessionStorage["isok"]==0){
-                  return;
-			  }
+            function getSMSCode(){
+            	if($("#phone").val()==="") {
+            		$('#phone').focus();
+              		$('#phone').next('.error').text('请输入手机号码');
+            	}
+              	if(sessionStorage["isok"]==0){
+                  	return;
+			  	}
               var errorlist='';
 
 			  for(var i=0;i<$(".error").length;i++){
                   errorlist+=$(".error").eq(i).text();
 			  }
               if($("#user").val()===""){
-                  $("#user").parent().find(".error").text("用户名不能为空");
+                  $("#user").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("用户名不能为空");
                   return;
               }else if($("#passWord1").val()===""){
-                  $("#passWord1").parent().find(".error").text("密码不能为空");
+                  $("#passWord1").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("密码不能为空");
                   return;
               }else if($("#passWord2").val()===""){
-                  $("#passWord2").parent().find(".error").text("密码不能为空");
+                  $("#passWord2").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("密码不能为空");
                   return;
               }else if($("#phone").val()===""){
-                  $("#phone").parent().find(".error").text("手机号不能为空");
+                  $("#phone").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("手机号不能为空");
                   return;
               }else if(errorlist!=""){
               	if(errorlist == '验证码错误'){
@@ -547,7 +606,7 @@
                           $("#getSMSCode").css("background-color","#aaaaaa");
                           var timer=setInterval(function () {
                               time--;
-                              $("#getSMSCode").text(""+time+"s")
+                              $("#getSMSCode").text(""+time+"秒后重新发送")
                               if(time==0){
                                   clearInterval(timer);
                                   $("#getSMSCode").removeAttr("disabled");
@@ -573,23 +632,23 @@
                   errorlist+=$(".error").eq(i).text();
               }
               if($("#user").val()===""){
-                  $("#user").parent().find(".error").text("用户名不能为空");
+                  $("#user").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("用户名不能为空");
                   return;
               }else
               if($("#passWord1").val()===""){
-                  $("#passWord1").parent().find(".error").text("密码不能为空");
+                  $("#passWord1").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("密码不能为空");
                   return;
               }else if($("#passWord2").val()===""){
-                  $("#passWord2").parent().find(".error").text("密码不能为空");
+                  $("#passWord2").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("密码不能为空");
                   return;
               }else if($("#phone").val()===""){
-                  $("#phone").parent().find(".error").text("手机号不能为空");
+                  $("#phone").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("手机号不能为空");
                   return;
               }else if($("#code").val()===""){
-                  $("#code").parent().find(".error").text("验证码不能为空");
+                  $("#code").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("验证码不能为空");
                   return;
               }else if($("#SMScode").val()===""){
-                  $("#SMScode").parent().find(".error").text("短信验证码不能为空");
+                  $("#SMScode").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').text("短信验证码不能为空");
                   return;
               }else if(errorlist!=""){
                   return;

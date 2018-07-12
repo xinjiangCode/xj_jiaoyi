@@ -723,7 +723,7 @@
 	            		return false;
 	            }
 	            $('.ml').text(json.data.companyAddress2);
-	            $('.span_phone').text(json.data.contact);
+	            $('.span_phone').text(json.data.contact == null ? ' ' : json.data.contact);
 	            $('.company_name img').attr('src',json.data.storeImage);
 	            $('.fl .name,.fl .span_name').text(json.data.companyName == null ? ' ' : json.data.companyName);
 	            $('.left_top>img').attr('src',json.data.storeImage);
