@@ -220,7 +220,7 @@
                                 str+='    <td><a href="##" class="blue state" >上架中</a></td>';
                                 str+='    <td>';
                                 str+='        <a href="##" class="blue" onclick="edit(\''+list[i].productIds+'\')">编辑</a>';
-                                str+='        <a href="##" class="detele" style="color: #999;">删除</a>';
+                                str+='        <a href="##" class="detele" style="color: #999;" onclick="no_del()">删除</a>';
                                 if(list[i].supplyId==null){
                                     str+='        <a href="##" class="look" style="color: #999;">查看</a>';
                                 }else{
@@ -259,10 +259,15 @@
         }
         //查看  未接
         function look(id) {
-            //console.log(id);
+            console.log(id);
             localStorage.setItem('objid',id);
             localStorage.setItem('thisCompanyId',companyId);
 			window.parent.location.href = '../obj/objDetails.html';
+        }
+
+        // 上架中的商品
+        function no_del() {
+            window.parent.no_del();
         }
 
         //删除

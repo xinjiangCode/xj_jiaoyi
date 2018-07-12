@@ -48,7 +48,7 @@
         .pop>.cont>.popBottom>.popCancel:hover{background-color: #007aff;color: #ffffff;}
         .pop>.cont>.popBottom>.popSure:hover{background-color: #026ee4;color: #ffffff;}
 
-         .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail {
+         .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail, #no_del {
             z-index: 9999;
             display: none;
             position: fixed;
@@ -61,7 +61,7 @@
 
         
 
-        .modelBox3 .modelcontent p, .modelBox4 .modelcontent p, .modelBox5 .modelcontent p, .modelBox6 .modelcontent p, .modelBox7 .modelcontent p, .modelBox10 .modelcontent p, .modelBox14 .modelcontent p, .modelBox15 .modelcontent p, .modelBox16 .modelcontent p, .modelBox18 .modelcontent p, .modelBox19 .modelcontent p, .modelBox20 .modelcontent p, .modelBox21 .modelcontent p,  .modelBox23 .modelcontent p, .modelBox24 .modelcontent p, .modelBox25 .modelcontent p, .modelBox26 .modelcontent p, .modelBox27 .modelcontent p,.modelBox28 .modelcontent p,.modelBox29 .modelcontent p,.modelBox30 .modelcontent p, .okClose p, #renzheng1 p {
+        .modelBox3 .modelcontent p, .modelBox4 .modelcontent p, .modelBox5 .modelcontent p, .modelBox6 .modelcontent p, .modelBox7 .modelcontent p, .modelBox10 .modelcontent p, .modelBox14 .modelcontent p, .modelBox15 .modelcontent p, .modelBox16 .modelcontent p, .modelBox18 .modelcontent p, .modelBox19 .modelcontent p, .modelBox20 .modelcontent p, .modelBox21 .modelcontent p,  .modelBox23 .modelcontent p, .modelBox24 .modelcontent p, .modelBox25 .modelcontent p, .modelBox26 .modelcontent p, .modelBox27 .modelcontent p,.modelBox28 .modelcontent p,.modelBox29 .modelcontent p,.modelBox30 .modelcontent p, .okClose p, #renzheng1 p, #no_del p {
             text-align: center;
         }
 
@@ -1666,6 +1666,25 @@
     </div>
 </div>
 
+<!-- 商品管理-上架中的商品 -->
+<div id="no_del">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span>消息中心</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="info">
+                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/cf_denger1.png" alt=""></span></div>
+               <p>此商品是上架中的商品，请先将商品下架！</p>
+            </div>
+            <div class="modelBtnBox">
+                <div style="background:#5690f6;" class="modelbtn confirm">确定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
@@ -1914,6 +1933,11 @@
             }
         });
 
+    }
+
+    // 商品管理-上架中的商品
+    function no_del() {
+        $('#no_del').css('display', 'block');
     }
 
     // 活动列表-查看活动详情

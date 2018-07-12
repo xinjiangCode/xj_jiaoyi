@@ -790,6 +790,12 @@ window.onload = function(){
 	  	$('#logout').css('display', 'inline-block');
 	  }
 
+	  if (window.localStorage.getItem('isOld') == 1) { //未登录
+	  	$('#logout').css('display', 'none');
+	  } else {
+	  	$('#logout').css('display', 'inline-block');
+	  }
+
 	  $(document).on('click', '#logout', function() {
 
 	  	$.ajax({
@@ -805,7 +811,8 @@ window.onload = function(){
 
 		    	if (data.code == 1) {
 		    		window.localStorage.removeItem('token');
-		    		window.localStorage.setItem('data-logout', 'true');
+		    		console.log(window.localStorage.getItem('isOld'));
+		    		// window.localStorage.setItem('data-logout', 'true');
 					$('#logout').hide();
 				  	if(adct == '首页' ){
 						location.href = 'login/login.html';
