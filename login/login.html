@@ -8,7 +8,7 @@
 	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
 	    <meta http-equiv="Pragma" content="no-cache">
 	    <meta name="format-detection" content="telephone=no" />
-		<title>新疆化学品经营服务平台</title>
+		<title adct="login">新疆化学品经营服务平台</title>
 
 		<link rel="stylesheet" type="text/css" href="../css/login.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
@@ -27,6 +27,27 @@
 
 			.topTitle>.phone {
 				margin-top: 13px;
+			}
+
+			.mainCenterloginTitle>.title {
+				color: #999;
+			}
+
+			.reg-box>.error {
+				padding-left: 22px;
+				height: 16px;
+				line-height: 16px;
+			}
+
+			.reg-box>li.shadow {
+				background:none;  
+				outline:none;  
+				border:1px solid #76AAF2;
+				border-radius: 2px;
+			    background: #FFFFFF;
+			    box-shadow: rgba(118,170,242, 0.5) 0px 0px 20px;
+			    -moz-box-shadow: rgba(118,170,242, 0.5) 0px 0px 20px;
+			    -webkit-box-shadow: rgba(118,170,242, 0.5) 0px 0px 20px; 
 			}
 		</style>
 		<style>
@@ -97,7 +118,7 @@
 		<!--</div>-->
 		<div class="topTitle mianCont">
 			<div class="logo1 Lf" style="margin-top: 21px;">
-				<a href="../index.html"><img src="../img/cf_logo.png" alt=""></a>
+				<a href="../index.html"><img src="../img/cf_logo1.png" alt=""></a>
 			</div>
 			<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 14px;">（工作日9:00-18:00）</i></div>
 		</div>
@@ -113,7 +134,7 @@
 							<div class="imgs">
 								<img src="../img/cf_zhanghao.png" alt="">
 							</div>
-							<input type="text" id="user"  placeholder="手机/邮箱/用户名" class="account" maxlength="11"/>
+							<input type="text" id="user"  placeholder="手机号/用户名" class="account" maxlength="11"/>
 						</li>
 						<li>
 							<div class="imgs">
@@ -187,17 +208,35 @@
           		$('#login').click();
           	}
           })
+
+          $(document).on('focus', '.reg-box>li', function () {
+          	$(this).addClass('shadow');
+          });
+
+          $(document).on('blur', '.reg-box>li', function () {
+          	$(this).removeClass('shadow');
+          });
+
+          $(document).on('blur', '.reg-box>li>input', function () {
+          	if ($('#user').val() != '') {
+          		$(".error").eq(0).css('background', '').text('');
+          	}
+
+          	if ($('#pwd').val() != '') {
+          		$(".error").eq(0).css('background', '').text('');
+          	}
+          });
           
           $('#login').click(function(){
           	var user = $('#user').val();
           	var pwd = $('#pwd').val();
           	if(user == ''){
-          		//alert('请输入手机/邮箱/用户名！');
-                $(".error").eq(0).text('请输入手机/邮箱/用户名！');
+          		//alert('请输入手机/用户名！');
+                $(".error").eq(0).css('background', 'url(../img/input_warning.png) no-repeat').css('background-position', 'left').text('请输入手机号/用户名！');
           		return false;
           	}else if(pwd == ''){
           		//alert('请输入密码！');
-                $(".error").eq(0).text('请输入密码！');
+                $(".error").eq(0).css('background', 'url(../img/input_warning.png) no-repeat').css('background-position', 'left').text('请输入密码！');
           		return false;
           	}
           	$.ajax({ 

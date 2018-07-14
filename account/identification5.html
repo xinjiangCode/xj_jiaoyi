@@ -148,9 +148,29 @@
             margin-right: 3px;    
         }
 
+        /*input[disabled] {
+            opacity: 0.5;
+        }*/
 
+        .btn:hover {
+            cursor: pointer;
+        }
 
+        .inputfile {
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0 !important;
+        }
 
+        .uploade {
+            background: url(../img/product_pic.png);
+        }
+    
     </style>
 </head>
 <body>
@@ -158,7 +178,7 @@
     <div class="header">
         <ul>
             <li>
-                <a href="javascript:;">
+                <a href="identification1.html">
                     <div class="Lf lan">1</div>
                     企业基本信息
                 </a>
@@ -167,7 +187,7 @@
                 ..................
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="identification2.html">
                     <div class="Lf lan">2</div>
                     运营者信息
                 </a>
@@ -176,7 +196,7 @@
                 ..................
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="identification3.html">
                     <div class="Lf lan">3</div>
                     发票信息
                 </a>
@@ -185,7 +205,7 @@
                 ..................
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="identification4.html">
                     <div class="Lf lan">4</div>
                     出金账户绑定
                 </a>
@@ -220,15 +240,15 @@
                     <div class="right1 Lf">
                         <div class="uploade Lf">
                             <i style=""></i>
-                            <img src="../img/list_logo.png" alt="" id="id_card_preview1">
-                            <input type="file" id="id_card_pic1" onchange="xmTanUploadImg1(this);">
-                            <input type="hidden" name="" value="" id="zhengjian_hidden1">
+                            <!-- <img src="../img/list_logo.png" alt="" id="id_card_preview1"> -->
+                            <input type="file" id="id_card_pic1">
+                            <input type="hidden" name="" value="" id="id_card_hidden1">
                         </div>
                         <div class="uploade Lf">
                             <i style=""></i>
-                            <img src="../img/list_logo.png" alt="" id="id_card_preview2">
-                            <input type="file" id="id_card_pic2" onchange="xmTanUploadImg2(this);">
-                            <input type="hidden" name="" value="" id="zhengjian_hidden2">
+                            <!-- <img src="../img/list_logo.png" alt="" id="id_card_preview2"> -->
+                            <input type="file" id="id_card_pic2">
+                            <input type="hidden" name="" value="" id="id_card_hidden2">
                         </div>
                     </div>
                     <div class="ts">身份证上传不能为空</div>
@@ -257,7 +277,7 @@
                     <div class="right1 Lf"><input type="password" id="ok_pass"></div>
                     <div class="ts">确认密码和密码不一致</div>
                 </li>
-                <li class="pay_pass" style="width: 573px;">
+                <li class="pay_pass" style="width: 597px;">
                     <div class="left1 Lf"><span class="fr yincang">手机号:</span><span class="fr bb xianshi">验证手机号:</span><i class="red fr">*</i></div>
                     <div class="right1 Lf rz"><input type="text" id="yanzheng_phone" class="Lf"><a href="##" class="weiRenZheng" id="huoqu_code" style="margin-left: 15px; line-height: 38px;">获取验证码</a><span class="bb Lf yincang update_phone_btn">修改手机号</span></div>
                     <div class="ts bukeyong">手机号格式不正确</div>
@@ -307,6 +327,48 @@
 
 <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript">
+
+
+        $(document).on('change','#id_card_pic1,#id_card_pic2',function(){
+            xmTanUploadImg11(this);
+        })
+        
+        function xmTanUploadImg11(obj) {
+            var file = obj.files[0];
+            if (file.size >= 2097152) {
+                alert('上传的图片超过了2MB');
+                return;
+            }
+    
+            var formdata=new FormData();
+    
+            formdata.append('file', file);
+            
+            $.ajax({
+                url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+                type: 'post',
+                processData: false,  // 告诉jQuery不要去处理发送的数据
+                contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+                data: formdata,
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    //console.log(data);
+                    $(obj).parent().css({
+                            'background':'url('+data.url+') no-repeat',
+                            'background-position':'center',
+                            'background-size':'contain',
+                            'background-color':'#f6f6f6'
+                    });
+                    $(obj).parent().find('input[type="hidden"]').val(data.url);
+                    $(obj).parent().parent().next().css('display', 'none');
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+    
+        }
 
         var img_url1 = null;
         var img_url2 = null;
@@ -507,6 +569,8 @@ function xmTanUploadImg2(obj) {
             $('.update_yincang').css('visibility', 'visible');
        });
 
+
+
         $(document).on('click', '.weiRenZheng.btn', function () {
 
             if ($('#caiwu_name').val() == '') {
@@ -523,8 +587,8 @@ function xmTanUploadImg2(obj) {
                 return; 
             }
 
-            if ($('#id_card_preview1').attr('src') == '../img/list_logo.png' && $('#id_card_preview2').attr('src') == '../img/list_logo.png') {
-                $('#id_card_preview2').parent().next().css('display', 'block');
+            if ($('#id_card_hidden1').val() == '' && $('#id_card_hidden2').val() == '') {
+                $('#id_card_pic2').parent().next().css('display', 'block');
                 return;
             }
 
@@ -558,6 +622,11 @@ function xmTanUploadImg2(obj) {
             var pay_pass = $('#pay_pass').val();
             var ok_pass = $('#ok_pass').val();
             yanzheng_phone = $('#yanzheng_phone').val();
+
+            img_url1 = $('#id_card_hidden1').val();
+            img_url2 = $('#id_card_hidden2').val();
+
+            console.log(img_url1);
 
             if (img_url1 != null && img_url2 != null) {
                 //v1.0
@@ -595,7 +664,7 @@ function xmTanUploadImg2(obj) {
                     }
                 });
             } else {
-                $('#id_card_preview2').parent().next().html('图片正在上传').css('display', 'block');
+                $('#id_card_pic2').parent().next().html('图片正在上传').css('display', 'block');
             }
             
 
@@ -744,18 +813,18 @@ function xmTanUploadImg2(obj) {
 
 
         $('#id_card_pic1').on('blur', function () {
-            if ($('#id_card_preview1').attr('src') == '../img/list_logo.png' && $('#id_card_preview2').attr('src') == '../img/list_logo.png') {
-                $('#id_card_preview2').parent().next().css('display', 'block');
+            if ($('#id_card_hidden1').val() == '' && $('#id_card_hidden2').val() == '') {
+                $('#id_card_hidden2').parent().next().css('display', 'block');
             } else {
-                $('#id_card_preview2').parent().next().css('display', 'none');
+                $('#id_card_hidden2').parent().next().css('display', 'none');
             }
         });
 
         $('#id_card_pic2').on('blur', function () {
-            if ($('#id_card_preview2').attr('src') == '../img/list_logo.png' && $('#id_card_preview1').attr('src') == '../img/list_logo.png') {
-                $('#id_card_preview2').parent().next().css('display', 'block');
+            if ($('#id_card_hidden2').val() == '' && $('#id_card_hidden1').val() == '') {
+                $('#id_card_hidden2').parent().next().css('display', 'block');
             } else {
-                $('#id_card_preview2').parent().next().css('display', 'none');
+                $('#id_card_hidden2').parent().next().css('display', 'none');
             }
         });
 
@@ -975,6 +1044,7 @@ function xmTanUploadImg2(obj) {
                     success: function (data) {
                         if (data.code == 1) {
                             console.log(data);
+                            console.log(data.data.picInfos[7].picUrl);
                             $('#caiwu_name').val(data.data.company.financeName);
                             $('#id_number').val(data.data.company.financeIdNumber);
 
@@ -982,14 +1052,24 @@ function xmTanUploadImg2(obj) {
                             $('#yanzheng_phone').attr('disabled', 'disabled');
                             
                             
-                            $('#id_card_preview1').attr('src', data.data.picInfos[7].picUrl);
-                            $('#id_card_preview1').attr('data-picId8', data.data.picInfos[7].ids);
+                            $('#id_card_pic1').parent().css({
+                                'background': 'url('+data.data.picInfos[7].picUrl+') no-repeat',
+                                'background-position':'center',
+                                'background-size':'contain',
+                                'background-color':'#f6f6f6'
+                            });
+                            $('#id_card_pic1').attr('data-picId8', data.data.picInfos[7].ids);
 
-                            $('#id_card_preview2').attr('src', data.data.picInfos[8].picUrl);
-                            $('#id_card_preview2').attr('data-picId9', data.data.picInfos[8].ids);
+                            $('#id_card_pic2').parent().css({
+                                'background': 'url('+data.data.picInfos[8].picUrl+') no-repeat',
+                                'background-position':'center',
+                                'background-size':'contain',
+                                'background-color':'#f6f6f6'
+                            });
+                            $('#id_card_pic2').attr('data-picId9', data.data.picInfos[8].ids);
 
-                            $('#zhengjian_hidden1').val(data.data.picInfos[7].ids);
-                            $('#zhengjian_hidden2').val(data.data.picInfos[8].ids);
+                            $('#zhengjian_hidden1').val(data.data.picInfos[7].picUrl);
+                            $('#zhengjian_hidden2').val(data.data.picInfos[8].picUrl);
 
                            
                             
@@ -1021,8 +1101,8 @@ function xmTanUploadImg2(obj) {
                 return; 
             }
 
-            if ($('#id_card_preview1').attr('src') == '../img/list_logo.png' && $('#id_card_preview2').attr('src') == '../img/list_logo.png') {
-                $('#id_card_preview2').parent().next().css('display', 'block');
+            if ($('#id_card_hidden1').val() == '' && $('#id_card_hidden2').val() == '') {
+                $('#id_card_hidden2').parent().next().css('display', 'block');
                 return;
             }
 
@@ -1048,13 +1128,14 @@ function xmTanUploadImg2(obj) {
 
             var pay_pass2 = $('#pay_pass2').val();
 
-            var picId8 = $('#id_card_preview1').attr('data-picid8');
-            var picId9 = $('#id_card_preview2').attr('data-picid9');
+            var picId8 = $('#id_card_pic1').attr('data-picid8');
+            var picId9 = $('#id_card_pic2').attr('data-picid9');
+
+            img_url1 = $('#id_card_hidden1').val();
+            img_url2 = $('#id_card_hidden2').val();
             
-            console.log(picId9);
 			
-			
-            //v1.0
+            // v1.0
             $.ajax({
                 url: pubIP + 'companyCertification/addCompanyBaseInfo',
                 type: 'post',
@@ -1080,7 +1161,6 @@ function xmTanUploadImg2(obj) {
                     console.log(data);
                    
                     window.parent.update_runcaiwu();
-                    window.location.reload();
                 },
                 error: function (err) {
                     console.log(err);
@@ -1091,7 +1171,7 @@ function xmTanUploadImg2(obj) {
 
     });
 
-$(window.parent.document).on('click', '.ok_ok', function () {
+$(window.parent.document).on('click', '.ok_ok, .ook3', function () {
     
     window.location.reload();
 });

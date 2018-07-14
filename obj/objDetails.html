@@ -277,7 +277,7 @@
 				overflow: hidden;
 			}
 			.spxq p{overflow: hidden;}
-			.spxq p i{display: inline-block;width: 80px;text-align: right;}
+			.spxq p i{display: inline-block;width: 80px;text-align: left;}
 			.cptx p{overflow: hidden;}
 			.cptx p i{display: inline-block;width: 120px;text-align: right;}			
 			.modelBox {
@@ -478,6 +478,48 @@
 			.objDIfInner>div input {
 				padding-left: 0px;
 			}
+
+			.objDIfInner a {
+				margin-bottom: 24px;
+				margin-top: 16px;
+			}
+
+			.objInvoice {
+				margin-bottom: 25px;
+			}
+
+			.objPrice span {
+				margin-left: 30px;
+			}
+
+			.objPrice span.dazong {
+				color: #ff8b41;
+				font-size: 30px;
+			}
+
+			.objPrice span.dazong .money_icon {
+				font-size: 21px;
+				color: #FF8B4E;
+			}
+
+			.objPrice span.shiji {
+				color: #FF381D;
+				font-size: 26px;
+			}
+
+			.objPrice span.shiji .money_icon {
+				font-size: 24px;
+			}
+
+			.objPrice.sj {
+				font-size: 16px;
+			}
+
+			.objPrice {
+				color: #4b4b4b;
+			}
+
+
 		</style>
 	</head>
 
@@ -517,8 +559,8 @@
 							<h1><%=productName%></h1>
 							<div class="objPrice">
 								价格：
-								<span class="dazong">¥ <%=unitPrice%>/吨</span>
-								<span class="shiji">¥ <%=unitPrice%>/<%=productSpecStr%></span>
+								<span class="dazong"><span class="money_icon">¥</span> <%=unitPrice%>/吨</span>
+								<span class="shiji"><span class="money_icon">¥</span> <%=unitPrice%>/<%=productSpecStr%></span>
 							</div>
 							<p class="objDgg">
 								<span>纯度：<%=productPurity%>%</span>
@@ -1244,7 +1286,10 @@
 						var objDescriptTpl = template('objDescriptTpl', productDetail);
 						$('.objDInfo').html(objDescriptTpl);
 
+
 						if (response.data.productDetail.productCate == 2) {  //试剂
+
+							$('.objPrice').addClass('sj');
 
 							$('.objDgg').css('paddingLeft','17px').css('color', '#999');
 							$('#shengyu_num').css('display','inline-block');

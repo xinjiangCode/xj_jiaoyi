@@ -118,6 +118,37 @@
             margin-left: 118px;
         }
 
+        /*input[disabled] {
+            opacity: 0.5;
+        }*/
+
+        .btn:hover {
+            cursor: pointer;
+        }
+
+        .inputfile {
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0 !important;
+        }
+
+        .uploade {
+            background: url(../img/product_pic.png);
+        }
+
+        .weiRenZheng.next_btn {
+            margin-left: 118px;
+        }
+        
+        .next_btn_update {
+            display: none;
+            margin-left: 118px;
+        }
 
     </style>
 </head>
@@ -126,7 +157,7 @@
     <div class="header">
         <ul>
             <li>
-                <a href="javascript:;">
+                <a href="identification1.html">
                     <div class="Lf lan">1</div>
                     企业基本信息
                 </a>
@@ -135,7 +166,7 @@
                 ..................
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="identification2.html">
                     <div class="Lf lan">2</div>
                     运营者信息
                 </a>
@@ -144,7 +175,7 @@
                 ..................
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="identification3.html">
                     <div class="Lf lan">3</div>
                     发票信息
                 </a>
@@ -231,17 +262,21 @@
             </ul>
 
             <div class="btn weiRenZheng next_btn">下一步</div>
+            <div class="btn next_btn_update">下一步</div>
             <div class="btn update_btn xiugai">修改企业信息</div>
             <div class="update_btn2">
                 <span class="submit_btn">提交</span>
                 <span class="cancel_btn">取消</span>
             </div>
-            <div class="" style="width: 356px; margin-top: 32px;text-align: center;">
-                <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
-                <a href="##">客服QQ</a>
-                <span>(工作日10 : 00 - 19 : 00)</span>
+            <div style="margin-left: 115px;">
+                <div class="" style="width: 356px; margin-top: 32px;text-align: center;">
+                    <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
+                    <a href="##">客服QQ</a>
+                    <span>(工作日10 : 00 - 19 : 00)</span>
+                </div>
+                <div style="width: 356px; text-align: center;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##">400-1234567</a></div>
             </div>
-            <div style="width: 356px; text-align: center;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##">4000-012-556</a></div>
+
         </div>
     </div>
 </div>
@@ -294,6 +329,7 @@ function upload_file(obj) {
         success: function (data) {
             // console.log(data);
             file_url = data.url;
+            $('#wenjian_name').parent().next().html('文件正在上传').css('display', 'none');
         },
         error: function (err) {
             console.log(err);
@@ -322,25 +358,53 @@ function upload_file(obj) {
                     if (data.data.type == 7) {  //等待审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 2) {  //正在审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 6) {  //出金账户二次审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                        /* window.parent.tan7();*/
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'block');
                         $(".update_btn").addClass('xiaoshi');
+                        if (data.data.state > 4) {
+                            $('.weiRenZheng').css('display', 'none');
+                            $('.next_btn_update').css('display', 'block');
+                        }
                     }
                     
                 },
@@ -520,12 +584,18 @@ function upload_file(obj) {
                 console.log(data);
                 console.log(data.data.company.qualificationStatus);
 
-                if (data.data.company.qualificationStatus != 0) {
+                // if (data.data.company.qualificationStatus != 0) {
 
-                    $('input[type=file]').attr('disabled',true);
-                    $('input[type=text]').attr('disabled',true);
-                    $('input[type=radio]').attr('disabled',true);
+                //     $('input[type=file]').attr('disabled',true);
+                //     $('input[type=text]').attr('disabled',true);
+                //     $('input[type=radio]').attr('disabled',true);
 
+                //     update_info();
+                // }
+
+                if (data.data.company.writeState > 4) {
+                    $('.weiRenZheng.next_btn').css('display', 'none');
+                    $('.next_btn_update').css('display', 'block');
                     update_info();
                 }
             },
@@ -589,11 +659,12 @@ function upload_file(obj) {
             $('.wj').css('display', 'block');
             $(this).css('display', 'none');
             $('.update_btn2').css('display', 'block');
+            
         });
 
 
-        $(document).on('click', '.submit_btn', function () {
-
+        $(document).on('click', '.submit_btn, .next_btn_update', function () {
+            console.log('.....');
             if ($('#chujin_account_name1').val() == '') {
                 $('#chujin_account_name1').parent().next().css('display', 'block');
                 return;
@@ -631,18 +702,21 @@ function upload_file(obj) {
                 $('#kaihu_bank_info2').parent().next().css('display', 'block');
                 return;
             }
+            if ($('.next_btn_update').css('display') != 'block') {
+                if ($('#wenjian_name').val() == '') {
+                    $('#wenjian_name').parent().next().css('display', 'block');
+                    return;
+                }
 
-            if ($('#wenjian_name').val() == '') {
-                $('#wenjian_name').parent().next().css('display', 'block');
-                return;
             }
-
+            
             var chujin_account_name1 = $('#chujin_account_name1').val();
             var chujin_account_account1 = $('#chujin_account_account1').val();
             var kaihu_bank_info1 = $('#kaihu_bank_info1').val();
             var chujin_account_name2 = $('#chujin_account_name2').val();
             var chujin_account_account2 = $('#chujin_account_account2').val();
             var kaihu_bank_info2 = $('#kaihu_bank_info2').val();
+
 
             if (file_url != null) {
                 $('#wenjian_name').parent().next().css('display', 'none');
@@ -670,7 +744,12 @@ function upload_file(obj) {
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
-                        window.parent.update_chujin();
+
+                        if ($('.next_btn_update').css('display') == 'block') {
+                            window.location.href = "identification4.html";
+                        } else {
+                            window.parent.update_chujin();
+                        }
                         
                     },
                     error: function (err) {
@@ -678,16 +757,54 @@ function upload_file(obj) {
                     }
                 });
             } else {
-                $('#wenjian_name').parent().next().html('文件正在上传').css('display', 'block');
-            }
-            
+                if ($('.next_btn_update').css('display') == 'block') {
+                    $.ajax({
+                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                        type: 'post',
+                        headers: {
+                            Accept: "application/json; charset=utf-8",
+                            token: token
+                        },
+                        data: {
+                            submit_type: 'D',
+                            companyId: companyId,
+                            bankName1: kaihu_bank_info1,
+                            bankNo1: chujin_account_account1,
+                            accountName1: chujin_account_name1,
+                            bankName2: kaihu_bank_info2,
+                            bankNo2: chujin_account_account2,
+                            accountName2: chujin_account_name2,
+                            accountType1: 1,
+                            accountType2: 3
+                        },
+                        cache: false,
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+
+                            if ($('.next_btn_update').css('display') == 'block') {
+                                window.location.href = "identification5.html";
+                            } else {
+                                window.parent.update_chujin();
+                            }
+                            
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                } else {
+                    $('#wenjian_name').parent().next().html('文件正在上传').css('display', 'block');
+                }
+                
+            } 
 
         });
 
     });
 
 
-    $(window.parent.document).on('click', '.ok_ok', function () {
+    $(window.parent.document).on('click', '.ok_ok, .ook4', function () {
         
         window.location.reload();
     });

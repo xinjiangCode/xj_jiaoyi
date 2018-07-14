@@ -1,5 +1,5 @@
-var pubIP = 'http://api.xjv56.com/service/';
-//var pubIP = 'http://192.168.1.80:7777/service/';
+// var pubIP = 'http://api.xjv56.com/service/';
+var pubIP = 'http://192.168.1.80:7777/service/';
 // var pubIP = 'http://127.0.0.1:7777/service/';
 //var token = 'ceshi123456';
 var token=localStorage.getItem("token");
@@ -64,7 +64,12 @@ function popEffectLogin() {
 		}
 	}else if(isOld == '-1'){
 		if(adct=="首页"){
-	        window.location.href='account/account.html';
+			if ($('#popLogin').text() == '认证') {
+				window.location.href = "account/account.html";
+				sessionStorage.setItem('hzf_showPage', 'flag_qyrz');
+			} else {
+				window.location.href='account/account.html';
+			}
 		}else{
 			window.location.href='../account/account.html';
 		}

@@ -186,7 +186,8 @@
 								<span>工业级别：<%=levelName%></span>
 								<span>形态：<%=productFormStr%></span>
 							</p>
-							<div class="objDIfInner">
+							<div class="objDIfInner">	<!-- 需要改的地方=================================== -->
+								<!-- <p style="margin-bottom: 25px;"><span class="iStatus_status">抢购进度：</span><span id="pgBg"> <span id="Progress"></span> </span><span class="rate_status">（活动开始时间：2018.04.12 13:30:20）</span></p> -->
 								<p style="margin-bottom: 25px;">抢购进度：<span id="pgBg"> <span id="Progress"></span> </span></p>
 								<p style="margin-bottom: 25px;">仓库地址：
 									<%=deliveryAddress%>
@@ -918,13 +919,17 @@
 
 						$('.toXunpanBtn').attr('disabled', true);
 
-						if (iStatus == 1) {
+						if (iStatus == 1) {  //进行中
 							$('.toXunpanBtn').attr('disabled', false);
 							$('.objDIfInner a').css('border', '1px solid #FF6458').css('color', '#FF6458');
 						}
 
+						// if (iStatus == 2) { //即将开始
+
+						// } 
+
 						if ($('.toXunpanBtn').attr('disabled') == 'disabled') {
-							$('.objDIfInner a').css('border', '1px solid #999').css('color', '#999');
+							$('.objDIfInner a').css('border', '1px solid #BDBDBD').css('color', '#999');
 							return;
 						}
 

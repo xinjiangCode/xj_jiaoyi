@@ -81,35 +81,6 @@
             cursor: pointer;
         }
 
-        .inputfile {
-            position: absolute;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            margin: 0 !important;
-        }
-
-        .uploade {
-            background: url(../img/product_pic.png);
-        }
-
-        .center1>ul>li {
-            position: relative;
-        }
-
-        span.ts.yingye {
-            position: absolute;
-            left: 370px;
-            top: 37px;
-        }
-
-        .next_btn_update {
-            display: none;
-        }
-
     </style>
 </head>
 <body>
@@ -196,22 +167,21 @@
                 <div class="right1 Lf">
                     <div class="uploade" style="">
                         <i style=""></i>
-                        <!-- <img src="../img/list_logo.png" alt="" id="yingye_zhizhao_preview"  title="点击更换图片"> -->
-                        <input type="file" id="yingye_zhizhao_pic" class="inputfile" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
+                        <img src="../img/list_logo.png" alt="" id="yingye_zhizhao_preview"  title="点击更换图片">
+                        <input type="file" id="yingye_zhizhao_pic" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="xmTanUploadImg1(this);">
                         <input type="hidden" name="" value="" id="yingye_zhizhao_hidden">
                     </div>
                     <i class="red" style="display: block;margin-top: 22px;font-size: 14px;">请上传营业执照或者扫描件！ 照片大小 < 2MB</i>
                 </div>
-                <span class="ts yingye"></span>
+                <span class="ts"></span>
             </li>
             <li>
                 <div class="left1 Lf">开户许可证扫描件:</div>
                 <div class="right1 Lf">
                     <div class="uploade" style="" id="tu">
                         <i style=""></i>
-                        <!-- <img src="../img/list_logo.png" alt="" id="saomiaojian_preview" title="点击更换图片"> -->
-                        <input type="file" id="saomiaojian_pic" class="inputfile" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
-                        <input type="hidden" name="" value="" id="saomiaojian_hidden">
+                        <img src="../img/list_logo.png" alt="" id="saomiaojian_preview" title="点击更换图片">
+                        <input type="file" id="saomiaojian_pic" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="xmTanUploadImg2(this);">
                     </div>
                 </div>
             </li>
@@ -220,9 +190,8 @@
                 <div class="right1 Lf" style="margin-left: 218px;">
                     <div class="uploade" style="">
                         <i style=""></i>
-                        <!-- <img src="../img/list_logo.png" alt="" id="chajian_preview" title="点击更换图片"> -->
-                        <input type="file" id="chajian_pic" class="inputfile" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
-                        <input type="hidden" name="" value="" id="chajian_hidden">
+                        <img src="../img/list_logo.png" alt="" id="chajian_preview" title="点击更换图片">
+                        <input type="file" id="chajian_pic" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="xmTanUploadImg3(this);">
                     </div>
                 </div>
             </li>
@@ -271,14 +240,14 @@
                     <div class="right1 Lf">
                         <div class="uploade Lf">
                             <i style=""></i>
-                            <!-- <img src="../img/list_logo.png" alt="" id="zhengjian_preview1" title="点击更换图片"> -->
-                            <input type="file" id="zhengjian_pic1" class="inputfile" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
+                            <img src="../img/list_logo.png" alt="" id="zhengjian_preview1" title="点击更换图片">
+                            <input type="file" id="zhengjian_pic1" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="xmTanUploadImg4(this);">
                             <input type="hidden" name="" value="" id="zhengjian_hidden1"> 
                         </div>
                         <div class="uploade Lf">
                             <i style=""></i>
-                            <!-- <img src="../img/list_logo.png" alt="" id="zhengjian_preview2" title="点击更换图片"> -->
-                            <input type="file" id="zhengjian_pic2" class="inputfile" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
+                            <img src="../img/list_logo.png" alt="" id="zhengjian_preview2" title="点击更换图片">
+                            <input type="file" id="zhengjian_pic2" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" onchange="xmTanUploadImg5(this);">
                             <input type="hidden" name="" value="" id="zhengjian_hidden2">
                         </div>
                         <span class="ts"></span>
@@ -288,15 +257,12 @@
 
             <div class="btn weiRenZheng next_btn">下一步</div>
             <div class="btn yiRenZheng update_btn">修改企业信息</div>
-            <div class="btn next_btn_update">下一步</div>
-            <div style="margin-top: 32px; text-align: center; width: 530px;">
-                <div class="" style="">
-                    <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
-                    <a href="##">客服QQ</a>
-                    <span>(工作日10 : 00 - 19 : 00)</span>
-                </div>
-                <div style="margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##">4000-012-556</a></div>
+            <div class="" style="margin-left: 95px;margin-top: 32px; text-align: center;">
+                <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
+                <a href="##">客服QQ</a>
+                <span>(工作日10 : 00 - 19 : 00)</span>
             </div>
+            <div style="margin-left: 95px;margin-top: 5px; text-align: center;">认证过程中如有疑问，可致电 <a href="##">4000-012-556</a></div>
         </div>
     </div>
 </div>
@@ -308,48 +274,6 @@
 <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
 
 <script>
-
-        $(document).on('change','#yingye_zhizhao_pic,#saomiaojian_pic,#chajian_pic,#zhengjian_pic1,#zhengjian_pic2',function(){
-            xmTanUploadImg11(this);
-        })
-        
-        function xmTanUploadImg11(obj) {
-            var file = obj.files[0];
-            if (file.size >= 2097152) {
-                alert('上传的图片超过了2MB');
-                return;
-            }
-    
-            var formdata=new FormData();
-    
-            formdata.append('file', file);
-            
-            $.ajax({
-                url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
-                type: 'post',
-                processData: false,  // 告诉jQuery不要去处理发送的数据
-                contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-                data: formdata,
-                cache: false,
-                dataType: 'json',
-                success: function (data) {
-                    //console.log(data);
-                    $(obj).parent().css({
-                            'background':'url('+data.url+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                    });
-                    $(obj).parent().find('input[type="hidden"]').val(data.url);
-                    $(obj).parent().parent().next().css('display', 'none');
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-    
-        }
-
     //下载协议模板
     function down_moban(){
         $.ajax({
@@ -394,7 +318,213 @@
         return url;
     }
 
+    //选择图片，马上预览
+    function xmTanUploadImg1(obj) {
+        var file = obj.files[0];
+
+        if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }
+
+        //添加图片路径到img src中进行预览
+        $("#yingye_zhizhao_preview").attr('src', getObjectURL(file));
+
+        var formdata=new FormData();
+
+        var c = $('#yingye_zhizhao_preview')[0];
+        var path = $(c).attr('src');
+
+        formdata.append('file', file);
+        
+        formdata.append('path', path);
     
+
+        $.ajax({
+            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                // console.log(data);
+                img_url1 = data.url;
+                $('#yingye_zhizhao_preview').attr('src', img_url1);
+                $('#yingye_zhizhao_hidden').val(img_url1);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+    }
+
+    function xmTanUploadImg2(obj) {
+
+        var file = obj.files[0];
+
+        if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }
+
+        //添加图片路径到img src中进行预览
+        $("#saomiaojian_preview").attr('src', getObjectURL(file));
+
+        var formdata=new FormData();
+
+        var c = $('#saomiaojian_preview')[0];
+        var path = $(c).attr('src');
+
+        formdata.append('file', file);
+        
+        formdata.append('path', path);
+    
+
+        $.ajax({
+            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                // console.log(data);
+                img_url2 = data.url;
+                $('#saomiaojian_preview').attr('src', img_url2);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
+
+    function xmTanUploadImg3(obj) {
+        var file = obj.files[0];
+
+       /* if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }*/
+
+        //添加图片路径到img src中进行预览
+        $("#chajian_preview").attr('src', getObjectURL(file));
+
+        var formdata=new FormData();
+
+        var c = $('#chajian_preview')[0];
+        var path = $(c).attr('src');
+
+        formdata.append('file', file);
+        
+        formdata.append('path', path);
+    
+
+        $.ajax({
+            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                // console.log(data);
+                img_url3 = data.url;
+                $('#chajian_preview').attr('src', img_url3);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
+    function xmTanUploadImg4(obj) {
+        var file = obj.files[0];
+
+        /*if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }*/
+
+        //添加图片路径到img src中进行预览
+        $("#zhengjian_preview1").attr('src', getObjectURL(file));
+
+        var formdata=new FormData();
+
+        var c = $('#zhengjian_preview1')[0];
+        var path = $(c).attr('src');
+
+        formdata.append('file', file);
+        
+        formdata.append('path', path);
+    
+
+        $.ajax({
+            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                img_url4 = data.url;
+                $('#zhengjian_preview1').attr('src', img_url4);
+                $('#zhengjian_hidden1').val(img_url4);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
+    function xmTanUploadImg5(obj) {
+        var file = obj.files[0];
+
+        /*if (file.size >= 2097152) {
+            alert('上传的图片超过了2MB');
+            return;
+        }*/
+
+        //添加图片路径到img src中进行预览
+        $("#zhengjian_preview2").attr('src', getObjectURL(file));
+
+        var formdata=new FormData();
+
+        var c = $('#zhengjian_preview2')[0];
+        var path = $(c).attr('src');
+
+        formdata.append('file', file);
+        
+        formdata.append('path', path);
+    
+
+        $.ajax({
+            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+            type: 'post',
+            processData: false,  // 告诉jQuery不要去处理发送的数据
+            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
+            data: formdata,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                img_url5 = data.url;
+                $('#zhengjian_preview2').attr('src', img_url5);
+                $('#zhengjian_hidden2').val(img_url5);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
     function upload_file(obj) {
 
         var file = obj.files[0].name;
@@ -449,7 +579,10 @@
 
         if (companyId) {
 
-            
+            $('input[type=file]').attr('disabled',true);
+            $('input[type=text]').attr('disabled',true);
+            $('input[type=radio]').attr('disabled',true);
+
             //v1.0
             $.ajax({
                 url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
@@ -468,66 +601,22 @@
                     if (data.data.type == 7) {  //等待审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
-                      
-                        $('.next_btn_update').css('display', 'none');
-
-                        $('input[type=file]').attr('disabled',true);
-                        $('input[type=text]').attr('disabled',true);
-                        $('input[type=radio]').attr('disabled',true);
-
                     } else if (data.data.type == 2) {  //正在审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
-                        $('.next_btn_update').css('display', 'none');
-
-                        $('input[type=file]').attr('disabled',true);
-                        $('input[type=text]').attr('disabled',true);
-                        $('input[type=radio]').attr('disabled',true);
-
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
-                        $('.next_btn_update').css('display', 'none');
-
-                        $('input[type=file]').attr('disabled',true);
-                        $('input[type=text]').attr('disabled',true);
-                        $('input[type=radio]').attr('disabled',true);
-
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
-                        $('.next_btn_update').css('display', 'none');
-
-                        $('input[type=file]').attr('disabled',true);
-                        $('input[type=text]').attr('disabled',true);
-                        $('input[type=radio]').attr('disabled',true);
-
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
-                        $('.next_btn_update').css('display', 'none');
-
-                        $('input[type=file]').attr('disabled',true);
-                        $('input[type=text]').attr('disabled',true);
-                        $('input[type=radio]').attr('disabled',true);
-
                         /*window.parent.tan6();*/
                     } else if (data.data.type == 6) {  //出金账户资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
-                        $('.next_btn_update').css('display', 'none');
-
-                        $('input[type=file]').attr('disabled',true);
-                        $('input[type=text]').attr('disabled',true);
-                        $('input[type=radio]').attr('disabled',true);
-
-                    } else if (data.data.type == 1) { //没有提交
-                        $(".yiRenZheng").addClass('xiaoshi');
-                        $(".next_btn").css('display', 'block');
-                        if (companyId) {
-                             $(".next_btn_update").css('display', 'block');
-                             $(".next_btn").css('display', 'none');
-                        }
                     }
 
                     
@@ -569,11 +658,6 @@
                 return;
             }
 
-            if ($('#yingye_zhizhao_hidden').val() == '') {
-                $('#yingye_zhizhao_hidden').parent().parent().next().html('营业执照不能为空');
-                return;
-            }
-
             if ($('#address').val() == '') {
                 $('#address').parent().next().html('公司不能为空');
                 return;
@@ -593,10 +677,13 @@
                 return false; 
             } 
 
-            
+            if ($('#yingye_zhizhao_preview').attr('src') == '../img/list_logo.png') {
+                $('#yingye_zhizhao_preview').parent().parent().next().html('营业执照不能为空');
+                return;
+            }
 
-            if ($('#zhengjian_hidden1').val() == '' && $('#zhengjian_hidden2').val('') == '') {
-                $('#zhengjian_hidden2').parent().next().html('证件不能为空');
+            if ($('#zhengjian_preview1').attr('src') == '../img/list_logo.png' && $('#zhengjian_preview2').attr('src') == '../img/list_logo.png') {
+                $('#zhengjian_preview2').parent().next().html('证件不能为空');
                 return;
             }
 
@@ -611,15 +698,6 @@
             var id_number = $('#id_number').val();
 
             var radioIndex = $("input[name='type1']:checked").index();
-
-            img_url1 = $('#yingye_zhizhao_hidden').val();
-            img_url2 = $('#saomiaojian_hidden').val();
-            img_url3 = $('#chajian_hidden').val();
-            img_url4 = $('#zhengjian_hidden1').val();
-            img_url5 = $('#zhengjian_hidden2').val();
-
-            startTime = $('#test1').val();
-            endTime = $('#test2').val();
             
            if ($('#yingye_zhizhao_hidden').val() != '' ) {
                 
@@ -669,11 +747,11 @@
                         }
                     });   
                 } else {
-                    $('#zhengjian_pic2').parent().next().html('图片正在上传');
+                    $('#zhengjian_preview2').parent().next().html('图片正在上传');
                 }
 
             } else {
-                $('#yingye_zhizhao_pic').parent().parent().next().html('图片正在上传');
+                $('#yingye_zhizhao_preview').parent().parent().next().html('图片正在上传');
             }
             
         });
@@ -752,26 +830,26 @@
         });
 
         $('#yingye_zhizhao_pic').on('blur', function () {
-            if ($('#yingye_zhizhao_hidden').val() == '') {
-                $('#yingye_zhizhao_hidden').parent().parent().next().html('营业执照不能为空');
+            if ($('#yingye_zhizhao_preview').attr('src') == '../img/list_logo.png') {
+                $('#yingye_zhizhao_preview').parent().parent().next().html('营业执照不能为空');
             } else {
-                $('#yingye_zhizhao_hidden').parent().parent().next().html('');
+                $('#yingye_zhizhao_preview').parent().parent().next().html('');
             }
         });
 
         $('#zhengjian_pic1').on('blur', function () {
-            if ($('#zhengjian_hidden1').val() == '' && $('#zhengjian_hidden2').val() == '') {
-                $('#zhengjian_hidden2').parent().next().html('证件不能为空');
+            if ($('#zhengjian_preview1').attr('src') == '../img/list_logo.png' && $('#zhengjian_preview2').attr('src') == '../img/list_logo.png') {
+                $('#zhengjian_preview2').parent().next().html('证件不能为空');
             } else {
-                $('#zhengjian_hidden2').parent().next().html('');
+                $('#zhengjian_preview2').parent().next().html('');
             }
         });
 
         $('#zhengjian_pic2').on('blur', function () {
-            if ($('#zhengjian_hidden1').val() == '' && $('#zhengjian_hidden2').val() == '') {
-                $('#zhengjian_hidden2').parent().next().html('证件不能为空');
+            if ($('#zhengjian_preview2').attr('src') == '../img/list_logo.png' && $('#zhengjian_preview1').attr('src') == '../img/list_logo.png') {
+                $('#zhengjian_preview2').parent().next().html('证件不能为空');
             } else {
-                $('#zhengjian_hidden2').parent().next().html('');
+                $('#zhengjian_preview2').parent().next().html('');
             }
         });
 
@@ -795,7 +873,7 @@
 
             //v1.0
             $.ajax({
-                url: 'http://192.168.1.80:7777/service/companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+                url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -820,10 +898,6 @@
                         data.data.company.operatingPeriodEndTime = new Date(data.data.company.operatingPeriodEndTime).Format("yyyy-MM-dd");
                         $('#test1').val(data.data.company.operatingPeriodStartTime);
                         $('#test2').val(data.data.company.operatingPeriodEndTime);
-
-                        $('#wenjian_name').val(data.data.files[0].fileName);
-                        $('#wenjian_name').attr('data-wj', data.data.files[0].dbid);
-                        $('#wenjian_name').attr('data-url', data.data.files[0].fileUrl);
                         
                         $('#company_address').val(data.data.company.companyAddress);
 
@@ -834,53 +908,27 @@
                         $('#file_look').attr('href', data.data.files[0].fileUrl);
                         $('#file_look').attr('download', data.data.files[0].fileName);
 
-                        $('#yingye_zhizhao_pic').parent().css({
-                            'background': 'url('+data.data.picInfos[0].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#yingye_zhizhao_pic').attr('data-picId1', data.data.picInfos[0].ids);
+                        $('#yingye_zhizhao_preview').attr('src', data.data.picInfos[0].picUrl);
+                        $('#yingye_zhizhao_preview').attr('data-picId1', data.data.picInfos[0].ids);
 
-                        $('#saomiaojian_pic').parent().css({
-                            'background': 'url('+data.data.picInfos[1].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#saomiaojian_pic').attr('data-picId2', data.data.picInfos[1].ids);
+                        $('#saomiaojian_preview').attr('src', data.data.picInfos[1].picUrl);
+                        $('#saomiaojian_preview').attr('data-picId2', data.data.picInfos[1].ids);
 
-                        $('#chajian_pic').parent().css({
-                            'background': 'url('+data.data.picInfos[2].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#chajian_pic').attr('data-picId3', data.data.picInfos[2].ids);
+                        $('#chajian_preview').attr('src', data.data.picInfos[2].picUrl);
+                        $('#chajian_preview').attr('data-picId3', data.data.picInfos[2].ids);
 
-                        $('#zhengjian_pic1').parent().css({
-                            'background': 'url('+data.data.picInfos[3].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#zhengjian_pic1').attr('data-picId4', data.data.picInfos[3].ids);
+                        $('#zhengjian_preview1').attr('src', data.data.picInfos[3].picUrl);
+                        $('#zhengjian_preview1').attr('data-picId4', data.data.picInfos[3].ids);
 
-                        $('#zhengjian_pic2').parent().css({
-                            'background': 'url('+data.data.picInfos[4].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#zhengjian_pic2').attr('data-picId5', data.data.picInfos[4].ids);
+                        $('#zhengjian_preview2').attr('src', data.data.picInfos[4].picUrl);
+                        $('#zhengjian_preview2').attr('data-picId5', data.data.picInfos[4].ids);
 
-                        $('#yingye_zhizhao_hidden').val(data.data.picInfos[0].picUrl);
-                        $('#saomiaojian_hidden').val(data.data.picInfos[1].picUrl);
-                        $('#chajian_hidden').val(data.data.picInfos[2].picUrl);
-                        $('#zhengjian_hidden1').val(data.data.picInfos[3].picUrl);
-                        $('#zhengjian_hidden2').val(data.data.picInfos[4].picUrl);
-                        
-                        
+
+                        $('#zhengjian_hidden1').val(data.data.picInfos[3].ids);
+                        $('#zhengjian_hidden2').val(data.data.picInfos[4].ids);
+                        $('#yingye_zhizhao_hidden').val(data.data.picInfos[0].ids);
+
+
                         $('#address').val(data.data.company.companyAddress2);
                         $("input[name=type1][value="+data.data.company.companyType+"]").attr("checked",true);
 
@@ -898,7 +946,7 @@
             
         }
 
-        $(document).on('click', '.yiRenZheng.btn, .next_btn_update', function () {
+        $(document).on('click', '.yiRenZheng.btn', function () {
             
             if ($('#qiye_name').val() == '') {
                 $('#qiye_name').parent().next().html('企业名称不能为空');
@@ -944,13 +992,13 @@
                 return false; 
             } 
 
-            if ($('#yingye_zhizhao_hidden').val() == '') {
-                $('#yingye_zhizhao_hidden').parent().parent().next().html('营业执照不能为空');
+            if ($('#yingye_zhizhao_preview').attr('src') == '../img/list_logo.png') {
+                $('#yingye_zhizhao_preview').parent().parent().next().html('营业执照不能为空');
                 return;
             }
 
-            if ($('#zhengjian_hidden1').val() == '' && $('#zhengjian_hidden2').val() == '') {
-                $('#zhengjian_hidden2').parent().next().html('证件不能为空');
+            if ($('#zhengjian_preview1').attr('src') == '../img/list_logo.png' && $('#zhengjian_preview2').attr('src') == '../img/list_logo.png') {
+                $('#zhengjian_preview2').parent().next().html('证件不能为空');
                 return;
             }
 
@@ -966,41 +1014,19 @@
 
             var radioIndex = $("input[name='type1']:checked").index();
 
-            var picId1 = $('#yingye_zhizhao_pic').attr('data-picid1');
-            var picId2 = $('#saomiaojian_pic').attr('data-picid2');
-            var picId3 = $('#chajian_pic').attr('data-picid3');
-            var picId4 = $('#zhengjian_pic1').attr('data-picid4');
-            var picId5 = $('#zhengjian_pic2').attr('data-picid5');
+            var picId1 = $('#yingye_zhizhao_preview').attr('data-picid1');
+            var picId2 = $('#saomiaojian_preview').attr('data-picid2');
+            var picId3 = $('#chajian_preview').attr('data-picid3');
+            var picId4 = $('#zhengjian_preview1').attr('data-picid4');
+            var picId5 = $('#zhengjian_preview2').attr('data-picid5');
 
-            img_url1 = $('#yingye_zhizhao_hidden').val();
-            img_url2 = $('#saomiaojian_hidden').val();
-            img_url3 = $('#chajian_hidden').val();
-            img_url4 = $('#zhengjian_hidden1').val();
-            img_url5 = $('#zhengjian_hidden2').val();
+            file_name = $('#file_look').attr('data-wj');
 
+            dbid = $('#file_look').attr('data-filename');
             
-
-            if (file_url != null) {
-                $('#wenjian_name').attr('data-url', file_url);
-            }
-           
-            if ($('.next_btn_update').css('display') == 'block') { //点回的添加
-                dbid = $('#wenjian_name').attr('data-wj');
-                file_url = $('#wenjian_name').attr('data-url');
-                file_name = $('#wenjian_name').val();
-            } else {
-                dbid = $('#file_look').attr('data-filename');
-                file_name = $('#file_look').attr('data-wj');
-            }
-
-            console.log(file_url);
-
-            startTime = $('#test1').val();
-            endTime = $('#test2').val();
-            
-           if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '' && file_url != null) {
+           if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
                 $.ajax({
-                    url: 'http://192.168.1.80:7777/service/companyCertification/addCompanyBaseInfo',
+                    url: pubIP + 'companyCertification/addCompanyBaseInfo',
                     type: 'post',
                     headers: {
                         Accept: "application/json; charset=utf-8",
@@ -1030,8 +1056,7 @@
                         upload_file4: img_url4,
                         upload_file5: img_url5,
                         fileName: file_name,
-                        dbid: dbid,
-                        fileUrl: file_url
+                        dbid: dbid
                     },
                     cache: false,
                     dataType: 'json',
@@ -1039,12 +1064,7 @@
                         if (data.code == 1) {
                             console.log(data);
                             console.log(data.data.ids);
-                            
-                            if ($('.next_btn_update').css('display') == 'block') {
-                                window.location.href = "identification2.html";
-                            } else {
-                                window.parent.update_qiye();
-                            }
+                            window.parent.update_qiye();
                         
                         } else {
                             alert(data.msg);
@@ -1059,36 +1079,6 @@
 
         });
     });
-
-    // function huidian() {
-    //     $.ajax({
-    //         url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
-    //         type: 'post',
-    //         headers: {
-    //             Accept: "application/json; charset=utf-8",
-    //             token: token
-    //         },
-    //         data: {
-    //             token: token
-    //         },
-    //         cache: false,
-    //         dataType: 'json',
-    //         success: function (data) {
-    //             console.log(data);
-    //             if (data.data.type != 1) {
-    //                 window.parent.update_qiye();
-    //             }
-    //         },
-    //         error: function(error) {
-    //             console.log(error);
-    //         }
-    //     });
-    // }
-
-    $(window.parent.document).on('click', '.ook', function () {
-        window.location.reload();
-    });
-
 	//修改企业信息(放开可修改)
 	$(document).on('click','.update_btn',function(){
 		$('input[type=file]').attr('disabled',false);
@@ -1097,222 +1087,6 @@
 		$(this).addClass('yiRenZheng');
 		$(this).text('修改完成');
 	})
-
-
-
-
-
-
-
-
-
-    // //选择图片，马上预览
-    // function xmTanUploadImg1(obj) {
-    //     var file = obj.files[0];
-
-    //     if (file.size >= 2097152) {
-    //         alert('上传的图片超过了2MB');
-    //         return;
-    //     }
-
-    //     //添加图片路径到img src中进行预览
-    //     $("#yingye_zhizhao_preview").attr('src', getObjectURL(file));
-
-    //     var formdata=new FormData();
-
-    //     var c = $('#yingye_zhizhao_preview')[0];
-    //     var path = $(c).attr('src');
-
-    //     formdata.append('file', file);
-        
-    //     formdata.append('path', path);
-    
-
-    //     $.ajax({
-    //         url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
-    //         type: 'post',
-    //         processData: false,  // 告诉jQuery不要去处理发送的数据
-    //         contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-    //         data: formdata,
-    //         cache: false,
-    //         dataType: 'json',
-    //         success: function (data) {
-    //             // console.log(data);
-    //             img_url1 = data.url;
-    //             $('#yingye_zhizhao_preview').attr('src', img_url1);
-    //             $('#yingye_zhizhao_hidden').val(img_url1);
-    //         },
-    //         error: function (err) {
-    //             console.log(err);
-    //         }
-    //     });
-
-    // }
-
-    // function xmTanUploadImg2(obj) {
-
-    //     var file = obj.files[0];
-
-    //     if (file.size >= 2097152) {
-    //         alert('上传的图片超过了2MB');
-    //         return;
-    //     }
-
-    //     //添加图片路径到img src中进行预览
-    //     $("#saomiaojian_preview").attr('src', getObjectURL(file));
-
-    //     var formdata=new FormData();
-
-    //     var c = $('#saomiaojian_preview')[0];
-    //     var path = $(c).attr('src');
-
-    //     formdata.append('file', file);
-        
-    //     formdata.append('path', path);
-    
-
-    //     $.ajax({
-    //         url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
-    //         type: 'post',
-    //         processData: false,  // 告诉jQuery不要去处理发送的数据
-    //         contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-    //         data: formdata,
-    //         cache: false,
-    //         dataType: 'json',
-    //         success: function (data) {
-    //             // console.log(data);
-    //             img_url2 = data.url;
-    //             $('#saomiaojian_preview').attr('src', img_url2);
-    //         },
-    //         error: function (err) {
-    //             console.log(err);
-    //         }
-    //     });
-    // }
-
-
-    // function xmTanUploadImg3(obj) {
-    //     var file = obj.files[0];
-
-    //    /* if (file.size >= 2097152) {
-    //         alert('上传的图片超过了2MB');
-    //         return;
-    //     }*/
-
-    //     //添加图片路径到img src中进行预览
-    //     $("#chajian_preview").attr('src', getObjectURL(file));
-
-    //     var formdata=new FormData();
-
-    //     var c = $('#chajian_preview')[0];
-    //     var path = $(c).attr('src');
-
-    //     formdata.append('file', file);
-        
-    //     formdata.append('path', path);
-    
-
-    //     $.ajax({
-    //         url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
-    //         type: 'post',
-    //         processData: false,  // 告诉jQuery不要去处理发送的数据
-    //         contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-    //         data: formdata,
-    //         cache: false,
-    //         dataType: 'json',
-    //         success: function (data) {
-    //             // console.log(data);
-    //             img_url3 = data.url;
-    //             $('#chajian_preview').attr('src', img_url3);
-    //         },
-    //         error: function (err) {
-    //             console.log(err);
-    //         }
-    //     });
-    // }
-
-    // function xmTanUploadImg4(obj) {
-    //     var file = obj.files[0];
-
-    //     /*if (file.size >= 2097152) {
-    //         alert('上传的图片超过了2MB');
-    //         return;
-    //     }*/
-
-    //     //添加图片路径到img src中进行预览
-    //     $("#zhengjian_preview1").attr('src', getObjectURL(file));
-
-    //     var formdata=new FormData();
-
-    //     var c = $('#zhengjian_preview1')[0];
-    //     var path = $(c).attr('src');
-
-    //     formdata.append('file', file);
-        
-    //     formdata.append('path', path);
-    
-
-    //     $.ajax({
-    //         url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
-    //         type: 'post',
-    //         processData: false,  // 告诉jQuery不要去处理发送的数据
-    //         contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-    //         data: formdata,
-    //         cache: false,
-    //         dataType: 'json',
-    //         success: function (data) {
-    //             console.log(data);
-    //             img_url4 = data.url;
-    //             $('#zhengjian_preview1').attr('src', img_url4);
-    //             $('#zhengjian_hidden1').val(img_url4);
-    //         },
-    //         error: function (err) {
-    //             console.log(err);
-    //         }
-    //     });
-    // }
-
-    // function xmTanUploadImg5(obj) {
-    //     var file = obj.files[0];
-
-    //     /*if (file.size >= 2097152) {
-    //         alert('上传的图片超过了2MB');
-    //         return;
-    //     }*/
-
-    //     //添加图片路径到img src中进行预览
-    //     $("#zhengjian_preview2").attr('src', getObjectURL(file));
-
-    //     var formdata=new FormData();
-
-    //     var c = $('#zhengjian_preview2')[0];
-    //     var path = $(c).attr('src');
-
-    //     formdata.append('file', file);
-        
-    //     formdata.append('path', path);
-    
-
-    //     $.ajax({
-    //         url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
-    //         type: 'post',
-    //         processData: false,  // 告诉jQuery不要去处理发送的数据
-    //         contentType: false,   // 告诉jQuery不要去设置Content-Type请求头
-    //         data: formdata,
-    //         cache: false,
-    //         dataType: 'json',
-    //         success: function (data) {
-    //             console.log(data);
-    //             img_url5 = data.url;
-    //             $('#zhengjian_preview2').attr('src', img_url5);
-    //             $('#zhengjian_hidden2').val(img_url5);
-    //         },
-    //         error: function (err) {
-    //             console.log(err);
-    //         }
-    //     });
-    // }
-
 </script>
 </body>
 </html>
