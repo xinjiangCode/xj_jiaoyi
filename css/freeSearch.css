@@ -67,7 +67,7 @@ body{
 .fsObjBox{
 	width: 691px;
 	height: 329px;
-	border: 1px #ebe9ea solid ;
+	/* border: 1px #ebe9ea solid ; */
 	padding-left: 6px;
 	box-sizing: border-box;
 	padding-right: 7px;
@@ -78,12 +78,12 @@ body{
 .fsObjItem{
 	background: #fff;
 	width: 221px ;
-	height: 295px ;
+	height: 329px ;
 	margin-right: 8px;
 	border: 1px #ebe9ea solid;
 	float: left;
 	box-sizing: border-box;
-	margin-top: 11px;
+	/* margin-top: 11px; */
 	font-size: 13px;
 	color: #666;
 	position: relative;

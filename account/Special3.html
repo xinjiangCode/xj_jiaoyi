@@ -659,11 +659,11 @@
                         //$('#zizhi_type'+i+' option[value="'+data.data[i].qualificationTypeIds+'"]').attr("selected",true);
                         $('#zizhi_type'+i).find("span").text(data.data[i].qualificationName)
                         $('#zizhi_type'+i).find('span').attr("data-spanvalue",data.data[i].qualificationTypeIds)
-                        $('#zizhi_type'+i).attr('disabled', "disabled");
+                        $('#zizhi_type'+i).attr('disabled', "disabled").css("background-color","#ddd");
                         
                         //资质编号
                         $('#zizhi_num'+i).val(data.data[i].qualificationNum);
-                        $('#zizhi_num'+i).attr('readonly', 'readonly');
+                        $('#zizhi_num'+i).attr('readonly', 'readonly').css("background-color","#ddd");
                         //$('#zizhi_num'+i).attr('data-f', 'true');
 
                         //资质图片
@@ -672,6 +672,8 @@
                             $('.c'+i+' .pic'+(j+1)).attr('src', data.data[i].picInfos[j].picUrl);
                             $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
                         }
+                        //不让点击添加图片
+                        $(".add_pic").hide();
 
                         data.data[i].qualificationDataBegin = new Date(data.data[i].qualificationDataBegin).Format("yyyy-MM-dd");
 
@@ -679,14 +681,15 @@
 
                         //许可经营范围
                         $('#textarea'+ i).attr('data-textarea', data.data[i].operationLimit);
-
+                         //不让添加
+                         $(".btn1").hide();
                         
 
                         /*var arr = data.data[i].operationLimit.split(';')*/
                         
                         //时间
-                        $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin);
-                        $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire);
+                        $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin).attr('disabled', "disabled").css("background-color","#ddd");
+                        $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire).attr('disabled', "disabled").css("background-color","#ddd");
 
                         $('.c'+i+ ' .start').attr('data-f', 'true');
                         $('.c'+i+ ' .end').attr('data-f', 'true');
@@ -794,12 +797,15 @@
         $(document).on('click', '.edit_btn', function() {
            
             
-            $(this).parent().find('.zizhi_type').attr("disabled",false);
+            $(this).parent().find('.zizhi_type').attr("disabled",false).css("background-color","#fff");
             isSelect=true;
             
-            $(this).parent().find('.zizhi_num').attr('readonly', false);
-            $(this).parent().find('.textarea').attr('contenteditable', true);
-
+            $(this).parent().find('.zizhi_num').attr('readonly', false).css("background-color","#fff");
+           // $(this).parent().find('.textarea').attr('contenteditable', true);
+           $(this).parent().find(".add_pic").show().css('display', 'inline-block');
+           $(this).parent().find(".btn1").show();
+           $(this).parent().find(".start").attr('disabled', false).css("background-color","#fff");
+           $(this).parent().find(".end").attr('disabled', false).css("background-color","#fff");
 
         });
 
@@ -1199,13 +1205,13 @@
             var zizhi_num1 = $(this).val().trim();
             var zizhi_num1_reg = /^\d+$/;
 
-            if (zizhi_num1_reg.test(zizhi_num1) != true) {
-                $(this).parent().next().css('display', 'inline-block');
-                return false;
-            } else {
+            // if (zizhi_num1_reg.test(zizhi_num1) != true) {
+            //     $(this).parent().next().css('display', 'inline-block');
+            //     return false;
+            // } else {
                 json['qualificationNum'+(index+1)] = $(this).val();
                 // $(this).attr('data-f', 'true');
-            }
+            //}
         });
 
        
