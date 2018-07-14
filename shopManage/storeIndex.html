@@ -679,7 +679,7 @@
 				})
 			}
 
-
+			//主营产品
 	       $.ajax({ 
 	          type:"post",
 	          url:pubIP+"store/getStoreBaseInfoByCompanyId",//v1.0
@@ -704,6 +704,7 @@
 	              
 	          }
 	       });
+		   //左侧名片
 	       $.ajax({ 
 	          type:"post",
 	          url:pubIP+"store/getStoreInfoByCompanyId",//v1.0
@@ -717,7 +718,7 @@
 	        	  'companyId':companyId
 	          },
 	          success: function(json){
-	            console.log(json);
+	            console.log(json+'========================');
 	            if(json.code != 1){
 	            		console.log(json.msg);
 	            		return false;
