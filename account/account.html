@@ -602,9 +602,9 @@
                 <a href="javascript:;" class="manage"><strong>账户管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
                 <ul class="common_mbx">
                     <li><a href="javascript:;" class="manageItem" data-src="./accountOverView.html" data-height="1600">账户概览</a></li>
-                    <li><a href="javascript:;" class="manageItem " data-src="./companyRenzheng/promptCompanyRenzheng.html" data-height="1600">账户资料</a></li>
+                    <li><a href="javascript:;" class="manageItem flag_qyrz" data-src="./companyRenzheng/promptCompanyRenzheng.html" data-height="1600">账户资料</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/myCollect.html" data-height="1600">我的收藏</a></li>
-                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">地址管理</a></li>
+                    <!-- <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">地址管理</a></li> -->
                 </ul>
             </li>
             <li>
@@ -1078,7 +1078,7 @@
                 <p><span>出金账户修改提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;" class="modelbtn confirm ook4">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1096,7 +1096,7 @@
                 <p><span>企业信息修改提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;" class="modelbtn confirm ook">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1114,7 +1114,7 @@
                 <p>运营者信息修改成功！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;" class="modelbtn confirm ook1">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1132,7 +1132,7 @@
                 <p>发票信息修改成功！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;" class="modelbtn confirm ook2">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1150,7 +1150,7 @@
                 <p>财务信息修改成功！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;" class="modelbtn confirm ook3">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -2258,6 +2258,17 @@
 
          //判断从账户外跳转过来(这个不能往上移位置)
         var jump_flag = sessionStorage.getItem('hzf_showPage');
+
+        if (jump_flag == 'flag_qyrz') { //账户资料
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".flag_qyrz").addClass("active1");
+            $(".flag_qyrz").parent().parent().toggle();
+            $(".flag_qyrz").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","companyRenzheng/promptCompanyRenzheng.html");
+        } 
+
         if(jump_flag=="flag_mfzh"){//发布需求
             $(".acconut_box").toggle();
             $(".manage").find('img').attr("src","../img/cf_close.png");

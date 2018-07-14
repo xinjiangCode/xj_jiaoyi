@@ -52,6 +52,29 @@
             opacity: 0.5;
         }*/
 
+        .btn:hover {
+            cursor: pointer;
+        }
+
+        .inputfile {
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0 !important;
+        }
+
+        .uploade {
+            background: url(../img/product_pic.png);
+        }
+
+        .next_btn_update {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -59,7 +82,7 @@
     <div class="header">
         <ul>
             <li>
-                <a href="javascript:;">
+                <a href="identification1.html">
                     <div class="Lf lan">1</div>
                     企业基本信息
                 </a>
@@ -68,7 +91,7 @@
                 ..................
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="identification2.html">
                     <div class="Lf lan">2</div>
                     运营者信息
                 </a>
@@ -135,6 +158,7 @@
             </ul>
 
             <div class="btn weiRenZheng next_btn">下一步</div>
+            <div class="btn next_btn_update">下一步</div>
             <div class="btn update_btn">修改企业信息</div>
             <div class="" style="margin-left: 212px;margin-top: 32px;">
                 <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
@@ -173,24 +197,52 @@
                     if (data.data.type == 7) {  //等待审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 2) {  //正在审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 6) {  //出金账户资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'block');
                         $(".update_btn").addClass('xiaoshi');
+                        if (data.data.state > 3) {
+                            $('.weiRenZheng').css('display', 'none');
+                            $('.next_btn_update').css('display', 'block');
+                        }
                     }
                     
                 },
@@ -349,14 +401,13 @@
                 console.log(data);
                 console.log(data.data.company.qualificationStatus);
 
-                if (data.data.company.qualificationStatus != 0) {
-
-                    $('input[type=file]').attr('disabled',true);
-                    $('input[type=text]').attr('disabled',true);
-                    $('input[type=radio]').attr('disabled',true);
-
+               
+                if (data.data.company.writeState > 3 &&data.data.company.writeState < 5) {
+                    $('.weiRenZheng.next_btn').css('display', 'none');
+                    $('.next_btn_update').css('display', 'block');
                     update_info();
                 }
+                
             },
             error: function (err) {
                 console.log(err);
@@ -408,7 +459,7 @@
         }
     // }
 
-    $(document).on('click', '.yiRenZheng.btn', function () {
+    $(document).on('click', '.yiRenZheng.btn, .next_btn_update', function () {
 
             var nashui_num_reg = $('#nashui_num').val();
         var reg = /^\d+$/;
@@ -470,7 +521,12 @@
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                window.parent.update_runFapiao();
+
+                if ($('.next_btn_update').css('display') == 'block') {
+                    window.location.href = "identification4.html";
+                } else {
+                    window.parent.update_runFapiao();
+                }
                 
             },
             error: function (err) {
@@ -482,7 +538,7 @@
 
 });
 
-$(window.parent.document).on('click', '.ok_ok', function () {
+$(window.parent.document).on('click', '.ok_ok, .ook2', function () {
 
     window.location.reload();
 });
