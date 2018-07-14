@@ -16,6 +16,7 @@
 
         input[type='text'].input_width{
             padding-left: 30px;
+            text-indent: 10px;
         }
         .btn{width: 359px;height: 51px;line-height:51px;background-color: #007aff;border-radius: 5px;text-align: center;color: white;margin-left: 95px;margin-top: 54px;}
         .red{color: red;}
@@ -390,9 +391,9 @@
                 <li class="clearfix">
                     <div class="left1 Lf"><i class="red">*</i>有效期起:</div>
                     <div class="right1 Lf">
-                        <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 0px;" placeholder="请选择日期" id="test1">
+                        <input type="text" class="date-input laydate-icon kuang start"  placeholder="请选择日期" id="test1">
                         <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
-                        <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 0px;" placeholder="请选择日期" id="test2">
+                        <input type="text" class="date-input laydate-icon kuang end"  placeholder="请选择日期" id="test2">
                     </div>
                     <span class="ts">有效期不能为空</span>
                 </li>
@@ -656,11 +657,11 @@
 //                        $('#zizhi_type'+i+' option[value="'+data.data[i].qualificationType+'"]').attr("selected",true);
                         $('#zizhi_type'+i).find("span").text(data.data[i].qualificationName)
                         $('#zizhi_type'+i).find('span').attr("data-spanvalue",data.data[i].qualificationTypeIds)
-                        $('#zizhi_type'+i).attr('disabled', "disabled");
+                        $('#zizhi_type'+i).attr('disabled', "disabled").css("background-color","#ddd");
                         
                         //资质编号
                         $('#zizhi_num'+i).val(data.data[i].qualificationNum);
-                        $('#zizhi_num'+i).attr('readonly', 'readonly');
+                        $('#zizhi_num'+i).attr('readonly', 'readonly').css("background-color","#ddd");
 
                         //资质图片
                         for (var j = 0; j < data.data[i].picInfos.length; j++) {
@@ -668,6 +669,8 @@
                             $('.c'+i+' .pic'+(j+1)).attr('src', data.data[i].picInfos[j].picUrl);
                             $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
                         }
+                        //不让点击添加图片
+                        $(".add_pic").hide();
 
                         data.data[i].qualificationDataBegin = new Date(data.data[i].qualificationDataBegin).Format("yyyy-MM-dd");
 
@@ -675,13 +678,15 @@
 
                         //许可经营范围
                         $('#textarea'+ i).attr('data-textarea', data.data[i].operationLimit);
+                        //不让添加
+                        $(".btn1").hide();
                         
 
                         /*var arr = data.data[i].operationLimit.split(';')*/
                         
                         //时间
-                        $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin);
-                        $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire);
+                        $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin).attr('disabled', "disabled").css("background-color","#ddd");
+                        $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire).attr('disabled', "disabled").css("background-color","#ddd");
 
                         $('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
 
@@ -749,12 +754,15 @@
 
         $(document).on('click', '.edit_btn', function() {
             
-           $(this).parent().find('.zizhi_type').attr('disabled', false);
+           $(this).parent().find('.zizhi_type').attr('disabled', false).css("background-color","#fff");
             isSelect=true;
 
-            $(this).parent().find('.zizhi_num').attr('readonly', false);
-            $(this).parent().find('.textarea').attr('contenteditable', true);
-
+            $(this).parent().find('.zizhi_num').attr('readonly', false).css("background-color","#fff");;
+           // $(this).parent().find('.textarea').attr('contenteditable', true);
+           $(this).parent().find(".add_pic").show().css('display', 'inline-block');
+           $(this).parent().find(".btn1").show();
+           $(this).parent().find(".start").attr('disabled', false).css("background-color","#fff");
+           $(this).parent().find(".end").attr('disabled', false).css("background-color","#fff");
 
         });
 
@@ -907,9 +915,9 @@
                     +'<li>'
                         +'<div class="left1 Lf"><i class="red">*</i>有效期起:</div>'
                         +'<div class="right1 Lf huoqu_date">'
-                            +'<input type="text" class="date-input laydate-icon kuang start" style="text-indent:0px;" placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 1)+'">'
+                            +'<input type="text" class="date-input laydate-icon kuang start"  placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 1)+'">'
                             +'<span style="height: 38px;line-height: 38px;">&nbsp; 至&nbsp; </span>'
-                            +'<input type="text" class="date-input laydate-icon kuang end" style="text-indent:0px;" placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 2)+'">'
+                            +'<input type="text" class="date-input laydate-icon kuang end"  placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 2)+'">'
                         +'</div>'
                         +'<span class="ts">有效期不能为空</span>'
                     +'</li>'
@@ -1162,12 +1170,12 @@
             var zizhi_num1 = $(this).val().trim();
             var zizhi_num1_reg = /^\d+$/;
 
-            if (zizhi_num1_reg.test(zizhi_num1) != true) {
-                $(this).parent().next().css('display', 'inline-block');
-                return false;
-            } else {
+            // if (zizhi_num1_reg.test(zizhi_num1) != true) {
+            //     $(this).parent().next().css('display', 'inline-block');
+            //     return false;
+            // } else {
                 json['qualificationNum'+(index+1)] = $(this).val();
-            }
+            //}
         });
 
        
