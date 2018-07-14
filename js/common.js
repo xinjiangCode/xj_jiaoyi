@@ -116,7 +116,7 @@ if(token){
 		  	token: token
 		  },
 		  success: function(json){
-		    //console.log(json.data);
+		    console.log(json.data);
 			//是否超时
 			
 		    if(json.code == 401){
@@ -141,7 +141,7 @@ if(token){
 					  	token: token
 					  },
 					  success: function(json){
-						//console.log(json.code);
+						console.log(json.code);
 					    var rzType = null;
 					  	switch(json.data.type){
 							case 1:
@@ -169,6 +169,9 @@ if(token){
 							  rzType = '-1';
 						}
 					  	localStorage.setItem('isOld',rzType);
+
+					  	
+
 					  },
 					  error:function(xhr,statues,error){
 					      

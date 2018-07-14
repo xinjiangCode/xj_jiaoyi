@@ -810,10 +810,12 @@ window.onload = function(){
 	  	}
 	  	
 	  } else {
+	  	
 	  	$('#logout').css('display', 'inline-block');
 	  	$('#denglu').css('display', 'none');
 	  }
 
+		
 	  $(document).on('click', '#denglu', function() {
 	  		if (adct == '首页') {
 	  			location.href="./login/login.html";
@@ -855,5 +857,7 @@ window.onload = function(){
 
 	  	
 	  });
+
+
 }
 

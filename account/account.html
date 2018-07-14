@@ -602,7 +602,7 @@
                 <a href="javascript:;" class="manage"><strong>账户管理</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
                 <ul class="common_mbx">
                     <li><a href="javascript:;" class="manageItem" data-src="./accountOverView.html" data-height="1600">账户概览</a></li>
-                    <li><a href="javascript:;" class="manageItem flag_qyrz" data-src="./companyRenzheng/promptCompanyRenzheng.html" data-height="1600">账户资料</a></li>
+                    <li><a href="javascript:;" class="manageItem flag_qyrz" id="account_ziliao" data-src="./companyRenzheng/promptCompanyRenzheng.html" data-height="1600">账户资料</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/myCollect.html" data-height="1600">我的收藏</a></li>
                     <!-- <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">地址管理</a></li> -->
                 </ul>
@@ -985,7 +985,7 @@
         <div class="modelcontent">
             <div class="info">
                 <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
-                <p>企业认证的审核未通过，请重新修改提交</p>
+                <p>企业认证的审核<span>未通过</span>，请重新修改提交</p>
             </div>
             <div class="modelBtnBox">
                 <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
@@ -1003,7 +1003,7 @@
         <div class="modelcontent">
             <div class="info">
                 <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
-                <p><span>企业资料正在审核中</span>，请耐心等待！</p>
+                <p><span>企业基本信息正在审核中</span>，请耐心等待！</p>
             </div>
             <div class="modelBtnBox">
                 <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
@@ -1738,6 +1738,35 @@
     }
 
 
+   
+        $.ajax({
+            url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                token: token
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                console.log(data.data.state);
+
+                if (!data.data.state && data.data.type != 1) {
+                    $('#account_ziliao').attr('data-src', './identification1.html');
+                }
+                          
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    
+
+
 
 	$.ajax({
         url: pubIP + 'companyCertification/getCompanyStateByUserToken', /*v1.0*/
@@ -2260,13 +2289,40 @@
         var jump_flag = sessionStorage.getItem('hzf_showPage');
 
         if (jump_flag == 'flag_qyrz') { //账户资料
-            $(".acconut_box").toggle();
-            $(".manage").find('img').attr("src","../img/cf_close.png");
-            $(".manageItem").removeClass("active1");
-            $(".flag_qyrz").addClass("active1");
-            $(".flag_qyrz").parent().parent().toggle();
-            $(".flag_qyrz").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
-            $("#Iframe").attr("src","companyRenzheng/promptCompanyRenzheng.html");
+
+            $.ajax({
+                url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    token: token
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    $(".acconut_box").toggle();
+                    $(".manage").find('img').attr("src","../img/cf_close.png");
+                    $(".manageItem").removeClass("active1");
+                    $(".flag_qyrz").addClass("active1");
+                    $(".flag_qyrz").parent().parent().toggle();
+                    $(".flag_qyrz").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+                    
+                    if (data.data.type == 7 || data.data.type == 2) { //未审核
+                        $("#Iframe").attr("src","./identification1.html");
+                    } else {
+                        $("#Iframe").attr("src","companyRenzheng/promptCompanyRenzheng.html");
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+
+            
         } 
 
         if(jump_flag=="flag_mfzh"){//发布需求

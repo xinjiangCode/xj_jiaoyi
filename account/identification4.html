@@ -225,7 +225,7 @@
             </ul>
         </div>
         <div class="right3 Lf" style="margin-top: 30px;">
-            <div style="font-size: 12px;width: 135px;height: 73px;margin-left: 55px; color: #666; line-height: 20px;">所有赎回中、支付中、 融资中、提票中和托收中的总金额每笔交易资金， 都将在银行全称记录。</div>
+            <div style="font-size: 12px;width: 150px;height: 73px;margin-left: 55px; color: #666; line-height: 20px;">所有赎回中、支付中、 融资中、提票中和托收中的总金额每笔交易资金， 都将在银行全称记录。</div>
             <div style="margin-left: 32px;margin-top: 14px;font-size: 14px; "><img style="width: 13px;height: 13px;margin-top: 3px; vertical-align: bottom;" src="../img/wenhao.png" alt=""><a href="">为什么要进行出金账户绑定</a></div>
         </div>
     </div>
@@ -274,7 +274,7 @@
                     <a href="##">客服QQ</a>
                     <span>(工作日10 : 00 - 19 : 00)</span>
                 </div>
-                <div style="width: 356px; text-align: center;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##">400-1234567</a></div>
+                <div style="width: 356px; text-align: center;margin-top: 5px;">认证过程中如有疑问，可致电 <a href="##">4000-012-556</a></div>
             </div>
 
         </div>
@@ -362,6 +362,10 @@ function upload_file(obj) {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 2) {  //正在审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
@@ -369,6 +373,10 @@ function upload_file(obj) {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('出金账户资料审核中');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -593,7 +601,8 @@ function upload_file(obj) {
                 //     update_info();
                 // }
 
-                if (data.data.company.writeState > 4) {
+                if (data.data.company.state == 0) {
+                    
                     $('.weiRenZheng.next_btn').css('display', 'none');
                     $('.next_btn_update').css('display', 'block');
                     update_info();

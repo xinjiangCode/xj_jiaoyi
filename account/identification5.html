@@ -256,7 +256,7 @@
             </ul>
         </div>
         <div class="right3 Lf weiRenZheng shenhezhong" style="margin-top: 10px;">
-            <div style="font-size: 12px;width: 128px;height: 73px;margin-left: 55px;">所有赎回中、支付中、 融资中、提票中和托收中 的总金额每笔交易资金， 都将在银行全称记录。</div>
+            <div style="font-size: 12px;width: 150px;height: 73px;margin-left: 55px;">所有赎回中、支付中、 融资中、提票中和托收中 的总金额每笔交易资金， 都将在银行全称记录。</div>
             <div style="margin-left: 32px;margin-top: 14px;font-size: 14px;"><img style="width: 13px;height: 13px;margin-top: 3px;" src="../img/wenhao.png" alt=""><a href="">为什么要进行出金账户绑定</a></div>
         </div>
         <div class="right3 Lf yiRenZheng mei">
@@ -277,7 +277,7 @@
                     <div class="right1 Lf"><input type="password" id="ok_pass"></div>
                     <div class="ts">确认密码和密码不一致</div>
                 </li>
-                <li class="pay_pass" style="width: 597px;">
+                <li class="pay_pass" style="width: 580px;">
                     <div class="left1 Lf"><span class="fr yincang">手机号:</span><span class="fr bb xianshi">验证手机号:</span><i class="red fr">*</i></div>
                     <div class="right1 Lf rz"><input type="text" id="yanzheng_phone" class="Lf"><a href="##" class="weiRenZheng" id="huoqu_code" style="margin-left: 15px; line-height: 38px;">获取验证码</a><span class="bb Lf yincang update_phone_btn">修改手机号</span></div>
                     <div class="ts bukeyong">手机号格式不正确</div>
@@ -375,7 +375,7 @@
 
         /*var companyId1 = window.localStorage.getItem('companyId');
         console.log(companyId1);*/
-        var yanzheng_phone = '';
+        // var yanzheng_phone = '';
 
         var new_phone = '';
 
@@ -495,11 +495,23 @@ function xmTanUploadImg2(obj) {
                         $('.yiRenZheng.mei').css('display', 'none');
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'none');
+
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 2) {  //正在审核
                         $('.weiRenZheng.shenhezhong').css('display', 'inline-block');
                         $('.yiRenZheng.mei').css('display', 'none');
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'none');
+
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('财务信息审核中');
+                        window.parent.tan6();
                         
                     } else if (data.data.type == 3) {  //已认证
                         $('.weiRenZheng.shenhezhong').css('display', 'none');
@@ -621,7 +633,7 @@ function xmTanUploadImg2(obj) {
             var id_number = $('#id_number').val();
             var pay_pass = $('#pay_pass').val();
             var ok_pass = $('#ok_pass').val();
-            yanzheng_phone = $('#yanzheng_phone').val();
+            var yanzheng_phone = $('#yanzheng_phone').val();
 
             img_url1 = $('#id_card_hidden1').val();
             img_url2 = $('#id_card_hidden2').val();
@@ -631,7 +643,7 @@ function xmTanUploadImg2(obj) {
             if (img_url1 != null && img_url2 != null) {
                 //v1.0
                 $.ajax({
-                    url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                    url: 'http://192.168.1.70:7777/service/companyCertification/addCompanyBaseInfo',
                     type: 'post',
                     headers: {
                         Accept: "application/json; charset=utf-8",
@@ -657,6 +669,10 @@ function xmTanUploadImg2(obj) {
                        $('.weiRenZheng').css('display', 'none');
                        // window.localStorage.removeItem('add-flag');
                        window.localStorage.setItem('add-flag', 'true');
+
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
                        
                     },
                     error: function (err) {
@@ -1068,8 +1084,8 @@ function xmTanUploadImg2(obj) {
                             });
                             $('#id_card_pic2').attr('data-picId9', data.data.picInfos[8].ids);
 
-                            $('#zhengjian_hidden1').val(data.data.picInfos[7].picUrl);
-                            $('#zhengjian_hidden2').val(data.data.picInfos[8].picUrl);
+                            $('#id_card_hidden1').val(data.data.picInfos[7].picUrl);
+                            $('#id_card_hidden2').val(data.data.picInfos[8].picUrl);
 
                            
                             

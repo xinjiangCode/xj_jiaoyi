@@ -201,6 +201,10 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 2) {  //正在审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
@@ -208,6 +212,10 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('发票信息审核中');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -262,10 +270,12 @@
     $(document).on('click', '.weiRenZheng.btn', function () {
 
         var nashui_num_reg = $('#nashui_num').val();
-        var reg = /^\d+$/;
+        var reg = /^[A-Z0-9]+$/;;
         if (reg.test(nashui_num_reg) != true) {
-            $('#nashui_num').parent().next().html('纳税识别号必须为数字');
+            $('#nashui_num').parent().next().html('只能是数字和大写字母');
             return false;
+        } else {
+            $('#nashui_num').parent().next().html('');
         }
 
         var qiye_phone1 = $('#qiye_phone').val();
@@ -293,6 +303,8 @@
             $('#address').parent().next().html('地址不能为空');
             return;
         }
+
+        console.log('....');
 
         var nashui_num = $('#nashui_num').val();
         var qiye_phone = $('#qiye_phone').val();
@@ -332,9 +344,9 @@
 
     $('#nashui_num').on('blur', function () {
         var nashui_num_reg = $(this).val();
-        var reg = /^\d+$/;
+        var reg = /^[A-Z0-9]+$/;;
         if (reg.test(nashui_num_reg) != true) {
-            $(this).parent().next().html('纳税识别号必须为数字');
+            $(this).parent().next().html('只能是数字和大写字母');
             return false;
         } else {
             $(this).parent().next().html('');
@@ -402,7 +414,7 @@
                 console.log(data.data.company.qualificationStatus);
 
                
-                if (data.data.company.writeState > 3 &&data.data.company.writeState < 5) {
+                if (data.data.company.state == 0) {
                     $('.weiRenZheng.next_btn').css('display', 'none');
                     $('.next_btn_update').css('display', 'block');
                     update_info();
@@ -461,11 +473,13 @@
 
     $(document).on('click', '.yiRenZheng.btn, .next_btn_update', function () {
 
-            var nashui_num_reg = $('#nashui_num').val();
-        var reg = /^\d+$/;
+        var nashui_num_reg = $('#nashui_num').val();
+        var reg = /^[A-Z0-9]+$/;;
         if (reg.test(nashui_num_reg) != true) {
-            $('#nashui_num').parent().next().html('纳税识别号必须为数字');
+            $('#nashui_num').parent().next().html('只能是数字和大写字母');
             return false;
+        } else {
+            $('#nashui_num').parent().next().html('');
         }
 
         var qiye_phone1 = $('#qiye_phone').val();

@@ -386,6 +386,10 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 2) {  //正在审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
@@ -393,6 +397,10 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        $(window.parent.document).find('.modelBox6 .info p span').html('运营者信息审核中');
+                        window.parent.tan6();
+
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -583,7 +591,7 @@ $(function () {
 
                 //     update_info();
                 // }
-                if (data.data.company.writeState > 2 && data.data.company.writeState < 4) {
+                if (data.data.company.state == 0) {
                         $('.weiRenZheng.next_btn').css('display', 'none');
                         $('.next_btn_update').css('display', 'block');
                         update_info();
