@@ -23,6 +23,7 @@
 			}*/
 			.objTxt{
 				margin-top: 19px;
+				font-size: 14px;
 			}
 			.objTxt>p{
 				margin-bottom: 9px;
@@ -32,8 +33,8 @@
 				margin-top: 35px;
 			}
 			.supplierBox>div{
-				width: 405px;
-				margin-right: 6px;
+				width: 408px;
+				margin-right: 2px;
 			}
 			.yzhhBox>div+div+div+div{
 				margin-bottom: 0;
@@ -45,7 +46,7 @@
 				margin-bottom: 30px;
 			}
 			.rsGoods>div{
-				width: 341px;
+				width: 348px;
 				height: 241px;
 				box-sizing: border-box;
 			}
@@ -662,7 +663,7 @@
 					<div class="uzImg" style="background: url(<%=list[i].productPicList[0]%>) no-repeat;background-size:cover;background-position:center;background-color: #f0f0f0;"></div>
 					<p class="uzName"><%=list[i].productName%></p>
 					<p> 规 格：<%=list[i].productSpecUnitStr%></p>
-					<p>纯 度：<%=list[i].productPurity%></p>
+					<p>纯 度：<%=list[i].productPurity%>%</p>
 					<div class="uzsj">供应商：<%=list[i].companyName%></div>
 					<div class="hideInfo">
 						<div></div>
@@ -679,12 +680,12 @@
 						<div class="objImg" style="background: url(<%=list[i].productPicList[0]%>) no-repeat;background-size:cover ;background-position:center ;"></div>
 						<div class="objTxt">
 							<p class="pcep"><%=list[i].unitPrice%> 元/吨</p>
-							<span><%=list[i].companyName%> </span>
+							<span style="color: #666;"><%=list[i].productName%> </span>
 						</div>
 						<div class="hideInfo">
 							<div></div>
 							<div class="hidetxt">
-								<p>纯度：<%=list[i].productPurity%>  </p>
+								<p>纯度：<%=list[i].productPurity%>%</p>
 								<p>级别：<%=list[i].levelName%></p>
 								<p>规格：<%=list[i].productSpecUnitStr%></p>
 								<h3>价格：¥ <span><%=list[i].unitPrice%> </span>/吨</h3>
@@ -701,7 +702,7 @@
 					<div class="uztit"><%=list[i].productName%> </div>
 					<div class="uzImg"  style="background: url(<%=list[i].productPicList[0]%>) no-repeat;background-size:cover ;background-position:center ;"></div>
 					<div class="uztxt">
-						<p>纯度： <%=list[i].productPurity%> </p>
+						<p>纯度： <%=list[i].productPurity%>%</p>
 						<p> 规格：<%=list[i].productSpecUnitStr%> </p>
 						<p>产地：<%=list[i].productOrigin%> </p>
 						<p class="price">￥ <span><%=list[i].unitPrice%></span> 元/吨</p>
@@ -779,6 +780,7 @@
 	          },
 	          success: function(json){
 	            console.log(json);
+	            console.log(json+"=============================");
 	            if(json.code != 1){
 	            		alert(json.msg);
 	            		return false;

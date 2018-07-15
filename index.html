@@ -922,7 +922,7 @@
 						<div class="objImg" style="background: url(<%=list[i].productPicList[0]%>) no-repeat;background-size:cover ;background-position:center ;"></div>
 						<div class="objTxt">
 							<p style="font-size: 14px;" class="pcep"><%=list[i].unitPrice%> <span style="font-size: 13px;">元/吨</span></p>
-							<span style="font-size: 14px;"><%=list[i].companyName%> </span>
+							<span style="font-size: 14px;color: #666;"><%=list[i].companyName%> </span>
 						</div>
 						<div class="hideInfo">
 							<div></div>
@@ -1287,10 +1287,10 @@
 		        	
 			        	str += '<div>'
 								+'<h3>'+data.data[i].chemicalName+'</h3>'
-								+'<p>数量: <span class="mr24">'+data.data[i].remain+'吨</span>交货地: '+data.data[i].deliveryJson.warehouseProvince+' <span class="bjNum">已有<span>'+data.data[i].allQuoteNumber+'</span>家报价</span></p>'
+								+'<p>数量 : <span class="mr24">'+data.data[i].remain+' 吨</span>交货地 : '+data.data[i].deliveryJson.warehouseProvince+' <span class="bjNum">已有<span>'+data.data[i].allQuoteNumber+'</span>家报价</span></p>'
 								+'<div>'
 									+'<a href="javascript:;" class="liji_baojia" data-baojiaid_id="'+data.data[i].buyingId+'"><button>立即报价</button></a>'
-									+'<p class="lastTimetxt">剩余时间：</p>'
+									+'<p class="lastTimetxt">剩余时间 ：</p>'
 									+'<p class="lasrTimeNum" id="distanceTime'+i+'">'
 										+'<span>00</span>天'
 										+'<span>24</span>时'

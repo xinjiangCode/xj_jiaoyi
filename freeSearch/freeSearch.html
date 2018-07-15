@@ -17,7 +17,7 @@
 				margin: 0;
 			    width: 100%;
 			    height: 40px;
-			    font-size: 18px;
+			    font-size: 16px;
 			    line-height: 40px;
 			    overflow: hidden;
 			    max-height: 40px;
@@ -26,7 +26,8 @@
 			    box-sizing: border-box;
 			    background: url(../img/mfzhzxtBg.png) no-repeat;
 			    background-size: cover;
-			    background-position:left ;
+				background-position:left ;
+				font-weight: 500;
 			}
 			.RtDItem{
 				margin: 0 auto;
@@ -48,9 +49,9 @@
 				margin-top: 12px;
 				margin-bottom: 13px;
 			}
-			.RtDItem>div>span+span{
+			/* .RtDItem>div>span+span{
 				float: right;
-			}
+			} */
 			.RtDItem>span{
 				color: #888;
 			}
@@ -154,7 +155,7 @@
 			}
 
 			.RtDItem span {
-				font-size: 14px;
+				font-size: 12px;
 			}
 
 			.RtDItem .RtDItemBc, .RtDItem .RtDItemRc {
@@ -211,13 +212,13 @@
 			}
 
 			.fsObjBox {
-				padding-left: 5px;
+				padding-left: 2px;
 			}
 
 			.fsObjItem {
 				margin-right: 5px;
 				/* margin-top: 16px; */
-				width: 222px;
+				width: 225px;
 			}
 
 			.fsObjBox {
@@ -547,9 +548,12 @@
 
 		<script type="text/html" id="dtrankingListTpl">
 			<%for (i in list) {%>
-			<div class="RtDItem" data-buyingids="<%=list[i].buyingIds%>">
-				<div class="clearfix">
+			<div class="RtDItem" style="overflow: hidden;" data-buyingids="<%=list[i].buyingIds%>">
+				<div class="clearfix" style="width: 120px;float: left;">
 					<span class="chemical_name"><%=list[i].chemicalName%></span>
+					<span style="margin-top: 10px;"><%=list[i].productPurity%>% </span>
+				</div>
+				<div style="float: right;height: 100%;line-height: 42px;">
 					<%if(list[i].state == 2){%>
 					<span class="RtDItemRc" style="color: #5892F3">报价已接受</span>
 					<%} else if(list[i].state == 4) {%>
@@ -558,7 +562,7 @@
 					<span class="RtDItemRc" style="color: #666;">报价已取消</span>
 					<%}%>
 				</div>
-				<span><%=list[i].productPurity%>% </span>
+				
 			</div>
 			<%}%>
 		</script>
