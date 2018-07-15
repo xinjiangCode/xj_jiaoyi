@@ -61,16 +61,17 @@
         }
 
         .submit_btn {
-            width: 168px;
+           /* width: 168px;*/
             height: 51px;
-            background-color: #6CA0FF;
+            /*background-color: #6CA0FF;*/
             display: inline-block;
             margin-left: 115px;
             text-align: center;
             line-height: 51px;
             font-size: 16px;
             color: #fff;
-            border-radius: 2px;
+            /*border-radius: 2px;*/
+            border-radius: 5px;
             cursor: pointer;
             margin-top: 35px;
         }
@@ -265,8 +266,9 @@
             <div class="btn next_btn_update">下一步</div>
             <div class="btn update_btn xiugai">修改企业信息</div>
             <div class="update_btn2">
-                <span class="submit_btn">提交</span>
-                <span class="cancel_btn">取消</span>
+                <!-- <span class="submit_btn">提交</span>
+                <span class="cancel_btn">取消</span> -->
+                <div class="btn submit_btn">修改完成</div>
             </div>
             <div style="margin-left: 115px;">
                 <div class="" style="width: 356px; margin-top: 32px;text-align: center;">
@@ -391,6 +393,19 @@ function upload_file(obj) {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        data.data.reasons = $.parseJSON(data.data.reasons);
+                        // data.data.reasons.msg = $.parseJSON(data.data.reasons.msg);
+                        // console.log(data.data.reasons.msg.userName);
+
+                        if (data.data.reasons.auditNum == '2') {
+                            $(window.parent.document).find('.jujue p').html('出金账户资料的审核<span>未通过</span>，请重新修改提交');
+                        }
+
+                        $(window.parent.document).find('.jujue_liyou span').html(data.data.reasons.reasons);
+                        window.parent.tan5();
+                        
+
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -601,8 +616,9 @@ function upload_file(obj) {
                 //     update_info();
                 // }
 
-                if (data.data.company.state == 0) {
-                    
+                if (data.data.company.state != 0) { //未审核
+                    update_info();
+                } else {
                     $('.weiRenZheng.next_btn').css('display', 'none');
                     $('.next_btn_update').css('display', 'block');
                     update_info();

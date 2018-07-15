@@ -495,6 +495,13 @@
             margin-top: 8px;
         }
 
+        .info .jujue_liyou {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 5px;
+        }
+
     </style>
 
 </head>
@@ -522,7 +529,7 @@
                 <ul class="common_mbx acconut_box">
                     <li><a href="javascript:;" class="manageItem" data-src="./accountOverView.html" data-height="1600">账户概览</a></li>
                     <!-- <li><a href="javascript:;" class="manageItem " data-src="./companyRenzheng/promptCompanyRenzheng.html" data-height="1600">账户资料</a></li> -->
-                    <li><a href="javascript:;" class="manageItem qiye" data-src="./identification1.html" data-height="1600">企业认证</a></li>
+                    <li><a href="javascript:;" class="manageItem qiye qiye_renzheng" data-src="./identification1.html" data-height="1600">企业认证</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="./Special1.html" data-height="1600">资质认证</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/limitManage.html" data-height="1600">权限管理</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/cangkuAddressManage.html" data-height="1600">仓库地址管理</a></li>
@@ -983,9 +990,10 @@
             <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
         </div>
         <div class="modelcontent">
-            <div class="info">
+            <div class="info jujue">
                 <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
                 <p>企业认证的审核<span>未通过</span>，请重新修改提交</p>
+                <div class="jujue_liyou">拒绝理由：<span>这是拒绝理由信息~</span></div>
             </div>
             <div class="modelBtnBox">
                 <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
@@ -2304,17 +2312,24 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
-                    $(".acconut_box").toggle();
-                    $(".manage").find('img').attr("src","../img/cf_close.png");
-                    $(".manageItem").removeClass("active1");
-                    $(".flag_qyrz").addClass("active1");
-                    $(".flag_qyrz").parent().parent().toggle();
-                    $(".flag_qyrz").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
                     
-                    if (data.data.type == 7 || data.data.type == 2) { //未审核
-                        $("#Iframe").attr("src","./identification1.html");
-                    } else {
+                    if (data.data.type == 1) { //未提交
+                        $(".acconut_box").toggle();
+                        $(".manage").find('img').attr("src","../img/cf_close.png");
+                        $(".manageItem").removeClass("active1");
+                        $(".flag_qyrz").addClass("active1");
+                        $(".flag_qyrz").parent().parent().toggle();
+                        $(".flag_qyrz").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
                         $("#Iframe").attr("src","companyRenzheng/promptCompanyRenzheng.html");
+                    } else {
+
+                        $(".acconut_box").toggle();
+                        $(".manage").find('img').attr("src","../img/cf_close.png");
+                        $(".manageItem").removeClass("active1");
+                        $(".qiye_renzheng").addClass("active1");
+                        $(".qiye_renzheng").parent().parent().toggle();
+                        $(".qiye_renzheng").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+                        $("#Iframe").attr("src","./identification1.html");
                     }
                 },
                 error: function(err) {
