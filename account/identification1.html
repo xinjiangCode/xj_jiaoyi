@@ -504,9 +504,9 @@
                         $(".update_btn").css('display', 'block');
                         $('.next_btn_update').css('display', 'none');
 
-                        data.data.reasons = $.parseJSON(data.data.reasons);
+                        data.data.reasons = JSON.parse(data.data.reasons);
                         // data.data.reasons.msg = $.parseJSON(data.data.reasons.msg);
-                        // console.log(data.data.reasons.msg.userName);
+                        console.log(data.data.reasons);
 
                         if (data.data.reasons.auditNum == '1') { //添加企业认证
                             //企业认证的审核<span>未通过</span>，请重新修改提交
@@ -515,7 +515,7 @@
                             $(window.parent.document).find('.jujue p').html('企业基本信息的审核<span>未通过</span>，请重新修改提交');
                         }
 
-                        $(window.parent.document).find('.jujue_liyou span').html(data.data.reasons.reasons);
+                        $(window.parent.document).find('.jujue_liyou span').html(''+data.data.reasons.reasons+'');
                         
 
                         window.parent.tan5();
@@ -533,6 +533,10 @@
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+
+                        window.parent.tan6();
+
+
                         /*window.parent.tan6();*/
                     } else if (data.data.type == 6) {  //出金账户资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
@@ -542,6 +546,8 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+
 
                     } else if (data.data.type == 1) { //没有提交
                         $(".yiRenZheng").addClass('xiaoshi');
@@ -656,7 +662,7 @@
                 if ($('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
                     //v1.0
                     $.ajax({
-                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                        url: 'http://192.168.1.70:7777/service/companyCertification/addCompanyBaseInfo',
                         type: 'post',
                         headers: {
                             Accept: "application/json; charset=utf-8",
@@ -832,7 +838,7 @@
 
             //v1.0
             $.ajax({
-                url: 'http://192.168.1.80:7777/service/companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+                url: 'http://192.168.1.70:7777/service/companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -937,7 +943,7 @@
 
         $(document).on('click', '.yiRenZheng1.btn, .next_btn_update', function () {
 
-            debugger;
+
             
             if ($('#qiye_name').val() == '') {
                 $('#qiye_name').parent().next().html('企业名称不能为空');
@@ -1045,7 +1051,7 @@
             if ($('.next_btn_update').css('display') == 'block') {
                 if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '' && file_url != null) {
                     $.ajax({
-                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                        url: 'http://192.168.1.70:7777/service/companyCertification/addCompanyBaseInfo',
                         type: 'post',
                         headers: {
                             Accept: "application/json; charset=utf-8",
@@ -1105,7 +1111,7 @@
             } else {
                 if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
                     $.ajax({
-                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                        url: 'http://192.168.1.70:7777/service/companyCertification/addCompanyBaseInfo',
                         type: 'post',
                         headers: {
                             Accept: "application/json; charset=utf-8",
