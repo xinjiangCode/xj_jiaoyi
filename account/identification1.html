@@ -452,7 +452,7 @@
             
             //v1.0
             $.ajax({
-                url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
+                url: 'http://192.168.1.70:7777/service/companyCertification/getCompanyWriteStateByUserToken',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -503,6 +503,22 @@
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
                         $('.next_btn_update').css('display', 'none');
+
+                        data.data.reasons = $.parseJSON(data.data.reasons);
+                        // data.data.reasons.msg = $.parseJSON(data.data.reasons.msg);
+                        // console.log(data.data.reasons.msg.userName);
+
+                        if (data.data.reasons.auditNum == '1') { //添加企业认证
+                            //企业认证的审核<span>未通过</span>，请重新修改提交
+                            $(window.parent.document).find('.jujue p').html('企业认证的审核<span>未通过</span>，请重新修改提交');
+                        } else if (data.data.reasons.auditNum == '2') {
+                            $(window.parent.document).find('.jujue p').html('企业基本信息的审核<span>未通过</span>，请重新修改提交');
+                        }
+
+                        $(window.parent.document).find('.jujue_liyou span').html(data.data.reasons.reasons);
+                        
+
+                        window.parent.tan5();
 
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
@@ -919,7 +935,9 @@
             
         }
 
-        $(document).on('click', '.yiRenZheng.btn, .next_btn_update', function () {
+        $(document).on('click', '.yiRenZheng1.btn, .next_btn_update', function () {
+
+            debugger;
             
             if ($('#qiye_name').val() == '') {
                 $('#qiye_name').parent().next().html('企业名称不能为空');
@@ -1024,65 +1042,127 @@
 
             startTime = $('#test1').val();
             endTime = $('#test2').val();
-            
-           if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '' && file_url != null) {
-                $.ajax({
-                    url: 'http://192.168.1.80:7777/service/companyCertification/addCompanyBaseInfo',
-                    type: 'post',
-                    headers: {
-                        Accept: "application/json; charset=utf-8",
-                        token: token
-                    },
-                    data: {
-                        submit_type: 'A',
-                        companyId: companyId,
-                        companyName: qiye_name,
-                        registeredCapital: zhuce_money,
-                        businessLicense: yingye_num,
-                        operatingPeriodStartTime: startTime,
-                        operatingPeriodEndTime: endTime,
-                        companyAddress: company_address,
-                        companyAddress2: address,
-                        companyType: radioIndex,
-                        legalPerson: faren_name,
-                        legalIdNumber: id_number,
-                        picId1: picId1,
-                        picId2: picId2,
-                        picId3: picId3,
-                        picId4: picId4,
-                        picId5: picId5,
-                        upload_file1: img_url1,
-                        upload_file2: img_url2,
-                        upload_file3: img_url3,
-                        upload_file4: img_url4,
-                        upload_file5: img_url5,
-                        fileName: file_name,
-                        dbid: dbid,
-                        fileUrl: file_url
-                    },
-                    cache: false,
-                    dataType: 'json',
-                    success: function (data) {
-                        if (data.code == 1) {
-                            console.log(data);
-                            console.log(data.data.ids);
+            if ($('.next_btn_update').css('display') == 'block') {
+                if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '' && file_url != null) {
+                    $.ajax({
+                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                        type: 'post',
+                        headers: {
+                            Accept: "application/json; charset=utf-8",
+                            token: token
+                        },
+                        data: {
+                            submit_type: 'A',
+                            companyId: companyId,
+                            companyName: qiye_name,
+                            registeredCapital: zhuce_money,
+                            businessLicense: yingye_num,
+                            operatingPeriodStartTime: startTime,
+                            operatingPeriodEndTime: endTime,
+                            companyAddress: company_address,
+                            companyAddress2: address,
+                            companyType: radioIndex,
+                            legalPerson: faren_name,
+                            legalIdNumber: id_number,
+                            picId1: picId1,
+                            picId2: picId2,
+                            picId3: picId3,
+                            picId4: picId4,
+                            picId5: picId5,
+                            upload_file1: img_url1,
+                            upload_file2: img_url2,
+                            upload_file3: img_url3,
+                            upload_file4: img_url4,
+                            upload_file5: img_url5,
+                            fileName: file_name,
+                            dbid: dbid,
+                            fileUrl: file_url
+                        },
+                        cache: false,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.code == 1) {
+                                console.log(data);
+                                console.log(data.data.ids);
+                                
+                                if ($('.next_btn_update').css('display') == 'block') {
+                                    window.location.href = "identification2.html";
+                                } else {
+                                    window.parent.update_qiye();
+                                }
                             
-                            if ($('.next_btn_update').css('display') == 'block') {
-                                window.location.href = "identification2.html";
                             } else {
-                                window.parent.update_qiye();
+                                alert(data.msg);
                             }
-                        
-                        } else {
-                            alert(data.msg);
+                        },
+                        error: function (err) {
+                            console.log(err);
                         }
-                    },
-                    error: function (err) {
-                        console.log(err);
-                    }
-                });
+                    });
 
+                }
+                
+            } else {
+                if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
+                    $.ajax({
+                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                        type: 'post',
+                        headers: {
+                            Accept: "application/json; charset=utf-8",
+                            token: token
+                        },
+                        data: {
+                            submit_type: 'A',
+                            companyId: companyId,
+                            companyName: qiye_name,
+                            registeredCapital: zhuce_money,
+                            businessLicense: yingye_num,
+                            operatingPeriodStartTime: startTime,
+                            operatingPeriodEndTime: endTime,
+                            companyAddress: company_address,
+                            companyAddress2: address,
+                            companyType: radioIndex,
+                            legalPerson: faren_name,
+                            legalIdNumber: id_number,
+                            picId1: picId1,
+                            picId2: picId2,
+                            picId3: picId3,
+                            picId4: picId4,
+                            picId5: picId5,
+                            upload_file1: img_url1,
+                            upload_file2: img_url2,
+                            upload_file3: img_url3,
+                            upload_file4: img_url4,
+                            upload_file5: img_url5,
+                            fileName: file_name,
+                            dbid: dbid,
+                            fileUrl: file_url
+                        },
+                        cache: false,
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.code == 1) {
+                                console.log(data);
+                                console.log(data.data.ids);
+                                
+                                if ($('.next_btn_update').css('display') == 'block') {
+                                    window.location.href = "identification2.html";
+                                } else {
+                                    window.parent.update_qiye();
+                                }
+                            
+                            } else {
+                                alert(data.msg);
+                            }
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+
+                }
             }
+            
 
         });
     });
@@ -1121,7 +1201,7 @@
 		$('input[type=file]').attr('disabled',false);
 		$('input[type=text]').attr('disabled',false);
 		$('input[type=radio]').attr('disabled',false);
-		$(this).addClass('yiRenZheng');
+		$(this).addClass('yiRenZheng1');
 		$(this).text('修改完成');
 	})
 

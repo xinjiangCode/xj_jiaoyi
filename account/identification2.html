@@ -416,6 +416,8 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -591,11 +593,13 @@ $(function () {
 
                 //     update_info();
                 // }
-                if (data.data.company.state == 0) {
-                        $('.weiRenZheng.next_btn').css('display', 'none');
-                        $('.next_btn_update').css('display', 'block');
-                        update_info();
-                    }
+                if (data.data.company.state != 0) { //未审核
+                    update_info();
+                } else {
+                    $('.weiRenZheng.next_btn').css('display', 'none');
+                    $('.next_btn_update').css('display', 'block');
+                    update_info();
+                }
                 
             },
             error: function (err) {

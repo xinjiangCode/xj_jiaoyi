@@ -68,16 +68,17 @@
 
         
         .submit_btn {
-            width: 173px;
+            /*width: 173px;*/
             height: 51px;
-            background-color: #6CA0FF;
+            /*background-color: #6CA0FF;*/
             display: inline-block;
             margin-left: 121px;
             text-align: center;
             line-height: 51px;
             font-size: 16px;
             color: #fff;
-            border-radius: 2px;
+            /*border-radius: 2px;*/
+            border-radius: 5px;
             cursor: pointer;
             margin-top: 35px;
         }
@@ -308,8 +309,9 @@
             <div class="btn yiRenZheng update_btn">修改信息</div>
             
             <div class="yincang bb">
-                <span class="submit_btn">提交</span>
-                <span class="cancel_btn">取消</span>
+                <!-- <span class="submit_btn">提交</span>
+                <span class="cancel_btn">取消</span> -->
+                <div class="btn submit_btn">提交</div>
             </div>
             <div class="" style="margin-left: 188px;margin-top: 26px;">
                 <img src="../img/qq.png" alt="" style="float: none; vertical-align: bottom;">
@@ -524,7 +526,8 @@ function xmTanUploadImg2(obj) {
                         $('.yiRenZheng.mei').css('display', 'none');
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'inline-block');
-                        
+
+
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         if (window.localStorage.getItem('add-flag') == 'true') {   //认证过
                             $('.weiRenZheng.shenhezhong').css('display', 'none');
@@ -643,7 +646,7 @@ function xmTanUploadImg2(obj) {
             if (img_url1 != null && img_url2 != null) {
                 //v1.0
                 $.ajax({
-                    url: 'http://192.168.1.70:7777/service/companyCertification/addCompanyBaseInfo',
+                    url: pubIP + 'companyCertification/addCompanyBaseInfo',
                     type: 'post',
                     headers: {
                         Accept: "application/json; charset=utf-8",

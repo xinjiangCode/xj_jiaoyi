@@ -801,7 +801,7 @@ window.onload = function(){
 	  	$('#logout').css('display', 'inline-block');
 	  }
 
-	  if (window.localStorage.getItem('isOld') == 1) { //未登录
+	  if (window.localStorage.getItem('isOld') == 1 || window.localStorage.getItem('isOld') == 0) { //未登录
 	  	$('#logout').css('display', 'none');
 	  	if (adct == 'login') {
 	  		$('#denglu').css('display', 'none');

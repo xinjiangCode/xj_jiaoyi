@@ -43,7 +43,7 @@
         .header2>.title{font-size:18px;padding:18px 0;margin: 0 15px;border-bottom: 1px solid #f1f1f1;}
         .header2>.integ{padding: 0 24px;margin-top: 22px;}
         .header2>.growValue{padding: 0 24px;margin-top: 22px;}
-        .header2>.growValue>.progBar{overflow:hidden;width: 200px;height: 20px;border-radius: 10px;background-color: #e7e7e7;position: relative;}
+        .header2>.growValue>.progBar{overflow:hidden;width: 200px;height: 14px;border-radius: 10px;background-color: #e7e7e7;position: relative;margin-top: 5px;}
         .header2>.growValue>.progBar>.lan{position: absolute; top:0; left: 0;bottom: 0;background-color: #007aff;width: 50%;border-radius: 10px;}
         .order{width: 980px;border: 1px solid #f1f1f1;overflow: hidden; margin-top: 10px;}
         .order>.title{font-size:18px;padding:18px 0;margin: 0 15px;border-bottom: 1px solid #f1f1f1;}
@@ -110,6 +110,24 @@
             position: absolute;
             right: 15px;
         }
+
+        /*.head_div {
+            width: 142px;
+            height: 142px;
+            border-radius: 50%;
+            border: 2px solid #ebebeb;
+            padding: 4px;
+            box-sizing: border-box; 
+            margin-bottom: 15px;
+        }
+
+        .head_img {
+            background: url('../img/head_img.png') no-repeat;
+            background-size: cover;
+            width: 129px;
+            height: 129px;
+            border-radius: 50%;
+        }*/
     </style>
 </head>
 <body>
@@ -119,7 +137,10 @@
             <div class="left1 Lf">
                 
                 <img class="head_img" src="../img/cf_headImg.png" alt="">
-                
+               <!--  <div class="head_div">
+                    <div class="head_img"></div>
+                </div> -->
+
                 <div class="span_cread">商户信用：<span class="cread_num" style="margin-right: 5px;"> 0</span>分</div>
             </div>
             <div class="right1 Lf">
@@ -182,18 +203,18 @@
                 <!--<img style="margin-top: 2px;margin-left: 35px;" src="../img/cf_wenhao.png" alt=""><a class="Lf" style="color: #007aff;font-size: 14px;" href="##">&nbsp;如何获得积分&nbsp;</a>-->
             <!--</div>-->
         </div>
-        <!--<div class="yiRenZheng integ">-->
-            <!--<span style="margin-right: 300px;">公司总积分:  100000分</span>-->
-            <!--<span>公司总积分:  100000分</span>-->
-        <!--</div>-->
-        <!--<div class="yiRenZheng growValue">-->
-            <!--<div class="Lf">个人成长值:&nbsp;</div>-->
-            <!--<div class="Lf progBar">-->
-                <!--<div class="lan"></div>-->
-            <!--</div>-->
-            <!--<a href="##">&nbsp;&nbsp;查看个人成长值</a>-->
-        <!--</div>-->
-        <!--<div class="yiRenZheng integ" style="margin-bottom: 25px;"><span>每日贡献积分:  100000分</span></div>-->
+        <div class="yiRenZheng integ">
+            <span style="margin-right: 300px;">公司总积分：  100000分</span>
+            <span>个人可用积分：  100000分</span>
+        </div>
+        <div class="yiRenZheng growValue">
+            <div class="Lf">个人成长值：&nbsp;</div>
+            <div class="Lf progBar">
+                <div class="lan"></div>
+            </div>
+            <a href="##" style="margin-left: 17px; display: inline-block;">查看个人成长值</a>
+        </div>
+        <div class="yiRenZheng integ" style="margin-bottom: 25px;"><span>每日贡献积分：  100000分</span></div>
     </div>
 
 <div class="order yiRenZheng">
@@ -484,6 +505,13 @@
                 }
                 
 
+                // if (json.data.storeImage == null) {
+                //     $('.head_img').css('background', 'url(../img/head_img.png) no-repeat').css('background-size', 'cover');
+                // } else {
+                //     $('.head_img').css('background', 'url('+json.data.storeImage+') no-repeat').css('background-size', 'cover');    
+                // }
+                
+
                 //企业已经认证
                 if(json.code == '1'){
                     if(json.data.qualificationStatus==2){//企业已经认证
@@ -505,7 +533,7 @@
                         	   $(".yiRenZheng").show();
                             $("#deangerNo").css("display","none");
                         }else{
-                        	   $(".yiRenZheng").show();
+                        	   $(".weiRenZheng").show();
                             $("#deanger").css("display","none");
                         }
                     }else{

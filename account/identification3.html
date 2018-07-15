@@ -414,7 +414,9 @@
                 console.log(data.data.company.qualificationStatus);
 
                
-                if (data.data.company.state == 0) {
+                if (data.data.company.state != 0) { //未审核
+                    update_info();
+                } else {
                     $('.weiRenZheng.next_btn').css('display', 'none');
                     $('.next_btn_update').css('display', 'block');
                     update_info();
