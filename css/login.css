@@ -115,7 +115,7 @@ a{
 
 .topTitle{
 	height: 112px;
-	line-height: 112px;
+	/* line-height: 112px; */
 }
 .topTitle>.logo{
 	height: 100%;
@@ -146,14 +146,18 @@ a{
 	margin-bottom: 24px;
 	font-size: 25px;
 	overflow: hidden;
+	position: relative;
+	text-align: center;
 }
 .mainCenterloginTitle>.title{
 	color: #9e9e9e;
 }
 .login{
-	margin-top: 10px;
+	margin-top: 12px;
 	font-size: 13px;
 	color: #7AB5FF;
+	position: absolute;
+	right: 0;
 }
 .reg-box{
 
@@ -191,8 +195,9 @@ a{
 	padding: 0;
 }
 .reg-box>li>.box{
-	width: 16px;
-	height: 16px;
+	width: 13px;
+	height: 13px;
+	margin-top: 2px;
 	background: url("../img/cf_noChoose.png") no-repeat;
 	background-size: 100% 100%;
 }
@@ -307,4 +312,5 @@ a{
 .mainFooterQuanxian{
 	margin: 14px 0 32px 0;
 	display: block;
+	font-size: 12px;
 }

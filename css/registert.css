@@ -111,7 +111,7 @@ a{
 
 .topTitle{
 	height: 112px;
-	line-height: 112px;
+	/* line-height: 112px; */
 }
 .topTitle>.logo{
 	height: 100%;
@@ -144,18 +144,16 @@ a{
 	margin-left: 258px;
 }
 .login{
-	margin-top: 10px;
+	margin-top: 5px;
 	font-size: 13px;
 	margin-right: 90px;
 	color: #7AB5FF;
 }
-.reg-box{
 
-}
 .reg-box>li{
 	margin-top: 18px;
 	padding-left: 20px;
-	font-size: 16px;
+	font-size: 14px;
 	overflow: hidden;
 }
 .reg-box>li>span{
@@ -175,13 +173,14 @@ a{
 }
 .reg-box>li>.box{
 	margin-left: 95px;
-	width: 12px;
-	height: 12px;
-	background: url("../img/cf_noChoose.png") no-repeat;
+	width: 14px;
+	height: 14px;
+	vertical-align: text-bottom;
+	background: url("../img/cf_choose.png") no-repeat;
 	background-size: 100% 100%;
 }
 .reg-box>li>.active{
-	background: url("../img/cf_choose.png") no-repeat;
+	background: url("../img/cf_noChoose.png") no-repeat;
 	background-size: 100% 100%;
 }
 .reg-box>li>.xieyi{
@@ -190,7 +189,7 @@ a{
 
 .error{
 	font-size: 12px;
-	color: #FF8D8D;
+	color: red;
 	margin-left: 5px;
 	height: 41px;
 	line-height: 41px;
@@ -278,6 +277,7 @@ a{
 .mainFooterQuanxian{
 	margin: 14px 0 32px 0;
 	display: block;
+	font-size: 12px;
 }
 .sendCode:hover{background-color: #056ee0;}
 

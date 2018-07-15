@@ -21,7 +21,8 @@
 			}
 
 			.topTitle>.phone {
-				margin-top: 13px;
+				/* margin-top: 13px; */
+				line-height: 149px;
 			}
 
 			.reg-box>li {
@@ -62,7 +63,8 @@
 			.rightUsIner{padding: 0px 21px; box-sizing: border-box;font-size: 14px;}
 
 			.mainCenterRegistTitle>.title {
-				color: #666;
+                color: #666;
+                font-size: 18px;
 			}
 
 			.reg-box>li>input {
@@ -71,13 +73,13 @@
 			    border-color: #e5e5e5;*/
 			    border-radius: 4px;
 			    border-style: groove;
-			    border: 2px solid #E5E5E5;
+			    border: 1px solid #E5E5E5;
 			}
 
 			.reg-box>li>input.shadow {
 				background:none;  
 				outline:none;  
-				border:2px solid #76AAF2;
+				border:1px solid #76AAF2;
 				border-radius: 2px;
 			    background: #FFFFFF;
 			    box-shadow: rgba(118,170,242, 0.5) 0px 0px 20px;
@@ -86,7 +88,7 @@
 			}
 
 			.sendCode {
-				font-size: 15px;
+				font-size: 13px;
 			}
 
 			.error {
@@ -110,7 +112,7 @@
 			<div class="logo1 Lf" style="margin-top: 21px;">
 				<a href="../index.html" ><img src="../img/cf_logo1.png" alt=""></a>
 			</div>
-			<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 14px;">（工作日9:00-18:00）</i></div>
+			<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 14px;">（工作日9:00-19:00）</i></div>
 		</div>
 		<div class="mainCenter" style="background-position: center center; ">
 			<div class="mainCenterRegist">
@@ -167,7 +169,7 @@
 						<button style="float:left;" class="sendCode" id="getSMSCode" onclick="getSMSCode(this)">获取验证码</button>
 						<i style="float:left;" class="error error1"></i>
 					</li>
-					<li>
+					<li style="font-size: 12px;">
 						<span class="box"></span><i>&nbsp;我已阅读并同意&nbsp;</i><i class="xieyi" onclick="down_moban()">用户服务协议</i>
 					</li>
 				</ul>
@@ -239,8 +241,8 @@
                   $(this).toggleClass("active");
               })
               $(".mainCenter") .css({"background-image":"url(../img/cf_registertBackGround.png)","min-width":"1230px"});
-              $("#code").attr("disabled","disabled");
-              $("#SMScode").attr("disabled","disabled")
+            //   $("#code").attr("disabled","disabled");
+            //   $("#SMScode").attr("disabled","disabled")
               getCode();
           })
 
@@ -313,13 +315,13 @@
 
                 if(text==""){
                     $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').css('background-position', 'left').text("手机号不能为空");
-                    $("#code").attr("disabled","disabled");
+                    // $("#code").attr("disabled","disabled");
                 }else if(phoneTest.test(text)===false){
                     $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_error.png) no-repeat').css('background-position', 'left').text("手机号不合法");
-                    $("#code").attr("disabled","disabled");
+                    //$("#code").attr("disabled","disabled");
                 }else{
                     $(that).parent().find(".error").eq(0).css('background', 'url(../img/input_success.png) no-repeat').css('background-position', 'left').text("");
-                    $("#code").removeAttr("disabled")
+                    //$("#code").removeAttr("disabled")
                 }
             });
 			//校验图片吗
@@ -607,7 +609,7 @@
                           $("#SMScode").removeAttr("disabled");
                           var time=60;
                           $("#getSMSCode").attr("disabled","disabled");
-                          $("#getSMSCode").css("background-color","#aaaaaa");
+                          $("#getSMSCode").css("background-color","#ddd");
                           var timer=setInterval(function () {
                               time--;
                               $("#getSMSCode").text(""+time+"秒后重新发送")
