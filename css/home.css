@@ -95,7 +95,7 @@ background: url(../img/wcleftBoxBg.png) no-repeat;background-size:contain ;backg
     -o-box-shadow: 0px 1px 10px #ccc;
 }
 .purchaseObjBox button{margin-right: 40px; float: right;width: 142px; height: 42px; background: #66A7FF; border: none; border-radius: 2px; color: #fff;font-size: 14px;margin-top: 2px;}
-.purchaseObjBox h3{font-size: 16px;color: #282828;margin-bottom: 13px;    max-height: 16px; line-height: 16px;}
+.purchaseObjBox h3{font-size: 16px;color: #282828;margin-bottom: 13px;    max-height: 16px; line-height: 16px;font-weight: 500;}
 .purchaseObjBox .lastTimetxt{color: #858585;margin-bottom: 6px;    max-height: 14px; line-height: 14px;}
 .purchaseObjBox>div p>span{color: #FF8D54;}
 .purchaseObjBox .bjNum{float: right;color: #666666 ;margin-right: 64px;}

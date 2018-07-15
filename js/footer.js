@@ -92,7 +92,7 @@ document.writeln("<footer>\n" +
     "            <li class=\"liline\"></li>\n" +
     "            <li><a href=\"##\">合作伙伴</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
-    "            <li><a href=\"##\">关于我们</a></li>\n" +
+    "            <li><a href=\"../aboutUs.html\">关于我们</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
     "            <li><a href=\"##\">联系我们</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +

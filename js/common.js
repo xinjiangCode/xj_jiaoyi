@@ -118,11 +118,10 @@ if(token){
 		  success: function(json){
 		    console.log(json.data);
 			//是否超时
-			
 		    if(json.code == 401){
 		    		localStorage.setItem('isOld','0');
 		  		if(location.href.indexOf('login') == -1){
-		  			if(location.href.indexOf('index') == -1){
+					if(!(location.href.indexOf('index') != -1 || location.href.indexOf('aboutUs') != -1)){
 		  				if(location.href.indexOf('account') != -1 || location.href.indexOf('shopManage') != -1){
 		  					$("#effect" , parent.document).show();
 		  				}else{
