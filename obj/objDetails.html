@@ -777,13 +777,13 @@
 						</div>
 					</div>
 					<div class="shangpin_div">
-						<div class="objDtsTit">商品详细信息</div>
+						<div class="objDtsTit shop_details_hzf">商品详细信息</div>
 						<div class="infoBox" style="border-bottom: 0;">
+							<!-- <img src="../img/demoImg.png" />
 							<img src="../img/demoImg.png" />
 							<img src="../img/demoImg.png" />
 							<img src="../img/demoImg.png" />
-							<img src="../img/demoImg.png" />
-							<img src="../img/demoImg.png" />
+							<img src="../img/demoImg.png" /> -->
 						</div>
 					</div>
 				</div>
@@ -1310,6 +1310,10 @@
 							totalMoney = 0;
 						var payTypeVal = ''; //支付方式
 						// 头部商品图片
+
+						//productDescribe商品详细信息
+						var productDescribe = productDetail.productDescribe;
+						$(".shop_details_hzf").next().html(productDescribe);
 
 						//response.productDetail = response.productDetail.productPic
 						
