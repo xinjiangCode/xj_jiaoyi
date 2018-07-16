@@ -226,11 +226,11 @@
                     </div>
                 </div>
             </li>
-            <li>
+            <!-- <li>
                 <div class="left1 Lf"><i class="red">*</i>地址:</div>
                 <div class="right1 Lf"><input type="text" id="address"></div>
                 <span class="ts"></span>
-            </li>
+            </li> -->
             <li>
                 <div class="left1 Lf"><i class="red">*</i>公司类型:</div>
                 <div class="right2 Lf" id="company_type">
@@ -452,7 +452,7 @@
             
             //v1.0
             $.ajax({
-                url: 'http://192.168.1.70:7777/service/companyCertification/getCompanyWriteStateByUserToken',
+                url: pubIP+'companyCertification/getCompanyWriteStateByUserToken',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -608,10 +608,10 @@
                 return;
             }
 
-            if ($('#address').val() == '') {
-                $('#address').parent().next().html('公司不能为空');
-                return;
-            }
+            // if ($('#address').val() == '') {
+            //     $('#address').parent().next().html('公司不能为空');
+            //     return;
+            // }
 
             if ($('#faren_name').val() == '') {
                 $('#faren_name').parent().next().html('法人姓名不能为空');
@@ -640,7 +640,7 @@
             var zhuce_money = $('#zhuce_money').val();
             var yingye_num = $('#yingye_num').val();
             var company_address = $('#company_address').val();
-            var address = $('#address').val();
+            // var address = $('#address').val();
             var faren_name = $('#faren_name').val();
             var id_number = $('#id_number').val();
 
@@ -662,7 +662,7 @@
                 if ($('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
                     //v1.0
                     $.ajax({
-                        url: 'http://192.168.1.70:7777/service/companyCertification/addCompanyBaseInfo',
+                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
                         type: 'post',
                         headers: {
                             Accept: "application/json; charset=utf-8",
@@ -676,7 +676,6 @@
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
                             companyAddress: company_address,
-                            companyAddress2: address,
                             companyType: radioIndex,
                             legalPerson: faren_name,
                             legalIdNumber: id_number,
@@ -762,14 +761,14 @@
             }
         });
 
-        $('#address').on('blur', function () {
-            if ($(this).val() == '') {
-                $(this).parent().next().html('公司不能为空');
-                return false;
-            } else {
-                $(this).parent().next().html('');
-            }
-        });
+        // $('#address').on('blur', function () {
+        //     if ($(this).val() == '') {
+        //         $(this).parent().next().html('公司不能为空');
+        //         return false;
+        //     } else {
+        //         $(this).parent().next().html('');
+        //     }
+        // });
 
         $('#faren_name').on('blur', function () {
             if ($(this).val() == '') {
@@ -838,7 +837,7 @@
 
             //v1.0
             $.ajax({
-                url: 'http://192.168.1.70:7777/service/companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+                url: pubIP+'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -924,7 +923,7 @@
                         $('#zhengjian_hidden2').val(data.data.picInfos[4].picUrl);
                         
                         
-                        $('#address').val(data.data.company.companyAddress2);
+                        // $('#address').val(data.data.company.companyAddress2);
                         $("input[name=type1][value="+data.data.company.companyType+"]").attr("checked",true);
 
                         $('#faren_name').val(data.data.company.legalPerson);
@@ -976,10 +975,10 @@
                 return;
             }
 
-            if ($('#address').val() == '') {
-                $('#address').parent().next().html('公司不能为空');
-                return;
-            }
+            // if ($('#address').val() == '') {
+            //     $('#address').parent().next().html('公司不能为空');
+            //     return;
+            // }
 
             if ($('#faren_name').val() == '') {
                 $('#faren_name').parent().next().html('法人姓名不能为空');
@@ -1011,7 +1010,7 @@
             var zhuce_money = $('#zhuce_money').val();
             var yingye_num = $('#yingye_num').val();
             var company_address = $('#company_address').val();
-            var address = $('#address').val();
+            // var address = $('#address').val();
             var faren_name = $('#faren_name').val();
             var id_number = $('#id_number').val();
 
@@ -1051,7 +1050,7 @@
             if ($('.next_btn_update').css('display') == 'block') {
                 if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '' && file_url != null) {
                     $.ajax({
-                        url: 'http://192.168.1.70:7777/service/companyCertification/addCompanyBaseInfo',
+                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
                         type: 'post',
                         headers: {
                             Accept: "application/json; charset=utf-8",
@@ -1066,7 +1065,6 @@
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
                             companyAddress: company_address,
-                            companyAddress2: address,
                             companyType: radioIndex,
                             legalPerson: faren_name,
                             legalIdNumber: id_number,
@@ -1111,7 +1109,7 @@
             } else {
                 if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
                     $.ajax({
-                        url: 'http://192.168.1.70:7777/service/companyCertification/addCompanyBaseInfo',
+                        url: 'http://192.168.1.187:7777/service/companyCertification/addCompanyBaseInfo',
                         type: 'post',
                         headers: {
                             Accept: "application/json; charset=utf-8",
@@ -1126,7 +1124,6 @@
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
                             companyAddress: company_address,
-                            companyAddress2: address,
                             companyType: radioIndex,
                             legalPerson: faren_name,
                             legalIdNumber: id_number,

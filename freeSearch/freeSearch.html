@@ -35,11 +35,11 @@
 				height: 65px;
 				color:#666 ;
 				font-size: 16px;
-				border-bottom: 1px #e8e8e8 solid;
+				/*border-bottom: 1px #e8e8e8 solid;*/
 				max-height: 65px;
 				overflow: hidden;
 			}
-			.RtDItem:last-child{
+			.bg:last-child .RtDItem {
 				border-bottom: 0;
 			}
 			.RtDItem span{
@@ -242,6 +242,20 @@
 
 			.hasSechLeft {
 				margin-right: 9px; 
+			}
+
+			.bg {
+				border-bottom: 1px #e8e8e8 solid;
+			}
+
+			.bg:last-child {
+				border-bottom: none;
+			}
+
+			.bg:hover {
+				background: #f5f5f5;
+				cursor: pointer; 
+
 			}
 		</style>
 	</head>
@@ -548,21 +562,23 @@
 
 		<script type="text/html" id="dtrankingListTpl">
 			<%for (i in list) {%>
-			<div class="RtDItem" style="overflow: hidden;" data-buyingids="<%=list[i].buyingIds%>">
-				<div class="clearfix" style="width: 120px;float: left;">
-					<span class="chemical_name"><%=list[i].chemicalName%></span>
-					<span style="margin-top: 10px;"><%=list[i].productPurity%>% </span>
+			<div class="bg">
+				<div class="RtDItem" style="overflow: hidden;" data-buyingids="<%=list[i].buyingIds%>">
+					<div class="clearfix" style="width: 120px;float: left;">
+						<span class="chemical_name"><%=list[i].chemicalName%></span>
+						<span style="margin-top: 10px;"><%=list[i].productPurity%>% </span>
+					</div>
+					<div style="float: right;height: 100%;line-height: 42px;">
+						<%if(list[i].state == 2){%>
+						<span class="RtDItemRc" style="color: #5892F3">报价已接受</span>
+						<%} else if(list[i].state == 4) {%>
+						<span class="RtDItemRc">报价已拒绝</span>
+						<%} else if(list[i].state == 5) {%>
+						<span class="RtDItemRc" style="color: #666;">报价已取消</span>
+						<%}%>
+					</div>
+					
 				</div>
-				<div style="float: right;height: 100%;line-height: 42px;">
-					<%if(list[i].state == 2){%>
-					<span class="RtDItemRc" style="color: #5892F3">报价已接受</span>
-					<%} else if(list[i].state == 4) {%>
-					<span class="RtDItemRc">报价已拒绝</span>
-					<%} else if(list[i].state == 5) {%>
-					<span class="RtDItemRc" style="color: #666;">报价已取消</span>
-					<%}%>
-				</div>
-				
 			</div>
 			<%}%>
 		</script>
@@ -736,8 +752,7 @@
                     token: token
                 },
                 data: {
-                	pageSize: 9,
-                	pageNum: 0
+                	size: 9
                 },
                 cache: false,
                 dataType: "json",

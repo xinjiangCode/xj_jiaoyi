@@ -17,7 +17,7 @@
         }
 
         .list_rgt>p {
-            height: 41px;
+            height: 35px;
             font-size: 14px;
         }
 
@@ -153,8 +153,8 @@
     <div class="mianCont" style="text-align: left;">
         <ul class="pagination" id="page1"></ul>
         <div class="pageJump">
-                <span class="allPageN">1/200</span>
-                共<span class="total">200</span>页，
+                <span class="allPageN">1/1</span>
+                共<span class="total">1</span>页，
             <span>到第</span>
             <input type="text"/>
             <span>页</span>
@@ -354,7 +354,7 @@
                         isFirst = false;
                    }
 
-                   $('.allPageN').text(num+1+'/'+data.data.totalPage);
+                    $('.allPageN').text(num+1+'/'+data.data.totalPage);
 
                     $('.main_lists li').on('click', function () {
                         window.localStorage.setItem('id',$(this).attr('data-id'));

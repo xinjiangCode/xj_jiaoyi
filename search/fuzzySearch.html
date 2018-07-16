@@ -29,30 +29,63 @@
 		.breadcrumbType2  .nrbd{
 			border-right: 0px;
 		}
-		.supplierType span:hover{
-    			color: #fff;
-		}
+
 		.objLeftInfo>h1{
 			width: 206px;
+		}
+
+		.supplierType {
+			padding-top: 6px;
+		}
+
+		.supplierItem a {
+			margin-top: 0px;
+		}
+
+		.supplierItem {
+			line-height: 55px;
+		}
+
+		.supplierName {
+		    color: #699BFA;
+		    height: 100%;
+		    display: inline-block;
+		    line-height: 55px;
+		}
+
+		.hotObjBox>div {
+			padding-left: 33px;
+			margin-left: 0px;
+		}
+
+		.hotObjBox>div:hover {
+			background-color: #f5f5f5;
+		}
+
+
+
+		.supplierType .span_type span:hover {
+			color: #6A9EF7;
 		}
     </style>
 </head>
 <body>
     <!-- 模糊搜索 -->
-    <!--<div class="breadcrumb mianCont">
-        <a href="##">首页</a>><a href="##">搜索结果页</a>><span>氢氧化钠<img src="../img/breadcrumbCloseIcon.png" /></span>
-    </div>-->
+    <div class="breadcrumb mianCont">
+        <!-- <a href="##">首页</a>><a href="##">搜索结果页</a>><span>氢氧化钠<img src="../img/breadcrumbCloseIcon.png" /></span> -->
+    </div>
 	<div class="mianCont" style="margin-top: 20px;">
 		<div class="laftSch">
 			<div class="supplierType">
 				供应商类型：         
 				<span class="act">    全部   </span>
+				<span class="span_type"></span>
 			</div>
-			<div class="allTxtBox breadcrumbType2">共<span id="paeTotal"></span>个化合物  1/20 <i class="nrbd">&lt;</i><i>&gt;</i></div>
+			<!-- <div class="allTxtBox breadcrumbType2">共<span id="paeTotal"></span>个化合物 <span class="page_total">1/20</span> <i class="nrbd">&lt;</i><i>&gt;</i></div> -->
 			<div class="schObjBox">
-				<div>
+				<!-- <div>
 					<div class="objLeftInfo">
-						<div class="objImg"> <img src="../img/weiqi.png"/> </div>
+						<div class="objImg"> <img src="../img/wei.png"/> </div>
 						<h1>氢氧化钠</h1>
 						<div class="lfBtmInfo">
 							<img src="../img/hazardousArticle.png"/>
@@ -115,12 +148,12 @@
 						</div>
 						<a href="##" class="moreSupplier">查看全部5家企业 ></a>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div class="rtHotObj">
 			<h2>热销产品</h2>
-			<div class="hotObjBox">
+			<div class="hotObjBox" id="hotSaleShopInfo">
 				<div>
 					<div class="htobjImg"></div>
 					<p class="htName">氢氧化钠</p>
@@ -150,7 +183,7 @@
         <ul class="pagination" id="page1"></ul>
         <div class="pageJump">
                 <span class="allPageN">0/0</span>
-                共0页，
+                共<span class="total">0</span>页，
             <span>到第</span>
             <input type="text"/>
             <span>页</span>
@@ -164,79 +197,85 @@
     <script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/html" id="chemical"> 
 		 <% for (i in list) { %>
-		 	<div>
+		 	<div class="parent_div" data-chemicalId="<%=list[i].chemicalId%>">
 				<div class="objLeftInfo">
-					<div class="objImg" style="background: url(<%=list[i].productPic%>) no-repeat;background-size:cover;background-position: center;"> <img src="../img/weiqi.png"/> </div>
+					<div class="objImg" style="background: url(<%=list[i].productPic%>) no-repeat;background-size:cover;background-position: center;"> <img src="../img/wei.png"/> </div>
 					<h1 style="font-size: <%=list[i].chemicalName.length >= 15 ? '14' : '20'%>px;"><%=list[i].chemicalName%></h1>
 					<div class="lfBtmInfo">
 						<img src="../img/hazardousArticle.png"/>
 						<p>管制类商品： </p>
-						<p>第一类易制毒化学品</p>
+						<p><%=list[i].chemicalDangerClasses%></p>
 					</div>
 				</div>
 				<div class="rtObjInfo">
-					<p>CAS号： 84-74-2 </p>
-					<p>别称：邻酞酸二丁酯、邻苯二甲酸二丁酯</p>
+					<p>CAS号： <%=list[i].chemicalCas%> </p>
+					<p>别称：<%=list[i].chemicalAalias%></p>
 					<div class="schSupplierBox">
-						<div>
-							<div class="supplierItem">
-								<img src="../img/tuijian_pic.png"/>
-								<span class="supplierName">新疆中顺鑫和供应链管理股份有限责任公司</span>
-								<span class="llsp qi">企</span>
-								<span class="llsp wei">危</span>
-								<span class="llsp jian">荐</span>
-								<a href="##">进入店铺 ></a>
-							</div>
-							<div class="objGG">
-								<span>
-									<img src="../img/guige.png"/>
-									规格：25kg/袋           
-								</span>
-								<span>
-									<img src="../img/chundu.png"/>
-									 纯度：98%
-								</span>
-								<div>
-									<span>￥ 200.00 元/吨</span>
-									<a href="##">立即询盘</a>
+						<% for (j = 0; j < list[i].storeProductsVoList.length; j++) {%>
+						<%if (j < 2) {%>
+							<div>
+								<div class="supplierItem">
+									<%if (list[i].storeProductsVoList[j].isRecommend == 1) {%>
+									<img src="../img/tuijian_pic.png"/>
+									<%} else {%>
+									<img style="margin-left: 11px;" src="" alt="">
+									<%}%>
+									<span class="supplierName"><%=list[i].storeProductsVoList[j].companyName%></span>
+									<span class="llsp qi">企</span>
+									
+									<%if(list[i].storeProductsVoList[j].num > 0) {%>
+									<span class="llsp wei">危</span>
+									<%}%>
+
+									<%if (list[i].storeProductsVoList[j].isRecommend == 1) {%>
+									<span class="llsp jian">荐</span>
+									<%}%>
+
+									<%if(list[i].storeProductsVoList[j].companyTypeTraders == true) {%>
+									<img src="../img/search_mao.png" alt="">
+									<%}%>
+									
+									<%if(list[i].storeProductsVoList[j].companyTypeManufacturer == true) {%>
+									<img src="../img/search_sheng.png" alt="">
+									<%}%>
+									
+									<a href="##" class="jinru_store" data-companyId="<%=list[i].storeProductsVoList[j].companyId%>">进入店铺 ></a>
+								</div>
+								<div class="objGG">
+									<span>
+										<img src="../img/guige.png"/>
+										规格：<%=list[i].storeProductsVoList[j].productList[0].productSpecNum%><%=list[i].storeProductsVoList[j].productList[0].productSpecUnitName%>/<%=list[i].storeProductsVoList[j].productList[0].productSpecName%>          
+									</span>
+									<span>
+										<img src="../img/chundu.png"/>
+										 纯度：<%=list[i].storeProductsVoList[j].productList[0].productPurity%>%
+									</span>
+									<div>
+										<span>￥ <%=list[i].storeProductsVoList[j].productList[0].unitPrice%> 元/吨</span>
+										<a href="##" class="xunpan" data-supplyId="<%=list[i].storeProductsVoList[j].productList[0].supplyId%>">立即询盘</a>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div>
-							<div class="supplierItem">
-								<img src="../img/tuijian_pic.png"/>
-								<span class="supplierName">新疆中顺鑫和供应链管理股份有限责任公司</span>
-								<span class="llsp qi">企</span>
-								<span class="llsp wei">危</span>
-								<span class="llsp jian">荐</span>
-								<a href="##">进入店铺 ></a>
-							</div>
-							<div class="objGG">
-								<span>
-									<img src="../img/guige.png"/>
-									规格：25kg/袋           
-								</span>
-								<span>
-									<img src="../img/chundu.png"/>
-									 纯度：98%
-								</span>
-								<div>
-									<span>￥ 200.00 元/吨</span>
-									<a href="##">立即询盘</a>
-								</div>
-							</div>
-						</div>
+						<%}%>
+						<%}%>
 					</div>
-					<a href="##" class="moreSupplier">查看全部5家企业 ></a>
+					<a href="##" class="moreSupplier" data-chemicalId="<%=list[i].chemicalId%>">查看全部<%=list[i].storeProductsVoList.length%>家企业 ></a>
 				</div>
 			</div>
-		 <% } %>
+		 <%}%>
+	</script>
+	
+	<script type="text/html" id="hotSaleShopTpl">
+		
+		
 	</script>
 
 
     <script type="text/javascript">
     		var seachName = localStorage.getItem('seachName');
     		
+    		var isFirst = true;
+
     		loadAjax('',1);
     		
     		function loadAjax(categoryName,pageNum){
@@ -251,25 +290,49 @@
 				  data:{
 				  	name:seachName,
 				  	categoryName:categoryName,
-				  	pageSize:4,
+				  	pageSize:3,
 				  	pageNum:pageNum
 				  },
 			      success: function(json){
-			      	console.log(json.data);
+			      	console.log(json);
 			      	if(!json){
-			        		return;
+			        	return;
 			      	}
 			      	var typeStr = '';
 			        $.each(json.data,function(i,t){
-			        		//类别
-			        		$.each(t.categoryList,function(i,t){
-			        			typeStr+='<span>'+t.categoryName+'</sapn>';
-			        		})
-			        		$('.supplierType').append(typeStr);
+		        		//类别
+		        		$.each(t.categoryList,function(i,t){
+		        			typeStr+='<span>'+t.categoryName+'</span>';
+		        		})
+		        		$('.span_type').html(typeStr);
 			        		
 			        })
 			        var Dom =  template("chemical",{list:json.data});
-	            		$('.schObjBox').append(Dom);
+	            	$('.schObjBox').html(Dom);
+
+	            	$('#paeTotal').html(json.data.length);
+
+	            	$('.page_total').html('1/1');
+
+	            	if (isFirst) {
+
+		            	Page({
+				            num: pageNum,
+				            elem: $('#page1'),
+				            callback: function(n) {
+				                console.log(n);
+				                loadAjax(categoryName,n);
+				            }
+				        });
+
+				        $('.total').text(json.pages);
+
+				        isFirst = false;
+
+				    }
+
+				    $('.allPageN').text(pageNum+'/'+json.pages);
+
 			      },
 			      error:function(xhr,statues,error){
 			          
@@ -278,13 +341,53 @@
     		}
     	
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
-        Page({
-            num: 200,
-            elem: $('#page1'),
-            callback: function(n) {
-                console.log(n);
-            }
-        });
+       		
+       		// 进入店铺
+       		$(document).on('click', '.jinru_store', function() {
+       			window.localStorage.setItem('thisCompanyId', $(this).attr('data-companyId'));
+       			window.location.href="../shopManage/storeIndex.html";
+       		});
+
+       		// 立即询盘
+       		$(document).on('click', '.xunpan', function() {
+       			window.localStorage.setItem('objid', $(this).attr('data-supplyId'));
+       			window.location.href="../obj/objDetails.html";
+       		});
+
+       		// 进入精准搜索
+       		$(document).on('click', '.supplierName', function() {
+       			window.localStorage.setItem('jzSeachName', $(this).parents('.parent_div').attr('data-chemicalId'));
+       			window.location.href="./productNameSearch_precise.html";
+       		});
+
+       		$(document).on('click', '.moreSupplier', function() {
+       			window.localStorage.setItem('jzSeachName', $(this).attr('data-chemicalId'));
+       			window.location.href="./productNameSearch_precise.html";
+       		});
+
+
+       		//热销商品列表
+			// $.ajax({
+			// 	type:"get",
+		 //        url:pubIP+"buyingInfo/getHotSale",//v1.0
+		 //        cache:false,
+		 //        dataType: "json",
+		 //        async:false,
+		 //        headers: {
+   //                  Accept: "application/json; charset=utf-8",
+   //                  token: token
+   //              },
+		 //        success: function(data){
+		 //        	console.log(data);
+
+		 //        	var result = template('hotSaleShopTpl', {list: data.data});
+   //                  $('#hotSaleShopInfo').html(result);
+
+		 //        },
+		 //        error: function (err) {
+		 //        	console.log(err);
+		 //        }
+		 //    });
 
        
         //拦截链接

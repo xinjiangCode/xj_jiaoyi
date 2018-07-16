@@ -95,7 +95,7 @@
 				cursor: pointer;
 			}
 
-
+			
 		</style>
 	</head>
 	<body>
@@ -490,7 +490,7 @@
 				success: function(json){
 
 					console.log(json);
-                    json.data.productPurityList
+                    // json.data.productPurityList
 					var CDoptions="<option value>纯度</option>";
 					for (var j=0;j<json.data.productPurityList.length;j++){
                         CDoptions+='<option value='+j+'>'+json.data.productPurityList[j]+'</option>'
@@ -644,7 +644,7 @@ function sear() {
 		});
 
 		// 供应商
-		$(document).on('click', '#vendor', function () {
+		$(document).on('change', '#vendor', function () {
 
 			if (!($("#vendor option:selected").val() == '')) {
 				$('.selected1 ul li.gys_select').css('display', 'block');
@@ -656,7 +656,7 @@ function sear() {
 		});
 
 		//规格
-		$(document).on('click', '#guige_size', function () {
+		$(document).on('change', '#guige_size', function () {
 
 			if (!($("#guige_size option:selected").val() == '')) {
 				$('.selected1 ul li.gg_select').css('display', 'block');
@@ -668,7 +668,7 @@ function sear() {
 		});
 
 		//纯度
-		$(document).on('click', '#purity_chundu', function () {
+		$(document).on('change', '#purity_chundu', function () {
 
 			if (!($("#purity_chundu  option:selected").val() == '')) {
 				$('.selected1 ul li.cd_select').css('display', 'block');
@@ -680,7 +680,7 @@ function sear() {
 		});
 
 		//支付方式
-		$(document).on('click', '#payment', function () {
+		$(document).on('change', '#payment', function () {
 
 			if (!($("#payment  option:selected").val() == '')) {
 				$('.selected1 ul li.pay_select').css('display', 'block');
