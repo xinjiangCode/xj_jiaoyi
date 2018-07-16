@@ -226,11 +226,11 @@
                     </div>
                 </div>
             </li>
-            <li>
+            <!-- <li>
                 <div class="left1 Lf"><i class="red">*</i>地址:</div>
                 <div class="right1 Lf"><input type="text" id="address"></div>
                 <span class="ts"></span>
-            </li>
+            </li> -->
             <li>
                 <div class="left1 Lf"><i class="red">*</i>公司类型:</div>
                 <div class="right2 Lf" id="company_type">
@@ -452,7 +452,7 @@
             
             //v1.0
             $.ajax({
-                url: 'http://192.168.1.70:7777/service/companyCertification/getCompanyWriteStateByUserToken',
+                url: pubIP+'companyCertification/getCompanyWriteStateByUserToken',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -504,9 +504,9 @@
                         $(".update_btn").css('display', 'block');
                         $('.next_btn_update').css('display', 'none');
 
-                        data.data.reasons = $.parseJSON(data.data.reasons);
+                        data.data.reasons = JSON.parse(data.data.reasons);
                         // data.data.reasons.msg = $.parseJSON(data.data.reasons.msg);
-                        // console.log(data.data.reasons.msg.userName);
+                        console.log(data.data.reasons);
 
                         if (data.data.reasons.auditNum == '1') { //添加企业认证
                             //企业认证的审核<span>未通过</span>，请重新修改提交
@@ -515,7 +515,7 @@
                             $(window.parent.document).find('.jujue p').html('企业基本信息的审核<span>未通过</span>，请重新修改提交');
                         }
 
-                        $(window.parent.document).find('.jujue_liyou span').html(data.data.reasons.reasons);
+                        $(window.parent.document).find('.jujue_liyou span').html(''+data.data.reasons.reasons+'');
                         
 
                         window.parent.tan5();
@@ -533,6 +533,10 @@
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+
+                        window.parent.tan6();
+
+
                         /*window.parent.tan6();*/
                     } else if (data.data.type == 6) {  //出金账户资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
@@ -542,6 +546,8 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+
 
                     } else if (data.data.type == 1) { //没有提交
                         $(".yiRenZheng").addClass('xiaoshi');
@@ -602,10 +608,10 @@
                 return;
             }
 
-            if ($('#address').val() == '') {
-                $('#address').parent().next().html('公司不能为空');
-                return;
-            }
+            // if ($('#address').val() == '') {
+            //     $('#address').parent().next().html('公司不能为空');
+            //     return;
+            // }
 
             if ($('#faren_name').val() == '') {
                 $('#faren_name').parent().next().html('法人姓名不能为空');
@@ -634,7 +640,7 @@
             var zhuce_money = $('#zhuce_money').val();
             var yingye_num = $('#yingye_num').val();
             var company_address = $('#company_address').val();
-            var address = $('#address').val();
+            // var address = $('#address').val();
             var faren_name = $('#faren_name').val();
             var id_number = $('#id_number').val();
 
@@ -670,7 +676,6 @@
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
                             companyAddress: company_address,
-                            companyAddress2: address,
                             companyType: radioIndex,
                             legalPerson: faren_name,
                             legalIdNumber: id_number,
@@ -756,14 +761,14 @@
             }
         });
 
-        $('#address').on('blur', function () {
-            if ($(this).val() == '') {
-                $(this).parent().next().html('公司不能为空');
-                return false;
-            } else {
-                $(this).parent().next().html('');
-            }
-        });
+        // $('#address').on('blur', function () {
+        //     if ($(this).val() == '') {
+        //         $(this).parent().next().html('公司不能为空');
+        //         return false;
+        //     } else {
+        //         $(this).parent().next().html('');
+        //     }
+        // });
 
         $('#faren_name').on('blur', function () {
             if ($(this).val() == '') {
@@ -832,7 +837,7 @@
 
             //v1.0
             $.ajax({
-                url: 'http://192.168.1.80:7777/service/companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+                url: pubIP+'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -918,7 +923,7 @@
                         $('#zhengjian_hidden2').val(data.data.picInfos[4].picUrl);
                         
                         
-                        $('#address').val(data.data.company.companyAddress2);
+                        // $('#address').val(data.data.company.companyAddress2);
                         $("input[name=type1][value="+data.data.company.companyType+"]").attr("checked",true);
 
                         $('#faren_name').val(data.data.company.legalPerson);
@@ -937,7 +942,7 @@
 
         $(document).on('click', '.yiRenZheng1.btn, .next_btn_update', function () {
 
-            debugger;
+
             
             if ($('#qiye_name').val() == '') {
                 $('#qiye_name').parent().next().html('企业名称不能为空');
@@ -970,10 +975,10 @@
                 return;
             }
 
-            if ($('#address').val() == '') {
-                $('#address').parent().next().html('公司不能为空');
-                return;
-            }
+            // if ($('#address').val() == '') {
+            //     $('#address').parent().next().html('公司不能为空');
+            //     return;
+            // }
 
             if ($('#faren_name').val() == '') {
                 $('#faren_name').parent().next().html('法人姓名不能为空');
@@ -1005,7 +1010,7 @@
             var zhuce_money = $('#zhuce_money').val();
             var yingye_num = $('#yingye_num').val();
             var company_address = $('#company_address').val();
-            var address = $('#address').val();
+            // var address = $('#address').val();
             var faren_name = $('#faren_name').val();
             var id_number = $('#id_number').val();
 
@@ -1060,7 +1065,6 @@
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
                             companyAddress: company_address,
-                            companyAddress2: address,
                             companyType: radioIndex,
                             legalPerson: faren_name,
                             legalIdNumber: id_number,
@@ -1105,7 +1109,7 @@
             } else {
                 if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
                     $.ajax({
-                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
+                        url: 'http://192.168.1.187:7777/service/companyCertification/addCompanyBaseInfo',
                         type: 'post',
                         headers: {
                             Accept: "application/json; charset=utf-8",
@@ -1120,7 +1124,6 @@
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
                             companyAddress: company_address,
-                            companyAddress2: address,
                             companyType: radioIndex,
                             legalPerson: faren_name,
                             legalIdNumber: id_number,

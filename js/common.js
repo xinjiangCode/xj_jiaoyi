@@ -182,7 +182,8 @@ if(token){
 		  		//localStorage.setItem('isOld','2');
 		  	}
 			companyId = json.data.companyId;
-			userId = json.data.ids;
+			userId = json.data.id;
+			
 		  },
 		  error:function(xhr,statues,error){
 		      

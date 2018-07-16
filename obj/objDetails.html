@@ -492,7 +492,7 @@
 				margin-left: 30px;
 			}
 
-			.objPrice span.dazong {
+			/*.objPrice span.dazong {
 				color: #ff8b41;
 				font-size: 30px;
 			}
@@ -500,7 +500,7 @@
 			.objPrice span.dazong .money_icon {
 				font-size: 21px;
 				color: #FF8B4E;
-			}
+			}*/
 
 			.objPrice span.shiji {
 				color: #FF381D;
@@ -519,7 +519,48 @@
 				color: #4b4b4b;
 			}
 
+			.buy_list .bg:hover {
+				background: #f5f5f5;
+			}
 
+			.objDgg span {
+			    padding-left: 14px;
+			    color: #999;
+			}
+
+			.shangpin_div {
+				border: 1px solid #EBE9EA;
+				margin-bottom: 16px;
+			}
+
+			.shangpin_div .infoBox{
+				border: none;
+				margin-bottom: 0px;
+			}
+			
+			.objEditorDtls {
+				padding-top: 0px;
+				padding-left: 0px;
+			}
+
+			.objDtsTit {
+				margin-bottom: 18px;
+				color: #333;
+				height: 50px;
+				background: url('../img/detail_bg.png');
+				width: 939px;
+				line-height: 50px;
+				padding-left: 17px;
+			}
+			
+			.objBorder .objEditorDtls.objDetails {
+				border: none;
+			}
+			
+			.sellerRtTit {
+				margin-bottom: 0px;
+			}
+			
 		</style>
 	</head>
 
@@ -564,7 +605,8 @@
 							</div>
 							<p class="objDgg">
 								<span>纯度：<%=productPurity%>%</span>
-								<span>规格：<%=productSpecUnitStr%></span>
+								<span class="shiji">规格：<%=productSpecUnitStr%></span>
+								<span class="dazong">规格：元/吨</span>
 								<span>工业级别：<%=levelName%></span>
 								<span>形态：<%=productFormStr%></span>
 							</p>
@@ -572,8 +614,11 @@
 								<p style="margin-bottom: 25px;">仓库地址：
 									<%=deliveryAddress%>
 								</p>
-								<p id="shengyu_num" style="margin-bottom: 21px;">剩余数量：
+								<p class="shiji" style="margin-bottom: 21px;">剩余数量：
 									<%=remain%><%=productSpecStr%>
+								</p>
+								<p class="dazong" style="margin-bottom: 21px;">剩余数量：
+									<%=remain%>吨
 								</p>
 								<div>
 									购买数量：
@@ -582,7 +627,8 @@
 										<input type="number" min="<%=minAmount%>" step="<%=changeAmount%>" value="<%=minAmount%>" style="width: 100px;text-align: center;" />
 										<span class="spanBtn addBtn" style="cursor: pointer;">+</span>
 									</div>
-									<span class="danwei" style="display: none;"><%=productSpecStr%></span>
+									<span class="shiji" style="display: none;"><%=productSpecStr%></span>
+									<span class="dazong">吨</span>
 									<span style="margin-left: 19px;" class="dazong">最小起订量 <%=minAmount%> 吨</span>
 									<span style="margin-left: 19px;" class="shiji">最小起订量 <%=minAmount%> <%=productSpecStr%></span>
 									<img src="" style="display: none;" />
@@ -592,20 +638,20 @@
 									支付方式：
 									<!--  支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限 -->
 									<%if(paymentMethod == 0) {%>
-									<input type="radio" name="payType" id="xianhui" value="现汇" />
+									<input type="radio" name="payType" id="xianhui" value="现汇" checked="" />
 									<lable for="xianhui">现汇</lable>
-									<input type="radio" name="payType" id="xhcd" value="现汇+承兑" />
+									<input type="radio" name="payType" id="xhcd" value="现汇+承兑" checked="" />
 									<lable for="xhcd">现汇+承兑</lable>
-									<input type="radio" name="payType" id="chengdui" value="承兑" />
+									<input type="radio" name="payType" id="chengdui" value="承兑" checked="" />
 									<lable for="chengdui">承兑</lable>
 									<%}else if(paymentMethod == 1) {%>
-									<input style="margin-left: 0;" type="radio" name="payType" id="xianhui" value="现汇" />
+									<input style="margin-left: 0;" type="radio" name="payType" id="xianhui"  checked="" value="现汇" />
 									<lable for="xianhui">现汇</lable>
 									<%}else if(paymentMethod == 2) {%>
-									<input type="radio" name="payType" id="xhcd" value="承兑" />
+									<input type="radio" name="payType" id="xhcd" value="承兑" checked="" />
 									<lable for="xhcd">承兑</lable>
 									<%}else if(paymentMethod == 3) {%>
-									<input type="radio" name="payType" id="chengdui" value="现汇+承兑" />
+									<input type="radio" name="payType" id="chengdui" value="现汇+承兑" checked="" />
 									<lable for="chengdui">现汇+承兑</lable>
 									<%}%>
 								</p>
@@ -646,7 +692,7 @@
 							</div>
 						</script>
 					</div>
-					<div class="hazardousArticle">
+					<!-- <div class="hazardousArticle">
 						<div class="haIcon">
 							<img src="../img/hazardousArticle.png" />
 							<p>管制类商品：第一类易制毒化学品</p>
@@ -654,8 +700,8 @@
 						<div style="line-height:24px;margin-top: 2px;">
 							1、本品属于易制毒化学品，任何个人不得非法购买。 2、购买本品，贵司需取得主管部门核发的购买许 可证，法律规定需要备案的，应依法办理相关备案登记。 3、本品的物流、仓储均需为具有相应资质的物 流公司和仓储公司。严禁使用快递运送化学品，装卸、运输、仓储流程应按照相关法律法规的要求严格控 制。 4、本品仅供产品展示，不做交易使用，详情请参照《易制毒化学品管理条例》及相关法规。
 						</div>
-					</div>
-					<div class="shangpin" style="display: none;">
+					</div> -->
+					<div class="shangpin">
 						<div class="shangpin_title">管制类商品：</div>
 						<div class="jinggao clearfix">
 							<div class="fl img_bg">
@@ -679,7 +725,8 @@
 
 								<div class="spxq" style="margin-right: 53px;float: left;">
 									<p><i>商品名称：</i><span class="blueClor"><%=productName%></span> </p>
-									<p><i>规       格：</i><%=productSpecUnitStr%></p>
+									<p class="shiji"><i>规       格：</i><%=productSpecUnitStr%></p>
+									<p class="dazong"><i>规       格：</i>元/吨</p>
 									<p><i>产品等级：</i><%=levelName%></p>
 
 								</div>
@@ -745,14 +792,14 @@
 				<div class="shopinfoBox">
 					<script type="text/html" id="shopInfoTpl">
 						<div class="sellerRtLogo" style="background: url(<%=storeImage%>) no-repeat;background-size: contain;background-position: center;"></div>
-						<p id="addGz" style="text-align: right;margin-top: 7px;margin-bottom: 8px;padding-right: 12px;font-size: 16px;color: #666;"><img src="../img/guanzhu.png" style="margin-right: 8px;" /><span>关注</span></p>
-						<p style="margin-bottom: 10px;padding-right:17px ;color: #666;line-height: 24px;">企业名称：
+						<p id="addGz" style="text-align: right;margin-top: 7px;margin-bottom: 8px;padding-right: 12px;font-size: 16px;color: #282828;"><img src="../img/guanzhu.png" style="margin-right: 8px; vertical-align: unset;" /><span style="font-size: 14px;">关注</span></p>
+						<p style="margin-bottom: 10px;padding-right:17px ;color: #282828;line-height: 24px;">企业名称：
 							<%=companyName%>
 						</p>
-						<p style="color: #5590F6;margin-bottom: 5px;">企业认证 <img src="../img/qiIcon.png" style="margin-left: 8px;" /></p>
-						<p style="color: #FF665A;margin-bottom: 11px;">危险化学品认证 <img src="../img/weiIcon.png" style="margin-left: 8px;" /></p>
-						<p style="margin-bottom: 12px;">联系方式：<span style="color: #5590F6;"><%=contact%></span></p>
-						<p style="margin-bottom: 15px;padding-right: 17px;line-height: 24px;">所在地区：
+						<p style="color: #282828;margin-bottom: 5px;">企业认证 <img src="../img/qiIcon.png" style="margin-left: 8px;" /></p>
+						<p style="color: #282828;margin-bottom: 11px;">危险化学品认证 <img src="../img/weiIcon.png" style="margin-left: 8px;" /></p>
+						<p style="margin-bottom: 12px;color: #282828;">联系方式：<span style="color: #5590F6;"><%=contact%></span></p>
+						<p style="margin-bottom: 15px;padding-right: 17px;line-height: 24px;color: #282828;">所在地区：
 							<%=companyAddress2%>
 						</p>
 						<a href="##" style="display: block;margin-left: 19px;"><button><img src="../img/odkefu.png" style="margin-right: 13px;" />联系客服</button></a>
@@ -974,10 +1021,12 @@
 		        	var str = '';
 		        	for (var i = 0; i < data.data.length; i++) {
 
-						str += '<div class="evBdBuyItem" data-supplyid="'+data.data[i].supplyId+'">'
-								+'<div class="evbgImg" style="background: url('+data.data[i].productPicList[0]+') no-repeat center center; background-size: cover;"></div>'
-								+'<p>'+data.data[i].productName+'</p>'
-								+'<span>￥'+data.data[i].unitPrice+'/吨</span>'
+						str += 	'<div class="bg">'
+									+'<div class="evBdBuyItem" data-supplyid="'+data.data[i].supplyId+'">'
+									+'<div class="evbgImg" style="background: url('+data.data[i].productPicList[0]+') no-repeat center center; background-size: cover;"></div>'
+									+'<p>'+data.data[i].productName+'</p>'
+									+'<span>￥'+data.data[i].unitPrice+'/吨</span>'
+								+'</div>'
 							+'</div>';
 		        	}
 
@@ -1303,35 +1352,28 @@
 							$('.jisuanqi').css('display','inline-block');
 							$('.objDIfInner a.toXunpanBtn').css('color','#FF6458').css('borderColor', '#FF6458').html('我要询价');
 
-							$('.hazardousArticle').css('display','none');
-							$('.shangpin').css('display', 'block');
-
-							$('.objEditorDtls').css('paddingTop', '0px').css('paddingLeft', '0px');
-							$('.objDtsTit').css('marginBottom', '18px').css('color', '#333').css('height', '50px').css('background', 'url(../img/detail_bg.png)').css('width', '939px').css('lineHeight', '50px').css('paddingLeft', '17px');
-							$('.objBorder .objEditorDtls.objDetails').css('border', 'none');
-
-							$('.shangpin_div').css('border', '1px solid #EBE9EA').css('marginBottom', '16px');
-							$('.shangpin_div .infoBox').css('border', 'none').css('marginBottom', '0px');
+							
+							
 						}
 						// 化学品危险提示
 						
-							if (response.data.productDetail.productCate == 1) {
-								if(response.data.chemicalType && response.data.chemicalType != {}) {
-									var chemicalTypeTpl = ''
-									$('.hazardousArticle').css('display', 'block')
-									chemicalTypeTpl += '<div class="haIcon">' +
-										'<img src="../img/hazardousArticle.png"  />' +
-										'<p>' + response.data.chemicalType.typeName + '：' + response.data.chemicalType.msgTitle + '</p>' +
-										'</div>';
-									if(response.data.chemicalType.msgShow == 1) {
-										chemicalTypeTpl += '<div style="line-height:24px;margin-top: 2px;">' + response.data.chemicalType.msgContent + '</div>';
-									}
+							// if (response.data.productDetail.productCate == 1) {
+							// 	if(response.data.chemicalType && response.data.chemicalType != {}) {
+							// 		var chemicalTypeTpl = ''
+							// 		$('.hazardousArticle').css('display', 'block')
+							// 		chemicalTypeTpl += '<div class="haIcon">' +
+							// 			'<img src="../img/hazardousArticle.png"  />' +
+							// 			'<p>' + response.data.chemicalType.typeName + '：' + response.data.chemicalType.msgTitle + '</p>' +
+							// 			'</div>';
+							// 		if(response.data.chemicalType.msgShow == 1) {
+							// 			chemicalTypeTpl += '<div style="line-height:24px;margin-top: 2px;">' + response.data.chemicalType.msgContent + '</div>';
+							// 		}
 
-									$('.hazardousArticle').html(chemicalTypeTpl);
-								} else {
-									$('.hazardousArticle').css('display', '')
-								}
-							} else if (response.data.productDetail.productCate == 2) {
+							// 		$('.hazardousArticle').html(chemicalTypeTpl);
+							// 	} else {
+							// 		$('.hazardousArticle').css('display', '')
+							// 	}
+							// } else if (response.data.productDetail.productCate == 2) {
 								if(response.data.chemicalType && response.data.chemicalType != {}) {
 									var chemicalTypeTpl = ''
 									$('.shangpin').css('display', 'block')
@@ -1350,7 +1392,7 @@
 								} else {
 									$('.shangpin').css('display', '');
 								}
-							}
+							// }
 						
 						// 商品详情
 						var goodsDetailInfoTpl = template('goodsDetailInfoTpl', productDetail);

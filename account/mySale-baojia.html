@@ -240,7 +240,7 @@
                 <div class="orderContItem orderN"><%=list[i].productName%></div>
                 <div class="orderContItem orderViewdetail tiao_btn" data-baojia="<%=list[i].interestId%>" data-state1="<%=list[i].state%>" data-caigou1="<%=list[i].buyingId%>"><a href="javascript:;" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
                 <%if (list[i].state == 1) {%>
-                <div class="orderContItem orderStatus" style="color: #FF7E28;"><img style="vertical-align: middle;" src="../img/wenhao_icon.png" alt="">待确认</div>
+                <div class="orderContItem orderStatus" style="color: #FF7E28;">待确认</div>
                 <%} else if (list[i].state == 2) {%>
                 <div class="orderContItem orderStatus" style="color: #6EA3FF; margin-left: 0px;"><img style="margin-right: 4px;" src="../img/mp_ywc.png" alt="">已完成</div>
                 <%} else if (list[i].state == 4) {%>

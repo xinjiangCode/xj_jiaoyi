@@ -53,6 +53,11 @@
 			width: 100%;
 			height: 100%;
 		}
+
+		.time_djs {
+			text-align: center;
+			margin-top: 20px; 
+		}
 	</style>
 </head>
 <body>
@@ -104,6 +109,7 @@
 	<div class="mainCenterRegist">
 		<div class="title"><img src="../img/cf_success.png" alt="">恭喜您，注册成功</div>
 		<div class="content">为了保障平台交易安全，您需要进行企业信息认证，认证完毕后您 才可以在平台进行交易。</div>
+		<div class="time_djs"><span>10</span>秒后自动跳转到首页</div>
 		<div class="sub">
 			<div class="ident Lf"><a onclick="sessionStorage.setItem('cf_showPage','1')" href="../account/account.html">企业信息认证</a></div>
 			<div class="idex Rt"><a href="../index.html">返回首页</a></div>
@@ -137,13 +143,34 @@
         loop: true,
         autoplay:true,
     })
+
+
     $(function () {
         $(".box").eq(0).click(function () {
             $(this).toggleClass("active");
         })
         $(".mainCenter") .css({"background-image":"url(../img/cf_registertBackGround.png)","background-size":"100% 100%"});
 //              $(".mainCenter") .css("background-size","100% 100%");
+
+	
     })
+
+    var countdown = 10;
+    settime();
+	function settime() {
+		if (countdown >= 0) {
+			$('.time_djs span').text(countdown);
+			countdown--;
+			
+			setTimeout(function() {
+				settime()
+			},1000)
+		} else {
+			window.location.href="../index.html";
+		}
+	}
+
+
 </script>
 </body>
 </html>

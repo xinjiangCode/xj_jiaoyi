@@ -361,6 +361,7 @@ function upload_file(obj) {
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
                         $('.next_btn_update').css('display', 'none');
+                        $(".next_btn").css('display', 'none');
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
@@ -420,7 +421,9 @@ function upload_file(obj) {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
-                       /* window.parent.tan7();*/
+
+
+                        window.parent.tan7();
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'block');
                         $(".update_btn").addClass('xiaoshi');
@@ -616,11 +619,30 @@ function upload_file(obj) {
                 //     update_info();
                 // }
 
-                if (data.data.company.state != 0) { //未审核
+                // if (data.data.company.state != 0) { //未审核
+                //     update_info();
+                // } else {
+                //     $('.weiRenZheng.next_btn').css('display', 'none');
+                //     $('.next_btn_update').css('display', 'block');
+                //     update_info();
+                // }
+
+                // if (data.data.company.state == 0) { //未提交
+                //     update_info();
+                //     $('.weiRenZheng.next_btn').css('display', 'block');
+                //     $('.next_btn_update').css('display', 'none');
+                // } else {
+                //     update_info();
+                // }
+
+
+                if (data.data.company.state == -1) { //未提交
                     update_info();
-                } else {
+                    $('.weiRenZheng.next_btn').css('display', 'block');
+                    $('.next_btn_update').css('display', 'none');
+                } else if (data.data.company.state == 0) { //待审核
                     $('.weiRenZheng.next_btn').css('display', 'none');
-                    $('.next_btn_update').css('display', 'block');
+                    $('.next_btn_update').css('display', 'none');
                     update_info();
                 }
             },

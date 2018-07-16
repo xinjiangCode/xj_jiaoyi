@@ -111,7 +111,7 @@
             right: 15px;
         }
 
-        /*.head_div {
+        .head_div {
             width: 142px;
             height: 142px;
             border-radius: 50%;
@@ -127,7 +127,7 @@
             width: 129px;
             height: 129px;
             border-radius: 50%;
-        }*/
+        }
     </style>
 </head>
 <body>
@@ -136,10 +136,10 @@
         <div class="head">
             <div class="left1 Lf">
                 
-                <img class="head_img" src="../img/cf_headImg.png" alt="">
-               <!--  <div class="head_div">
+                <!-- <img class="head_img" src="../img/cf_headImg.png" alt=""> -->
+                <div class="head_div">
                     <div class="head_img"></div>
-                </div> -->
+                </div>
 
                 <div class="span_cread">商户信用：<span class="cread_num" style="margin-right: 5px;"> 0</span>分</div>
             </div>
@@ -498,18 +498,18 @@
             dataType: "json",
             success: function(json){
                 console.log(json);
-                if (json.data.storeImage == null) {
-                    $('.head_img').attr('src', '../img/cf_headImg.png');
-                } else {
-                    $('.head_img').attr('src', json.data.storeImage);    
-                }
+                // if (json.data.storeImage == null) {
+                //     $('.head_img').attr('src', '../img/cf_headImg.png');
+                // } else {
+                //     $('.head_img').attr('src', json.data.storeImage);    
+                // }
                 
 
-                // if (json.data.storeImage == null) {
-                //     $('.head_img').css('background', 'url(../img/head_img.png) no-repeat').css('background-size', 'cover');
-                // } else {
-                //     $('.head_img').css('background', 'url('+json.data.storeImage+') no-repeat').css('background-size', 'cover');    
-                // }
+                if (json.data.storeImage == null) {
+                    $('.head_img').css('background', 'url(../img/head_img.png) no-repeat').css('background-size', 'cover').css('background-position', '50% 0%');
+                } else {
+                    $('.head_img').css('background', 'url('+json.data.storeImage+') no-repeat').css('background-size', 'cover').css('background-position', '50% 0%');   
+                }
                 
 
                 //企业已经认证
