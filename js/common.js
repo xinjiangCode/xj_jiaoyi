@@ -1,8 +1,9 @@
-// var pubIP = 'http://api.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
+ var pubIP = 'http://api.xjv56.com/service/';
+//var pubIP = 'http://192.168.1.80:7777/service/';
 // var pubIP = 'http://127.0.0.1:7777/service/';
 //var token = 'ceshi123456';
 var token=localStorage.getItem("token");
+//var token=sessionStorage.getItem("token");
 var pageSize=1;//分页的每页个数
 
 var companyId = null, userId = null ;

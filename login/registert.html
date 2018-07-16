@@ -196,7 +196,13 @@
 				<li><a href="##">金融服务</a></li>
 			</ul>
 			<div class="mainFooterQuanxian">Copyright © 2016 www.xjv56.com All Rights Reserved 新疆化学品经营服务平台版权所有   新ICP备 16003842号-1</div>
-		</div>
+        </div>
+        <!-- 协议 -->
+        <div class="mask"></div>
+        <div class="xy_detail">
+            <img class="xy_close" src="../img/cf_close1.png" alt="">
+            <div> </div>
+        </div>
 
 		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/register.js" type="text/javascript" charset="utf-8"></script>
@@ -212,7 +218,10 @@
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
-                        location.href = data.data.fileUrl;
+                        //location.href = data.data.fileUrl;
+                        $(".mask").show();
+                        $(".xy_detail").show();
+                        $(".xy_detail div").html(data.data.content)
                     
                     },
                     error: function (err) {
@@ -220,6 +229,16 @@
                     }
                 })
             }
+            //关闭协议弹窗
+            
+            $(".xy_close").on("click",function(){
+                $(".mask").hide();
+                $(".xy_detail").hide();
+            })
+            $(".mask").on("click",function(){
+                $(".mask").hide();
+                $(".xy_detail").hide();
+            })
 
 			getCode();
 			//禁止输入中文

@@ -179,6 +179,9 @@
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" >
+		window.onload = function(){
+			localStorage.setItem("token","");
+		}
 				var isAuto=0;
 
 		  var mySwiper = new Swiper ('.swiper-container', {
@@ -256,6 +259,7 @@
 	                if(json.code == '1'){
                         localStorage.setItem("isAuto",isAuto);
                         localStorage.setItem("token",json.data.token);
+                        //sessionStorage.setItem("token",json.data.token);//hzf  20180716
 	                	window.location.href = '../index.html';
 						window.localStorage.setItem('data-logout', 'false');
 						$('#logout').show();
