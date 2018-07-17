@@ -196,7 +196,7 @@
             width: 192px;
             height: 41px;
             line-height: 41px;
-            font-size: 16px;
+            font-size: 15px;
         }
 
 
@@ -437,7 +437,7 @@
             width: 145px;
             height: 45px;
             border: 1px solid #5690f6;
-            font-size: 18px;
+            font-size: 15px;
             color: #fff;
             box-sizing: border-box;
             text-align: center;
@@ -911,50 +911,50 @@
 
 <!--修改交易密码弹框-->
 <div class="pop " id="updataPayPwd">
-    <div class="cont">
-        <div class="cancel">
+    <div class="cont" style="width: 620px; height: 430px;">
+        <div class="cancel" style="margin-left: 0px; margin-top: 0px;">
             <span class="popTitle Lf">修改密码</span>
             <span class="close" style="float: right;cursor: pointer;" onclick="close1(this)"><img src="../img/gsxq_del.png" alt=""></span>
         </div>
         <div style="margin-bottom: 20px;">
             <div class="leftTitle Lf"> <i class="red">*</i>
-                <span>原支付密码：</span>
+                <span style="color: #6c6d6e; font-size: 14px;">原支付密码：</span>
             </div>
-            <div class="popInput Lf">
-                <input type="password" id="oldPayPwd" maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
-            </div>
-        </div>
-        <div style="margin-bottom: 20px;">
-            <div class="leftTitle Lf"> <i class="red">*</i>
-                <span>新密码：</span>
-            </div>
-            <div class="popInput Lf">
-                <input id="newPayPwd1" type="password"  maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
+            <div class="popInput Lf" style="height: 40px;">
+                <input type="password" id="oldPayPwd" maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)" style="height: 34px; line-height: 34px; color: #c9caca; font-size: 13px;">
             </div>
         </div>
         <div style="margin-bottom: 20px;">
             <div class="leftTitle Lf"> <i class="red">*</i>
-                <span>确认密码：</span>
+                <span style="color: #6c6d6e; font-size: 14px;">新密码：</span>
             </div>
-            <div class="popInput Lf">
-                <input id="newPayPwd2" type="password" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)">
+            <div class="popInput Lf" style="height: 40px;">
+                <input id="newPayPwd1" type="password"  maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)" style="height: 34px; line-height: 34px; color: #c9caca; font-size: 13px;">
+            </div>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <div class="leftTitle Lf"> <i class="red">*</i>
+                <span style="color: #6c6d6e; font-size: 14px;">确认密码：</span>
+            </div>
+            <div class="popInput Lf" style="height: 40px;">
+                <input id="newPayPwd2" type="password" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)" style="height: 34px; line-height: 34px; color: #c9caca; font-size: 13px;">
             </div>
         </div>
 
-        <div class="forget2"><a href="../payPass.html">忘记密码?</a></div>
+        <div class="forget2"><a href="../payPass.html" style="font-size: 14px;">忘记密码?</a></div>
         <div class="popBottom">
-            <div class="btn Lf popCancel close" onclick="close1(this)">取消</div>
-            <div class="btn Lf popSure" id="updataPayPwdSub">确定</div>
+            <div class="btn Lf popCancel close" onclick="close1(this)" style="font-size: 15px;">取消</div>
+            <div class="btn Lf popSure" id="updataPayPwdSub" style="font-size: 15px;">确定</div>
         </div>
     </div>
 </div>
 
 <div class="pop " id="forget">
     <div class="cont">
-        <div class="cancel"><img class="close" style="float: right;cursor: pointer;" src="../img/gsxq_del.png" alt=""></div>
+        <div class="cancel" style="margin-left: 0px; margin-top: 0px;"><img class="close" style="float: right;cursor: pointer;" src="../img/gsxq_del.png" alt=""></div>
         <div>
             <div class="leftTitle Lf"> <i class="red">*</i>
-                <span>消息标题:</span>
+                <span style="color: #6c6d6e; font-size: 14px;">消息标题:</span>
             </div>
             <div class="popInput lineHeight Lf DetTit">
                
@@ -962,7 +962,7 @@
         </div>
         <div>
             <div class="leftTitle Lf"> <i class="red">*</i>
-                <span>消息内容:</span>
+                <span style="color: #6c6d6e; font-size: 14px;">消息内容:</span>
             </div>
             <div class="popInput infoCont Lf DeCont">
                 
@@ -970,7 +970,7 @@
         </div>
         <div>
             <div class="leftTitle Lf"> <i class="red">*</i>
-                <span>发送时间:</span>
+                <span style="color: #6c6d6e; font-size: 14px;">发送时间:</span>
             </div>
             <div class="popInput Lf Detime" style="line-height: 38px;">
                 
@@ -1758,19 +1758,19 @@
 <!-- 添加客户关系 -->
 <div id="addCustomerRelationship">
     <div class="modelCont">
-        <div class="modeltitle">
+        <div class="modeltitle" style="width: 620px;">
             <span>添加客户关系</span>
             <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
         </div>
-        <div class="modelcontent">
+        <div class="modelcontent" style="width: 620px; height: 340px;">
             <div class="info">
                <div class="qiye_name_kuang clearfix">
-                   <span class="span fl">企业名称：</span>
-                   <input type="text" class="qiye_name_input fl">
+                   <span class="span fl" style="color: #6c6d6e;">企业名称：</span>
+                   <input type="text" class="qiye_name_input fl" style="width: 378px; height: 34px; color: #c9caca; font-size: 13px;">
                </div>
                <div class="qiye_type_kuang clearfix">
-                   <span class="span fl">企业类型：</span>
-                   <div class="selectPub qiye_type_input fl" data-selectedindex="0">
+                   <span class="span fl" style="color: #6c6d6e;">企业类型：</span>
+                   <div class="selectPub qiye_type_input fl" data-selectedindex="0" style="width: 390px;">
                         <span></span>
                         <img src="../img/prl-select.jpg" alt="">
                         <ul>
@@ -1781,8 +1781,8 @@
                     </div>
                </div>
                <div class="up_down_relationship clearfix">
-                   <span class="span fl">上下游关系：</span>
-                   <div class="selectPub up_down_relationship_input fl" data-selectedindex="0">
+                   <span class="span fl" style="color: #6c6d6e;">上下游关系：</span>
+                   <div class="selectPub up_down_relationship_input fl" data-selectedindex="0" style="width: 390px;">
                         <span></span>
                         <img src="../img/prl-select.jpg" alt="">
                         <ul>
@@ -1794,7 +1794,7 @@
                </div>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确定</div>
+                <div style="background:#5690f6; margin: 50px auto 0 45px;" class="modelbtn confirm">确定</div>
             </div>
         </div>
     </div>
@@ -1815,16 +1815,16 @@
                </div>
                <div class="pay_pass_kuang clearfix">
                    <span class="span fl">输入支付密码：</span>
-                   <input type="text" class="pay_pass_input fl">
+                   <input type="text" style="height: 32px;" class="pay_pass_input fl">
                </div>
                <div class="phone_num_kuang clearfix">
                    <span class="span fl">手机号：</span>
-                   <input type="text" class="phone_num fl">
+                   <input type="text" style="height: 32px;" class="phone_num fl">
                    <span class="huoqu_code">获取验证码</span>
                </div>
                <div class="code_kuang clearfix">
                    <span class="span fl">输入验证码：</span>
-                   <input type="text" class="code_input fl">
+                   <input type="text" style="height: 32px;" class="code_input fl">
                </div>
             </div>
             <div class="modelBtnBox">
@@ -2162,6 +2162,9 @@
 
     }
 
+    forget();
+    
+
     // 商品管理-上架中的商品
     function no_del() {
         $('#no_del').css('display', 'block');
@@ -2182,6 +2185,7 @@
         $('#addCustomerRelationship').css('display', 'block');
     }
 
+    
     function forget() {
         $('#forget').css('display', 'block');
     }
@@ -2194,6 +2198,7 @@
     function closeRequirement() {
         $('.closeRequirement').css('display', 'block');
     }
+
 
     //采购需求关闭成功
     function okClose() {

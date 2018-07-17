@@ -86,13 +86,14 @@
 			}
 			
 			.modelpop .cont>.main label {
-				font-size: 16px;
+				font-size: 14px;
 				width: 177px;
 				padding-right: 10px;
 				box-sizing: border-box;
 				float: left;
 				text-align: right;
-				color: #282828;
+				/*color: #282828;*/
+				color: #6c6d6e;
 			}
 			
 			.modelpop .cont>.main .input {
@@ -858,56 +859,56 @@
 				</div>
 			</div>
 			<!-- 弹窗 -->
-			<div class="modelBox" >
-				<div class="modelCont">
-					<div class="modeltitle">
+			<div class="modelBox">
+				<div class="modelCont" style="width: 620px;">
+					<div class="modeltitle" style="width: 620px;">
 						<span>新增收货地址</span>
 						<img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
 					</div>
-					<div class="modelcontent">
+					<div class="modelcontent" style="width: 620px;">
 						<div class="modelTxt">
 							<ul>
 								<li class="clearfix" style="padding-top: 20px;">
-									<div class="fl">
-										<label for="">收&nbsp;&nbsp;货&nbsp;&nbsp;人：</label>
-										<input type="text" class="input" id="receiver" placeholder="请输入收货人姓名">
+									<div class="fl" style="margin-left: 80px;">
+										<label for="" style="color: #6c6d6e; font-size: 14px;">收&nbsp;&nbsp;货&nbsp;&nbsp;人：</label>
+										<input type="text" style="color: #c9caca; font-size: 13px;" class="input" id="receiver" placeholder="请输入收货人姓名">
 									</div>
 									<span class="tishi fl"></span>
 								</li>
 								<li class="clearfix" >
-									<div class="fl">
-										<label for="">所在地区：</label>
-										<select style="margin-left:0;" name="province" id="province" class="provice">
+									<div class="fl" style="margin-left: 80px;">
+										<label for="" style="color: #6c6d6e; font-size: 14px;">所在地区：</label>
+										<select style="margin-left:0;color: #c9caca; font-size: 13px;" name="province" id="province" class="provice">
 											<!--<option value="">请选择省</option>-->
 										</select>
-										<select name="city" id="city" class="city">
+										<select name="city" id="city" class="city" style="color: #c9caca; font-size: 13px;">
 											<!--<option>请选择市</option>-->
 										</select>
 									</div>
 									<span class="tishi1 fl"></span>
 								</li>
 								<li class="clearfix">
-									<div class="fl">
-										<label for="">详细地址：</label>
-										<input type="text" class="input" id="detail_address" placeholder="请输入详细地址">
+									<div class="fl" style="margin-left: 80px;">
+										<label for="" style="color: #6c6d6e; font-size: 14px;">详细地址：</label>
+										<input type="text" class="input" id="detail_address" style="color: #c9caca; font-size: 13px;" placeholder="请输入详细地址">
 									</div>
 									<span class="tishi fl"></span>
 								</li>
 								<li class="clearfix">
-									<div class="fl">
-										<label for="">手机号码：</label>
-										<input  type="text" class="input" id="cangkuName" placeholder="请输入手机号码">
+									<div class="fl" style="margin-left: 80px;">
+										<label for="" style="color: #6c6d6e; font-size: 14px;">手机号码：</label>
+										<input  type="text" class="input" id="cangkuName" style="color: #c9caca; font-size: 13px;" placeholder="请输入手机号码">
 									</div>
 									<span class="tishi fl"></span>
 								</li>
 								<li class="clearfix">
-									<div class="fl"><label for=""></label><input type="checkbox" value="1" name="isdefault"><span>设为默认仓库地址</span></div>
+									<div class="fl" style="margin-left: 81px;"><label for=""></label><input type="checkbox" value="1" name="isdefault"><span>设为默认仓库地址</span></div>
 								</li>
 							</ul>
 						</div>
-						<div class="modelBtnBox">
-							<div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
-							<div style="color:#5690f6;margin-left: 12px;" class="modelbtn cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+						<div class="modelBtnBox" style="margin-left: 192px;">
+							<div style="background:#5690f6; font-size: 15px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+							<div style="color:#5690f6;margin-left: 12px; font-size: 15px;" class="modelbtn cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
 						</div>
 					</div>
 				</div>
@@ -921,41 +922,41 @@
 					<div class="main">
 						<ul>
 							<li>
-								<label for="xj_goodsNum">购买数量</label>
-								<span id="xj_goodsNum">0</span>
+								<label for="xj_goodsNum">购买数量：</label>
+								<span id="xj_goodsNum" style="color: #c9caca;">0</span>
 							</li>
 							<li>
-								<label for="xj_sumMoney">总价</label>
-								<span id="xj_sumMoney" style="color: #E50B19;">0元</span>
+								<label for="xj_sumMoney">总价：</label>
+								<span id="xj_sumMoney" style="color: #E50B19; color: #c9caca;">0元</span>
 							</li>
 							<li>
-								<label for="xj_payType">支付方式</label>
-								<span id="xj_payType">现汇</span>
+								<label for="xj_payType">支付方式：</label>
+								<span id="xj_payType" style="font-size: 13px; color: #c9caca;">现汇</span>
 							</li>
 							<li>
-								<label for="">发票类型</label>
-								<input class="xj_fapiaoType" name="xj_fapiaoType" value="1" type="radio"><span style="margin-right:40px;">普通发票</span>
-								<input class="xj_fapiaoType" name="xj_fapiaoType" value="2" type="radio"><span>专用发票</span>
+								<label for="">发票类型：</label>
+								<input class="xj_fapiaoType" name="xj_fapiaoType" value="1" type="radio"><span style="margin-right:40px; color: #c9caca;">普通发票</span>
+								<input class="xj_fapiaoType" name="xj_fapiaoType" value="2" type="radio"><span style="font-size: 13px; color: #c9caca;">专用发票</span>
 							</li>
 							<li class="i">
-								<label for="">收票地址</label>
-								<span class="xj_shoupiaoAddress" style="width: 235px;float:left;"></span>
-								<span class="editAddress" style="color: #5690f6;float:left;margin-left:30px;cursor:pointer;">修改收票地址</span>
+								<label for="">收票地址：</label>
+								<span class="xj_shoupiaoAddress" style="width: 235px;float:left; font-size: 13px; color: #c9caca;"></span>
+								<span class="editAddress" style="color: #5690f6;float:left;margin-left:30px;cursor:pointer; font-size: 13px;">修改收票地址</span>
 							</li>
 							<li class="i">
-								<label for="xj_concatMan">联系人</label>
-								<input class="input" placeholder="请输入联系人" name="xj_concatMan" type="text" id="xj_concatMan">
+								<label for="xj_concatMan">联系人：</label>
+								<input class="input" placeholder="请输入联系人" name="xj_concatMan" type="text" style="font-size: 13px; color: #c9caca;" id="xj_concatMan">
 							</li>
 							<li class="i">
-								<label for="xj_tel">联系电话</label>
-								<input class="input" placeholder="请输入手机号" name="xj_tel" type="tel" id="xj_tel">
+								<label for="xj_tel">联系电话：</label>
+								<input class="input" placeholder="请输入手机号" name="xj_tel" type="tel" id="xj_tel" style="font-size: 13px; color: #c9caca;">
 							</li>
 							<li class="i">
-								<label for="xj_bei">备注</label>
-								<textarea style="width:385px;height: 101px;" class="input" placeholder="请输入您的问题" name="xj_bei" id="xj_bei"></textarea>
+								<label for="xj_bei">备注：</label>
+								<textarea style="width:385px;height: 101px;font-size: 13px; color: #c9caca;" class="input" placeholder="请输入您的问题" name="xj_bei" id="xj_bei"></textarea>
 							</li>
 							<li class="i">
-								<div class="commitBtn">提交</div>
+								<div class="commitBtn" style="font-size: 15px;">提交</div>
 							</li>
 						</ul>
 					</div>
