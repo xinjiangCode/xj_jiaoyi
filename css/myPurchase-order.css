@@ -124,10 +124,10 @@ body{
     display: block;
     float: left;
 }
-.myPurchase-status span:nth-child(1){
+/* .myPurchase-status span:nth-child(1){
     width: 190px;
     text-align: center;
-}
+} */
 .myPurchase-status span:nth-child(2),
 .orderItemCont .orderPurity{
     width: 165px;

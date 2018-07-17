@@ -669,7 +669,9 @@
 			// console.log($('#productSpecUnit option:selected').val());
 			// console.log($('.shop_sort_select').val());
 			var can = true;
-			$('.main_content select,.main_content input[type="text"],.main_content input[type="hidden"]').each(function(){
+			var img_upload_num = 0;
+
+			$('.main_content select,.main_content input[type="text"]').each(function(){
 				if(this.tagName == 'INPUT'){
 					if($(this).val() == ''){
 						$(".modelBox4" , parent.document).find('.info p').text($(this).parents('li').find('.tit').text()+ '未填写!');
@@ -688,6 +690,28 @@
 					}
 				}
 			})
+			//判断商品图片
+			$('.main_content input[type="hidden"]').each(function(idx,item){
+				if(idx == 0){
+					if($(this).val() == ''){
+						$(".modelBox4" , parent.document).find('.info p').text($(this).parents('li').find('.tit').text()+ '未填写!');
+						$(".modelBox4" , parent.document).show();
+						//alert($(this).parents('li').find('.tit').text()+ '未填写!');
+						can = false;
+						return false;
+					}
+				}else{
+					if($(this).val() != ''){
+						img_upload_num ++;
+					}
+				}
+				
+			})
+			if(img_upload_num==0){
+				$(".modelBox4" , parent.document).find('.info p').text('产品图片：未填写!');
+				$(".modelBox4" , parent.document).show();
+				return false;
+			}
 			if(!can){
 				return false;
 			}
@@ -699,10 +723,14 @@
 			}
 			var productPic = [];
 			for(var i = 0; i < 5; i++){
-				productPic.push($('#file'+i).parent().find('input[type="hidden"]').val());
+				//if($('#file'+i).parent().find('input[type="hidden"]').val() !=''){
+					productPic.push($('#file'+i).parent().find('input[type="hidden"]').val());
+				//}
+				
 			}
 			productPic = productPic.join(',');
-
+			console.log("=====================");
+			console.log(productPic)
 			$.ajax({
 	            type:"post",
 	            headers: {

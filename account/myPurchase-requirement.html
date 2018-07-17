@@ -3,9 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>新疆化学品经营服务平台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title adct1=1>新疆化学品经营服务平台</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/myPurchase-requirement.css">
 </head>
@@ -65,7 +68,7 @@
                 <span class="search Rt search_input_info_btn" style="width: 42px;height:30px;margin:0;cursor:pointer;"></span>
             </div>
         </div>
-        <div class="myPurchase-tab">
+        <div class="myPurchase-tab tab_hzf1">
             <span class="active" data-value="">全部报价</span>
             <span data-value="2">发布中</span>
             <span data-value="4">已关闭</span>
@@ -73,7 +76,15 @@
             <span data-value="5">已失效</span>
         </div>
         <div class="myPurchase-status">
-            <span>近三个月的订单</span>
+            <div class="selectPub selectPub_hzf1" data-selectedindex="0" style="float: left;margin-left: 80px;margin-top: 3px;">
+                <span>全部</span>
+                <img src="../img/prl-select.jpg" alt="">
+                <ul class="my_select_hzf">
+                    <li data-index="0">全部</li>
+                    <li data-index="1">近三个月的订单</li>
+                    <li data-index="2">近半年的订单</li>
+                </ul>
+            </div>
             <span>纯度</span>
             <span>数量</span>
             <span>收货地</span>
@@ -198,9 +209,10 @@
         var isFirst = true;
         var first = true;
         var enquiryListTpl = '';
-
-        purchaseList('', 1);
-
+        var category = $(".tab_hzf1 .active").attr("data-value");
+        var dataType = $(".selectPub_hzf1").attr("data-selectedindex");
+        purchaseList(category, 1);
+        
         // 采购需求列表
        function purchaseList(category, num) {
         console.log($('.search_input_info').val());
@@ -219,7 +231,8 @@
                     pageSize:2,
                     state: category,
                     pageNum: num,
-                    name: $('.search_input_info').val()
+                    name: $('.search_input_info').val(),
+                    dataType: dataType
                 },
                 success: function(data){
                     console.log(data);
@@ -267,13 +280,13 @@
                 }
             });
        }
-
+       //筛选状态
        $(document).on('click', '.myPurchase-tab span', function () {
 
             $('.myPurchase-tab span').removeClass('active');
             $(this).addClass('active');
 
-            var category = $(this).attr('data-value');
+            category = $(this).attr('data-value');
 
             if (first && category == '') {
                 return;
@@ -285,9 +298,13 @@
             purchaseList(category, 1);
 
        });
-
+       //筛选时间
+       $(".my_select_hzf li").on("click",function(){
+            dataType = $(this).attr('data-index');
+            purchaseList(category, 1);
+        })
        $(document).on('click', '.search_input_info_btn', function() {
-            purchaseList('', 1);
+            purchaseList(category, 1);
        });
 
        $(document).on('click', '.tiao_btn', function () {

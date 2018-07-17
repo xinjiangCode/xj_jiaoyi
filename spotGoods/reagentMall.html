@@ -22,6 +22,15 @@
 				margin-bottom: 9px;
 				max-height: 14px;
 			}
+			.supplierBox>div {
+				width: 408px;
+				margin-right: 2px;
+			}
+			.rsGoods>div {
+				width: 348px;
+				height: 241px;
+				box-sizing: border-box;
+			}
 			/*.tabLinkMaxBox{
 				border-bottom: none;
 			}*/
@@ -592,15 +601,22 @@
 			  	token: token
 			  },
 	          success: function(json){
+				console.log("+++++++++++++++++++++++++++");
 	            console.log(json);
 	            var ncGoodsStr = '';
 	            var cenLineObjBox = '';
 	            var rsGoodstr = '';
 	            $.each(json.data,function(i,t){
 	            		if(i <= 2){
-	            			ncGoodsStr += '<div objid="'+t.supplyId+'" comId="'+t.publishCompanyId+'">\
-											<img src="../img/wei.png">\
-											<div class="uzImg" style="background:url('+t.productPicList[0]+') no-repeat;background-size:cover ;background-position:center ;"></div>\
+							ncGoodsStr += '<div objid="'+t.supplyId+'" comId="'+t.publishCompanyId+'">'
+											if(t.chemicalDangerFlag == 1){
+												ncGoodsStr += '<img src="../img/pu.png">'
+											}else if(t.chemicalDangerFlag == 2){
+												ncGoodsStr += '<img src="../img/wei.png">'
+											}else if(t.chemicalDangerFlag == 3){
+												ncGoodsStr += '<img src="../img/te.png">'
+											}
+							ncGoodsStr += '<div class="uzImg" style="background:url('+t.productPicList[0]+') no-repeat;background-size:cover ;background-position:center ;"></div>\
 											<p class="uzName">'+t.productName+'</p>\
 											<p> 规 格：'+t.productSpec+t.productSpecUnitStr+' </p>\
 											<p>纯 度：'+t.productPurity+'%</p>\
@@ -613,10 +629,15 @@
 	            		}
 	            		if(i > 2 && i < 13){
 	            			//单价／规格
-	            			cenLineObjBox += '<div objid="'+t.supplyId+'" comId="'+t.publishCompanyId+'">\
-											<div>\
-												<div class="redRT bluebg">普</div>\
-												<div class="objImg" style="background: url('+t.productPicList[0]+') no-repeat;background-size:cover ;background-position:center ;"></div>\
+	            			cenLineObjBox += '<div objid="'+t.supplyId+'" comId="'+t.publishCompanyId+'"><div>'
+												if(t.chemicalDangerFlag == 1){
+													cenLineObjBox += '<img style="position: absolute;" src="../img/pu.png">'
+												}else if(t.chemicalDangerFlag == 2){
+													cenLineObjBox += '<img style="position: absolute;" src="../img/wei.png">'
+												}else if(t.chemicalDangerFlag == 3){
+													cenLineObjBox += '<img style="position: absolute;" src="../img/te.png">'
+												}
+							cenLineObjBox += '<div class="objImg" style="background: url('+t.productPicList[0]+') no-repeat;background-size:cover ;background-position:center ;"></div>\
 												<div class="objTxt">\
 													<p class="pcep">'+t.unitPrice+'元</p>\
 													<span class="fs14">'+t.companyName+'</span>\
@@ -634,9 +655,15 @@
 										</div>';
 	            		}
 	            		if(i > 12 && i < 18){
-	            			rsGoodstr += '<div objid="'+t.supplyId+'" comId="'+t.publishCompanyId+'">\
-										<img src="../img/wei.png">\
-										<div class="uztit">'+t.productName+' </div>\
+	            			rsGoodstr += '<div objid="'+t.supplyId+'" comId="'+t.publishCompanyId+'">'
+											if(t.chemicalDangerFlag == 1){
+												rsGoodstr += '<img src="../img/pu.png">'
+											}else if(t.chemicalDangerFlag == 2){
+												rsGoodstr += '<img src="../img/wei.png">'
+											}else if(t.chemicalDangerFlag == 3){
+												rsGoodstr += '<img src="../img/te.png">'
+											}
+							rsGoodstr += '<div class="uztit">'+t.productName+' </div>\
 										<div class="uzImg" style="background: url('+t.productPicList[0]+') no-repeat;background-size:cover ;background-position:center ;"></div>\
 										<div class="uztxt">\
 											<p>纯度：'+t.productPurity+' % </p>\

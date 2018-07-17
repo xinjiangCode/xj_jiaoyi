@@ -121,10 +121,11 @@
     color:rgba(79,79,79,1);
     border-left: 1px solid #EBE9EA;
     border-right: 1px solid #EBE9EA;
+    border-bottom: 1px solid #EBE9EA;
 }
-.myPurchase-status span:nth-child(1){
+/* .myPurchase-status span:nth-child(1){
     margin-left: 80px;
-}
+} */
 .myPurchase-status span:nth-child(2){
     margin-left: 138px;
 }
