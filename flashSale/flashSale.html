@@ -343,35 +343,39 @@
 	                        return false;
 	                    } else if (data.code == '1') {
 
-	                    	for (var i = 0; i < data.data.length; i++) {
-								data.data[i].endTime = new Date(data.data[i].endTime).Format("yyyy-MM-dd hh:mm:ss"); 
-								data.data[i].productPic = data.data[i].productPic.split(',')[0];
-							}
-							
-							var result = template("listTpl",{list:data.data});
-					        $('#listInfo').html(result);
+	                    	if (data.data != null) {
+	                    		for (var i = 0; i < data.data.length; i++) {
+									data.data[i].endTime = new Date(data.data[i].endTime).Format("yyyy-MM-dd hh:mm:ss"); 
+									data.data[i].productPic = data.data[i].productPic.split(',')[0];
+								}
+								
+								var result = template("listTpl",{list:data.data});
+						        $('#listInfo').html(result);
 
 
-	                    	if (isFirst) {
+		                    	if (isFirst) {
 
-			                    Page({
-		                            num: data.count,
-		                            elem: $('#page1'),
-		                            callback: function(n) {
-		                                num = n;
-		                                qianghuoList(n);
-		                            }
-		                        });
+				                    Page({
+			                            num: data.count,
+			                            elem: $('#page1'),
+			                            callback: function(n) {
+			                                num = n;
+			                                qianghuoList(n);
+			                            }
+			                        });
 
-		                        console.log(data.data);
-		                        
-		                        $('.total').text(data.count);
+			                        console.log(data.data);
+			                        
+			                        $('.total').text(data.count);
 
-		                        isFirst = false;
-		                    }
+			                        isFirst = false;
+			                    }
 
 
-		                    $('.allPageN').text(num+'/'+data.count);
+			                    $('.allPageN').text(num+'/'+data.count);
+	                    	} else {
+	                    		$('.pageJump').css('display', 'none');
+	                    	}
 
 	                    }
 						
@@ -408,10 +412,12 @@
 	       					$('#popLogin').text('认证');
 							missedLogin() ;
 	       				}else if(isOld == '-2'){
-	       					$('#effect .contTitle span').text('您的认证正在审核中');
-	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
-	       					$('#popLogin').hide();
-							missedLogin() ;
+	      //  					$('#effect .contTitle span').text('您的认证正在审核中');
+	      //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	      //  					$('#popLogin').hide();
+							// missedLogin() ;
+
+							window.location.href = this.href;
 	       				}
 	       			}else{
 	       				window.location.href = this.href;

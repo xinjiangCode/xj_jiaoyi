@@ -154,7 +154,7 @@
 		<div class="rtHotObj">
 			<h2>热销产品</h2>
 			<div class="hotObjBox" id="hotSaleShopInfo">
-				<div>
+				<!-- <div>
 					<div class="htobjImg"></div>
 					<p class="htName">氢氧化钠</p>
 					<p class="htpirce">￥1440.00/吨</p>
@@ -173,7 +173,7 @@
 					<div class="htobjImg"></div>
 					<p class="htName">氢氧化钠</p>
 					<p class="htpirce">￥1440.00/吨</p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -266,8 +266,13 @@
 	</script>
 	
 	<script type="text/html" id="hotSaleShopTpl">
-		
-		
+		<%for(i in list){%>
+		<div class="hot_sale_a" data-chemicalId="<%=list[i].chemicalId%>">
+			<div class="htobjImg"></div>
+			<p class="htName"><%=list[i].chemicalName%></p>
+			<p class="htpirce">￥<%=list[i].salesVolume%>/<%=list[i].productUnit%></p>
+		</div>
+		<%}%>
 	</script>
 
 
@@ -366,28 +371,34 @@
        		});
 
 
+       		$(document).on('click', '.hot_sale_a', function() {
+				window.localStorage.setItem('jzSeachName', $(this).attr('data-chemicalId'));
+				window.location.href="search/productNameSearch_precise.html";
+			});
+
+
        		//热销商品列表
-			// $.ajax({
-			// 	type:"get",
-		 //        url:pubIP+"buyingInfo/getHotSale",//v1.0
-		 //        cache:false,
-		 //        dataType: "json",
-		 //        async:false,
-		 //        headers: {
-   //                  Accept: "application/json; charset=utf-8",
-   //                  token: token
-   //              },
-		 //        success: function(data){
-		 //        	console.log(data);
+			$.ajax({
+				type:"get",
+		        url:pubIP+"buyingInfo/getHotSale",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+		        success: function(data){
+		        	console.log(data);
 
-		 //        	var result = template('hotSaleShopTpl', {list: data.data});
-   //                  $('#hotSaleShopInfo').html(result);
+		        	var result = template('hotSaleShopTpl', {list: data.data});
+                    $('#hotSaleShopInfo').html(result);
 
-		 //        },
-		 //        error: function (err) {
-		 //        	console.log(err);
-		 //        }
-		 //    });
+		        },
+		        error: function (err) {
+		        	console.log(err);
+		        }
+		    });
 
        
         //拦截链接

@@ -941,11 +941,14 @@
 	       					$('#effect .contTitle i').text('认证');
 	       					$('#popLogin').text('认证');
 							missedLogin() ;
-	       				}else if(isOld == '-2'){
-	       					$('#effect .contTitle span').text('您的认证正在审核中');
-	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
-	       					$('#popLogin').hide();
-							missedLogin() ;
+	       				}
+	       				else if(isOld == '-2'){
+	      //  					$('#effect .contTitle span').text('您的认证正在审核中');
+	      //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	      //  					$('#popLogin').hide();
+							// missedLogin() ;
+
+							window.location.href = this.href;
 	       				}
 	       			}else{
 	       				window.location.href = this.href;

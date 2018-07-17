@@ -147,15 +147,15 @@
                 <div class="top1"><span>会员账号:</span>
                     <!--<i class="duanWei">黄金会员</i>-->
                 </div>
-                <div class="bottom1 weiRenZheng">
+                <div class="bottom1">
                     <div class="Lf">
                         <div class="userPhone">会员手机号：</div>
-                        <div class="intell">
-                            <span>企业认证：</span><img src="../img/cf_qiyeNo.png" alt=""><span style="color: #fd867d;">&nbsp;未认证</span>
-                            <span style="margin-left: 20px;">资质认证：</span><img src="../img/cf_dengerNo.png" alt=""><span style="color: #fd867d;">&nbsp;未认证</span></div>
+                        <div class="intell" id="zizhi_qiye">
+                            <span>认证：</span><img class="qiye_renzheng_img" src="../img/cf_qiyeNo.png" alt=""><span style="color: #fd867d; margin-left: 6px;" class="qiye_renzheng_info">&nbsp;未认证</span>
+                            <span style="margin-left: 20px;" class="zizhi_title">资质认证：</span><img class="zizhi_renzheng_img" src="../img/cf_dengerNo.png" alt=""><span class="zizhi_renzheng_info" style="color: #fd867d; margin-left: 6px;">&nbsp;未认证</span></div>
                     </div>
                 </div>
-                <div class="bottom1 yiRenZheng" style="display: none;">
+                <div class="bottom1" style="display: none;">
                     <div class="Lf">
                         <div class="userPhone">会员手机号：</div>
                         <div class="intell" id="deanger">
@@ -515,6 +515,10 @@
                 //企业已经认证
                 if(json.code == '1'){
                     if(json.data.qualificationStatus==2){//企业已经认证
+                        $('.qiye_renzheng_img').attr('src', '../img/cf_qiyerenzheng.png');
+                        $('.qiye_renzheng_info').text('企业认证');
+
+
                         $(".weiRenZheng").css("display","none");
                         $(".yiRenZheng").show();
                         $(".weiRenZhengID").css("display","none");
@@ -530,11 +534,19 @@
                 //危险化学品认证
                     if(json.data.aType==0){//危险化学品认证
                         if(json.data.aState==1){//已认证
-                        	   $(".yiRenZheng").show();
-                            $("#deangerNo").css("display","none");
+
+                            $('.zizhi_renzheng_img').attr('src', '../img/cf_denger.png');
+                            $('.zizhi_renzheng_info').text('危险化学品认证');
+
+                            $('.zizhi_title').css('display', 'none');
+
+                        	   // $(".yiRenZheng").show();
+                            // $("#deangerNo").css("display","none");
+                            // $("#deanger").css("display","block");
                         }else{
                         	   $(".weiRenZheng").show();
-                            $("#deanger").css("display","none");
+                            // $("#deanger").css("display","none");
+                            // $("#deangerNo").css("display","block");
                         }
                     }else{
                         $("#deanger").css("display","none");
