@@ -57,6 +57,7 @@
     .invoiceAddress::after{content: "";display: block;clear: both;}
     .err{color: red;line-height: 38px;}
     .item::after{content: "";display: block;clear: both;}
+    .selectPub span{overflow: hidden;display: inline-block;width: 80%;white-space: nowrap;text-overflow: ellipsis;}
 </style>
 <body>
     <div class="contBox">
@@ -125,7 +126,7 @@
                             <!--<select class="input" name="address" id="address">-->
                                 <!--<option value="address1">甘泉堡仓库</option>-->
                             <!--</select>-->
-                            <!--<span class="blue btn" style="position: absolute;left: 460px;top: 11px;"><i class="mi">+</i>新增收仓库</span>-->
+                            <span class="blue btn" style="position: absolute;left: 460px;top: 11px;"><i class="mi">+</i>新增收仓库</span>
                             <span class="err"></span>
                         </div>
                       
@@ -189,7 +190,7 @@
                             <label class="fl" style="line-height: 38px;">收票地址:</label>
                             <!--<div class="invoiceAddressCont fl" style="height: 38px;">-->
                                 <div class="selectPub input" data-selectedindex="-1" id="shoupiaoAddre" data-addressId="-1" style="border: 1px solid #ebe9ea;height: 38px;float: left;">
-                                    <span>请选择地址</span>
+                                    <span style="">请选择地址</span>
                                     <img src="../img/prl-select.jpg" alt="">
                                     <ul>
                                     </ul>
@@ -201,9 +202,10 @@
 
                                 <!--<input class="input" id="namePhone" name="name_tel" type="text" value="张三 130 1234 1234">-->
                                 <!--<input class="input" id="addre" name="add" type="text" value="新疆乌鲁木齐高新区 xxxx">-->
+                            <span class="blue fl btn ml" style="margin-top: 8px;"><i class="mi"></i>修改收票地址</span>
                             <span class="err"></span>
                             </div>
-                            <!--<span class="blue fl btn ml"><i class="mi"></i>修改收票地址</span>-->
+
                         </div>
                     </div>
                 <!--</div>-->
