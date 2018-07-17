@@ -1484,6 +1484,7 @@
 	       
 	       //拦截链接
 	       $(document).on('click','a',function(e){
+	      	
 	       		e.preventDefault();
 	       		var isOld = localStorage.getItem('isOld');
 	       		if(isOld != '2'){
@@ -1501,10 +1502,11 @@
 	       					$('#popLogin').text('认证');
 							missedLogin() ;
 	       				}else if(isOld == '-2'){
-	       					$('#effect .contTitle span').text('您的认证正在审核中');
-	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
-	       					$('#popLogin').hide();
-							missedLogin() ;
+	      //  					$('#effect .contTitle span').text('您的认证正在审核中');
+	      //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	      //  					$('#popLogin').hide();
+							// missedLogin() ;
+							window.location.href = this.href;
 	       				}
 	       			}else{
 	       				window.location.href = this.href;

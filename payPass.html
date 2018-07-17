@@ -25,12 +25,71 @@
 		input{
 			outline:none;
 		}
+
+        .topTitle {
+            height: auto;
+            line-height: 80px;
+        }
+
+        .topTitle>.phone {
+            margin-top: 32px;
+        }
+
+        .step-bar {
+            width: 68%;
+            left: 145px;
+        }
+
+        .nextbtn {
+            width: 160px;
+            height: 34px;
+            background-color: #6ba1ff;
+            color: #fff;
+            text-align: center;
+            line-height: 36px;
+            margin: 25px auto 0;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .phone_input {
+            width: 220px;
+        }
+
+        .code_input {
+            width: 150px;
+        }
+
+        .phone1, .code.code0 {
+            padding-right: 112px;
+        }
+
+        .second.phone1 {
+            padding-right: 5px;
+        }
+
+        .submit {
+            width: 160px;
+            margin-left: 20px;
+            height: 32px;
+            border-radius: 2px;
+            font-size: 14px;
+            line-height: 32px;
+            background-color: #6ba1ff;
+            border: 1px solid #6ba1ff;
+        }
+
+        .code .send_code {
+            font-size: 14px;
+        }
+
 	</style>
 </head>
 <body>
 <script src="./js/header.js" type="text/javascript" charset="utf-8"></script>
 	<div class="topTitle mianCont">
-		<div class="logo1 Lf"><a href="./index.html" style="float: left;height: 100%;"><img style="margin-top: 20px;padding-right: 20px;border-right: 1px solid #eeeeee;" src="./img/cf_logo.png" alt=""></a><span style="margin-left: 20px;font-size: 30px;color: #666666;">找回密码</span></div>
+		<div class="logo1 Lf"><a href="./index.html" style="float: left;height: 100%;"><img style="margin-top: 20px;padding-right: 20px;border-right: 1px solid #eeeeee;" src="./img/logo.png" alt=""></a><span style="margin-left: 20px;font-size: 30px;color: #666666; display: inline-block; margin-top: 28px;">找回密码</span></div>
 		<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 10px;">（工作日9:00-18:00）</i></div>
 	</div>
 
@@ -49,13 +108,13 @@
 						<div class="phone1">
 							<span class="required">*</span>
 							<span class="span">手机号：</span>
-							<input type="text" class="phone_input" id="oldPhone" placeholder="请输入正确的手机号" disabled>
+							<input type="text" class="phone_input" id="oldPhone" placeholder="请输入正确的手机号" disabled="">
 						</div>
 						<div class="code code2">
 							<div class="clearfix inline-block">
 								<div class="fl">
 									<span class="required">*</span>
-									<span class="span">手机验证码：</span>
+									<span class="span" style="margin-right: 5px;">手机验证码：</span>
 								</div>
 								<div class="fl">
 									<span class="clearfix inline-block">
@@ -68,10 +127,10 @@
 						<div class="nextbtn" id="nextBtn">下一步</div>
 					</div>
 					<div class="step-list">
-						<div class="phone1">
+						<div class="phone1 second">
 							<span class="required">*</span>
 							<span class="span">新密码：</span>
-							<input type="text" id="newPwd1" class="phone_input" maxlength="20" onkeyup="this.value=chaneseCheck(this.value)"  placeholder="长度6-20个字母、数字、特殊符号组成">
+							<input type="text" id="newPwd1" class="phone_input" maxlength="20" onkeyup="this.value=chaneseCheck(this.value)"  placeholder="6-20个字母、数字、特殊符号组成">
 						</div>
 						<div class="code code1">
 							<span class="required">*</span>
@@ -114,7 +173,7 @@
 
 
 	<script src="./js/jquery-3.2.1.min.js"></script>
-	<script src="./js/jquery.step.js"></script>
+	<script src="./js/jquery1.step.js"></script>
 	<script src="./js/common.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
         //禁止输入中文

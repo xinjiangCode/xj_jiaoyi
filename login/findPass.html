@@ -60,6 +60,113 @@
 
 			color: white;
 		}
+
+
+		.step-bar {
+			width: 75%;
+			left: 110px;
+		}
+
+		.phone_input {
+			width: 220px;
+			height: 34px;
+		}
+
+		input[type='text'] {
+			height: 34px;
+		}
+
+		.code_input {
+			width: 150px;
+		}
+
+		.ml72 {
+		    margin-left: 184px;
+		}
+
+		.phone1, .code.code0 {
+			padding-right: 62px;
+		}
+
+		.nextbtn {
+		    width: 160px;
+		    height: 34px;
+		    background-color: #6ba1ff;
+		    color: #fff;
+		    text-align: center;
+		    line-height: 36px;
+		    margin: 25px auto 0;
+		    border-radius: 2px;
+		    cursor: pointer;
+		    font-size: 14px;
+		}
+
+		.code .send_code {
+			font-size: 14px;
+			width: 120px;
+			height: 34px;
+		}
+
+		.second.phone1 {
+			padding-right: 0px;
+		}
+
+		.second.phone1 {
+			padding-right: 154px;
+		}
+
+		.code.second {
+		    padding-right: 9px;
+		}
+
+		.nextbtn.preBtn {
+			border: 1px solid #6ba1ff;
+			color: #6ba1ff;
+			font-size: 14px;
+			width: 160px;
+			height: 32px;
+			background: transparent;
+			line-height: 32px;
+		}
+
+		div#applyBtn {
+		    margin-left: 20px;
+		    margin-right: 66px;
+		}
+
+		.code .clearfix {
+		    margin-right: 4px;
+		}
+
+		input#dxCode {
+		    margin-left: 10px;
+		}
+
+		.code.code1 {
+		    padding-right: 93px;
+		}
+
+		.submit {
+			width: 160px;
+			margin-left: 20px;
+			height: 32px;
+			border-radius: 2px;
+			font-size: 14px;
+			line-height: 32px;
+		}
+
+		.step-header li p {
+			font-size: 16px;
+		}
+
+		.topTitle>.phone {
+			margin-top: 41px;
+		}
+
+		.topTitle {
+		    line-height: 82px;
+		}
+	
     </style>
 </head>
 <body>
@@ -102,7 +209,7 @@
 		<!--</div>-->
 	<!--</div>-->
 	<div class="topTitle mianCont">
-		<div class="logo1 Lf"><a href="../index.html" style="float: left;height: 100%;"><img style="margin-top: 20px;padding-right: 20px;border-right: 1px solid #eeeeee;" src="../img/cf_logo.png" alt=""></a><span style="margin-left: 20px;font-size: 30px;color: #666666;">找回密码</span></div>
+		<div class="logo1 Lf"><a href="../index.html" style="float: left;height: 100%;"><img style="margin-top: 28px;padding-right: 20px;border-right: 1px solid #eeeeee;" src="../img/logo.png" alt=""></a><span style="margin-left: 20px;font-size: 30px;color: #666666; padding-top: 36px; display: inline-block;">找回密码</span></div>
 		<div class="phone Rt">服务热线: <i style="color: #4E80F4;font-size: 22px;">4000-012-556</i> <i style="font-size: 10px;">（工作日9:00-18:00）</i></div>
 	</div>
 
@@ -142,11 +249,11 @@
 						<div class="nextbtn" id="nextBtn">下一步</div>
 					</div>
 					<div class="step-list">
-						<div class="phone1">
+						<div class="phone1 second">
 							<span class="span">手机号：</span>
-							<input type="text" class="phone_input" id="onlySwPhone" value="" onkeyup="this.value=chaneseCheck(this.value)" disabled="disabled">
+							<span class="phone_input" id="onlySwPhone"></span>
 						</div>
-						<div class="code">
+						<div class="code second">
 							<div class="clearfix inline-block">
 								<div class="fl" style="width: 102px;">
 									<span class="required">*</span>
@@ -176,13 +283,13 @@
 						</div>
 						<div class="code code1">
 							<span class="required">*</span>
-							<span class="span" style="margin-right: 6px;">确认密码：</span>
+							<span class="span">确认密码：</span>
 							<input type="password" class="phone_input" id="passWord2" onkeyup="this.value=chaneseCheck(this.value)" placeholder="确认新密码">
 							<span class="reds"></span>
 						</div>
 						<div class="text-center mt">
 							<div class="clearfix inline-block">
-								<div class="nextbtn preBtn fl">取消</div>
+								<div class="nextbtn preBtn fl">上一步</div>
 								<div class="submit fl" id="submitBtn">提交</div>
 							</div>
 						</div>
@@ -287,7 +394,7 @@
 		          success: function(json){
 		            	console.log(json);
 		            	if(json.code == '1'){
-		            		$('#onlySwPhone').val($('#phoneIpt').val());
+		            		$('#onlySwPhone').text($('#phoneIpt').val());
 		            		var yes=step.nextStep();
 		            	}else{
 		            		alert(json.msg);
@@ -303,7 +410,7 @@
 		          url: pubIP+"user/validMobileCode",//v1.0
 		          cache:false,
 		          data:{
-		          	'mobile':$('#onlySwPhone').val(),
+		          	'mobile':$('#onlySwPhone').text(),
 		          	'smsRandomCode':$('#dxCode').val()
 		          },
 		          dataType: "json",
@@ -423,7 +530,7 @@
 		          url: pubIP+"user/getMessageCode",//v1.0
 		          cache:false,
 		          data:{
-		          	'mobile':$('#onlySwPhone').val(),
+		          	'mobile':$('#onlySwPhone').text(),
 		          },
 		          dataType: "json",
 		          success: function(json){

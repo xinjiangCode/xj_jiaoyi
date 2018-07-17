@@ -206,6 +206,7 @@
 			var arr = [];
 			var isFirst = true;
 
+
 			// 请求分类标题
 			title();
 			function title() {
@@ -224,24 +225,27 @@
 		            },
 		            dataType: "json",
 		            success: function(data){
-						// console.log(data);
-						var str1 = '<span data-activityid="">全  部</span>';
+						console.log(data);
+						if (data.data != null) {
+							var str1 = '<span data-activityid="">全  部</span>';
 
-						for (var j = 0; j < data.activityList.length; j++) {
+							for (var j = 0; j < data.activityList.length; j++) {
 
-							str1 += '<span data-activityid="'+data.activityList[j].dbid+'">'+data.activityList[j].title+'</span>'
+								str1 += '<span data-activityid="'+data.activityList[j].dbid+'">'+data.activityList[j].title+'</span>'
 
+							}
+
+							$('#qianggou_title').html(str1);
+
+							$('#qianggou_title span').eq(0).addClass('act');
 						}
-
-						$('#qianggou_title').html(str1);
-
-						$('#qianggou_title span').eq(0).addClass('act');
 					},
 					error: function (err) {
 						console.log(err);
 					}
 				});
 			}
+
 
 			qianggouList(1, '');
 
@@ -266,7 +270,6 @@
 						console.log(data);
 
 					
-						activityId = activityId;
 						// 分页
 		                	if(data.code == '0'){
 		                        $('.pageJump').hide();
@@ -275,89 +278,93 @@
 		                        return false;
 		                    } else if (data.code == '1') {
 
-		                    	if (isFirst) {
+		                    	if (data.data != null) {
+		                    		if (isFirst) {
 
-				                    Page({
-			                            num: data.count,
-			                            elem: $('#page1'),
-			                            callback: function(n) {
-			                                num = n;
-			                                qianggouList(n, activityId);
-			                                console.log(activityId);
-			                            }
-			                        });
+					                    Page({
+				                            num: data.count,
+				                            elem: $('#page1'),
+				                            callback: function(n) {
+				                                num = n;
+				                                qianggouList(n, activityId);
+				                                console.log(activityId);
+				                            }
+				                        });
 
-			                     
-			                        
-			                        $('.total').text(data.count);
+				                     
+				                        
+				                        $('.total').text(data.count);
 
-			                        isFirst = false;
-			                    }
-
-
-			                    $('.allPageN').text(num+'/'+data.count);
+				                        isFirst = false;
+				                    }
 
 
-			                    var str = '';
+				                    $('.allPageN').text(num+'/'+data.count);
 
-								for (var i = 0; i < data.data.length; i++) {
-									
-									data.data[i].endTime = new Date(data.data[i].endTime).Format("yyyy-MM-dd hh:mm:ss"); 
 
-									if (data.data[i].productPic != null) {
-										data.data[i].productPic = data.data[i].productPic.split(',')[0];
-									}
+				                    var str = '';
 
-									
-									if (data.data[i].iStatus == '1') {
-										str += '<div class="now">';
-									} else if (data.data[i].iStatus == '2') {
-										str += '<div class="begin">';
-									} else if (data.data[i].iStatus == '3') {
-										str += '<div class="finish">';
-									} else {
-										str += '<div>';
-									}
-									str += '<div class="buyIngSt"></div>'
-											+'<div class="objHeadImg  fl" style="background: url('+data.data[i].productPic+') no-repeat; background-size: cover;"></div>'
-											+'<div class="fl">'
-												+'<div class="buyObjTit"><span class="tit">'+data.data[i].companyName+'</span> <span class="gg">纯度：'+data.data[i].productPurity+'% &nbsp;&nbsp;型号：'+data.data[i].productLevel+'</span></div>'
-												+'<div class="priceBox">'
-													+'<div class="fl">'
-														+'<div class="priceDv">'
-															+'<span class="buyPrice">'
-																+'￥<span class="priceNum">'+data.data[i].unitPrice+'</span> 元/kg'
-															+'</span>'
-															+'<span class="oldPrice">¥ '+data.data[i].ounitPrice+'元／kg</span>'
+									for (var i = 0; i < data.data.length; i++) {
+										
+										data.data[i].endTime = new Date(data.data[i].endTime).Format("yyyy-MM-dd hh:mm:ss"); 
+
+										if (data.data[i].productPic != null) {
+											data.data[i].productPic = data.data[i].productPic.split(',')[0];
+										}
+
+										
+										if (data.data[i].iStatus == '1') {
+											str += '<div class="now">';
+										} else if (data.data[i].iStatus == '2') {
+											str += '<div class="begin">';
+										} else if (data.data[i].iStatus == '3') {
+											str += '<div class="finish">';
+										} else {
+											str += '<div>';
+										}
+										str += '<div class="buyIngSt"></div>'
+												+'<div class="objHeadImg  fl" style="background: url('+data.data[i].productPic+') no-repeat; background-size: cover;"></div>'
+												+'<div class="fl">'
+													+'<div class="buyObjTit"><span class="tit">'+data.data[i].companyName+'</span> <span class="gg">纯度：'+data.data[i].productPurity+'% &nbsp;&nbsp;型号：'+data.data[i].productLevel+'</span></div>'
+													+'<div class="priceBox">'
+														+'<div class="fl">'
+															+'<div class="priceDv">'
+																+'<span class="buyPrice">'
+																	+'￥<span class="priceNum">'+data.data[i].unitPrice+'</span> 元/kg'
+																+'</span>'
+																+'<span class="oldPrice">¥ '+data.data[i].ounitPrice+'元／kg</span>'
+															+'</div>'
+															+'<p style="max-height: 14px;line-height: 14px;margin-bottom: 22px;">抢购进度：<span class="pgBg"> <span class="Progress" style="width:'+data.data[i].rate+'"></span> </span></p>'
+															+'<div style="overflow: hidden;">'
+																+'<span class="fl">起定量：'+data.data[i].minAmount+'吨</span>'
+																+'<span class="fr">抢购量：'+data.data[i].sum+'吨</span>'
+															+'</div>'
 														+'</div>'
-														+'<p style="max-height: 14px;line-height: 14px;margin-bottom: 22px;">抢购进度：<span class="pgBg"> <span class="Progress" style="width:'+data.data[i].rate+'"></span> </span></p>'
-														+'<div style="overflow: hidden;">'
-															+'<span class="fl">起定量：'+data.data[i].minAmount+'吨</span>'
-															+'<span class="fr">抢购量：'+data.data[i].sum+'吨</span>'
+														+'<div class="fr lastTime">'
+															+'<span class="ltTIT">距离结束：</span>'
+															+'<p class="lasrTimeNum" id="distanceTime'+activityId+(num+1)+i+'"><span>00</span>天<span>24</span>时<span>09</span>分<span>56</span>秒</p>'
 														+'</div>'
 													+'</div>'
-													+'<div class="fr lastTime">'
-														+'<span class="ltTIT">距离结束：</span>'
-														+'<p class="lasrTimeNum" id="distanceTime'+activityId+(num+1)+i+'"><span>00</span>天<span>24</span>时<span>09</span>分<span>56</span>秒</p>'
+													+'<div class="fr buyIngBox">'
+														+'<span>已抢购 <span>'+data.data[i].sales+'</span>吨</span>'
+														+'<button><span class="buying_a" data-supplyId="'+data.data[i].supplyId+'" data-activityid="'+data.data[i].activityId+'" data-createCompany="'+data.data[i].createCompany+'" data-rate="'+data.data[i].rate+'" data-iStatus="'+data.data[i].iStatus+'">立即抢购</span></button>'
 													+'</div>'
 												+'</div>'
-												+'<div class="fr buyIngBox">'
-													+'<span>已抢购 <span>'+data.data[i].sales+'</span>吨</span>'
-													+'<button><span class="buying_a" data-supplyId="'+data.data[i].supplyId+'" data-activityid="'+data.data[i].activityId+'" data-createCompany="'+data.data[i].createCompany+'" data-rate="'+data.data[i].rate+'" data-iStatus="'+data.data[i].iStatus+'">立即抢购</span></button>'
-												+'</div>'
-											+'</div>'
-										+'</div>';
+											+'</div>';
 
-								}
+									}
 
-								$('.buyIngObj').html(str);
+									$('.buyIngObj').html(str);
 
-					           	for (var i = 0; i < data.data.length; i++) {
-									
-									var time2 = new Date(data.data[i].endTime).Format("yyyy-MM-dd hh:mm:ss"); 
+						           	for (var i = 0; i < data.data.length; i++) {
+										
+										var time2 = new Date(data.data[i].endTime).Format("yyyy-MM-dd hh:mm:ss"); 
 
-									distanceTime3("distanceTime"+activityId+(num+1)+i+"", time2, arr['timer'+i]);
-								}
+										distanceTime3("distanceTime"+activityId+(num+1)+i+"", time2, arr['timer'+i]);
+									}
+		                    	} else {
+		                    		$('.pageJump').css('display', 'none');
+		                    	}
 
 		                    }
 
@@ -398,7 +405,7 @@
 
 			function distanceTime3(id, deadtime, i) {  
 
-				// debugger;
+		
                 var endtime = new Date(deadtime); //结束时间  
                 var nowtime = new Date(); //当前时间  
                 var lefttime = parseInt(((endtime.getTime() - nowtime.getTime()) / 1000));  
@@ -472,10 +479,12 @@
 	       					$('#popLogin').text('认证');
 							missedLogin() ;
 	       				}else if(isOld == '-2'){
-	       					$('#effect .contTitle span').text('您的认证正在审核中');
-	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
-	       					$('#popLogin').hide();
-							missedLogin() ;
+	      //  					$('#effect .contTitle span').text('您的认证正在审核中');
+	      //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	      //  					$('#popLogin').hide();
+							// missedLogin() ;
+
+							window.location.href = this.href;
 	       				}
 	       			}else{
 	       				window.location.href = this.href;

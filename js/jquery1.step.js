@@ -24,7 +24,7 @@
   $.fn.step = function(options) { 
       var opts = $.extend({}, $.fn.step.defaults, options);
       var size=this.find(".step-header li").length;
-      var barWidth=opts.initStep<size?133/(1*size)+133*(opts.initStep-1)/(size*1) : 100;
+      var barWidth=opts.initStep<size?100/(100*size)+100*(opts.initStep-1)/(size*1) : 100;
       var curPage=opts.initStep;
 
       this.find(".step-header").prepend("<div class=\"step-bar\"><div class=\"step-bar-active\"></div></div>");
@@ -86,7 +86,7 @@
         }
       });
       /*barWidth=page<size?100/(2*size)+100*(page-1)/size : 100;*/
-      barWidth=page<size?133/(1*size)+133*(page-1)/size : 133;
+      barWidth=page<size?100/(2*size)+100*(page-1)/size : 100;
         this.find(".step-bar-active").animate({
           "width": barWidth+"%"},
           opts.speed, function() {
