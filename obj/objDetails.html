@@ -66,9 +66,9 @@
 			
 			.modelpop .cont>.main {
 				width: 650px;
-				height: 502px;
+				height: auto;
 				background: url(../img/gsxq_cont.gif);
-				background-size: 650px 502px;
+				background-size: 650px 100%;
 				background-repeat: no-repeat;
 				font-size: 16px;
 				padding-top: 19px;
@@ -82,7 +82,7 @@
 			}
 			
 			.modelpop .cont>.main li.i {
-				margin-bottom: 16px;
+				padding-bottom: 16px;
 			}
 			
 			.modelpop .cont>.main label {
@@ -274,7 +274,8 @@
 			}
 			
 			.modelpop .cont {
-				overflow: hidden;
+				overflow: auto;
+				min-height: 560px;
 			}
 			.spxq p{overflow: hidden;}
 			.spxq p i{display: inline-block;width: 80px;text-align: left;}
@@ -1505,10 +1506,20 @@
 
 						});
 
-						$(document).on('change', 'input:radio[name="payType"]', function() {
-							payTypeVal = $(this).val()
-						})
+						// $(document).on('change', 'input:radio[name="payType"]', function() {
+						// 	payTypeVal = $(this).val()
+						// })
 						$('.toXunpanBtn').click(function() {
+
+							payTypeVal = $('.payType input:radio[name="payType"]:checked').val();
+
+							if(payTypeVal == '1') {
+								payTypeVal = '现汇';
+							} else if(payTypeVal == '2') {
+								payTypeVal = '承兑';
+							} else if(payTypeVal == '3') {
+								payTypeVal = '现汇+承兑';
+							}
 
 							// if(thisCompanyId==companyId){
 							// 	alert("您不能询盘本公司商品！");
