@@ -1,11 +1,14 @@
 <!--我的采购订单-->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>新疆化学品经营服务平台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title adct1=1>新疆化学品经营服务平台</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/myPurchase-order.css">
     <style>
@@ -51,7 +54,15 @@
         </div>
         
         <div class="myPurchase-status clearfix">
-            <span>近三个月的订单</span>
+            <div class="selectPub selectPub_hzf1" data-selectedindex="0" style="float: left;margin-top: 3px;">
+                <span>全部</span>
+                <img src="../img/prl-select.jpg" alt="">
+                <ul class="my_select_hzf">
+                    <li data-index="0">全部</li>
+                    <li data-index="1">近三个月的订单</li>
+                    <li data-index="2">近半年的订单</li>
+                </ul>
+            </div>
             <span>纯度</span>
             <span>数量</span>
             <span>企业家名称</span>
@@ -136,11 +147,12 @@
             status=1,//订单状态 1 全部订单 2待发货订单 3 待支付订单 4 待确认收货订单 5 已完成
             currentPage=1,
             ordersListHTML='';
-        getOrder(ordertype,status,currentPage,orderMsg,pageSize);
+        var dataType =  $(".selectPub_hzf1").attr("data-selectedindex");
+        getOrder(ordertype,status,currentPage,orderMsg,pageSize,dataType);
         // 点击搜索查询
         $('.search').click(function(){
             orderMsg = $(this).siblings('input').val();
-            getOrder(ordertype,status,currentPage,orderMsg,pageSize);
+            getOrder(ordertype,status,currentPage,orderMsg,pageSize,dataType);
         });
         // 点击状态栏查询
         $('.myPurchase-tab span').click(function(){
@@ -148,20 +160,26 @@
             $(this).addClass('active');
             status = $(this).attr('data-type');
             console.log(status);
-            getOrder(ordertype,status,currentPage,orderMsg,pageSize);
+            getOrder(ordertype,status,currentPage,orderMsg,pageSize,dataType);
         });
          // 点击分页刷新数据
          $('.pageCont').on('click', '.button',function(){
             currentPage = $('.pageCont li.active>a').text();
-            getOrder(ordertype,status,currentPage,orderMsg,pageSize);
+            getOrder(ordertype,status,currentPage,orderMsg,pageSize,dataType);
         })
+        //时间筛选
+        $(".my_select_hzf li").on("click",function(){
+            dataType = $(this).attr('data-index');
+            getOrder(ordertype,status,currentPage,orderMsg,pageSize,dataType);
+        })
+        //分页点击
         $('.pageCont').on('click', 'li>a',function(){
             currentPage = $('.pageCont li.active>a').text();
-            getOrder(ordertype,status,currentPage,orderMsg,pageSize);
+            getOrder(ordertype,status,currentPage,orderMsg,pageSize,dataType);
         })
     })
 
-    function getOrder(type,status,currentPage,orderMsg,pageSize) {
+    function getOrder(type,status,currentPage,orderMsg,pageSize,dataType) {
         $.ajax({
             type:"get",
             headers: {
@@ -175,7 +193,8 @@
                 status:status,//订单状态 1 全部订单 2待发货订单 3 待支付订单 4 待确认收货订单 5 已完成
                 pageNum:currentPage,
                 orderMsg:orderMsg,//订单编号Or商品名称--notRequired
-                pageSize:pageSize//分页参数，每页显示条数，默认5--notRequired
+                pageSize:pageSize,//分页参数，每页显示条数，默认5--notRequired
+                dataType: dataType//时间筛选
             },
             dataType: "json",
             success: function(json){

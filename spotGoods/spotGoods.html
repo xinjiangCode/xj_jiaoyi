@@ -663,24 +663,36 @@
 		<script type="text/html" id="objNice"> 
 			 <% for (i in list) { %>
                 	<div>
-					<img src="../img/wei.png">
-					<div class="uzImg" style="background: url(<%=list[i].productPicList[0]%>) no-repeat;background-size:cover;background-position:center;background-color: #f0f0f0;"></div>
-					<p class="uzName"><%=list[i].productName%></p>
-					<p> 规 格：<%=list[i].productSpecUnitStr%></p>
-					<p>纯 度：<%=list[i].productPurity%>%</p>
-					<div class="uzsj">供应商：<%=list[i].companyName%></div>
-					<div class="hideInfo">
-						<div></div>
-						<button objid="<%=list[i].supplyId%>" thisCmpId="<%=list[i].publishCompanyId%>">立即询盘</button>
+						<%if( list[i].chemicalDangerFlag == 1){%>
+							<img src="../img/pu.png">
+						<%}else if(list[i].chemicalDangerFlag == 2){%>
+							<img src="../img/wei.png">
+						<%}else if(list[i].chemicalDangerFlag == 3){%>
+							<img src="../img/te.png">
+						<%}%>
+						<div class="uzImg" style="background: url(<%=list[i].productPicList[0]%>) no-repeat;background-size:cover;background-position:center;background-color: #f0f0f0;"></div>
+						<p class="uzName"><%=list[i].productName%></p>
+						<p> 规 格：<%=list[i].productSpecUnitStr%></p>
+						<p>纯 度：<%=list[i].productPurity%>%</p>
+						<div class="uzsj">供应商：<%=list[i].companyName%></div>
+						<div class="hideInfo">
+							<div></div>
+							<button objid="<%=list[i].supplyId%>" thisCmpId="<%=list[i].publishCompanyId%>">立即询盘</button>
+						</div>
 					</div>
-				</div>
 		     <% } %>
 		</script>
 		<script type="text/html" id="objTj1"> 
 			 <% for (i in list) { %>
                 	<div objid="<%=list[i].supplyId%>" thisCmpId="<%=list[i].publishCompanyId%>">
 					<div>
-						<div class="redRT">危</div>
+						<%if( list[i].chemicalDangerFlag == 1){%>
+							<img style="position: absolute;" src="../img/pu.png">
+						<%}else if(list[i].chemicalDangerFlag == 2){%>
+							<img style="position: absolute;" src="../img/wei.png">
+						<%}else if(list[i].chemicalDangerFlag == 3){%>
+							<img style="position: absolute;" src="../img/te.png">
+						<%}%>
 						<div class="objImg" style="background: url(<%=list[i].productPicList[0]%>) no-repeat;background-size:cover ;background-position:center ;"></div>
 						<div class="objTxt">
 							<p class="pcep"><%=list[i].unitPrice%> 元/吨</p>
@@ -702,7 +714,13 @@
 		<script type="text/html" id="objTj2"> 
 			 <% for (i in list) { %>
                 	<div objid="<%=list[i].supplyId%>" thisCmpId="<%=list[i].publishCompanyId%>">
-					<img src="../img/wei.png">
+					<%if( list[i].chemicalDangerFlag == 1){%>
+						<img src="../img/pu.png">
+					<%}else if(list[i].chemicalDangerFlag == 2){%>
+						<img src="../img/wei.png">
+					<%}else if(list[i].chemicalDangerFlag == 3){%>
+						<img src="../img/te.png">
+					<%}%>
 					<div class="uztit"><%=list[i].productName%> </div>
 					<div class="uzImg"  style="background: url(<%=list[i].productPicList[0]%>) no-repeat;background-size:cover ;background-position:center ;"></div>
 					<div class="uztxt">
