@@ -533,7 +533,7 @@ if(adct == '首页' ){
 		<a href="spotGoods/reagentMall.html"><span>试剂商城</span></a>\
 		<a href="freeSearch/freeSearch.html"><span>免费找货</span></a>\
 		<a href="##"><span>金融服务</span></a>\
-		<a href="##"><span>物流服务</span></a>\
+		<a href="wuliu_service.html"><span>物流服务</span></a>\
 		<a href="flashSale/buying.html"><span>抢购</span></a>\
 		<a href="flashSale/flashSale.html"><span>抢货</span></a>\
 		<a href="industryInformation/industryInformation.html"><span>行业资讯</span></a>\
@@ -545,14 +545,14 @@ if(adct == '首页' ){
 		<a href="../spotGoods/reagentMall.html"><span>试剂商城</span></a>\
 		<a href="../freeSearch/freeSearch.html"><span>免费找货</span></a>\
 		<a href="##"><span>金融服务</span></a>\
-		<a href="##"><span>物流服务</span></a>\
+		<a href="../wuliu_service.html"><span>物流服务</span></a>\
 		<a href="../flashSale/buying.html"><span>抢购</span></a>\
 		<a href="../flashSale/flashSale.html"><span>抢货</span></a>\
 		<a href="../industryInformation/industryInformation.html"><span>行业资讯</span></a>\
 		<a href="../memberOfTheMall/memberOfTheMall.html" class="notPd" ><span>会员商城</span></a>\
 	</div></div>';
 }
-			
+
 document.writeln(headLink);
 // var headerip = 'http://api.xjv56.com/service/';
 var headerip = 'http://192.168.1.80:7777/service/';
@@ -620,6 +620,7 @@ window.onload = function(){
               
           }
        });
+
        
        $(document).on('click','.hotObj',function(){
        		localStorage.setItem('thisCompanyId',$(this).attr('comid'));
@@ -800,6 +801,7 @@ window.onload = function(){
 	  } else {
 	  	$('#logout').css('display', 'inline-block');
 	  }
+
 
 
 	  if (window.localStorage.getItem('isOld') == 1 || window.localStorage.getItem('isOld') == 0) { //未登录

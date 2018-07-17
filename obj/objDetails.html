@@ -524,8 +524,11 @@
 			}
 
 			.objDgg span {
+				color: #999;
+			}
+
+			.objDgg span.dazong {
 			    padding-left: 14px;
-			    color: #999;
 			}
 
 			.shangpin_div {
@@ -559,6 +562,11 @@
 			
 			.sellerRtTit {
 				margin-bottom: 0px;
+			}
+
+			.payType {
+				display: none;
+				margin-right: 20px;
 			}
 			
 		</style>
@@ -604,7 +612,8 @@
 								<span class="shiji"><span class="money_icon">¥</span> <%=unitPrice%>/<%=productSpecStr%></span>
 							</div>
 							<p class="objDgg">
-								<span>纯度：<%=productPurity%>%</span>
+								<span class="dazong">纯度：<%=productPurity%>%</span>
+								<span class="shiji">纯度：<%=productPurity%>%</span>
 								<span class="shiji">规格：<%=productSpecUnitStr%></span>
 								<span class="dazong">规格：元/吨</span>
 								<span>工业级别：<%=levelName%></span>
@@ -634,10 +643,10 @@
 									<img src="" style="display: none;" />
 									<span style="color: #347AE9; display: none;">包装转换</span>
 								</div>
-								<p style="margin-bottom: 25px;">
+								<p style="margin-bottom: 25px;" class="paymentMethod">
 									支付方式：
 									<!--  支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限 -->
-									<%if(paymentMethod == 0) {%>
+									<!-- <%if(paymentMethod == 1) {%>
 									<input type="radio" name="payType" id="xianhui" value="现汇" checked="" />
 									<lable for="xianhui">现汇</lable>
 									<input type="radio" name="payType" id="xhcd" value="现汇+承兑" checked="" />
@@ -653,7 +662,20 @@
 									<%}else if(paymentMethod == 3) {%>
 									<input type="radio" name="payType" id="chengdui" value="现汇+承兑" checked="" />
 									<lable for="chengdui">现汇+承兑</lable>
-									<%}%>
+									<%}%> -->
+									<span class="payType">
+										<input type="radio" name="payType" id="xianhui" value="1" />
+										<lable for="xianhui">现汇</lable>
+									</span>
+									<span class="payType">
+										<input type="radio" name="payType" id="xhcd" value="3"  />
+										<lable for="xhcd">现汇+承兑</lable>
+									</span>
+									<span class="payType">
+										<input type="radio" name="payType" id="chengdui" value="2"  />
+										<lable for="chengdui">承兑</lable>
+									</span>
+									
 								</p>
 								<p style="margin-bottom: 25px;">合计总量：<span class="cOr goodsTotalNum"> 0</span><span class="dazong">吨</span><span class="shiji"><%=productSpecStr%></span>
 								<img src="../img/jisuanqi.png" class="jisuanqi" alt="">
@@ -1336,10 +1358,16 @@
 						CloudZoom.quickStart();
 
 
-
 						var objDescriptTpl = template('objDescriptTpl', productDetail);
 						$('.objDInfo').html(objDescriptTpl);
 
+						var methodArr = String(response.data.productDetail.paymentMethod).split('');
+						console.log(methodArr);
+		                for (i in methodArr) {
+		                	$('.paymentMethod input[name="payType"][value="'+methodArr[i]+'"]').parent().css('display','inline-block');
+		                }
+
+		                $('.paymentMethod input[name="payType"][value="'+methodArr[0]+'"]').attr('checked', true);
 
 						if (response.data.productDetail.productCate == 2) {  //试剂
 
@@ -1482,10 +1510,10 @@
 						})
 						$('.toXunpanBtn').click(function() {
 
-							if(thisCompanyId==companyId){
-								alert("您不能询盘本公司商品！");
-								return;
-							}
+							// if(thisCompanyId==companyId){
+							// 	alert("您不能询盘本公司商品！");
+							// 	return;
+							// }
 							var isOld = localStorage.getItem('isOld');
 							if(isOld != '2') {
 								return;
@@ -1907,11 +1935,14 @@
 							$('#effect .contTitle i').text('认证');
 							$('#popLogin').text('认证');
 							missedLogin();
-						} else if(isOld == '-2') {
-							$('#effect .contTitle span').text('您的认证正在审核中');
-							$('#effect .contTitle i').text('等待审核通过').css('color', '#000');
-							$('#popLogin').hide();
-							missedLogin();
+						} 
+						else if(isOld == '-2') {
+							// $('#effect .contTitle span').text('您的认证正在审核中');
+							// $('#effect .contTitle i').text('等待审核通过').css('color', '#000');
+							// $('#popLogin').hide();
+							// missedLogin();
+
+							window.location.href = this.href;
 						}
 					} else {
 						window.location.href = this.href;

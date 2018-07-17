@@ -591,12 +591,14 @@
                 }
             }
         });
+
+
 		
-		getguig();
+		getguig($('#xingtaiSele').val(), '', '');
 		$('#xingtaiSele').change(function(){
-			getguig()
+			getguig($(this).val(), '', '');
 		})
-		function getguig(){
+		function getguig(productForm, guige_s, ejguige){
 			$.ajax({
 	            type:"get",
 	            headers: {
@@ -608,26 +610,36 @@
 	            async:false,
 	            dataType: "json",
 	            data:{
-	            		form:$('#xingtaiSele').val(),
-	            		productType:1
+	            		form: productForm,
+	            		productType: 1
 	            },
 	            success: function(json){
 	                //console.log(json);
 	                if(json.code == '1'){
 	                		var opt = '';
 	                		$.each(json.data, function(i,t) {
-	                			opt += '<option value="'+t.cateSpecId+'">'+t.cateSpecName+'</option>';
+	                			opt += '<option value="'+t.cateSpecCode+'" data-dbid="'+t.dbid+'">'+t.cateSpecName+'</option>';
 	                		});
 	                		$('.guige_select').html(opt);
+
+	                	$('.guige_select option[value="'+guige_s+'"]').attr('selected', true);
+                		$('.guige_select').attr('disabled', true);
+                		
+                		getjiliang(guige_s, ejguige);
 	                }
 	            }
 	        });
 		}
-		getjiliang();
+
+
+		
 		$('.guige_select').change(function(){
-			getjiliang();
+			getjiliang($(this).attr('daya-dbid'), '');
 		})
-		function getjiliang(){
+		function getjiliang(guige_select, erji_select){
+			console.log(guige_select, erji_select);
+			guige_select = $('.guige_select option:selected').attr('data-dbid');
+
 			$.ajax({
 	            type:"get",
 	            headers: {
@@ -639,17 +651,22 @@
 	            async:false,
 	            dataType: "json",
 	            data:{
-	            		specId:$('.guige_select').val(),
+	            		specId: guige_select
 	            },
 	            success: function(json){
-	                //console.log(json);
+	                console.log(json);
 	                if(json.code == '1'){
 	                		var opt = '';
 	                		$.each(json.data, function(i,t) {
 	                			opt += '<option value="'+t.cateSpecEnumId+'">'+t.cateSpecEnumName+'</option>';
 	                		});
 	                		$('#productSpecUnit').html(opt);
+
+	                		$('#productSpecUnit option[value="'+erji_select+'"]').attr('selected', true);
+                			$('#productSpecUnit').attr('disabled', true);
 	                }
+
+	                
 	            }
 	        });
 		}
@@ -698,16 +715,21 @@
                 $('#xingtaiSele option[value="'+json.data.product.productForm+'"]').attr('selected', true);
                 $('#xingtaiSele').attr('disabled', true);
 
+                getguig(json.data.product.productForm, json.data.product.productSpec, json.data.product.productSpecUnit);
+
                 //规格量
                 $('#onum').val(json.data.product.productSpecNum);
                 $('#onum').attr('readonly', 'readonly');
 
                 //规格
-                $('.guige_select option[value="'+json.data.product.productSpecUnit+'"]').attr('selected', true);
-                $('.guige_select').attr('disabled', true);
+                // $('.guige_select option[value="'+json.data.product.productSpec+'"]').attr('selected', true);
+                // $('.guige_select').attr('disabled', true);
 
-                $('#productSpecUnit option[value="'+json.data.product.productSpec+'"]').attr('selected', true);
-                $('#productSpecUnit').attr('disabled', true);
+                //getjiliang(json.data.product.productSpec, json.data.product.productSpecUnit);
+
+
+                // $('#productSpecUnit option[value="'+json.data.product.productSpecUnit+'"]').attr('selected', true);
+                // $('#productSpecUnit').attr('disabled', true);
 
 
                 //厂家产地
