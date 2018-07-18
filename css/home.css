@@ -127,7 +127,7 @@ background: url(../img/wcleftBoxBg.png) no-repeat;background-size:contain ;backg
 .financeLike>.FL3{margin-top: 33px;line-height: 16px;max-height: 16px;}
 .financeLike>.FL4{margin-top: 26px;line-height: 16px;max-height: 16px;}
 .financeLike>span>p{margin-bottom: 7px;line-height: 16px;max-height: 16px;}
-.financeBtm{width: 991px;height: 151px;background: #fff;margin-left: 6px;margin-top: 6px;}
+.financeBtm{width: 991px;height: 151px;background: #fff;margin-left: 6px;margin-top: 6px;background: url(../img/jinrong_hzf.png) 0 0 no-repeat;background-size: 100% 100%;}
 .financeBtm>span{float: left;margin-left: 100px;margin-top: 60px;font-size: 20px;color: #282828;}
 .logisticsLeft{width:235px; height:510px;background: #6DA5F0;text-align: center;padding-left: 0px;overflow: hidden;}
 .logisticsLeft>img{margin-top: 41px;margin-bottom: 12px;}

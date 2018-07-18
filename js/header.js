@@ -1,6 +1,7 @@
 // 公共头
 var adct = document.getElementsByTagName('title')[0].getAttribute('adct');
 
+document.writeln("<link href=\"../img/icon_logo.jpg\" rel=\"SHORTCUT ICON\">");
 document.writeln("<div class=\"maxWidth headBox\">");
 document.writeln("<div class=\"mianCont\">");
 document.writeln("<div class=\"Lf\">");

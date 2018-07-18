@@ -10,7 +10,7 @@ document.writeln("<footer>\n" +
     "                </div>\n" +
     "                <div class=\"Lf ftphoneText\">\n" +
     "                    <div style=\"height: 28px;line-height: 28px;font-size: 27px;font-weight: 600;color: #FF7C3E;\">4000-012-556</div>\n" +
-    "                    <div style=\"height: 28px;line-height: 28px;font-size: 16px;\"><span style=\"font-size: 14px;\">工作日 : </span>10 : 00 am-19 : 00 pm</div>\n" +
+    "                    <div style=\"height: 28px;line-height: 28px;font-size: 16px;\"><span style=\"font-size: 14px;\">工作日 :</span>10:00am-19:00pm</div>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "\n" +

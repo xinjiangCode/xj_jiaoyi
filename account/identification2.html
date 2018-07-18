@@ -18,11 +18,12 @@
          a{color: #80acf8;}
          html,body{min-width: 988px;width: 988px;background-color: white;overflow: hidden;margin: auto;font-size: 14px;}
         .container{width:986px;border: 1px solid #f1f1f1;}
-        .header{padding-top:21px;padding-left:61px;height:62px;box-sizing:border-box;border-bottom: 1px solid #f1f1f1;}
+        .header{padding-top:21px;height:62px;box-sizing:border-box;}
         .header>ul{overflow: hidden;}
-        .header>ul>li{float: left;height: 18px;line-height: 18px;font-size: 16px;}
+        .header>ul>li{float: left;height: 18px;line-height: 18px;font-size: 16px;width: 20%;text-align: center;}
         .header>ul>.row{line-height: 10px;margin-left: 4px;}
-        .header>ul>li>a{}
+        .header>ul>li>a{color: #666;}
+        .header>ul>li>a.active{color: #80acf8;}
         .header>ul>li>a>div{color: white;height: 18px;line-height: 18px; text-align: center; width: 18px;border-radius: 50%;font-size:11px;margin: 0 4px; }
         .header>ul>li>a>.orange{background-color: #ffae4c;}
         .header>ul>li>a>.lan{background-color: #80aeff;}
@@ -82,49 +83,50 @@
     <div class="header">
         <ul>
             <li>
-                <a href="identification1.html">
-                    <div class="Lf lan">1</div>
+                <a href="./identification1.html">
+                    <!-- <div class="Lf orange">1</div> -->
                     企业基本信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf orange">2</div>
+                <a class="active" href="./identification2.html">
+                    <!-- <div class="Lf lan">2</div> -->
                     运营者信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">3</div>
+                <a href="./identification3.html">
+                    <!-- <div class="Lf lan">3</div> -->
                     发票信息
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">4</div>
+                <a href="./identification4.html">
+                    <!-- <div class="Lf lan">4</div> -->
                     出金账户绑定
                 </a>
             </li>
-            <li class="row">
+            <!-- <li class="row">
                 ..................
-            </li>
+            </li> -->
             <li>
-                <a href="javascript:;">
-                    <div class="Lf lan">5</div>
+                <a href="./identification5.html">
+                    <!-- <div class="Lf lan">5</div> -->
                     财务信息
                 </a>
             </li>
         </ul>
     </div>
+    <div><img style="display: block;width: 100%;" src="../img/identification2_hzf.png" alt=""></div>
 
 
     <div class="bottom1">
@@ -623,9 +625,7 @@ $(function () {
         function update_info() {
             $(".weiRenZheng").addClass('xiaoshi');
 
-            $('.header ul li a').each(function (i, ele) {
-                $(this)[0].href = './identification'+(i+1)+'.html';
-            });
+        
 
             //v1.0
             $.ajax({

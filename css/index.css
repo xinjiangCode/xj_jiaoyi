@@ -786,18 +786,18 @@ footer .footerTop1{
 	overflow: hidden;
 }
 footer .footerTop1 .ftphone{
-	width: 315px;
+	width: 250px;
 	margin-left: 15px;
 	/*height: 137px;*/
 }
 
 footer .footer2,.footer3,.footer4,.footer5{
-	margin-left: 67px;
+	margin-left: 71px;
 }
 
-footer .footer2 {
+/* footer .footer2 {
 	margin-left: 30px;
-}
+} */
 
 footer .footerTop1 .ftphoneImg{
 	height: 56px;
