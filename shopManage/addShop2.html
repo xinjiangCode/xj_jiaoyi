@@ -244,9 +244,12 @@
 					<div class="paymentMethod">
 						<span class="required">*</span>
 						<span class="span tit">支付方式：</span>
-						<input type="radio" name="pay" id="xianhui" value="1"/><label for="xianhui" style="margin-right: 40px;">现汇</label>
+						<!-- <input type="radio" name="pay" id="xianhui" value="1"/><label for="xianhui" style="margin-right: 40px;">现汇</label>
 						<input type="radio" name="pay" id="chengdui" value="2"/><label for="chengdui" style="margin-right: 40px;">承兑</label>
-						<input type="radio" name="pay" id="xjiac" value="3"/><label for="xjiac">现汇+承兑</label>
+						<input type="radio" name="pay" id="xjiac" value="3"/><label for="xjiac">现汇+承兑</label> -->
+						<input type="checkbox" name="pay" id="xianhui" value="1"/><label for="xianhui" style="margin-right: 40px;">现汇</label>
+						<input type="checkbox" name="pay" id="chengdui" value="2"/><label for="chengdui" style="margin-right: 40px;">承兑</label>
+						<input type="checkbox" name="pay" id="xjiac" value="3"/><label for="xjiac">现汇+承兑</label>
 					</div>
 					<div>
 						<span class="required">*</span>
@@ -638,6 +641,16 @@
 		
 		// 点击下一步
         $('.nextSub').click(function(){
+        	var obj = $('.paymentMethod input[type="checkbox"]');
+        	var check_val = [];
+        	for (i in obj) {
+        		if (obj[i].checked) {
+        			check_val.push(obj[i].value);
+        		}
+        	}
+        	var checkstr = check_val.join('');
+			// console.log(checkstr);
+
 			infoObj.paymentMethod = $('input[name="pay"]:checked').val();
 			//营销类型 1：主营产品 2：热销产品
 			infoObj.marketingCategory = $('input[name="objType"]:checked').val();
@@ -681,14 +694,19 @@
 			}
 			infoObj.productId = location.search.substring(1).split('=')[1]
 			console.log(infoObj.productId);
+			
+			console.log(infoObj.paymentMethod);
+
 			// 新增商品-发布供应信息
-			toAddShopInfo(infoObj);
+
+			toAddShopInfo(infoObj, checkstr);
         	
 		})
 
 
 		// 新增商品-发布供应信息
-		function toAddShopInfo(infoObj){
+		function toAddShopInfo(infoObj, checkstr){
+			console.log(checkstr);
 			$.ajax({
 	            type:"POST",
 	            headers: {
@@ -708,7 +726,7 @@
 					remain: $('.sum').val(),//剩余数量
 					deliveryType: infoObj.deliveryType,//交割方式 1：包到 2：自提 0：不限
 					deliveryAddress: infoObj.selectAddr,//提货地（仓库位置）
-					paymentMethod: infoObj.paymentMethod,//支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限
+					paymentMethod: checkstr,//支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限
 					state: infoObj.isUp,//发布信息状态1：已提交 2：已发布 3：已完成 4：已关闭 5:后台违规处理
 					note: '',
 					validity:infoObj.validity,//有效期（天）

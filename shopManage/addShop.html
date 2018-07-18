@@ -632,7 +632,32 @@
 	            }
 	        });
 		}
-		// getjiliang();
+
+		$.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"productApi/listSpecNameBySpec",//v1.0
+            cache:false,
+            async:false,
+            dataType: "json",
+            data:{
+            		specId:$('.guige_select option:first-child').attr('data-dbid')
+            },
+            success: function(json){
+                console.log(json);
+                if(json.code == '1'){
+                		var opt = '';
+                		$.each(json.data, function(i,t) {
+                			opt += '<option value="'+t.cateSpecEnumCode+'">'+t.cateSpecEnumName+'</option>';
+                		});
+                		$('#productSpecUnit').html(opt);
+                }
+            }
+        });
+		
 		$('.guige_select').change(function(){
 
 			getjiliang();

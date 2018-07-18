@@ -255,7 +255,7 @@
                 <li class="wj">
                     <div class="left1 Lf ml"><i class="red">*</i>企业认证协议(盖章文件):</div>
                     <div class="right1 Lf" style="position: relative;">
-                        <input type="text" placeholder="将盖好公章的文件上传" id="wenjian_name"><a href="##" style="margin-left: 27px; margin-right: 27px;">模板下载</a>
+                        <input type="text" placeholder="将盖好公章的文件上传" id="wenjian_name"><a href="##"  onclick="down_moban()" style="margin-left: 27px; margin-right: 27px;">模板下载</a>
                         <input type="file" id="wenjian" onchange="upload_file(this);">
                     </div>
                     <div class="ts mml">协议不能为空</div>
@@ -289,6 +289,23 @@
 
 <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript">
+
+//下载协议模板
+function down_moban(){
+    $.ajax({
+        url: pubIP + 'agreement/findAgreementInfo?agreementId=2',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            location.href = data.data.fileUrl;
+           
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
+}
 
 var file_url = null;
 

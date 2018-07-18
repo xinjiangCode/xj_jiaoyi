@@ -257,6 +257,14 @@
 				cursor: pointer; 
 
 			}
+
+			@font-face {
+	            font-family: "YourFont";
+	            src: url('../font/AGENCYR.TTF');
+	        }
+	        .fontStyle{
+	            font-family: "YourFont";
+	        }
 		</style>
 	</head>
 	<body>
@@ -606,10 +614,11 @@
 					$('#popLogin').text('认证');
 					missedLogin() ;
 				}else if(isOld == '-2'){
-					$('#effect .contTitle span').text('您的认证正在审核中');
-					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
-					$('#popLogin').hide();
-					missedLogin() ;
+					// $('#effect .contTitle span').text('您的认证正在审核中');
+					// $('#effect .contTitle i').text('等待审核通过').css('color','#000');
+					// $('#popLogin').hide();
+					// missedLogin() ;
+					window.location.href="../account/account.html";
 				}
 			}else{
 				window.location.href='../account/account.html';
@@ -705,10 +714,10 @@
 						+'<p>交货地: <span class="delivery_address">'+data.data.two.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
 						+'<p id="distanceTime0">'
-							+'<span class="hasColoR bigFt">00</span>天'
-							+'<span class="hasColoR bigFt">23</span>时'
-							+'<span class="hasColoR bigFt">10</span>分'
-							+'<span class="hasColoR bigFt">03</span>秒'
+							+'<span class="hasColoR bigFt fontStyle">00</span>天'
+							+'<span class="hasColoR bigFt fontStyle">23</span>时'
+							+'<span class="hasColoR bigFt fontStyle">10</span>分'
+							+'<span class="hasColoR bigFt fontStyle">03</span>秒'
 						+'</p>';
 							if(data.data.two.remain==0){
                                 str1+='<a href="##" class="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'" style="background-color: #666666;"><button>立即报价</button></a>';
@@ -869,10 +878,10 @@
 				        			+'<p>交货地: <span class="delivery_address1">'+data.data.list[i].warehouse.warehouseProvince+' '+data.data.list[i].warehouse.warehouseCity+' '+data.data.list[i].warehouse.warehouseArea+'</span></p>'
 				        			+'<p style="margin-top: 37px;">剩余时间：</p>'
 				        			+'<p class="p_span" id="distanceTime'+(num+1)+i+'">'
-				        				+'<span class="hasColoR bigFt time_day">00</span>天'
-				        				+'<span class="hasColoR bigFt time_hour">23</span>时'
-				        				+'<span class="hasColoR bigFt time_minute">10</span>分'
-				        				+'<span class="hasColoR bigFt time_seconds">03</span>秒'
+				        				+'<span class="hasColoR bigFt time_day fontStyle">00</span>天'
+				        				+'<span class="hasColoR bigFt time_hour fontStyle">23</span>时'
+				        				+'<span class="hasColoR bigFt time_minute fontStyle">10</span>分'
+				        				+'<span class="hasColoR bigFt time_seconds fontStyle">03</span>秒'
 				        			+'</p>';
                                 if(data.data.list[i].remain==0){
                                     str+='<a href="##" class="button "  ><button style="background-color: #999999;border: #999999;outline: none;">立即报价</button></a>';
@@ -915,7 +924,6 @@
 
 
 			function distanceTime2(id, deadtime) {  
-				// debugger;
                 var endtime1 = new Date(deadtime); //结束时间  
                 var nowtime1 = new Date(); //当前时间  
                 var lefttime1 = parseInt(((endtime1.getTime() - nowtime1.getTime()) / 1000));  
@@ -924,19 +932,19 @@
                 var h1 = parseInt(lefttime1 / (60 * 60) % 24);  
                 var m1 = parseInt((lefttime1 / 60) % 60);  
                 var s1 = lefttime1 % 60; 
-                if (d1 < 0) {
+                if (d1 < 10) {
                 	d1 = '0' + d1;
                 }
 
-                if (h1 < 0) {
+                if (h1 < 10) {
                 	h1 = '0' + h1;
                 }
 
-                if (m1 < 0) {
+                if (m1 < 10) {
                 	m1 = '0' + m1;
                 }
 
-                if (s1 < 0) {
+                if (s1 < 10) {
                 	s1 = '0' + s1;
                 }
 
@@ -944,16 +952,16 @@
                 	return false;
                 }
 
-                document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day">'+d1+'</span>天'
-        				+'<span class="hasColoR bigFt time_hour">'+h1+'</span>时'
-        				+'<span class="hasColoR bigFt time_minute">'+m1+'</span>分'
-        				+'<span class="hasColoR bigFt time_seconds">'+s1+'</span>秒'
+                document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day fontStyle">'+d1+'</span>天'
+        				+'<span class="hasColoR bigFt time_hour fontStyle">'+h1+'</span>时'
+        				+'<span class="hasColoR bigFt time_minute fontStyle">'+m1+'</span>分'
+        				+'<span class="hasColoR bigFt time_seconds fontStyle">'+s1+'</span>秒'
                 	// d + '天' + h + '时' + m + '分' + s + '秒';  
                 if(lefttime1 <= 0) {  
-                    document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day">00</span>天'
-        				+'<span class="hasColoR bigFt time_hour">00</span>时'
-        				+'<span class="hasColoR bigFt time_minute">00</span>分'
-        				+'<span class="hasColoR bigFt time_seconds">00</span>秒';  
+                    document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day fontStyle">00</span>天'
+        				+'<span class="hasColoR bigFt time_hour fontStyle">00</span>时'
+        				+'<span class="hasColoR bigFt time_minute fontStyle">00</span>分'
+        				+'<span class="hasColoR bigFt time_seconds fontStyle">00</span>秒';  
                     clearTimeout(timer1);  
                 }  
                 timer1 = setTimeout("distanceTime2('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  
@@ -973,19 +981,19 @@
                 var h = parseInt(lefttime / (60 * 60) % 24);  
                 var m = parseInt((lefttime / 60) % 60);  
                 var s = lefttime % 60; 
-                if (d < 0) {
+                if (d < 10) {
                 	d = '0' + d;
                 }
 
-                if (h < 0) {
+                if (h < 10) {
                 	h = '0' + h;
                 }
 
-                if (m < 0) {
+                if (m < 10) {
                 	m = '0' + m;
                 }
 
-                if (s < 0) {
+                if (s < 10) {
                 	s = '0' + s;
                 }
 
@@ -993,16 +1001,16 @@
                 	return false;
                 }
 
-                document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day">'+d+'</span>天'
-        				+'<span class="hasColoR bigFt time_hour">'+h+'</span>时'
-        				+'<span class="hasColoR bigFt time_minute">'+m+'</span>分'
-        				+'<span class="hasColoR bigFt time_seconds">'+s+'</span>秒'
+                document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day fontStyle">'+d+'</span>天'
+        				+'<span class="hasColoR bigFt time_hour fontStyle">'+h+'</span>时'
+        				+'<span class="hasColoR bigFt time_minute fontStyle">'+m+'</span>分'
+        				+'<span class="hasColoR bigFt time_seconds fontStyle">'+s+'</span>秒'
                 	// d + '天' + h + '时' + m + '分' + s + '秒';  
                 if(lefttime <= 0) {  
-                    document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day">00</span>天'
-        				+'<span class="hasColoR bigFt time_hour">00</span>时'
-        				+'<span class="hasColoR bigFt time_minute">00</span>分'
-        				+'<span class="hasColoR bigFt time_seconds">00</span>秒';  
+                    document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day fontStyle">00</span>天'
+        				+'<span class="hasColoR bigFt time_hour fontStyle">00</span>时'
+        				+'<span class="hasColoR bigFt time_minute fontStyle">00</span>分'
+        				+'<span class="hasColoR bigFt time_seconds fontStyle">00</span>秒';  
                     clearTimeout(i);  
                 }  
                 i = setTimeout("distanceTime3('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  

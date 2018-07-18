@@ -1,0 +1,504 @@
+body{
+    background-color: #fff;
+}
+.swiperBox{
+    margin-top: -3px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 619px;
+}
+.swiper-container{
+    position: relative;
+    width: 100%;
+    height: 619px;
+}
+.swiper-slide img {  
+    display: block;  
+    width: 100%;
+    height: 100%;
+}
+.swiper-pagination-custom {  
+    position: absolute;
+    bottom: 47px;  
+    left: 50%; 
+    width: 100%;  
+    z-index: 999;
+}
+.swiper-pagination-customs {
+    display: inline-block;
+    width: 40px;
+    height: 3px;
+    background: #bebebe;
+    margin-right: 5px;
+    opacity: 0.8;
+    cursor: pointer;
+    box-sizing: border-box;
+    
+}
+.swiper-pagination-customs-active{
+    background: #016eca;
+}
+.tobuybtn{
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    margin-left: -138px;
+    width:276px;
+    height:74px;
+    background: #048dd9;
+    border-radius:37px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 74px;
+    font-size: 25px;
+    color: #fff;
+    z-index: 999;
+}
+/* 精英介绍 */
+.jingyingBox{
+    height: 322px;
+    width: 100%;
+    background: url('../img/in-jingying.png') no-repeat;
+    box-sizing: border-box;
+    background-position-x: center;
+    background-position-y: 50px;
+}
+.jingyingBox>ul{
+    width: 1050px;
+    margin: 0 auto;
+    padding-top: 45px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.jingyingBox>ul>li{
+    display: inline-block;
+    width: 210px;
+    height: 240px;
+    float: left;
+    text-align: center;
+}
+.jingyingBox>ul>li>img{
+    opacity: 0;
+    display: block;
+    margin: 0 auto;
+    width: 138px;
+    height: 139px;
+}
+.jingyingBox .moneybox{
+    display: inline-block;
+    color: #D49277;
+    font-size: 26px;
+    line-height: 60px;
+    position: relative;
+}
+.jingyingBox .moneybox .moneynum{
+    color: #EF662F;
+    font-size: 41px;
+}
+.jingyingBox .dibutxt{
+    color: #87898E;
+    font-size: 18px;
+    line-height: 35px;
+}
+.jingyingBox .line{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #A09EA0;
+}
+
+/* 我们的优势 */
+.advantage{
+    width: 100%;
+    height: 775px;
+    box-sizing: border-box;
+    background-image: url('../img/in-advantagebg.png');
+    background-size: 100% 120%;
+    padding-top: 80px;
+}
+.advantage>h4{
+    text-align: center;
+    color: #EEF5FF;
+    font-size: 32px;
+    line-height: 45px;
+    
+}
+.advantage>ul{
+    overflow: hidden;
+    width: 1008px;
+    margin: 0 auto;
+}
+.advantage>ul>li{
+    float: left;
+    width: 192px;
+    margin-right: 80px;
+}
+.advantage>ul>li img{
+    width: 143px;
+    height: 165px;
+    display: block;
+    margin: 0 auto;
+}
+.itemTitle{
+    margin-top: 12px;
+    color: #FFF588;
+    font-size: 22px;
+    text-align: center;
+    line-height: 60px;
+}
+.itemInfo{
+    color: #F4FAFE;
+    font-size: 14px;
+    line-height: 24px;
+}
+/* 平台流程 */
+.platFlow{
+    height: 776px;
+    background: url(../img/in-platbg.png) no-repeat center center/120% 100%;
+    box-sizing: border-box;
+    padding-top: 60px;
+}
+.platFlow>h4{
+    color: #164597;
+    font-size: 32px;
+    text-align: center;
+    line-height: 60px;
+}
+.platFlow>ul{
+    width: 1141px;
+    margin: 0 auto;
+}
+.platFlow .listItem{
+    float: left;
+    width: 331px;
+    height: 262px;
+    position: relative;
+}
+.platFlow .numImg{
+    position: absolute;
+    top: -35px;
+    left: 30px;
+}
+.platFlow .imgBox{
+    width: 331px;
+    height: 192px;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 2px 2px 3px #999;
+}
+.platFlow .imgBox>img{
+    width: 100%;
+    height: 192px;
+}
+.platFlow .contTxt{
+    position: absolute;
+    top: 155px;
+    left: 35px;
+    margin-left: 35x;
+    margin-top: -35x;
+    box-sizing: border-box;
+}
+.platFlow .plitemTitle{
+    font-size: 34px;
+    color: #2e2e2e;
+}
+.plitemTitleEnglish{
+    color: #2e2e2e;
+    font-size: 23px;
+}
+.platFlow .transverseLine{
+    display: inline-block;
+    width: 51px;
+    height: 3px;
+    background: #639bfe;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.platFlow .plitemBottom{
+    font-size: 16px;
+    color: #838383;
+}
+
+/* 我们的产品 */
+.ourProduct{
+    height: 775px;
+    background: url(../img/in-productbg.png) no-repeat center center/100% 100%;
+    box-sizing: border-box;
+    padding-top: 70px;
+}
+.ourProduct>h4{
+    color: #fff;
+    font-size: 32px;
+    text-align: center;
+    line-height: 60px;
+}
+.ourProduct ul{
+    overflow: hidden;
+    width: 1185px;
+    margin: 0 auto;
+}
+.ourProduct ul>li{
+    float: left;
+    width:345px;
+    height:360px;
+    position: relative;
+    margin-right: 50px;
+}
+.ourProduct .itemcont{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:345px;
+    height:360px;
+    border-radius:25px;
+}
+.itemcont.front{
+    /* display: none; */
+    /* background: #0a76d0; */
+    text-align: center;
+    /* padding-top: 80px; */
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 18px;
+    line-height: 35px;
+}
+.itemcont.front>div{
+    padding-top: 80px;
+    box-sizing: border-box;
+    background: #0a76d0;
+    width:345px;
+    height:360px;
+    border-radius:25px;
+}
+.front .imgBox{
+    width: 125px;
+    height: 125px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.front-title{
+    font-size: 27px;
+    margin-top: 25px;
+}
+.itemcont.back{
+    overflow: hidden;
+    /* display: none; */
+    /* background: #fff; */
+    font-size: 14px;
+    color: #494848;
+}
+.back>div{
+    background: #fff;
+    width:345px;
+    height:360px;
+    border-radius:25px;
+}
+.back .backTitle{
+    font-size: 18px;
+    font-weight: 600;
+}
+.back .backTitleRight{
+    float: right;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+
+}
+.back .txtbox{
+    padding: 0 18px;
+}
+.back .bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #FC790F;
+    height: 10px;
+    width: 100%;
+}
+.ourProduct ul>li:hover{
+    /* transform: rotateY(-180deg); */
+}
+
+/* 咨询 */
+.case{
+    position: relative;
+    height: 654px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    padding-top: 35px;
+    box-sizing: border-box;
+}
+.case .btnBox{
+    width: 810px;
+    margin: 0 auto;
+    color: #1170C7;
+    font-size: 25px;
+    text-align: center;
+}
+.case .btnBox .btn{
+    display: inline-block;
+    width: 400px;
+    height: 90px;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+.case .btnBox .btnTitleEng{
+    font-size: 32px;
+}
+.case .btnBox .btn.actived{
+    background-color: #F1F1F1;
+    border-radius: 2px;
+}
+.case .caseCont{
+    width: 1182px;
+    height: 470px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: -30px;
+}
+.caseCont>.left{
+    float: left;
+    width: 610px;
+    height: 463px;
+    background-image: url('../img/oap-left.png');
+    background-size: 224px 119px;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+.caseCont>.left>ul{
+    margin-top: 85px;
+}
+.caseCont>.left li{
+    height: 80px;
+}
+.caseCont>.left li .time{
+    float: left;
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    background-image: url('../img/oap-sparid.png');
+    background-size: 5px 45px;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+.caseCont>.left li .time>.date{
+    margin-top: 10px;
+    color: #3a3a3a;
+    font-size: 40px;
+    line-height: 40px;
+}
+.caseCont>.left li .time>.dateYear{
+    color: #3a3a3a;
+    font-size: 14px;
+    line-height: 15px;
+}
+.caseCont>.left li .newsItem{
+    float: left; 
+    margin-left: 18px;
+    width: 490px;
+    height: 80px;
+}
+.caseCont>.left li .newsItem>.title{
+    margin-top: 14px;
+    font-size: 20px;
+    color: #545454;
+}
+.caseCont>.left li .newsItem>p{
+    color: #737373;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.caseCont>.right{
+    float: right;
+    width: 540px;
+    height: 375px;
+    background-image: url('../img/oap-casephoto.png');
+    background-size:100% 100%;
+    margin-top: 88px;
+}
+.caseCont>.right>img{
+    float: right;
+    margin-top: 28px;
+    margin-right: 25px;
+}
+/* 分析报告图 */
+.dataAnalysis{
+    height: 121px;
+    background: url(../img/in-dataploy.png) no-repeat center center/cover;
+}
+
+
+@-webkit-keyframes flipOutYtest {
+    from {
+      -webkit-transform: perspective(1400px);
+      transform: perspective(1400px);
+    }
+  
+    40% {
+      -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, 60deg);
+      transform: perspective(1400px) rotate3d(0, 1, 0, 60deg);
+      opacity: 1;
+    }
+  
+    50% {
+      -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, 90deg);
+      transform: perspective(1400px) rotate3d(0, 1, 0, 90deg);
+      opacity: 0;
+    }
+  
+    to {
+      -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, 180deg);
+      transform: perspective(1400px) rotate3d(0, 1, 0, 180deg);
+      opacity: 0;
+    }
+  }
+  
+  .test{
+    -webkit-animation: flipOutYtest 0.75s linear;
+    animation: flipOutYtest 0.75s linear;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  
+  @-webkit-keyframes flipInYtest {
+    from {
+      -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, -180deg);
+      transform: perspective(1400px) rotate3d(0, 1, 0, -180deg);
+      opacity: 0;
+    }
+  
+    50% {
+      -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, -90deg);
+      transform: perspective(1400px) rotate3d(0, 1, 0, -90deg);
+      opacity: 0;
+    }
+  
+    60% {
+      -webkit-transform: perspective(1400px) rotate3d(0, 1, 0, -60deg);
+      transform: perspective(1400px) rotate3d(0, 1, 0, -60deg);
+      opacity: 1;
+    }
+  
+    to {
+      -webkit-transform: perspective(1400px);
+      transform: perspective(1400px);
+      opacity: 1;
+    }
+  }
+  
+  .test2{
+    -webkit-animation: flipInYtest 0.75s linear;
+    animation: flipInYtest 0.75s linear;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
