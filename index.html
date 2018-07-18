@@ -272,6 +272,14 @@
 				background: url(img/cf_close1.png ) no-repeat center;
 			} */
 
+			@font-face {
+	            font-family: "YourFont";
+	            src: url('font/AGENCYR.TTF');
+	        }
+	        .fontStyle{
+	            font-family: "YourFont";
+	        }
+
 
 		</style>
 	</head>
@@ -1316,10 +1324,10 @@
 									+'<a href="javascript:;" class="liji_baojia" data-baojiaid_id="'+data.data[i].buyingId+'"><button>立即报价</button></a>'
 									+'<p class="lastTimetxt">剩余时间 ：</p>'
 									+'<p class="lasrTimeNum" id="distanceTime'+i+'">'
-										+'<span>00</span>天'
-										+'<span>24</span>时'
-										+'<span>09</span>分'
-										+'<span>56</span>秒'
+										+'<span class="fontStyle">00</span>天'
+										+'<span class="fontStyle">24</span>时'
+										+'<span class="fontStyle">09</span>分'
+										+'<span class="fontStyle">56</span>秒'
 									+'</p>'
 								+'</div>'
 							+'</div>';
@@ -1361,19 +1369,19 @@
                 var h = parseInt(lefttime / (60 * 60) % 24);  
                 var m = parseInt((lefttime / 60) % 60);  
                 var s = lefttime % 60; 
-                if (d < 0) {
+                if (d < 10) {
                 	d = '0' + d;
                 }
 
-                if (h < 0) {
+                if (h < 10) {
                 	h = '0' + h;
                 }
 
-                if (m < 0) {
+                if (m < 10) {
                 	m = '0' + m;
                 }
 
-                if (s < 0) {
+                if (s < 10) {
                 	s = '0' + s;
                 }
 
@@ -1381,16 +1389,16 @@
                 	return false;
                 }
 
-                document.getElementById(id).innerHTML = '<span>'+d+'</span>天'
-        				+'<span>'+h+'</span>时'
-        				+'<span>'+m+'</span>分'
-        				+'<span>'+s+'</span>秒'
+                document.getElementById(id).innerHTML = '<span class="fontStyle">'+d+'</span>天'
+        				+'<span class="fontStyle">'+h+'</span>时'
+        				+'<span class="fontStyle">'+m+'</span>分'
+        				+'<span class="fontStyle">'+s+'</span>秒'
                 	// d + '天' + h + '时' + m + '分' + s + '秒';  
                 if(lefttime <= 0) {  
-                    document.getElementById(id).innerHTML = '<span>00</span>天'
-        				+'<span>00</span>时'
-        				+'<span>00</span>分'
-        				+'<span>00</span>秒';  
+                    document.getElementById(id).innerHTML = '<span class="fontStyle">00</span>天'
+        				+'<span class="fontStyle">00</span>时'
+        				+'<span class="fontStyle">00</span>分'
+        				+'<span class="fontStyle">00</span>秒';  
                     clearTimeout(timer);  
                 }  
                 timer = setTimeout("distanceTime2('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  

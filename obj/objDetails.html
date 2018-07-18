@@ -822,7 +822,9 @@
 						</p>
 						<p style="color: #282828;margin-bottom: 5px;">企业认证 <img src="../img/qiIcon.png" style="margin-left: 8px;" /></p>
 						<p style="color: #282828;margin-bottom: 11px;">危险化学品认证 <img src="../img/weiIcon.png" style="margin-left: 8px;" /></p>
-						<p style="margin-bottom: 12px;color: #282828;">联系方式：<span style="color: #5590F6;"><%=contact%></span></p>
+						
+						<p style="margin-bottom: 12px;color: #282828; display: none;" class="lianxifangshi">联系方式：<span style="color: #5590F6;"><%=contact%></span></p>
+						
 						<p style="margin-bottom: 15px;padding-right: 17px;line-height: 24px;color: #282828;">所在地区：
 							<%=companyAddress2%>
 						</p>
@@ -1324,7 +1326,7 @@
 						//发布者公司标识
 						var thisCompanyId = goodsinfoObj.productDetail.publishCompanyId;
 						// 获取店铺信息
-						getshopInfo(goodsinfoObj.productDetail.publishCompanyId);
+						getshopInfo(goodsinfoObj.productDetail.publishCompanyId, goodsinfoObj.productDetail.isPublic);
 						var chemical = response.data.chemical;
 						var productDetail = response.data.productDetail;
 						var minAmount = productDetail.minAmount; //最小购买量
@@ -1343,8 +1345,6 @@
 						
 						// var arr = response.data.productDetail.productPic.split(','); 
 						// console.log(arr);
-
-
 						
 						var headGoodsImgsTpl = template('headGoodsImgsTpl', response.data.productDetail);
 						$('.headGoodsImgsBox').html(headGoodsImgsTpl);
@@ -1389,6 +1389,9 @@
 							
 							
 						}
+
+						
+						
 						// 化学品危险提示
 						
 							// if (response.data.productDetail.productCate == 1) {
@@ -1774,7 +1777,7 @@
 			// 获取店铺信息
 			var storeId = null;
 
-			function getshopInfo(companyId_this) {
+			function getshopInfo(companyId_this, isPublic) {
 				$.ajax({
 					type: "post",
 					url: pubIP + "store/getStoreInfoByCompanyId", //v1.0
@@ -1797,6 +1800,11 @@
 							var shopInfoHtml = template('shopInfoTpl', msgObj);
 							$('.shopinfoBox').html(shopInfoHtml);
 							$('.sellerRtLogo').attr('cmpid', companyId_this);
+							
+							if (isPublic == 0) {
+								$('.lianxifangshi').css('display','block');
+							}
+							
 							// 获取店铺关注信息
 							$.ajax({
 								type: "post",

@@ -159,7 +159,7 @@
 			.fr {
 				float: right;
 			}
-			.modelBox4{
+			.modelBox4,.modelBox5{
 				z-index: 9999;
 			    display: none;
 			    position: fixed;
@@ -320,7 +320,7 @@
 						<option value=""></option>
 					</select> -->
 				</div>
-				<div>
+				<div style="line-height: 40px;">
 					<span class="fl" style="margin-right: 5px;"><span>*</span>选择商品：</span>
 					<!-- <select name="" class="inp">
 						<option value=""></option>
@@ -334,6 +334,7 @@
 				            <li data-index="3">30</li> -->
 				        </ul>
 				    </div>
+					<span onclick="goAddGoods()" style="color: #00a0e9;width: 76px;">新增产品</span>
 				</div>
 				<div>
 					<span><span>*</span>联系电话：</span>
@@ -363,6 +364,23 @@
 		            </div>
 		        </div>
 		    </div>
+		</div>
+		<div class="modelBox5" >
+			<div class="modelCont">
+				<div class="modeltitle">
+					<span>消息提示</span>
+					<img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+				</div>
+				<div class="modelcontent">
+					<div class="info">
+						<div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+						<p>化学品或者纯度不符合！</p>
+					</div>
+					<div class="modelBtnBox">
+						<div style="background:#5690f6;" class="modelbtn cancel">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
@@ -505,7 +523,7 @@
 					$('.modelBox4').show();
 					return false;
 				}
-				
+
 				if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#phone').val()))) {
 	                $('.modelcontent p').text('手机号格式不正确');
 					$('.modelBox4').show();
@@ -698,6 +716,7 @@
 	                	} else {
 
 	                		$(_that).parent().css('display','block');
+                            $(".modelBox5").css('display','block');
 	                	}
 
 	                },
@@ -710,6 +729,16 @@
 			});
 			$('.confirm').on('click',function(){
                 window.history.back(-1);
+            })
+			function goAddGoods() {
+                sessionStorage.setItem('hzf_showPage',"hzf_fbsp");
+				window.location.href="../account/account.html"
+            }
+            $("img.close").click(function () {
+				$(this).parents(".modelCont").parent().css("display","none")
+            })
+			$(".modelBox5 .cancel").click(function () {
+                $(this).parents(".modelCont").parent().css("display","none")
             })
 		</script>
 	</body>
