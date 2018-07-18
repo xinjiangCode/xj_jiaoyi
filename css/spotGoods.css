@@ -38,7 +38,7 @@
 	line-height: 28px;
 	overflow: hidden;
 	position: relative;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 }
 .supplierBox>div img{
 	position: absolute;
@@ -99,7 +99,7 @@
 	height: 244px;
 	padding-right: 4px;
 	overflow: hidden;
-	padding-bottom: 5px;
+	padding-bottom: 4px;
 }
 .wcCtObjBox>div>div{
 	width: 100%;
@@ -118,7 +118,7 @@
 	padding-top: 0;
 	padding-left: 5px;
 	margin-right: 9px;
-	margin-bottom: 9px;
+	margin-bottom: 2px;
 	transition:all 0.3s;
 	-webkit-transition:all 0.3s;
 	-ms-transition:all 0.3s;

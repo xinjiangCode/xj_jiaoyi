@@ -130,7 +130,7 @@ a{
 	background-color: #6a9ef7;
 }
 .mainCenterRegist{
-	width: 625px;
+	width: 695px;
 	margin:0 auto;
 	height: 553px;
 	background-color: #fcfcfc;
@@ -141,7 +141,7 @@ a{
 	overflow: hidden;
 }
 .mainCenterRegistTitle>.title{
-	margin-left: 258px;
+	margin-left: 325px;
 }
 .login{
 	margin-top: 5px;
@@ -158,7 +158,7 @@ a{
 }
 .reg-box>li>span{
 	display: inline-block;
-	width: 120px;
+	width: 190px;
 	height: 36px;
 	line-height: 36px;
 	text-align: right;
@@ -172,7 +172,7 @@ a{
 	text-indent: 10px;
 }
 .reg-box>li>.box{
-	margin-left: 95px;
+	margin-left: 205px;
 	width: 14px;
 	height: 14px;
 	vertical-align: text-bottom;
@@ -233,9 +233,9 @@ a{
 .sub{
 	display: block;
 	width: 64px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
 	text-align: center;
 	padding: 10px 70px;
 	color: #3582F8;

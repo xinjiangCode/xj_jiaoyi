@@ -780,8 +780,8 @@ footer{
 	overflow: hidden;
 }
 footer .footerTop1{
-	height: 57px;
-	padding: 40px 0;
+	/* height: 57px; */
+	padding: 20px 0;
 	border-bottom: 1px  solid #e2e2e2;
 	overflow: hidden;
 }

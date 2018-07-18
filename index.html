@@ -1321,7 +1321,7 @@
 								+'<h3>'+data.data[i].chemicalName+'</h3>'
 								+'<p>数量 : <span class="mr24">'+data.data[i].remain+' 吨</span>交货地 : '+data.data[i].deliveryJson.warehouseProvince+' <span class="bjNum">已有<span>'+data.data[i].allQuoteNumber+'</span>家报价</span></p>'
 								+'<div>'
-									+'<a href="javascript:;" class="liji_baojia" data-baojiaid_id="'+data.data[i].buyingId+'"><button>立即报价</button></a>'
+									+'<a href="javascript:;" class="liji_baojia" data-mycompanyId="'+data.data[i].companyId+'" data-baojiaid_id="'+data.data[i].buyingId+'"><button>立即报价</button></a>'
 									+'<p class="lastTimetxt">剩余时间 ：</p>'
 									+'<p class="lasrTimeNum" id="distanceTime'+i+'">'
 										+'<span class="fontStyle">00</span>天'
@@ -1354,7 +1354,10 @@
 
 			//立即报价
 			$(document).on('click', '.liji_baojia', function () {
-
+				var shopCompanyId = $(this).attr("data-mycompanyId");
+				if(companyId == shopCompanyId){
+					alert("您不能对自己公司商品进行报价");
+				}
 				window.localStorage.setItem('baojiaid', $(this).attr('data-baojiaid_id'));
 
 				$(this).attr('href', 'freeSearch/offer.html');

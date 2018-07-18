@@ -483,7 +483,7 @@
 
 			.objDIfInner a {
 				margin-bottom: 24px;
-				margin-top: 16px;
+				margin-top: 24px;
 			}
 
 			.objInvoice {
@@ -1525,10 +1525,10 @@
 								payTypeVal = '现汇+承兑';
 							}
 
-							// if(thisCompanyId==companyId){
-							// 	alert("您不能询盘本公司商品！");
-							// 	return;
-							// }
+							if(thisCompanyId==companyId){
+								alert("您不能询盘自己公司商品！");
+								return;
+							}
 							var isOld = localStorage.getItem('isOld');
 							if(isOld != '2') {
 								return;

@@ -21,11 +21,11 @@ body{
 	width: 254px;
 	margin-left: 10px;
 	font-size: 14px;
-	margin-top: -26px;
+	/* margin-top: -26px; */
 }
 .sellerRt>div{
 	border: 1px #ebe9ea solid;
-	margin-bottom: 4px;
+	margin-bottom: 8px;
 }
 .sellerRt p{
 	padding-left: 19px;
@@ -132,7 +132,7 @@ body{
 	margin-left: 41px;
 }
 .objDgg{
-	margin-bottom: 28px;
+	margin-bottom: 25px;
 	padding-left: 4px;
 }
 .objDgg span{
@@ -228,7 +228,7 @@ body{
 	margin-right: 25px;
 	box-sizing: border-box;
 	padding-top: 22px;
-	margin-top: 12px;
+	margin-top: 16px;
 	font-size: 14px;
 }
 .objDtsTit{
@@ -238,6 +238,7 @@ body{
 }
 .objBorder>div{
 	border: 1px #ebe9ea solid;
+	box-sizing: border-box;
 }
 .objEditorDtls .infoBox{
 	width: 930px;

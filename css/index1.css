@@ -117,7 +117,7 @@ body{
     box-sizing: border-box;
     background-image: url('../img/in-advantagebg.png');
     background-size: 100% 120%;
-    padding-top: 80px;
+    padding-top: 70px;
 }
 .advantage>h4{
     text-align: center;
@@ -165,11 +165,12 @@ body{
     color: #164597;
     font-size: 32px;
     text-align: center;
-    line-height: 60px;
+    line-height: 45px;
 }
 .platFlow>ul{
     width: 1141px;
     margin: 0 auto;
+    margin-top: 55px;
 }
 .platFlow .listItem{
     float: left;
@@ -233,7 +234,7 @@ body{
     color: #fff;
     font-size: 32px;
     text-align: center;
-    line-height: 60px;
+    line-height: 45px;
 }
 .ourProduct ul{
     overflow: hidden;

@@ -3,56 +3,56 @@ var adct = document.getElementsByTagName('title')[0].getAttribute('adct');
 
 document.writeln("<footer>\n" +
     "    <div class=\"footerTop1\">\n" +
-    "        <div class=\"mianCont\">\n" +
-    "            <div class=\"Lf ftphone\">\n" +
-    "                <div class=\"Lf ftphoneImg ftImg1\">\n" +
-    "                    <!--<img src=\"img/footer1.png\" alt=\"\">-->\n" +
-    "                </div>\n" +
-    "                <div class=\"Lf ftphoneText\">\n" +
-    "                    <div style=\"height: 28px;line-height: 28px;font-size: 27px;font-weight: 600;color: #FF7C3E;\">4000-012-556</div>\n" +
-    "                    <div style=\"height: 28px;line-height: 28px;font-size: 16px;\"><span style=\"font-size: 14px;\">工作日 :</span>10:00am-19:00pm</div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "\n" +
-    "            <div class=\"Lf footer2\">\n" +
-    "                <div class=\"Lf ftImg ftImg2\" style=\"width: 56px;\">\n" +
-    "                    <!--<img src=\"img/footer2.png\" alt=\"\">-->\n" +
-    "                </div>\n" +
-    "                <div class=\"Lf ftText\">\n" +
-    "                    <div style=\"font-size: 18px;font-weight: bold;color: #333;\">在线客服</div>\n" +
-    "                    <div style=\"font-size: 14px;\">立即咨询</div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "\n" +
-    "            <div class=\"Lf footer3\" >\n" +
-    "                <div class=\"Lf ftImg ftImg3\" style=\"width: 40px;\">\n" +
-    "                    <!--<img src=\"img/footer3.png\" alt=\"\">-->\n" +
-    "                </div>\n" +
-    "                <div class=\"Lf ftText\">\n" +
-    "                    <div style=\"font-size: 18px;font-weight: bold;color: #333;\">邮件客服</div>\n" +
-    "                    <div style=\"font-size: 14px;\">xjv56@163.com</div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "\n" +
-    "            <div class=\"Lf footer4\" >\n" +
-    "                <div class=\"Lf ftImg ftImg4\" style=\"width: 56px;\">\n" +
-    "                    <!--<img src=\"img/footer4.png\" alt=\"\">-->\n" +
-    "                </div>\n" +
-    "                <div class=\"Lf ftText\">\n" +
-    "                    <div style=\"font-size: 18px;font-weight: bold;color: #333;\">微信订阅号</div>\n" +
-    "                    <div style=\"font-size: 14px;\">扫码关注我们</div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
-    "\n" +
-    "            <div class=\"Lf footer5\" >\n" +
-    "                <div class=\"Lf ftImg ftImg5\" style=\"width: 56px;\">\n" +
-    "                    <!--<img src=\"img/footer5.png\" alt=\"\">-->\n" +
-    "                </div>\n" +
-    "                <div class=\"Lf ftText\">\n" +
-    "                    <div style=\"font-size: 18px;font-weight: bold;color: #333;\">微信服务号</div>\n" +
-    "                    <div style=\"font-size: 14px;\">扫码关注我们</div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
+    "        <div class=\"mianCont\" style=\"width: 1230px;height: 90px;background: url(../img/footers_hzf.png) 0 0 no-repeat\">\n" +
+    // "            <div class=\"Lf ftphone\">\n" +
+    // "                <div class=\"Lf ftphoneImg ftImg1\">\n" +
+    // "                    <!--<img src=\"img/footer1.png\" alt=\"\">-->\n" +
+    // "                </div>\n" +
+    // "                <div class=\"Lf ftphoneText\" style=\"width: 193px;height: 56px;background: url(../img/lft_phone.png) 0 0 no-repeat;background-size: 100% 100%;\">\n" +
+    // // "                    <div style=\"height: 28px;line-height: 28px;font-size: 27px;font-weight: 600;color: #FF7C3E;\">4000-012-556</div>\n" +
+    // // "                    <div style=\"height: 28px;line-height: 28px;font-size: 16px;\"><span style=\"font-size: 14px;\">工作日:</span>10:00am - 19:00pm</div>\n" +
+    // "                </div>\n" +
+    // "            </div>\n" +
+    // "\n" +
+    // "            <div class=\"Lf footer2\">\n" +
+    // "                <div class=\"Lf ftImg ftImg2\" style=\"width: 56px;\">\n" +
+    // "                    <!--<img src=\"img/footer2.png\" alt=\"\">-->\n" +
+    // "                </div>\n" +
+    // "                <div class=\"Lf ftText\">\n" +
+    // "                    <div style=\"font-size: 18px;font-weight: bold;color: #333;\">在线客服</div>\n" +
+    // "                    <div style=\"font-size: 14px;\">立即咨询</div>\n" +
+    // "                </div>\n" +
+    // "            </div>\n" +
+    // "\n" +
+    // "            <div class=\"Lf footer3\" >\n" +
+    // "                <div class=\"Lf ftImg ftImg3\" style=\"width: 40px;\">\n" +
+    // "                    <!--<img src=\"img/footer3.png\" alt=\"\">-->\n" +
+    // "                </div>\n" +
+    // "                <div class=\"Lf ftText\">\n" +
+    // "                    <div style=\"font-size: 18px;font-weight: bold;color: #333;\">邮件客服</div>\n" +
+    // "                    <div style=\"font-size: 14px;\">xjv56@163.com</div>\n" +
+    // "                </div>\n" +
+    // "            </div>\n" +
+    // "\n" +
+    // "            <div class=\"Lf footer4\" >\n" +
+    // "                <div class=\"Lf ftImg ftImg4\" style=\"width: 77px;\">\n" +
+    // "                    <!--<img src=\"img/footer4.png\" alt=\"\">-->\n" +
+    // "                </div>\n" +
+    // "                <div class=\"Lf ftText\">\n" +
+    // "                    <div style=\"font-size: 18px;font-weight: bold;color: #333;\">微信订阅号</div>\n" +
+    // "                    <div style=\"font-size: 14px;\">扫码关注我们</div>\n" +
+    // "                </div>\n" +
+    // "            </div>\n" +
+    // "\n" +
+    // "            <div class=\"Lf footer5\" >\n" +
+    // "                <div class=\"Lf ftImg ftImg5\" style=\"width: 77px;\">\n" +
+    // "                    <!--<img src=\"img/footer5.png\" alt=\"\">-->\n" +
+    // "                </div>\n" +
+    // "                <div class=\"Lf ftText\">\n" +
+    // "                    <div style=\"font-size: 18px;font-weight: bold;color: #333;\">微信服务号</div>\n" +
+    // "                    <div style=\"font-size: 14px;\">扫码关注我们</div>\n" +
+    // "                </div>\n" +
+    // "            </div>\n" +
     "        </div>\n" +
     "\n" +
     "    </div>\n" +
