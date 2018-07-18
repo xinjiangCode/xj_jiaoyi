@@ -126,7 +126,7 @@
                             <!--<select class="input" name="address" id="address">-->
                                 <!--<option value="address1">甘泉堡仓库</option>-->
                             <!--</select>-->
-                            <span class="blue btn" style="position: absolute;left: 460px;top: 11px;"><i class="mi">+</i>新增收仓库</span>
+                            <span class="blue btn" style="position: absolute;left: 460px;top: 11px;" onclick="cangkuAddressEdit()"><i class="mi">+</i>新增收仓库</span>
                             <span class="err"></span>
                         </div>
                       
@@ -202,7 +202,7 @@
 
                                 <!--<input class="input" id="namePhone" name="name_tel" type="text" value="张三 130 1234 1234">-->
                                 <!--<input class="input" id="addre" name="add" type="text" value="新疆乌鲁木齐高新区 xxxx">-->
-                            <span class="blue fl btn ml" style="margin-top: 8px;"><i class="mi"></i>修改收票地址</span>
+                            <span class="blue fl btn ml" style="margin-top: 8px;" onclick="shouhuoAddressEdit()"><i class="mi"></i>修改收票地址</span>
                             <span class="err"></span>
                             </div>
 
@@ -281,7 +281,15 @@
     <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
     <script>
+        // 收货地址
+        function shouhuoAddressEdit() {
+           window.parent.shouhuoAddressEdit();
+        }
+        //cangku
+        function cangkuAddressEdit() {
+            window.parent.cangkuAddressEdit();
 
+        }
 
 
         var addressId="-1";

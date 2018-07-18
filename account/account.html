@@ -41,7 +41,7 @@
         .pop>.cont>.forget2{text-align: right;margin-right: 100px;margin-top: 10px;}
         .pop>.cont>.forget2>a{color: #007aff;}
         .pop>.cont>.popBottom{margin-left: 90px;margin-top: 35px;}
-        .pop>.cont>.popBottom>.btn{margin-left: 58px;width: 137px;height: 39px;line-height: 39px;background-color: #007aff;border: 1px solid #007aff;color: white;text-align: center;border-radius: 5px;}
+        .pop>.cont>.popBottom>.btn{opacity: 1; margin-left: 58px;width: 137px;height: 39px;line-height: 39px;background-color: #007aff;border: 1px solid #007aff;color: white;text-align: center;border-radius: 5px;}
 
         .pop>.cont>.popBottom>.popReset{color:#ff7524;border: 1px solid #ff7524;background-color: white;}
         .pop>.cont>.popBottom>.popReset:hover{color:#ffffff;border: 1px solid #ff7524;background-color: #ff7524;}
@@ -210,7 +210,7 @@
             margin-top: -138px;*/
         }
 
-        .pop>.cont>.cancel {
+        .pop>.cont>.cancel{
             width: 100%;
             height: 50px;
             background-image: url(../img/gsxq.gif);
@@ -550,7 +550,7 @@
             background: #3582F8;
             color: #fff;
         }
-
+.selectPub ul,.selectPub ul li {width: 100%;}
 
 
     </style>
@@ -789,7 +789,7 @@
         <div style="width: 650px; height: 35px;line-height: 35px;color: #fb6047;background-color: #fff7e9;font-size: 14px;margin: auto;text-align: center;margin-bottom: 20px;">提示：若手机丢失或者损坏，则不能直接更换手机，请联系客服400-0012-556（10:00～19:00）</div>
         <div>
             <div class="leftTitle Lf"> <!--<i class="red">*</i>-->
-                <span>您当前手机号</span>
+                <span style="font-size: 14px;">您当前手机号</span>
             </div>
             <div class="popInput Lf">
                 <input type="text" id="oldPhone" maxlength="11" placeholder="" onkeyup="this.value=chaneseCheck(this.value)" disabled="disabled">
@@ -798,11 +798,11 @@
         </div>
         <div>
             <div class="leftTitle Lf"> <!--<i class="red">*</i>-->
-                <span>手机验证码</span>
+                <span style="font-size: 14px;">手机验证码</span>
             </div>
             <div class="popInput Lf">
                 <input id="newPhone" type="text"  maxlength="20" placeholder="" onkeyup="this.value=chaneseCheck(this.value)" style="width: 50%;">
-                <button style="outline:none;border:none;padding: 6px 15px;background-color: #00ABEB;color: #fff;border-radius: 15px;font-size: 16px;cursor: pointer;margin-left: 15px;min-width: 142px;" the-id='getCode'>获取手机验证码</button>
+                <button style="outline:none;border:none;padding: 6px 15px;background-color: #00ABEB;color: #fff;border-radius: 15px;font-size: 14px;cursor: pointer;margin-left: 5px;min-width: 142px;" the-id='getCode'>获取手机验证码</button>
             </div>
         </div>
         <!--<div>
@@ -816,7 +816,7 @@
 
         <!--<div class="forget2"><a href="##">忘记密码?</a></div>-->
         <div class="popBottom">
-            <div class="btn Lf popCancel theNext" onclick="show1('#updataNewPhone')">下一步</div>
+            <div class="btn Lf popCancel theNext" onclick="show1('#updataNewPhone')" style="font-size: 15px;">下一步</div>
             <!--<div class="btn Lf popReset" onclick="reset(this)">重置</div>
             <div class="btn Lf popSure" id="updataPhoneSub">确定</div>-->
         </div>
@@ -877,7 +877,7 @@
         
             <div style="margin-bottom: 20px;">
                 <div class="leftTitle Lf"> <i class="red">*</i>
-                    <span>您的密码：</span>
+                    <span style="font-size: 14px;">您的密码：</span>
                 </div>
                 <div class="popInput Lf">
                     <input type="password" id="oldPwd" maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
@@ -885,7 +885,7 @@
             </div>
             <div style="margin-bottom: 20px;">
                 <div class="leftTitle Lf"> <i class="red">*</i>
-                    <span>新密码：</span>
+                    <span style="font-size: 14px;">新密码：</span>
                 </div>
                 <div class="popInput Lf">
                     <input id="newPwd1" type="password"  maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
@@ -893,17 +893,17 @@
             </div>
             <div style="margin-bottom: 20px;">
                 <div class="leftTitle Lf"> <i class="red">*</i>
-                    <span>确认密码：</span>
+                    <span style="font-size: 14px;">确认密码：</span>
                 </div>
                 <div class="popInput Lf">
                     <input id="newPwd2" type="password" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)">
                 </div>
             </div>
-            <div class="forget2"><a href="../login/findPass.html">忘记密码?</a></div>
+            <div class="forget2"><a href="../login/findPass.html" style="font-size: 14px;">忘记密码?</a></div>
             <div class="popBottom">
                 <!--<div class="btn Lf popCancel close" onclick="close1()">取消</div>-->
-                <div class="btn Lf popReset" onclick="reset(this)">重置</div>
-                <div class="btn Lf popSure" id="updataPwdSub">确定</div>
+                <div class="btn Lf popReset" onclick="reset(this)" style="font-size: 15px;">重置</div>
+                <div class="btn Lf popSure" id="updataPwdSub" style="font-size: 15px;">确定</div>
             </div>
         
     </div>
@@ -918,7 +918,7 @@
         </div>
         <div style="margin-bottom: 20px;">
             <div class="leftTitle Lf"> <i class="red">*</i>
-                <span>原支付密码：</span>
+                <span style="font-size: 14px;">原支付密码：</span>
             </div>
             <div class="popInput Lf">
                 <input type="password" id="oldPayPwd" maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
@@ -926,7 +926,7 @@
         </div>
         <div style="margin-bottom: 20px;">
             <div class="leftTitle Lf"> <i class="red">*</i>
-                <span>新密码：</span>
+                <span style="font-size: 14px;">新密码：</span>
             </div>
             <div class="popInput Lf">
                 <input id="newPayPwd1" type="password"  maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)">
@@ -934,17 +934,17 @@
         </div>
         <div style="margin-bottom: 20px;">
             <div class="leftTitle Lf"> <i class="red">*</i>
-                <span>确认密码：</span>
+                <span style="font-size: 14px;">确认密码：</span>
             </div>
             <div class="popInput Lf">
                 <input id="newPayPwd2" type="password" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)">
             </div>
         </div>
 
-        <div class="forget2"><a href="../payPass.html">忘记密码?</a></div>
+        <div class="forget2" style="font-size: 14px;"><a href="../payPass.html">忘记密码?</a></div>
         <div class="popBottom">
-            <div class="btn Lf popCancel close" onclick="close1(this)">取消</div>
-            <div class="btn Lf popSure" id="updataPayPwdSub">确定</div>
+            <div class="btn Lf popCancel close" onclick="close1(this)" style="font-size: 15px;">取消</div>
+            <div class="btn Lf popSure" id="updataPayPwdSub" style="font-size: 15px;">确定</div>
         </div>
     </div>
 </div>
@@ -1409,7 +1409,7 @@
 </div>
 
 <!-- 该地址添加成功 -->
-<div class="modelBox24">
+<div class="modelBox24" style="z-index: 99999;">
     <div class="modelCont">
         <div class="modeltitle">
             <span>消息提示</span>
@@ -1429,7 +1429,7 @@
 </div>
 
 <!-- 确定要删除该地址吗 -->
-<div class="modelBox25">
+<div class="modelBox25" style="z-index: 99999;">
     <div class="modelCont">
         <div class="modeltitle">
             <span>消息提示</span>
@@ -1450,7 +1450,7 @@
 </div>
 
 <!-- 删除成功 -->
-<div class="modelBox26">
+<div class="modelBox26" style="z-index: 99999">
     <div class="modelCont">
         <div class="modeltitle">
             <span>消息提示</span>
@@ -1470,7 +1470,7 @@
 </div>
 
 <!-- 地址修改成功 -->
-<div class="modelBox27">
+<div class="modelBox27" style="z-index: 99999">
     <div class="modelCont">
         <div class="modeltitle">
             <span>消息提示</span>
@@ -1553,7 +1553,7 @@
 </div>
 
 <!-- 新增收仓库 -->
-<div class="modelBox31" style="display: block;">
+<div class="modelBox31" >
     <div class="modelCont" style="width: 1000px;">
         <div class="modeltitle"  style="width: 1000px;">
             <span>新增收仓库</span>
@@ -1572,7 +1572,7 @@
                     <li class="clearfix" style="line-height: 37px;">
                         <div class="fl">
                             <label class="ml" for=""><span class="required">*</span>仓库类型：</label>
-                            <div class="selectPub cangku_type" id="type" data-selectedindex="1">
+                            <div class="selectPub cangku_type" id="type" data-selectedindex="1" style="width: 353px;">
                                 <span>园区库</span>
                                 <img src="../img/prl-select.jpg" alt="">
                                 <ul>
@@ -1638,34 +1638,105 @@
                     <th>操作</th>
                     <th>状态</th>
                     </thead>
-                    <tbody id="templateInfo">
+                    <tbody id="templateInfo1">
 
                     </tbody>
                 </table>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm suershouhuo">确定</div>
-                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
+                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm suershouhuo" id="cangkuAddressSure">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi" id="cangkuAddressCancel">返回</div>
+
             </div>
         </div>
     </div>
 </div>
 <!-- 修改收票地址 -->
 <div class="modelBox32">
-    <div class="modelCont">
-        <div class="modeltitle">
-            <span>消息提示</span>
+    <div class="modelCont" style="width: 1000px;">
+        <div class="modeltitle" style="width: 1000px;">
+            <span>修改收票地址</span>
             <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
         </div>
-        <div class="modelcontent">
-            <div class="info">
-                <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/cf_denger1.png" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
-                margin-left: 10px; display: inline-block;">您要确认收货吗？</span></span></div>
-                <p></p>
+        <div class="modelcontent" style="width: 1000px;">
+            <div class="add_address outer" style="margin-top: 0">
+                <ul>
+                    <li class="clearfix">
+                        <div class="fl">
+                            <label class="ml" for="">收货人：</label>
+                            <input type="text" class="shouhuo_person" id="name1" placeholder="请输入收货人姓名" style="border: 1px solid #d3d3d3;">
+                        </div>
+                        <span class="tishi fl"></span>
+                    </li>
+                    <li class="clearfix">
+                        <div class="fl" style="line-height: 37px;">
+                            <label for="" style="float: left;">所在地区：</label>
+                            <div class="selectPub provice" id="province1" data-selectedindex="-1" style="float: left;width: 169px;margin-left: 5px;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择省</span>
+                                <img src="../img/prl-select.jpg" alt="">
+                                <ul>
+
+                                </ul>
+                            </div>
+                            <div class="selectPub city" id="city1" data-selectedindex="-1" style="float: left;width: 169px;">
+                                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择市区</span>
+                                <img src="../img/prl-select.jpg" alt="">
+                                <ul>
+
+                                </ul>
+                            </div>
+
+
+                            <!--<select name="province" id="province" class="provice">-->
+                            <!--<option value="">请选择省</option>-->
+                            <!--</select>-->
+                            <!--<select name="city" id="city" class="city">-->
+                            <!--<option value="">请选择市区</option>-->
+                            <!--</select>-->
+                        </div>
+                        <span class="tishi1 fl"></span>
+                    </li>
+                    <li class="clearfix">
+                        <div class="fl">
+                            <label for="">详细地址：</label>
+                            <input type="text" class="shouhuo_person" id="detail_address1" placeholder="请输入详细地址" style="border: 1px solid #d3d3d3;">
+                        </div>
+                        <span class="tishi fl"></span>
+                    </li>
+                    <li class="clearfix">
+                        <div class="fl">
+                            <label for="">手机号码：</label>
+                            <input type="text" class="shouhuo_person" id="phone1" placeholder="请输入手机号码" style="border: 1px solid #d3d3d3;">
+                        </div>
+                        <div class="tishi fl"></div>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="" class="moren" id="moren_address1" value="" />设置为默认的收货地址
+                    </li>
+                    <li>
+                        <span class="add_address_btn1">添加该地址</span>
+                        <span class="cancel1">取消</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="shouhuo_person_list shop_list_table" style="max-height: 200px;overflow-y: auto;">
+                <table>
+                    <thead>
+                    <th>收货人</th>
+                    <th>所在地区</th>
+                    <th>详细地址</th>
+                    <th>联系电话</th>
+                    <th>操作</th>
+                    <th>状态</th>
+                    </thead>
+                    <tbody id="templateInfo2">
+
+                    </tbody>
+                </table>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm suershouhuo">确定</div>
-                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
+                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm suershouhuo" id="shouhuoAddressSure">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi" id="shouhuoAddressCancel">返回</div>
             </div>
         </div>
     </div>
@@ -2354,11 +2425,41 @@
     function sureshouhuo() {
         $('.modelBox30').css('display', 'block');
     }
+    // cangku
+    function cangkuAddressEdit() {
+        $('.modelBox31').css('display', 'block');
+    }
+    $("#cangkuAddressSure").click(function () {
+        debugger
+        $('.cancel').click();
+        document.getElementById("Iframe").contentWindow.shouhuoc_list();
+
+    })
+    $("#cangkuAddressCancel").click(function () {
+        $('.cancel').click();
+        document.getElementById("Iframe").contentWindow.shouhuoc_list();
+
+    })
+
+    //收货地址
+    function shouhuoAddressEdit() {
+        $('.modelBox32').css('display', 'block');
+    }
 
     function updataPayPwd() {
         $('#updataPayPwd').css('display', 'block');
     }
+    $("#shouhuoAddressSure").click(function () {
+        debugger
+        $('.cancel').click();
+        document.getElementById("Iframe").contentWindow.shouhuo_list();
 
+    })
+    $("#shouhuoAddressCancel").click(function () {
+        $('.cancel1').click();
+        document.getElementById("Iframe").contentWindow.shouhuo_list();
+
+    })
 
     $(document).on('click', '.confirm', function () {
         $(this).parent().parent().parent().parent().css('display', 'none');
@@ -3038,13 +3139,13 @@
             data: {companyId: companyId},
             dataType: 'json',
             success: function (data) {
-                //console.log(data);
+                console.log(data);
 
                 var result =  template("templateTpl",{list:data.data});
-                $('#templateInfo').html(result);
+                $('#templateInfo1').html(result);
 
                 if ($('.moren_setting')) {
-                    $('.moren_setting').parent().parent().prependTo($('#templateInfo'))
+                    $('.moren_setting').parent().parent().prependTo($('#templateInfo1'))
                 }
 
                 /* document.write(JSON.stringify(data.data));*/
@@ -3502,8 +3603,9 @@
             success: function (data) {
                 /* console.log(data);*/
                 if (data.code == 1) {
-                    window.parent.updateSuccess();
                     shouhuo_list();
+                    window.parent.updateSuccess();
+
                     $('.cancel').click();
 
                 } else {
@@ -3522,6 +3624,7 @@
 
     /*删除仓库地址*/
     $(document).on('click', '.del', function () {
+
         var warehouseId = $(this).parent().parent().attr('data-dbid');
         // var result = confirm('是否删除！');
         window.parent.delAddress();
@@ -3540,8 +3643,10 @@
                 success: function (data) {
                     console.log(data);
                     if (data.code == 1) {
-                        window.parent.delSuccess();
+//                        debugger
                         shouhuo_list();
+                        window.parent.delSuccess();
+
                     }
                 },
                 error: function(err){
@@ -3552,6 +3657,451 @@
 
 
     });
+
+</script>
+
+<script type="text/html" id="templateTp2">
+    <%for (i in list) { %>
+    <%if (list[i].deleteFlag == 0) { %>
+    <tr data-dbid=<%=list[i].dbid%>>
+        <td><%=list[i].receiver%></td>
+        <td data-proviceId=<%=list[i].provenceId%> data-cityId=<%=list[i].cityId%> ><%=list[i].addressStr%></td>
+        <td><%=list[i].detailedAddress%></td>
+        <td><%=list[i].phone%></td>
+        <td>
+            <a href="javascript:;" class="edit1">修改</a>
+            <a href="javascript:;" class="del1">删除</a>
+        </td>
+        <td>
+            <%if (list[i].defaultStr == '1') { %>
+            <span class="moren_setting1">默认地址</span>
+            <%}%>
+        </td>
+    </tr>
+    <%}%>
+    <%}%>
+</script>
+
+<script>
+    /*收货地址列表查询*/
+    shouhuo_list1();
+    function shouhuo_list1() {
+        $.ajax({
+            url: pubIP + 'address/listAddressByShopUserId', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            dataType: 'json',
+            success: function (data) {
+                /*console.log(data.data);*/
+                var result1 =  template("templateTp2",{list:data.data});
+                $('#templateInfo2').html(result1);
+
+                if ($('.moren_setting1')) {
+                    $('.moren_setting1').parent().parent().prependTo($('#templateInfo2'))
+                }
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+
+    /*查询所有省份*/
+    $.ajax({
+        url: pubIP + 'address/listProvince', /*v1.0*/
+        type: 'post',
+        headers: {
+            Accept: "application/json; charset=utf-8",
+            token: token
+        },
+        cache: false,
+        ansyc: false,
+        dataType: 'json',
+        success: function (data) {
+            console.log(data.data)
+            var str = '';
+            for (var i = 0; i < data.data.length; i++) {
+                str += '<li  data-index="'+i+'" value="'+i+'" data-proviceId="'+data.data[i].provinceid+'" data-province="'+data.data[i].province+'">'+data.data[i].province+'</li>';
+            }
+
+            $('#province1 ul').html(str);
+
+            $('#province1 ul li').click(function(){
+                event.stopPropagation();
+                $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                $(this).parent().parent().attr('data-proviceid', $(this).attr('data-proviceid'));
+                $(this).parent().parent().find('span').text($(this).text());
+                $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                $(this).parent().css('display','none');
+                var provinceID =$("#province1").attr('data-proviceid');
+                $('#city1 span').text('请选择市区');
+                $('#city1').removeClass('id_id1');
+                selectCity1(provinceID,null);
+
+            });
+
+        },
+        error: function(err){
+            console.log(err);
+        }
+    });
+
+
+    /*查询所有城市*/
+    $('#province1').on('change', function () {
+        /*console.log($("#province  option:selected").attr('data-proviceid'));*/
+
+        var provinceID = $("#province1  option:selected").attr('data-proviceid');
+
+        $('#city1').removeClass('id_id');
+
+        selectCity1(provinceID,this);
+    });
+
+    /*查询所有城市*/
+    function selectCity1(provinceID,$this) {
+        $.ajax({
+            url: pubIP + 'address/listCityByProvinceId', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            data: {provinceID: provinceID},
+            dataType: 'json',
+            success: function (data) {
+                // console.log(data.data);
+                var str = '';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<li data-index="'+i+'"  value="'+i+'" data-cityId="'+data.data[i].cityid+'" data-city="'+data.data[i].city+'">'+data.data[i].city+'</li>';
+                }
+
+                $('#city1 ul').html(str);
+
+                $('#city1 ul li').click(function(){
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                    $(this).parent().css('display','none');
+                    var cityID =$("#city1").attr('data-cityid');
+                    $('#city1').removeClass('id_id1');
+                });
+
+                // 编辑回显城市
+                if ($('#city1').hasClass('id_id')) {
+                    var data_proviceid = $this.parent().parent().find('td')[1];
+                    $('#city1 ul li').each(function (index, element) {
+                        if ($(this).attr('data-cityid') == $(data_proviceid).attr('data-cityid')) {
+                            //$(this)[0].selected = true;
+                            $(this).parent().parent().attr("data-cityid",$(this).attr("data-cityid"));
+                            $(this).parent().parent().attr("data-selectedindex",$(this).attr("data-index"));
+                            $(this).parent().parent().find("span").text($(this).text());
+                        }
+                    });
+
+                    //$('#city option[data-cityid='+$(data_proviceid).attr('data-cityid')+']').attr('selected', true);
+
+                }
+                $('#city1').parent().next().html('');
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+
+    $('#name1').on('blur', function () {
+        if ($('#name1').val() == null || $('#name1').val() == '') {
+            $('#name1').parent().next().html('收货人不能为空');
+        } else {
+            $('#name1').parent().next().html('');
+
+        }
+    });
+
+    $('#province1').on('blur', function () {
+        if ($('#province1 option:selected').text() == '请选择省') {
+            $('#province1').parent().next().html('请选择省');
+        } else {
+            $('#province1').parent().next().html('');
+        }
+    });
+
+    $('#city1').on('blur', function () {
+        if ($('#province1 option:selected').text() != '请选择省' && $('#city1 option:selected').text() == '请选择市区') {
+            $('#city1').parent().next().html('请选择市区');
+        } else {
+            $('#city1').parent().next().html('');
+        }
+    });
+
+
+
+    $('#detail_address1').on('blur' ,function (){
+        if ($('#detail_address1').val() == null || $('#detail_address1').val() == '') {
+            $('#detail_address1').parent().next().html('详细地址不能为空');
+        } else {
+            $('#detail_address1').parent().next().html('');
+        }
+    });
+
+    $('#phone1').on('blur', function () {
+        //(^1[3|5|8|4|7][0-9]{9}$)
+        if (!(/^1[3|5|8|4|7][0-9]{9}$/.test($('#phone1').val()))) {
+            console.log('不');
+            $('#phone1').parent().next().html('手机号码格式不正确');
+        } else {
+            console.log('对');
+            $('#phone1').parent().next().html('');
+        }
+    });
+
+
+    /*新增收货地址*/
+    $('.add_address_btn1').on('click', function () {
+        var name = $("#name1").val();
+        var province = $("#province1").val();
+        var city = $("#city1").val();
+        var detail_address = $("#detail_address1").val();
+        var phone = $("#phone1").val();
+        var moren_address = $('#moren_address1')[0].checked;
+
+
+        province = $("#province1").attr('data-proviceid');
+        city = $("#city1").attr('data-cityid');
+
+        if (moren_address == false) {
+            moren_address = 0;
+        }else {
+            moren_address = 1;
+        }
+
+
+        if ($('#name1').val() == null || $('#name1').val() == '') {
+            $('#name1').parent().next().html('收货人不能为空');
+            return;
+        }
+
+
+        if ($('#province1 span').text() == '请选择省') {
+            $('#province1').parent().parent().find(".tishi1").html('请选择省');
+            return;
+        }else if($('#city1 span').text() == '请选择市区'){
+            $('#province1').parent().parent().find(".tishi1").html('请选择市区');
+            return;
+        } else {
+            $('#province1').parent().parent().find(".tishi1").html('');
+        }
+
+
+        if ($('#detail_address1').val() == null || $('#detail_address1').val() == '') {
+            $('#detail_address1').parent().next().html('详细地址不能为空');
+            return;
+        }
+
+
+        if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#phone1').val()))) {
+            $('#phone1').parent().next().html('手机号码格式不正确');
+            return;
+        }
+
+        var dbid = $(this).attr('data-dbid');
+
+
+        /*v1.0*/
+        if ($(this).attr('data-dbid')) {
+            edit1(dbid,name, province, city, detail_address, phone, moren_address);
+        } else {
+            $.ajax({
+                url: pubIP + 'address/addHarvestAddress',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                data:{
+                    receiver: name,
+                    provenceId: province,
+                    cityId: city,
+                    detailedAddress:detail_address,
+                    phone: phone,
+                    defaultStr: moren_address,
+                    companyId: companyId
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.code == 1) {
+                        shouhuo_list1();
+                        window.parent.addAddress();
+
+                        $('.cancel').click();
+                    }else {
+                        alert('添加失败！');
+                    }
+
+
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+    });
+
+
+
+    // 取消按钮
+    $('.cancel1').on('click', function () {
+        $(".add_address_btn").removeAttr('data-dbid')
+        $('#name1').val('');
+        $('#province1 span').text('请选择省');
+        $("#province1").attr("data-selectedindex","");
+        $('#city1 span').text('请选择市区');
+        $("#city1").attr("data-selectedindex","");
+
+        $('#detail_address1').val('');
+        $('#detail_address1').val('');
+        $('#phone1').val('');
+
+        $('#moren_address1')[0].checked = false;
+
+        $('#name1').parent().next().html('');
+        $('#province1').parent().next().html('');
+        $('#city1').parent().next().html('');
+        $('#detail_address1').parent().next().html('');
+        $('#phone1').parent().next().html('');
+    });
+
+
+    $(document).on('click', '.edit1', function () {
+
+        $('#name1').val($(this).parent().parent().find('td')[0].innerText);
+
+        var data_proviceid = $(this).parent().parent().find('td')[1];
+        $('#province1 ul li').each(function () {
+//                console.log($(this).attr('data-province'));
+//                console.log($(data_province).attr('data-province'));
+            if ($(this).attr('data-proviceid') == $(data_proviceid).attr('data-proviceid')) {
+                //$(this)[0].selected = true;
+
+                $(this).parent().parent().attr("data-proviceid",$(this).attr("data-proviceid"))
+                $(this).parent().parent().attr("data-selectedindex",$(this).attr("data-index"))
+                $(this).parent().parent().find("span").text($(this).attr('data-province'))
+
+            }
+        });
+
+        // $('#province option[data-proviceid='+$(data_proviceid).attr('data-proviceid')+']').attr('selected', true);
+        $('#city1').addClass('id_id');
+        selectCity1($(data_proviceid).attr('data-proviceid'),$(this));
+
+
+
+        $('#detail_address1').val($(this).parent().parent().find('td')[2].innerText);
+        $('#phone1').val($(this).parent().parent().find('td')[3].innerText);
+
+        var td_moren = $(this).parent().next()[0];
+        if ($(td_moren).find('.moren_setting').length != 0) {
+            $('#moren_address1')[0].checked = true;
+        }else {
+            $('#moren_address1')[0].checked = false;
+        }
+
+
+        var dbid = $(this).parent().parent().attr('data-dbid');
+
+        $('.add_address_btn').attr('data-dbid', dbid);
+
+    });
+
+
+
+
+    function edit1(dbid, name, province, city, detail_address, phone, moren_address) {
+        /*v1.0*/
+        $.ajax({
+            url: pubIP + 'address/editHarvestAddress',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            data:{dbid: dbid, receiver: name, provenceId: province, cityId: city, detailedAddress:detail_address, phone: phone, defaultStr: moren_address},
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.code == 1) {
+                    window.parent.updateSuccess();
+                    shouhuo_list();
+                    $('.cancel').click();
+
+                } else {
+                    alert('编辑失败！');
+                }
+
+
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+
+
+
+    /*删除按钮*/
+
+    $(document).on('click', '.del1', function () {
+        var dbid = $(this).parent().parent().attr('data-dbid');
+        // var result = confirm('是否删除！');
+        window.parent.delAddress();
+
+        //确定
+        $(window.parent.document).on('click', '.del_sure', function () {
+            $.ajax({
+                url: pubIP + 'address/editHarvestAddress',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                data:{dbid: dbid, deleteFlag: 1},
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.code == 1) {
+                        shouhuo_list1();
+                        window.parent.delSuccess();
+                        $('.cancel').click();
+
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+
+        });
+
+    });
+
 
 </script>
 </body>
