@@ -77,11 +77,11 @@
                             <%if (list[i].state == 1) {%>
                                 <div class="orderContItem toSure yellow">待确认</div>
                             <%}else if (list[i].state == 2) {%>
-                                <div class="orderContItem toSure green"><img src="../img/yiOk_icon.png" style="vertical-align: middle;">已确认</div>
+                                <div class="orderContItem toSure green">已确认</div>
                             <%}else if (list[i].state == 4) {%>
-                                <div class="orderContItem toSure red"><img src="../img/jujue_icon.png" style="vertical-align: middle;">已拒绝</div>
+                                <div class="orderContItem toSure red">已拒绝</div>
                             <%}else if (list[i].state == 5) {%>
-                                <div class="orderContItem toSure quxiao red"><!-- <img src="../img/cancel_icon.png" style="vertical-align: middle;"> -->已取消</div>
+                                <div class="orderContItem toSure quxiao red">已取消</div>
                             <%}%>
                             
                             <div class="orderContItem orderViewdetail" onclick="waitiao('./myPurchase-enquiryDetaill.html?interestId=<%=list[i].interestId%>&from=mypurchase')">查看询盘</div>

@@ -304,7 +304,18 @@
 		    height: 38px;
 	        box-sizing: border-box;
 	        border: 1px solid #ebe9ea;
-		}
+        }
+        .bottom1>.shenhe {
+            width: 107px;
+            height: 40px;
+            line-height: 40px;
+            background-color: white;
+            color: #666666;
+            border: 1px solid #666666;
+            margin-left: 10px;
+            margin-top: 0;
+            background: #ccc;
+        }
     </style>
 </head>
 <body>
@@ -406,6 +417,7 @@
     <div class="bottom1">
         <div class="btn Lf add add1">继续添加其他资质</div>
         <div class="btn Lf sub">提交</div>
+        <div class="btn Lf shenhe" style="display: none;">审核中</div>
     </div>
 
     
@@ -782,20 +794,24 @@
                 cache: false,
                 dataType: 'json',
                 success: function (data) {
+                    console.log("+++++++++++++++");
                     console.log(data);
                     if(data.data==null){
                         return;
                     }
                     //未审核
                     if (data.data.aType == 0 && data.data.aState == 0) {
-                        window.parent.shenhe();  
+                        //window.parent.shenhe();  
+                        $(".sub").hide();
+                        $(".shenhe").show();
                         $('.btn.edit_btn').css('display', 'none');
                         $('.sub').attr('disabled', true);
                         $('.quxiao_add').css('display', 'none');
                         $('.shou_pic').css('display', 'none');
 
                     } else if (data.data.aType == 0 && data.data.aState == 2) {  //已拒绝
-                        window.parent.jujue_weixian(); 
+                        window.parent.jujue_weixian(data.data.refuseReason); 
+                        $(".shenhe").hide();
                         $('.btn.edit_btn').css('display', 'block');
                         $('.sub').attr('disabled', false);
                         $('.quxiao_add').css('display', 'block');
@@ -805,6 +821,8 @@
                         $('.sub').attr('disabled', false);
                         $('.quxiao_add').css('display', 'block');
                         $('.shou_pic').css('display', 'block');
+                        $(".shenhe").hide();
+                        $(".sub").show();
                     }
 
                 },

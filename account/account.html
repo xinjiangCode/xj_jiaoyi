@@ -551,7 +551,11 @@
             color: #fff;
         }
 .selectPub ul,.selectPub ul li {width: 100%;}
+    
+        input[type="text"] {
+            padding-left: 0px;
 
+        }
 
     </style>
 
@@ -921,7 +925,7 @@
                 <span style="color: #6c6d6e; font-size: 14px;">原支付密码：</span>
             </div>
             <div class="popInput Lf" style="height: 40px;">
-                <input type="password" id="oldPayPwd" maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)" style="height: 34px; line-height: 34px; color: #c9caca; font-size: 13px;">
+                <input type="password" id="oldPayPwd" maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)" style="height: 34px; line-height: 34px; font-size: 13px;">
             </div>
         </div>
         <div style="margin-bottom: 20px;">
@@ -929,7 +933,7 @@
                 <span style="color: #6c6d6e; font-size: 14px;">新密码：</span>
             </div>
             <div class="popInput Lf" style="height: 40px;">
-                <input id="newPayPwd1" type="password"  maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)" style="height: 34px; line-height: 34px; color: #c9caca; font-size: 13px;">
+                <input id="newPayPwd1" type="password"  maxlength="20" placeholder="长度6-20个字母、数字、特殊符号组成" onkeyup="this.value=chaneseCheck(this.value)" style="height: 34px; line-height: 34px; font-size: 13px;">
             </div>
         </div>
         <div style="margin-bottom: 20px;">
@@ -937,7 +941,7 @@
                 <span style="color: #6c6d6e; font-size: 14px;">确认密码：</span>
             </div>
             <div class="popInput Lf" style="height: 40px;">
-                <input id="newPayPwd2" type="password" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)" style="height: 34px; line-height: 34px; color: #c9caca; font-size: 13px;">
+                <input id="newPayPwd2" type="password" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)" style="height: 34px; line-height: 34px; font-size: 13px;">
             </div>
         </div>
 
@@ -1264,6 +1268,7 @@
             <div class="info">
                 <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
                 <p><span>危险化学品资质认证审核未通过</span>，请您重新填写进行认证！</p>
+                <p class="jj_yuanying" style="color: red;font-size: 14px;text-align: left;">拒绝理由：<span></span></p>
             </div>
             <div class="modelBtnBox">
                 <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
@@ -1283,6 +1288,7 @@
             <div class="info">
                 <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
                 <p><span>特殊资质认证审核未通过</span>，请您重新填写进行认证！</p>
+                <p class="jj_yuanying2" style="color: red;font-size: 14px;text-align: left;">拒绝理由：<span></span></p>
             </div>
             <div class="modelBtnBox">
                 <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
@@ -1837,7 +1843,7 @@
             <div class="info">
                <div class="qiye_name_kuang clearfix">
                    <span class="span fl" style="color: #6c6d6e;">企业名称：</span>
-                   <input type="text" class="qiye_name_input fl" style="width: 378px; height: 34px; color: #c9caca; font-size: 13px;">
+                   <input type="text" class="qiye_name_input fl" style="width: 387px; height: 34px; font-size: 13px;">
                </div>
                <div class="qiye_type_kuang clearfix">
                    <span class="span fl" style="color: #6c6d6e;">企业类型：</span>
@@ -1914,19 +1920,19 @@
         <div class="modelcontent">
             <div class="info">
                <div class="activity_title_div clearfix">
-                   <span class="span fl">活动标题：</span>
+                   <span class="span fl" style="color: #6c6d6e;">活动标题：</span>
                    <span class="title fl">XXXXXX活动</span>
                </div>
                <div class="activity_cont_div clearfix">
-                   <span class="span fl">活动内容：</span>
+                   <span class="span fl" style="color: #6c6d6e;">活动内容：</span>
                    <div class="fl activity_cont">新发色热风的闪光点放电饭锅电饭锅的非官方</div>
                </div>
                <div class="baozhengjin_div clearfix">
-                   <span class="span fl">保证金：</span>
+                   <span class="span fl" style="color: #6c6d6e;">保证金：</span>
                    <span class="baozhengjin fl">10元</span>
                </div>
                <div class="tiaojian_xianzhi_div clearfix">
-                   <span class="span fl">条件限制：</span>
+                   <span class="span fl" style="color: #6c6d6e;">条件限制：</span>
                    <div class="xianzhi fl">商家信用大于90分，指定鑫汇鑫、盛和兴参加</div>
                </div>
             </div>
@@ -2232,8 +2238,6 @@
         });
 
     }
-
-//    forget();
     
 
     // 商品管理-上架中的商品
@@ -2255,7 +2259,6 @@
     function addCustomerRelationship() {
         $('#addCustomerRelationship').css('display', 'block');
     }
-
     
     function forget() {
         $('#forget').css('display', 'block');
@@ -2371,12 +2374,14 @@
     }
 
     //危险化学品认证资质已拒绝
-    function jujue_weixian() {
+    function jujue_weixian(reasons) {
+        $(".jj_yuanying span").html(reasons);
         $('.modelBox19').css('display', 'block');
     }
 
     //特殊认证资质已拒绝
-    function jujue_teshu() {
+    function jujue_teshu(reasons) {
+        $(".jj_yuanying2 span").html(reasons);
         $('.modelBox190').css('display', 'block');
     }
 

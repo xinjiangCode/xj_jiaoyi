@@ -101,11 +101,11 @@
                             <%if (list[i].state == 1) {%>
                                 <div class="orderContItem toSure yellow">待确认</div>
                             <%}else if (list[i].state == 2) {%>
-                                <div class="orderContItem toSure green">√已确认</div>
+                                <div class="orderContItem toSure green">已确认</div>
                             <%}else if (list[i].state == 4) {%>
-                                <div class="orderContItem toSure red">X已拒绝</div>
+                                <div class="orderContItem toSure red">已拒绝</div>
                             <%}else if (list[i].state == 5) {%>
-                                <div class="orderContItem toSure quxiao" style="color: #666;"><img style=" margin-right: 2px; vertical-align: initial;" src="../img/mp_yjj.png" alt="">已取消</div>
+                                <div class="orderContItem toSure quxiao" style="color: #666;">已取消</div>
                             <%}%>
                             <%if (list[i].state == 1) {%><!-- 待确认 -->
                                 <div class="orderContItem orderViewdetail" onclick="waitiao('./mySale-baojiaHandle.html?interestId=<%=list[i].interestId%>&from=mysale')">查看询盘</div>
