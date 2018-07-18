@@ -15,7 +15,7 @@
 
 .add_address {
 	margin-top: 71px;
-	margin-bottom: 75px;
+	margin-bottom: 30px;
 }
 
 .add_address>ul>li {
@@ -23,12 +23,12 @@
 	font-size: 14px;
 }
 
-.add_address_btn {
+.add_address_btn ,.add_address_btn1{
 	margin-top: 7px;
 }
 
-.cancel {
-	margin-top: 7px;
+.cancel ,.cancel1{
+	/*margin-top: 7px;*/
 }
 
 .shouhuo_person_list.shop_list_table table thead tr {
@@ -82,7 +82,7 @@ label.ml10 {
 	display: inline-block;
 }
 
-.add_address_btn {
+.add_address_btn ,.add_address_btn1{
 	background-color: #5590F6;
 	color: #fff;
 	text-align: center;
@@ -98,7 +98,7 @@ label.ml10 {
     margin-left: 69px; 
 }
 
-.cancel {
+.cancel ,.cancel1{
 	color: #282828;
 	width: 112px;
 	height: 42px;
@@ -106,7 +106,7 @@ label.ml10 {
 	line-height: 42px;
 	text-align: center;
 	display: inline-block;
-	margin-left: 12px;
+	/*margin-left: 12px;*/
 	-webkit-border-radius:2px; 
     -moz-border-radius:2px; 
     -ms-border-radius:2px;  

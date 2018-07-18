@@ -231,9 +231,12 @@
 					<div class="paymentMethod">
 						<span class="required">*</span>
 						<span class="span tit">支付方式：</span>
-						<input type="radio" name="pay" id="xianhui" value="1"/><label for="xianhui" style="margin-right: 40px;">现汇</label>
+						<!-- <input type="radio" name="pay" id="xianhui" value="1"/><label for="xianhui" style="margin-right: 40px;">现汇</label>
 						<input type="radio" name="pay" id="chengdui" value="2"/><label for="chengdui" style="margin-right: 40px;">承兑</label>
-						<input type="radio" name="pay" id="xjiac" value="3"/><label for="xjiac">现汇+承兑</label>
+						<input type="radio" name="pay" id="xjiac" value="3"/><label for="xjiac">现汇+承兑</label> -->
+						<input type="checkbox" name="pay" id="xianhui" value="1"/><label for="xianhui" style="margin-right: 40px;">现汇</label>
+						<input type="checkbox" name="pay" id="chengdui" value="2"/><label for="chengdui" style="margin-right: 40px;">承兑</label>
+						<input type="checkbox" name="pay" id="xjiac" value="3"/><label for="xjiac">现汇+承兑</label>
 					</div>
 					<div>
 						<span class="required">*</span>
@@ -641,7 +644,14 @@
 	                $('.shop_name').val(json.data.sum);
 
 	                //支付方式
-	                $('.paymentMethod input[name="pay"][value="'+json.data.paymentMethod+'"]').attr('checked','true');
+	                // $('.paymentMethod input[name="pay"][value="'+json.data.paymentMethod+'"]').attr('checked','true');
+
+	                var methodArr = String(json.data.paymentMethod).split('');
+	                for (i in methodArr) {
+	                	$('.paymentMethod input[name="pay"][value="'+methodArr[i]+'"]').attr('checked','true');
+	                }
+	               
+	                
 
 	                //单价
 	                $('.unitPrice').val(json.data.unitPrice);

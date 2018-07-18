@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no" />
+    <title adct="首页">新疆物流服务平台</title>
+    <link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/commin1.css"/> -->
+    <link rel="stylesheet" href="css/index1.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/header.js"></script>
+    <style>
+    /*---------------公共头部 开始----------------------------*/
+/*header{
+    border-bottom: 1px solid #f8f8f8;
+    -webkit-box-shadow: 3px 3px 10px #dcdcdc;
+    -moz-box-shadow: 3px 3px 10px #dcdcdc;
+    box-shadow: 3px 3px 10px #dcdcdc;
+    margin-bottom: 3px;
+}
+header .headerTop{
+    background-color: #333333;
+    color: #B6B6B6;
+    height: 30px;
+    padding-top: 10px;
+    font-size: 14px;
+
+}
+header .headerTopLeft{
+    font-size: 14px;
+}
+header .headerTopLeft>div{
+    float: left;
+    margin-right: 28px;
+}
+header .headerTopRight{
+
+}
+header .headerTopRight ul{
+
+}
+header .headerTopRight ul li{
+    float: left;
+}
+header .headerTopRight ul .liline{
+    float: left;
+    width: 0;
+    border-right: 1px solid #b6b6b6;
+    margin: 3px 15px 0;
+    height: 15px;
+}
+header .headerTopRightImg{
+    margin-top: 1px;
+    margin-right: 7px;
+    height: 18px;
+    width: 17px;
+    float: left;
+    background: url("../img/headIcon.png") no-repeat;
+}
+header .headerTopRightImg1{
+    background-position: -2px -3px;
+}
+header .headerTopRightImg2{
+    background-position: -26px -1px;
+}
+header .headerTopRightImg3{
+    background-position: -49px -1px;
+}
+header .headerTopRightImg4{
+    background-position: -70px -1px;
+}
+header .headerBot{
+    height: 83px;
+    background-color: white;
+    padding-top: 27px;
+
+}
+header .navList .cfnav{
+    float: left;
+    width: 96px;
+    text-align: center;
+    height: 63px;
+    line-height: 63px;
+    font-size: 18px;
+    margin-right: 15px;
+    color: #282828;
+}
+header .navList .cfnav a{
+    display:inline-block;
+    height: 100%;
+    width: 100%;
+}
+header .navList .cfnav.on{
+    color: #0073b9;
+    border-bottom: 2px solid #0073b9;
+}*/
+/*---------------公共头部 结束----------------------------*/
+        .caseCont .left ul li:hover .time div{color: #3894e4;}
+        .caseCont .left ul li:hover .newsItem div{color: #3894e4;}
+        .caseCont .left ul li:hover .newsItem p{color: #3894e4;}
+        @font-face {
+            font-family: "YourFont";
+            src: url('./font/impact.ttf');
+        }
+        .fontNum{
+            font-family: "YourFont";
+        }
+
+        .mianCont {
+            width: 1230px;
+        }
+
+        .mianCont_box, .maxWidth.tabLinkMaxBox {
+            display: none;
+        }
+
+        .mianCont_box{display: none;}
+        .topTitle{height: 130px;line-height: 130px;}
+        .topTitle>.logo1{height: 100%;}
+        .topTitle>.logo1>img{vertical-align: middle;}
+        .topTitle>.userTitle{ margin-left: 26px;padding-left: 26px;border-left: 2px solid #f1f1f1;  height: 66px;  line-height: 66px;  margin-top: 32px;  color: #090405;  font-size: 30px;  font-family:MicrosoftYaHei-Bold;  }
+
+        
+    </style>
+
+</head>
+<body>
+
+   <!--  <header>
+       <div class="headerTop">
+           <div class="mianCont">
+               <div class="headerTopLeft Lf">
+                   <div>收藏本站</div>
+                   <div>您好,游客</div>
+                   <div><a href="##">登&nbsp;&nbsp;录</a><i style="margin: 0 20px;">|</i><a href="##">注&nbsp;&nbsp;册</a></div>
+               </div>
+               <div class="headerTopRight Rt">
+                   <ul>
+                       <li>
+                           <div class="headerTopRightImg1 headerTopRightImg"></div>
+                           <div  class="Lf"><a href="./account.html" class="goUser">用户中心</a></div>
+                       </li>
+                       <li class="liline"></li>
+                       &lt;!&ndash;<li>&ndash;&gt;
+                           &lt;!&ndash;<div class="headerTopRightImg2 headerTopRightImg"></div>&ndash;&gt;
+                           &lt;!&ndash;<div  class="Lf"><a href="##">产品分类</a></div>&ndash;&gt;
+                       &lt;!&ndash;</li>&ndash;&gt;
+                       &lt;!&ndash;<li class="liline"></li>&ndash;&gt;
+                       <li>
+                           <div class="headerTopRightImg3 headerTopRightImg"></div>
+                           <div  class="Lf"><a href="##">网址导航</a></div>
+                       </li>
+                       <li class="liline"></li>
+                       <li>
+                           <div class="headerTopRightImg4 headerTopRightImg"></div>
+                           <div class="Lf"><a href="##">供应商入驻</a></div>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+       <div class="headerBot">
+           <div class="mianCont">
+               <div class="logo Lf" style="width: 243px;height: 63px;margin: 0;margin-right: 129px;margin-left: 30px;"></div>
+               <div class="navList Lf">
+                   <div class="cfnav cfnav1 on"><a href="./index.html">首页</a></div>
+                   <div class="cfnav cfnav2"><a href="##">明星贸易</a></div>
+                   <div class="cfnav cfnav3"><a href="./starCarrier.html">明星货运</a></div>
+                   <div class="cfnav cfnav4"><a href="##">金融租赁</a></div>
+                   <div class="cfnav cfnav5"><a href="./OAplatform.html">OA平台</a></div>
+                   <div class="cfnav cfnav6"><a href="./dangerousGoods_search.html">危化品查询</a></div>
+                   &lt;!&ndash;<div class="cfnav cfnav7"><a href="##">交易平台</a></div>&ndash;&gt;
+               </div>
+           </div>
+       </div>
+   </header>  -->
+    <div class="topTitle mianCont">
+        <div class="logo1 Lf">
+            <a href="index.html"><img src="img/cf_logo1.png" alt=""></a>
+        </div>
+        <div class="userTitle Lf">物流中心</div>
+    </div>
+    <!-- 轮播 -->
+    <div class="swiperBox">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./img/in-lunbobg.png"></div>
+                <div class="swiper-slide"><img src="./img/oap-lunbo.png" alt=""></div>
+            </div>
+        </div>
+        <div class="swiper-pagination-custom"></div>
+        <!--<div class="tobuybtn" onclick="getOrder()">发布空车</div>-->
+    </div>
+    <!-- 精英介绍 -->
+    <div class="jingyingBox">
+        <ul>
+            <li>
+                <img src="./img/in-gy1.png" alt="">
+                <!-- <div class="imgbox">
+                </div> -->
+                <div class="moneybox"><span class="moneynum">50</span>万<span class="line"></span></div>
+                <div class="dibutxt">诚信司机会员</div>
+            </li>
+            <li>
+                <img src="./img/in-gy2.png" alt="">
+                <!-- <div class="imgbox">
+                </div> -->
+                <div class="moneybox"><span class="moneynum">50</span>万<span class="line"></span></div>
+                <div class="dibutxt">认证货主会员</div>
+            </li>
+            <li>
+                <img src="./img/in-gy3.png" alt="">
+                <!-- <div class="imgbox">
+                </div> -->
+                <div class="moneybox"><span class="moneynum">50</span>万<span class="line"></span></div>
+                <div class="dibutxt">每日货源信息</div>
+            </li>
+            <li>
+                <img src="./img/in-gy4.png" alt="">
+                <!-- <div class="imgbox">
+                </div> -->
+                <div class="moneybox"><span class="moneynum">50</span>万<span class="line"></span></div>
+                <div class="dibutxt">线下服务网点</div>
+            </li>
+            <li>
+                <img src="./img/in-gy5.png" alt="">
+                <!-- <div class="imgbox">
+                </div> -->
+                <div class="moneybox"><span class="moneynum">50</span>万<span class="line"></span></div>
+                <div class="dibutxt">全国精英团队</div>
+            </li>
+        </ul>
+    </div>
+    <!-- 我们优势 -->
+    <div class="advantage">
+        <h4>我们的优势</h4>
+        <h4 style="color:#EEF5FF;font-weight: 100;font-size:28px;margin-bottom:100px;">OUR ADVANTAGES</h4>
+        <ul>
+            <li>
+                <img src="./img/in-advantagezuiyou.png" alt="" >
+                <p class="itemTitle">最优选择</p>
+                <p class="itemInfo">物流行业的源起早于互联网行业，但却远远落后于互联网的迅猛发展</p>
+            </li>
+            <li>
+                <img src="./img/in-advantagezuidi.png" alt="">
+                <p class="itemTitle">最低价格</p>
+                <p class="itemInfo">物流行业的源起早于互联网行业，但却远远落后于互联网的迅猛发展</p>
+            </li>
+            <li>
+                <img src="./img/in-advantagegengduohuoyuan.png" alt="">
+                <p class="itemTitle">更多货源</p>
+                <p class="itemInfo">物流行业的源起早于互联网行业，但却远远落后于互联网的迅猛发展</p>
+            </li>
+            <li style="margin-right:0;">
+                <img src="./img/in-advantagegengduohuoyun.png" alt="">
+                <p class="itemTitle">更多货运</p>
+                <p class="itemInfo">物流行业的源起早于互联网行业，但却远远落后于互联网的迅猛发展</p>
+            </li>
+        </ul>
+    </div>
+    <!-- 平台流程 -->
+    <div class="platFlow">
+        <h4>平台流程</h4>
+        <h4 style="color:#164597;font-weight: 100;font-size:28px;margin-bottom:25px;">PLATFORM PROCESS</h4>
+        <ul class="clearFloat">
+            <li class="listItem">
+                <!--<img class="numImg" src="./img/in-plat01.png" alt="">-->
+                <div class="numImg fontNum" style="color: #6099ff; font-size: 104px;top: -58px;">01<span style="display: inline-block;font-size: 26px;    margin-top: 20px;    vertical-align: text-top;">步</span></div>
+                <div class="imgBox">
+                    <img src="./img/in-plat1.png" alt="">
+                </div>
+                <div class="contTxt">
+                    <div class="plitemTitle">注册</div>
+                    <div class="plitemTitleEnglish">REGISTER</div>
+                    <div class="plitemBottom"><span class="transverseLine"></span>1.企业认证 2.资质认证</div>
+                </div>
+            </li>
+            <li class="listItem" style="margin-left: 215px;">
+                <!--<img class="numImg" src="./img/in-plat03.png" alt="">-->
+                <div class="numImg fontNum" style="color: #6099ff;font-size: 104px;top: -58px;">02<span style="display: inline-block;font-size: 26px;    margin-top: 20px;    vertical-align: text-top;">步</span></div>
+                <div class="imgBox">
+                    <img src="./img/in-plat2.png" alt="">
+                </div>
+                <div class="contTxt">
+                    <div class="plitemTitle">物流订单</div>
+                    <div class="plitemTitleEnglish">LOGISTICS ORDER</div>
+                    <div class="plitemBottom"><span class="transverseLine"></span>1.在线支付</div>
+                </div>
+            </li>
+            <li class="listItem" style="margin-left: 271px;">
+                <!--<img class="numImg" src="./img/in-plat02.png" alt="">-->
+                <div class="numImg fontNum" style="color: #6099ff;font-size: 104px;top: -58px;">03<span style="display: inline-block;font-size: 26px;    margin-top: 20px;    vertical-align: text-top;">步</span></div>
+                <div class="imgBox">
+                    <img src="./img/in-plat3.png" alt="">
+                </div>
+                <div class="contTxt">
+                    <div class="plitemTitle">发布需求</div>
+                    <div class="plitemTitleEnglish">PUBLISH DEMAND</div>
+                    <div class="plitemBottom"><span class="transverseLine"></span>1.发布车辆 2.发布货源</div>
+                </div>
+            </li>
+            <li class="listItem" style="margin-left: 200px;">
+                <!--<img class="numImg" src="./img/in-plat04.png" alt="">-->
+                <div class="numImg fontNum" style="color: #6099ff;font-size: 104px;top: -58px;">04<span style="display: inline-block;font-size: 26px;    margin-top: 20px;    vertical-align: text-top;">步</span></div>
+                <div class="imgBox">
+                    <img src="./img/in-plat4.png" alt="">
+                </div>
+                <div class="contTxt">
+                    <div class="plitemTitle">完成订单</div>
+                    <div class="plitemTitleEnglish">FINISH ORDER</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 我们的产品 -->
+    <div class="ourProduct">
+        <h4>我们的产品</h4>
+        <h4 style="color:#FFF;font-weight: 100;font-size:28px;margin-bottom:100px;">OUR PRODUCTS</h4>
+        <ul>
+            <li>
+                <div class="back itemcont">
+                    <div>
+                        <img src="./img/in-productback.png" width="100%" height="278px;" alt="">
+                        <div class="txtbox">
+                            <span class="backTitle">百里挑一</span>
+                            <span class="backTitleRight">查看最优贸易公司<img src="./img/in-jiantou.png" width="16" height="13" alt=""></span>
+                        </div>
+                        <p class="txtbox">物流行业的源起早于互联网行业，但却远远落后于互联网的迅猛发展</p>
+                        <div class="bottom"></div>
+                    </div>
+                </div>
+                <div class="front itemcont">
+                    <div>
+                        <div class="imgBox" style="background: url(./img/in-product1.jpg) no-repeat center center/88px 71px;"></div>
+                        <p class="front-title">明星产品</p>
+                        <p>STAR PRODUCT</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="back itemcont">
+                    <div>
+                        <img src="./img/in-productback.png" width="100%" height="278px;" alt="">
+                        <div class="txtbox">
+                            <span class="backTitle">百里挑一</span>
+                            <span class="backTitleRight">查看最优贸易公司<img src="./img/in-jiantou.png" width="16" height="13" alt=""></span>
+                        </div>
+                        <p class="txtbox">物流行业的源起早于互联网行业，但却远远落后于互联网的迅猛发展</p>
+                        <div class="bottom"></div>
+                    </div>
+                </div>
+                <div class="front itemcont">
+                    <div>
+                        <div class="imgBox" style="background: url(./img/in-product2.jpg) no-repeat center center/85px 74px;"></div>
+                        <p class="front-title">明星车源</p>
+                        <p>VEHICLE SOURCE</p>
+                    </div>
+                </div>
+            </li>
+            <li style="margin-right: 0">
+                <div class="back itemcont">
+                    <div>
+                        <img src="./img/in-productback.png" width="100%" height="278px;" alt="">
+                        <div class="txtbox">
+                            <span class="backTitle">百里挑一</span>
+                            <span class="backTitleRight">查看最优贸易公司<img src="./img/in-jiantou.png" width="16" height="13" alt=""></span>
+                        </div>
+                        <p class="txtbox">物流行业的源起早于互联网行业，但却远远落后于互联网的迅猛发展</p>
+                        <div class="bottom"></div>
+                    </div>
+                </div>
+                <div class="front itemcont">
+                    <div>
+                        <div class="imgBox" style="background: url(./img/in-product3.png) no-repeat center center/87px 74px;"></div>
+                        <p class="front-title">OA管理</p>
+                        <p>OA MANAGEMENT</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- 咨询 -->
+    <div class="case">
+        <div class="btnBox">
+            <div class="btn actived">
+                <P>平台资讯</P>
+                <p class="btnTitleEng">NEWS CENTER</p>
+            </div>
+            <div class="btn">
+                <P>行业快讯</P>
+                <p class="btnTitleEng">NEWS CENTER</p>
+            </div>
+        </div>
+        <div class="caseCont">
+            <div class="left">
+                <ul>
+                    <li>
+                        <div class="time">
+                            <div class="date">09</div>
+                            <div class="dateYear">2015-09</div>
+                        </div>
+                        <a href="javascript:;" class="newsItem">
+                            <div class="title">喜报</div>
+                            <p>重要通知！清明危化品运输禁行！多地危化品企业搬迁、转产地危化品企业asdf</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="time">
+                            <div class="date">09</div>
+                            <div class="dateYear">2015-09</div>
+                        </div>
+                        <a href="javascript:;" class="newsItem">
+                            <div class="title">喜报</div>
+                            <p>重要通知！清明危化品运输禁行！多地危化品企业搬迁、转产地危化品企业asdf</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="time">
+                            <div class="date">09</div>
+                            <div class="dateYear">2015-09</div>
+                        </div>
+                        <a href="javascript:;" class="newsItem">
+                            <div class="title">喜报</div>
+                            <p>重要通知！清明危化品运输禁行！多地危化品企业搬迁、转产地危化品企业asdf</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="time">
+                            <div class="date">09</div>
+                            <div class="dateYear">2015-09</div>
+                        </div>
+                        <a href="javascript:;" class="newsItem">
+                            <div class="title">喜报</div>
+                            <p>重要通知！清明危化品运输禁行！多地危化品企业搬迁、转产地危化品企业asdf</p>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="time">
+                            <div class="date">09</div>
+                            <div class="dateYear">2015-09</div>
+                        </div>
+                        <a href="javascript:;" class="newsItem">
+                            <div class="title">喜报</div>
+                            <p>重要通知！清明危化品运输禁行！多地危化品企业搬迁、转产地危化品企业asdf</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <img src="./img/oap-case-photo.png" alt="" width="475" height="305">
+            </div>
+        </div>
+        
+    </div>
+    <!-- 分析报告图 -->
+    <div class="dataAnalysis"></div>
+
+    <!--<footer>-->
+        <!--<div class="footerTop">-->
+            <!--<div class="mianCont">-->
+                <!--<div class="Lf ftphone">-->
+                    <!--<div class="Lf ftphoneImg ftImg1">-->
+                        <!--&lt;!&ndash;<img src="./img/footer1.png" alt="">&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<div class="Lf ftphoneText">-->
+                        <!--<div style="height: 28px;line-height: 28px;font-size: 27px;font-weight: 600;color: #FF7C3E;">4000-012-556</div>-->
+                        <!--<div style="height: 28px;line-height: 28px;font-size: 16px;color: #666666;"><span style="font-size: 14px;">工作日 : </span>10 : 00 am -19 : 00 pm</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="Lf footer2">-->
+                    <!--<div class="Lf ftImg ftImg2" style="width: 56px;">-->
+                        <!--&lt;!&ndash;<img src="./img/footer2.png" alt="">&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<div class="Lf ftText">-->
+                        <!--<div style="font-size: 18px;font-weight: bold;color: #333333;">在线客服</div>-->
+                        <!--<div style="font-size: 14px;color: #666666;">立即咨询</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="Lf footer3" >-->
+                    <!--<div class="Lf ftImg ftImg3" style="width: 40px;">-->
+                        <!--&lt;!&ndash;<img src="./img/footer3.png" alt="">&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<div class="Lf ftText">-->
+                        <!--<div style="font-size: 18px;font-weight: bold;color: #333333;">邮件客服</div>-->
+                        <!--<div style="font-size: 14px;color: #666666;">xjv56@163.com</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="Lf footer4" >-->
+                    <!--<div class="Lf ftImg ftImg4" style="width: 56px;">-->
+                        <!--&lt;!&ndash;<img src="./img/footer4.png" alt="">&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<div class="Lf ftText">-->
+                        <!--<div style="font-size: 18px;font-weight: bold;color: #333333;">微信公众号</div>-->
+                        <!--<div style="font-size: 14px;color: #666666;">扫码关注我们</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="Lf footer5" >-->
+                    <!--<div class="Lf ftImg ftImg5" style="width: 56px;">-->
+                        <!--&lt;!&ndash;<img src="./img/footer5.png" alt="">&ndash;&gt;-->
+                    <!--</div>-->
+                    <!--<div class="Lf ftText">-->
+                        <!--<div style="font-size: 18px;font-weight: bold;color: #333333;">微信公众号</div>-->
+                        <!--<div style="font-size: 14px;color: #666666;">扫码关注我们</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<div class="footerCen mianCont">-->
+            <!--<div class="footerCen1 Lf">-->
+                <!--<h3> <div class="footerCenTitle">新手上路</div></h3>-->
+                <!--<div>新手注册</div>-->
+                <!--<div>新手注册</div>-->
+                <!--<div>新手注册</div>-->
+            <!--</div>-->
+            <!--<div class="footerCen2 Lf">-->
+                <!--<h3><div class="footerCenTitle">用户中心</div></h3>-->
+                <!--<div>如何发布产品</div>-->
+                <!--<div>如何发布产品</div>-->
+                <!--<div>如何发布产品</div>-->
+            <!--</div>-->
+            <!--<div class="footerCen3 Lf">-->
+                <!--<h3> <div class="footerCenTitle">交易入门</div></h3>-->
+                <!--<div>如何购买现货</div>-->
+                <!--<div>如何购买现货</div>-->
+                <!--<div>如何购买现货</div>-->
+            <!--</div>-->
+            <!--<div class="footerCen4 Lf">-->
+                <!--<h3><div class="footerCenTitle">供应链服务</div></h3>-->
+                <!--<div>金融服务</div>-->
+                <!--<div>金融服务</div>-->
+                <!--<div>金融服务</div>-->
+            <!--</div>-->
+            <!--<div class="line Lf" style="width: 0;height: 105px;border-right: 1px solid #e8e8e8;margin-right: 100px;"></div>-->
+            <!--<div class="footerCen5 Lf">-->
+                <!--<div class="logo" style="width: 295px;height: 77px;margin: 0;margin-top: 21px;"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="footerBot">-->
+            <!--<ul>-->
+                <!--<li><a href="##">首页</a></li>-->
+                <!--<li class="liline"></li>-->
+                <!--<li><a href="##">合作伙伴</a></li>-->
+                <!--<li class="liline"></li>-->
+                <!--<li><a href="##">关于我们</a></li>-->
+                <!--<li class="liline"></li>-->
+                <!--<li><a href="##">联系我们</a></li>-->
+                <!--<li class="liline"></li>-->
+                <!--<li><a href="##">服务条款</a></li>-->
+                <!--<li class="liline"></li>-->
+                <!--<li><a href="##">金融服务</a></li>-->
+            <!--</ul>-->
+            <!--<div></div>-->
+            <!--<div class="friendList">-->
+                <!--<div class="Lf friendTitle">友情链接：&nbsp;&nbsp;&nbsp;</div>-->
+                <!--<a href="##">中泰化学</a>-->
+                <!--<a href="##">鑫汇鑫化工</a>-->
+                <!--<a href="##">丰泰化工</a>-->
+                <!--<a href="##">招商银行</a>-->
+            <!--</div>-->
+            <!--<div>Copyright&nbsp;&copy;&nbsp;2016 www.xjv56.com All Rights Reserved 新疆化学品经营服务平台版权所有&nbsp;新ICP备&nbsp;16002644</div>-->
+        <!--</div>-->
+    <!--</footer>-->
+
+
+<script src="./js/swiper-3.4.2.min.js"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" >
+
+    $(".cfnav").click(function () {
+        $(".cfnav").removeClass("on");
+        $(this).addClass("on");
+    })
+
+
+    // 点击切换咨询
+    $('.case .btn').click(function(){
+        $('.case .btn').removeClass('actived');
+        $(this).toggleClass('actived');
+    });
+    // 初始化swiper
+    $(function(){
+        var mySwiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay :2000,
+            pagination: '.swiper-pagination-custom',
+            paginationType: 'custom',
+            paginationCustomRender: function (swiper, current, total) {
+                console.log(total, current)
+                var customPaginationHtml = "";  
+                for(var i = 0; i < total; i++) {  
+                    //判断哪个分页器此刻应该被激活  
+                    if(i == (current - 1)) {  
+                        customPaginationHtml += '<span class="swiper-pagination-customs swiper-pagination-customs-active"></span>';  
+                    } else {  
+                        customPaginationHtml += '<span class="swiper-pagination-customs"></span>';  
+                    }  
+                    $('.swiper-pagination-custom').css({'width': 45*total+'px','margin-left':-45*total/2+'px'});
+                }  
+                return customPaginationHtml;  
+            }
+
+        })
+
+        // animate
+        var $animate = $('#animate');
+        var $opposite = $('#opposite');
+        $(".wrap").hover(function(){
+            $animate.removeClass();
+            $opposite.removeClass();
+            $animate.addClass("test");
+            $opposite.addClass('test2');
+        },function(){
+            $animate.removeClass();
+            $opposite.removeClass();
+            $animate.addClass("test2");
+            $opposite.addClass('test');
+        });
+
+        $(".ourProduct li").hover(function(){
+            $(this).find(".front").children().removeClass();
+            $(this).find(".back").children().removeClass();
+            $(this).find(".front").children().addClass("test");
+            $(this).find(".back").children().addClass('test2');
+        },function(){
+            $(this).find(".front").children().removeClass();
+            $(this).find(".back").children().removeClass();
+            $(this).find(".front").children().addClass("test2");
+            $(this).find(".back").children().addClass('test');
+        });
+        
+    });
+    
+    //发布空车
+    function getOrder() {
+        sessionStorage.setItem("cfsrc","./statistics/dataIndex.html");
+        sessionStorage.setItem("isAdd","1");
+        window.location.href="./account.html";
+    }
+
+
+
+    //拦截链接
+   $(document).on('click','a',function(e){
+    
+        e.preventDefault();
+        var isOld = localStorage.getItem('isOld');
+        if(isOld != '2'){
+            var ttxt = $.trim($(this).text());
+            console.log(ttxt);
+            if(ttxt == '用户中心' || ttxt == '发布商品' || ttxt == '发布采购' || ttxt == '立即报价' || ttxt == '路线查询' || ttxt == '立即申请' || ttxt == '发布求购' ){
+                if(isOld == '1'){
+                    $('#effect .contTitle span').text('您尚未登录');
+                    missedLogin() ;
+                }else if(isOld == '0'){
+                    missedLogin() ;
+                }else if(isOld == '-1'){
+                    $('#effect .contTitle span').text('您尚未认证');
+                    $('#effect .contTitle i').text('认证');
+                    $('#popLogin').text('认证');
+                    missedLogin() ;
+                }else if(isOld == '-2'){
+  //                    $('#effect .contTitle span').text('您的认证正在审核中');
+  //                    $('#effect .contTitle i').text('等待审核通过').css('color','#000');
+  //                    $('#popLogin').hide();
+                    // missedLogin() ;
+                    window.location.href = this.href;
+                }
+            }else{
+                window.location.href = this.href;
+            }
+        }else{
+            window.location.href = this.href;
+        }
+   })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
