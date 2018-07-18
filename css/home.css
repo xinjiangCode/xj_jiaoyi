@@ -239,15 +239,15 @@ background: url(../img/wcleftBoxBg.png) no-repeat;background-size:contain ;backg
 	top: 50%;
 	z-index: 31;
 	display: none;
-    width: 651px;
-    height: 455px;
+    width: 620px;
+    height: 430px;
     margin-left: -325.5px;
     margin-top: -227.5px;
 }
 #colseAlert{
 	position: absolute;
-	right: 24px;
-	top: 21px;
+	right: 8px;
+	top: 0px;
 }
 .tsBox>p{
 	font-size: 19px;

@@ -193,7 +193,7 @@
 	            width: 140px;
 	            height: 45px;
 	            border: 1px solid #5690f6;
-	            font-size: 18px;
+	            font-size: 15px;
 	            color: #fff;
 	            box-sizing: border-box;
 	            text-align: center;
@@ -248,6 +248,30 @@
 			.go_dcl {
 				margin-left: 3px;
 			}
+			.tsBox div span{
+				font-size: 14px;
+				color: #6c6d6e;
+			}
+			.tsBox div input{
+				font-size: 12px;
+				/* color: #c9caca; */
+				color: #999;
+			}
+
+			img {
+				position: relative;
+			}
+			
+			img::after {
+				content: "";
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: url(img/cf_close1.png ) no-repeat center;
+			}
+
 
 		</style>
 	</head>
@@ -882,7 +906,7 @@
 			<div class="modelcontent" style="width: 100%;padding-top: 19px;">
 	            <div>
 					<span>资讯类别</span>
-					<select name="">
+					<select name="" style="font-size: 12px;color: #999;">
 						<option value="建议">建议</option>
 						<option value="投诉">投诉</option>
 					</select>
