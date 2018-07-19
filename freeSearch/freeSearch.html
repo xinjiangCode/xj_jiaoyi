@@ -720,9 +720,9 @@
 							+'<span class="hasColoR bigFt fontStyle">03</span>秒'
 						+'</p>';
 							if(data.data.two.remain==0){
-                                str1+='<a href="##" data-mycompanyId="'+data.data.two.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'" style="background-color: #666666;"><button>立即报价</button></a>';
+                                str1+='<a href="javascript:;" data-mycompanyId="'+data.data.two.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'" style="background-color: #666666;"><button>立即报价</button></a>';
 							}else{
-                                str1+='<a href="offer.html" data-mycompanyId="'+data.data.two.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'"><button>立即报价</button></a>';
+                                str1+='<a href="javascript:;" data-mycompanyId="'+data.data.two.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'"><button>立即报价</button></a>';
 							}
 						str1+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.two.allQuoteNumber+' </span>家报价</p>';
 
@@ -749,10 +749,11 @@
 				var shopCompanyId = $(this).attr("data-mycompanyId");
 				if(companyId == shopCompanyId){
 					alert("您不能对自己公司商品进行报价");
+				}else{
+					window.localStorage.setItem('baojiaid', $(this).attr('data-baojiaid_id'));
+					$(this).attr('href', 'offer.html');
 				}
-				window.localStorage.setItem('baojiaid', $(this).attr('data-baojiaid_id'));
-
-				$(this).attr('href', 'offer.html');
+				
 			});
 
 
@@ -888,9 +889,9 @@
 				        				+'<span class="hasColoR bigFt time_seconds fontStyle">03</span>秒'
 				        			+'</p>';
                                 if(data.data.list[i].remain==0){
-                                    str+='<a href="##" class="button "  ><button style="background-color: #999999;border: #999999;outline: none;">立即报价</button></a>';
+                                    str+='<a href="javascript:;" class="button "  ><button style="background-color: #999999;border: #999999;outline: none;">立即报价</button></a>';
 								}else{
-                                    str+='<a href="offer.html" class="button liji_baojia" data-mycompanyId="'+data.data.list[i].warehouse.ownedCompanyId+'" data-baojiaid_id="'+data.data.list[i].buyingId+'"><button>立即报价</button></a>';
+                                    str+='<a href="javascript:;" class="button liji_baojia" data-mycompanyId="'+data.data.list[i].warehouse.ownedCompanyId+'" data-baojiaid_id="'+data.data.list[i].buyingId+'"><button>立即报价</button></a>';
 								}
 
 				        			str+='<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.list[i].interestCount+' </span>家报价</p>'

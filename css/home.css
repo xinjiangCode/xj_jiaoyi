@@ -193,6 +193,7 @@ background: url(../img/wcleftBoxBg.png) no-repeat;background-size:contain ;backg
 }
 .fxd .showCode img{
 	margin-top: 0;
+	height: 100%;
 }
 .showCode:after{
     content: '';
