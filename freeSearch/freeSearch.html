@@ -229,10 +229,10 @@
 				width: 272px;
 				height: 323px;
 				margin-right: 8px;
-				border-right: 3px #d8d8d8 solid;
-    			border-left: 3px #d8d8d8 solid;
-    			border-top: 3px #d8d8d8 solid;
-    			border-bottom: 3px #d8d8d8 solid;	
+				border-right: 3px #f2f2f2 solid;
+    			border-left: 3px #f2f2f2 solid;
+    			border-top: 3px #f2f2f2 solid;
+    			border-bottom: 3px #f2f2f2 solid;	
     			margin-bottom: 23px;
 			}
 
@@ -291,7 +291,7 @@
 			<div class="fsObjBox  swiper-container">
 				<div class="swiper-wrapper">
 			        <div class="swiper-slide" id="tuijian_caigou">
-		        		<div class="fsObjItem">
+		        		<div class="fsObjItem" id="tuijiaTwoInfo0" style="height: 329px;">
 		        			<!-- <img src="../img/tuijian.png"/>
 		        			<h1>甲醇钠甲醇溶液</h1>
 		        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
@@ -306,7 +306,7 @@
 		        			<a href="offer.html"><button>立即报价</button></a>
 		        			<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p> -->
 		        		</div>
-		        		<div class="fsObjItem" id="tuijiaTwoInfo">
+		        		<div class="fsObjItem" id="tuijiaTwoInfo1" style="height: 329px;">
 		        			<!-- <img src="../img/tuijian.png"/>
 		        			<h1>甲醇钠甲醇溶液</h1>
 		        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
@@ -321,7 +321,7 @@
 		        			<a href="offer.html"><button>立即报价</button></a>
 		        			<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>99 </span>家报价</p> -->
 		        		</div>
-		        		<div class="fsObjItem">
+		        		<div class="fsObjItem" id="tuijiaTwoInfo2" style="height: 329px;">
 		        			<!-- <img src="../img/tuijian.png"/>
 		        			<h1>甲醇钠甲醇溶液</h1>
 		        			<p><span class="gbRight">数 量: <span class="hasColoR">10吨</span></span><span>纯 度: <span class="hasColoR">99.99%   </span></span></p>
@@ -704,11 +704,35 @@
                 cache: false,
                 dataType: "json",
                 success: function(data){
+                	console.log("============================");
                 	console.log(data);
 
+                	var str0 = '';
                 	var str1 = '';
+                	var str2 = '';
+					if(data.data.one != ''&&data.data.one != null){
+						str0 += '<img src="../img/tuijian.png"/>'
+						+'<h1>'+data.data.one.chemicalName+'</h1>'
+						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.one.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.one.productPurity+'%   </span></span></p>'
+						+'<p>交货地: <span class="delivery_address">'+data.data.one.deliveryAddress+'</span></p>'
+						+'<p style="margin-top: 37px;">剩余时间：</p>'
+						+'<p id="distanceTime0">'
+							+'<span class="hasColoR bigFt fontStyle">00</span>天'
+							+'<span class="hasColoR bigFt fontStyle">23</span>时'
+							+'<span class="hasColoR bigFt fontStyle">10</span>分'
+							+'<span class="hasColoR bigFt fontStyle">03</span>秒'
+						+'</p>';
+							if(data.data.one.remain==0){
+                                str0+='<a href="javascript:;" data-mycompanyId="'+data.data.one.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.one.buyingId+'" style="background-color: #666666;"><button>立即报价</button></a>';
+							}else{
+                                str0+='<a href="javascript:;" data-mycompanyId="'+data.data.one.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.one.buyingId+'"><button>立即报价</button></a>';
+							}
+						str0+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.one.allQuoteNumber+' </span>家报价</p>';
 
-                	str1 += '<img src="../img/tuijian.png"/>'
+					}
+					
+					if(data.data.two != ''&&data.data.two != null){
+						str1 += '<img src="../img/tuijian.png"/>'
 						+'<h1>'+data.data.two.chemicalName+'</h1>'
 						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.two.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.two.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.two.deliveryAddress+'</span></p>'
@@ -726,8 +750,34 @@
 							}
 						str1+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.two.allQuoteNumber+' </span>家报价</p>';
 
+					}
+					if(data.data.three != ''&&data.data.three != null){
+						str2 += '<img src="../img/tuijian.png"/>'
+						+'<h1>'+data.data.three.chemicalName+'</h1>'
+						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.three.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.three.productPurity+'%   </span></span></p>'
+						+'<p>交货地: <span class="delivery_address">'+data.data.three.deliveryAddress+'</span></p>'
+						+'<p style="margin-top: 37px;">剩余时间：</p>'
+						+'<p id="distanceTime0">'
+							+'<span class="hasColoR bigFt fontStyle">00</span>天'
+							+'<span class="hasColoR bigFt fontStyle">23</span>时'
+							+'<span class="hasColoR bigFt fontStyle">10</span>分'
+							+'<span class="hasColoR bigFt fontStyle">03</span>秒'
+						+'</p>';
+							if(data.data.three.remain==0){
+                                str2+='<a href="javascript:;" data-mycompanyId="'+data.data.three.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.three.buyingId+'" style="background-color: #666666;"><button>立即报价</button></a>';
+							}else{
+                                str2+='<a href="javascript:;" data-mycompanyId="'+data.data.three.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.three.buyingId+'"><button>立即报价</button></a>';
+							}
+						str2+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.three.allQuoteNumber+' </span>家报价</p>';
 
-					$('#tuijiaTwoInfo').html(str1);
+
+					}
+                	
+					
+
+					$('#tuijiaTwoInfo0').html(str0);
+					$('#tuijiaTwoInfo1').html(str1);
+					$('#tuijiaTwoInfo2').html(str2);
 
 					data.data.two.validityData = new Date(data.data.two.validityData).Format("yyyy-MM-dd hh:mm:ss");
 
