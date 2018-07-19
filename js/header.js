@@ -600,7 +600,7 @@ window.onload = function(){
 				if(t.hotProductList.length != 0){
 					$.each(t.hotProductList,function(i,t){
 						
-						leftTy += '<div class="hotObj" objid="'+t.productId+'" comid="'+t.companyId+'">\
+						leftTy += '<div class="hotObj" objid="'+t.supplyId+'" comid="'+t.companyId+'">\
 					           			<a href="##" >\
 					           				<div style="background:url('+t.productPic.split(',')[0]+') no-repeat;background-position:center;background-size:cover;"></div>\
 						           			<p>'+t.unitPrice+'元/'+t.productSpecName+'</p>\

@@ -30,7 +30,7 @@
 				overflow: hidden;
 			}
 			.search_left_top .img1{
-				width: 205px;
+				width: 204px;
 				height: 185px;
 				box-sizing: border-box;
 			}
@@ -114,10 +114,10 @@
 						<div class="img1"><img src="../img/search_pic1.jpg" alt=""></div>
 						<div class="padd">
 							<p class="huaxue_name">氢氧化钠</p>
-							<p class="cas_num">CAS号：84-74-2</p>
-							<p class="cas_num">别称：邻酞酸二丁酯、邻苯二甲酸二丁酯</p>
+							<p class="cas_num">CAS号：<span class="cas">84-74-2</span></p>
+							<p class="cas_num">别称：<span class="alias">邻酞酸二丁酯、邻苯二甲酸二丁酯</span></p>
 						</div>
-						<div class="left_btn">共7家供应商</div>
+						<div class="left_btn">共<span>7</span>家供应商</div>
 					</div>
 					<div class="search_left_center">
 						<a href="javascript:;">查看化学品详细信息<img src="../img/search_left_xiajiantou.png" alt=""></a>
@@ -143,7 +143,7 @@
 				</div>
 				<div class="fr right">
 					<div class="info">
-						共有<span>4</span>种不同规格的产品 现销售：<span>￥200 RMB</span>起
+						共有<span class="guige_shuzi">4</span>种不同规格的产品 现销售：<span>￥<span class="min_price">200</span> RMB</span>起
 					</div>
 					<div class="search_select">
 						<select name="" id="vendor" class="n1">
@@ -490,6 +490,13 @@
 				success: function(json){
 
 					console.log(json);
+
+					$('.search_left_top .huaxue_name').html(json.data.chemicalName);
+					$('.search_left_top .cas').html(json.data.chemicalCas);
+					$('.search_left_top .alias').html(json.data.chemicalAlias);
+
+					$('.left_btn span').html(json.data.storeProductsVoList.length);
+					$('.min_price').html(json.data.minPrice);
                     // json.data.productPurityList
 					var CDoptions="<option value>纯度</option>";
 					for (var j=0;j<json.data.productPurityList.length;j++){
@@ -501,7 +508,7 @@
 
 					// var result1 = template("searchPreciseListTpl", {list: json.data.storeProductsVoList});
 					// $('#searchPreciseListInfo').html(result1);
-
+					var guige_sz = 0;
 					var str = ''
 					for (var i = 0; i < json.data.storeProductsVoList.length; i++) {
 						str += '<li>'
@@ -514,8 +521,10 @@
 						}
 						str+='<span>';
 
-						str += '<img src="../img/cf_qiye.png" alt="">';
-
+						if (json.data.storeProductsVoList[i].companyAuthenticated == true) {
+							str += '<img src="../img/cf_qiye.png" alt="">';
+						}
+						
 						if (json.data.storeProductsVoList[i].num >0) {
 							str += '<img src="../img/cf_weixian.png" alt="">';
 						}
@@ -547,6 +556,8 @@
 
 						}
 
+						guige_sz += json.data.storeProductsVoList[i].productListVo.length;
+
 						if (json.data.storeProductsVoList[i].productListVo.length > 2) {
 							str+='<li class="li">'
 								+'共有'+json.data.storeProductsVoList[i].productListVo.length+'中规格 <span><span>展开</span>&nbsp; <img src="../img/search_left_xiajiantou.png" alt=""></span>'
@@ -557,9 +568,12 @@
 						str += '</ul>'
 							+'</div>'
 							+'</li>';
+
+
 					}
 
 					$('#searchPreciseListInfo').html(str);
+
 
 					for (var i = 0; i < json.data.storeProductsVoList.length; i++) {
 						for (var j = 0; j < json.data.storeProductsVoList[i].productListVo.length; j++) {
@@ -568,6 +582,8 @@
 							}
 						}
 					}
+
+					$('.guige_shuzi').html(guige_sz);
 
 					$(document).on('click', '.xunpan_detail', function() {
 						window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
