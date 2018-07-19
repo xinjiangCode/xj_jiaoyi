@@ -66,7 +66,10 @@
 
 			.selected1 ul li {
 				margin-left: 10px;
-				width: 96px;
+				/*width: 96px;*/
+				width: auto;
+			    padding-right: 20px;
+			    padding-left: 10px;
 				display: none;
 			}
 
@@ -446,9 +449,50 @@
 		<script type="text/javascript">
             var bianliang=[];//传入精确查询的  数组
 		var chemicalId = window.localStorage.getItem('jzSeachName');
-        searchGoods(chemicalId,"","","","","");
+
+		purity(chemicalId);
+
+		function purity(chemicalId) {
+			$.ajax({
+				type: "get",
+				url: pubIP + "product/glabolProductSearch",//v1.0
+				cache: false,
+				dataType: "json",
+				headers: {
+					token: token
+				},
+				data: {
+					chemicalId: chemicalId
+				},
+				success: function(json){
+					console.log(json);
+
+					var CDoptions="<option value>纯度</option>";
+					for (var j=0;j<json.data.productPurityList.length;j++){
+                        CDoptions+='<option value='+j+'>'+json.data.productPurityList[j]+'</option>'
+					}
+					$("#purity_chundu").html(CDoptions);
+
+					var guigeStr = '<option value>规格</option>'
+					for (var k = 0; k < json.data.specificationList.length; k++) {
+						guigeStr += '<option value='+k+'>'+json.data.specificationList[k]+'</option>';
+					}
+
+					$('#guige_size').html(guigeStr);
+
+					$('.guige_shuzi').html(json.data.specificationList.length);
+
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			});
+
+		}
+
+        searchGoods(chemicalId,"","","","","", "", "");
         //精确查询
-		function searchGoods(chemicalId1,companyType,productSpec,productPurity,paymentMethod,deliveryAddress) {
+		function searchGoods(chemicalId1,companyType,productSpec,productPurity,paymentMethod,province, city, area) {
 		    var data={};
 		    if(chemicalId1!=""){
                 data.chemicalId=chemicalId1;
@@ -466,8 +510,14 @@
             if(paymentMethod!=""){
                 data.paymentMethod=paymentMethod;
             }
-            if(deliveryAddress!=""){
-                data.deliveryAddress=deliveryAddress;
+            if(province!=""){
+                data.province=province;
+            }
+            if(city!=""){
+                data.city=city;
+            }
+            if(area!=""){
+                data.area=area;
             }
 
 			$.ajax({
@@ -498,11 +548,7 @@
 					$('.left_btn span').html(json.data.storeProductsVoList.length);
 					$('.min_price').html(json.data.minPrice);
                     // json.data.productPurityList
-					var CDoptions="<option value>纯度</option>";
-					for (var j=0;j<json.data.productPurityList.length;j++){
-                        CDoptions+='<option value='+j+'>'+json.data.productPurityList[j]+'</option>'
-					}
-					$("#purity_chundu").html(CDoptions);
+					
 					var result =  template("searchLeftBottomTpl",json.data);
 					$('#searchLeftBottomInfo').html(result);
 
@@ -556,7 +602,6 @@
 
 						}
 
-						guige_sz += json.data.storeProductsVoList[i].productListVo.length;
 
 						if (json.data.storeProductsVoList[i].productListVo.length > 2) {
 							str+='<li class="li">'
@@ -583,7 +628,6 @@
 						}
 					}
 
-					$('.guige_shuzi').html(guige_sz);
 
 					$(document).on('click', '.xunpan_detail', function() {
 						window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
@@ -646,7 +690,7 @@ function sear() {
         }
     }
     console.log(bianliang)
-    searchGoods(chemicalId,bianliang[0],bianliang[1],bianliang[2],bianliang[3],bianliang[5]);
+    searchGoods(chemicalId,bianliang[0],bianliang[1],bianliang[2],bianliang[3],bianliang[4],bianliang[5],bianliang[6]);
 }
 
 
@@ -745,7 +789,7 @@ function sear() {
             if (!($("#province  option:selected").val() == '')) {
             	$('.selected1 ul li.province_provice').css('display', 'block');
                 $('.selected1 ul li.province_provice').attr('data-isSelect', '1');
-            	$('.selected1 ul li.province_provice span').html($("#province  option:selected").text());
+            	$('.selected1 ul li.province_provice span').html($("#province  option:selected").attr('data-proviceid'));
                 sear();
             }
             
@@ -822,7 +866,7 @@ function sear() {
             if (!($("#city  option:selected").val() == '')) {
 	            $('.selected1 ul li.city_city').css('display', 'block');
                 $('.selected1 ul li.city_city').attr('data-isSelect', '1');
-	            $('.selected1 ul li.city_city span').html($("#city  option:selected").text());
+	            $('.selected1 ul li.city_city span').html($("#city  option:selected").attr('data-cityid'));
                 sear();
 	        }
 
@@ -886,7 +930,7 @@ function sear() {
         	if (!($("#area option:selected").val() == '')) {
 	        	$('.selected1 ul li.area_area').css('display', 'block');
                 $('.selected1 ul li.area_area').attr('data-isSelect', '1');
-	            $('.selected1 ul li.area_area span').html($("#area  option:selected").text());
+	            $('.selected1 ul li.area_area span').html($("#area  option:selected").attr('data-areaid'));
                 sear();
            	}
 
