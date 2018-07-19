@@ -21,37 +21,14 @@
          .head>.left1>img{float:left;width: 198px;height: 110px;}
          .head>.right1{font-size: 18px;padding-top: 28px;}
          .head>.right1>.top1{margin-bottom: 8px;}
-		.container>ul{padding-top: 49px;padding-bottom: 100px;}
-        .container>ul>li{
-        		margin-left: 20px;
-		    overflow: hidden;
-		    width: 940px;
-		    height: 180px;
-		    border: 1px solid #D7D9E5;
-		    margin-bottom: 22px;
-		    padding: 35px 49px;
-		    color: #282828;
-		    border-radius: 5px;
-		    box-sizing: border-box;
-		    position: relative;
-		    overflow: hidden;
-        }
-        .container>ul>li>.left3{overflow: hidden;margin-right: 43px;}
-        .container>ul>li>.left3>img{width: 198px;height: 110px;float: left;}
-        .container>ul>li>.right3{margin-top: 10px;}
-        .container>ul>li>.right3>div{margin-top: 5px;}
-        .leftBg{position: absolute;left: -14px;top: 0;}
-        .cardIcon{position: absolute;right: 0;top: -59px;width: 160px;}
-        .cjCard .cardIcon{
-        		width: auto;
-		    top: -84px;
-		    right: -104px;
-        }
-        .container>ul>.cjCard{    padding: 18px 16px;}
-        .container>ul>.cjCard .left3>img{
-        		width: 231px;
-    			height: 142px;
-        }
+		.yhCardList{}
+        .yhCardList li{width: 445px;height: 260px;border: 1px solid #f1f1f1;box-shadow: 0 0 10px 1px #f1f1f1 ;margin-left: 30px;float: left;margin-bottom: 36px;margin-top: 20px;}
+        .cardTop{height: 100px;text-align: center;}
+        /*.cardTop img{height: 100%;}*/
+        .kaihuhang{width: 350px;line-height: 28px;height: 60px;margin: 0 auto;text-align: center;font-size: 16px;color: #666666;margin-top: 5px;}
+        .kaihuming{text-align: center;font-size: 16px;color: #666666;margin-top: 8px;}
+        .cardNum{text-align: center;height: 50px;line-height: 50px;background-color: #689fff;color: white;font-size: 18px;position: absolute;bottom:0;left: 0;right: 0;width: 100%;}
+        .cardItem{position: relative;width: 100%;height: 100%;}
     </style>
 </head>
 <body>
@@ -60,59 +37,43 @@
 <div class="container">
     <div class="title">资金账户管理</div>
     <div class="head">
-        <div class="left1 Lf"><img src="../img/list_logo.png" alt=""></div>
+        <div class="left1 Lf"><img src="../img/zthx_logo.png" alt=""></div>
         <div class="right1 Lf">
             <div class="top1">企业名称： <a href="##">中泰化学</a></div>
             <div class="top1">注册时间： <span style="color:#707070;">2018-04-02 12: 30: 25</span></div>
         </div>
     </div>
 
-    <div class="container">
-        <ul>
+    <div class="container" style="height: 1190px;">
+        <ul class="yhCardList">
             <li>
-            		<img src="../img/cardBg.png" class="leftBg"/>
-            		<img src="../img/zxIcon.png" class="cardIcon" />
-                <div class="left3 Lf">
-                    <img src="../img/cardLogo.png" alt="">
-                </div>
-                <div class="right3 Lf">
-                    <div>测试名：测试商家002</div>
-                    <div>账户号：3113710033453116662</div>
-                    <div>开户行：</div>
+            	<div class="cardItem">
+                    <div class="cardTop">
+                        <img src="../img/Zxlogo.png" alt="">
+                    </div>
+                    <div class="kaihuhang">中国建设银行新疆维吾尔自治区.乌鲁木齐市街道 塔克拉玛干沙漠办事处支行</div>
+                    <div class="kaihuming">开户名：测试商家002</div>
+                    <div class="cardNum">3113 **** **** **** **** 662</div>
                 </div>
             </li>
             <li>
-            		<img src="../img/cardBg.png" class="leftBg"/>
-            		<img src="../img/zsIcon.png" class="cardIcon" />
-                <div class="left3 Lf">
-                    <img src="../img/zsLogo.png" alt="">
-                </div>
-                <div class="right3 Lf">
-                    <div>测试名：测试商家002</div>
-                    <div>账户号：3113710033453116662</div>
-                    <div>开户行：</div>
+                <div class="cardItem">
+                    <div class="cardTop">
+                        <img src="../img/Zxlogo.png" alt="">
+                    </div>
+                    <div class="kaihuhang">中国建设银行新疆维吾尔自治区.乌鲁木齐市街道 塔克拉玛干沙漠办事处支行</div>
+                    <div class="kaihuming">开户名：测试商家002</div>
+                    <div class="cardNum">3113 **** **** **** **** 662</div>
                 </div>
             </li>
-            <li class="cjCard">
-            		<img src="../img/cardRTIcon.png" class="cardIcon" />
-                <div class="left3 Lf">
-                    <img src="../img/chujinCard.png" alt="">
-                </div>
-                <div class="right3 Lf">
-                    <div>测试名：测试商家002</div>
-                    <div>账户号：3113710033453116662</div>
-                    <div>开户行：</div>
-                </div>
-            </li>
-            <li class="cjCard">
-            		<img src="../img/cardRTIcon.png" class="cardIcon" />
-                <div class="left3 Lf">
-                    <img src="../img/chengduiCard.png" alt="">
-                </div>
-                <div class="right3 Lf">
-                    <div>测试名：测试商家002</div>
-                    <div>账户号：3113710033453116662</div>
-                    <div>开户行：</div>
+            <li>
+                <div class="cardItem">
+                    <div class="cardTop">
+                        <img src="../img/Zxlogo.png" alt="">
+                    </div>
+                    <div class="kaihuhang">中国建设银行新疆维吾尔自治区.乌鲁木齐市街道 塔克拉玛干沙漠办事处支行</div>
+                    <div class="kaihuming">开户名：测试商家002</div>
+                    <div class="cardNum">3113 **** **** **** **** 662</div>
                 </div>
             </li>
         </ul>
@@ -127,7 +88,9 @@
 
 <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-
+    $(function () {
+        window.parent.$("#Iframe").css("height","1422");
+    })
 
 </script>
 </body>
