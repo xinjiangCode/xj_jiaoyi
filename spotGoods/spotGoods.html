@@ -46,8 +46,8 @@
 				margin-bottom: 30px;
 			}
 			.rsGoods>div{
-				width: 348px;
-				height: 241px;
+				width: 346px;
+				height: 245px;
 				box-sizing: border-box;
 			}
 			.rsGoods>div:hover{
@@ -480,7 +480,7 @@
 				</div>
 				<img src="../img/AD.png" class="adImg" />
 				<div class="wcObjBox" style="overflow: visible;">
-					<div class="wcleftBox" style="margin-right: 1px;height: 491px;">
+					<div class="wcleftBox" style="margin-right: 8px;height: 491px;">
 						<!--<div class="wcleftBoxTit">
 							<img src="../img/wcTitImg.jpg"/>
 							<p>热货现搜</p>
@@ -494,7 +494,7 @@
 						<a href="../search/productNameSearch_precise.html">氨基酚</a>
 						<a href="../shopManage/addShop.html"><button>发布商品</button></a>-->
 					</div>
-					<div class="wcCenterBox" style="width: 1049px;height: 491px;overflow: visible;">
+					<div class="wcCenterBox" style="width: 1042px;height: 491px;overflow: visible;">
 						<div class="supplierBox rsGoods" style="overflow: visible;">
 							<div>
 								<img src="../img/wei.png"/>
@@ -713,7 +713,7 @@
 		</script>
 		<script type="text/html" id="objTj2"> 
 			 <% for (i in list) { %>
-                	<div objid="<%=list[i].supplyId%>" thisCmpId="<%=list[i].publishCompanyId%>">
+                <div objid="<%=list[i].supplyId%>" thisCmpId="<%=list[i].publishCompanyId%>" style="border:1px solid #f5f5f5;">
 					<%if( list[i].chemicalDangerFlag == 1){%>
 						<img src="../img/pu.png">
 					<%}else if(list[i].chemicalDangerFlag == 2){%>

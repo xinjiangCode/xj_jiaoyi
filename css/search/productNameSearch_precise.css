@@ -17,14 +17,14 @@
 /* 主内容左侧 */
 .search_left_top {
 	width: 323px;
-	height: 379px;
-	border: 1px solid #CCCCCC;
+	/* height: 379px; */
+	border: 1px solid #ebe9ea;
 }
 
 .search_left_top .img1 {
 	width: 203px;
 	height: 183px;
-	border: 1px solid #CCCCCC;
+	border: 1px solid #ebe9ea;
 	margin: 25px auto 29px; 
 }
 
@@ -76,7 +76,7 @@
 .search_left_bottom {
 	width: 323px;
 	height: 437px;
-	border: 1px solid #CCCCCC;
+	border: 1px solid #ebe9ea;
 }
 
 .search_left_bottom ul {
@@ -87,7 +87,7 @@
 .search_left_bottom ul li {
 	color: #7a7a7a;
 	font-size: 14px;
-	line-height: 1.7;
+	line-height: 22px;
 }
 
 .search_left_bottom ul li div {
@@ -152,7 +152,7 @@
 
 .info {
 	height: 34px;
-	background-color: #E5E5E5;
+	background-color: #f2f2f2;
 	font-size: 14px;
 	padding-left: 20px;
 	box-sizing: border-box;
@@ -166,7 +166,7 @@
 .search_select {
 	height: 55px;
 	line-height: 55px;
-	border: 1px solid #ccc;
+	border: 1px solid #ebe9ea;
 	margin-top: 4px;
 }
 
@@ -232,7 +232,7 @@
 
 .search_precise_list ul li .search_title {
 	height: 55px;
-	background-color: #E5E5E5;
+	background-color: #f2f2f2;
 	line-height: 55px;
 }
 
@@ -241,7 +241,7 @@
 }
 
 .search_precise_list ul li .list {
-	border: 1px solid #CCCCCC;
+	border: 1px solid #ebe9ea;
 	border-top: none;
 	width: 880px;
 }
@@ -253,7 +253,7 @@
 .search_precise_list ul li .list ul li {
 	height: 60px;
 	line-height: 60px;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #ebe9ea;
 }
 
 .search_precise_list ul li .list ul li:last-child {
