@@ -426,14 +426,14 @@
                 // }
 
                 if (data.data.company.state == -1) { //未提交
-                    update_info();
                     $('.weiRenZheng.next_btn').css('display', 'block');
                     $('.next_btn_update').css('display', 'none');
                 } else if (data.data.company.state == 0) { //待审核
                     $('.weiRenZheng.next_btn').css('display', 'none');
                     $('.next_btn_update').css('display', 'none');
-                    update_info();
                 }
+
+                 update_info();
                 
             },
             error: function (err) {
