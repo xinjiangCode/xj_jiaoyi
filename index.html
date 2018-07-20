@@ -1256,7 +1256,7 @@
 			// });
 
 
-
+			//热门供应商广告位
 			$.ajax({
 				type:"post",
 		        url:pubIP+"advertisement/findAdvertisementByPosition",//v1.0
@@ -1271,6 +1271,7 @@
                 	position: 86
                 },
 		        success: function(data){
+		        	console.log("++++++++++++++++");
 		        	console.log(data);
 
 		        	var str = '';
