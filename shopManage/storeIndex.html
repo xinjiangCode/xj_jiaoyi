@@ -709,6 +709,7 @@
 	              
 	          }
 	       });
+
 		   //左侧名片
 	       $.ajax({ 
 	          type:"post",
@@ -723,11 +724,16 @@
 	        	  'companyId':companyId
 	          },
 	          success: function(json){
-	            console.log(json+'========================');
+	            console.log(json);
 	            if(json.code != 1){
 	            		console.log(json.msg);
 	            		return false;
 	            }
+
+	            if (json.data.aType != 0 || json.data.aState != 1) {
+	            	$('.renzheng1').attr('src', '../img/cf_dengerNo.png');
+	            }
+
 	            $('.ml').text(json.data.companyAddress2);
 	            $('.span_phone').text(json.data.contact == null ? ' ' : json.data.contact);
 	            $('.company_name img').attr('src',json.data.storeImage);

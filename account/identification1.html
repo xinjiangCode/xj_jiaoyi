@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" CONTENT="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
     <meta name="format-detection" content="telephone=no" />
-    <title>新疆化学品经营服务平台</title>
+    <title adct1="1">新疆化学品经营服务平台</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css"/>
     <style type="text/css">
         .xiaoshi{display: none;}
@@ -43,7 +43,7 @@
 
         .bottom1{padding: 59px 0px 54px 83px;border-bottom: 1px solid #f1f1f1;overflow: hidden}
         .bottom1>.left1{margin: 91px 131px 0 0;}
-        .bottom1>.right2{ margin-left: 15px;}
+        .bottom1>.right2{ margin-left: 70px;}
         .bottom1>.right2>ul{}
         .bottom1>.right2>ul>li{overflow: hidden;margin-top: 17px;display: block;}
         .bottom1>.right2>ul>li>.left1{height: 38px;line-height: 38px;text-align: right;margin-right: 20px;}
@@ -186,9 +186,33 @@
                     <input type="text" class="date-input laydate-icon" placeholder="请选择日期" id="test2">
                 </div>
             </li>
-            <li>
+            <li class="clearfix" style="overflow: visible;">
                 <div class="left1 Lf"><i class="red">*</i>公司地址:</div>
-                <div class="right1 Lf"><input type="text" id="company_address"></div>
+                <!-- <div class="right1 Lf"><input type="text" id="company_address"></div> -->
+                <div style="margin-left: 4px;">
+                    <div class="selectPub provice1" id="province" data-selectedindex="-1" style="float: left;width: 126px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择省</span>
+                        <img src="../img/prl-select.jpg" alt="">
+                        <ul>
+
+                        </ul>
+                    </div>
+                    <div class="selectPub city1" id="city" data-selectedindex="-1" style="float: left;width: 126px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择市</span>
+                        <img src="../img/prl-select.jpg" alt="">
+                        <ul>
+
+                        </ul>
+                    </div>
+
+                    <div class="selectPub town1" id="area" data-selectedindex="-1" style="float: left;width: 126px;">
+                        <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择区</span>
+                        <img src="../img/prl-select.jpg" alt="">
+                        <ul>
+
+                        </ul>
+                    </div>
+                </div>
                 <span class="ts"></span>
             </li>
             <li>
@@ -252,7 +276,6 @@
 
     <div class="bottom1">
         <div class="left1 Lf">
-            法人信息
         </div>
         <div class="right2 Lf">
             <ul>
@@ -312,6 +335,221 @@
         $(document).on('change','#yingye_zhizhao_pic,#saomiaojian_pic,#chajian_pic,#zhengjian_pic1,#zhengjian_pic2',function(){
             xmTanUploadImg11(this);
         })
+
+
+        selectProvince();
+
+        /*查询所有省份*/
+        function selectProvince() {
+            $.ajax({
+                url: pubIP + 'address/listProvince', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: false,
+                dataType: 'json',
+                success: function (data) {
+                   console.log(data);
+                    var str = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<li  data-index="'+i+'" value="'+i+'" data-proviceId="'+data.data[i].provinceid+'" data-province="'+data.data[i].province+'">'+data.data[i].province+'</li>';
+                    }
+
+                    $('#province ul').html(str);
+
+                    $('#province ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-proviceid', $(this).attr('data-proviceid'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                        var provinceID =$("#province").attr('data-proviceid');
+                        $('#city span').text('请选择市');
+                        $('#area span').html('请选择区');
+                        $('#area ul').html("");
+                        $('#city').removeClass('id_id1');
+
+                        selectCity(provinceID,null);
+
+                    });
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+        /*查询所有城市*/ 
+        function selectCity(provinceID, cityID) {
+            $.ajax({
+                url: pubIP + 'address/listCityByProvinceId', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                data: {provinceID: provinceID},
+                dataType: 'json',
+                success: function (data) {
+                     console.log(data.data);
+                    var str = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<li data-index="'+i+'"  value="'+i+'" data-cityId="'+data.data[i].cityid+'" data-city="'+data.data[i].city+'">'+data.data[i].city+'</li>';
+                    }
+
+                    $('#city ul').html(str);
+
+                    $('#city ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                        var cityID =$("#city").attr('data-cityid');
+                        $('#area span').text('请选择区');
+
+
+                        $('#city').removeClass('id_id1');
+
+                        selectArea(cityID, ''); 
+
+                    });
+
+                    // if ($('#city').hasClass('id_id1')) {
+                        
+                        $('#city span').text($('#city ul li[data-cityId="'+cityID+'"]').attr('data-city'));
+
+                        $('#city').attr('data-cityId', cityID);
+                    // }
+
+                    
+
+                    // 编辑回显城市
+                    // if ($('#city').hasClass('id_id1')) {
+                    //     var data_province = $this.parent().parent().find('td')[2];
+                    //     $('#city ul li').each(function (index, element) {
+                    //         if ($(this).attr('data-city') == $(data_province).attr('data-city')) {
+                    //             //$(this)[0].selected = true;
+                    //             $(this).parent().parent().attr("data-cityid",$(this).attr("data-cityid"));
+                    //             $(this).parent().parent().attr("data-selectedindex",$(this).attr("data-index"));
+                    //             $(this).parent().parent().find("span").text($(this).text());
+                    //         }
+                    //     });
+
+                    //     var cityID = $("#city").attr('data-cityid');
+                    //     $('#area').addClass('id_id2');
+                    //     selectArea(cityID, $this);
+
+
+
+                    // }
+
+                $();
+
+                $('#city').parent().next().html('');
+                        
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+        function selectArea(cityID, areaID) {
+
+            $.ajax({
+                url: pubIP + 'address/listAreaByCityID', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                data: {cityID: cityID},
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    var str = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<li data-index="'+i+'" value="'+i+'" data-areaId="'+data.data[i].areaid+'" data-area="'+data.data[i].area+'">'+data.data[i].area+'</li>';
+                    }
+
+                    $('#area ul').html(str);
+
+                    $('#area ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-areaid', $(this).attr('data-areaid'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                        var areaID =$("#area").attr('data-areaid');
+
+
+                    });
+
+                    // if ($('#area').hasClass('id_id2')) {
+
+                        console.log($('#area ul li[data-areaId="'+areaID+'"]'));
+                       
+                        $('#area span').text($('#area ul li[data-areaId="'+areaID+'"]').attr('data-area'));
+
+                        $('#area').attr('data-areaId', areaID);
+
+                    // }
+
+//
+                    // if ($('#area').hasClass('id_id2')) {
+                    //     var data_province = $this.parent().parent().find('td')[2];
+                    //     $('#area ul li').each(function (index, element) {
+                    //         if ($(this).attr('data-area') == $(data_province).attr('data-area')) {
+                    //           //  $(this)[0].selected = true;
+                    //             $(this).parent().parent().attr("data-areaid",$(this).attr("data-areaid"));
+                    //             $(this).parent().parent().attr("data-selectedindex",$(this).attr("data-index"));
+                    //             $(this).parent().parent().find("span").text($(this).text())
+                    //         }
+                    //     });
+                    // }
+//
+//                    $('#area').parent().next().html('');
+
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+        $('#province').on('blur', function () {
+            if ($('#province option:selected').text() == '请选择省') {
+                $('#province').parent().next().html('请选择省');
+            } else {
+                $('#province').parent().next().html('');
+            }
+        });
+
+        $('#city').on('blur', function () {
+            if ($('#province option:selected').text() != '请选择省' && $('#city option:selected').text() == '请选择市') {
+                $('#city').parent().next().html('请选择市');
+            } else {
+                $('#city').parent().next().html('');
+            }
+        });
+
+        $('#area').on('blur', function () {
+            if ($('#province option:selected').text() != '请选择省' && $('#city option:selected').text() != '请选择市' && $('#town option:selected').text() == '请选择区') {
+                $('#town').parent().next().html('请选择区');
+            } else {
+                $('#town').parent().next().html('');
+            }
+        });
         
         function xmTanUploadImg11(obj) {
             var file = obj.files[0];
@@ -612,10 +850,10 @@
             }
 
             
-            if ($('#company_address').val() == '') {
-                $('#company_address').parent().next().html('公司地址不能为空');
-                return;
-            }
+            // if ($('#company_address').val() == '') {
+            //     $('#company_address').parent().next().html('公司地址不能为空');
+            //     return;
+            // }
 
             if ($('#yingye_zhizhao_hidden').val() == '') {
                 $('#yingye_zhizhao_hidden').parent().parent().next().html('营业执照不能为空');
@@ -653,8 +891,11 @@
             var qiye_name = $('#qiye_name').val();
             var zhuce_money = $('#zhuce_money').val();
             var yingye_num = $('#yingye_num').val();
-            var company_address = $('#company_address').val();
+            // var company_address = $('#company_address').val();
             // var address = $('#address').val();
+            var provinceId  = $('#province').attr('data-proviceId');
+            var cityId  = $('#city').attr('data-cityId');
+            var areaId  = $('#area').attr('data-areaId');
             var faren_name = $('#faren_name').val();
             var id_number = $('#id_number').val();
 
@@ -689,7 +930,10 @@
                             businessLicense: yingye_num,
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
-                            companyAddress: company_address,
+                            // companyAddress: company_address,
+                            provinceId: provinceId,
+                            cityId: cityId,
+                            areaId: areaId,
                             companyType: radioIndex,
                             legalPerson: faren_name,
                             legalIdNumber: id_number,
@@ -879,7 +1123,19 @@
                         $('#wenjian_name').attr('data-wj', data.data.files[0].dbid);
                         $('#wenjian_name').attr('data-url', data.data.files[0].fileUrl);
                         
-                        $('#company_address').val(data.data.company.companyAddress);
+                        // $('#company_address').val(data.data.company.companyAddress);
+
+                        $('#province span').text($('#province ul li[data-proviceId='+data.data.company.provinceId+']').attr('data-province'));
+
+                        $('#province').attr('data-proviceId', data.data.company.provinceId);
+
+                        $('#city').addClass('id_id1');
+                        $('#area').addClass('id_id2');
+
+                        selectCity(data.data.company.provinceId, data.data.company.cityId);
+
+                        selectArea(data.data.company.cityId, data.data.company.areaId);
+
 
                        /* var img_weizhi = data.data.files[0].fileUrl.split("/").length-1;*/
 
@@ -1021,8 +1277,11 @@
             var qiye_name = $('#qiye_name').val();
             var zhuce_money = $('#zhuce_money').val();
             var yingye_num = $('#yingye_num').val();
-            var company_address = $('#company_address').val();
+            // var company_address = $('#company_address').val();
             // var address = $('#address').val();
+            var provinceId  = $('#province').attr('data-proviceId');
+            var cityId  = $('#city').attr('data-cityId');
+            var areaId  = $('#area').attr('data-areaId');
             var faren_name = $('#faren_name').val();
             var id_number = $('#id_number').val();
 
@@ -1076,7 +1335,10 @@
                             businessLicense: yingye_num,
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
-                            companyAddress: company_address,
+                            // companyAddress: company_address,
+                            provinceId: provinceId,
+                            cityId: cityId,
+                            areaId: areaId,
                             companyType: radioIndex,
                             legalPerson: faren_name,
                             legalIdNumber: id_number,
@@ -1121,7 +1383,7 @@
             } else {
                 if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
                     $.ajax({
-                        url: 'http://192.168.1.187:7777/service/companyCertification/addCompanyBaseInfo',
+                        url: pubIP+'companyCertification/addCompanyBaseInfo',
                         type: 'post',
                         headers: {
                             Accept: "application/json; charset=utf-8",
@@ -1135,7 +1397,10 @@
                             businessLicense: yingye_num,
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
-                            companyAddress: company_address,
+                            // companyAddress: company_address,
+                            provinceId: provinceId,
+                            cityId: cityId,
+                            areaId: areaId,
                             companyType: radioIndex,
                             legalPerson: faren_name,
                             legalIdNumber: id_number,

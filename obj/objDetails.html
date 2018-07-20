@@ -820,8 +820,15 @@
 						<p style="margin-bottom: 10px;padding-right:17px ;color: #282828;line-height: 24px;">企业名称：
 							<%=companyName%>
 						</p>
+						
 						<p style="color: #282828;margin-bottom: 5px;">企业认证 <img src="../img/qiIcon.png" style="margin-left: 8px;" /></p>
-						<p style="color: #282828;margin-bottom: 11px;">危险化学品认证 <img src="../img/weiIcon.png" style="margin-left: 8px;" /></p>
+						<p style="color: #282828;margin-bottom: 11px;">危险化学品认证 
+						<%if (aType == 0 && aState == 1) {%>
+						<img src="../img/weiIcon.png" style="margin-left: 8px;" />
+						<%} else {%>
+						<img src="../img/cf_dengerNo.png" style="margin-left: 8px;" />
+						<%}%>
+						</p>
 						
 						<p style="margin-bottom: 12px;color: #282828; display: none;" class="lianxifangshi">联系方式：<span style="color: #5590F6;"><%=contact%></span></p>
 						
