@@ -130,7 +130,7 @@ a{
 	background-color: #6a9ef7;
 }
 .mainCenterRegist{
-	width: 695px;
+	width: 660px;
 	margin:0 auto;
 	height: 553px;
 	background-color: #fcfcfc;
@@ -141,7 +141,7 @@ a{
 	overflow: hidden;
 }
 .mainCenterRegistTitle>.title{
-	margin-left: 325px;
+	margin-left: 290px;
 }
 .login{
 	margin-top: 5px;
@@ -156,9 +156,12 @@ a{
 	font-size: 14px;
 	overflow: hidden;
 }
+.reg-box{
+	margin-top: 25px;
+}
 .reg-box>li>span{
 	display: inline-block;
-	width: 190px;
+	width: 150px;
 	height: 36px;
 	line-height: 36px;
 	text-align: right;
@@ -172,7 +175,7 @@ a{
 	text-indent: 10px;
 }
 .reg-box>li>.box{
-	margin-left: 205px;
+	margin-left: 165px;
 	width: 14px;
 	height: 14px;
 	vertical-align: text-bottom;
@@ -185,6 +188,7 @@ a{
 }
 .reg-box>li>.xieyi{
 	color: #5892F3;
+	cursor: pointer;
 }
 
 .error{

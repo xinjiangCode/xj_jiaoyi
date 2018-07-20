@@ -284,9 +284,7 @@
 				</div>
 				<div>
 					<span><span>*</span>总  价：</span>
-					<span style="color: #C6C6C6;font-size: 16px;display: inline;">¥ <span id="total">0
-						
-					</span>/元</span>
+					<span style="color: #C6C6C6;font-size: 16px;display: inline;">¥ <span id="total">0</span>元</span>
 				</div>
 				<div>
 					<span><span>*</span>支持账期：</span>
@@ -461,7 +459,7 @@
 
 				if (parseInt(num) < parseInt(minAmount) || parseInt(num) > parseInt(remain)){
 					$('.modelcontent p').text('供应数量应大于采购最小供应量或小于采购数量');
-					$('.modelBox4').show();
+					$('.modelBox5').show();
 					return false;
 				}
 
@@ -469,6 +467,7 @@
 			
 			$('.confirm,.close').click(function(){
 				$('.modelBox4').hide();
+				// $('.modelBox5').hide();
 			})
 			
 			$('[name="dzs"]').change(function(){
@@ -489,7 +488,7 @@
 				$('.myOffer input').each(function(){
 					if($(this).val() == ''){
 						$('.modelcontent p').text($.trim($(this).prev().text())+'未填写');
-						$('.modelBox4').show();
+						$('.modelBox5').show();
 						flg = false;
 						return false;
 					}
@@ -500,12 +499,12 @@
 				
 				if(!$('[name="dzs"]:checked').val()){
 					$('.modelcontent p').text('未选择是否支持账期');
-					$('.modelBox4').show();
+					$('.modelBox5').show();
 					return false;
 				}else if($('[name="dzs"]:checked').val() == '2'){
 					if(!$('[name="dz"]:checked').val()){
 						$('.modelcontent p').text('未选择账期时间');
-						$('.modelBox4').show();
+						$('.modelBox5').show();
 						return false;
 					}else{
 						debtTerm = $('[name="dz"]:checked').val();
@@ -515,18 +514,18 @@
 				}
 				if(!$('#select_validity').attr('data-selectedindex')){
 					$('.modelcontent p').text('未选择报价有效期');
-					$('.modelBox4').show();
+					$('.modelBox5').show();
 					return false;
 				}
 				if(!$('#select_shop').attr('data-selectedindex')){
 					$('.modelcontent p').text('未选择商品');
-					$('.modelBox4').show();
+					$('.modelBox5').show();
 					return false;
 				}
 
 				if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#phone').val()))) {
 	                $('.modelcontent p').text('手机号格式不正确');
-					$('.modelBox4').show();
+					$('.modelBox5').show();
 					return false;
 	            }
                 // var acceptanceTotal = $('#chPrice').val()
@@ -715,7 +714,8 @@
 
 	                	} else {
 
-	                		$(_that).parent().css('display','block');
+							$(_that).parent().css('display','block');
+							$('.modelcontent p').text('化学品或者纯度不符合！');
                             $(".modelBox5").css('display','block');
 	                	}
 
