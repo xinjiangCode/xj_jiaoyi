@@ -189,7 +189,7 @@
                     		<img src="../img/list_logo.png" alt="logo">
                     		<input type="file" name="upL0go" id="upL0go"  onchange="xmTanUploadImg1(this)"/>
                     </div>
-                    <div class="jianyi_size">建议上传尺寸为129*129的图片</div>
+                    <!-- <div class="jianyi_size">建议上传尺寸为129*129的图片</div> -->
                 </li>
                 <li class="clearfix company_profile">
                     <div class="inline-block fl">
@@ -240,7 +240,7 @@
 	    
 	
 	        $.ajax({
-	            url: 'http://manage.vanda360.com/ht/uplodImg/uploadImgByEditor.htm',
+	            url: uplodImgPath,
 	            type: 'post',
 	            processData: false,  // 告诉jQuery不要去处理发送的数据
 	            contentType: false,   // 告诉jQuery不要去设置Content-Type请求头

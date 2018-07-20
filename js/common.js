@@ -3,6 +3,10 @@ var pubIP = 'http://192.168.1.80:7777/service/';
 var downIP = 'http://192.168.1.80:8680/web-file/'
 // var pubIP = 'http://127.0.0.1:7777/service/';
 //var token = 'ceshi123456';
+
+var uplodImgPath = 'http://192.168.1.80:8680/bfile/fileUpload.htm';
+// var uplodImgPath = 'http://172.17.210.188:8081/bfile/fileUpload.htm';
+
 var token=localStorage.getItem("token");
 //var token=sessionStorage.getItem("token");
 var pageSize=1;//分页的每页个数
