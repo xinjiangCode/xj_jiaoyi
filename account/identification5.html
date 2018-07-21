@@ -1025,14 +1025,32 @@ function xmTanUploadImg2(obj) {
                 console.log(data);
                 console.log(data.data.company.qualificationStatus);
 
-                if (data.data.company.qualificationStatus != 0) {
+                // if (data.data.company.qualificationStatus != 0) {
+
+                //     $('input[type=file]').attr('disabled',true);
+                //     $('input[type=text]').attr('disabled',true);
+                //     $('input[type=radio]').attr('disabled',true);
+
+                //     update_info();
+                // }
+
+                if (data.data.company.state == -1) { //未提交
+                    $('.weiRenZheng.next_btn').css('display', 'block');
+                    $('.next_btn_update').css('display', 'none');
+                } else if (data.data.company.state == 0) { //待审核
+                    $('.weiRenZheng.next_btn').css('display', 'none');
+                    $('.next_btn_update').css('display', 'none');
 
                     $('input[type=file]').attr('disabled',true);
                     $('input[type=text]').attr('disabled',true);
                     $('input[type=radio]').attr('disabled',true);
-
-                    update_info();
+                } else {
+                    $('input[type=file]').attr('disabled',true);
+                    $('input[type=text]').attr('disabled',true);
+                    $('input[type=radio]').attr('disabled',true);
                 }
+
+                update_info();
             },
             error: function (err) {
                 console.log(err);

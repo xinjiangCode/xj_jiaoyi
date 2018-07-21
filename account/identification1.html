@@ -727,6 +727,10 @@
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        $('#province').attr('disabled', true);
+                        $('#city').attr('disabled', true);
+                        $('#area').attr('disabled', true);
+
                         $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
                         window.parent.tan6();
 
@@ -739,6 +743,10 @@
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        $('#province').attr('disabled', true);
+                        $('#city').attr('disabled', true);
+                        $('#area').attr('disabled', true);
+
                         $(window.parent.document).find('.modelBox6 .info p span').html('企业基本信息审核中');
                         window.parent.tan6();
 
@@ -750,6 +758,10 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        $('#province').attr('disabled', true);
+                        $('#city').attr('disabled', true);
+                        $('#area').attr('disabled', true);
 
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
@@ -776,6 +788,10 @@
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        $('#province').attr('disabled', true);
+                        $('#city').attr('disabled', true);
+                        $('#area').attr('disabled', true);
+
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
@@ -784,7 +800,9 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
-
+                        $('#province').attr('disabled', true);
+                        $('#city').attr('disabled', true);
+                        $('#area').attr('disabled', true);
 
                         window.parent.tan6();
 
@@ -798,6 +816,10 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        $('#province').attr('disabled', true);
+                        $('#city').attr('disabled', true);
+                        $('#area').attr('disabled', true);
 
 
 
@@ -943,7 +965,8 @@
                             upload_file4: img_url4,
                             upload_file5: img_url5,
                             fileUrl: file_url,
-                            fileName: file_name
+                            fileName: file_name,
+                            sourceType: 1
                         },
                         cache: false,
                         dataType: 'json',
@@ -1093,7 +1116,7 @@
 
             //v1.0
             $.ajax({
-                url: pubIP+'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
+                url: pubIP + 'companyCertification/getCompanyBaseInfoAndAccountByCompanyId',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -1383,7 +1406,7 @@
             } else {
                 if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
                     $.ajax({
-                        url: pubIP+'companyCertification/addCompanyBaseInfo',
+                        url: pubIP + 'companyCertification/addCompanyBaseInfo',
                         type: 'post',
                         headers: {
                             Accept: "application/json; charset=utf-8",
@@ -1481,6 +1504,9 @@
 		$('input[type=file]').attr('disabled',false);
 		$('input[type=text]').attr('disabled',false);
 		$('input[type=radio]').attr('disabled',false);
+        $('#province').attr('disabled', false);
+        $('#city').attr('disabled', false);
+        $('#area').attr('disabled', false);
 		$(this).addClass('yiRenZheng1');
 		$(this).text('修改完成');
 	})
