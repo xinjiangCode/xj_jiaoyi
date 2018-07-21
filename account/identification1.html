@@ -188,7 +188,6 @@
             </li>
             <li class="clearfix" style="overflow: visible;">
                 <div class="left1 Lf"><i class="red">*</i>公司地址:</div>
-                <!-- <div class="right1 Lf"><input type="text" id="company_address"></div> -->
                 <div style="margin-left: 4px;">
                     <div class="selectPub provice1" id="province" data-selectedindex="-1" style="float: left;width: 126px;">
                         <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择省</span>
@@ -213,6 +212,11 @@
                         </ul>
                     </div>
                 </div>
+                <span class="ts"></span>
+            </li>
+            <li>
+                <div class="left1 Lf"><i class="red">*</i>详细地址:</div>
+                <div class="right1 Lf"><input type="text" id="company_address"></div>
                 <span class="ts"></span>
             </li>
             <li>
@@ -872,10 +876,10 @@
             }
 
             
-            // if ($('#company_address').val() == '') {
-            //     $('#company_address').parent().next().html('公司地址不能为空');
-            //     return;
-            // }
+            if ($('#company_address').val() == '') {
+                $('#company_address').parent().next().html('公司地址不能为空');
+                return;
+            }
 
             if ($('#yingye_zhizhao_hidden').val() == '') {
                 $('#yingye_zhizhao_hidden').parent().parent().next().html('营业执照不能为空');
@@ -913,7 +917,7 @@
             var qiye_name = $('#qiye_name').val();
             var zhuce_money = $('#zhuce_money').val();
             var yingye_num = $('#yingye_num').val();
-            // var company_address = $('#company_address').val();
+            var company_address = $('#company_address').val();
             // var address = $('#address').val();
             var provinceId  = $('#province').attr('data-proviceId');
             var cityId  = $('#city').attr('data-cityId');
@@ -952,7 +956,7 @@
                             businessLicense: yingye_num,
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
-                            // companyAddress: company_address,
+                            companyAddress: company_address,
                             provinceId: provinceId,
                             cityId: cityId,
                             areaId: areaId,
@@ -1146,7 +1150,7 @@
                         $('#wenjian_name').attr('data-wj', data.data.files[0].dbid);
                         $('#wenjian_name').attr('data-url', data.data.files[0].fileUrl);
                         
-                        // $('#company_address').val(data.data.company.companyAddress);
+                        $('#company_address').val(data.data.company.companyAddress);
 
                         $('#province span').text($('#province ul li[data-proviceId='+data.data.company.provinceId+']').attr('data-province'));
 
@@ -1300,7 +1304,7 @@
             var qiye_name = $('#qiye_name').val();
             var zhuce_money = $('#zhuce_money').val();
             var yingye_num = $('#yingye_num').val();
-            // var company_address = $('#company_address').val();
+            var company_address = $('#company_address').val();
             // var address = $('#address').val();
             var provinceId  = $('#province').attr('data-proviceId');
             var cityId  = $('#city').attr('data-cityId');
@@ -1358,7 +1362,7 @@
                             businessLicense: yingye_num,
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
-                            // companyAddress: company_address,
+                            companyAddress: company_address,
                             provinceId: provinceId,
                             cityId: cityId,
                             areaId: areaId,
@@ -1420,7 +1424,7 @@
                             businessLicense: yingye_num,
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
-                            // companyAddress: company_address,
+                            companyAddress: company_address,
                             provinceId: provinceId,
                             cityId: cityId,
                             areaId: areaId,
