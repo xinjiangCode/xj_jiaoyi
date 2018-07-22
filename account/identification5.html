@@ -733,7 +733,7 @@ function xmTanUploadImg2(obj) {
                 success: function (data) {
                     console.log(data);
                     if(data.code == 1){
-                    	   alert(data.msg);
+                    	   // alert(data.msg);
                     	   clickFlgCode = false;
                     	   var time = 60;
 	                   var timer=setInterval(function () {
@@ -785,7 +785,7 @@ function xmTanUploadImg2(obj) {
                 success: function (data) {
 //                  console.log(data);
 				    if(data.code == 1){
-                    	   alert(data.msg);
+                    	   // alert(data.msg);
                     	   clickFlgCode = false;
                     	   var time = 60;
 	                   var timer=setInterval(function () {
@@ -937,7 +937,7 @@ function xmTanUploadImg2(obj) {
                         	   phoneIshas = true;
                         }
                     } else if (data.code == -1001 ) {
-                        alert(data.msg);
+                        // alert(data.msg);
                     }
                     
                    /* code_num.val(data.data);*/
@@ -1025,14 +1025,32 @@ function xmTanUploadImg2(obj) {
                 console.log(data);
                 console.log(data.data.company.qualificationStatus);
 
-                if (data.data.company.qualificationStatus != 0) {
+                // if (data.data.company.qualificationStatus != 0) {
+
+                //     $('input[type=file]').attr('disabled',true);
+                //     $('input[type=text]').attr('disabled',true);
+                //     $('input[type=radio]').attr('disabled',true);
+
+                //     update_info();
+                // }
+
+                if (data.data.company.state == -1) { //未提交
+                    $('.weiRenZheng.next_btn').css('display', 'block');
+                    $('.next_btn_update').css('display', 'none');
+                } else if (data.data.company.state == 0) { //待审核
+                    $('.weiRenZheng.next_btn').css('display', 'none');
+                    $('.next_btn_update').css('display', 'none');
 
                     $('input[type=file]').attr('disabled',true);
                     $('input[type=text]').attr('disabled',true);
                     $('input[type=radio]').attr('disabled',true);
-
-                    update_info();
+                } else {
+                    $('input[type=file]').attr('disabled',true);
+                    $('input[type=text]').attr('disabled',true);
+                    $('input[type=radio]').attr('disabled',true);
                 }
+
+                update_info();
             },
             error: function (err) {
                 console.log(err);
@@ -1139,6 +1157,10 @@ function xmTanUploadImg2(obj) {
                 $('#pay_pass2').parent().next().css('display', 'block');
             }
 
+            if ($('#pay_pass2').parent().next().css('display') == 'block') {
+                return;
+            }
+
             var caiwu_name = $('#caiwu_name').val();
             var id_number = $('#id_number').val();
             new_phone = $('#new_phone').val();
@@ -1198,6 +1220,7 @@ $(window.parent.document).on('click', '.ok_ok, .ook3', function () {
         $('input[type=file]').attr('disabled',false);
         $('input[type=text]').attr('disabled',false);
         $('input[type=radio]').attr('disabled',false);
+        $('input[type="text"]#yanzheng_phone').attr('disabled', true);
         $(this).addClass('yiRenZheng');
         $(this).text('修改完成');
     })
