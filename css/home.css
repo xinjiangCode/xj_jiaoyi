@@ -55,7 +55,7 @@ button{
 .wcObjBox{overflow: hidden;margin-bottom: 34px;}
 .wcObjBox>div{float: left;}
 .wcleftBox{margin-right: 6px;; position: relative; width: 234px; height: 628px;background: #ff8743; color: #fff;box-sizing: border-box;padding-left: 15px;
-background: url(../img/wcleftBoxBg.png) no-repeat;background-size:contain ;background-color: #ff8743;background-position:center ;}
+background-color: #ff8743;background-position:center ;}
 .wcleftBox>div{margin-bottom: 17px;margin-top: 17px;}
 .wcleftBox button{width:206px;height:45px;background: #6ea3ff;font-size: 16px;color: #fff;border-radius: 2px;position: absolute;bottom: 36px;left: 50%;margin-left: -103px;border: none;}
 .wcleftBox button:hover{background:#4886f3;}

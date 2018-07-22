@@ -127,9 +127,9 @@
 		<div class="maxWidth bannerBox">
 			<div class="swiper-container">
 			    <div class="swiper-wrapper">
+			        <!-- <div class="swiper-slide"></div>
 			        <div class="swiper-slide"></div>
-			        <div class="swiper-slide"></div>
-			        <div class="swiper-slide"></div>
+			        <div class="swiper-slide"></div> -->
 			    </div>
 			    <!-- 如果需要分页器 -->
    			 	<div class="swiper-pagination"></div>
@@ -565,7 +565,77 @@
 		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" >      
+		<!-- //banner -->
+		<script type="text/html" id="bannerTm"> 
+			<% for (i in list) { %>
+				<div class="swiper-slide" style="background: url(<%=list[i].url%>) no-repeat;background-size: cover;background-position: center;">
+						<a href="<%=list[i].link%>" style="display: block;width: 100%;height: 100%;"></a>
+				</div>
+			<% } %>
+		</script>
+		<script type="text/javascript" > 
+			//首页全部广告位
+			$.ajax({
+				type:"post",
+		        url:pubIP+"advertisement/findAdvertisementByPosition",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                	position: "C"
+                },
+		        success: function(data){
+		        	console.log("++++++++++++++++");
+		        	console.log(data);
+		        	var advertise6 = '';
+		        	
+					if (data&& data.C1.length > 0) {
+						var result =  template("bannerTm",{list:data.C1});
+						$('.swiper-wrapper').append(result);
+						var mySwiper = new Swiper ('.swiper-container', {
+							loop: true,
+							autoplay : 5000,
+							pagination: '.swiper-pagination',
+							paginationClickable: true
+						})
+		        	}
+		        	if (data&& data.C2.length > 0) {
+		        		for (var i = 0; i < data.C2.length; i++) {
+							$(".wlShiSchImg").find("img").attr("src",data.C2[0].url);
+		        		}
+		        	}
+		        	if (data&& data.C3.length > 0) {
+		        		$('.adImg').attr("src",data.C3[0].url);
+		        	}
+		        	if (data&& data.C4.length > 0) {
+		        		for (var i = 0; i < data.C4.length; i++) {
+		        			$(".xianhuo_ban").css("background","url("+data.C4[0].url+") 0 0 no-reapet;");
+		        		}
+		        	}
+		        	if (data&& data.C5.length > 0) {
+		        		for (var i = 0; i < data.C5.length; i++) {
+		        			$(".purchaseLeft").css("background","url("+data.C5[0].url+") 0 0 no-reapet;");
+		        		}
+		        	}
+		        	if (data&& data.C6.length > 0) {
+		        		for (var i = 0; i < data.C6.length; i++) {
+		        			advertise6 += '<div data-companyId="'+data.C6[i].companyId+'">'
+									+'<a href="javascript:;"><div class="supplierLogo" style="background: url('+data.C6[i].url+') no-repeat; background-position: center;background-size:contain ;"></div></a>'
+								+'</div>';
+		        		}
+		        		$('.supplierBox').html(advertise6);
+		        	}
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    });
+
+
 			$('.tsBg').height($(window).height());
 			
 			$(document).on('mouseover','.wcCtObjBox>div',function(){

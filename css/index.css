@@ -295,11 +295,11 @@ input[type='text'].page_page {
 	width: 100%;
 	height: 100%;
 } 
-.swiper-slide{
+/* .swiper-slide{
 	background: url(../img/banner.png) no-repeat;
 	background-position: center;
 	background-size: cover;
-}
+} */
 .bannerBox{
 	position: relative;
 }

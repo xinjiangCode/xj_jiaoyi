@@ -22,9 +22,9 @@
 		<div class="maxWidth bannerBox">
 			<div class="swiper-container">
 			    <div class="swiper-wrapper">
+			        <!-- <div class="swiper-slide"></div>
 			        <div class="swiper-slide"></div>
-			        <div class="swiper-slide"></div>
-			        <div class="swiper-slide"></div>
+			        <div class="swiper-slide"></div> -->
 			    </div>
 			    <!-- 如果需要分页器 -->
 				 	<div class="swiper-pagination"></div>
@@ -261,13 +261,49 @@
     <!-- <script src="../../js/template.js"></script> -->
     <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
 	<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	<!-- banner -->
+	<script type="text/html" id="bannerTm"> 
+		<% for (i in list) { %>
+		   <div class="swiper-slide" style="background: url(<%=list[i].url%>) no-repeat;background-size: cover;background-position: center;">
+				   <a href="<%=list[i].link%>" style="display: block;width: 100%;height: 100%;"></a>
+		   </div>
+		<% } %>
+   </script>
 	<script>
-		var mySwiper = new Swiper ('.swiper-container', {
-		    loop: true,
-		    autoplay: 5000,
-		    pagination: '.swiper-pagination',
-		    paginationClickable: true
-		})  
+		
+		//banner
+		$.ajax({
+				type:"post",
+		        url:pubIP+"advertisement/findAdvertisementByPosition",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                	position: "G"
+                },
+		        success: function(data){
+		        	console.log("++++++++++++++++");
+		        	console.log(data);
+		        	
+					if (data&& data.G1.length > 0) {
+						var result =  template("bannerTm",{list:data.G1});
+						$('.swiper-wrapper').append(result);
+						var mySwiper = new Swiper ('.swiper-container', {
+							loop: true,
+							autoplay : 5000,
+							pagination: '.swiper-pagination',
+							paginationClickable: true
+						})
+		        	}
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    });  
 		//拦截链接
 	    $(document).on('click','a',function(e){
        		e.preventDefault();
