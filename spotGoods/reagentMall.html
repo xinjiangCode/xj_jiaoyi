@@ -179,13 +179,13 @@
 					</div>
 				</div>
 			</div>
-			<img src="../img/AD.png" class="adImg" />
+			<img src="../img/AD.png" class="adImg adImg1" />
 		</div>
 		<div class="maxWidth webCn">
 			<div class="mianCont">
 				<!--<div class="wcTit"><span class="wcBigTit">现货商城</span><span class="wcSmTit">货源充足，大家买起来</span></div>-->
 				<div class="wcObjBox" >
-					<div class="wcleftBox">
+					<div class="wcleftBox shiji_lft01">
 						<!--<div class="wcleftBoxTit">
 							<img src="../img/wcTitImg.jpg"/>
 							<p>热货现搜</p>
@@ -395,9 +395,9 @@
 						</div>
 					</div>
 				</div>
-				<img src="../img/AD.png" class="adImg" />
+				<img src="../img/AD.png" class="adImg adImg2" />
 				<div class="wcObjBox" style="overflow: visible;height: 492px;margin-bottom: 10px;">
-					<div class="wcleftBox" style="margin-right: 8px;height: 491px;">
+					<div class="wcleftBox shiji_lft02" style="margin-right: 8px;height: 491px;">
 						<!--<div class="wcleftBoxTit">
 							<img src="../img/wcTitImg.jpg"/>
 							<p>热货现搜</p>
@@ -565,6 +565,7 @@
 		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
 		<!-- //banner -->
 		<script type="text/html" id="bannerTm"> 
 			<% for (i in list) { %>
@@ -574,7 +575,7 @@
 			<% } %>
 		</script>
 		<script type="text/javascript" > 
-			//首页全部广告位
+			//广告位
 			$.ajax({
 				type:"post",
 		        url:pubIP+"advertisement/findAdvertisementByPosition",//v1.0
@@ -603,28 +604,32 @@
 							paginationClickable: true
 						})
 		        	}
-		        	if (data&& data.C2.length > 0) {
-		        		for (var i = 0; i < data.C2.length; i++) {
-							$(".wlShiSchImg").find("img").attr("src",data.C2[0].url);
+		        	if (data&& data.C21.length > 0) {
+						$('.adImg1').attr("src",data.C21[0].url);
+		        	}
+		        	if (data&& data.C22.length > 0) {
+		        		$('.adImg2').attr("src",data.C22[0].url);
+		        	}
+		        	if (data&& data.C31.length > 0) {
+		        		for (var i = 0; i < data.C31.length; i++) {
+		        			$(".shiji_lft01").css({
+													background:"url("+data.C31[0].url+") 0 0 no-repeat",
+													backgroundSize: "100% 100%",
+												});
 		        		}
 		        	}
-		        	if (data&& data.C3.length > 0) {
-		        		$('.adImg').attr("src",data.C3[0].url);
+		        	if (data&& data.C32.length > 0) {
+		        		for (var i = 0; i < data.C32.length; i++) {
+		        			$(".shiji_lft02").css({
+													background:"url("+data.C32[0].url+") 0 0 no-repeat",
+													backgroundSize: "100% 100%",
+												});
+		        		}
 		        	}
 		        	if (data&& data.C4.length > 0) {
 		        		for (var i = 0; i < data.C4.length; i++) {
-		        			$(".xianhuo_ban").css("background","url("+data.C4[0].url+") 0 0 no-reapet;");
-		        		}
-		        	}
-		        	if (data&& data.C5.length > 0) {
-		        		for (var i = 0; i < data.C5.length; i++) {
-		        			$(".purchaseLeft").css("background","url("+data.C5[0].url+") 0 0 no-reapet;");
-		        		}
-		        	}
-		        	if (data&& data.C6.length > 0) {
-		        		for (var i = 0; i < data.C6.length; i++) {
-		        			advertise6 += '<div data-companyId="'+data.C6[i].companyId+'">'
-									+'<a href="javascript:;"><div class="supplierLogo" style="background: url('+data.C6[i].url+') no-repeat; background-position: center;background-size:contain ;"></div></a>'
+		        			advertise6 += '<div data-companyId="'+data.C4[i].companyId+'">'
+									+'<a href="javascript:;"><div class="supplierLogo" style="background: url('+data.C4[i].url+') no-repeat; background-position: center;background-size:contain ;"></div></a>'
 								+'</div>';
 		        		}
 		        		$('.supplierBox').html(advertise6);

@@ -847,7 +847,7 @@
 	            }
 	        })
 
-			// 
+			// 找货列表
 	        function freeZhaoHuo(chemicalName, num) {
 
 				$.ajax({
@@ -938,10 +938,12 @@
 				        				+'<span class="hasColoR bigFt time_minute fontStyle">10</span>分'
 				        				+'<span class="hasColoR bigFt time_seconds fontStyle">03</span>秒'
 				        			+'</p>';
-                                if(data.data.list[i].remain==0){
-                                    str+='<a href="javascript:;" class="button "  ><button style="background-color: #999999;border: #999999;outline: none;">立即报价</button></a>';
+                                if(data.data.list[i].remain!=0 && data.data.list[i].state==2){
+									str+='<a href="javascript:;" class="button liji_baojia" data-mycompanyId="'+data.data.list[i].warehouse.ownedCompanyId+'" data-baojiaid_id="'+data.data.list[i].buyingId+'">'
+										+'<button>立即报价</button>'//1：已提交 2：已发布 3：已完成 4：已关闭  5已失效',
+										+'</a>';
 								}else{
-                                    str+='<a href="javascript:;" class="button liji_baojia" data-mycompanyId="'+data.data.list[i].warehouse.ownedCompanyId+'" data-baojiaid_id="'+data.data.list[i].buyingId+'"><button>立即报价</button></a>';
+										str+='<a href="javascript:;" class="button "  ><button style="background-color: #999999;border: #999999;outline: none;">立即报价</button></a>';
 								}
 
 				        			str+='<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.list[i].interestCount+' </span>家报价</p>'

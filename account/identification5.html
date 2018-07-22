@@ -31,7 +31,7 @@
 
         .bottom1{overflow: hidden;padding-left: 200px;}
         .bottom1>.left1{margin: 91px 60px 0 0;}
-        .bottom1>.right2{ margin-left: 15px;}
+        .bottom1>.right2{ margin-left: 15px;width: 485px;}
         .bottom1>.right2>ul{}
         .bottom1>.right2>ul>li{overflow: hidden;/* margin-top: 17px; */ padding-bottom: 17px; position: relative;}
         .bottom1>.right2>ul>li>.left1{width:100px;height: 38px;line-height: 38px;text-align: right;margin-right: 20px;}
@@ -47,6 +47,8 @@
         .ts {
             margin-left: 125px;
             display: none;
+            float: left;
+            width: 360px;
         }
 
         .bottom1>.right2>ul>li.pay_pass {
@@ -282,7 +284,11 @@
                 </li>
                 <li class="pay_pass" style="width: 580px;">
                     <div class="left1 Lf"><span class="fr yincang">手机号:</span><span class="fr bb xianshi">验证手机号:</span><i class="red fr">*</i></div>
-                    <div class="right1 Lf rz"><input type="text" id="yanzheng_phone" class="Lf"><a href="##" class="weiRenZheng" id="huoqu_code" style="margin-left: 15px; line-height: 38px;">获取验证码</a><span class="bb Lf yincang update_phone_btn">修改手机号</span></div>
+                    <div class="right1 Lf rz">
+                        <input type="text" id="yanzheng_phone" class="Lf">
+                        <a href="##" class="weiRenZheng" id="huoqu_code" style="margin-left: 15px; line-height: 38px;">获取验证码</a>
+                        <span class="bb Lf yincang update_phone_btn">修改手机号</span>
+                    </div>
                     <div class="ts bukeyong">手机号格式不正确</div>
                 </li>
                 <li class="pay_pass weiRenZheng">
@@ -336,7 +342,7 @@
         $(document).on('change','#id_card_pic1,#id_card_pic2',function(){
             xmTanUploadImg11(this);
         })
-        
+
         function xmTanUploadImg11(obj) {
             var file = obj.files[0];
             if (file.size >= 2097152) {
@@ -587,14 +593,13 @@ function xmTanUploadImg2(obj) {
        });
 
 
-
         $(document).on('click', '.weiRenZheng.btn', function () {
-
+            //财务名称
             if ($('#caiwu_name').val() == '') {
                 $('#caiwu_name').parent().next().css('display', 'block');
                 return;
             }
-
+//debugger
             var id_number_reg = $('#id_number').val();
             
             // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
@@ -603,12 +608,13 @@ function xmTanUploadImg2(obj) {
                 $('#id_number').parent().next().css('display', 'block');
                 return; 
             }
-
-            if ($('#id_card_hidden1').val() == '' && $('#id_card_hidden2').val() == '') {
-                $('#id_card_pic2').parent().next().css('display', 'block');
-                return;
+            //身份证图
+            if($("#id_card_hidden1").val()==''||$("#id_card_hidden2").val()==''){
+                console.log($('#id_card_hidden2').parent().html())
+                $('#id_card_hidden2').parent().parent().next().css('display', 'block');
+                return; 
             }
-
+            //支付密码
             var pay_pass_reg = $("#pay_pass").val().trim();      
             if(pay_pass_reg.length != 6){      
                 var reg=/^\w{6,20}$/;;      
@@ -617,18 +623,28 @@ function xmTanUploadImg2(obj) {
                     return;
                 }  
             } 
-
+            //确认支付密码
             var ok_pass_yanzheng = $("#ok_pass").val().trim(); 
             if (ok_pass_yanzheng != $("#pay_pass").val().trim()) {
                 $("#ok_pass").parent().next().css('display', 'block');
                 return;
             } 
-
+            //手机号
             if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
                 $('#yanzheng_phone').parent().next().css('display', 'block');
                 return;
             }
-
+            
+            //判断手机号是否加入过企业
+            
+            var thisPhone = $('#yanzheng_phone').val();
+            sendAjax(thisPhone, $(this));
+            if(!clickFlgCode){
+        			return false;
+        		}
+            
+           
+            //验证码
             if ($('#code').val().trim() == '') {
                 $('#code').parent().next().css('display', 'block');
                 return;
@@ -639,6 +655,7 @@ function xmTanUploadImg2(obj) {
             var pay_pass = $('#pay_pass').val();
             var ok_pass = $('#ok_pass').val();
             var yanzheng_phone = $('#yanzheng_phone').val();
+            var yanzheng_ma = $('#code').val();
 
             img_url1 = $('#id_card_hidden1').val();
             img_url2 = $('#id_card_hidden2').val();
@@ -662,6 +679,7 @@ function xmTanUploadImg2(obj) {
                         passwordOne: pay_pass,
                         passwordTwo: ok_pass,
                         financePhoneNumber: yanzheng_phone,
+                        smsRandomCode: yanzheng_ma,
                         upload_file8: img_url1,
                         upload_file9: img_url2
                     },
@@ -669,11 +687,16 @@ function xmTanUploadImg2(obj) {
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
+                        if(data.code == -406){
+                            $('#code').parent().next().css('验证码错误');
+                            $('#code').parent().next().css('display', 'block');
+                            return false;
+                        }
                        /* code_num.val(data.data);*/
-                       window.parent.add_tan();
-                       $('.weiRenZheng').css('display', 'none');
-                       // window.localStorage.removeItem('add-flag');
-                       window.localStorage.setItem('add-flag', 'true');
+                        window.parent.add_tan();
+                        $('.weiRenZheng').css('display', 'none');
+                        // window.localStorage.removeItem('add-flag');
+                        window.localStorage.setItem('add-flag', 'true');
 
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
@@ -873,6 +896,7 @@ function xmTanUploadImg2(obj) {
 
         $('#yanzheng_phone').on('blur', function () {
             if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
+                $('#yanzheng_phone').parent().next().html('手机号格式不正确');
                 $('#yanzheng_phone').parent().next().css('display', 'block');
                 return;
             } else {
@@ -907,7 +931,7 @@ function xmTanUploadImg2(obj) {
 
         });
 
-
+        //判断手机号码 是否加入过企业
 		var phoneIshas = true;
         function sendAjax(phone_num, _this) {
 
@@ -932,9 +956,14 @@ function xmTanUploadImg2(obj) {
                         	   phoneIshas = false;
                             _this.parent().next().html('手机号码已加入企业');
                             _this.parent().next().css('display', 'block');
+                            $("#huoqu_code").css("color","#ccc");
+                            clickFlgCode = false;
                             return;
                         }else{
-                        	   phoneIshas = true;
+                                $("#huoqu_code").css("color","#80acf8");
+                                _this.parent().next().css('display', 'none');
+                        	    phoneIshas = true;
+                        	    clickFlgCode = true;
                         }
                     } else if (data.code == -1001 ) {
                         // alert(data.msg);
@@ -1137,7 +1166,7 @@ function xmTanUploadImg2(obj) {
             }
 
             if ($('#id_card_hidden1').val() == '' && $('#id_card_hidden2').val() == '') {
-                $('#id_card_hidden2').parent().next().css('display', 'block');
+                $('#id_card_hidden2').parent().parent().next().css('display', 'block');
                 return;
             }
 
@@ -1146,7 +1175,12 @@ function xmTanUploadImg2(obj) {
                 $('#new_phone').parent().next().css('display', 'block');
                 
             }
-
+            //判断手机号是否加入过企业
+            var thisPhone = $('#new_phone').val();
+            sendAjax(thisPhone, $(this));
+            if(!clickFlgCode){
+        			return false;
+        		}
 
             if ($('#new_code').val().trim() == '') {
                 $('#new_code').parent().next().css('display', 'block');
@@ -1164,6 +1198,7 @@ function xmTanUploadImg2(obj) {
             var caiwu_name = $('#caiwu_name').val();
             var id_number = $('#id_number').val();
             new_phone = $('#new_phone').val();
+            var new_phone_ma = $('#new_code').val();
 
             var pay_pass2 = $('#pay_pass2').val();
 
@@ -1188,6 +1223,7 @@ function xmTanUploadImg2(obj) {
                     financeName: caiwu_name,
                     financeIdNumber: id_number,
                     financePhoneNumber: new_phone,
+                    smsRandomCode: new_phone_ma,
                     picId8: picId8,
                     picId9: picId9,
                     upload_file8: img_url1,
@@ -1198,7 +1234,11 @@ function xmTanUploadImg2(obj) {
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
-                   
+                   if(data.code == -406){
+                        $('#new_code').parent().next().css('验证码错误');
+                        $('#new_code').parent().next().css('display', 'block');
+                        return false;
+                   }
                     window.parent.update_runcaiwu();
                 },
                 error: function (err) {

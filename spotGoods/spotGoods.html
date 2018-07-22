@@ -242,13 +242,13 @@
 					</div>
 				</div>
 			</div>
-			<img src="../img/AD.png" class="adImg adImg2" />
+			<img src="../img/AD.png" class="adImg adImg1" />
 		</div>
 		<div class="maxWidth webCn">
 			<div class="mianCont" style="overflow: visible;">
 				<!--<div class="wcTit"><span class="wcBigTit">现货商城</span><span class="wcSmTit">货源充足，大家买起来</span></div>-->
 				<div class="wcObjBox">
-					<div class="wcleftBox">
+					<div class="wcleftBox xianhuo_lft01">
 						<!--<div class="wcleftBoxTit">
 							<img src="../img/wcTitImg.jpg"/>
 							<p>热货现搜</p>
@@ -480,7 +480,7 @@
 				</div>
 				<img src="../img/AD.png" class="adImg adImg2" />
 				<div class="wcObjBox" style="overflow: visible;">
-					<div class="wcleftBox" style="margin-right: 8px;height: 491px;">
+					<div class="wcleftBox xianhuo_lft02" style="margin-right: 8px;height: 491px;">
 						<!--<div class="wcleftBoxTit">
 							<img src="../img/wcTitImg.jpg"/>
 							<p>热货现搜</p>
@@ -754,13 +754,7 @@
 				$(this).find('.hideInfo').hide();
 			})
 			
-			var mySwiper = new Swiper ('.swiper-container', {
-			    loop: true,
-				autoplay: 5000,
-				clickable :true,
-			    pagination: '.swiper-pagination',
-			    paginationClickable: true
-			  })        
+			     
 			$('#colseAlert').click(function(){
 				$('.tsBg').hide();
 				$('.tsBox').hide();
@@ -923,28 +917,32 @@
 							paginationClickable: true
 						})
 		        	}
-		        	if (data&& data.B2.length > 0) {
-		        		for (var i = 0; i < data.B2.length; i++) {
-							$(".wlShiSchImg").find("img").attr("src",data.B2[0].url);
+		        	if (data&& data.B21.length > 0) {
+						$('.adImg1').attr("src",data.B21[0].url);
+		        	}
+		        	if (data&& data.B22.length > 0) {
+		        		$('.adImg2').attr("src",data.B22[0].url);
+		        	}
+		        	if (data&& data.B31.length > 0) {
+		        		for (var i = 0; i < data.B31.length; i++) {
+		        			$(".xianhuo_lft01").css({
+													background:"url("+data.B31[0].url+") 0 0 no-repeat",
+													backgroundSize: "100% 100%",
+												});
 		        		}
 		        	}
-		        	if (data&& data.B3.length > 0) {
-		        		$('.adImg').attr("src",data.B3[0].url);
+		        	if (data&& data.B32.length > 0) {
+		        		for (var i = 0; i < data.B32.length; i++) {
+		        			$(".xianhuo_lft02").css({
+													background:"url("+data.B32[0].url+") 0 0 no-repeat",
+													backgroundSize: "100% 100%",
+												});
+		        		}
 		        	}
 		        	if (data&& data.B4.length > 0) {
 		        		for (var i = 0; i < data.B4.length; i++) {
-		        			$(".xianhuo_ban").css("background","url("+data.B4[0].url+") 0 0 no-reapet;");
-		        		}
-		        	}
-		        	if (data&& data.B5.length > 0) {
-		        		for (var i = 0; i < data.B5.length; i++) {
-		        			$(".purchaseLeft").css("background","url("+data.B5[0].url+") 0 0 no-reapet;");
-		        		}
-		        	}
-		        	if (data&& data.B6.length > 0) {
-		        		for (var i = 0; i < data.B6.length; i++) {
-		        			advertise6 += '<div data-companyId="'+data.B6[i].companyId+'">'
-									+'<a href="javascript:;"><div class="supplierLogo" style="background: url('+data.B6[i].url+') no-repeat; background-position: center;background-size:contain ;"></div></a>'
+		        			advertise6 += '<div data-companyId="'+data.B4[i].companyId+'">'
+									+'<a href="javascript:;"><div class="supplierLogo" style="background: url('+data.B4[i].url+') no-repeat; background-position: center;background-size:contain ;"></div></a>'
 								+'</div>';
 		        		}
 		        		$('.supplierBox').html(advertise6);
