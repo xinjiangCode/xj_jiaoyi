@@ -265,6 +265,90 @@
 	        .fontStyle{
 	            font-family: "YourFont";
 	        }
+			.modelBox5{
+				z-index: 9999;
+			    display: none;
+			    position: fixed;
+			    top: 0;
+			    left: 0;
+			    right: 0;
+			    bottom: 0;
+			    background-color: rgba(0, 0, 0, 0.5);
+			}
+			.modelCont{
+				position: absolute;
+			    width: 450px;
+			    min-height: 276px;
+			    left: 50%;
+			    top: 50%;
+			    margin-left: 0 !important;
+			    margin-top: 0 !important;
+			    transform: translate(-50%,-50%);
+			    -webkit-transform: translate(-50%,-50%);
+			    -ms-transform: translate(-50%,-50%);
+			    -moz-transform: translate(-50%,-50%);
+			    -o-transform: translate(-50%,-50%);
+			    font-family: 'microsoft yahei';
+			}
+			.modeltitle{
+				width: 450px;
+			    height: 50px;
+			    background-image: url(../img/gsxq.gif);
+			    background-size: 100% 100%;
+			    background-repeat: no-repeat;
+			    font-size: 16px;
+			    color: #5690f6;
+			    line-height: 50px;
+			}
+			.modelcontent, .cont{
+				width: 450px;
+			    min-height: 226px;
+			    background-image: url(../img/gsxq_cont.gif);
+			    background-size: 100% 100%;
+			    background-repeat: no-repeat;
+			    font-size: 18px;
+			}
+			.modeltitle span{
+      			margin-left: 16px;
+			}
+			.img_div{
+			    width: 100%;
+			    height: 42px;
+			    text-align: center;
+			    padding-top: 40px;
+			    margin-bottom: 19px;
+			    overflow: hidden;
+			}
+			.modelcontent p{
+				text-align: center;
+			}
+			.modelBtnBox{
+				width: 302px;
+			    height: 45px;
+			    overflow: hidden;
+			    margin: 0 auto;
+			    padding-bottom: 30px;
+			}
+			.modelbtn{
+				float: left;
+			    width: 145px;
+			    height: 45px;
+			    border: 1px solid #5690f6;
+			    font-size: 18px;
+			    color: #fff;
+			    box-sizing: border-box;
+			    text-align: center;
+			    line-height: 45px;
+			    border-radius: 3px;
+			    cursor: pointer;
+			    margin: 18px auto 0 80px;
+			}
+
+			.modelcontent p span {
+				display: block;
+				font-size: 14px;
+				color: #949495;
+			}
 		</style>
 	</head>
 	<body>
@@ -545,6 +629,25 @@
 				</div> -->
 			</div>
 		</div>
+		<!-- 报价需求超时弹窗 -->
+		<div class="modelBox5" >
+			<div class="modelCont">
+				<div class="modeltitle">
+					<span>消息提示</span>
+					<img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+				</div>
+				<div class="modelcontent">
+					<div class="info">
+						<div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+						<p>该报价需求已经超时！</p>
+					</div>
+					<div class="modelBtnBox">
+						<div style="background:#5690f6;" class="modelbtn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
@@ -716,13 +819,8 @@
 						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.one.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.one.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.one.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
-						+'<p id="distanceTime0">'
-							+'<span class="hasColoR bigFt fontStyle">00</span>天'
-							+'<span class="hasColoR bigFt fontStyle">23</span>时'
-							+'<span class="hasColoR bigFt fontStyle">10</span>分'
-							+'<span class="hasColoR bigFt fontStyle">03</span>秒'
-						+'</p>';
-							if(data.data.one.remain==0){
+						+'<p id="distanceTime0"></p>';
+							if(data.data.one.remain==0 || data.data.one.state!=2){
                                 str0+='<a href="javascript:;" data-mycompanyId="'+data.data.one.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.one.buyingId+'" style="background-color: #666666;"><button>立即报价</button></a>';
 							}else{
                                 str0+='<a href="javascript:;" data-mycompanyId="'+data.data.one.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.one.buyingId+'"><button>立即报价</button></a>';
@@ -737,13 +835,8 @@
 						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.two.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.two.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.two.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
-						+'<p id="distanceTime0">'
-							+'<span class="hasColoR bigFt fontStyle">00</span>天'
-							+'<span class="hasColoR bigFt fontStyle">23</span>时'
-							+'<span class="hasColoR bigFt fontStyle">10</span>分'
-							+'<span class="hasColoR bigFt fontStyle">03</span>秒'
-						+'</p>';
-							if(data.data.two.remain==0){
+						+'<p id="distanceTime1"></p>';
+							if(data.data.two.remain==0 || data.data.two.state!=2){
                                 str1+='<a href="javascript:;" data-mycompanyId="'+data.data.two.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'" style="background-color: #666666;"><button>立即报价</button></a>';
 							}else{
                                 str1+='<a href="javascript:;" data-mycompanyId="'+data.data.two.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'"><button>立即报价</button></a>';
@@ -757,13 +850,8 @@
 						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.three.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.three.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.three.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
-						+'<p id="distanceTime0">'
-							+'<span class="hasColoR bigFt fontStyle">00</span>天'
-							+'<span class="hasColoR bigFt fontStyle">23</span>时'
-							+'<span class="hasColoR bigFt fontStyle">10</span>分'
-							+'<span class="hasColoR bigFt fontStyle">03</span>秒'
-						+'</p>';
-							if(data.data.three.remain==0){
+						+'<p id="distanceTime2"></p>';
+							if(data.data.three.remain==0 || data.data.three.state!=2){
                                 str2+='<a href="javascript:;" data-mycompanyId="'+data.data.three.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.three.buyingId+'" style="background-color: #666666;"><button>立即报价</button></a>';
 							}else{
                                 str2+='<a href="javascript:;" data-mycompanyId="'+data.data.three.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.three.buyingId+'"><button>立即报价</button></a>';
@@ -784,6 +872,8 @@
 					console.log(data.data.two.validityData);
 
 					distanceTime2('distanceTime0', data.data.two.validityData);
+					distanceTime2('distanceTime1', data.data.two.validityData);
+					distanceTime2('distanceTime2', data.data.two.validityData);
 
                 	// var two = template('tuijiaTwoTpl', data.data.two);
                  //    $('#tuijiaTwoInfo').html(two);
@@ -797,15 +887,49 @@
 			//立即报价
 			$(document).on('click', '.liji_baojia', function () {
 				var shopCompanyId = $(this).attr("data-mycompanyId");
-				if(companyId == shopCompanyId){
-					alert("您不能对自己公司商品进行报价");
-				}else{
-					window.localStorage.setItem('baojiaid', $(this).attr('data-baojiaid_id'));
-					$(this).attr('href', 'offer.html');
-				}
+				var that = this;
+				//判断找货列表需求是否超时
+				$.ajax({
+					type: "get",
+					url: pubIP + "buyingInfo/getBuyingState",//v1.0
+					headers: {
+						token: token
+					},
+					data: {
+						buyingId: $(this).attr('data-baojiaid_id')
+					},
+					cache: false,
+					dataType: "json",
+					success: function(data){
+						console.log(data);
+						if(data.code==1){
+							if(companyId == shopCompanyId){
+								alert("您不能对自己公司商品进行报价");
+							}else{
+								window.localStorage.setItem('baojiaid', $(that).attr('data-baojiaid_id'));
+								//$(that).attr('href', 'offer.html');
+								location.href = "offer.html";
+							}
+						}else{
+							$(".modelBox5").show();
+						}
+					},
+					error: function (err) {
+						console.log(err);
+					}
+				})
+				
 				
 			});
-
+			//关闭弹窗
+			$("img.close").click(function () {
+				$(this).parents(".modelCont").parent().hide();
+            })
+			//刷新列表
+			$(".modelbtn").on("click",function(){
+				$(".modelBox5").hide();
+				freeZhaoHuo('',0);
+			})
 
    			//最新动态
    			$.ajax({
@@ -932,18 +1056,13 @@
 				        			+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.list[i].remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.list[i].productPurity+'%   </span></span></p>'
 				        			+'<p>交货地: <span class="delivery_address1">'+data.data.list[i].warehouse.warehouseProvince+' '+data.data.list[i].warehouse.warehouseCity+' '+data.data.list[i].warehouse.warehouseArea+'</span></p>'
 				        			+'<p style="margin-top: 37px;">剩余时间：</p>'
-				        			+'<p class="p_span" id="distanceTime'+(num+1)+i+'">'
-				        				+'<span class="hasColoR bigFt time_day fontStyle">00</span>天'
-				        				+'<span class="hasColoR bigFt time_hour fontStyle">23</span>时'
-				        				+'<span class="hasColoR bigFt time_minute fontStyle">10</span>分'
-				        				+'<span class="hasColoR bigFt time_seconds fontStyle">03</span>秒'
-				        			+'</p>';
+				        			+'<p class="p_span" id="distanceTime'+(num+1)+i+'"></p>';
                                 if(data.data.list[i].remain!=0 && data.data.list[i].state==2){
 									str+='<a href="javascript:;" class="button liji_baojia" data-mycompanyId="'+data.data.list[i].warehouse.ownedCompanyId+'" data-baojiaid_id="'+data.data.list[i].buyingId+'">'
 										+'<button>立即报价</button>'//1：已提交 2：已发布 3：已完成 4：已关闭  5已失效',
 										+'</a>';
-								}else{
-										str+='<a href="javascript:;" class="button "  ><button style="background-color: #999999;border: #999999;outline: none;">立即报价</button></a>';
+								// }else{
+								// 		str+='<a href="javascript:;" class="button "  ><button style="background-color: #999999;border: #999999;outline: none;">立即报价</button></a>';								
 								}
 
 				        			str+='<p class="smBm" style="position: absolute;bottom: 15px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.list[i].interestCount+' </span>家报价</p>'
@@ -979,7 +1098,7 @@
 			});
 
 
-
+			//判断推荐报价时间
 			function distanceTime2(id, deadtime) {  
                 var endtime1 = new Date(deadtime); //结束时间  
                 var nowtime1 = new Date(); //当前时间  
@@ -1015,18 +1134,21 @@
         				+'<span class="hasColoR bigFt time_seconds fontStyle">'+s1+'</span>秒'
                 	// d + '天' + h + '时' + m + '分' + s + '秒';  
                 if(lefttime1 <= 0) {  
+					//debugger
                     document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day fontStyle">00</span>天'
         				+'<span class="hasColoR bigFt time_hour fontStyle">00</span>时'
         				+'<span class="hasColoR bigFt time_minute fontStyle">00</span>分'
         				+'<span class="hasColoR bigFt time_seconds fontStyle">00</span>秒';  
+						//$("#"+id).parents(".fsObjItem").hide();
                     clearTimeout(timer1);  
+					return;
                 }  
                 timer1 = setTimeout("distanceTime2('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  
 
             }  
 
 
-            
+            //计算找货列表时间
             function distanceTime3(id, deadtime, i) {  
 
 				// debugger;
@@ -1064,14 +1186,19 @@
         				+'<span class="hasColoR bigFt time_seconds fontStyle">'+s+'</span>秒'
                 	// d + '天' + h + '时' + m + '分' + s + '秒';  
                 if(lefttime <= 0) {  
+					//debugger
                     document.getElementById(id).innerHTML = '<span class="hasColoR bigFt time_day fontStyle">00</span>天'
         				+'<span class="hasColoR bigFt time_hour fontStyle">00</span>时'
         				+'<span class="hasColoR bigFt time_minute fontStyle">00</span>分'
-        				+'<span class="hasColoR bigFt time_seconds fontStyle">00</span>秒';  
+        				+'<span class="hasColoR bigFt time_seconds fontStyle">00</span>秒'; 
+						//$("#"+id).parents(".fsObjItem").hide();
                     clearTimeout(i);  
+					return;
                 }  
                 i = setTimeout("distanceTime3('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  
             }  
+			
+
 
 	        
 			//拦截链接
