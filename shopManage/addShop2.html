@@ -316,7 +316,7 @@
 					</div>
 				</div>
 				<p class="p">
-					<span class="nextSub">下一步，发布商品</span>
+					<span class="nextSub2">下一步，发布商品</span>
 				</p>
 			</div>
 		</div>
@@ -628,8 +628,12 @@
 			var phoneTest=new RegExp("^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$");//手机号校验
             if(text==""){
 				$(this).css('border-color','red');
+				$(".modelBox4" , parent.document).find('.info p').text('请填写校验手机号！');
+				$(".modelBox4" , parent.document).show();
 				can = false;
             }else if(phoneTest.test(text)===false){
+				$(".modelBox4" , parent.document).find('.info p').text('手机号格式错误！');
+				$(".modelBox4" , parent.document).show();
 				can = false;
                 $(this).css('border-color','red');
             }else{
@@ -640,7 +644,11 @@
 		
 		
 		// 点击下一步
-        $('.nextSub').click(function(){
+        $('.nextSub2').click(function(){
+			if(!can){
+				return false;
+			}
+			var can1 = true
         	var obj = $('.paymentMethod input[type="checkbox"]');
         	var check_val = [];
         	for (i in obj) {
@@ -665,30 +673,33 @@
 					if($(this).val() == ''){
 						$(".modelBox4" , parent.document).find('.info p').text($(this).prev().text()+ '未填写!');
 						$(".modelBox4" , parent.document).show();
-						can = false;
+						can1 = false;
 						return false;
 					}
 				}else{
 					if($(this).val() == ''){
 						$(".modelBox4" , parent.document).find('.info p').text($(this).prev().text()+ '未选择!');
 						$(".modelBox4" , parent.document).show();
-						can = false;
+						can1 = false;
 						return false;
 					}
 				}
 			})
+			if(!can1){
+				return false;
+			}
 			if(!infoObj.paymentMethod){
-				$(".modelBox4" , parent.document).find('支付方式未选择');
+				$(".modelBox4" , parent.document).find('.info p').text('支付方式未选择');
 				$(".modelBox4" , parent.document).show();
 				return false;
 			}
 			if(!infoObj.marketingCategory){
-				$(".modelBox4" , parent.document).find('店铺分类未选择');
+				$(".modelBox4" , parent.document).find('.info p').text('店铺分类未选择');
 				$(".modelBox4" , parent.document).show();
                 return false;
 			}
 			if(!infoObj.isUp){
-				$(".modelBox4" , parent.document).find('是否立即发布未选择');
+				$(".modelBox4" , parent.document).find('.info p').text('是否立即发布未选择');
 				$(".modelBox4" , parent.document).show();
                 return false;
 			}
@@ -741,7 +752,7 @@
 					if(json.code == 1){
 						$('.step_title .step_p').addClass('current');
 						window.parent.shopManage();
-						window.location.href = 'addShop.html';
+						//window.location.href = 'addShop.html';
 					}
 	            }
 	        });

@@ -264,6 +264,8 @@
                 if(res.code == 1){
                     //渲染左侧
                     if(res.data){
+                        console.log("+++++++++++++++++++++++++++++++")
+                        console.log(res.data)
                         res.data.resultTime = new Date(res.data.resultTime).Format("yyyy-MM-dd hh:mm:ss");
                         res.data.myfromPage=from;
                         var leftTpl = template('leftTpl', res.data);

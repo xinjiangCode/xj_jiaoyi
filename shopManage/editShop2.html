@@ -303,7 +303,7 @@
 					</div>
 				</div>
 				<p class="p">
-					<span class="nextSub">下一步，修改发布商品</span>
+					<span class="nextSub2">下一步，修改发布商品</span>
 				</p>
 			</div>
 		</div>
@@ -684,6 +684,7 @@
 
 	                //是否立即发布  
 	                $('.isUp input[name="isUp"][value="'+json.data.state+'"]').attr('checked','true');
+
 	            },
 	            error: function (err) {
 	            	console.log(err);
@@ -697,7 +698,16 @@
 
 		
 		// 点击下一步
-        $('.nextSub').click(function(){
+        $('.nextSub2').click(function(){
+			//支付方式
+			var obj = $('.paymentMethod input[type="checkbox"]');
+        	var check_val = [];
+        	for (i in obj) {
+        		if (obj[i].checked) {
+        			check_val.push(obj[i].value);
+        		}
+        	}
+        	var checkstr = check_val.join('');
 
         	//交割方式 1：包到 2：自提 0：不限
 			infoObj.deliveryType = $(".deliveryType option:selected").val();
@@ -723,41 +733,46 @@
         	$('.main_content select,.main_content input[type="text"]').each(function(){
 				if(this.tagName == 'INPUT'){
 					if($(this).val() == ''){
-						alert($(this).parent().find('.tit').text()+ '未填写!');
+						$(".modelBox4" , parent.document).find('.info p').text($(this).prev().text()+ '未填写!');
+						$(".modelBox4" , parent.document).show();
 						can = false;
 						return false;
 					}
 				}else{
 					if($(this).val() == ''){
-						alert($(this).parent().find('.tit').text()+ '未选择!');
+						$(".modelBox4" , parent.document).find('.info p').text($(this).prev().text()+ '未选择!');
+						$(".modelBox4" , parent.document).show();
 						can = false;
 						return false;
 					}
 				}
 			})
 			if(!infoObj.paymentMethod){
-				alert('支付方式未选择');
-				return;
+				$(".modelBox4" , parent.document).find('.info p').text('支付方式未选择');
+				$(".modelBox4" , parent.document).show();
+				return false;
 			}
 			if(!infoObj.marketingCategory){
-				alert('店铺分类未选择');
-				return;
+				$(".modelBox4" , parent.document).find('.info p').text('店铺分类未选择');
+				$(".modelBox4" , parent.document).show();
+                return false;
 			}
 			if(!infoObj.isUp){
-				alert('是否立即发布未选择');
-				return;
+				$(".modelBox4" , parent.document).find('.info p').text('是否立即发布未选择');
+				$(".modelBox4" , parent.document).show();
+                return false;
 			}
 			/*infoObj.productId = location.search.substring(1).split('=')[1]*/
-			infoObj.productId = shopId
+			infoObj.productId = shopId;
 			console.log(infoObj.productId);
 			// 新增商品-发布供应信息
-			toAddShopInfo(infoObj);
+			toAddShopInfo(infoObj,checkstr);
         	
 		})
 
 
 		// 修改商品-发布供应信息
-		function toAddShopInfo(infoObj){
+		function toAddShopInfo(infoObj,checkstr){
 
 			$.ajax({
 	            type:"POST",
@@ -778,7 +793,7 @@
 					remain: $('.sum').val(),//剩余数量
 					deliveryType: infoObj.deliveryType,//交割方式 1：包到 2：自提 0：不限
 					deliveryAddress: infoObj.selectAddr,//提货地（仓库位置）
-					paymentMethod: infoObj.paymentMethod,//支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限
+					paymentMethod: checkstr,//支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限
 					state: infoObj.isUp,//发布信息状态1：已提交 2：已发布 3：已完成 4：已关闭 5:后台违规处理
 					note: '',
 					validity:infoObj.validity,//有效期（天）
