@@ -180,6 +180,8 @@
     })
 
     function getOrder(type,status,currentPage,orderMsg,pageSize,dataType) {
+        $('.pagination').parent().hide();
+//        $("#myPurchase-orders").html("");
         $.ajax({
             type:"get",
             headers: {
@@ -222,14 +224,14 @@
                             item.submitTime=new Date(item.submitTime).Format("yyyy-MM-dd hh:mm:ss");
                             item.logisticsOrderState = item.logisticsOrderState?item.logisticsOrderState:1;
                         });
-
+                        $('.pagination').parent().show();
                         ordersListHTML = template('ordersListTpl', {list: json.data.result});
                         $('#myPurchase-orders').html(ordersListHTML);
                     } else{
                         ordersListHTML = '<h5 style="font-size:30px;line-height:100px;text-align:center;">暂无数据<h5>';
                         $('#myPurchase-orders').html(ordersListHTML);
                     }
-                    
+
                 }else{
                     ordersListHTML = '<h5 style="font-size: 30px;line-height:100px;text-align:center;">暂无数据<h5>';
                     $('#myPurchase-orders').html(ordersListHTML);

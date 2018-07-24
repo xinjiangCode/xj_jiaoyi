@@ -152,6 +152,8 @@
     var isFirst = true;
     addMsg(0);
 	function addMsg(num){
+        $('.pagination').parent().hide();
+        $(".shop_list_table tbody").html("");
 		$.ajax({ 
 	      type:"post",
 	      url: pubIP + "notice/listMessageByPage",//v1.1
@@ -201,6 +203,7 @@
 				           </tr>'	;
 	      	})
 	      	$('.notMsg').hide();
+              $('.pagination').parent().show();
            	$('.shop_list_table tbody').html(result);
 	      },
 	      error:function(xhr,statues,error){

@@ -148,6 +148,8 @@
    		})
    		
    		function getData(num){
+            $('.pagination').parent().hide();
+            $(".shop_list_table tbody").html("");
    			$.ajax({ 
 	          type:"post",
 	          url:pubIP+"store/getStoreOperationrecordList",//v1.0
@@ -208,6 +210,7 @@
 		                </tr>';
    			})
    			$('.shop_list_table tbody').html(str);
+            $('.pagination').parent().show();
    		}
    	</script>
 </body>

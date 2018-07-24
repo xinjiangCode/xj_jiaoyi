@@ -206,6 +206,8 @@
             });
             // 获取我的询盘列表
             function getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state){
+                $('.pagination').parent().hide();
+//                $(".myPurchase-orders").html("");
                 $.ajax({
                     type:"post",
                     url:pubIP+"inquiries/getInquiriesList",//v1.0
@@ -253,9 +255,11 @@
                             });
                             enquiryListTpl = template('enquiryListTpl', {list: res.aData});
                             $('.myPurchase-orders').html(enquiryListTpl);
+                            $('.pagination').parent().show();
                         } else {
                             enquiryListTpl = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';
                             $('.myPurchase-orders').html(enquiryListTpl);
+
                         }
                     },
                     error: function(res){

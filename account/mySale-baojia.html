@@ -295,6 +295,8 @@
 
         //报价列表
         function purchaseList(category, num) {
+            $('.pagination').parent().hide();
+            $("#listInfo").html("");
             $.ajax({
                 type:"post",
                 url:pubIP + "offerMoney/getOfferMoneyInfoList",//v1.0
@@ -325,7 +327,7 @@
 
                         enquiryListTpl = template('listTpl', {list: data.aData});
                         $('#listInfo').html(enquiryListTpl);
-
+                        $('.pagination').parent().show();
 
                         if (isFirst) {
 

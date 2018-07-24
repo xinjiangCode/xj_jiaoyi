@@ -215,7 +215,10 @@
           })
 
           $(document).on('focus', '.reg-box>li', function () {
-          	$(this).addClass('shadow');
+              if(!$(this).hasClass("autoLogin")){
+                  $(this).addClass('shadow');
+			  }
+
           });
 
           $(document).on('blur', '.reg-box>li', function () {
