@@ -444,11 +444,13 @@
             },
             dataType: "json",
             success: function(json){
+                console.log("+++++++++++++++++++++++++++++++++++++");
                 console.log(json);
+                //debugger
                 if(json.code == '1'){
                     $(".header1 .top1 span").text("会员账号："+json.data.loginName);
-                    $(".header1 .bottom1.yiRenZheng .userPhone").text("会员手机号："+json.data.mobile);
-                    $(".header1 .bottom1.weiRenZheng .userPhone").text("会员手机号："+json.data.mobile);
+                    $(".userPhone").text("会员手机号："+json.data.mobile);
+                    $(".userPhone").text("会员手机号："+json.data.mobile);
 
                    // $(".weiRenZheng").css("display","none");//测试使用
 					localStorage.setItem('mobile',json.data.mobile);
@@ -497,13 +499,14 @@
             },
             dataType: "json",
             success: function(json){
+                console.log("++++++++++++++++++==================+++++++++++++++++++");
                 console.log(json);
                 // if (json.data.storeImage == null) {
                 //     $('.head_img').attr('src', '../img/cf_headImg.png');
                 // } else {
                 //     $('.head_img').attr('src', json.data.storeImage);    
                 // }
-                
+                //debugger
 
                 if (json.data.storeImage == null) {
                     $('.head_img').css('background', 'url(../img/head_img.png) no-repeat').css('background-size', 'cover').css('background-position', '50% 0%');
@@ -514,7 +517,7 @@
 
                 //企业已经认证
                 if(json.code == '1'){
-                    if(json.data.qualificationStatus==2){//企业已经认证
+                    if(json.data.state==1){//企业已经认证'   企业信息审核状态 0：待审核 1：已审核  2：已拒绝  3重新审核     -1  企业信息未填写完成',
                         $('.qiye_renzheng_img').attr('src', '../img/cf_qiyerenzheng.png');
                         $('.qiye_renzheng_info').text('企业认证');
 
@@ -525,7 +528,17 @@
                         $(".yiRenZhengID").show();
                         sessionStorage.setItem("storeId",json.data.storeId);
                         $("#orgName").text(json.data.orgName == null ? " " : json.data.orgName);
-                        $("#companyNameType").text(json.data.companyType)
+                        //公司类型 企业类型  企业类型 0厂家（生产企业）； 1贸易商； 2终端； 3其它
+                        if(json.data.companyType == 0){
+                            $("#companyNameType").text("厂家");
+                        }else if(json.data.companyType == 1){
+                            $("#companyNameType").text("贸易商");
+                        }else if(json.data.companyType == 2){
+                            $("#companyNameType").text("终端");
+                        }else if(json.data.companyType == 3){
+                            $("#companyNameType").text("其它");
+                        }
+                        
                         $("#companyName").text(json.data.companyName)
                     }else{//企业未认证
                         // debugger;

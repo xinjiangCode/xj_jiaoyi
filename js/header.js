@@ -828,6 +828,7 @@ window.onload = function(){
 	  		}
 	  });
 
+
 	  $(document).on('click', '#logout', function() {
 
 	  	$.ajax({
