@@ -32,11 +32,10 @@
         .bottom1{overflow: hidden;padding-left: 200px;}
         .bottom1>.left1{margin: 91px 60px 0 0;}
         .bottom1>.right2{ margin-left: 15px;width: 485px;}
-        .bottom1>.right2>ul{}
         .bottom1>.right2>ul>li{overflow: hidden;/* margin-top: 17px; */ padding-bottom: 17px; position: relative;}
         .bottom1>.right2>ul>li>.left1{width:100px;height: 38px;line-height: 38px;text-align: right;margin-right: 20px;}
         .bottom1>.right2>ul>li>.right1{overflow: hidden;}
-        .bottom1>.right2>ul>li>.right1>input{width: 359px;height: 32px;font-size: 14px;color: #666666;text-indent: 10px;}
+        .bottom1>.right2>ul>li>.right1>input{width: 269px;height: 32px;font-size: 14px;color: #666666;text-indent: 10px;}
         .bottom1>.right2>ul>li>.right1>.date-input{width: 169px;}
         .bottom1>.right2>ul>li>.right1>.uploade{position: relative;width: 150px;height: 100px;line-height: 100px;text-align: center;margin-right: 20px; border: 1px solid #ebe9ea;}
         .bottom1>.right2>ul>li>.right1>.uploade>i{position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
@@ -136,9 +135,6 @@
             display: none;
         }
 
-        .yiRenZheng, .weiRenzheng {
-            display: none;
-        }
         
         .yanzheng {
             position: absolute;
@@ -260,12 +256,12 @@
                 </li>
             </ul>
         </div>
-        <div class="right3 Lf weiRenZheng shenhezhong" style="margin-top: 10px;">
+        <!-- <div class="right3 Lf weiRenZheng shenhezhong" style="margin-top: 10px;">
             <div style="font-size: 12px;width: 150px;height: 73px;margin-left: 55px;">所有赎回中、支付中、 融资中、提票中和托收中 的总金额每笔交易资金， 都将在银行全称记录。</div>
             <div style="margin-left: 32px;margin-top: 14px;font-size: 14px;"><img style="width: 13px;height: 13px;margin-top: 3px;" src="../img/wenhao.png" alt=""><a href="">为什么要进行出金账户绑定</a></div>
-        </div>
+        </div> -->
         <div class="right3 Lf yiRenZheng mei">
-            <div style="margin-left: 27px;margin-top: 34px;font-size: 14px;"><img style="width: 13px;height: 13px;margin-top: 3px; margin-right: 3px;" src="../img/wenhao.png" alt=""><a href="">操作步骤帮助</a></div>
+            <div style="margin-left: 27px;margin-top: 34px;font-size: 14px;"><img style="width: 13px;height: 13px;margin-top: 3px; margin-right: 3px;" src="../img/wenhao.png" alt=""><a>操作步骤帮助</a></div>
         </div>
     </div>
 
@@ -501,8 +497,6 @@ function xmTanUploadImg2(obj) {
                 success: function (data) {
                     console.log(data);
                     if (data.data.type == 7) {  //等待审核
-                        $('.weiRenZheng.shenhezhong').css('display', 'inline-block');
-                        $('.yiRenZheng.mei').css('display', 'none');
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'none');
 
@@ -514,8 +508,6 @@ function xmTanUploadImg2(obj) {
                         window.parent.tan6();
 
                     } else if (data.data.type == 2) {  //正在审核
-                        $('.weiRenZheng.shenhezhong').css('display', 'inline-block');
-                        $('.yiRenZheng.mei').css('display', 'none');
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'none');
 
@@ -524,14 +516,10 @@ function xmTanUploadImg2(obj) {
                         window.parent.tan6();
                         
                     } else if (data.data.type == 3) {  //已认证
-                        $('.weiRenZheng.shenhezhong').css('display', 'none');
-                        $('.yiRenZheng.mei').css('display', 'inline-block');
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'inline-block');
                         
                     } else if (data.data.type == 4) {  //已拒绝
-                        $('.weiRenZheng.shenhezhong').css('display', 'inline-block');
-                        $('.yiRenZheng.mei').css('display', 'none');
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'inline-block');
 
@@ -957,10 +945,12 @@ function xmTanUploadImg2(obj) {
                             _this.parent().next().html('手机号码已加入企业');
                             _this.parent().next().css('display', 'block');
                             $("#huoqu_code").css("color","#ccc");
+                            $("#huoqu_code1").css("color","#ccc");
                             clickFlgCode = false;
                             return;
                         }else{
                                 $("#huoqu_code").css("color","#80acf8");
+                                $("#huoqu_code1").css("color","#80acf8");
                                 _this.parent().next().css('display', 'none');
                         	    phoneIshas = true;
                         	    clickFlgCode = true;

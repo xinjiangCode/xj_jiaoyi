@@ -1542,6 +1542,8 @@
 								}
 								return;
 							}
+							
+							
 
 							payTypeVal = $('.payType input:radio[name="payType"]:checked').val();
 
@@ -1552,12 +1554,13 @@
 							} else if(payTypeVal == '3') {
 								payTypeVal = '现汇+承兑';
 							}
-
-							// if(thisCompanyId==companyId){
-							// 	alert("您不能询盘自己公司商品！");
-							// 	return;
-							// }
-							var isOld = localStorage.getItem('isOld');
+							//判断是否时本公司产品
+							//alert(thisCompanyId);
+							if(thisCompanyId==companyId){
+								alert("您不能询盘自己公司商品！");
+								return;
+							}
+							//var isOld = localStorage.getItem('isOld');
 							if(isOld != '2') {
 								return;
 							}
