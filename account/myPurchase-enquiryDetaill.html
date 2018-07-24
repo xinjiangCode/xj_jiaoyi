@@ -64,35 +64,57 @@
                     <div>商品名称：<%=productName%></div>
                 </li>
                 <li>
-                    <div>形态：暂无数据</div>
+                    <div>形态：<%=productFormStr%></div>
                 </li>
                 <li>
-                    <div>纯度：暂无数据</div>
+                    <div>纯度：<%=productPurity%>%</div>
                 </li>
                 <li>
-                    <div>规格：<%=productSpec%></div>
+                    <div>规格：<%=productSpecNum%><%=productSpec%></div>
                 </li>
                 <li>
-                    <div>级别：暂无数据</div>
+                    <div>级别：<%=levelName%></div>
                 </li>
                 <li>
                     <div>厂家/产地：<%=productOrigin%></div>
                 </li>
                 <li>
-                    <div>供应总量：<%sum%><%=unit%></div>
+                    <%if (productCate==1) {%>
+                        <div>供应总量：<%=sSum%> 吨</div>
+                    <%} else if (productCate==2) {%>
+                        <div>供应总量：<%=sSum%> <%=productSpecUnitStr%></div>
+                    <%}%>
                 </li>
                 <li>
-                    <div>剩余数量：暂无数据</div>
+                    <%if (productCate==1) {%>
+                        <div>剩余数量：<%=remain%> 吨</div>
+                    <%} else if (productCate==2) {%>
+                        <div>剩余数量：<%=remain%> <%=productSpecUnitStr%></div>
+                    <%}%>
                 </li>
                 <li>
-                    <div>单位：<%=unit%></div>
+                    <%if (productCate==1) {%>
+                        <div>单价：<%=unitPrice%> 元/吨</div>
+                    <%} else if (productCate==2) {%>
+                        <div>单价：<%=unitPrice%> 元/<%=productSpecUnitStr%></div>
+                    <%}%>
                 </li>
-                <li>
-                    <div>联系人：<%=contactName%></div>
-                </li>
-                <li>
-                    <div>联系电话：<%=contactPhone%></div>
-                </li>
+                <%if (isPublic==0) {%>
+                    <li>
+                        <div>联系人：<%=sContactName%></div>
+                    </li>
+                    <li>
+                        <div>联系电话：<%=sContactPhone%></div>
+                    </li>
+                <%} else if (isPublic==1) {%>
+                    <li>
+                        <div>联系人：xxxxxx</div>
+                    </li>
+                    <li>
+                        <div>联系电话：xxxxxx</div>
+                    </li>
+                <%}%>
+               
             </script>
         </ul>
     </div>
@@ -116,23 +138,21 @@
                 </div>
                 <div class="purchaseInfo">
                     <div class="item">
-                        <p class="Lf p_width">采购数量：<%=sum%><%=unit%></p>
-                        <!-- "paymentMethod": 1,  支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限 -->
-                        <%if(paymentMethod == 1){%>
-                            <p class="Lf payWay p_width">支付方式：<span class="yellow">现汇</span></p>
-                        <%}else if(paymentMethod == 2){%>
-                            <p class="Lf payWay p_width">支付方式：<span class="yellow">承兑汇票</span></p>
-                        <%}else if(paymentMethod == 3){%>
-                            <p class="Lf payWay p_width">支付方式：<span class="yellow">现汇+承兑</span></p>
+                        <%if (productCate==1) {%>
+                            <p class="Lf p_width">采购数量：<%=sum%> 吨</p>
+                        <%} else if (productCate==2) {%>
+                            <p class="Lf p_width">采购数量：<%=sum%> <%=productSpecUnitStr%></p>
                         <%}%>
-                        
-                        <p class="Lf sumPrice p_width">总价：<span style="font-weight:bold;" class="yellow"><%=dealTotal%></span>元</p>
+                        <!-- "paymentMethod": 1,  支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限 -->
+                        <p class="Lf payWay p_width">支付方式：<span class="yellow"><%=paymentMethodStr%></span></p>
+                        <p class="Lf sumPrice p_width">总价：<span style="font-weight:bold;" class="yellow"><%=total%></span>元</p>
                         <!-- "deliveryType": 1,  交割方式 1：包到 2：自提 -->
-                        <%if (deliveryType == 1){%>
+                        <p class="Rt p_width0">交割方式：<%=deliveryTypeStr%></p>
+                        <!-- <%if (deliveryType == 1){%>
                             <p class="Rt p_width0">交割方式：包到</p>
                         <%}else if (deliveryType == 2){%>
                             <p class="Rt p_width0">交割方式：自提</p>
-                        <%}%>
+                        <%}%> -->
                     </div>
                     <div class="item">
                         <!-- "invoiceType": 1,  发票类型 1：增值税普通发票 2：增值税专用发票 -->
@@ -140,9 +160,9 @@
                             <p class="Lf p_width">发票类型：增值税普通发票</p>
                         <%}else if(invoiceType == 2) {%>
                             <p class="Lf p_width">发票类型：增值税专用发票</p>
+                        <%}else if(invoiceType == 3) {%>
+                            <p class="Lf p_width">发票类型：不限</p>
                         <%}%>
-                        
-                        <p class="Lf compony">询盘企业：无数据</p>
                     </div>
                     <div class="item address">
                         <p class="Lf">收票地址：<%=invoicePeople%></p>
@@ -152,14 +172,9 @@
                     <div class="item">
                         <p class="Lf p_width">联系人: <%=contactName%></p>
                         <p class="Lf p_width tel">手机号码：<%=contactPhone%></p>
-                        <p class="Lf zuojiTel">座机：<%=contactLandline%></p>
                     </div>
                     <div class="item">
-                        <%if(myfromPage=='mypurchase'){%>
-                            <p class="Lf">备注：<%=note%></p>
-                        <%}else if(myfromPage=='mysale'){%>
-                            <p class="Lf">备注：<%=note2%></p>
-                        <%}%>
+                        <p class="Lf">备注：<%=note%></p>
                     </div>
                 </div>
             <!-- <%}%> -->
