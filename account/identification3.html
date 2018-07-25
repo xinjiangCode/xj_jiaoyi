@@ -205,6 +205,8 @@
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        update_info();
+
                         $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
                         window.parent.tan6();
 
@@ -216,6 +218,8 @@
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        update_info();
+
                         $(window.parent.document).find('.modelBox6 .info p span').html('发票信息审核中');
                         window.parent.tan6();
 
@@ -226,6 +230,8 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -233,6 +239,8 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -240,6 +248,8 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 6) {  //出金账户资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -247,12 +257,16 @@
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'block');
                         $(".update_btn").addClass('xiaoshi');
+                        $('.next_btn_update').css('display', 'none');
                         if (data.data.state > 3) {
                             $('.weiRenZheng').css('display', 'none');
                             $('.next_btn_update').css('display', 'block');
+                            update_info();
                         }
                     }
                     
@@ -425,15 +439,15 @@
                 //     update_info();
                 // }
 
-                if (data.data.company.state == -1) { //未提交
-                    $('.weiRenZheng.next_btn').css('display', 'block');
-                    $('.next_btn_update').css('display', 'none');
-                } else if (data.data.company.state == 0) { //待审核
-                    $('.weiRenZheng.next_btn').css('display', 'none');
-                    $('.next_btn_update').css('display', 'none');
-                }
+                // if (data.data.company.state == -1) { //未提交
+                //     $('.weiRenZheng.next_btn').css('display', 'block');
+                //     $('.next_btn_update').css('display', 'none');
+                // } else if (data.data.company.state == 0) { //待审核
+                //     $('.weiRenZheng.next_btn').css('display', 'none');
+                //     $('.next_btn_update').css('display', 'none');
+                // }
 
-                 update_info();
+                //  update_info();
                 
             },
             error: function (err) {
