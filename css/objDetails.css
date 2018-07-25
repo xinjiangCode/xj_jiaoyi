@@ -112,6 +112,7 @@ body{
 	color: #333333;
 }
 .objDInfo>h1{
+	width: 600px;
 	font-size: 22px;
 	color: #353535;
 	margin-top: 17px;
@@ -119,6 +120,9 @@ body{
 	font-weight: bold;
 	padding-left: 4px;
 	font-weight: 500;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
 }
 .objPrice{
 	background: #F5F5F5;

@@ -1464,7 +1464,7 @@
 							data.data[i].deliveryJson = JSON.parse(data.data[i].deliveryJson);
 						
 							str += '<div>'
-									+'<h3>'+data.data[i].chemicalName+'</h3>'
+									+'<h3 title="'+data.data[i].chemicalName+'">'+data.data[i].chemicalName+'</h3>'
 									+'<p>数量 : <span class="mr24">'+data.data[i].remain+' 吨</span>交货地 : '+data.data[i].deliveryJson.warehouseProvince+' <span class="bjNum">已有<span>'+data.data[i].allQuoteNumber+'</span>家报价</span></p>'
 									+'<div>'
 										if(data.data[i].remain==0 || data.data[i].state!=2){
