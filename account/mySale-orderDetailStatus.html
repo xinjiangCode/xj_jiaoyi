@@ -274,8 +274,8 @@
                                 <div class="cicle levelActive"><span></span></div>
                                 <div class="progressBar levelActive"></div>
                                 <div class="cicle levelActive"><span></span></div>
-                                <div class="progressBar"></div>
-                                <div class="cicle"><span></span></div>
+                                <div class="progressBar levelActive"></div>
+                                <div class="cicle levelActive"><span></span></div>
                                 <div class="progressBar" style="left:579px;"></div>
                                 <div class="cicle"><span></span></div>
                             </div>
@@ -293,8 +293,8 @@
                                     <div class="infoItemTime"><%=stateTimeMap.trading_waiting_settlement%></div>
                                 </div>
                                 <div class="infoItem">
-                                    <div class="infoItemCont">待结算</div>
-                                    <div class="infoItemTime"></div>
+                                    <div class="infoItemCont">已收货</div>
+                                    <div class="infoItemTime"><%=stateTimeMap.logistics_finished_receiving%></div>
                                 </div>
                                 <div class="infoItem">
                                     <div class="infoItemCont">完成</div>
@@ -310,8 +310,8 @@
                                     <div class="cicle levelActive"><span></span></div>
                                     <div class="progressBar levelActive"></div>
                                     <div class="cicle levelActive"><span></span></div>
-                                    <div class="progressBar"></div>
-                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
                                     <div class="progressBar" style="left:579px;"></div>
                                     <div class="cicle"><span></span></div>
                                 </div>
@@ -325,11 +325,11 @@
                                         <div class="infoItemTime"><%=stateTimeMap.trading_waiting_receiving%></div>
                                     </div>
                                     <div class="infoItem">
-                                        <div class="infoItemCont">已结算</div>
-                                        <div class="infoItemTime"><%=stateTimeMap.trading_waiting_finish%></div>
+                                        <div class="infoItemCont">待发货</div>
+                                        <div class="infoItemTime"></div>
                                     </div>
                                     <div class="infoItem">
-                                        <div class="infoItemCont">待发货</div>
+                                        <div class="infoItemCont">已收货</div>
                                         <div class="infoItemTime"></div>
                                     </div>
                                     <div class="infoItem">
@@ -344,8 +344,8 @@
                                     <div class="cicle levelActive"><span></span></div>
                                     <div class="progressBar levelActive"></div>
                                     <div class="cicle levelActive"><span></span></div>
-                                    <div class="progressBar"></div>
-                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
                                     <div class="progressBar" style="left:579px;"></div>
                                     <div class="cicle"><span></span></div>
                                 </div>
@@ -381,8 +381,8 @@
                                     <div class="cicle levelActive"><span></span></div>
                                     <div class="progressBar levelActive"></div>
                                     <div class="cicle levelActive"><span></span></div>
-                                    <div class="progressBar levelActive" style="left:579px;"></div>
-                                    <div class="cicle levelActive"><span></span></div>
+                                    <div class="progressBar" style="left:579px;"></div>
+                                    <div class="cicle"><span></span></div>
                                 </div>
                                 <div class="statusInfo clearfix">
                                     <div class="infoItem">
@@ -537,7 +537,7 @@
                                         <div class="infoItemTime"><%=stateTimeMap.logistics_finished_receiving%></div>
                                     </div>
                                     <div class="infoItem">
-                                            <div class="infoItemCont">未支付</div>
+                                            <div class="infoItemCont">待支付</div>
                                             <div class="infoItemTime"></div>
                                         </div>
                                     <div class="infoItem">
@@ -569,7 +569,7 @@
                                         <div class="infoItemTime"><%=stateTimeMap.trading_waiting_receiving%></div>
                                     </div>
                                     <div class="infoItem">
-                                        <div class="infoItemCont">未发货</div>
+                                        <div class="infoItemCont">待发货</div>
                                         <div class="infoItemTime"></div>
                                     </div>
                                     <div class="infoItem">
@@ -588,8 +588,8 @@
                                     <div class="cicle levelActive"><span></span></div>
                                     <div class="progressBar levelActive"></div>
                                     <div class="cicle levelActive"><span></span></div>
-                                    <div class="progressBar"></div>
-                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
                                     <div class="progressBar" style="left:579px;"></div>
                                     <div class="cicle"><span></span></div>
                                 </div>
@@ -646,7 +646,7 @@
                                     </div>
                                     <div class="infoItem">
                                         <div class="infoItemCont">完成</div>
-                                        <div class="infoItemTime"><%=stateTimeMap.trading_finish%></div>
+                                        <div class="infoItemTime"></div>
                                     </div>
                                 </div>
                             <%}%>
@@ -695,8 +695,8 @@
                                     <div class="cicle levelActive"><span></span></div>
                                     <div class="progressBar levelActive"></div>
                                     <div class="cicle levelActive"><span></span></div>
-                                    <div class="progressBar"></div>
-                                    <div class="cicle"><span></span></div>
+                                    <div class="progressBar levelActive"></div>
+                                    <div class="cicle levelActive"><span></span></div>
                                     <div class="progressBar" style="left:579px;"></div>
                                     <div class="cicle"><span></span></div>
                                 </div>
@@ -755,7 +755,7 @@
                     
                                     <div class="infoItem">
                                         <div class="infoItemCont">完成</div>
-                                        <div class="infoItemTime"><%=stateTimeMap.trading_finish%></div>
+                                        <div class="infoItemTime"></div>
                                     </div>
                                 </div>
                             <%}%>
@@ -1097,7 +1097,31 @@
                     $('.orderSum').html(sumTpl);
                     // 发货
                     $('.toSendGoodsBtn').click(function(){
-                        toSendGoods(id);
+                        //查询订单是否超时
+                        $.ajax({
+                            type:"get",
+                            headers: {
+                                Accept: "application/json; charset=utf-8",
+                                token: token
+                            },
+                            url: pubIP+"orderApi/updateOrderStatusFailure",//v1.0
+                            cache:false,
+                            data:{
+                                orderId: id
+                            },
+                            success: function(res){
+                                if(code==0){
+                                    alert("该订单已超时！")
+                                    window.location.reload();
+                                }else if(code==1){
+                                    toSendGoods(id);
+                                }
+                            },
+                            error: function(err){
+                                console.log(err);
+                            }
+                        });
+                        
                     });
                     // 取消订单
                     $('.toCancelOrderbtn').click(function(){
@@ -1159,7 +1183,7 @@
             return false;
         }
 
-
+        //debugger
         document.getElementsByClassName(id)[0].innerHTML = 
                 '<span class="fontStyle">'+ d1+'</span>天'
                 +'<span class="fontStyle">'+h1+'</span>时'
@@ -1172,8 +1196,9 @@
                 +'<span class="fontStyle">'+'00</span>时'
                 +'<span class="fontStyle">'+'00</span>分'
                 +'<span class="fontStyle">'+'00</span>秒';  
-                $(".fahuo_hzf").hide();
+                //$(".fahuo_hzf").hide();
             clearTimeout(timer1);  
+            return;
         }  
         timer1 = setTimeout("distanceTime2('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  
 
