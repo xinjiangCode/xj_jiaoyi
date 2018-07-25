@@ -794,7 +794,6 @@
                 cache: false,
                 dataType: 'json',
                 success: function (data) {
-                    console.log("+++++++++++++++");
                     console.log(data);
                     if(data.data==null){
                         return;
@@ -1225,7 +1224,7 @@
         }
 
         $('.textarea').each(function (i, ele) {
-            var run_fanwei = '';
+            var run_fanwei = ';';
             if ($(this).text() == '') {
                 $(this).parent().next().css('display', 'inline-block');
                 return;

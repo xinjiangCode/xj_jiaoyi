@@ -390,6 +390,8 @@ $(function () {
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        update_info();
+
                         $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
                         window.parent.tan6();
 
@@ -400,6 +402,8 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
 
                         $(window.parent.document).find('.modelBox6 .info p span').html('运营者信息审核中');
                         window.parent.tan6();
@@ -412,6 +416,8 @@ $(function () {
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        update_info();
+
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -419,6 +425,8 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
 
                         
                     } else if (data.data.type == 5) {  //企业资料二次审核中
@@ -428,6 +436,8 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 6) {  //出金账户资料二次审核中
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -435,6 +445,8 @@ $(function () {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'block');
                         $(".update_btn").addClass('xiaoshi');
