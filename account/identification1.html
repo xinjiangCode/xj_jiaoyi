@@ -341,10 +341,10 @@
         })
 
 
-        selectProvince();
+        selectProvince('');
 
         /*查询所有省份*/
-        function selectProvince() {
+        function selectProvince(province_select) {
             $.ajax({
                 url: pubIP + 'address/listProvince', /*v1.0*/
                 type: 'post',
@@ -363,6 +363,8 @@
                     }
 
                     $('#province ul').html(str);
+
+                    $('#province span').text($('#province ul li[data-proviceId="'+province_select+'"]').attr('data-province'));
 
                     $('#province ul li').click(function(){
                         event.stopPropagation();
@@ -1152,9 +1154,11 @@
                         
                         $('#company_address').val(data.data.company.companyAddress);
 
-                        $('#province span').text($('#province ul li[data-proviceId='+data.data.company.provinceId+']').attr('data-province'));
+                        // $('#province span').text($('#province ul li[data-proviceId='+data.data.company.provinceId+']').attr('data-province'));
 
                         $('#province').attr('data-proviceId', data.data.company.provinceId);
+
+                        selectProvince(data.data.company.provinceId);
 
                         $('#city').addClass('id_id1');
                         $('#area').addClass('id_id2');
