@@ -71,7 +71,7 @@
 				background-size: 650px 100%;
 				background-repeat: no-repeat;
 				font-size: 16px;
-				padding-top: 19px;
+				padding-top: 15px;
 				box-sizing: border-box;
 			}
 			
@@ -94,6 +94,10 @@
 				text-align: right;
 				/*color: #282828;*/
 				color: #6c6d6e;
+			}
+			.modelpop .cont>.main span{
+				font-size: 14px;
+				color: #666;
 			}
 			
 			.modelpop .cont>.main .input {
@@ -277,6 +281,7 @@
 			.modelpop .cont {
 				overflow: auto;
 				min-height: 560px;
+				background: white;
 			}
 			.spxq p{overflow: hidden;}
 			.spxq p i{display: inline-block;width: 80px;text-align: left;}
@@ -1057,7 +1062,7 @@
 						str += 	'<div class="bg">'
 									+'<div class="evBdBuyItem" data-supplyid="'+data.data[i].supplyId+'">'
 									+'<div class="evbgImg" style="background: url('+data.data[i].productPicList[0]+') no-repeat center center; background-size: cover;"></div>'
-									+'<p>'+data.data[i].productName+'</p>'
+									+'<p title="'+data.data[i].productName+'">'+data.data[i].productName+'</p>'
 									+'<span>￥'+data.data[i].unitPrice+'/吨</span>'
 								+'</div>'
 							+'</div>';
@@ -1418,24 +1423,34 @@
 							// 		$('.hazardousArticle').css('display', '')
 							// 	}
 							// } else if (response.data.productDetail.productCate == 2) {
-								if(response.data.chemicalType && response.data.chemicalType != {}) {
-									var chemicalTypeTpl = ''
-									$('.shangpin').css('display', 'block')
-									chemicalTypeTpl += '<div class="shangpin_title">'+ response.data.chemicalType.typeName + '：</div>'
+								console.log("+++++++++++++++++++++")
+								console.log(response.data)
+								if(response.data.chemical.chemicalDangerFlag != 1){
+									if(response.data.chemicalType && response.data.chemicalType != {}) {
+											var chemicalTypeTpl = ''
+											$('.shangpin').css('display', 'block')
+											chemicalTypeTpl += '<div class="shangpin_title">'+ response.data.chemicalType.typeName + '：</div>'
 											+'<div class="jinggao clearfix">'
-												+'<div class="fl img_bg">'
-													+'<img src="../img/hazardousArticle.png" />'
-													+'<p>' + response.data.chemicalType.msgTitle + '</p>'
-												+'</div>';
-												if (response.data.chemicalType.msgShow == 1) {
-													chemicalTypeTpl += '<div class="shangpin_cont fl">'+ response.data.chemicalType.msgContent +'</div>';
-												}
-									chemicalTypeTpl+='</div>';
-									
-									$('.shangpin').html(chemicalTypeTpl);
-								} else {
-									$('.shangpin').css('display', '');
+											+'<div class="fl img_bg">'
+											+'<img src="../img/hazardousArticle.png" />'
+											+'<p>' + response.data.chemicalType.msgTitle + '</p>'
+											+'</div>';
+										if (response.data.chemicalType.msgShow == 1 && (response.data.chemicalType.msgContent != ""||response.data.chemicalType.msgContent != null)) {
+											chemicalTypeTpl += '<div class="shangpin_cont fl">'+ response.data.chemicalType.msgContent +'</div>';
+										}else {
+											$('.shangpin').css('display', 'none');
+											return false;
+										}
+											chemicalTypeTpl+='</div>';
+						
+										$('.shangpin').html(chemicalTypeTpl);
+									} else {
+										$('.shangpin').css('display', 'none');
+									}
+								}else {
+									$('.shangpin').css('display', 'none');
 								}
+							
 							// }
 						
 						// 商品详情
@@ -1828,6 +1843,8 @@
 							storeId = response.data.storeId;
 							var careFlag = false;
 							var msgObj = response.data;
+							console.log("+++++++++")
+							console.log(msgObj)
 							var shopInfoHtml = template('shopInfoTpl', msgObj);
 							$('.shopinfoBox').html(shopInfoHtml);
 							$('.sellerRtLogo').attr('cmpid', companyId_this);

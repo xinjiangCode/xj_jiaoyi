@@ -519,7 +519,7 @@
                 if(json.code == '1'){
                     if(json.data.state==1){//企业已经认证'   企业信息审核状态 0：待审核 1：已审核  2：已拒绝  3重新审核     -1  企业信息未填写完成',
                         $('.qiye_renzheng_img').attr('src', '../img/cf_qiyerenzheng.png');
-                        $('.qiye_renzheng_info').text('企业认证');
+                        $('.qiye_renzheng_info').text('企业认证').css("color","#6ea3ff");
 
 
                         $(".weiRenZheng").css("display","none");
@@ -549,7 +549,7 @@
                         if(json.data.aState==1){//已认证
 
                             $('.zizhi_renzheng_img').attr('src', '../img/cf_denger.png');
-                            $('.zizhi_renzheng_info').text('危险化学品认证');
+                            $('.zizhi_renzheng_info').text('危险化学品认证').css("color","#6ea3ff");
 
                             $('.zizhi_title').css('display', 'none');
 
