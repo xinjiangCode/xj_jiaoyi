@@ -129,6 +129,7 @@
 
         //获取用户信息
         function getUser() {
+            $('.pagination').parent().hide();
             $.ajax({
                 type:"post",
                 headers: {
@@ -154,6 +155,8 @@
         }
         //获取商品列表
         function getShopList(cond,productState,companyId,currentPage) {
+            $('.pagination').parent().hide();
+            $(".shop_list_table tbody").html("");
             $.ajax({
                 type:"get",
                 headers: {
@@ -242,6 +245,7 @@
                             str+='</tr>';
                         }
                         $(".shop_list_table tbody").html(str);
+                        $('.pagination').parent().show();
                     }else if(json.code==0){
 
                         $(".shop_list_table tbody").html("");

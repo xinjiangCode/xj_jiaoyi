@@ -242,6 +242,8 @@
 
 		// 活动列表
         function activityCenter(num, con, title, time) {
+            $('.pagination').parent().hide();
+            $("#listInfo").html("");
         	$.ajax({
 	        	type: "post",
 	            url: pubIP + "acticityApi/findActivityList",//v1.0
@@ -273,7 +275,7 @@
 					
 					var result = template("listTpl",{list:json.data});
 		            $('#listInfo').html(result);
-
+                    $('.pagination').parent().show();
 		            if(json.code == '0'){
 	                    $('.pageJump').hide();
 	                    $('.shop_list_table tbody').html('');

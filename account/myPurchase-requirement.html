@@ -215,6 +215,8 @@
         
         // 采购需求列表
        function purchaseList(category, num) {
+           $('.pagination').parent().hide();
+           $(".listInfo").html("");
         console.log($('.search_input_info').val());
             $.ajax({
                 type:"post",
@@ -247,7 +249,7 @@
 
                         enquiryListTpl = template('listTpl', {list: data.aData});
                         $('#listInfo').html(enquiryListTpl);
-
+                        $('.pagination').parent().show();
 
                         if (isFirst) {
 

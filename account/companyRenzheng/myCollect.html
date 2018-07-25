@@ -102,10 +102,13 @@
 				       </tr>';
    			})
    			$('.shouhuo_person_list tbody').html(str) ;
+            $('.pagination').parent().show();
    		}
    		getData(nNum);
    		
    		function getData(num){
+            $('.pagination').parent().hide();
+            $(".shouhuo_person_list tbody").html("");
    			$.ajax({ 
 	          type:"post",
 	          url:pubIP+"store/getStoreCollectsByCompanyId",//v1.0

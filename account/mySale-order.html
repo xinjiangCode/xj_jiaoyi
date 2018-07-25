@@ -232,6 +232,8 @@
     })
 
     function getOrder(type,status,currentPage,orderMsg,pageSize) {
+        $('.pagination').parent().hide();
+        $(".myPurchase-orders").html("");
         $.ajax({
             type:"get",
             headers: {
@@ -276,13 +278,14 @@
                         
                         ordersListHTML = template('ordersListTpl', {list: json.data.result});
                         $('#myPurchase-orders').html(ordersListHTML);
+                        $('.pagination').parent().show();
                     } else{
                         ordersListHTML = '<h5 style="font-size:30px;line-height:100px;text-align:center;">暂无数据<h5>';
                         $('#myPurchase-orders').html(ordersListHTML);
                     }
                     
                 }else{
-                    ordersListHTML = '<h5 style="font-size: 30px;line-height:100px;text-align:center;">暂无数据<h5>';
+                    ordersListHTML = '<h5 style="font-size: 20px;line-height:100px;text-align:center;">暂无数据<h5>';
                     $('#myPurchase-orders').html(ordersListHTML);
                 }
             },
