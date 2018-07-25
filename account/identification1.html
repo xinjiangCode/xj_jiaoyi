@@ -851,7 +851,8 @@
         }
         
         $(document).on('click', '.weiRenZheng.btn', function () {
-            
+
+
             if ($('#qiye_name').val() == '') {
                 $('#qiye_name').parent().next().html('企业名称不能为空');
                 return;
@@ -921,6 +922,9 @@
             var yingye_num = $('#yingye_num').val();
             var company_address = $('#company_address').val();
             // var address = $('#address').val();
+
+
+
             var provinceId  = $('#province').attr('data-proviceId');
             var cityId  = $('#city').attr('data-cityId');
             var areaId  = $('#area').attr('data-areaId');
@@ -939,6 +943,9 @@
             endTime = $('#test2').val();
 
             file_name = $('#wenjian_name').val();
+
+            var companyAddress2 = $('#province span').text() + $('#city span').text() + $('#area span').text() + $('#company_address').val();
+
             
            if ($('#yingye_zhizhao_hidden').val() != '' ) {
                 
@@ -959,6 +966,7 @@
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
                             companyAddress: company_address,
+                            companyAddress2: companyAddress2,
                             provinceId: provinceId,
                             cityId: cityId,
                             areaId: areaId,
