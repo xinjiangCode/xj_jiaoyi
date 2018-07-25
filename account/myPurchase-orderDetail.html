@@ -1017,7 +1017,8 @@
                 +'<span class="fontStyle">'+'00</span>时'
                 +'<span class="fontStyle">'+'00</span>分'
                 +'<span class="fontStyle">'+'00</span>秒';  
-            clearTimeout(timer1);  
+                clearTimeout(timer1);  
+                return;
         }  
         timer1 = setTimeout("distanceTime2('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  
 
