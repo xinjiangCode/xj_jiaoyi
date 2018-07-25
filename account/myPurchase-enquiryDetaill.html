@@ -39,6 +39,7 @@
     </style>
 </head>
 <body>
+    <!-- 我的询盘以及收到的询盘  同一详情页 -->
 <script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
 <div class="topTitle mianCont">
     <a href="../index.html" class="logo1 Lf">
@@ -50,7 +51,7 @@
 <div class="stateList mianCont">
     <div class="first">首页&nbsp;></div>
     <div>用户中心&nbsp;></div>
-    <div class="last"> 账户概览</div>
+    <div class="last"> 询盘详情</div>
 </div>
 <div class="mainAll mianCont">
     <div class="mainLeft Lf">
@@ -127,7 +128,9 @@
                     <%if(state==1){%>
                         <div class="Rt blue confirmWait">等待商家确认</div>
                     <%}else if(state==2){%>
-                        <div class="Rt blue confirmed"></div>
+                        <div class="Rt blue confirmed">已达成</div>
+                    <%}else if(state==3){%>
+                        <div class="Rt red Refuse">未达成</div>
                     <%}else if(state==4){%>
                         <div class="Rt red Refuse">已拒绝</div>
                     <%}else if(state==5){%>
@@ -190,38 +193,39 @@
                 </div>
                 <div class="business confirmed">
                     <div class="infoItem">
-                        <div class="sumMoney">成交总价：<span class="yellow"><%=dealTotal%></span>元</div>
-                        <div class="cd">承兑：<span class="yellow">1-1231</span>元</div>
-                        <div class="xh">现汇：<span class="yellow">1231</span>元</div>
+                        <div class="sumMoney">成交总价：<span class="yellow"><%=total%></span>元</div>
+                        <div class="cd">承兑：<span class="yellow"><%=acceptanceTotal%></span>元</div>
+                        <div class="xh">现汇：<span class="yellow"><%=cash%></span>元</div>
                     </div>
-                    <div class="infoItem">支持账期，账期时间<span class="yellow">30</span>天</div>
+                    <div class="infoItem">支持账期，账期时间<span class="yellow"><%=debtTerm%></span>天</div>
+                    
                     <div class="infoItem">
                         备注：<%=note%>
                     </div>
                 </div>
                 <%if(myfromPage=='mypurchase'){%>
                     <div class="myPurchase-refused1 confirmed">
-                        <p>确认时间&nbsp;&nbsp;<span class="blue" style="font-weight:bold;"><%=resultTime%></span>，您的询盘已被商家接受，您可以<span data-state="<%=state%>" class="blue lastBtn look_order"><a href="./mySale-orderDetailStatus.html?userType=0&id=<%=orderNoId%>">查看订单</a></span></p>
+                        <p>确认时间&nbsp;&nbsp;<span class="blue" style="font-weight:bold;"><%=resultTime%></span>，您的询盘已被商家接受，您可以<span id="<%=transactionOrderId%>" data-state="<%=state%>" class="blue lastBtn look_order2"><a>查看订单</a></span></p>
                     </div>
                 <%}else if(myfromPage=='mysale'){%>
                     <div class="myPurchase-refused1 myPurchase-received">
                         <p>确认时间&nbsp;&nbsp;<span class="blue" style="font-weight:bold;"><%=resultTime%></span>您可以
-                            <span style="cursor: pointer;" class="blue look_order"><a href="./mySale-orderDetailStatus.html?userType=0&id=<%=orderNoId%>">查看订单</a></span>
+                            <span style="cursor: pointer;" class="blue look_order1" id="<%=transactionOrderId%>"><a>查看订单</a></span>
                         </p>
                     </div>
                 <%}%>
                 
             <%}else if(state==4){%>
                 <div class="myPurchase-refused4 Refuse">
-                    <p>拒绝时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=resultTime%></span>&nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span></p>
+                    <p>拒绝时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=periodTime%></span>&nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span></p>
                 </div>
             <%}else if(state==5){%>
                 <div class="myPurchase-refusedCancel cancel">
-                    <p>取消时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=resultTime%>1</span>&nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span></p>
+                    <p>取消时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=periodTime%></span>&nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span></p>
                 </div>
             <%}else if(state==6){%>
                 <div class="myPurchase-refused3 invalid">
-                    <p>失效时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=resultTime%></span>&nbsp;&nbsp;</p>
+                    <p>失效时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=periodTime%></span>&nbsp;&nbsp;</p>
                 </div>
             <%}%> 
         </script>
@@ -249,19 +253,26 @@
         // 获取询盘详情
         getEnquiryInfo(interestId, from)
     })
+    //查看销售订单详情
+    $(document).on('click', '.look_order1', function() {
+        sessionStorage.setItem('hzf_showPage','mySale-orderDetailStatus');
+        sessionStorage.setItem('hzf_go_mySale_orderDetailStatus',$(this).attr("id"));
+        window.location.href = "account.html";
 
-    // $(document).on('click', '.look_order', function() {
-    //     window.location.href="";
-    //     <a href="./mySale-orderDetailStatus.html?userType=0&id=<%=data.data.orderNoId%>">
-
-    // });
-
-    $(document).on('click', '.two_xunjia', function() {
-
-        window.localStorage.setItem('objid', $(this).attr('data-supplierid'));
-        window.location.href = "../obj/objDetails.html";
+    });
+     //查看采购订单详情
+     $(document).on('click', '.look_order2', function() {
+         debugger
+         sessionStorage.setItem('hzf_showPage','myPurchase-orderDetail');
+         sessionStorage.setItem('hzf_go_myPurchase-orderDetail',$(this).attr("id"));
+         window.location.href = "account.html";
     });
 
+    // $(document).on('click', '.two_xunjia', function() {
+
+    //     window.localStorage.setItem('objid', $(this).attr('data-supplierid'));
+    //     window.location.href = "../obj/objDetails.html";
+    // });
     // 获取询盘详情
     function getEnquiryInfo(interestId, from){
         $.ajax({
@@ -282,6 +293,7 @@
                         console.log("+++++++++++++++++++++++++++++++")
                         console.log(res.data)
                         res.data.resultTime = new Date(res.data.resultTime).Format("yyyy-MM-dd hh:mm:ss");
+                        res.data.periodTime = new Date(res.data.periodTime).Format("yyyy-MM-dd hh:mm:ss");
                         res.data.myfromPage=from;
                         var leftTpl = template('leftTpl', res.data);
                         $('.mainLeft.Lf ul').html(leftTpl);
@@ -318,6 +330,8 @@
                                 })
                             } else if(state == 4 || state == 5){// 4询盘-商家拒绝
                                 // 去再次询盘
+                                localStorage.setItem('objid', $(this).attr('data-supplierid'));
+                                window.location.href = "../obj/objDetails.html"
                             }
                         });
                     } else {
