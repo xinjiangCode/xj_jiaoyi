@@ -75,19 +75,19 @@
 
 .search_left_bottom {
 	width: 323px;
-	height: 437px;
+	/* height: 437px; */
 	border: 1px solid #ebe9ea;
 }
 
 .search_left_bottom ul {
-	padding: 15px 14px 19px 11px;
+	padding: 19px 14px 19px 11px;
 	box-sizing: border-box;
 }
 
 .search_left_bottom ul li {
 	color: #7a7a7a;
 	font-size: 14px;
-	line-height: 22px;
+	line-height: 30px;
 }
 
 .search_left_bottom ul li div {
@@ -105,30 +105,51 @@
 .search_left_bottom ul li div.div2 {
 	width: 226px;
 	padding-left: 14px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .search_left_bottom ul li div.div3 {
 	width: 214px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .search_left_bottom ul li div.div4 {
 	padding-left: 29px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .search_left_bottom ul li div.div5 {
 	padding-left: 42px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .search_left_bottom ul li div.div6 {
 	padding-left: 42px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .search_left_bottom ul li div.div7 {
 	padding-left: 37px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .search_left_bottom ul li div.div8 {
 	padding-left: 43px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .search_left_bottom ul li div.div9,
@@ -136,12 +157,18 @@
 .search_left_bottom ul li div.div11,
 .search_left_bottom ul li div.div12 {
 	padding-left: 28px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 .search_left_bottom ul li div.div13,
 .search_left_bottom ul li div.div14 {
 	width: 233px;
 	padding-left: 20px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 
