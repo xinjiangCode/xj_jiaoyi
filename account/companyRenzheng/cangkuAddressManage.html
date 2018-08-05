@@ -149,7 +149,7 @@
                 </li>
             </ul>
         </div>
-        <div class="shouhuo_person_list shop_list_table">
+        <div class="shouhuo_person_list shop_list_table" style="height: 651px;overflow-y: auto;">
             <table>
                 <thead>
                     <th>仓库名称</th>
@@ -158,7 +158,7 @@
                     <th>操作</th>
                     <th>状态</th>
                 </thead>
-                <tbody id="templateInfo">
+                <tbody id="templateInfo" >
                     
                 </tbody>
             </table>
@@ -197,7 +197,10 @@
         <%}%>
     </script>
 
-    <script>    
+    <script>
+    $(function () {
+        window.parent.$("#Iframe").css('height',1117);
+    })
         /*收货地址列表查询*/
         shouhuo_list();
         function shouhuo_list() {

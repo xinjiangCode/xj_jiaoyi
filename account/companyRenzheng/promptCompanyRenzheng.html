@@ -46,6 +46,9 @@
 <script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
 
 <script>
+    $(function () {
+        window.parent.$("#Iframe").css('height',667);
+    })
     $('.apply_btn').on('click', function () {
         $.ajax({
             url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',

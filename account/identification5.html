@@ -333,7 +333,9 @@
 
 <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript">
-
+    $(function () {
+        window.parent.$("#Iframe").css('height',990);
+    })
 
         $(document).on('change','#id_card_pic1,#id_card_pic2',function(){
             xmTanUploadImg11(this);
