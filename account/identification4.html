@@ -404,6 +404,7 @@ function upload_file(obj) {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+                        update_info();
 
                         $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
                         window.parent.tan6();
@@ -416,6 +417,8 @@ function upload_file(obj) {
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        update_info();
+
                         $(window.parent.document).find('.modelBox6 .info p span').html('出金账户资料审核中');
                         window.parent.tan6();
 
@@ -426,6 +429,8 @@ function upload_file(obj) {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -433,6 +438,8 @@ function upload_file(obj) {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
 
                         data.data.reasons = $.parseJSON(data.data.reasons);
                         // data.data.reasons.msg = $.parseJSON(data.data.reasons.msg);
@@ -453,6 +460,8 @@ function upload_file(obj) {
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     } else if (data.data.type == 6) {  //出金账户二次审核
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'none');
@@ -461,14 +470,18 @@ function upload_file(obj) {
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        update_info();
+
 
                         window.parent.tan7();
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'block');
                         $(".update_btn").addClass('xiaoshi');
+                        $('.next_btn_update').css('display', 'none');
                         if (data.data.state > 4) {
                             $('.weiRenZheng').css('display', 'none');
                             $('.next_btn_update').css('display', 'block');
+                            update_info();
                         }
                     }
                     
@@ -675,15 +688,15 @@ function upload_file(obj) {
                 // }
 
 
-                if (data.data.company.state == -1) { //未提交
-                    $('.weiRenZheng.next_btn').css('display', 'block');
-                    $('.next_btn_update').css('display', 'none');
-                } else if (data.data.company.state == 0) { //待审核
-                    $('.weiRenZheng.next_btn').css('display', 'none');
-                    $('.next_btn_update').css('display', 'none');
-                }
+                // if (data.data.company.state == -1) { //未提交
+                //     $('.weiRenZheng.next_btn').css('display', 'block');
+                //     $('.next_btn_update').css('display', 'none');
+                // } else if (data.data.company.state == 0) { //待审核
+                //     $('.weiRenZheng.next_btn').css('display', 'none');
+                //     $('.next_btn_update').css('display', 'none');
+                // }
 
-                update_info();
+                // update_info();
 
             },
             error: function (err) {

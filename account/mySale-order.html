@@ -119,7 +119,7 @@
                 </div>
                 <div class="orderItemCont clearfix">
                     <div class="orderContItem orderNum"><span><%=i-0+1%></span></div>
-                    <div class="orderContItem orderName"><%=list[i].productName%></div>
+                    <div class="orderContItem orderName" style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;" title="<%=list[i].productName%>"><%=list[i].productName%></div>
                     <div class="orderContItem orderPurity"><%=list[i].productPurity ? list[i].productPurity : 0%>%</div>
                     <div class="orderContItem orderQuantity"><%=list[i].sum?list[i].sum:0%><%=list[i].productUnit%></div>
                     <div class="orderContItem sumMoney">

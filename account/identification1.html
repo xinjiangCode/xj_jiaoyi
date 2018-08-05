@@ -343,10 +343,10 @@
         })
 
 
-        selectProvince();
+        selectProvince('');
 
         /*查询所有省份*/
-        function selectProvince() {
+        function selectProvince(province_select) {
             $.ajax({
                 url: pubIP + 'address/listProvince', /*v1.0*/
                 type: 'post',
@@ -365,6 +365,8 @@
                     }
 
                     $('#province ul').html(str);
+
+                    $('#province span').text($('#province ul li[data-proviceId="'+province_select+'"]').attr('data-province'));
 
                     $('#province ul li').click(function(){
                         event.stopPropagation();
@@ -851,7 +853,8 @@
         }
         
         $(document).on('click', '.weiRenZheng.btn', function () {
-            
+
+
             if ($('#qiye_name').val() == '') {
                 $('#qiye_name').parent().next().html('企业名称不能为空');
                 return;
@@ -921,6 +924,9 @@
             var yingye_num = $('#yingye_num').val();
             var company_address = $('#company_address').val();
             // var address = $('#address').val();
+
+
+
             var provinceId  = $('#province').attr('data-proviceId');
             var cityId  = $('#city').attr('data-cityId');
             var areaId  = $('#area').attr('data-areaId');
@@ -939,6 +945,9 @@
             endTime = $('#test2').val();
 
             file_name = $('#wenjian_name').val();
+
+            var companyAddress2 = $('#province span').text() + $('#city span').text() + $('#area span').text() + $('#company_address').val();
+
             
            if ($('#yingye_zhizhao_hidden').val() != '' ) {
                 
@@ -959,6 +968,7 @@
                             operatingPeriodStartTime: startTime,
                             operatingPeriodEndTime: endTime,
                             companyAddress: company_address,
+                            companyAddress2: companyAddress2,
                             provinceId: provinceId,
                             cityId: cityId,
                             areaId: areaId,
@@ -1154,9 +1164,11 @@
                         
                         $('#company_address').val(data.data.company.companyAddress);
 
-                        $('#province span').text($('#province ul li[data-proviceId='+data.data.company.provinceId+']').attr('data-province'));
+                        // $('#province span').text($('#province ul li[data-proviceId='+data.data.company.provinceId+']').attr('data-province'));
 
                         $('#province').attr('data-proviceId', data.data.company.provinceId);
+
+                        selectProvince(data.data.company.provinceId);
 
                         $('#city').addClass('id_id1');
                         $('#area').addClass('id_id2');
@@ -1383,7 +1395,8 @@
                             upload_file5: img_url5,
                             fileName: file_name,
                             dbid: dbid,
-                            fileUrl: file_url
+                            fileUrl: file_url,
+                            sourceType: 1
                         },
                         cache: false,
                         dataType: 'json',
@@ -1445,7 +1458,8 @@
                             upload_file5: img_url5,
                             fileName: file_name,
                             dbid: dbid,
-                            fileUrl: file_url
+                            fileUrl: file_url,
+                            sourceType: 1
                         },
                         cache: false,
                         dataType: 'json',

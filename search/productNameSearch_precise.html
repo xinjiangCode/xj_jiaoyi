@@ -44,13 +44,21 @@
 				top: -1px;
 			}
 			.search_left_top .huaxue_name{
+				width: 255px;
 				max-height: 18px;
 				line-height: 18px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
 			}
 			.search_left_top .cas_num{
 				min-height: 22px;
 				line-height: 22px;
 				margin-bottom: 13px;
+				width: 255px;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				overflow: hidden;
 			}
 			.search_left_bottom{
 				display: none;
@@ -377,20 +385,20 @@
 
 		<script type="text/html" id="searchLeftBottomTpl">
 			<ul>
-				<li class="clearfix"><span class="fl">用途：</span><div class="fl div1"><%=chemicalPurpose%></div></li>
-				<li class="clearfix"><span class="fl">危险类列：</span><div class="fl div2"><%=chemicalDangerClasses%></div></li>
-				<li class="clearfix"><span class="fl">外观与形状：</span><div class="fl div3"><%=chemicalCharacter%></div></li>
-				<li class="clearfix"><span class="fl">化学式：</span><div class="fl div4"><%=chemicalFormula%></div></li>
-				<li class="clearfix"><span class="fl">熔点：</span><div class="fl div5"><%=chemicalMeltingPoint%></div></li>
-				<li class="clearfix"><span class="fl">沸点：</span><div class="fl div6"><%=chemicalBoilingPoint%></div></li>
-				<li class="clearfix"><span class="fl">PH值：</span><div class="fl div7"><%=chemicalPh%></div></li>
-				<li class="clearfix"><span class="fl">闪点：</span><div class="fl div8"><%=chemicalFlashPoint%></div></li>
-				<li class="clearfix"><span class="fl">溶解性：</span><div class="fl div9"><%=chemicalSolubility%></div></li>
-				<li class="clearfix"><span class="fl">稳定性：</span><div class="fl div10"><%=chemicalStability%></div></li>
-				<li class="clearfix"><span class="fl">敏感性：</span><div class="fl div11"><%=chemicalSusceptibility%></div></li>
-				<li class="clearfix"><span class="fl">禁配物：</span><div class="fl div12"><%=chemicalForbidden%></div></li>
-				<li class="clearfix"><span class="fl">UN编号：</span><div class="fl div13"><%=chemicalUn%></div></li>
-				<li class="clearfix"><span class="fl">CN编号：</span><div class="fl div14"><%=chemicalCn%></div></li>
+				<li class="clearfix"><span class="fl">用途：</span><div class="fl div1" title="<%=chemicalPurpose%>"><%=chemicalPurpose%></div></li>
+				<li class="clearfix"><span class="fl">危险类列：</span><div class="fl div2" title="<%=chemicalDangerClasses%>"><%=chemicalDangerClasses%></div></li>
+				<li class="clearfix"><span class="fl">外观与形状：</span><div class="fl div3" title="<%=chemicalCharacter%>"><%=chemicalCharacter%></div></li>
+				<li class="clearfix"><span class="fl">化学式：</span><div class="fl div4" title="<%=chemicalFormula%>"><%=chemicalFormula%></div></li>
+				<li class="clearfix"><span class="fl">熔点：</span><div class="fl div5" title="<%=chemicalMeltingPoint%>"><%=chemicalMeltingPoint%></div></li>
+				<li class="clearfix"><span class="fl">沸点：</span><div class="fl div6" title="<%=chemicalBoilingPoint%>"><%=chemicalBoilingPoint%></div></li>
+				<li class="clearfix"><span class="fl">PH值：</span><div class="fl div7" title="<%=chemicalPh%>"><%=chemicalPh%></div></li>
+				<li class="clearfix"><span class="fl">闪点：</span><div class="fl div8" title="<%=chemicalFlashPoint%>"><%=chemicalFlashPoint%></div></li>
+				<li class="clearfix"><span class="fl">溶解性：</span><div class="fl div9" title="<%=chemicalSolubility%>"><%=chemicalSolubility%></div></li>
+				<li class="clearfix"><span class="fl">稳定性：</span><div class="fl div10" title="<%=chemicalStability%>"><%=chemicalStability%></div></li>
+				<li class="clearfix"><span class="fl">敏感性：</span><div class="fl div11" title="<%=chemicalSusceptibility%>"><%=chemicalSusceptibility%></div></li>
+				<li class="clearfix"><span class="fl">禁配物：</span><div class="fl div12" title="<%=chemicalForbidden%>"><%=chemicalForbidden%></div></li>
+				<li class="clearfix"><span class="fl">UN编号：</span><div class="fl div13" title="<%=chemicalUn%>"><%=chemicalUn%></div></li>
+				<li class="clearfix"><span class="fl">CN编号：</span><div class="fl div14" title="<%=chemicalCn%>"><%=chemicalCn%></div></li>
 			</ul>
 		</script>
 
@@ -542,8 +550,11 @@
 					console.log(json);
 
 					$('.search_left_top .huaxue_name').html(json.data.chemicalName);
+					$('.search_left_top .huaxue_name').attr("title",json.data.chemicalName);
 					$('.search_left_top .cas').html(json.data.chemicalCas);
+					$('.search_left_top .cas').attr("title",json.data.chemicalCas);
 					$('.search_left_top .alias').html(json.data.chemicalAlias);
+					$('.search_left_top .alias').attr("title",json.data.chemicalAlias);
 
 					$('.left_btn span').html(json.data.storeProductsVoList.length);
 					$('.min_price').html(json.data.minPrice);

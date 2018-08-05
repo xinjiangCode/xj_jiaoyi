@@ -35,7 +35,7 @@
 			
 			.modelpop .cont {
 				width: 650px;
-				height: 550px;
+				height: 560px;
 				position: absolute;
 				top: 50%;
 				left: 50%;
@@ -71,7 +71,7 @@
 				background-size: 650px 100%;
 				background-repeat: no-repeat;
 				font-size: 16px;
-				padding-top: 19px;
+				padding-top: 15px;
 				box-sizing: border-box;
 			}
 			
@@ -94,6 +94,10 @@
 				text-align: right;
 				/*color: #282828;*/
 				color: #6c6d6e;
+			}
+			.modelpop .cont>.main span{
+				font-size: 14px;
+				color: #666;
 			}
 			
 			.modelpop .cont>.main .input {
@@ -276,7 +280,8 @@
 			
 			.modelpop .cont {
 				overflow: auto;
-				min-height: 560px;
+				/* min-height: 560px; */
+				background: white;
 			}
 			.spxq p{overflow: hidden;}
 			.spxq p i{display: inline-block;width: 80px;text-align: left;}
@@ -607,7 +612,7 @@
 					</div>
 					<div class="objDInfo">
 						<script type="text/html" id="objDescriptTpl">
-							<h1><%=productName%></h1>
+							<h1 title="<%=productName%>"><%=productName%></h1>
 							<div class="objPrice">
 								价格：
 								<span class="dazong"><span class="money_icon">¥</span> <%=unitPrice%>/吨</span>
@@ -813,14 +818,11 @@
 				</div>
 			</div>
 			<div class="sellerRt">
-				<div class="shopinfoBox">
+				<div class="shopinfoBox" id="shopinfoBox2">
 					<script type="text/html" id="shopInfoTpl">
 						<div class="sellerRtLogo" style="background: url(<%=storeImage%>) no-repeat;background-size: contain;background-position: center;"></div>
 						<p id="addGz" style="text-align: right;margin-top: 7px;margin-bottom: 8px;padding-right: 12px;font-size: 16px;color: #282828;"><img src="../img/guanzhu.png" style="margin-right: 8px; vertical-align: unset;" /><span style="font-size: 14px;">关注</span></p>
-						<p style="margin-bottom: 10px;padding-right:17px ;color: #282828;line-height: 24px;">企业名称：
-							<%=companyName%>
-						</p>
-						
+						<p style="margin-bottom: 10px;padding-right:17px ;color: #282828;line-height: 24px;" title="<%=companyName%>">企业名称：<%=companyName%></p>
 						<p style="color: #282828;margin-bottom: 5px;">企业认证 <img src="../img/qiIcon.png" style="margin-left: 8px;" /></p>
 						<p style="color: #282828;margin-bottom: 11px;">危险化学品认证 
 						<%if (aType == 0 && aState == 1) {%>
@@ -830,9 +832,10 @@
 						<%}%>
 						</p>
 						
-						<p style="margin-bottom: 12px;color: #282828; display: none;" class="lianxifangshi">联系方式：<span style="color: #5590F6;"><%=contact%></span></p>
+						<p style="margin-bottom: 12px;color: #282828;display:none;" class="lianxiren">联系人：<span><%=contactName%></span></p>
+						<p style="margin-bottom: 12px;color: #282828;display:none;" class="lianxifangshi">联系方式：<span><%=contactPhone%></span></p>
 						
-						<p style="margin-bottom: 15px;padding-right: 17px;line-height: 24px;color: #282828;">所在地区：
+						<p style="margin-bottom: 15px;padding-right: 17px;line-height: 24px;color: #282828;" title="<%=companyAddress2%>">所在地区：
 							<%=companyAddress2%>
 						</p>
 						<a href="##" style="display: block;margin-left: 19px;"><button><img src="../img/odkefu.png" style="margin-right: 13px;" />联系客服</button></a>
@@ -1057,7 +1060,7 @@
 						str += 	'<div class="bg">'
 									+'<div class="evBdBuyItem" data-supplyid="'+data.data[i].supplyId+'">'
 									+'<div class="evbgImg" style="background: url('+data.data[i].productPicList[0]+') no-repeat center center; background-size: cover;"></div>'
-									+'<p>'+data.data[i].productName+'</p>'
+									+'<p title="'+data.data[i].productName+'">'+data.data[i].productName+'</p>'
 									+'<span>￥'+data.data[i].unitPrice+'/吨</span>'
 								+'</div>'
 							+'</div>';
@@ -1332,8 +1335,12 @@
 						var goodsinfoObj = response.data;
 						//发布者公司标识
 						var thisCompanyId = goodsinfoObj.productDetail.publishCompanyId;
+						//本商品联系人
+						var thiscontactName = goodsinfoObj.productDetail.contactName;
+						//本商品联系人电话
+						var thiscontactPhone = goodsinfoObj.productDetail.contactPhone;
 						// 获取店铺信息
-						getshopInfo(goodsinfoObj.productDetail.publishCompanyId, goodsinfoObj.productDetail.isPublic);
+						getshopInfo(goodsinfoObj.productDetail.publishCompanyId, goodsinfoObj.productDetail.isPublic,thiscontactName,thiscontactPhone);
 						var chemical = response.data.chemical;
 						var productDetail = response.data.productDetail;
 						var minAmount = productDetail.minAmount; //最小购买量
@@ -1418,24 +1425,34 @@
 							// 		$('.hazardousArticle').css('display', '')
 							// 	}
 							// } else if (response.data.productDetail.productCate == 2) {
-								if(response.data.chemicalType && response.data.chemicalType != {}) {
-									var chemicalTypeTpl = ''
-									$('.shangpin').css('display', 'block')
-									chemicalTypeTpl += '<div class="shangpin_title">'+ response.data.chemicalType.typeName + '：</div>'
+								console.log("+++++++++++++++++++++")
+								console.log(response.data)
+								if(response.data.chemical.chemicalDangerFlag != 1){
+									if(response.data.chemicalType && response.data.chemicalType != {}) {
+											var chemicalTypeTpl = ''
+											$('.shangpin').css('display', 'block')
+											chemicalTypeTpl += '<div class="shangpin_title">'+ response.data.chemicalType.typeName + '：</div>'
 											+'<div class="jinggao clearfix">'
-												+'<div class="fl img_bg">'
-													+'<img src="../img/hazardousArticle.png" />'
-													+'<p>' + response.data.chemicalType.msgTitle + '</p>'
-												+'</div>';
-												if (response.data.chemicalType.msgShow == 1) {
-													chemicalTypeTpl += '<div class="shangpin_cont fl">'+ response.data.chemicalType.msgContent +'</div>';
-												}
-									chemicalTypeTpl+='</div>';
-									
-									$('.shangpin').html(chemicalTypeTpl);
-								} else {
-									$('.shangpin').css('display', '');
+											+'<div class="fl img_bg">'
+											+'<img src="../img/hazardousArticle.png" />'
+											+'<p>' + response.data.chemicalType.msgTitle + '</p>'
+											+'</div>';
+										if (response.data.chemicalType.msgShow == 1 && (response.data.chemicalType.msgContent != ""||response.data.chemicalType.msgContent != null)) {
+											chemicalTypeTpl += '<div class="shangpin_cont fl">'+ response.data.chemicalType.msgContent +'</div>';
+										}else {
+											$('.shangpin').css('display', 'none');
+											return false;
+										}
+											chemicalTypeTpl+='</div>';
+						
+										$('.shangpin').html(chemicalTypeTpl);
+									} else {
+										$('.shangpin').css('display', 'none');
+									}
+								}else {
+									$('.shangpin').css('display', 'none');
 								}
+							
 							// }
 						
 						// 商品详情
@@ -1720,6 +1737,7 @@
 									// 点击提交
 									$('#toXunpan').find('.commitBtn').click(function() {
 										// 支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限
+										//debugger
 										var paymentMethod;
 										if(payTypeVal == '现汇') {
 											paymentMethod = 1;
@@ -1786,10 +1804,12 @@
 													$('#enquirySuccess').css('display', 'block');
 													$('#enquirySuccess .close').click(function() {
 														$('#enquirySuccess').css('display', 'none');
+														window.location.reload();
 													});
 													$('#toXunpan').css('display', 'none');
 													$('#enquirySuccess .tosurebtn').click(function() {
 														$('#enquirySuccess').css('display', 'none');
+														window.location.reload();
 													});
 												}
 											}
@@ -1808,7 +1828,7 @@
 			// 获取店铺信息
 			var storeId = null;
 
-			function getshopInfo(companyId_this, isPublic) {
+			function getshopInfo(companyId_this, isPublic,thiscontactName,thiscontactPhone) {
 				$.ajax({
 					type: "post",
 					url: pubIP + "store/getStoreInfoByCompanyId", //v1.0
@@ -1828,11 +1848,16 @@
 							storeId = response.data.storeId;
 							var careFlag = false;
 							var msgObj = response.data;
+							msgObj.contactName = thiscontactName;
+							msgObj.contactPhone = thiscontactPhone;
+							console.log("++++++======+++")
+							console.log(msgObj)
 							var shopInfoHtml = template('shopInfoTpl', msgObj);
 							$('.shopinfoBox').html(shopInfoHtml);
 							$('.sellerRtLogo').attr('cmpid', companyId_this);
 							
 							if (isPublic == 0) {
+								$('.lianxiren').css('display','block');
 								$('.lianxifangshi').css('display','block');
 							}
 							

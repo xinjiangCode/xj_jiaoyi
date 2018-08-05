@@ -676,7 +676,7 @@
 			<div class="bg">
 				<div class="RtDItem" style="overflow: hidden;" data-buyingids="<%=list[i].buyingIds%>">
 					<div class="clearfix" style="width: 120px;float: left;">
-						<span class="chemical_name"><%=list[i].chemicalName%></span>
+						<span class="chemical_name" title="<%=list[i].chemicalName%>"><%=list[i].chemicalName%></span>
 						<span style="margin-top: 10px;"><%=list[i].productPurity%>% </span>
 					</div>
 					<div style="float: right;height: 100%;line-height: 42px;">
@@ -815,7 +815,7 @@
                 	var str2 = '';
 					if(data.data.one != ''&&data.data.one != null){
 						str0 += '<img src="../img/tuijian.png"/>'
-						+'<h1>'+data.data.one.chemicalName+'</h1>'
+						+'<h1 title="'+data.data.one.chemicalName+'">'+data.data.one.chemicalName+'</h1>'
 						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.one.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.one.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.one.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
@@ -831,7 +831,7 @@
 					
 					if(data.data.two != ''&&data.data.two != null){
 						str1 += '<img src="../img/tuijian.png"/>'
-						+'<h1>'+data.data.two.chemicalName+'</h1>'
+						+'<h1 title="'+data.data.two.chemicalName+'">'+data.data.two.chemicalName+'</h1>'
 						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.two.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.two.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.two.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
@@ -846,7 +846,7 @@
 					}
 					if(data.data.three != ''&&data.data.three != null){
 						str2 += '<img src="../img/tuijian.png"/>'
-						+'<h1>'+data.data.three.chemicalName+'</h1>'
+						+'<h1 title="'+data.data.three.chemicalName+'">'+data.data.three.chemicalName+'</h1>'
 						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.three.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.three.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.three.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
@@ -1052,7 +1052,7 @@
 		                		var time2 = new Date(data.data.list[i].remainTime).Format("yyyy-MM-dd,hh:mm:ss");
 
 		                		str += '<div class="fsObjItem">'
-				        			+'<h1>'+data.data.list[i].chemicalName+'</h1>'
+				        			+'<h1 title="'+data.data.list[i].chemicalName+'">'+data.data.list[i].chemicalName+'</h1>'
 				        			+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.list[i].remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.list[i].productPurity+'%   </span></span></p>'
 				        			+'<p>交货地: <span class="delivery_address1">'+data.data.list[i].warehouse.warehouseProvince+' '+data.data.list[i].warehouse.warehouseCity+' '+data.data.list[i].warehouse.warehouseArea+'</span></p>'
 				        			+'<p style="margin-top: 37px;">剩余时间：</p>'

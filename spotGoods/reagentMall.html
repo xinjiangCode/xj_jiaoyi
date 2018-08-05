@@ -37,6 +37,13 @@
 			.supplierBox>div{
 				margin-bottom: 1px;
 			}
+			.supplierBox p.thisP_hzf{
+				width: 210px;
+				float: right;
+				white-space:nowrap;
+				text-overflow:ellipsis;
+				overflow:hidden;
+			}
 			.rsGoods>div{
 				margin-bottom:2px;
 			}
@@ -693,9 +700,9 @@
 												ncGoodsStr += '<img src="../img/te.png">'
 											}
 							ncGoodsStr += '<div class="uzImg" style="background:url('+t.productPicList[0]+') no-repeat;background-size:cover ;background-position:center ;"></div>\
-											<p class="uzName">'+t.productName+'</p>\
-											<p> 规 格：'+t.productSpec+t.productSpecUnitStr+' </p>\
-											<p>纯 度：'+t.productPurity+'%</p>\
+											<p class="uzName thisP_hzf" title="'+t.productName+'">'+t.productName+'</p>\
+											<p class="thisP_hzf"> 规 格：'+t.productSpec+t.productSpecUnitStr+' </p>\
+											<p class="thisP_hzf">纯 度：'+t.productPurity+'%</p>\
 											<div class="uzsj">供应商：'+t.companyName+'</div>\
 											<div class="hideInfo">\
 												<div></div>\
@@ -716,7 +723,7 @@
 							cenLineObjBox += '<div class="objImg" style="background: url('+t.productPicList[0]+') no-repeat;background-size:cover ;background-position:center ;"></div>\
 												<div class="objTxt">\
 													<p class="pcep">'+t.unitPrice+'元</p>\
-													<span class="fs14">'+t.companyName+'</span>\
+													<span class="fs14" style="display: inline-block;width: 100%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">'+t.productName+'</span>\
 												</div>\
 												<div class="hideInfo">\
 													<div></div>\
@@ -739,7 +746,7 @@
 											}else if(t.chemicalDangerFlag == 3){
 												rsGoodstr += '<img src="../img/te.png">'
 											}
-							rsGoodstr += '<div class="uztit">'+t.productName+' </div>\
+							rsGoodstr += '<div class="uztit" title="'+t.productName+'">'+t.productName+' </div>\
 										<div class="uzImg" style="background: url('+t.productPicList[0]+') no-repeat;background-size:cover ;background-position:center ;"></div>\
 										<div class="uztxt">\
 											<p>纯度：'+t.productPurity+' % </p>\

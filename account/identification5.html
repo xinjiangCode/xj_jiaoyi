@@ -580,6 +580,7 @@ function xmTanUploadImg2(obj) {
 
        $(document).on('click', '.update_phone_btn', function () {
             $('.update_yincang').css('visibility', 'visible');
+            $(this).attr('data-click', '1');
        });
 
 
@@ -1162,29 +1163,34 @@ function xmTanUploadImg2(obj) {
                 return;
             }
 
-            if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#new_phone').val().trim()))) {
+            if ($('.update_phone_btn').attr('data-click') == '1') {
 
-                $('#new_phone').parent().next().css('display', 'block');
+                if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#new_phone').val().trim()))) {
+
+                    $('#new_phone').parent().next().css('display', 'block');
+                    
+                }
+
+                //判断手机号是否加入过企业
+                var thisPhone = $('#new_phone').val();
+                sendAjax(thisPhone, $(this));
+                if(!clickFlgCode){
+                        return false;
+                    }
+
+                if ($('#new_code').val().trim() == '') {
+                    $('#new_code').parent().next().css('display', 'block');
+                    
+                }
+
+                if ($('#pay_pass2').val().trim() == '') {
+                    $('#pay_pass2').parent().next().css('display', 'block');
+                }
+
+                if ($('#pay_pass2').parent().next().css('display') == 'block') {
+                    return;
+                }
                 
-            }
-            //判断手机号是否加入过企业
-            var thisPhone = $('#new_phone').val();
-            sendAjax(thisPhone, $(this));
-            if(!clickFlgCode){
-        			return false;
-        		}
-
-            if ($('#new_code').val().trim() == '') {
-                $('#new_code').parent().next().css('display', 'block');
-                
-            }
-
-            if ($('#pay_pass2').val().trim() == '') {
-                $('#pay_pass2').parent().next().css('display', 'block');
-            }
-
-            if ($('#pay_pass2').parent().next().css('display') == 'block') {
-                return;
             }
 
             var caiwu_name = $('#caiwu_name').val();
