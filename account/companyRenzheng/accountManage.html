@@ -123,7 +123,7 @@
                 </li>
             </ul>
         </div>
-        <div class="shouhuo_person_list shop_list_table">
+        <div class="shouhuo_person_list shop_list_table" style="height: 651px;overflow-y: auto;">
             <table>
                 <thead>
                     <th>收货人</th>
@@ -168,6 +168,9 @@
     </script>
 
     <script>
+        $(function () {
+            window.parent.$("#Iframe").css('height',1122);
+        })
         /*收货地址列表查询*/
         shouhuo_list();
         function shouhuo_list() {

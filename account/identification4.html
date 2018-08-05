@@ -291,6 +291,9 @@
 
 <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript">
+    $(function () {
+        window.parent.$("#Iframe").css('height',824);
+    })
 //右侧解释
 $(".showjieshi").on("click",function(){
     $(".jieshi").toggle();
