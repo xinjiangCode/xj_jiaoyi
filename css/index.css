@@ -937,9 +937,14 @@ footer .friendList a{
 .selectPub>ul>li{
 	padding-left: 10px;
 	cursor: pointer;
+	overflow: hidden;
+	width: 80%;
+	padding-right: 20%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .selectPub>ul>li.hovered{
-	background: #ebe9ea !important;
+	background: rgb(110, 163, 255) !important;
 	color: #fff !important;
 }
 
