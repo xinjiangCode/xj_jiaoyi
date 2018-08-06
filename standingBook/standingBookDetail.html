@@ -23,8 +23,8 @@
 		</div>
 		<div>
 			<ul class="clearfix yingshou_yingfu_title">
-				<li><span class="current">应收</span></li>
-				<li><span>应付</span></li>
+				<li><span class="current" value="1">应收</span></li>
+				<li><span value="2">应付</span></li>
 			</ul>
 		</div>
 		<div class="yingshou_title">
@@ -33,8 +33,8 @@
 			<!-- <img src="../img/yingfu.png">
 			<span>应付</span> -->
 		</div>
-		<div>
-			<div class="standingBookList">
+		<div class="yingshou_fu_list">
+			<!-- <div class="standingBookList">
 				<ul class="clearfix list_title">
 					<li class="list_title_one"><input type="radio" name=""></li>
 					<li class="list_title_two">订单编号</li>
@@ -105,17 +105,112 @@
 						<span class="yingshou_jiezhi_date">2018-04-13 13:20:20</span>
 					</li>
 				</ul>
-			</div>
+			</div> -->
 		</div>
 	</div>
 
 	<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
+
     	$(document).on('click', '.yingshou_yingfu_title li span', function () {
     		$('.yingshou_yingfu_title li span').removeClass('current');
     		$(this).addClass('current');
+    		detail($(this).attr('value'));
+    		$('.yingshou_title span').text($(this).text());
+    		$('.yingshou_title img').attr('src', '../img/yingfu.png');
     	});
+
+    	var standingBookId = sessionStorage.getItem('data-standingBookId');
+    	
+    	//应收
+    	detail(1);
+
+    	function detail(type){
+    		$('.yingshou_fu_list').html('');
+    		$.ajax({ 
+		        type: "get",
+		        url: pubIP + "accountChecking/getWarningValueDetail",//v1.0
+		        cache: false,
+		        dataType: "json",
+				headers: {
+				  	token: token
+				},
+		        data:{
+		        	type: type, 
+		        	id: standingBookId
+		        },
+		        success: function(json){
+		            console.log(json);
+		            if (json.code == 1) {
+		            	if (json.data.length != 0) {
+		            		var str = '';
+
+		            		for (var i = 0; i < json.data.length; i++) {
+
+		            			if (json.data[i].period_time == null) {
+		            				json.data[i].period_time = '';
+		            			} else {
+		            				json.data[i].period_time = new Date(json.data[i].period_time).Format("yyyy-MM-dd");
+		            			}
+
+		            			 
+
+		            			str += '<div class="standingBookList">'
+									+'<ul class="clearfix list_title">'
+										+'<li class="list_title_one"><input type="radio" name=""></li>'
+										+'<li class="list_title_two">订单编号</li>'
+										+'<li class="list_title_three">商品名称</li>'
+										+'<li class="list_title_four">订单金额</li>'
+										+'<li class="list_title_five">账期</li>'
+										+'<li class="list_title_six">账期到期时间</li>'
+									+'</ul>'
+									+'<ul class="list_cont">'
+										+'<li>'
+											+'<span class="yingshou_radio"><input type="radio" name="yingshou"></span>'
+											+'<span class="yingshou_order_num">'+json.data[i].transactionOrderIdStr+'</span>'
+											+'<span class="yingshou_shop_name">'+json.data[i].productName+'</span>'
+											+'<span class="yingshou_order_money">'
+											if (json.data[i].paymentMethod == 1) {
+												str += '<div><span class="span_text">现汇：</span><span class="orange">'+json.data[i].cash+'元</span></div>'
+											} else if (json.data[i].paymentMethod == 2) {
+												str += '<div><span class="span_text">承兑：</span><span class="orange">'+json.data[i].total+'元</span></div>'
+											} else if (json.data[i].paymentMethod == 3) {
+												str += '<div><span class="span_text">现汇：</span><span class="orange">'+json.data[i].cash+'元</span></div>'
+													+ '<div><span class="span_text">承兑：</span><span class="orange">'+(json.data[i].total-json.data[i].cash)+'元</span></div>'
+											}
+												
+												str += '<div><span class="span_text">总计：</span><span class="orange">'+json.data[i].total+'元</span></div>'
+											+'</span>'
+											if (json.data[i].account_period_type == 0) {
+												str += '<span class="yinsghou_account_date">'+json.data[i].debt_term+'天</span>'
+												+'<span class="yingshou_jiezhi_date">'+json.data[i].period_time+'</span>'
+											} else if (json.data[i].account_period_type == 1) {
+												str += '<span class="yinsghou_account_date"></span>'
+												+'<span class="yingshou_jiezhi_date"></span>'
+											}
+											
+										str += '</li>'
+									+'</ul>'
+								+'</div>'
+		            		}
+
+		            		$('.yingshou_fu_list').html(str);
+
+		            	} else {
+		            		$('.pageJump').css('display', 'none');    
+		            	}
+		            } else {
+	            		$('.pageJump').css('display', 'none');    
+	            	}
+		        },
+		        error:function(xhr,statues,error){
+		            console.log(err);
+		        }
+		    });
+    	}
+
+
     </script>
 </body>
 </html>
