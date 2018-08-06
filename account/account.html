@@ -49,7 +49,7 @@
         .pop>.cont>.popBottom>.popCancel:hover{background-color: #007aff;color: #ffffff;}
         .pop>.cont>.popBottom>.popSure:hover{background-color: #026ee4;color: #ffffff;}
 
-         .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.modelBox31,.modelBox32,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail, #no_del, .modelBox190 {
+         .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.modelBox31,.modelBox32,.modelBox33,.modelBox34,.modelBox35,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail, #no_del, .modelBox190 {
             z-index: 9999;
             display: none;
             position: fixed;
@@ -556,7 +556,12 @@
             padding-left: 0px;
 
         }
-
+        .cf_btn{width: 120px;height: 40px;line-height: 40px;text-align: center;border-radius: 3px;background-color: #6ba1ff;color: white;}
+        .cf_btn:hover{background-color: #5388ff;color: white;}
+        .cf_btn.cancel{width: 120px;height: 40px;line-height: 40px;text-align: center;border-radius: 3px;background-color: white;color: #ffb387;border: 1px solid #ffb387;}
+        .cf_btn.cancel:hover{background-color: #ffb387;color: white;}
+        .modelBox34 .item,.modelBox35 .item{margin-bottom: 20px;}
+        .modelBox34 .itemLeftTitle,.modelBox35 .itemLeftTitle{width: 190px;height: 37px;line-height: 37px;text-align: right;font-size: 16px;color: #333333;}
     </style>
 
 </head>
@@ -1766,11 +1771,145 @@
         <!--</div>-->
     <!--</div>-->
 <!--</div>-->
+<!--订单支付-->
+<div class="modelBox33" style="font-size: 14px; ">
+    <div class="modelCont" style="width: 985px;height: 460px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>订单支付</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent" style="width: 100%;height: 413px;">
+            <div class="cf_title" style="padding-top: 58px;margin-left: 47px;">支付方式：现汇+承兑</div>
+            <div style="margin-top: 10px;border-bottom: 1px solid #ebe9ea;margin-left: 47px;padding-bottom: 8px;">总额：<span style="color: #ff732e;">20.00</span>元</div>
+            <div class="clearFloat clearfix" style="padding-right: 124px;margin-top: 10px;">
+                <div style="margin-left: 47px;line-height: 31px;">
+                    <span>现汇方式：</span>
+                    <input type="radio" name="xuNi" value="虚拟账户" style="margin-left: 20px;">虚拟账户
+                    <span style="margin-left: 35px;">可用余额：</span><span>0.00</span>
+                    <span class="cf_btnA" style="margin-left: 18px;">充值</span>
+                    <sapn style="margin-left: 35px;">支付金额: </sapn>
+                    <input type="text" style="width: 130px;height: 31px;line-height: 31px;border: 1px solid #d3d3d3;">
+                    <span style="float: right;color: #ff6d6d;">待支付</span>
+                </div>
+                <div class="clearFloat clearfix">
+                    <div class="cf_btn Rt"  style="margin-top: 14px;">立即支付</div>
+
+                </div>
+                <div class="Rt" style="color: #ff6d6d;margin-top: 6px;">余额不足，请充值</div>
+            </div>
+            <div class="clearFloat clearfix" style="padding-right: 124px;margin-top: 10px;">
+                <div style="margin-left: 47px;">
+                    <span>承兑方式：</span>
+                    <input type="radio" name="chengDui" value="中信银行" style="margin-left: 25px;">中信银行
+                    <input type="radio" name="chengDui" value="库尔勒银行" style="margin-left: 30px;">库尔勒银行
+                    <input type="radio" name="chengDui" value="招商银行" style="margin-left: 30px;">招商银行
+
+                    <sapn style="margin-left: 40px;">支付金额</sapn>
+                    <span>10.00</span>
+                    <span>元</span>
+                    <!--<input type="text">-->
+                    <span style="float: right;color: #ff6d6d;">待支付</span>
+                </div>
+                <div class="clearFloat clearfix">
+                    <div class="cf_btn Rt"  style="margin-top: 14px;margin-left: 18px;">立即支付</div>
+                    <div class="Rt" style="font-size: 14px;line-height: 40px;margin-top: 14px;">
+                        <input type="radio" name="beishu" style="vertical-align: sub;"> 背书
+                    </div>
+                </div>
+                <div class="Rt" style="color: #ff6d6d;margin-top: 6px;">余额不足，请充值</div>
+            </div>
 
 
+        </div>
 
+    </div>
+</div>
 
+<!--订单支付-->
+<div class="modelBox34" style="font-size: 14px;">
+    <div class="modelCont" style="width: 633px;height: 470px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>支付</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent" style="width: 100%;height: 380px;font-size: 16px;padding-top: 40px;">
+            <div class="item clearfix">
+                <div class="itemLeftTitle Lf">支付方式：</div>
+                <div class="itemRight Lf" style="line-height: 37px;height: 37px;">现汇</div>
+            </div>
+            <div class="item clearfix">
+                <div class="itemLeftTitle Lf">支付金额：</div>
+                <div class="itemRight Lf" style="line-height: 37px;height: 37px;">￥10000000.00</div>
+            </div>
+            <div class="item clearfix">
+                <div class="itemLeftTitle Lf">支付密码：</div>
+                <div class="itemRight Lf">
+                    <input type="password" style="width: 230px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1">
+                    <a href="" style="font-size: 16px;color: #5690f6;margin-left: 20px;">忘记密码？</a>
+                </div>
+            </div>
+            <div class="item clearfix">
+                <div class="itemLeftTitle Lf">手机号：</div>
+                <div class="itemRight Lf">
+                    <input type="text" style="width: 230px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1">
+                    <span class="cf_btn" style="width: 102px;display: inline-block;height: 35px;line-height: 35px;">获取验证码</span>
+                </div>
+            </div>
+            <div class="item clearfix">
+                <div class="itemLeftTitle Lf">输入验证码：</div>
+                <div class="itemRight Lf"><input type="text" style="width: 336px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1"></div>
+            </div>
 
+            <div class="cf_btn" style="margin: 0 auto;width: 310px;height: 40px;line-height: 40px;font-size: 14px;">确认支付</div>
+        </div>
+
+    </div>
+</div>
+
+<!--提现-->
+<div class="modelBox35" style="font-size: 14px; display: block">
+    <div class="modelCont" style="width: 633px;height: 470px;">
+        <div class="modeltitle" style="width: 100%;">
+            <span>提现</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent" style="width: 100%;height: 380px;font-size: 16px;padding-top: 40px;">
+            <div class="item clearfix">
+                <div class="itemLeftTitle Lf">余额：</div>
+                <div class="itemRight Lf" style="line-height: 37px;height: 37px;">551551</div>
+            </div>
+            <div class="item clearfix">
+                <div class="itemLeftTitle Lf"><i style="color: red;">* </i>提现金额：</div>
+                <div class="itemRight Lf"><input type="text" placeholder="请输入金额" style="width: 336px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1"></div>
+            </div>
+            <div class="item clearfix">
+                <div class="itemLeftTitle Lf"><i style="color: red;">* </i>支付密码：</div>
+                <div class="itemRight Lf">
+                    <input type="password" style="width: 230px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1">
+                    <a href="" style="font-size: 16px;color: #5690f6;margin-left: 20px;">忘记密码？</a>
+                </div>
+            </div>
+            <div class="item clearfix">
+                <div class="itemLeftTitle Lf"><i style="color: red;">* </i>手机号：</div>
+                <div class="itemRight Lf">
+                    <input type="text" style="width: 230px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1">
+                    <span class="cf_btn" style="width: 102px;display: inline-block;height: 35px;line-height: 35px;">获取验证码</span>
+                </div>
+            </div>
+            <div class="item clearfix">
+                <div class="itemLeftTitle Lf"><i style="color: red;">* </i>输入验证码：</div>
+                <div class="itemRight Lf"><input type="text" style="width: 336px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1"></div>
+            </div>
+
+            <div class="clearfix" style="margin: 0 auto;text-align: center;margin-top: 40px;">
+                <div class="cf_btn Lf cancel" style="width: 136px;height: 38px;line-height: 38px;font-size: 14px;margin-left: 150px;">取消</div>
+                <div class="cf_btn Lf" style="width: 136px;height: 40px;line-height: 40px;font-size: 14px;margin-left: 56px;">确认支付</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 
 <!-- 是否要关闭采购需求 -->
 <div class="closeRequirement">
