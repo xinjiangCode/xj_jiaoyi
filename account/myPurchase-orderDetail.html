@@ -1080,7 +1080,53 @@
                         suregoods(id);
                     })
                     //立即支付
+                    $(".payBtn").unbind();
                     $(".payBtn").click(function () {
+                        window.parent.$(".modelBox33").show()
+                        window.parent.$(".modelBox33 .totalMoney").text(res.data.total);
+                        window.parent.$(".modelBox33 .payBalance").text(res.data.cash);
+                        $.ajax({
+                            type:"post",
+                            headers: {
+                                Accept: "application/json; charset=utf-8",
+                                token: token
+                            },
+                            url: pubIP+"payment/accountBalance",//v1.0
+                            cache:false,
+                            data:{
+                            },
+                            success: function(res){
+                                console.log(res);
+                                if(res.code == 1){
+                                    window.parent.$(".modelBox33 .accountBalance").text(res.data);
+                                }
+                            },
+                            error: function(err){
+                                console.log(err);
+                            }
+                        });
+
+                    })
+//                    弹框立即支付
+                    window.parent.$(".goPay").unbind();
+                    window.parent.$(".goPay").click(function () {
+                        window.parent.$(".modelBox34 .pay_pass_input").val("");
+                        window.parent.$(".modelBox34 .SMScode").val("");
+                        window.parent.$("#surePay").attr("data-isok","0");
+                        window.parent.$("#surePay").attr("data-isok1","0");
+                        window.parent.$("#surePay").attr("data-isok2","0");
+                        window.parent. $("#surePay").css("backgroundColor","#c2ccd1");
+
+                        window.parent.$(".modelBox34").show()
+                        window.parent.$(".modelBox34 .paymoney").text(res.data.cash);
+                        getPhone();
+                    })
+                    //确认支付
+                    window.parent.$("#surePay").unbind();
+                    window.parent.$("#surePay").click(function () {
+                        if($(this).attr("data-isok")==0){
+                            return;
+                        }
                         $.ajax({
                             type:"post",
                             headers: {
@@ -1093,12 +1139,14 @@
                                 orderId: id,
                                 orderType:res.data.transactionType,
                                 amount:res.data.cash,
-                                payPassword:"123456"
+                                payPassword:window.parent.$(".modelBox34 .pay_pass_input").val()
                             },
                             success: function(res){
-                                console.log(res);
                                 if(res.code == 1){
-
+                                    window.parent.$(".modelBox34").hide();//支付成功
+                                    alert(res.msg);
+                                }else{
+                                    alert(res.msg);
                                 }
                             },
                             error: function(err){
@@ -1106,6 +1154,7 @@
                             }
                         });
                     })
+
                 }
             },
             error: function(err){
@@ -1164,5 +1213,78 @@
         });
     }
 
+    //获取手机号
+    function getPhone(){
+        $.ajax({
+            url: pubIP + 'user/getUserInfoByToken', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data: {},
+            success: function (data) {
+                if (data.code == 1) {
+                    window.parent.$(".modelBox34 .phone").val(data.data.mobile);
+                    window.parent.$(".modelBox34 .getSMSCode").unbind();
+                    window.parent.$(".modelBox34 .getSMSCode").click(function () {
+                        if($(this).attr("disabled")=="disabled"){
+                            return;
+                        }
+                        getSCode(data.data.mobile);
+                    })
+                } else {
+                    return;
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    }
+    //获短信取验证码
+    function getSCode(phone) {
+        $.ajax({
+            url: pubIP + 'user/getMessageCode', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data: {mobile: phone},
+            success: function (data) {
+                if (data.code == 1) {
+                    //alert("发送验证码成功");
+//                    $(".modelBox34 .SMScode").removeAttr("disabled");
+                    var time=60;
+                    window.parent.$(".modelBox34 .getSMSCode").attr("disabled","disabled");
+                    window.parent.$(".modelBox34 .getSMSCode").css("background-color","#ddd");
+                    var timer=setInterval(function () {
+                        time--;
+                        window.parent.$(".modelBox34 .getSMSCode").text(""+time+"秒")
+                        if(time==0){
+                            clearInterval(timer);
+                            window.parent.$(".modelBox34 .getSMSCode").removeAttr("disabled");
+                            window.parent.$(".modelBox34 .getSMSCode").css("background-color","#3582F8");
+                            window.parent.$(".modelBox34 .getSMSCode").text("获取验证码")
+                        }
+                    },1000);
+
+                } else {
+                    alert(data.msg);
+                    return;
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    }
 </script>
 </html>
