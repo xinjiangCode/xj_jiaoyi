@@ -609,7 +609,6 @@ window.onload = function(){
 					           		</div>';
 					})
 				}
-				
 				leftTy +=	  '</div></div>\
 					        </div>\
 					      </li>';

@@ -48,16 +48,16 @@
             <div class="Lf" style="width: 426px;">
                 资&nbsp;金&nbsp;流&nbsp;向&nbsp;:
                 <input type="radio" name="flow" style="margin-left: 15px;">所有
-                <input type="radio" name="flow" style="">收入
-                <input type="radio" name="flow" style="">支付
+                <input type="radio" name="flow">收入
+                <input type="radio" name="flow">支付
             </div>
 
             <div class="Lf" style="width: 426px;margin-left: 45px;">
                 类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;:
-                <input type="radio" name="leixing" style="margin-left: 15px">所有
-                <input type="radio" name="leixing" style="">支付
-                <input type="radio" name="leixing" style="">充值
-                <input type="radio" name="leixing" style="">提现
+                <input type="radio" name="leixing" style="margin-left: 15px" value="0">所有
+                <input type="radio" name="leixing" value="15">支付
+                <input type="radio" name="leixing" value="23">充值
+                <input type="radio" name="leixing" value="11">提现
             </div>
         </div>
 
@@ -81,57 +81,27 @@
 
 
     <table border="1"  width="985px" align="center" style="font-size: 12px;color: #282828;">
-        <tr style="height: 35px;line-height: 35px;background-color: #fdfdfd;">
-            <th>时间</th>
-            <th>流水号 | 商户订单号</th>
-            <th>类型</th>
-            <th>交易对方</th>
-            <th>收入/支出(元)</th>
-            <th>余额(元)</th>
-            <th>详情</th>
-        </tr>
-        <tr>
-            <td>
-                <div>2018-04-10</div>
-                <div>10:41:22</div>
-            </td>
-            <td>
-                <div>流水号：3001804091631062138</div>
-                <div>订单号：3001804091631062137</div>
-            </td>
-            <td style="margin-top: 27px;">现汇交易</td>
-            <td>
-                <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
-                <div>账户号：3113710033455221943</div>
-            </td>
-            <td style="color: #FF782E;">-1049000.00</td>
-            <td>0.00</td>
-            <td><a href="./mySale-orderDetailStatus.html">查看</a><a href="##">下载</a></td>
-        </tr>
-        <tr>
-            <td>
-                <div>2018-04-10</div>
-                <div>10:41:22</div>
-            </td>
-            <td>
-                <div>流水号：3001804091631062138</div>
-                <div>订单号：3001804091631062137</div>
-            </td>
-            <td style="margin-top: 27px;">现汇交易</td>
-            <td>
-                <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
-                <div>账户号：3113710033455221943</div>
-            </td>
-            <td style="color: #FF782E;">-1049000.00</td>
-            <td>0.00</td>
-            <td><a href="##">查看</a><a href="##">下载</a></td>
-        </tr>
+        <thead>
+            <tr style="height: 35px;line-height: 35px;background-color: #fdfdfd;">
+                <th>时间</th>
+                <th>流水号 | 商户订单号</th>
+                <th>类型</th>
+                <th>交易对方</th>
+                <th>收入/支出(元)</th>
+                <th>余额(元)</th>
+                <th>详情</th>
+            </tr>
+        </thead>
+       <tbody class="myTbody">
+
+       </tbody>
+       
     </table>
-    <div style="text-align: center;margin-top: 29px;">
-        <ul class="pagination" id="page1"></ul>
+    <div class="myPage" style="text-align: center;margin-top: 29px;">
+        <ul class="pagination" id="page1" style="position: static;margin-bottom: 0;"></ul>
         <div class="pageJump">
             <span class="allPageN">1/200</span>
-            共200页，
+            <i style="margin-left: 12px;">共200页</i>，
             <span>到第</span>
             <input type="text"/>
             <span>页</span>
@@ -156,14 +126,6 @@
         elem: '#test2'
     })
     laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
-    $('.objListBox>div:nth-child(5n)').css('margin-right','0');
-    Page({
-        num: 200,
-        elem: $('#page1'),
-        callback: function(n) {
-            console.log(n);
-        }
-    });
 
     // 资金账户余额
     $.ajax({
@@ -186,41 +148,104 @@
     });
 
     //账务明细接口－中信银行接口V1.0------暂无数据
-    $.ajax({
-        type:"get",
-        headers: {
-            Accept: "application/json; charset=utf-8",
-            token: token
-        },
-        url: pubIP+"financialApi/getFinancialList",
-        cache:false,
-        data:{
-            moneyFlow: '',//资金流向 D收入； C 支出
-            tranType: 0,//交易类型 0 所有 ； 15 现金交易 ； 23 充值 ； 11 提现；
-            orderId: '',//订单编号
-            startTime:'',//开始时间，timeSlot＝4时必填
-            endTime: '',//结束时间 ，timeSlot＝4时必填
-            timeSlot: 1//起止时间类型 1当天，2最近一周 ，3 最近一个月 4 自选时间段
-        },
-        dataType: "json",
-        success: function(response){
-            console.log('账务明细', response);
-            if(response.code == 1){
-                // 收入金额
-                var income = response.data.countData.income;
-                // 收入笔数
-                var incomeNum = response.data.countData.incomeNum;
-                // 支出金额
-                var expend = response.data.countData.expend;
-                // 支出金额笔数
-                var expendNum = response.data.countData.expendNum;
-                $('.fast').html('收入('+ incomeNum +')：<i style="color: #3ebc28;">'+ income +'</i>元'+
-                            '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支出('+ expendNum +')：<i style="color: #ff342e;">-'+ expend +'</i>元'+
-                            '<a href="##" class="Rt">下载账单</a>');
-                //TODO-----------
+    listPage(1);
+    function listPage(currentPage){
+        $.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"financialApi/getFinancialList",
+            cache:false,
+            data:{
+                moneyFlow: '',//资金流向 D收入； C 支出
+                tranType: 0,//交易类型 0 所有 ； 15 现金交易 ； 23 充值 ； 11 提现；
+                orderId: '',//订单编号
+                startTime:'',//开始时间，timeSlot＝4时必填
+                endTime: '',//结束时间 ，timeSlot＝4时必填
+                timeSlot: '',//起止时间类型 1当天，2最近一周 ，3 最近一个月 4 自选时间段
+            },
+            dataType: "json",
+            success: function(response){
+                console.log('账务明细', response);
+                if(response.code == 1){
+                    // 收入金额
+                    var income = response.data.countData.income;
+                    // 收入笔数
+                    var incomeNum = response.data.countData.incomeNum;
+                    // 支出金额
+                    var expend = response.data.countData.expend;
+                    // 支出金额笔数
+                    var expendNum = response.data.countData.expendNum;
+                    $('.fast').html('收入('+ incomeNum +')：<i style="color: #3ebc28;">'+ income +'</i>元'+
+                                '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支出('+ expendNum +')：<i style="color: #ff342e;">-'+ expend +'</i>元'+
+                                '<a href="##" class="Rt">下载账单</a>');
+                    //TODO-----------
+                    var list = response.data.pageData;
+                    var str = '';
+                    if(list.length==0){ $(".myTbody").html("");$(".pagination").parent().css("display","none"); return;}
+                    $(".pagination").parent().css("display","block");
+                    if(currentPage===1 ){
+                        //修改底部分页
+                        var pageNum=Math.ceil(list.length/10);
+                        $(".allPageN").attr("pageTotal",pageNum);
+                        $(".pageJump i").text("共"+pageNum+"页");
+                        $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+                        Page({
+                            num: pageNum,
+                            elem: $('#page1'),
+                            callback: function(n) {
+                                // console.log(n);
+                                listPage(n);//加载n页数据
+                            }
+                        });
+                    }
+                    //修改底部页数
+                    $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
+                    
+                    $.each(list,function(idx,item){
+                        //首次请求时 改变分页数据
+                        debugger
+                       
+
+                        str+='<tr>'
+                        str+='<td>'
+                        str+='<div>'+item.TRANDATE+'</div>'
+                        str+='<div>'+item.TRANTIME+'</div>'
+                        str+='</td>'
+                        str+='<td>'
+                        str+='<div>流水号：'+item.HOSTFLW+'</div>'
+                        str+='<div>订单号：'+item.HOSTSEQ+'</div>'
+                        str+='</td>'
+                        if(item.TRANTYPE==11){
+                            str+='<td style="margin-top: 27px;">普通转账,提现</td>'
+                        }else if(item.TRANTYPE==15){
+                            str+='<td style="margin-top: 27px;">强制转账，现汇交易</td>'
+                        }else if(item.TRANTYPE==23){
+                            str+='<td style="margin-top: 27px;">普通外部转账，充值</td>'
+                        }
+                        str+='<td class="user">'
+                        str+='<div>账户名：'+item.OPPACCNAME+'</div>'
+                        str+='<div>账户号：'+item.OPPACCNO+'</div>'
+                        str+='</td>'
+                        if(item.CDFG=="D"){
+                            str+='<td>-'+item.TRANAMT+'</td>'
+                        }else if(item.CDFG=="C"){
+                            str+='<td>+'+item.TRANAMT+'</td>'
+                        }
+                        str+='<td>'+item.ACCBAL+'</td>'
+                        str+='<td><a href="./mySale-orderDetailStatus.html">查看</a></td>'
+                        str+='</tr>'
+                    })
+                    $(".myTbody").html(str);
+
+                   
+                }
             }
-        }
-    });
+        });
+    }
+   
 </script>
 </body>
 </html>

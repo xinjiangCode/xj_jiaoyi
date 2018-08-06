@@ -1079,7 +1079,33 @@
                     $(window.parent.document).on('click', '.suershouhuo', function() {
                         suregoods(id);
                     })
+                    //立即支付
+                    $(".payBtn").click(function () {
+                        $.ajax({
+                            type:"post",
+                            headers: {
+                                Accept: "application/json; charset=utf-8",
+                                token: token
+                            },
+                            url: pubIP+"payment/orderCashPay",//v1.0
+                            cache:false,
+                            data:{
+                                orderId: id,
+                                orderType:res.data.transactionType,
+                                amount:res.data.cash,
+                                payPassword:"123456"
+                            },
+                            success: function(res){
+                                console.log(res);
+                                if(res.code == 1){
 
+                                }
+                            },
+                            error: function(err){
+                                console.log(err);
+                            }
+                        });
+                    })
                 }
             },
             error: function(err){
@@ -1137,5 +1163,6 @@
             }
         });
     }
+
 </script>
 </html>
