@@ -190,7 +190,7 @@
                             <label class="fl" style="line-height: 38px;">收票地址:</label>
                             <!--<div class="invoiceAddressCont fl" style="height: 38px;">-->
                                 <div class="selectPub input" data-selectedindex="-1" id="shoupiaoAddre" data-addressId="-1" style="border: 1px solid #ebe9ea;height: 38px;float: left;">
-                                    <span style="">请选择地址</span>
+                                    <span>请选择地址</span>
                                     <img src="../img/prl-select.jpg" alt="">
                                     <ul>
                                     </ul>
@@ -360,7 +360,7 @@
                    // console.log(data.data);
                     var str = '';
                     for (var i = 0; i < data.data.length; i++) {
-                        str += '<li  data-index="'+i+'" value="'+i+'" data-addressId="'+data.data[i].dbid+'">'+data.data[i].receiver+" "+data.data[i].phone+" "+data.data[i].addressStr+" "+data.data[i].detailedAddress+'</li>';
+                        str += '<li  data-index="'+i+'" value="'+i+'" data-addressId="'+data.data[i].dbid+'" title="'+data.data[i].receiver+" "+data.data[i].phone+" "+data.data[i].addressStr+" "+data.data[i].detailedAddress+'">'+data.data[i].receiver+" "+data.data[i].phone+" "+data.data[i].addressStr+" "+data.data[i].detailedAddress+'</li>';
                     }
 
                     $('#shoupiaoAddre ul').html(str);
@@ -403,7 +403,7 @@
                     console.log(data);
                     var str = '';
                     for (var i = 0; i < data.data.length; i++) {
-                        str += '<li  data-index="'+i+'" value="'+i+'" data-addressId="'+data.data[i].warehouseIds+'">'+data.data[i].warehouseName+'</li>';
+                        str += '<li  data-index="'+i+'" value="'+i+'" data-addressId="'+data.data[i].warehouseIds+'" title="'+data.data[i].warehouseName+'">'+data.data[i].warehouseName+'</li>';
                     }
 
                     $('#address ul').html(str);
