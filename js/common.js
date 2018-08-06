@@ -311,3 +311,41 @@ $('.selectPub ul li').click(function(){
 
     $(this).parent().css('display','none');
 });
+
+
+
+// 伪alert弹框    //type  1成功   2失败    msg消息   （注：点击该alert框的关闭或者确认，所有弹框将会被关闭，并且刷新当前页面）
+function cf_alert(aa,msg) {
+    if(aa==1){
+        window.parent.$(".all_success_alert").show();
+        window.parent.$(".all_success_alert .innerSuccmsg").text(msg);
+        window.parent.$(".all_success_alert .confirm").unbind();
+        window.parent.$(".all_success_alert .confirm").click(function () {
+            $(this).parents(".modelCont").parent().hide();
+            window.top.$(".modelCont").parent().hide();
+            window.location.reload();
+        })
+        window.parent.$(".all_success_alert img.close").unbind();
+        window.parent.$(".all_success_alert img.close").click(function () {
+            $(this).parents(".modelCont").parent().hide();
+            window.top.$(".modelCont").parent().hide();
+            window.location.reload();
+        })
+    }else {
+        window.parent.$(".all_error_alert").show();
+        window.parent.$(".all_error_alert .innerErrmsg").text(msg);
+        window.parent.$(".all_error_alert .confirm").unbind();
+        window.parent.$(".all_error_alert .confirm").click(function () {
+            $(this).parents(".modelCont").parent().hide();
+            window.top.$(".modelCont").parent().hide();
+            window.location.reload();
+        })
+        window.parent.$(".all_error_alert img.close").unbind();
+        window.parent.$(".all_error_alert img.close").click(function () {
+            $(this).parents(".modelCont").parent().hide();
+            window.top.$(".modelCont").parent().hide();
+            window.location.reload();
+        })
+    }
+
+}

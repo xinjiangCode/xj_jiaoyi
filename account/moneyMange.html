@@ -37,16 +37,16 @@
 <div class="container">
     <div class="title">资金账户管理</div>
     <div class="head">
-        <div class="left1 Lf"><img src="../img/zthx_logo.png" alt=""></div>
+        <div class="left1 Lf"><img class="logo_img" src="../img/zthx_logo.png" alt=""></div>
         <div class="right1 Lf">
-            <div class="top1">企业名称： <a href="##">中泰化学</a></div>
-            <div class="top1">注册时间： <span style="color:#707070;">2018-04-02 12: 30: 25</span></div>
+            <div class="top1">企业名称： <a class="qiye_name" href="##">中泰化学</a></div>
+            <div class="top1">注册时间： <span class="register_time" style="color:#707070;">2018-04-02 12: 30: 25</span></div>
         </div>
     </div>
 
     <div class="container" style="height: 1190px;">
         <ul class="yhCardList">
-            <li>
+            <!-- <li>
             	<div class="cardItem">
                     <div class="cardTop">
                         <img src="../img/Zxlogo.png" alt="">
@@ -75,22 +75,67 @@
                     <div class="kaihuming">开户名：测试商家002</div>
                     <div class="cardNum">3113 **** **** **** **** 662</div>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </div>
 
-
-
 </div>
 
-
-
-
 <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $(function () {
         window.parent.$("#Iframe").css("height","1422");
     })
+
+    $.ajax({ 
+        type: "get",
+        url: pubIP + "financialApi/getAccountByCompanyId",//v1.0
+        cache: false,
+        dataType: "json",
+        headers: {
+            token: token
+        },
+        data:{
+            companyId: companyId
+        },
+        success: function(json){
+            console.log(json);
+
+            if (json.code == 1) {
+                if (json.data.length != 0) {
+
+                    var str = '';
+
+                    for (var i = 0; i < json.data.length; i++) {
+                        str += '<li>'
+                            +'<div class="cardItem">'
+                                +'<div class="cardTop">'
+                                    +'<img src="../img/Zxlogo.png" alt="">'
+                                +'</div>'
+                                +'<div class="kaihuhang">'+json.data[i].bankName+'</div>'
+                                +'<div class="kaihuming">开户名：'+json.data[i].accountName+'</div>'
+                                +'<div class="cardNum">'+json.data[i].accountId+'</div>'
+                            +'</div>'
+                        +'</li>'
+                    }
+
+                    $('.yhCardList').html(str);
+
+                }
+
+                json.store.addTime = new Date(json.store.addTime).Format("yyyy-MM-dd");
+
+                $('.qiye_name').text(json.store.companyName);
+                $('.register_time').text(json.store.addTime == null ? ' ' : json.store.addTime);
+                $('.logo_img').attr('src', json.store.storeImage);
+            }
+
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
 
 </script>
 </body>

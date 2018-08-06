@@ -560,10 +560,10 @@ function upload_file(obj) {
                     submit_type: 'D',
                     companyId: companyId,
                     bankName1: kaihu_bank_info1,
-                    bankNo1: chujin_account_account1,
+                    accountId1: chujin_account_account1,
                     accountName1: chujin_account_name1,
                     bankName2: kaihu_bank_info2,
-                    bankNo2: chujin_account_account2,
+                    accountId2: chujin_account_account2,
                     accountName2: chujin_account_name2,
                     accountType1: 1,
                     accountType2: 3
@@ -731,11 +731,11 @@ function upload_file(obj) {
                             console.log(data);
 
                             $('#chujin_account_name1').val(data.data.accounts[0].bankName);
-                            $('#chujin_account_account1').val(data.data.accounts[0].bankNo);
+                            $('#chujin_account_account1').val(data.data.accounts[0].accountId);
                             $('#kaihu_bank_info1').val(data.data.accounts[0].accountName);
 
                             $('#chujin_account_name2').val(data.data.accounts[1].bankName);
-                            $('#chujin_account_account2').val(data.data.accounts[1].bankNo);
+                            $('#chujin_account_account2').val(data.data.accounts[1].accountId);
                             $('#kaihu_bank_info2').val(data.data.accounts[1].accountName);
                             
                             
@@ -830,10 +830,10 @@ function upload_file(obj) {
                         submit_type: 'D',
                         companyId: companyId,
                         bankName1: kaihu_bank_info1,
-                        bankNo1: chujin_account_account1,
+                        accountId1: chujin_account_account1,
                         accountName1: chujin_account_name1,
                         bankName2: kaihu_bank_info2,
-                        bankNo2: chujin_account_account2,
+                        accountId2: chujin_account_account2,
                         accountName2: chujin_account_name2,
                         accountType1: 1,
                         accountType2: 3
@@ -867,10 +867,10 @@ function upload_file(obj) {
                             submit_type: 'D',
                             companyId: companyId,
                             bankName1: kaihu_bank_info1,
-                            bankNo1: chujin_account_account1,
+                            accountId1: chujin_account_account1,
                             accountName1: chujin_account_name1,
                             bankName2: kaihu_bank_info2,
-                            bankNo2: chujin_account_account2,
+                            accountId2: chujin_account_account2,
                             accountName2: chujin_account_name2,
                             accountType1: 1,
                             accountType2: 3
