@@ -60,7 +60,7 @@
     <div class="orderList">
         <div class="Lf">待支付采购订单（<i style="color: #7dabff;">0</i>）</div>
         <div class="row Lf"></div>
-        <div class="Lf">待支付对张订单（<i style="color: #7dabff;">0</i>）</div>
+        <div class="Lf">待支付兑账订单（<i style="color: #7dabff;">0</i>）</div>
         <div class="row Lf"></div>
         <div class="Lf">待确定兑账订单（<i style="color: #7dabff;">0</i>）</div>
         <div class="row Lf"></div>
@@ -70,57 +70,28 @@
     <div style="padding:45px 0 15px 40px;border-bottom: 1px solid #f1f1f1;">最近账务明细</div>
 
     <table border="1"  width="985px" align="center" style="font-size: 12px;">
-        <tr style="height: 35px;line-height: 35px;background-color: #fdfdfd;">
-            <th>时间</th>
-            <th style="width: 180px;">流水号 | 商户订单号</th>
-            <th>类型</th>
-            <th style="width: 252px;">交易对方</th>
-            <th>收入/支出(元)</th>
-            <th>余额(元)</th>
-            <th style="width: 69px;">详情</th>
-        </tr>
-        <tr>
-            <td>
-                <div>2018-04-10</div>
-                <div>10:41:22</div>
-            </td>
-            <td>
-                <div>流水号：3001804091631062138</div>
-                <div>订单号：3001804091631062137</div>
-            </td>
-            <td style="margin-top: 27px;">现汇交易</td>
-            <td class="user">
-                <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
-                <div>账户号：3113710033455221943</div>
-            </td>
-            <td>-1049000.00</td>
-            <td>0.00</td>
-            <td><a href="./mySale-orderDetailStatus.html">查看</a></td>
-        </tr>
-        <tr>
-            <td>
-                <div>2018-04-10</div>
-                <div>10:41:22</div>
-            </td>
-            <td>
-                <div>流水号：3001804091631062138</div>
-                <div>订单号：3001804091631062137</div>
-            </td>
-            <td style="margin-top: 27px;">现汇交易</td>
-            <td class="user">
-                <div>账户名：新疆中顺鑫和供应链管理股份有限公司</div>
-                <div>账户号：3113710033455221943</div>
-            </td>
-            <td>-1049000.00</td>
-            <td>0.00</td>
-            <td><a href="./mySale-orderDetailStatus.html">查看</a></td>
-        </tr>
+        <thead>
+            <tr style="height: 35px;line-height: 35px;background-color: #fdfdfd;">
+                <th>时间</th>
+                <th style="width: 180px;">流水号 | 商户订单号</th>
+                <th>类型</th>
+                <th style="width: 252px;">交易对方</th>
+                <th>收入/支出(元)</th>
+                <th>余额(元)</th>
+                <th style="width: 69px;">详情</th>
+            </tr>
+        </thead>
+        <tbody class="myTbody">
+            
+        </tbody>
+        
+        
     </table>
     <div class="Rt" style="color: #007aff;font-size: 12px;margin: 13px 20px 0 0">
         <a href="##" onclick="updateLeftManage('./moneyDetail.html',2)">查看所有账务信息</a>
     </div>
     <!-- 分页 -->
-    <div class=" pageCont" style="text-align: center;margin-top: 20px;">
+    <!-- <div class=" pageCont" style="text-align: center;margin-top: 20px;">
         <ul class="pagination" id="page1"></ul>
         <div class="pageJump">
             <span class="allPageN">1/200</span>
@@ -130,7 +101,7 @@
             <span>页</span>
             <button type="button" class="button goPage">GO</button>
         </div>
-    </div>
+    </div> -->
 </div>
 
 
@@ -152,51 +123,6 @@
 	        window.parent.$("#moneyDetail").addClass("active1");
 	    }
     }
-    // 获取个人信息
-    /*
-    * 1、根据token获取店铺ID
-    * 2、根据id 获取店铺信息
-    */ 
-   //暂无接口
-    // $.ajax({
-    //     type: "post",
-    //     headers: {
-    //         Accept: "application/json; charset=utf-8",
-    //         token: token
-    //     },
-    //     url: pubIP + "user/getUserInfoByToken",//v1.0
-    //     cache: false,
-    //     data: {},
-    //     dataType: "json",
-    //     success: function (response) {
-    //         console.log('根据token获取店铺ID', response);
-    //         if (response.code == 1) {
-    //             var companyId = response.data.companyId;
-    //             if(companyId && companyId != ' '){//2、根据id 获取店铺信息
-    //                 $.ajax({
-    //                     type: "post",
-    //                     headers: {
-    //                         Accept: "application/json; charset=utf-8",
-    //                         token: token
-    //                     },
-    //                     url: pubIP + "store/getStoreInfoByUserId",//v1.0
-    //                     cache: false,
-    //                     data: {companyId: companyId},
-    //                     dataType: "json",
-    //                     success: function (response) {
-    //                         console.log('根据id 获取店铺信息', response);
-    //                         if (response.code == 1) {
-    //                             //companyName
-    //                             $('.companyName').text('企业名称： '+ res.data.companyName);
-    //                         }
-    //                     }
-    //                 });
-
-    //             }
-    //         }
-    //     }
-    // });
-
 
     //资金账户信息加余额
     $.ajax({
@@ -259,18 +185,51 @@
             if(response.code == 1){
                 if(response.data && response.data.length>0){
                     var list = response.data;
-                    // todo
+                    var str = '';
+                    $.each(list,function(idx,item){
+                        // var dates =  new Date(item.TRANDATE).Format("yyyy-MM-dd");
+                        // var times =  new Date(item.TRANTIME).Format("hh-mm-ss");
+                        str+='<tr>'
+                        str+='<td>'
+                        str+='<div>'+item.TRANDATE+'</div>'
+                        str+='<div>'+item.TRANTIME+'</div>'
+                        str+='</td>'
+                        str+='<td>'
+                        str+='<div>流水号：'+item.HOSTFLW+'</div>'
+                        str+='<div>订单号：'+item.HOSTSEQ+'</div>'
+                        str+='</td>'
+                        if(item.TRANTYPE==11){
+                            str+='<td style="margin-top: 27px;">普通转账,提现</td>'
+                        }else if(item.TRANTYPE==15){
+                            str+='<td style="margin-top: 27px;">强制转账，现汇交易</td>'
+                        }else if(item.TRANTYPE==23){
+                            str+='<td style="margin-top: 27px;">普通外部转账，充值</td>'
+                        }
+                        str+='<td class="user">'
+                        str+='<div>账户名：'+item.OPPACCNAME+'</div>'
+                        str+='<div>账户号：'+item.OPPACCNO+'</div>'
+                        str+='</td>'
+                        if(item.CDFG=="D"){
+                            str+='<td>-'+item.TRANAMT+'</td>'
+                        }else if(item.CDFG=="C"){
+                            str+='<td>+'+item.TRANAMT+'</td>'
+                        }
+                        str+='<td>'+item.ACCBAL+'</td>'
+                        str+='<td><a href="./mySale-orderDetailStatus.html">查看</a></td>'
+                        str+='</tr>'
+                    })
+                    $(".myTbody").html(str);
                 }
             }
         }
     });
-    Page({
-        num: 3,
-        elem: $('#page1'),
-        callback: function(n) {
-            console.log(n);
-        }
-    });
+    // Page({
+    //     num: 3,
+    //     elem: $('#page1'),
+    //     callback: function(n) {
+    //         console.log(n);
+    //     }
+    // });
 </script>
 </body>
 </html>
