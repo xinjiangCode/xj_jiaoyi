@@ -42,23 +42,23 @@
 <div class="container">
     <div class="title">资金账户概览</div>
     <div class="head">
-        <div class="left1 Lf"><img src="../img/list_logo.png" alt=""></div>
+        <div class="left1 Lf"><img class="company_logo" src="../img/list_logo.png" alt=""></div>
         <div class="right1 Lf">
-            <div class="top1 companyName">企业名称： 中泰化学</div>
-            <div class="top1 cashBalance">现金余额： 9999.00元</div>
-            <div class="top1">注册时间： 2018-04-02 12: 30: 25</div>
+            <div class="top1 companyName">企业名称： </div>
+            <div class="top1 cashBalance">现金余额： </div>
+            <div class="top1 zhuce_time">注册时间： </div>
         </div>
         <div class="right2" style="float: right">
-            <div><a href="" class="Rt" style="color: #007aff;">账户管理</a></div>
+            <div><a href="moneyMange.html" class="Rt" style="color: #007aff;">账户管理</a></div>
             <div class="btns">
                 <div class="btn Lf" style="cursor: pointer;">提现</div>
-                <div class="btn Lf" style="background-color: #ff9c5a;cursor: pointer;">充值</div>
+                <div class="btn Lf" style="background-color: #ff9c5a;cursor: pointer;"><a href="moneyMange.html" class="Rt" style="color: white;width: 100%;height: 100%;display: block;text-align: center;">充值</a></div>
             </div>
         </div>
     </div>
     <div class="fast"><a href="##">快速入口</a></div>
     <div class="orderList">
-        <div class="Lf">待支付采购订单（ <i style="color: #7dabff;">0</i>）</div>
+        <div class="Lf">待支付采购订单（<i style="color: #7dabff;">0</i>）</div>
         <div class="row Lf"></div>
         <div class="Lf">待支付对张订单（<i style="color: #7dabff;">0</i>）</div>
         <div class="row Lf"></div>
@@ -140,13 +140,7 @@
 <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-	Page({
-        num: 3,
-        elem: $('#page1'),
-        callback: function(n) {
-            console.log(n);
-        }
-    });
+	
 	function updateLeftManage(src,id) {
 	    window.parent.$("#Iframe").attr("src",src);
 	//    window.parent.$("#Iframe").attr("height",src);
@@ -203,22 +197,29 @@
     //     }
     // });
 
-    // 资金账户余额
+
+    //资金账户信息加余额
     $.ajax({
         type:"get",
         headers: {
             Accept: "application/json; charset=utf-8",
             token: token
         },
-        url: pubIP+"financialApi/getBalanceOfCompany",//v1.0
+        url: pubIP+"financialApi/getBalanceAndCompany",//v1.0
         cache:false,
         data:{
         },
         dataType: "json",
         success: function(response){
             console.log(response);
+            console.log("+++++++++++++");
+            var data = response.data;
+            var zc_time = new Date(data.authTime).Format("yyyy-MM-dd");
             if(response.code == 1){
-                $('.cashBalance').text('现金余额： '+ response.data +'元');
+                $('.cashBalance').text('现金余额： '+ response.data2 +'元');
+                $('.companyName').text('企业名称： '+ data.companyName );
+                $('.zhuce_time').text('注册时间： '+ zc_time);
+                $('.company_logo').attr("src",data.storeImage);
             }
         }   
     });
@@ -261,6 +262,13 @@
                     // todo
                 }
             }
+        }
+    });
+    Page({
+        num: 3,
+        elem: $('#page1'),
+        callback: function(n) {
+            console.log(n);
         }
     });
 </script>
