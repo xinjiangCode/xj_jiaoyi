@@ -79,13 +79,13 @@
         .none {
             display: none;
             position: relative; 
-            float: right;
+            /*float: right;*/
             margin-right: 15px;
         }
 
         .sousuo_img {
             position: absolute;
-            right: 180px;
+            left: 160px;
             top: 6px;
         }
 
@@ -95,16 +95,24 @@
             margin-top: -1px;
             border-top: none;
             z-index: 10;
+            left: 155px;
             position: absolute;
             background-color: #fff;
             height: 150px;
                 overflow-y: scroll;
         }
 
+        ul.sousuo_ul {
+            padding-top: 15px;
+        }
+
         ul.sousuo_ul li {
             padding-left: 5px;
             box-sizing: border-box;
-                margin-bottom: 15px;
+            margin-bottom: 15px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
 
         .cousuo_cont {
@@ -161,9 +169,11 @@
         .ts2 {
             color: #ff7854;
             font-size: 14px;
-            margin-left: -80px;
+            margin-left: 16px;
+            margin-top: 15px;
             margin-bottom: 10px;
-            display: none;
+            visibility: hidden;
+            display: inline-block;
         }
 
         .center1:last-child {
@@ -352,15 +362,14 @@
                 <li class="clearfix">
                     <div class="left1 Lf"><i class="red">*</i>资质编号:</div>
                     <div class="right1 Lf"><input type="text" class="zizhi_num" id="zizhi_num0"></div>
-                    <span class="ts">资质编号必须为数字</span>
+                    <span class="ts">资质编号不能为空</span>
                 </li>
                 <li class="clearfix" style="position: relative;">
                     <div class="left1 Lf"><i class="red">*</i>资质图片:</div>
                     <div class="right1 Lf pic_div">
                         <div class="uploade" style="float: left;">
                             <i style=""></i>
-                            <img src="../img/list_logo.png" alt="" class="preview pic1" id="uploade_preview0">
-                            <input type="file" class="input_blur" onchange="xmTanUploadImg(this);">
+                            <input type="file" class="input_blur preview pic1" id="uploade_preview0">
                             <input type="hidden" class="hd0" id="hidden">
                         </div>
                         <div class="ts1">至少添加一张图片</div>
@@ -375,7 +384,10 @@
                     </div>
                     <span class="ts2">许可经营不能为空</span>
                     <div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>
-                    <div class="none">
+                </li>
+                <li class="add_fanwei none">
+                    <div class="left1 Lf"><i class="red">*</i>添加许可经营范围:</div>
+                    <div>
                         <div class="sousuo_div">
                             <input type="text" id="" class="input_width">
                             <img src="../img/sousuo.png" class="sousuo_img" alt="">
@@ -471,6 +483,10 @@
         return url;
     }
 
+    $(document).on('change','.input_blur',function(){
+            xmTanUploadImg(this);
+        })
+
     //选择图片，马上预览
     function xmTanUploadImg(obj) {
         var file = obj.files[0];
@@ -504,9 +520,19 @@
             success: function (data) {
                 // console.log(data);
                 /*img_url1 = data.url;*/
-                $(obj).prev().attr('src', data.url);
+                // $(obj).prev().attr('src', data.url);
+                // $(obj).next().val(data.url);
+                // $(obj).prev().attr('data-flag', '0');
+
+                $(obj).parent().css({
+                        'background':'url('+data.url+') no-repeat',
+                        'background-position':'center',
+                        'background-size':'contain',
+                        'background-color':'#f6f6f6'
+                });
                 $(obj).next().val(data.url);
-                $(obj).prev().attr('data-flag', '0');
+                $(obj).parent().next().css('display', 'none');
+
             },
             error: function (err) {
                 console.log(err);
@@ -662,11 +688,27 @@
                         // $('#zizhi_num'+i).attr('data-f', 'true');
 
                         //资质图片
+                        // for (var j = 0; j < data.data[i].picInfos.length; j++) {
+                        //     $('.c'+i+' .pic'+(j+1)).attr('data-ids', data.data[i].picInfos[j].ids);
+                        //     $('.c'+i+' .pic'+(j+1)).attr('src', data.data[i].picInfos[j].picUrl);
+                        //     $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
+                        // }
+
                         for (var j = 0; j < data.data[i].picInfos.length; j++) {
-                            $('.c'+i+' .pic'+(j+1)).attr('data-ids', data.data[i].picInfos[j].ids);
-                            $('.c'+i+' .pic'+(j+1)).attr('src', data.data[i].picInfos[j].picUrl);
-                            $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
+                            $('.c'+i+' .pic'+(j+1)).attr('data-picids', data.data[i].picInfos[j].ids);
+                            
+                            $('.c'+i+' .pic'+(j+1)).parent().css({
+                                'background':'url('+data.data[i].picInfos[j].picUrl+') no-repeat',
+                                'background-position':'center',
+                                'background-size':'contain',
+                                'background-color':'#f6f6f6'
+                            });
+
+                            $('.c'+i+' .hd'+j).val(data.data[i].picInfos[j].picUrl);
+                            
                         }
+
+
                         //不让点击添加图片
                         $(".add_pic").hide();
 
@@ -873,20 +915,19 @@
         $(document).on('click', '.add_pic', function() {
             var pic = $(this).attr('data-pic');
 
-            var cla = $(this).prev().prev().find('img').attr('class');
+            var cla = $(this).prev().prev().find('input[type="file"]').attr('class');
 
             // console.log(cla);
 
-            ind = Number(cla.substr(11));
+            ind = Number(cla.substr(22));
             // console.log(ind);
             if (ind < 10) {
 
                 ind++;
                 var str =   '<div class="uploade" style="float: left;">'
                                 +'<i style=""></i>'
-                                +'<img src="../img/list_logo.png" alt="" class="preview '+(pic+ind)+'" id="uploade_preview'+(ind-1)+'">'
-                                +'<input type="file" class="input_blur" onchange="xmTanUploadImg(this);">'
-                                +'<input type="hidden" class="hd'+pic+'" id="hidden">'
+                                +'<input type="file" class="input_blur preview '+(pic+ind)+'" id="uploade_preview'+(ind-1)+'">'
+                                +'<input type="hidden" class="hd'+(ind-1)+'" id="hidden">'
                             +'</div>';
 
                 $(this).parent().find('.ts1').before(str); 
@@ -924,15 +965,15 @@
                     +'<li>'
                         +'<div class="left1 Lf"><i class="red">*</i>资质编号:</div>'
                         +'<div class="right1 Lf"><input type="text"  class="zizhi_num" id="zizhi_num'+i+'"></div>'
-                        +'<span class="ts">资质编号必须为数字</span>'
+                        +'<span class="ts">资质编号不能为空</span>'
                     +'</li>'
                     +'<li style="position:relative;">'
                         +'<div class="left1 Lf"><i class="red">*</i>资质图片:</div>'
                         +'<div class="right1 Lf pic_div">'
                             +'<div class="uploade" style="float: left;">'
                                 +'<i style=""></i>'
-                                +'<img src="../img/list_logo.png" alt="" class="preview pic1" id="uploade_preview0">'
-                                +'<input type="file" class="input_blur" onchange="xmTanUploadImg(this);">'
+                               
+                                +'<input type="file" class="input_blur" id="uploade_preview'+i+'">'
                                 +'<input type="hidden" class="hd0">'
                             +'</div>'
                             +'<div class="ts1">至少添加一张图片</div>'
@@ -946,7 +987,10 @@
                         +'</div>'
                         +'<span class="ts2">许可经营不能为空</span>'
                         +'<div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>'
-                        +'<div class="none">'
+                    +'</li>'
+                    +'<li class="add_fanwei none">'
+                        +'<div class="left1 Lf"><i class="red">*</i>添加许可经营范围:</div>'
+                        +'<div>'
                             +'<div class="sousuo_div">'
                                 +'<input type="text" id="" class="input_width">'
                                 +'<img src="../img/sousuo.png" class="sousuo_img" alt="">'
@@ -1073,7 +1117,7 @@
 
     $(document).on('click', '.btn1', function() {
         $(this).next().find('.sousuo_ul').empty();
-        $(this).next().css('display', 'block');
+        $(this).parent().parent().find('.add_fanwei').css('display', 'block');
 
     });
 
@@ -1141,8 +1185,9 @@
 
     $(document).on('click', '.sousuo_ul li', function () {
         if ($(this).text() != '暂无数据') {
-            console.log($(this).text());
-            $(this).parent().parent().parent().prev().prev().prev().find('.textarea').append('<div data-ind="'+$(this).attr('data-index')+'">'+$(this).text()+'</div>');
+            // console.log($(this).text());
+            $(this).parents('li').prev().find('.textarea').append('<div data-ind="'+$(this).attr('data-index')+'">'+$(this).text()+'</div>');
+            $(this).parents('li').prev().find('.ts2').css('visibility', 'hidden');
         }
     });
 
@@ -1190,18 +1235,18 @@
    
     $(document).on('click', '.sub', function () {
 
-        if($(".zizhi_num").val()==''){
-            alert('资质编号不能为空!');
-            return;
-        }
-        if($("#textarea0").html()==''){
-            alert('许可经营范围不能为空!');
-            return;
-        }
-        if($("#test1").val()=='' || $("#test2").val()==''){
-            alert('有效期不能为空!');
-            return;
-        }
+        // if($(".zizhi_num").val()==''){
+        //     alert('资质编号不能为空!');
+        //     return;
+        // }
+        // if($("#textarea0").html()==''){
+        //     alert('许可经营范围不能为空!');
+        //     return;
+        // }
+        // if($("#test1").val()=='' || $("#test2").val()==''){
+        //     alert('有效期不能为空!');
+        //     return;
+        // }
 
         var json = {
             type: 1,
@@ -1209,24 +1254,30 @@
             
         };
 
+        var isOk = true;
+
         var zizhi_type = $('.zizhi_type');
         for (var i = 0; i < zizhi_type.length; i++) {
             json['qualificationType'+(i+1)] = $('#zizhi_type'+i).find('span').attr('data-spanvalue');
         }
 
         $('.zizhi_num').each(function(index, elem) {
-            var zizhi_num1 = $(this).val().trim();
-            var zizhi_num1_reg = /^\d+$/;
 
-            // if (zizhi_num1_reg.test(zizhi_num1) != true) {
-            //     $(this).parent().next().css('display', 'inline-block');
-            //     return false;
-            // } else {
+            var zizhi_num1 = $(this).val().trim();
+            // var zizhi_num1_reg = /^\d+$/;
+
+            if (zizhi_num1 == '') {
+                $(this).parent().next().css('display', 'inline-block');
+                isOk = false;
+                return false;
+            } else {
                 json['qualificationNum'+(index+1)] = $(this).val();
-            //}
+            }
         });
 
-       
+        if (!isOk) {
+            return false;
+        }
 
         var center1 = $('.center1');
 
@@ -1236,66 +1287,101 @@
                 json['qualificationId'+(y+1)] = $(center1[y]).attr('data-qiyeid');
             }
 
-            var img = '';
-            for (var i = 0; i < $('.c'+y+' .preview').length; i++) {
-                
-                if ($('.c'+y+' .preview.pic'+(i+1)+'').attr('data-ids')) {
-                    img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('data-ids')+',';
+        
+            if ($('.c'+y+' .uploade input[type="hidden"]').val() != '') {
+                var img = '';
+
+                for (var i = 0; i < $('.c'+y+' .preview').length; i++) {
+                    
+                    if ($('.c'+y+' .preview.pic'+(i+1)+'').attr('data-picids')) {
+                        img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('data-picids')+',';
+                    }
+
+                    if ($('.c'+y+' .preview').attr('data-flag')) {
+                        img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('src')+';';
+                    } 
+                    
                 }
+                json['imgs'+(y+1)] = img;
 
-                if ($('.c'+y+' .preview').attr('data-flag')) {
-                    img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('src')+';';
-                } 
-
+            } else {
+                $('.c'+y+' .uploade').next().css('display', 'inline-block');
+                isOk = false;
             }
-
-            
-            json['imgs'+(y+1)] = img;
-
         
         }
-
+        
+        if (!isOk) {
+            return false;
+        }
+        
         $('.textarea').each(function (i, ele) {
             var run_fanwei = ';';
             if ($(this).text() == '') {
-                $(this).parent().next().css('display', 'inline-block');
-                return;
+                // $(this).parent().next().css('display', 'inline-block');
+                $(this).parent().next().css('visibility', 'visible');
+                isOk = false;
+                return false;
             } else {
                 var div = $(this).find('div');
                 $(div).each(function (index, element) {
                     run_fanwei += $(this).attr('data-ind')+ ';';
                 });
                 json['operationLimit'+(i+1)] = run_fanwei;
+                // $(this).attr('data-f', 'true');
             }
 
             
         });
+
+        if (!isOk) {
+            return false;
+         }
 
         $('.start').each(function (i, ele) {
             if ($(this).val() == '') {
-                $(this).parent().next().css('display', 'block');
+                $(this).parent().next().text('有效期不能为空');
+                $(this).parent().next().css('display', 'inline-block');
+                isOk = false;
+                return false;
             } else {
                 json['qualificationDataBegin' + (i+1)] = $(this).val();
+                // $(this).attr('data-f', 'true');
             }
             
         });
+
+        if (!isOk) {
+            return false;
+         }
 
 
         $('.end').each(function (i, ele) {
 
             if ($(this).val() == '') {
-                $(this).parent().next().css('display', 'block');
+                $(this).parent().next().text('有效期不能为空');
+                $(this).parent().next().css('display', 'inline-block');
+                isOk = false;
+                return false;
             } else {
                 json['qualificationDataExpire' + (i+1)] = $(this).val();
+                // $(this).attr('data-f', 'true');
             }
+
+            if ($(this).val() < $(this).prev().prev().val()) {
+                $(this).parent().next().text('结束日期小于开始日期');
+                $(this).parent().next().css('display', 'inline-block');
+
+                isOk = false;
+            }
+
         });
 
-            /* console.log(json);*/
+         console.log(json);
 
-        // if ($(this).attr('disabled')) {
-        //     window.parent.teshu_tan();
-        // }
-
+         if (!isOk) {
+            return false;
+         }
 
         
             $.ajax({
@@ -1330,9 +1416,10 @@
     $(document).on('blur', '.zizhi_num', function () {
 
         var zizhi_num1 = $(this).val().trim();
-        var zizhi_num1_reg = /^\d+$/;
+        // var zizhi_num1_reg = /^\d+$/;
 
-        if (zizhi_num1_reg.test(zizhi_num1) != true) {
+        // if (zizhi_num1_reg.test(zizhi_num1) != true) {
+        if (zizhi_num1 == '') {
             $(this).parent().next().css('display', 'inline-block');
             // $(this).attr('data-f','false');
             return;

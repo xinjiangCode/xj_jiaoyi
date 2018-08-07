@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" CONTENT="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
     <meta name="format-detection" content="telephone=no" />
-    <title adct1="1">新疆化学品经营服务平台</title>
+    <title>新疆化学品经营服务平台</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css"/>
     <style type="text/css">
         .xiaoshi{display: none;}
@@ -16,7 +16,6 @@
 
         input[type='text'].input_width{
             padding-left: 30px;
-            text-indent: 10px;
         }
         .btn{width: 359px;height: 51px;line-height:51px;background-color: #007aff;border-radius: 5px;text-align: center;color: white;margin-left: 95px;margin-top: 54px;}
         .red{color: red;}
@@ -80,13 +79,13 @@
         .none {
             display: none;
             position: relative; 
-            /*float: right;*/
+            float: right;
             margin-right: 15px;
         }
 
         .sousuo_img {
             position: absolute;
-            left: 160px;
+            right: 180px;
             top: 6px;
         }
 
@@ -96,15 +95,10 @@
             margin-top: -1px;
             border-top: none;
             z-index: 10;
-            left: 155px;
             position: absolute;
             background-color: #fff;
             height: 150px;
-    		    overflow-y: scroll;
-        }
-
-        ul.sousuo_ul {
-            padding-top: 15px;
+                overflow-y: scroll;
         }
 
         ul.sousuo_ul li {
@@ -170,11 +164,9 @@
         .ts2 {
             color: #ff7854;
             font-size: 14px;
-            margin-left: 16px;
-            margin-top: 15px;
+            margin-left: -80px;
             margin-bottom: 10px;
-            visibility: hidden;
-            display: inline-block;
+            display: none;
         }
 
         .center1:last-child {
@@ -310,22 +302,12 @@
         .textarea {
             overflow: auto;
         }
-		.center1 .right1 .zizhi_num{
-		    height: 38px;
-	        box-sizing: border-box;
-	        border: 1px solid #ebe9ea;
+        .center1 .right1 .zizhi_num{
+            height: 38px;
+            box-sizing: border-box;
+            border: 1px solid #ebe9ea;
         }
-        .bottom1>.shenhe {
-            width: 107px;
-            height: 40px;
-            line-height: 40px;
-            background-color: white;
-            color: #666666;
-            border: 1px solid #666666;
-            margin-left: 10px;
-            margin-top: 0;
-            background: #ccc;
-        }
+
     </style>
 </head>
 <body>
@@ -333,17 +315,17 @@
     <div class="header">
         <ul>
             <li>
-                <a href="./Special1.html" style="color: #007aff;">
+                <a href="./Special1.html" style="color: #999;">
                     危险化学品认证
                 </a>
             </li>
             <li>
-                <a href="javascript:;" style="color: #999999;">
+                <a href="javascript:;" style="color: #999;">
                     特殊资质认证
                 </a>
             </li>
             <li>
-                <a href="./Special3.html" style="color: #999999;">
+                <a href="./Special3.html" style="color: #007aff;">
                     其他资质信息
                 </a>
             </li>
@@ -380,7 +362,8 @@
                     <div class="right1 Lf pic_div">
                         <div class="uploade" style="float: left;">
                             <i style=""></i>
-                            <input type="file" class="input_blur preview pic1" id="uploade_preview0">
+                            <img src="../img/list_logo.png" alt="" class="preview pic1" id="uploade_preview0">
+                            <input type="file" class="input_blur" onchange="xmTanUploadImg(this);">
                             <input type="hidden" class="hd0" id="hidden">
                         </div>
                         <div class="ts1">至少添加一张图片</div>
@@ -395,11 +378,7 @@
                     </div>
                     <span class="ts2">许可经营不能为空</span>
                     <div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>
-                    
-                </li>
-                <li class="add_fanwei none">
-                    <div class="left1 Lf"><i class="red">*</i>添加许可经营范围:</div>
-                    <div>
+                    <div class="none">
                         <div class="sousuo_div">
                             <input type="text" id="" class="input_width">
                             <img src="../img/sousuo.png" class="sousuo_img" alt="">
@@ -415,9 +394,9 @@
                 <li class="clearfix">
                     <div class="left1 Lf"><i class="red">*</i>有效期起:</div>
                     <div class="right1 Lf">
-                        <input type="text" class="date-input laydate-icon kuang start"  placeholder="请选择日期" id="test1">
+                        <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 0px;" placeholder="请选择日期" id="test1">
                         <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
-                        <input type="text" class="date-input laydate-icon kuang end"  placeholder="请选择日期" id="test2">
+                        <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 0px;" placeholder="请选择日期" id="test2">
                     </div>
                     <span class="ts">有效期不能为空</span>
                 </li>
@@ -430,7 +409,6 @@
     <div class="bottom1">
         <div class="btn Lf add add1">继续添加其他资质</div>
         <div class="btn Lf sub">提交</div>
-        <div class="btn Lf shenhe" style="display: none;">审核中</div>
     </div>
 
     
@@ -457,11 +435,11 @@
     })
     laydate({
         elem: '#test2',
-        format: 'YYYY-MM-DD',
+        format: 'YYYY-MM-DD ',
         istime: false,
         choose: function(dates){ //选择好日期的回调
             $("#test2").parent().next().css('display', 'none');
-            endTime1 = dates;
+            startTime1 = dates;
         }
     })
 
@@ -471,11 +449,46 @@
             format: 'YYYY-MM-DD',
             istime: false,
             choose: function(dates){ //选择好日期的回调
-                $("#"+id).parent().next().css('display', 'none');
-                /*endTime1 = dates;*/
+                $('#'+id).parent().next().css('display', 'none');
+                startTime1 = dates;
             }
         })
     }
+
+	$('.header ul li:nth-child(2) a').on('click', function () {
+		
+		
+        $.ajax({
+            url: pubIP + 'companyCertification/getQualificationsStateByCompanyId',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                companyId: companyId
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.data == 'false') {
+                    // if (window.localStorage.getItem('data-subFlag') == '0') {
+                        window.parent.tan1();   
+                    // } else {
+                    //     window.parent.tan2();
+                    // }
+                    
+                } else {
+                    location.href="Special2.html";
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+        
+    });
 
     //不同浏览器下的路径不同
     function getObjectURL(file) {
@@ -495,12 +508,6 @@
 
         return url;
     }
-
-
-    $(document).on('change','.input_blur',function(){
-            xmTanUploadImg(this);
-        })
-
 
     //选择图片，马上预览
     function xmTanUploadImg(obj) {
@@ -535,17 +542,9 @@
             success: function (data) {
                 // console.log(data);
                 /*img_url1 = data.url;*/
-                // $(obj).prev().attr('src', data.url);
-                // $(obj).next().val(data.url);
-                // $(obj).prev().attr('data-flag', '0');
-                $(obj).parent().css({
-                        'background':'url('+data.url+') no-repeat',
-                        'background-position':'center',
-                        'background-size':'contain',
-                        'background-color':'#f6f6f6'
-                });
+                $(obj).prev().attr('src', data.url);
                 $(obj).next().val(data.url);
-                $(obj).parent().next().css('display', 'none');
+                $(obj).prev().attr('data-flag', '0');
             },
             error: function (err) {
                 console.log(err);
@@ -557,44 +556,6 @@
     $(function(){
 
 
-        $('.header ul li:nth-child(2) a').on('click', function () {
-            
-            $.ajax({
-                url: pubIP + 'companyCertification/getQualificationsStateByCompanyId',
-                type: 'post',
-                headers: {
-                    Accept: "application/json; charset=utf-8",
-                    token: token
-                },
-                data: {
-                    companyId: companyId
-                },
-                cache: false,
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    if (data.data == 'false') { 
-                        
-                            window.parent.tan1();   
-                        // } else {
-                        //     window.parent.tan2();
-                        // }
-                        
-                    } else {
-                        location.href="Special2.html";
-                    }
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-
-            
-        });
-
-    
-
-    
         searchAjax();
 
    
@@ -608,12 +569,12 @@
                     token: token
                 },
                 data: {
-                    type: 0
+                    type: 2
                 },
                 cache: false,
                 dataType: 'json',
                 success: function (data) {
-                    console.log(data);
+                    /*console.log(data);*/
 
                     var str = '';
                     for (var i = 0; i < data.data.length; i++) {
@@ -639,10 +600,11 @@
                         event.stopPropagation();
                         $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                         $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().find('span').attr('data-spanvalue', $(this).attr('data-ids'));
                         $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                         $(this).parent().css('display','none');
                     });
-                    searchAjax();           
+                    searchAjax();            
                     
                 },
                 error: function (err) {
@@ -652,11 +614,15 @@
         }
 
 
+        
+    
+    
+     
     
         var isfirst = true;
         function searchAjax() {
             $.ajax({
-                url: pubIP+'companyCertification/getQualificationsBaseInfoAndStrByCompanyId',
+                url: pubIP + 'companyCertification/getQualificationsBaseInfoAndStrByCompanyId',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -664,7 +630,7 @@
                 },
                 data: {
                     companyId: companyId,
-                    type: 0
+                    type: 2
                 },
                 cache: false,
                 dataType: 'json',
@@ -687,13 +653,13 @@
                     }
 
 
-                    console.log(data.data)
+                    
                     for (var i = 0; i < data.data.length; i++) {
 
                         $('.c'+i).attr('data-qiyeId', data.data[i].ids);
                        
                         //资质类型
-//                        $('#zizhi_type'+i+' option[value="'+data.data[i].qualificationType+'"]').attr("selected",true);
+                        //$('#zizhi_type'+i+' option[value="'+data.data[i].qualificationTypeIds+'"]').attr("selected",true);
                         $('#zizhi_type'+i).find("span").text(data.data[i].qualificationName)
                         $('#zizhi_type'+i).find('span').attr("data-spanvalue",data.data[i].qualificationTypeIds)
                         $('#zizhi_type'+i).attr('disabled', "disabled").css("background-color","#ddd");
@@ -701,28 +667,14 @@
                         //资质编号
                         $('#zizhi_num'+i).val(data.data[i].qualificationNum);
                         $('#zizhi_num'+i).attr('readonly', 'readonly').css("background-color","#ddd");
+                        //$('#zizhi_num'+i).attr('data-f', 'true');
 
                         //资质图片
-                        // for (var j = 0; j < data.data[i].picInfos.length; j++) {
-                        //     $('.c'+i+' .pic'+(j+1)).attr('data-picids', data.data[i].picInfos[j].ids);
-                        //     $('.c'+i+' .pic'+(j+1)).attr('src', data.data[i].picInfos[j].picUrl);
-                        //     $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
-                        // }
-
                         for (var j = 0; j < data.data[i].picInfos.length; j++) {
                             $('.c'+i+' .pic'+(j+1)).attr('data-picids', data.data[i].picInfos[j].ids);
-                            
-                            $('.c'+i+' .pic'+(j+1)).parent().css({
-                                'background':'url('+data.data[i].picInfos[j].picUrl+') no-repeat',
-                                'background-position':'center',
-                                'background-size':'contain',
-                                'background-color':'#f6f6f6'
-                            });
-
-                            $('.c'+i+' .hd'+j).val(data.data[i].picInfos[j].picUrl);
-                            
+                            $('.c'+i+' .pic'+(j+1)).attr('src', data.data[i].picInfos[j].picUrl);
+                            $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
                         }
-
                         //不让点击添加图片
                         $(".add_pic").hide();
 
@@ -732,8 +684,8 @@
 
                         //许可经营范围
                         $('#textarea'+ i).attr('data-textarea', data.data[i].operationLimit);
-                        //不让添加
-                        $(".btn1").hide();
+                         //不让添加
+                         $(".btn1").hide();
                         
 
                         /*var arr = data.data[i].operationLimit.split(';')*/
@@ -742,11 +694,13 @@
                         $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin).attr('disabled', "disabled").css("background-color","#ddd");
                         $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire).attr('disabled', "disabled").css("background-color","#ddd");
 
+                        $('.c'+i+ ' .start').attr('data-f', 'true');
+                        $('.c'+i+ ' .end').attr('data-f', 'true');
+
                         $('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
 
                     }
                     $('.textarea').each(function(){
-                        $(this).attr('display',true)
                         var that = this;
                         var idArr =  $(this).attr('data-textarea');
                         if (idArr) {
@@ -765,6 +719,43 @@
                         }
                         
                     });
+
+
+                    // 模拟下拉框
+                    $('.zizhi_type0').click(function(event){
+
+                        if($(this).attr("disabled")=="disabled"){ //判断是否可以点击
+                          return;
+                        }
+
+                        if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
+                            $(this).children('img').attr('src', '../img/prl-select.jpg')
+                        } else {
+                            $(this).children('img').attr('src', '../img/prl-selected.jpg')
+                        }
+
+                        event.stopPropagation();
+
+                        $(this).children('ul').toggle();
+                        var that = $(this);
+                        that.find('li').each(function(){
+                            $(this).mouseover(function(){
+                                $(this).addClass('hovered')
+                            });
+                            $(this).mouseleave(function(){
+                                $(this).removeClass('hovered')
+                            });
+                            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+                                $(this).css({'background': '#6ea3ff','color': '#fff'});
+                                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+                            }
+                        });
+
+                    }).mouseleave(function (event) {
+                        $(this).children('img').attr('src', '../img/prl-select.jpg');
+                        $(this).children('ul').hide();
+                    });
+
 
                     stateAjax();
                 },
@@ -807,11 +798,12 @@
 
 
         $(document).on('click', '.edit_btn', function() {
+           
             
-           $(this).parent().find('.zizhi_type').attr('disabled', false).css("background-color","#fff");
+            $(this).parent().find('.zizhi_type').attr("disabled",false).css("background-color","#fff");
             isSelect=true;
-
-            $(this).parent().find('.zizhi_num').attr('readonly', false).css("background-color","#fff");;
+            
+            $(this).parent().find('.zizhi_num').attr('readonly', false).css("background-color","#fff");
            // $(this).parent().find('.textarea').attr('contenteditable', true);
            $(this).parent().find(".add_pic").show().css('display', 'inline-block');
            $(this).parent().find(".btn1").show();
@@ -820,6 +812,7 @@
 
         });
 
+    
 
         function stateAjax() {
 
@@ -837,34 +830,13 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
-                    if(data.data==null){
-                        return;
-                    }
-                    //未审核
-                    if (data.data.aType == 0 && data.data.aState == 0) {
-                        //window.parent.shenhe();  
-                        $(".sub").hide();
-                        $(".shenhe").show();
-                        $('.btn.edit_btn').css('display', 'none');
-                        $('.sub').attr('disabled', true);
-                        $('.quxiao_add').css('display', 'none');
-                        $('.shou_pic').css('display', 'none');
 
-                    } else if (data.data.aType == 0 && data.data.aState == 2) {  //已拒绝
-                        window.parent.jujue_weixian(data.data.refuseReason); 
-                        $(".shenhe").hide();
-                        $('.btn.edit_btn').css('display', 'block');
-                        $('.sub').attr('disabled', false);
-                        $('.quxiao_add').css('display', 'block');
-                        $('.shou_pic').css('display', 'block');
-                    }else {
-                        $('.btn.edit_btn').css('display', 'block');
-                        $('.sub').attr('disabled', false);
-                        $('.quxiao_add').css('display', 'block');
-                        $('.shou_pic').css('display', 'block');
-                        $(".shenhe").hide();
-                        $(".sub").show();
-                    }
+                    
+                    $('.btn.edit_btn').css('display', 'block');
+                    $('.sub').attr('disabled', false);
+                    $('.quxiao_add').css('display', 'block');
+                    $('.shou_pic').css('display', 'block');
+                    
 
                 },
                 error: function(err) {
@@ -884,20 +856,20 @@
         $(document).on('click', '.add_pic', function() {
             var pic = $(this).attr('data-pic');
 
-           var cla = $(this).prev().prev().find('input[type="file"]').attr('class');
+            var cla = $(this).prev().prev().find('img').attr('class');
 
-            //console.log(cla);
+            console.log(cla);
 
-            ind = Number(cla.substr(22));
+            ind = Number(cla.substr(11));
             console.log(ind);
-           /* console.log(ind);*/
             if (ind < 10) {
 
                 ind++;
                 var str =   '<div class="uploade" style="float: left;">'
                                 +'<i style=""></i>'
-                                +'<input type="file" class="input_blur preview '+(pic+ind)+'" id="uploade_preview'+(ind-1)+'">'
-                                +'<input type="hidden" class="hd'+(ind-1)+'" id="hidden">'
+                                +'<img src="../img/list_logo.png" alt="" class="preview '+(pic+ind)+'" id="uploade_preview'+(ind-1)+'">'
+                                +'<input type="file" class="input_blur" onchange="xmTanUploadImg(this);">'
+                                +'<input type="hidden" class="hd'+pic+'" id="hidden">'
                             +'</div>';
 
                 $(this).parent().find('.ts1').before(str); 
@@ -905,11 +877,10 @@
             } else {
                 $(this).html('最多只能添加十张');
             }
+            
 
         });
-
-
-       
+    
     var j = 3;
     var i = 1;
     var p = 1;
@@ -923,14 +894,16 @@
                     +'<li>'
                         +'<div class="left1 Lf"><i class="red">*</i>资质类型:</div>'
                         +'<div class="right1 Lf">'
-//                            +'<select name="" class="zizhi_type zizhi_type'+i+'" id="zizhi_type'+i+'">'
-//
-//                            +'</select>'
+                            // +'<select name="" class="zizhi_type" id="zizhi_type'+i+'">'
+                                
+                            // +'</select>'
+
                             +'<div class="selectPub zizhi_type zizhi_type'+i+'" id="zizhi_type'+i+'" data-selectedindex='+i+' value="">'
                                 +'<span></span>'
                                 +'<img src="../img/prl-select.jpg" alt="">'
                                 +'<ul></ul>'
                             +' </div>'
+
                         +'</div>'
                     +'</li>'
                     +'<li>'
@@ -943,7 +916,8 @@
                         +'<div class="right1 Lf pic_div">'
                             +'<div class="uploade" style="float: left;">'
                                 +'<i style=""></i>'
-                                +'<input type="file" class="input_blur preview pic1" id="uploade_preview0">'
+                                +'<img src="../img/list_logo.png" alt="" class="preview pic1" id="uploade_preview0">'
+                                +'<input type="file" class="input_blur" onchange="xmTanUploadImg(this);">'
                                 +'<input type="hidden" class="hd0">'
                             +'</div>'
                             +'<div class="ts1">至少添加一张图片</div>'
@@ -953,14 +927,11 @@
                     +'<li style="overflow: visible;" class="clearfix">'
                         +'<div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>'
                         +'<div class="right1 Lf">'
-                            +'<div name="" id="textarea'+i+'" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #ebe9ea;"  contenteditable="false"></div>'
+                            +'<div name="" id="textarea'+i+'" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #999;"  contenteditable="false"></div>'
                         +'</div>'
                         +'<span class="ts2">许可经营不能为空</span>'
                         +'<div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>'
-                    +'</li>'
-                    +'<li class="add_fanwei none">'
-                        +'<div class="left1 Lf"><i class="red">*</i>添加许可经营范围:</div>'
-                        +'<div>'
+                        +'<div class="none">'
                             +'<div class="sousuo_div">'
                                 +'<input type="text" id="" class="input_width">'
                                 +'<img src="../img/sousuo.png" class="sousuo_img" alt="">'
@@ -976,9 +947,9 @@
                     +'<li>'
                         +'<div class="left1 Lf"><i class="red">*</i>有效期起:</div>'
                         +'<div class="right1 Lf huoqu_date">'
-                            +'<input type="text" class="date-input laydate-icon kuang start"  placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 1)+'">'
+                            +'<input type="text" class="date-input laydate-icon kuang start" style="text-indent:4px;" placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 1)+'">'
                             +'<span style="height: 38px;line-height: 38px;">&nbsp; 至&nbsp; </span>'
-                            +'<input type="text" class="date-input laydate-icon kuang end"  placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 2)+'">'
+                            +'<input type="text" class="date-input laydate-icon kuang end" style="text-indent:4px;" placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 2)+'">'
                         +'</div>'
                         +'<span class="ts">有效期不能为空</span>'
                     +'</li>'
@@ -999,14 +970,20 @@
                 token: token
             },
             data: {
-                type: 0
+                type: 2
             },
             cache: false,
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                /*console.log(data);*/
 
                 var str = '';
+                // for (var i = 0; i < data.data.length; i++) {
+                //     str += '<option value="'+data.data[i].qualificationTypeIds+'" data-ids="'+data.data[i].qualificationTypeIds+'">'+data.data[i].typeName+'</option>';
+                // }
+
+                // $('.zizhi_type').html(str);
+
                 for (var i = 0; i < data.data.length; i++) {
 
                     str += '<li data-index="'+i+'" value="'+data.data[i].ids+'" data-ids="'+data.data[i].ids+'">'+data.data[i].typeName+'</li>';
@@ -1018,13 +995,12 @@
 
                 }
 
+                console.log(p);
+
                 $('.zizhi_type'+(p)).find("ul").html(str);
-
-
 
                 // 模拟下拉框
                 $('.zizhi_type'+(p)).click(function(event){
-
                     if($(this).attr("disabled")=="disabled"){ //判断是否可以点击
                         return;
                     }
@@ -1068,32 +1044,32 @@
 
                 console.log($('.zizhi_type'+(p)));
                 p++;
+
             },
             error: function (err) {
                 console.log(err);
             }
         });
-
-
+        
 
     });
 
 
     $(document).on('click', '.btn1', function() {
         $(this).next().find('.sousuo_ul').empty();
-        $(this).parent().parent().find('.add_fanwei').css('display', 'block');
+        $(this).next().css('display', 'block');
+
     });
 
     $(document).on('click', '.sousuo', function () {
 
         var cont = $(this).prev().prev().val();
         var _this = $(this);
-
         
-        // if ( _this.parent().next('.cousuo_cont').css('display') == 'block') {
-        //     _this.parent().next('.cousuo_cont').css('display', 'none');
+        // if ($('.cousuo_cont').css('display') == 'block') {
+        //     $('.cousuo_cont').css('display', 'none');
         // } else if($('.cousuo_cont').css('display') == 'none') {
-        //     _this.parent().next('.cousuo_cont').css('display', 'block');
+        //     $('.cousuo_cont').css('display', 'block');
         // }
 
         $.ajax({
@@ -1137,17 +1113,18 @@
         if ($(this).val() == '') {
             $(this).parent().next().css('display', 'none');
         }
-    })    
+    })   
 
     $(document).on('click',function(){
         $('.cousuo_cont').hide();
-    })
+    }) 
+
+    
 
     $(document).on('click', '.sousuo_ul li', function () {
         if ($(this).text() != '暂无数据') {
-            // console.log($(this).text());
-            $(this).parents('li').prev().find('.textarea').append('<div data-ind="'+$(this).attr('data-index')+'">'+$(this).text()+'</div>');
-            $(this).parents('li').prev().find('.ts2').css('visibility', 'hidden');
+            console.log($(this).text());
+            $(this).parent().parent().parent().prev().prev().prev().find('.textarea').append('<div data-ind="'+$(this).attr('data-index')+'">'+$(this).text()+'</div>');
         }
     });
 
@@ -1200,29 +1177,27 @@
 
    
     $(document).on('click', '.sub', function () {
-        // if($(".zizhi_num").val()==''){
-        //     alert('资质编号不能为空!');
-        //     return;
-        // }
-        // if($("#textarea0").html()==''){
-        //     alert('许可经营范围不能为空!');
-        //     return;
-        // }
-        // if($("#test1").val()=='' || $("#test2").val()==''){
-        //     alert('有效期不能为空!');
-        //     return;
-        // }
 
+        
 
-
+        if($(".zizhi_num").val()==''){
+            alert('资质编号不能为空!');
+            return;
+        }
+        if($("#textarea0").html()==''){
+            alert('许可经营范围不能为空!');
+            return;
+        }
+        if($("#test1").val()=='' || $("#test2").val()==''){
+            alert('有效期不能为空!');
+            return;
+        }
 
         var json = {
-            type: 0,
+            type: 2,
             companyId:companyId,
             
         };
-
-        var isOk = true;
 
         var zizhi_type = $('.zizhi_type');
         for (var i = 0; i < zizhi_type.length; i++) {
@@ -1230,22 +1205,19 @@
         }
 
         $('.zizhi_num').each(function(index, elem) {
-
             var zizhi_num1 = $(this).val().trim();
             // var zizhi_num1_reg = /^\d+$/;
 
-            if (zizhi_num1 == '') {
-                $(this).parent().next().css('display', 'inline-block');
-                isOk = false;
-                return false;
-            } else {
+            // if (zizhi_num1_reg.test(zizhi_num1) != true) {
+            //     $(this).parent().next().css('display', 'inline-block');
+            //     return false;
+            // } else {
                 json['qualificationNum'+(index+1)] = $(this).val();
-            }
+                // $(this).attr('data-f', 'true');
+            //}
         });
 
-        if (!isOk) {
-            return false;
-        }
+       
 
         var center1 = $('.center1');
 
@@ -1255,40 +1227,29 @@
                 json['qualificationId'+(y+1)] = $(center1[y]).attr('data-qiyeid');
             }
 
-        
-            if ($('.c'+y+' .uploade input[type="hidden"]').val() != '') {
-                var img = '';
-
-                for (var i = 0; i < $('.c'+y+' .preview').length; i++) {
-                    
-                    if ($('.c'+y+' .preview.pic'+(i+1)+'').attr('data-picids')) {
-                        img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('data-picids')+',';
-                    }
-
-                    if ($('.c'+y+' .preview').attr('data-flag')) {
-                        img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('src')+';';
-                    } 
-                    
+            var img = '';
+            for (var i = 0; i < $('.c'+y+' .preview').length; i++) {
+                
+                if ($('.c'+y+' .preview.pic'+(i+1)+'').attr('data-picids')) {
+                    img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('data-picids')+',';
                 }
-                json['imgs'+(y+1)] = img;
 
-            } else {
-                $('.c'+y+' .uploade').next().css('display', 'inline-block');
-                isOk = false;
+                if ($('.c'+y+' .preview').attr('data-flag')) {
+                    img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('src')+';';
+                } 
+
             }
+
+            
+            json['imgs'+(y+1)] = img;
+
         
         }
-        
-        if (!isOk) {
-            return false;
-        }
-        
+
         $('.textarea').each(function (i, ele) {
             var run_fanwei = ';';
             if ($(this).text() == '') {
                 $(this).parent().next().css('display', 'inline-block');
-                $(this).parent().next().css('visibility', 'visible');
-                isOk = false;
                 return false;
             } else {
                 var div = $(this).find('div');
@@ -1302,15 +1263,9 @@
             
         });
 
-        if (!isOk) {
-            return false;
-         }
-
         $('.start').each(function (i, ele) {
             if ($(this).val() == '') {
-                $(this).parent().next().text('有效期不能为空');
-                $(this).parent().next().css('display', 'inline-block');
-                isOk = false;
+                $(this).parent().next().css('display', 'block');
                 return false;
             } else {
                 json['qualificationDataBegin' + (i+1)] = $(this).val();
@@ -1319,65 +1274,47 @@
             
         });
 
-        if (!isOk) {
-            return false;
-         }
-
 
         $('.end').each(function (i, ele) {
 
             if ($(this).val() == '') {
-                $(this).parent().next().text('有效期不能为空');
-                $(this).parent().next().css('display', 'inline-block');
-                isOk = false;
-                return false;
+                $(this).parent().next().css('display', 'block');
+                false;
             } else {
                 json['qualificationDataExpire' + (i+1)] = $(this).val();
                 // $(this).attr('data-f', 'true');
             }
-
-            if ($(this).val() < $(this).prev().prev().val()) {
-                $(this).parent().next().text('结束日期小于开始日期');
-                $(this).parent().next().css('display', 'inline-block');
-
-                isOk = false;
-            }
-
         });
 
          console.log(json);
 
-         if (!isOk) {
-            return false;
-         }
 
-
-        // if (!($(this).attr('disabled')) && $('.zizhi_num').attr('data-f') == 'true' && $('.textarea').attr('data-f') == 'true' && $('.kuang').attr('data-f') == 'true') {
-            
-            $.ajax({
-                url: pubIP + 'companyCertification/addQualificationsBaseInfo',
-                type: 'post',
-                headers: {
-                    Accept: "application/json; charset=utf-8",
-                    token: token
-                },
-                data: json,
-                cache: false,
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    if (data.code == 1) {
-                        window.parent.tan();
-                        window.localStorage.setItem('data-subFlag', '0');
-                        $('.bottom1 >div').hide();
-                    }
-                    
-                },
-                error: function (err) {
-                    console.log(err);
+    
+        $.ajax({
+            url: pubIP + 'companyCertification/addQualificationsBaseInfo',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: json,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.code == 1) {
+                    window.parent.other_tan();
+                    // window.parent.$(".modelBox0").eq(0).find(".modelcontent").find(".info").find("span").text("其他资质认证提交成功");
+                    window.location.reload();
+                    window.localStorage.setItem('data-subFlag', '0');
                 }
-            });
-        // }
+                
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+        
         
 
     });
@@ -1391,45 +1328,25 @@
         // if (zizhi_num1_reg.test(zizhi_num1) != true) {
         if (zizhi_num1 == '') {
             $(this).parent().next().css('display', 'inline-block');
-            $(this).attr('data-f','false');
-            return;
+            return false;
+            // $(this).attr('data-f','false');
         } else {
             $(this).parent().next().css('display', 'none');
-            $(this).attr('data-f','true');
+            // $(this).attr('data-f','true');
         }
 
     });
 
 
-
-    /*$(document).on('blur', '.input_blur', function() {
-
-        var center1 = $('.center1');
-
-        for (var y = 0; y < center1.length; y++) {
-
-            for (var i = 0; i < $('.c'+y+' .preview').length; i++) {
-                console.log(i);
-                if ($('.c'+y+' .preview.pic1').prev().attr('src') == '../img/list_logo.png') {
-                    $('.c'+y+' .preview.pic1').parent().next().css('display', 'none');
-                } else {
-                    $('.c'+y+' .preview.pic1').parent().next().css('display', 'inline-block');
-                }
-
-            }
-
-        }
-
-    });*/
-
     $(document).on('blur', '.textarea', function() {
 
         if ($(this).text() == '') {
             $(this).parent().next().css('display', 'inline-block');
-            $(this).attr('data-f','false');
+            return false;
+            // $(this).attr('data-f','false');
         } else {
             $(this).parent().next().css('display', 'none');
-            $(this).attr('data-f','true');
+            // $(this).attr('data-f','true');
         }
 
     });
@@ -1437,20 +1354,23 @@
     $(document).on('blur', '.start', function () {
         if ($(this).val() == '') {
             $(this).parent().next().css('display', 'inline-block');
-            $(this).attr('data-f','false');
+            return false;
+            // $(this).attr('data-f','false');
         } else {
             $(this).parent().next().css('display', 'none');
-            $(this).attr('data-f','true');
+            // $(this).attr('data-f','true');
         }
     });
 
     $(document).on('blur', '.end', function () {
         if ($(this).val() == '') {
             $(this).parent().next().css('display', 'inline-block');
-            $(this).attr('data-f','false');
+            return false;
+            // $(this).attr('data-f','false');
         } else {
             $(this).parent().next().css('display', 'none');
-            $(this).attr('data-f','true');
+            // $(this).attr('data-f','true');
+
         }
     });
  

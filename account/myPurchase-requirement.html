@@ -242,7 +242,7 @@
                 data: {
                     companyId: companyId,
                     sEcho: 0,
-                    pageSize:2,
+                    pageSize:10,
                     state: category,
                     pageNum: num,
                     name: $('.search_input_info').val(),
@@ -250,6 +250,7 @@
                 },
                 success: function(data){
                     console.log(data);
+
 
                     if(data.aData && data.aData.length>0){
                         $.each(data.aData, function(i, item){

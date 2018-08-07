@@ -186,8 +186,8 @@
 												str += '<span class="yinsghou_account_date">'+json.data[i].debt_term+'天</span>'
 												+'<span class="yingshou_jiezhi_date">'+json.data[i].period_time+'</span>'
 											} else if (json.data[i].account_period_type == 1) {
-												str += '<span class="yinsghou_account_date"></span>'
-												+'<span class="yingshou_jiezhi_date"></span>'
+												str += '<span class="yinsghou_account_date">24小时</span>'
+												+'<span class="yingshou_jiezhi_date">'+json.data[i].period_time+'</span>'
 											}
 											
 										str += '</li>'

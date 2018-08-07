@@ -152,8 +152,12 @@
                     <div class="Lf">
                         <div class="userPhone">会员手机号：</div>
                         <div class="intell" id="zizhi_qiye">
-                            <span>认证：</span><img class="qiye_renzheng_img" src="../img/cf_qiyeNo.png" alt=""><span style="color: #fd867d; margin-left: 6px;" class="qiye_renzheng_info">&nbsp;未认证</span>
-                            <span style="margin-left: 20px;" class="zizhi_title">资质认证：</span><img class="zizhi_renzheng_img" src="../img/cf_dengerNo.png" alt=""><span class="zizhi_renzheng_info" style="color: #fd867d; margin-left: 6px;">&nbsp;未认证</span></div>
+                            <span>认证：</span>
+                            <a class="go_qiye" href="javascript:;"><img class="qiye_renzheng_img" src="../img/cf_qiyeNo.png" alt=""><span style="color: #fd867d; margin-left: 6px;" class="qiye_renzheng_info">&nbsp;未认证</span></a>
+
+                            <span style="margin-left: 20px;" class="zizhi_title">资质认证：</span>
+                            <a class="go_zizhi" href="javascript:;"><img class="zizhi_renzheng_img" src="../img/cf_dengerNo.png" alt=""><span class="zizhi_renzheng_info" style="color: #fd867d; margin-left: 6px;">&nbsp;未认证</span></a>
+                        </div>
                     </div>
                 </div>
                 <div class="bottom1" style="display: none;">
@@ -565,9 +569,23 @@
                     }else{
                         $("#deanger").css("display","none");
                     }
+
+                    //去资质认证
+                    $('.go_zizhi').click(function() {
+                        if(json.data.state==1 && json.data.aType==null) {
+                            window.parent.$('.zizhi_renzheng').click();
+                        }    
+                    });
+
+                    //去企业认证
+                    $('.go_qiye').click(function() {
+                        window.parent.$('#account_ziliao').click();
+                    });
+                    
                 }else{
 
                 }
+
             }
         });
 

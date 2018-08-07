@@ -304,7 +304,7 @@
                 </li>
                 <li class="update_yincang pay_pass">
                     <div class="left1 Lf"><i class="red">*</i>输入支付密码:</div>
-                    <div class="right1 Lf"><input type="text" id="pay_pass2"></div>
+                    <div class="right1 Lf"><input type="password" id="pay_pass2"></div>
                     <div class="ts yanzheng">支付密码输入有误</div>
                 </li>
             </ul>
@@ -1205,6 +1205,8 @@ function xmTanUploadImg2(obj) {
 
             img_url1 = $('#id_card_hidden1').val();
             img_url2 = $('#id_card_hidden2').val();
+
+            var yanzheng_phone = $('#yanzheng_phone').val();
             
 			
             // v1.0
@@ -1226,7 +1228,8 @@ function xmTanUploadImg2(obj) {
                     picId9: picId9,
                     upload_file8: img_url1,
                     upload_file9: img_url2,
-                    pay_pass2: pay_pass2
+                    pay_pass2: pay_pass2,
+                    oldPhoneNumber: yanzheng_phone
                 },
                 cache: false,
                 dataType: 'json',

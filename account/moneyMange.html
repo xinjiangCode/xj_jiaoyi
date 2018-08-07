@@ -124,11 +124,15 @@
 
                 }
 
-                json.store.addTime = new Date(json.store.addTime).Format("yyyy-MM-dd");
-
-                $('.qiye_name').text(json.store.companyName);
-                $('.register_time').text(json.store.addTime == null ? ' ' : json.store.addTime);
-                $('.logo_img').attr('src', json.store.storeImage);
+                if (json.store != null) {
+                    if (json.store.addTime != null) {
+                        json.store.addTime = new Date(json.store.addTime).Format("yyyy-MM-dd");
+                    }
+                    
+                    $('.qiye_name').text(json.store.companyName);
+                    $('.register_time').text(json.store.addTime == null ? ' ' : json.store.addTime);
+                    $('.logo_img').attr('src', json.store.storeImage);
+                }
             }
 
         },
