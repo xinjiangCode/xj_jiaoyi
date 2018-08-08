@@ -220,6 +220,9 @@ body{
 	font-size: 14px;
 	margin-top: 8px;
 	margin-bottom: 17px;
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .htpirce{
 	color: #FF8D43;

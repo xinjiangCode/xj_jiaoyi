@@ -577,6 +577,12 @@
     $(function(){
 
 
+        $('.laydate-icon').css({
+            'backgroundImage': 'url(../img/yh_rili.png)',
+            'backgroundPosition': '137px',
+            'backgroundSize': '11%'
+        });
+
         searchAjax();
 
    
@@ -662,6 +668,12 @@
                         for (var i = 0; i < data.data.length; i++) {
                             if(i > 0){
                                 $('.add').click();
+
+                                $('.laydate-icon').css({
+                                    'backgroundImage': 'url(../img/yh_rili.png)',
+                                    'backgroundPosition': '137px',
+                                    'backgroundSize': '11%'
+                                });
                             }
                             for (var j = 0; j < data.data[i].picInfos.length-1; j++) {
                                 $('.c'+i+' .add_pic').click();
@@ -710,6 +722,8 @@
                             $('.c'+i+' .hd'+j).val(data.data[i].picInfos[j].picUrl);
 
                             $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
+
+                            $('.c'+i+' .pic'+(j+1)).attr('disabled', 'disabled');
                             
                         }
 
@@ -840,6 +854,8 @@
             
             $(this).parent().find('.zizhi_type').attr("disabled",false).css("background-color","#fff");
             isSelect=true;
+
+            $(this).parent().find('.preview').attr('disabled', false);
             
             $(this).parent().find('.zizhi_num').attr('readonly', false).css("background-color","#fff");
            // $(this).parent().find('.textarea').attr('contenteditable', true);
@@ -1007,7 +1023,11 @@
         $('#center').append(str);
         i++;
         /*typeAjax();*/
-
+        $('.laydate-icon').css({
+            'backgroundImage': 'url(../img/yh_rili.png)',
+            'backgroundPosition': '137px',
+            'backgroundSize': '11%'
+        });
 
         $.ajax({
             url: pubIP + 'companyCertification/getQualificationTypeList',
