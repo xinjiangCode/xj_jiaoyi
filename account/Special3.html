@@ -565,6 +565,7 @@
                 });
                 $(obj).next().val(data.url);
                 $(obj).parent().parent().find('.ts1').css('display', 'none');
+                $(obj).attr('data-flag', '0');
             },
             error: function (err) {
                 console.log(err);
@@ -707,6 +708,8 @@
                             });
 
                             $('.c'+i+' .hd'+j).val(data.data[i].picInfos[j].picUrl);
+
+                            $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
                             
                         }
 
@@ -1278,7 +1281,6 @@
                 json['qualificationId'+(y+1)] = $(center1[y]).attr('data-qiyeid');
             }
 
-        
             if ($('.c'+y+' .uploade input[type="hidden"]').val() != '') {
                 var img = '';
 
@@ -1292,12 +1294,9 @@
                         img += $('.c'+y+' .preview.pic'+(i+1)+'').next().val()+';';
                     } 
 
-                    console.log($('.c'+y+' .preview.pic'+(i+1)+'').attr('data-picids'));
-                    console.log($('.c'+y+' .preview.pic'+(i+1)+'').next().val());
                     
                 }
-                console.log('+++++++++++++++++++++++++++++++++++++++++');
-                console.log(img);
+                
                 json['imgs'+(y+1)] = img;
 
             } else {
@@ -1379,7 +1378,6 @@
             return false;
          }
 
-    
         $.ajax({
             url: pubIP + 'companyCertification/addQualificationsBaseInfo',
             type: 'post',

@@ -315,6 +315,18 @@
             border: 1px solid #ebe9ea;
         }
 
+        .bottom1>.shenhe {
+            width: 107px;
+            height: 40px;
+            line-height: 40px;
+            background-color: white;
+            color: #666666;
+            border: 1px solid #666666;
+            margin-left: 10px;
+            margin-top: 0;
+            background: #ccc;
+        }
+
     </style>
 </head>
 <body>
@@ -418,6 +430,7 @@
     <div class="bottom1">
         <div class="btn Lf add add1">继续添加其他资质</div>
         <div class="btn Lf sub">提交</div>
+        <div class="btn Lf shenhe" style="display: none;">审核中</div>
     </div>
 
     
@@ -531,8 +544,8 @@
                         'background-color':'#f6f6f6'
                 });
                 $(obj).next().val(data.url);
-                $(obj).parent().next().css('display', 'none');
-
+                $(obj).parent().parent().find('.ts1').css('display', 'none');
+                $(obj).attr('data-flag', '0');
             },
             error: function (err) {
                 console.log(err);
@@ -705,6 +718,8 @@
                             });
 
                             $('.c'+i+' .hd'+j).val(data.data[i].picInfos[j].picUrl);
+
+                            $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
                             
                         }
 
@@ -721,7 +736,6 @@
                         
                         $('#textarea'+ i).attr('data-f', 'true');
                         //不让添加
-                        $(".btn1").hide();
 
                         /*var arr = data.data[i].operationLimit.split(';')*/
                         
@@ -873,7 +887,9 @@
 
                     //未审核
                     if (data.data.bType == 1 && data.data.bState == 0) {
-                        window.parent.shenhe();  
+                        //window.parent.shenhe();
+                        $(".sub").hide();
+                        $(".shenhe").show();  
                         $('.btn.edit_btn').css('display', 'none');
                         $('.sub').attr('disabled', true);
                         $('.quxiao_add').css('display', 'none');
@@ -881,6 +897,7 @@
 
                     } else if (data.data.bType == 1 && data.data.bState == 2) {  //已拒绝
                         window.parent.jujue_teshu(data.data.refuseReason); 
+                        $(".shenhe").hide();
                         $('.btn.edit_btn').css('display', 'block');
                         $('.sub').attr('disabled', false);
                         $('.quxiao_add').css('display', 'block');
@@ -890,6 +907,8 @@
                         $('.sub').attr('disabled', false);
                         $('.quxiao_add').css('display', 'block');
                         $('.shou_pic').css('display', 'block');
+                        $(".shenhe").hide();
+                        $(".sub").show();
                     }
 
                 },
@@ -973,7 +992,7 @@
                             +'<div class="uploade" style="float: left;">'
                                 +'<i style=""></i>'
                                
-                                +'<input type="file" class="input_blur" id="uploade_preview'+i+'">'
+                                +'<input type="file" class="input_blur preview pic1" id="uploade_preview0">'
                                 +'<input type="hidden" class="hd0">'
                             +'</div>'
                             +'<div class="ts1">至少添加一张图片</div>'
@@ -1298,7 +1317,7 @@
                     }
 
                     if ($('.c'+y+' .preview').attr('data-flag')) {
-                        img += $('.c'+y+' .preview.pic'+(i+1)+'').attr('src')+';';
+                        img += $('.c'+y+' .preview.pic'+(i+1)+'').next().val()+';';
                     } 
                     
                 }
@@ -1398,6 +1417,7 @@
                     console.log(data);
                     if (data.code == 1) {
                         window.parent.teshu_tan();
+                        window.location.reload();
                         window.localStorage.setItem('data-subFlag', '0');
                         $('.bottom1 >div').hide();
                     }
