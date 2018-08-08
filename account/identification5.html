@@ -627,9 +627,11 @@ function xmTanUploadImg2(obj) {
             }
             
             //判断手机号是否加入过企业
-            
             var thisPhone = $('#yanzheng_phone').val();
             sendAjax(thisPhone, $(this));
+
+            console.log(clickFlgCode);
+
             if(!clickFlgCode){
         			return false;
         		}
@@ -652,6 +654,8 @@ function xmTanUploadImg2(obj) {
             img_url2 = $('#id_card_hidden2').val();
 
             console.log(img_url1);
+
+            return false;
 
             if (img_url1 != null && img_url2 != null) {
                 //v1.0
@@ -941,7 +945,7 @@ function xmTanUploadImg2(obj) {
                 dataType: 'json',
                 success: function (data) {
                     
-                    console.log($(phone_num).parent().next().css('display', 'block'));
+                    console.log(data);
                     if (data.code == 1) {
                         if (data.data == 'true') {
                         	   phoneIshas = false;
@@ -950,7 +954,7 @@ function xmTanUploadImg2(obj) {
                             $("#huoqu_code").css("color","#ccc");
                             $("#huoqu_code1").css("color","#ccc");
                             clickFlgCode = false;
-                            return;
+                            //return;
                         }else{
                                 $("#huoqu_code").css("color","#80acf8");
                                 $("#huoqu_code1").css("color","#80acf8");

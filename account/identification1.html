@@ -185,6 +185,7 @@
                     <span style="height: 38px;line-height: 38px;">&nbsp;-&nbsp; </span>
                     <input type="text" class="date-input laydate-icon" placeholder="请选择日期" id="test2">
                 </div>
+                <span class="ts"></span>
             </li>
             <li class="clearfix" style="overflow: visible;">
                 <div class="left1 Lf"><i class="red">*</i>公司地址:</div>
@@ -880,6 +881,20 @@
                 $('#yingye_num').parent().next().html('');
             }
 
+
+            startTime = $('#test1').val();
+            endTime = $('#test2').val();
+
+            if (startTime == '' || endTime == '' ) {
+                $('#test2').parent().next().html('营业期限不能为空');
+                return;
+            } if (startTime > endTime) {
+                $('#test2').parent().next().html('开始时间不能大于结束时间');
+                return;
+            } else {
+                $('#test2').parent().next().html('');
+            }
+
             
             if ($('#company_address').val() == '') {
                 $('#company_address').parent().next().html('公司地址不能为空');
@@ -941,8 +956,7 @@
             img_url4 = $('#zhengjian_hidden1').val();
             img_url5 = $('#zhengjian_hidden2').val();
 
-            startTime = $('#test1').val();
-            endTime = $('#test2').val();
+        
 
             file_name = $('#wenjian_name').val();
 
@@ -1278,6 +1292,19 @@
                 $('#yingye_num').parent().next().html('');
             }
 
+            startTime = $('#test1').val();
+            endTime = $('#test2').val();
+            
+            if (startTime == '' || endTime == '' ) {
+                $('#test2').parent().next().html('营业期限不能为空');
+                return;
+            } if (startTime > endTime) {
+                $('#test2').parent().next().html('开始时间不能大于结束时间');
+                return;
+            } else {
+                $('#test2').parent().next().html('');
+            }
+
             
             if ($('#company_address').val() == '') {
                 $('#company_address').parent().next().html('公司地址不能为空');
@@ -1357,8 +1384,7 @@
 
             console.log(file_url);
 
-            startTime = $('#test1').val();
-            endTime = $('#test2').val();
+            
             if ($('.next_btn_update').css('display') == 'block') {
                 if ($('#yingye_zhizhao_hidden').val() != '' && $('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '' && file_url != null) {
                     $.ajax({
