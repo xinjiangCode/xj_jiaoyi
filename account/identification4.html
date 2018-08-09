@@ -620,6 +620,7 @@ function upload_file(obj) {
                 $(this).parent().next().css('display', 'block');
                 return;
             } else {
+                $(this).parent().next().css('display', 'none');
                 var _that = $(this);
                 $.ajax({
                     url: pubIP + 'companyCertification/findAccountUserState',
@@ -642,6 +643,7 @@ function upload_file(obj) {
                             _that.attr('data-cunzai', '1');
                         } else {
                             _that.attr('data-cunzai', '2');
+
                         }
 
                     },  
@@ -683,7 +685,7 @@ function upload_file(obj) {
                 $(this).parent().next().text('出金账户账号格式不正确');
                 $(this).parent().next().css('display', 'block');
                 return;
-            } if (chujin_account_account2 == chujin_account_account1) {
+            } else if (chujin_account_account2 == $('#chujin_account_account1').val()) {
                 $(this).parent().next().text('提现账号和票据收票账号不能一致');
                 $(this).parent().next().css('display', 'block');
                 return;
@@ -890,7 +892,7 @@ function upload_file(obj) {
            
             if ($('#chujin_account_account1').attr('data-cunzai') == '1') {
                 $('#chujin_account_account1').parent().next().text('账号已存在');
-                $('#chujin_account_account2').parent().next().css('display', 'block');
+                $('#chujin_account_account1').parent().next().css('display', 'block');
                 return false;
             }
 
