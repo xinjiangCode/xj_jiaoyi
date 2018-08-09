@@ -627,12 +627,12 @@ function xmTanUploadImg2(obj) {
             }
             
             //判断手机号是否加入过企业
-            var thisPhone = $('#yanzheng_phone').val();
-            sendAjax(thisPhone, $(this));
+            // var thisPhone = $('#yanzheng_phone').val();
+            // sendAjax(thisPhone, $(this));
 
             console.log(clickFlgCode);
 
-            if(!clickFlgCode){
+            if(clickFlgCode){
         			return false;
         		}
             
@@ -655,7 +655,7 @@ function xmTanUploadImg2(obj) {
 
             console.log(img_url1);
 
-            return false;
+         
 
             if (img_url1 != null && img_url2 != null) {
                 //v1.0
@@ -714,7 +714,7 @@ function xmTanUploadImg2(obj) {
 
         //获取验证码
         $('#huoqu_code').on('click', function () {
-			if(!clickFlgCode){
+			if(clickFlgCode){
         			return false;
         		}
             
@@ -954,6 +954,7 @@ function xmTanUploadImg2(obj) {
                             $("#huoqu_code").css("color","#ccc");
                             $("#huoqu_code1").css("color","#ccc");
                             clickFlgCode = false;
+                            console.log()
                             //return;
                         }else{
                                 $("#huoqu_code").css("color","#80acf8");
@@ -1174,14 +1175,15 @@ function xmTanUploadImg2(obj) {
                     $('#new_phone').parent().next().css('display', 'block');
                     
                 }
-
+                
                 //判断手机号是否加入过企业
-                var thisPhone = $('#new_phone').val();
-                sendAjax(thisPhone, $(this));
+                //var thisPhone = $('#new_phone').val();
+                //sendAjax(thisPhone, $(this));
+                console.log(clickFlgCode);
                 if(!clickFlgCode){
                         return false;
                     }
-
+                
                 if ($('#new_code').val().trim() == '') {
                     $('#new_code').parent().next().css('display', 'block');
                     

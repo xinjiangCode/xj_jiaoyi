@@ -343,6 +343,12 @@
 		$(window.parent.document).find('.modelBox .cancel').click(function(){
 			$(window.parent.document).find('.modelBox').css('display','none');
 		});
+
+		if (sessionStorage.getItem('shop_sort') == 2) {
+			$('.sum').next().text(sessionStorage.getItem('guige'));
+			$('.unitPrice').next().text(sessionStorage.getItem('guige')+sessionStorage.getItem('product'));
+		}
+
 		/*查询仓库地址列表*/
         $.ajax({
             url: pubIP + 'warehouse/listWarehouse', /*v1.0*/
