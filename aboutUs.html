@@ -7,10 +7,11 @@
 	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
 	    <meta http-equiv="Pragma" content="no-cache">
 	    <meta name="format-detection" content="telephone=no" />
-		<title  adct="首页">新疆化学品经营服务平台</title>
+		<title  adct="首页">关于我们</title>
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
-		<script src="js/header.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="css/aboutUs.css"/>
+		<script src="js/header.js" type="text/javascript" charset="utf-8"></script>
+		
 		<style type="text/css">
 			body{
 				background: #fdfdfd;
@@ -173,29 +174,112 @@
 			.detailBoxItem:hover{
 				color: #5690F6;
 			}
-			
-		</style>
+
+			/* 导航 */
+
+ .gaibian{
+        position: relative;
+    }
+    .xiala{
+        display: none;
+        width: 100px;
+        height: 80px;
+        position: absolute;
+        left: -20px;
+        top:71px;
+        text-align: center;
+        background-color: #fff;
+        border: #e1e1e1 1px solid;
+    }
+
+    .xiala .xuanze{
+        width: 100%;
+        line-height: 25px;
+        text-align: center;
+        
+    }
+
+    .xiala .xuanze a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 25px;
+        font-size: 15px;
+        text-align: center;
+        color: #757575;    
+    }
+    .xiala .xuanze a:hover{
+        color:#6297d9;
+    }			
+
+
+ .head_w{
+    width: 100%;
+    height: 107px;
+    text-align: center;
+}
+.head_w .head{
+    margin: 0 auto;
+    width: 1230px;
+    height: 107px;
+    line-height: 107px;
+}
+.head .img{
+    float: left;
+    width: 280px;
+    height: 67px;
+    margin-right: 101px;
+}
+ .head .nav{
+    float: left;
+}
+ .head .nav li{
+    float: left;
+    margin-right: 38px;
+    font-size: 16px;
+    color: #000;
+}
+.head .nav .blue{
+    color:#6297d9;
+}
+.xiaosanjiao{
+	position: absolute;
+	left: 38px;
+    top: -9px;
+}
+		
+	</style>
 	</head>
 	<body>
 		<!--关于我们-->
-		<div class="aboutHeader maxWidth">
-			<div class="mianCont">
-				<!-- <a href="index.html" class="logo"></a> -->
-				<img src="img/cf_logo.png" />
-				<div class="mianCont tabLink">
-					<a href="index.html" class="actTabLink"><span>首页</span></a>		
-					<a href="spotGoods/spotGoods.html"><span>现货商城</span></a>		
-					<a href="spotGoods/spotGoods.html"><span>试剂商城</span></a>		
-					<a href="freeSearch/freeSearch.html"><span>免费找货</span></a>		
-					<a href="##"><span>金融服务</span></a>		
-					<a href="##"><span>物流服务</span></a>		
-					<a href="##"><span>抢购</span></a>		
-					<a href="##"><span>抢货</span></a>		
-					<a href="industryInformation.html"><span>行业资讯</span></a>		
-					<a href="##" class="notPd"><span>会员商场</span></a>	
-				</div>
-			</div>
-		</div>
+
+		<div class="head_w">
+            <div class="head clearfix">
+                <div class="img">
+                   <a href="./index.html"> <img src="./img/logo.png" alt=""></a>
+                </div>
+                <ul class="nav clearfix">
+                    <li class="gaibian blue">
+							<a class="gaibian_a" href="./aboutUs.html">公司介绍</a>
+							
+                        <ul class="xiala">
+								<img class="xiaosanjiao" src="./img//xiaosanjiao_head.png" alt="">
+                                <li class="xuanze"><a href="./aboutUs.html">关于我们</a></li>
+                                <li class="xuanze"><a href="./company.html">项目服务</a></li>
+                                <li class="xuanze"><a href="./advantage.html">核心优势</a></li>                            
+                    </ul>
+                    </li>
+                    <li><a href="./new.html">新闻中心</a> </li>
+                    <li><a href="./features.html">团队风采 </a> </li>
+                    <li><a href="./legal.html"> 法律声明</a> </li>
+                    <li><a href="./recruit.html">人才招聘</a></li>
+                    <li><a href="./connect.html">联系我们 </a> </li>
+                </ul>
+            </div>
+        </div>
+
+
+
 		<div class="maxWidth bg1">
 			<div class="compBox">
 				<div class="tit">公司介绍 <span>COMPANY INTRODUCTION</span></div>
@@ -344,6 +428,15 @@
 		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+
+
+       $('.gaibian_a').mouseenter(function(){
+           $('.xiala').show();
+       });
+       $('.gaibian').mouseleave(function(){
+        $('.xiala').hide();
+       });
+
 			var first = false;
 			$(window).scroll(function(){
 				var yd = 0;
