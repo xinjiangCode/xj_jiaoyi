@@ -2883,6 +2883,27 @@
             
         } 
 
+        if (jump_flag == 'flag_wxrz') { //资质认证 -- 危险化学品
+            
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".zizhi_renzheng").addClass("active1");
+            $(".zizhi_renzheng").parent().parent().toggle();
+            $(".zizhi_renzheng").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","Special1.html");
+        }
+
+        if (jump_flag == 'flag_tsrz') { //资质认证 -- 特殊化学品
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".zizhi_renzheng").addClass("active1");
+            $(".zizhi_renzheng").parent().parent().toggle();
+            $(".zizhi_renzheng").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","Special2.html");
+        }
+
         if(jump_flag=="flag_mfzh"){//发布需求
             $(".acconut_box").toggle();
             $(".manage").find('img').attr("src","../img/cf_close.png");

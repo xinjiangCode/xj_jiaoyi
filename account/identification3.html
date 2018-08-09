@@ -222,7 +222,7 @@
 
                         update_info();
 
-                        $(window.parent.document).find('.modelBox6 .info p span').html('发票信息审核中');
+                        $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在审核中');
                         window.parent.tan6();
 
                     } else if (data.data.type == 3) {  //已认证
@@ -310,6 +310,7 @@
             return;
         }
 
+
         var qiye_bank_account1 = $('#qiye_bank_account').val();
         var qiye_bank_account_reg = /^\d{16}|\d{19}$/;
 
@@ -318,12 +319,18 @@
             return;
         }
 
+        if ($('#qiye_bank_account').attr('data-cunzai') == '1') {
+            $('#qiye_bank_account').parent().next().text('账号已存在');
+            $('#qiye_bank_account').parent().next().css('display', 'block');
+            return false;
+        }
+
+
         if ($('#address').val() == '') {
             $('#address').parent().next().html('地址不能为空');
             return;
         }
 
-        console.log('....');
 
         var nashui_num = $('#nashui_num').val();
         var qiye_phone = $('#qiye_phone').val();
@@ -402,6 +409,36 @@
             return;
         } else {
             $(this).parent().next().html('');
+            var _that = $(this);
+            $.ajax({
+                url: pubIP + 'companyCertification/findAccountUserState',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    accountId: _that.val(),
+                    companyId: companyId
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    if (data.code == -1) {
+                        window.parent.$('.modelBox4 P').text('该账号已存在！');
+                        window.parent.$('.modelBox4').css('display', 'block');
+                        _that.attr('data-cunzai', '1');
+                    } else {
+                        _that.attr('data-cunzai', '2');
+
+                    }
+
+                },  
+                error: function(err) {
+                    console.log(err);
+                }
+            });
         }
     });
 
@@ -524,12 +561,19 @@
             return;
         }
 
+
         var qiye_bank_account1 = $('#qiye_bank_account').val();
         var qiye_bank_account_reg = /^\d{16}|\d{19}$/;
 
         if (qiye_bank_account_reg.test(qiye_bank_account1) != true) {
             $('#qiye_bank_account').parent().next().html('企业银行账号格式不正确');
             return;
+        }
+
+        if ($('#qiye_bank_account').attr('data-cunzai') == '1') {
+            $('#qiye_bank_account').parent().next().text('账号已存在');
+            $('#qiye_bank_account').parent().next().css('display', 'block');
+            return false;
         }
 
         if ($('#address').val() == '') {

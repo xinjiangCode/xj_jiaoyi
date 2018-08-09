@@ -1,5 +1,5 @@
  //var pubIP = 'http://api.xjv56.com/service/';
-var pubIP = 'http://192.168.1.169:7777/service/';
+var pubIP = 'http://192.168.1.80:7777/service/';
 var downIP = 'http://file.xjv56.com/';
 //var downIP = 'http://192.168.1.80:8680/web-file/';
 //var pubIP = 'http://192.168.1.165:7777/service/';
@@ -317,6 +317,7 @@ $('.selectPub ul li').click(function(){
 // 伪alert弹框    //type  1成功   2失败    msg消息   （注：点击该alert框的关闭或者确认，所有弹框将会被关闭，并且刷新当前页面）
 function cf_alert(aa,msg) {
     if(aa==1){
+
         window.parent.$(".all_success_alert").show();
         window.parent.$(".all_success_alert .innerSuccmsg").text(msg);
         window.parent.$(".all_success_alert .confirm").unbind();

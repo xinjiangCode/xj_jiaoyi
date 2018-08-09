@@ -545,8 +545,13 @@
                         }
                         
                         $("#companyName").text(json.data.companyName)
-                    }else{//企业未认证
-                        // debugger;
+                    } else if (json.data.state == 0) {
+                        $('.qiye_renzheng_info').text('审核中');
+
+                    } else if (json.data.state == 2) {
+                        $('.qiye_renzheng_info').text('已拒绝');                        
+                    } else {//企业未认证
+                        
                         $(".yiRenZheng").css("display","none");
                     }
                 //危险化学品认证

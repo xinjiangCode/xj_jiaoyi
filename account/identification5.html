@@ -514,7 +514,7 @@ function xmTanUploadImg2(obj) {
                         $(".yiRenZheng.update_btn").css('display', 'none');
 
 
-                        $(window.parent.document).find('.modelBox6 .info p span').html('财务信息审核中');
+                        $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在审核中');
                         window.parent.tan6();
                         
                     } else if (data.data.type == 3) {  //已认证
@@ -632,7 +632,7 @@ function xmTanUploadImg2(obj) {
 
             console.log(clickFlgCode);
 
-            if(clickFlgCode){
+            if(!clickFlgCode){ //---------------------------
         			return false;
         		}
             
@@ -752,7 +752,7 @@ function xmTanUploadImg2(obj) {
                     console.log(data);
                     if(data.code == 1){
                     	   // alert(data.msg);
-                    	   clickFlgCode = false;
+                    	   //clickFlgCode = false;
                     	   var time = 60;
 	                   var timer=setInterval(function () {
 		                      time--;
@@ -762,7 +762,7 @@ function xmTanUploadImg2(obj) {
 		                          clearInterval(timer);
 		                          $("#huoqu_code").css("color","#80acf8");
 		                          $("#huoqu_code").text("获取验证码");
-		                          clickFlgCode = true;
+		                          //clickFlgCode = true;
 		                      }
 		                },1000);
                     }
@@ -804,7 +804,7 @@ function xmTanUploadImg2(obj) {
 //                  console.log(data);
 				    if(data.code == 1){
                     	   // alert(data.msg);
-                    	   clickFlgCode = false;
+                    	   //clickFlgCode = false;
                     	   var time = 60;
 	                   var timer=setInterval(function () {
 		                      time--;
@@ -814,7 +814,7 @@ function xmTanUploadImg2(obj) {
 		                          clearInterval(timer);
 		                          $("#huoqu_code1").css("color","#80acf8");
 		                          $("#huoqu_code1").text("获取验证码");
-		                          clickFlgCode = true;
+		                          //clickFlgCode = true;
 		                      }
 		                },1000);
                     }

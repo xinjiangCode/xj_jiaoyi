@@ -19,13 +19,128 @@
 			.new_hzf_main02>div{width: 1200px;height: 100%;margin: 0 auto;position: relative;}
 			.new_hzf_main02 a{display: block;width: 149px;height: 35px;background: url("../img/gys_hzf_btn.png") 0 0 no-repeat;background-size: 100% 100%;position: absolute;right: 40px;bottom: 40px;color: transparent;}
 			.new_hzf_main03{width: 100%;height: 527px;min-width: 1200px;max-width: 1920px;background: url("../img/gys_hzf03.png") center center no-repeat;}
+
+			.all_success_alert {
+				z-index: 9999;
+		        display: none;
+		        position: fixed;
+		        top: 0;
+		        left: 0;
+		        right: 0;
+		        bottom: 0;
+		        background-color: rgba(0, 0, 0, 0.5);
+			}
+
+			.modelCont{
+	            position: absolute;
+	            width: 450px;
+	            min-height: 276px;
+	            left: 50%;
+	            top: 50%;
+	            /*margin-left: -225px;
+	            margin-top: -200px;*/
+	           margin-left: 0 !important;
+	           margin-top: 0 !important;
+	            transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);
+	            font-family: 'microsoft yahei';
+	            /* background-color: red; */
+	        }
+
+			.all_error_alert p {
+				text-align: center;
+			}
+
+			.modelCont{
+	            position: fixed;
+	            width: 450px;
+	        }
+
+	        .modeltitle{
+	            width: 450px;
+	            height: 50px;
+	            background-image: url(../img/gsxq.gif);
+	            background-size: 100% 100%;
+	            background-repeat: no-repeat; 
+	            font-size: 16px;
+	            color: #5690f6;
+	            line-height: 50px;
+	        }
+	        .modeltitle span{
+	            margin-left: 16px;
+	        }
+
+	        /*.modelcontent>div {
+	        	height: 65px;
+	        	width: 450px;
+	        }*/
+
+	        .img_div {
+	        	width: 450px;
+			    text-align: center;
+			    margin-top: 20px;
+			    margin-bottom: 10px;
+			}
+
+			.modelcontent .info {
+				width: 450px;
+				height: 135px;
+			}
+
+			.modelcontent>div {
+				margin-bottom: 0px;
+			}
+
+			p.innerSuccmsg {
+			    text-align: center;
+			    color: #5690f6;
+			}
+
+	        .modelcontent, .cont{
+	            width: 450px;
+	            min-height: 226px;
+	            background-image: url('../img/gsxq_cont.gif');
+	            background-size: 100% 100%;
+	            background-repeat: no-repeat; 
+	            font-size: 18px;
+	        }
+	        
+			.modelBtnBox{
+	            width: 302px;
+	            height: 45px;
+	            overflow: hidden;
+	            margin: 0 auto;
+				padding-bottom: 30px;
+	        }
+	        .modelbtn{
+	            float: left;
+	            width: 145px;
+	            height: 45px;
+	            border: 1px solid #5690f6;
+	            font-size: 15px;
+	            color: #fff;
+	            box-sizing: border-box;
+	            text-align: center;
+	            line-height: 45px;
+	            border-radius: 3px;
+	            cursor: pointer;
+	            margin: 18px auto 0 152px;
+	        }
+
+	        .modelcontent{
+	            width: 450px;
+	            background-image: url('../img/gsxq_cont.gif');
+	            background-size: 100% 100%;
+	            background-repeat: no-repeat; 
+	            font-size: 18px;
+	        }
+
 		</style>
 	</head>
 	<body>
 		<!--供应商入驻-->
 		<div class="new_hzf_main">
 			<div class="new_hzf_main01"></div>
-			<div class="new_hzf_main02"><div><a href="../login/registert.html"></a></div></div>
+			<div class="new_hzf_main02"><div><a href="##"></a></div></div>
 			<div class="new_hzf_main03"></div>
 		</div>
 		<!-- <div class="maxWidth bg1">
@@ -102,6 +217,25 @@
 				<button>立即提交</button>
 			</div>
 		</div>
+
+		<!-- 所有成功提示 -->
+		<div class="all_success_alert" style="z-index: 99999;">
+			<div class="modelCont">
+			    <div class="modeltitle">
+			        <span>消息提示</span>
+			        <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+			    </div>
+			    <div class="modelcontent">
+			        <div class="info">
+			            <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+			            <p class="innerSuccmsg">入驻已完成</p>
+			        </div>
+			        <div class="modelBtnBox">
+			            <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+			        </div>
+			    </div>
+			</div>
+		</div>
 		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
@@ -115,6 +249,62 @@
 				$('.tsBg').show();
 				$('.tsBox').fadeIn();
 			})
+
+			$('.modelbtn, .close').click(function() {
+				$('.all_success_alert').hide();
+			});
+
+			//isOld token
+			//2 ok 已认证
+			//0 超时
+			//1 未登录
+			//-1 未认证
+			//-2 审核中
+			$('.new_hzf_main02').click(function() {
+				
+				var isOld = localStorage.getItem('isOld');
+				if (isOld == '1' || isOld == '0') { 
+					window.location.href = "../login/registert.html";
+				} else if (isOld == '-1' || isOld == '-2') {
+					window.location.href = "../account/account.html";
+					sessionStorage.setItem('hzf_showPage', 'flag_qyrz');
+				} else if (isOld == '2') {
+					$.ajax({
+		                url: pubIP + 'companyCertification/getQualificationStateByCompanyId',
+		                type: 'post',
+		                headers: {
+		                    Accept: "application/json; charset=utf-8",
+		                    token: token
+		                },
+		                data: {
+		                    companyId: companyId
+		                },
+		                cache: false,
+		                dataType: 'json',
+		                success: function (data) {
+		                    console.log(data);
+
+		                    if (data.data.aType == null) {
+		                    	window.location.href = "../account/account.html";
+								sessionStorage.setItem('hzf_showPage', 'flag_wxrz');
+		                    } else if (data.data.bType == null) {
+								window.location.href = "../account/account.html";
+								sessionStorage.setItem('hzf_showPage', 'flag_tsrz');
+		                    } else {
+		                    	$('.all_success_alert').show();
+								//cf_alert(1, '入驻已完成');
+							}
+
+
+		                },
+		                error: function(err) {
+		                	console.log(err);
+		                }
+		            });
+				}
+			});
+
+
 			//拦截链接
 		    $(document).on('click','a',function(e){
 	       		e.preventDefault();

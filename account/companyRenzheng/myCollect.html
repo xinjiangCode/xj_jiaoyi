@@ -75,10 +75,10 @@
         <div  style="text-align: center;margin-top: 20px;margin-bottom: 20px;">
 	        <ul class="pagination" id="page1"></ul>
 	        <div class="pageJump">
-	                <span class="allPageN">1/200</span>
+	                <span class="allPageN">1/1</span>
 	                共<span class="allPageSize"></span>页，
 	            <span>到第</span>
-	            <input type="text"/>
+	            <input type="text" style="padding-left: 0px; text-align: center;"/>
 	            <span>页</span>
 	            <button type="button" class="button">GO</button>
 	        </div>
@@ -89,12 +89,12 @@
     <script src="../../js/pager.js" type="text/javascript" charset="utf-8"></script>
    	<script type="text/javascript">
    		var isFirst = true;
-   		var nNum = 0;
+   		//var nNum = 0;
    		function addDom(data){
    			var str = ''
    			$.each(data,function(i,t){
    				str += '<tr>\
-			            <td>'+t.companyName+'</td>\
+			            <td class="go_store" data-companyId="'+t.companyId+'">'+t.companyName+'</td>\
 			            <td>'+t.companyType+'</td>\
 			            <td>'+t.companyAddress2+'</td>\
 			            <td>'+new Date(t.addTime).Format("yyyy-MM-dd hh:mm:ss")+'</td>\
@@ -104,7 +104,7 @@
    			$('.shouhuo_person_list tbody').html(str) ;
             $('.pagination').parent().show();
    		}
-   		getData(nNum);
+   		getData(1);
    		
    		function getData(num){
             $('.pagination').parent().hide();
@@ -141,14 +141,19 @@
 				        elem: $('#page1'),
 				        callback: function(n) {
 				            //console.log(n);
-				            addMsg(n-1);
-				            nNum = n-1;
+				            getData(n);
+				            num = n;
 				        }
 				    });
-				    $('.allPageN').text(num+1+'/'+json.pages);
-				    $('.allPageSize').text(json.pages);
+
+
+				    
 				    isFirst = false;
 		        }
+
+            $('.allPageN').text(num+'/'+json.pages);
+            $('.allPageSize').text(json.pages);
+
 		        addDom(json.aData);
 	          },
 	          error:function(xhr,statues,error){
@@ -156,6 +161,11 @@
 	          }
 	       });
    		}
+
+      $(document).on('click', '.go_store', function(){
+        localStorage.setItem('thisCompanyId', $(this).attr('data-companyId'));
+        window.parent.location.href = "../../shopManage/storeIndex.html";
+      });
    		
    		$(document).on('click','.cancel_guanzhu',function(){
    			var dpId = $(this).attr('dataid');
