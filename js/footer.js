@@ -88,7 +88,7 @@ document.writeln("<footer>\n" +
     "    </div>\n" +
     "    <div class=\"footerBot\">\n" +
     "        <ul>\n" +
-    "            <li><a href=\"##\">首页</a></li>\n" +
+    "            <li><a href=\"../index.html\">首页</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
     "            <li><a href=\"##\">合作伙伴</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
