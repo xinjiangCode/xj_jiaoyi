@@ -1,0 +1,139 @@
+.box{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.box .head_w{
+    width: 100%;
+    height: 107px;
+    text-align: center;
+}
+.box .head_w .head{
+    margin: 0 auto;
+    width: 1230px;
+    height: 107px;
+    line-height: 107px;
+}
+.box .head .img{
+    float: left;
+    width: 280px;
+    height: 67px;
+    margin-right: 101px;
+}
+.box .head .nav{
+    float: left;
+}
+.head .nav li{
+    float: left;
+    margin-right: 38px;
+    font-size: 16px;
+    color: #000;
+}
+.head .nav .blue{
+    color:#6297d9;
+}
+.box .lunbo_w{
+    width: 100%;
+    height: 461px;
+    text-align: center;
+}
+.box .lunbo_w .lunbo{
+    margin: 0 auto;
+    width: 100%;  
+    height: 461px;
+    overflow: hidden;
+}
+.box .wenzi_w{
+    width: 100%;
+    height: auto;
+}
+.box .wenzi_w .wenzi{
+    margin: 0 auto;
+    width: 1046px;
+    padding-top: 47px;
+    padding-bottom: 90px;
+    box-sizing: border-box;
+    
+}
+.box .wenzi_t{
+    height: 29px;
+    line-height: 29px;
+    position: relative;
+}
+.box .wenzi_t p{
+    font-size: 20px;
+    color:#000;
+    text-indent: 40px;
+    margin-bottom: 34px;
+}
+.box .wenzi_t .h_l{
+    width: 447px;
+    height: 1px;
+    background-color: #000;
+
+}
+.box .wenzi_t .hwz{
+    width: 206px;
+    height: 30px;
+    font-size: 30px;
+    position: absolute;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -103px;
+}
+.box .wenzi_t .h_r{
+    width: 447px;
+    height: 1px;
+    background-color: #000;
+}
+.box .wenzi_m{
+    margin-top: 115px;
+}
+.box .wenzi_m .yinyin{
+    margin: 0 13px;
+     height: 50px;
+     line-height: 50px;
+     background-color: #fff;
+     border: 1px solid #e9e9e9;
+     box-shadow:2px 2px 2px 1px #e9e9e9;
+     font-size: 20px;
+     color:#5690f6;
+     padding-left: 23px;
+     box-sizing: border-box;
+}
+.box .wenzi_m ul{
+    color:#666666;
+    font-size: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 37px;
+    box-sizing: border-box;
+}
+
+.box .wenzi_m p{
+     color:#333333;
+     font-size: 16px;
+ }
+ .box .wenzi_b .b_t{
+     margin: 0 auto;
+     width: 990px;
+     height: 40px;
+     border-top:1px solid #e9e9e9;
+ }
+.wenzi_b .b_t p{
+     font-size: 15px;
+     color:#8fb2f8;
+     margin-top: 20px;
+ }
+
+ .box .img_w{
+    width: 100%;
+    text-align: center;
+}
+.img_w .btn_img img{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    
+}
+

@@ -1,0 +1,94 @@
+.box{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.box .head_w{
+    width: 100%;
+    height: 107px;
+    text-align: center;
+}
+.box .head_w .head{
+    margin: 0 auto;
+    width: 1230px;
+    height: 107px;
+    line-height: 107px;
+}
+.box .head .img{
+    float: left;
+    width: 280px;
+    height: 67px;
+    margin-right: 101px;
+}
+.box .head .nav{
+    float: left;
+}
+ .head .nav li{
+    float: left;
+    margin-right: 38px;
+    font-size: 16px;
+    color: #000;
+}
+.head .nav .blue{
+    color:#6297d9;
+}
+.box .lunbo_w{
+    width: 100%;
+    height: 461px;
+    text-align: center;
+}
+.box .lunbo_w .lunbo{
+    margin: 0 auto;
+    width: 100%;  
+    height: 461px;
+    overflow: hidden;
+}
+
+.box .adv_w{
+    width: 100%;
+    height: 408px;
+    text-align: center;
+}
+.box .adv_w .adv{
+    margin: 0 auto;
+    width: 1230px;
+    height: 408px;
+    padding-top: 77px;
+    padding-left: 45px;
+    padding-right: 25px;
+    box-sizing: border-box;
+}
+.box .adv li{
+    margin-right: 57px;
+}
+.box .adv .last{
+    margin-right: 0;
+}
+.adv .adv_t img{
+    width: 144px;
+    height: 166px;
+}
+.adv .adv_b p{
+    font-size: 22px;
+    color:#000;
+    padding-top: 34px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+.adv .adv_b span{
+    display: inline-block;
+    width: 186px;
+    font-size: 15px;
+}
+
+.box .img_w{
+    width: 100%;
+    text-align: center;
+}
+.img_w .btn_img img{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    
+}
+

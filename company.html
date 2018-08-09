@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>服务项目</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/company.css">
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+    <script src="js/header.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<style>
+    .mianCont_box,
+    .tabLinkMaxBox {
+        display: none;
+    }
+
+    .gaibian {
+        position: relative;
+    }
+
+    .xiala {
+        display: none;
+        width: 100px;
+        height: 80px;
+        position: absolute;
+        left: -20px;
+        top: 65px;
+        text-align: center;
+        background-color: #fff;
+        border: #EFEFEF 1px solid;
+    }
+
+    .xiala .xuanze {
+        width: 100%;
+        line-height: 25px;
+        text-align: center;
+
+    }
+
+    .xiala .xuanze a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 25px;
+        font-size: 15px;
+        text-align: center;
+        color: #e4e4e4;
+    }
+
+    .xiala .xuanze a:hover {
+        color: #6297d9;
+    }
+
+</style>
+
+<body>
+    <div class="box">
+        <div class="head_w">
+            <div class="head clearfix">
+                <div class="img">
+                    <img src="./img/logo.png" alt="">
+                </div>
+                <ul class="nav clearfix">
+                        <li class="gaibian blue">
+                                <a class="gaibian_a" href="./aboutUs.html">公司介绍</a>
+                            <ul class="xiala">
+                                    <li class="xuanze"><a href="./aboutUs.html">关于我们</a></li>
+                                    <li class="xuanze"><a href="./company.html">项目服务</a></li>
+                                    <li class="xuanze"><a href="./advantage.html">核心优势</a></li>                            
+                        </ul>
+                        </li>
+                        <li><a href="./new.html">新闻中心</a> </li>
+                        <li><a href="./features.html">团队风采 </a> </li>
+                        <li><a href="./legal.html"> 法律声明</a> </li>
+                        <li><a href="./recruit.html">人才招聘</a></li>
+                        <li><a href="./connect.html">联系我们 </a> </li>
+                    </ul>
+            </div>
+
+            <div class="lunbo_w">
+                <div class="lunbo">
+                    <ul>
+                        <li>
+                            <img src="./img/lunbo_s2.jpg" alt="">
+                        </li>
+                        <!-- <li><img src="./image/lunbo_s1.jpg" alt=""></li> -->
+
+                    </ul>
+                </div>
+            </div>
+            <div class="mnav_w">
+                <div class="mnav">
+                    <ul class="clearfix">
+                        <a href="##">
+                            <li class="fl color">数据信息服务</li>
+                        </a>
+                        <a href="##">
+                            <li class="fl">现货商城</li>
+                        </a>
+                        <a href="##">
+                            <li class="fl">贝立方</li>
+                        </a>
+                        <a href="##">
+                            <li class="fl">化动力</li>
+                        </a>
+                        <a href="##">
+                            <li class="fl">会员增值服务</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="service_w">
+                <div class="service clearfix">
+                    <div class="ser_l fl">
+                        <span>平台现货商城整合了数千家企业，数十万个化学品，筛选出优秀的XXXXXXXX</span>
+                    </div>
+                    <div class="ser_r fr">
+                        <img src="./img/serves.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="img_w">
+                <div class="btn_img">
+                    <img src="./img/btn.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+        <script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            $('.gaibian_a').mouseenter(function () {
+                $('.xiala').show();
+            });
+            $('.gaibian').mouseleave(function () {
+                $('.xiala').hide();
+            });
+        </script>
+
+
+</body>
+
+</html>

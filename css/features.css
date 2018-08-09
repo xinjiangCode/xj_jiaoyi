@@ -1,0 +1,171 @@
+.box{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.box .head_w{
+    width: 100%;
+    height: 107px;
+    text-align: center;
+}
+.box .head_w .head{
+    margin: 0 auto;
+    width: 1230px;
+    height: 107px;
+    line-height: 107px;
+}
+.box .head .img{
+    float: left;
+    width: 280px;
+    height: 67px;
+    margin-right: 101px;
+}
+.box .head .nav{
+    float: left;
+}
+ .head .nav li{
+    float: left;
+    margin-right: 38px;
+    font-size: 16px;
+    color: #000;
+}
+.head .nav .blue{
+    color:#6297d9;
+}
+.box .lunbo_w{
+    width: 100%;
+    height: 461px;
+    text-align: center;
+}
+.box .lunbo_w .lunbo{
+    margin: 0 auto;
+    width: 100%;  
+    height: 461px;
+    overflow: hidden;
+}
+.box .mien_w{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.box .mien_w .mien{
+    margin: 0 auto;
+    width: 1046px;
+    height: 100%;
+    padding-top: 65px;
+    box-sizing: border-box;
+}
+.mien_w .mien .mien_t{
+    height: 31px;
+    line-height: 31px;
+    margin-bottom:45px; 
+    position: relative;
+}
+.mien_w .mien .hx_l{
+    width: 447px;
+    height: 1px;
+    background-color: #000;
+}
+.mien_w .mien .tdfc{
+    width: 206px;
+    height: 30px;
+    font-size: 30px;
+    position: absolute;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -103px;
+
+}
+
+.mien_w .mien .hx_r{
+    width: 447px;
+    height: 1px;
+    background-color: #000;
+}
+
+.mien .mien_b .activity_t{
+  margin-bottom: 79px;
+} 
+
+.mien .mien_b .activity_b{
+    margin-bottom: 196px;
+  }
+
+.mien .mien_b .photo{
+    width: 329px;
+    height: 404px;
+    background-color: #ecf0f1;
+}
+.mien_w .mien_b .photo_m{
+    margin-right: 29px;
+    margin-left: 29px;
+}
+
+.mien_w .mien_b .xiangce{
+    width: 329px;
+    height: 7px;
+    background-color: #5c90f3;
+    position: relative;
+}
+.mien_b .xiangce .reture_more{
+    width: 14px;
+    height: 14px;
+    position: relative;
+}
+.mien_b .xiangce .reture_more img{
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 297px;
+    top: -276px;
+
+}
+
+.mien_b .xiangce .dazi{
+    font-size: 20px;
+    color:#343537;
+    padding-top: 37px;
+    padding-bottom: 20px;
+    box-sizing: border-box;
+}
+.mien_b .xiangce .xiaozi{
+    font-size: 15px;
+    color:#777779;
+    padding-left: 22px;
+    padding-right: 22px;
+}
+.mien_b .xiangce .shijian{
+    font-size: 14px;
+    padding-top: 18px;
+    box-sizing: border-box;
+    text-align: right;
+    padding-right: 40px;
+}
+.mien_b .xiangce .more{
+    display: inline-block;
+    font-size: 12px;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+   right: 17px;
+   top:144px;
+
+}
+
+.mien_b .xiangce img{
+        height: 254px;
+        width: 329px;
+        margin-top: 12px;
+        margin-bottom: 0;
+}
+.box .img_w{
+    width: 100%;
+    text-align: center;
+}
+.img_w .btn_img img{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    
+}
+

@@ -1,0 +1,115 @@
+.box{
+    width: 100%;
+    background-color: #fff;
+}
+.box .head_w{
+    width: 100%;
+    height: 107px;
+    text-align: center;
+}
+.box .head_w .head{
+    margin: 0 auto;
+    width: 1230px;
+    height: 107px;
+    line-height: 107px;
+}
+.box .head .img{
+    float: left;
+    width: 300px;
+    height: 107px;
+    margin-right: 100px;
+}
+.box .head .nav{
+    float: left;
+}
+ .head .nav li{
+    float: left;
+    margin-right: 38px;
+    font-size: 16px;
+    color: #000;
+}
+.head .nav .blue{
+    color:#6297d9;
+}
+.box .lunbo_w{
+    width: 100%;
+    height: 461px;
+    text-align: center;
+}
+.box .lunbo_w .lunbo{
+    margin: 0 auto;
+    width: 100%;  
+    height: 461px;
+    overflow: hidden;
+}
+.box .customer_w{
+    width: 100%;
+    padding-top: 31px;
+    box-sizing: border-box;
+}
+.box .customer_w .customer{
+    margin: 0 auto;
+    width: 1230px;
+    height: 235px;
+    border:1px solid #eaeaea;
+    box-shadow:  2px 2px 2px 1px #e9e9e9;
+    margin-bottom: 28px;
+    padding-left: 156px;
+    padding-right: 156px;
+    padding-top: 46px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    position: relative;
+}
+.customer .sev_img{
+    width: 135px;
+    height: 300px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.customer .sev_img .sev_bgimg{
+    width: 135px;
+    height: 135px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+}
+.customer_w .customer li{
+    margin-top: 12px;
+}
+.customer_w .customer p{
+    font-size: 16px;
+    color:#000;
+}
+.customer_w .customer img{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+}
+.customer_w .customer span{
+    display: inline-block;
+    font-size: 14px;
+    color:#000;
+    margin-left: 15px;
+}
+
+ #conten{
+    margin: 0 auto;
+    width: 1230px;
+    height: 292px;
+    border:1px solid #eaeaea;
+
+}
+
+.box .img_w{
+    width: 100%;
+    text-align: center;
+}
+.img_w .btn_img img{
+    margin: 0 auto;
+    display: block;
+    width: 100%;   
+}
+
