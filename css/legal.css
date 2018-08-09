@@ -1,0 +1,126 @@
+.box{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.box .head_w{
+    width: 100%;
+    height: 107px;
+    text-align: center;
+}
+.box .head_w .head{
+    margin: 0 auto;
+    width: 1230px;
+    height: 107px;
+    line-height: 107px;
+}
+.box .head .img{
+    float: left;
+    width: 280px;
+    height: 67px;
+    margin-right: 101px;
+}
+.box .head .nav{
+    float: left;
+}
+ .head .nav li{
+    float: left;
+    margin-right: 38px;
+    font-size: 16px;
+    color: #000;
+}
+.head .nav .blue{
+    color:#6297d9;
+}
+.box .lunbo_w{
+    width: 100%;
+    height: 461px;
+    text-align: center;
+}
+.box .lunbo_w .lunbo{
+    margin: 0 auto;
+    width: 100%;  
+    height: 461px;
+    overflow: hidden;
+}
+.legal_w{
+    width: 100%;
+    height: 100%;
+}
+
+.legal_w .legal{
+    margin: 0 auto;
+    width: 1049px;
+    height: 100%;
+    padding-top: 70px;
+    padding-bottom: 58px;
+    box-sizing: border-box;
+}
+.legal_w .legal .legal_t{
+    height: 25px;
+    line-height: 25px;
+    margin-bottom:45px; 
+    position: relative;
+}
+.legal_w .legal .hx_l{
+    width: 447px;
+    height: 1px;
+    background-color: #000;
+}
+.legal_w .legal .flsm{
+    width: 100px;
+    height: 25px;
+    font-size: 25px;
+    position: absolute;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -50px;
+
+}
+
+.legal_w .legal .hx_r{
+    width: 447px;
+    height: 1px;
+    background-color: #000;
+}
+.legal_b .heise{
+    font-size: 16px;
+    color:#585858;
+    padding-bottom: 0;   
+}
+
+.legal .legal_b{
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color:#a5a5a5;
+}
+.legal_b .notice{
+    font-size: 16px;
+    color:#585858;
+    padding-bottom: 27px;
+    box-sizing: border-box;  
+}
+.b_bot p{
+      padding-bottom: 27px;
+      box-sizing: border-box;
+}
+.legal_b .b_mid{
+    font-size: 16px;
+    color:#585858;
+    line-height: 70px;
+}
+
+
+
+.box .img_w{
+    width: 100%;
+    text-align: center;
+}
+.img_w .btn_img img{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    
+}
+

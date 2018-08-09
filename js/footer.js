@@ -94,9 +94,9 @@ document.writeln("<footer>\n" +
     "            <li class=\"liline\"></li>\n" +
     "            <li><a href=\"../aboutUs.html\">关于我们</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
-    "            <li><a href=\"##\">联系我们</a></li>\n" +
+    "            <li><a href=\"../connect.html\">联系我们</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
-    "            <li><a href=\"##\">服务条款</a></li>\n" +
+    "            <li><a href=\"../legal.html\">服务条款</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
     "            <li><a href=\"##\">金融服务</a></li>\n" +
     "        </ul>\n" +
