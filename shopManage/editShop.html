@@ -54,6 +54,10 @@
 			max-height: 451px;
 			overflow: auto; 
 		}
+
+		.nextSub, .nextSub2 {
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
@@ -797,6 +801,15 @@
         });
 		
 		$('.nextSub').click(function(){
+
+			if ($('.shop_sort_select option:selected').attr('value') == 2) {
+				sessionStorage.setItem('shop_sort', $('.shop_sort_select option:selected').attr('value'));
+				sessionStorage.setItem('guige', $('.guige_select option:selected').text());
+				sessionStorage.setItem('product', $('#productSpecUnit option:selected').text());
+			} else {
+				sessionStorage.setItem('shop_sort', $('.shop_sort_select option:selected').attr('value'));
+			}
+
 			var can = true;
 			var img_upload_num = 0;
 

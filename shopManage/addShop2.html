@@ -219,6 +219,10 @@
 			height: 38px;
 			line-height: 38px;
 		}
+
+		.nextSub, .nextSub2 {
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
@@ -346,7 +350,7 @@
 
 		if (sessionStorage.getItem('shop_sort') == 2) {
 			$('.sum').next().text(sessionStorage.getItem('guige'));
-			$('.unitPrice').next().text(sessionStorage.getItem('guige')+sessionStorage.getItem('product'));
+			$('.unitPrice').next().text(sessionStorage.getItem('guige')+'/'+sessionStorage.getItem('product'));
 		}
 
 		/*查询仓库地址列表*/

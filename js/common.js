@@ -1,5 +1,5 @@
  //var pubIP = 'http://api.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
+var pubIP = 'http://192.168.1.169:7777/service/';
 var downIP = 'http://file.xjv56.com/';
 //var downIP = 'http://192.168.1.80:8680/web-file/';
 //var pubIP = 'http://192.168.1.165:7777/service/';

@@ -549,6 +549,14 @@
 
 					console.log(json);
 
+					if (json.data.chemicalDangerFlag == 1) {
+						$('.weiIcon').attr('src', '../img/pu.png');
+					} else if (json.data.chemicalDangerFlag == 2) {
+						$('.weiIcon').attr('src', '../img/wei.png');
+					} else if (json.data.chemicalDangerFlag == 3) {
+						$('.weiIcon').attr('src', '../img/te.png');
+					}
+
 					$('.search_left_top .huaxue_name').html(json.data.chemicalName);
 					$('.search_left_top .huaxue_name').attr("title",json.data.chemicalName);
 					$('.search_left_top .cas').html(json.data.chemicalCas);

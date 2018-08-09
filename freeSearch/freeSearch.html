@@ -349,6 +349,8 @@
 				font-size: 14px;
 				color: #949495;
 			}
+
+
 		</style>
 	</head>
 	<body>
@@ -888,6 +890,27 @@
 			$(document).on('click', '.liji_baojia', function () {
 				var shopCompanyId = $(this).attr("data-mycompanyId");
 				var that = this;
+				var isOld = localStorage.getItem('isOld');
+				if(isOld == '1'){
+   					$('#effect .contTitle span').text('您尚未登录');
+					missedLogin() ;
+   				}else if(isOld == '0'){
+   					missedLogin() ;
+   				}else if(isOld == '-1'){
+   					$('#effect .contTitle span').text('您尚未认证');
+   					$('#effect .contTitle i').text('认证');
+   					$('#popLogin').text('认证');
+					missedLogin() ;
+					return false;
+   				}else if(isOld == '-2'){
+  //  					$('#effect .contTitle span').text('您的认证正在审核中');
+  //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+  //  					$('#popLogin').hide();
+					// missedLogin() ;
+
+					window.location.href = this.href;
+				}
+
 				//判断找货列表需求是否超时
 				$.ajax({
 					type: "get",
@@ -918,6 +941,8 @@
 						console.log(err);
 					}
 				})
+
+
 				
 				
 			});

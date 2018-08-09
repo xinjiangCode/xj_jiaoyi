@@ -104,6 +104,10 @@
 			text-align: center;
 			line-height: 38px;
 		}
+
+		.nextSub, .nextSub2 {
+			cursor: pointer;
+		}
 		
 	</style>
 	<style id="alertStyle">
@@ -334,6 +338,12 @@
 		$(window.parent.document).find('.modelBox .cancel').click(function(){
 			$(window.parent.document).find('.modelBox').css('display','none');
 		});
+
+		if (sessionStorage.getItem('shop_sort') == 2) {
+			$('.sum').next().text(sessionStorage.getItem('guige'));
+			$('.unitPrice').next().text(sessionStorage.getItem('guige')+'/'+sessionStorage.getItem('product'));
+		}
+
 		// 记录信息
 		var infoObj = {};
 
