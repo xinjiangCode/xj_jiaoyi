@@ -55,7 +55,7 @@ document.writeln("<div class=\"pop\" id=\"effect\">\n" +
     "</div>");
 //当返回code为401时需要调用此方法
 function missedLogin() {
-    $("#effect").css("display","block");
+    window.parent.$("#effect").css("display","block");
 }
 //跳回登录页
 function popEffectLogin() {
@@ -199,7 +199,12 @@ if(token){
 		  }
 	});
 }else{
+    // missedLogin() ;
+    if(location.href.indexOf('account') != -1){
+        missedLogin() ;
+    }
 	localStorage.setItem('isOld','1');
+
 }
 //else{
 //	localStorage.setItem('isOld','1');

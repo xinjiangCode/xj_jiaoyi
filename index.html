@@ -1097,6 +1097,8 @@
 						$('#effect .contTitle span').text('您尚未认证');
 						$('#effect .contTitle i').text('认证');
 						$('#popLogin').text('认证');
+					
+						$('#popLogin').addClass('qyrz_class');
 						missedLogin() ;
 					}else if(isOld == '-2'){
 						$('#effect .contTitle span').text('您的认证正在审核中');
@@ -1114,6 +1116,11 @@
 				window.localStorage.setItem('jzSeachName', $(this).attr('data-chemicalid'));
 				window.location.href="search/productNameSearch_precise.html";
 			});
+
+			$(document).on('click', '.qyrz_class', function() {
+				sessionStorage.setItem('hzf_showPage', 'flag_qyrz');
+				window.location.href = "account/account.html";
+			})
 
 			
 			var str = '';
@@ -1175,6 +1182,7 @@
 						$('#effect .contTitle span').text('您尚未认证');
 						$('#effect .contTitle i').text('认证');
 						$('#popLogin').text('认证');
+						$('#popLogin').addClass('qyrz_class');
 						missedLogin() ;
 					}else if(isOld == '-2'){
 						$('#effect .contTitle span').text('您的认证正在审核中');
@@ -1202,6 +1210,7 @@
 						$('#effect .contTitle span').text('您尚未认证');
 						$('#effect .contTitle i').text('认证');
 						$('#popLogin').text('认证');
+						$('#popLogin').addClass('qyrz_class');
 						missedLogin() ;
 					}else if(isOld == '-2'){
 						$('#effect .contTitle span').text('您的认证正在审核中');
@@ -1229,6 +1238,7 @@
 						$('#effect .contTitle span').text('您尚未认证');
 						$('#effect .contTitle i').text('认证');
 						$('#popLogin').text('认证');
+						$('#popLogin').addClass('qyrz_class');
 						missedLogin() ;
 					}else if(isOld == '-2'){
 						$('#effect .contTitle span').text('您的认证正在审核中');
@@ -1256,6 +1266,7 @@
 						$('#effect .contTitle span').text('您尚未认证');
 						$('#effect .contTitle i').text('认证');
 						$('#popLogin').text('认证');
+						$('#popLogin').addClass('qyrz_class');
 						missedLogin() ;
 					}else if(isOld == '-2'){
 						$('#effect .contTitle span').text('您的认证正在审核中');
@@ -1729,6 +1740,7 @@
 	       					$('#effect .contTitle span').text('您尚未认证');
 	       					$('#effect .contTitle i').text('认证');
 	       					$('#popLogin').text('认证');
+	       					$('#popLogin').addClass('qyrz_class');
 							missedLogin() ;
 	       				}else if(isOld == '-2'){
 	      //  					$('#effect .contTitle span').text('您的认证正在审核中');
