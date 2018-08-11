@@ -829,6 +829,8 @@
 							}
 						str0+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.one.allQuoteNumber+' </span>家报价</p>';
 
+                        data.data.one.validityData = new Date(data.data.one.validityData).Format("yyyy-MM-dd hh:mm:ss");
+                        distanceTime2('distanceTime0', data.data.one.validityData);
 					}
 					
 					if(data.data.two != ''&&data.data.two != null){
@@ -845,6 +847,8 @@
 							}
 						str1+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.two.allQuoteNumber+' </span>家报价</p>';
 
+                        data.data.two.validityData = new Date(data.data.two.validityData).Format("yyyy-MM-dd hh:mm:ss");
+                        distanceTime2('distanceTime1', data.data.two.validityData);
 					}
 					if(data.data.three != ''&&data.data.three != null){
 						str2 += '<img src="../img/tuijian.png"/>'
@@ -860,6 +864,8 @@
 							}
 						str2+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.three.allQuoteNumber+' </span>家报价</p>';
 
+                        data.data.three.validityData = new Date(data.data.three.validityData).Format("yyyy-MM-dd hh:mm:ss");
+                        distanceTime2('distanceTime2', data.data.three.validityData);
 
 					}
                 	
@@ -868,14 +874,6 @@
 					$('#tuijiaTwoInfo0').html(str0);
 					$('#tuijiaTwoInfo1').html(str1);
 					$('#tuijiaTwoInfo2').html(str2);
-
-					data.data.two.validityData = new Date(data.data.two.validityData).Format("yyyy-MM-dd hh:mm:ss");
-
-					console.log(data.data.two.validityData);
-
-					distanceTime2('distanceTime0', data.data.two.validityData);
-					distanceTime2('distanceTime1', data.data.two.validityData);
-					distanceTime2('distanceTime2', data.data.two.validityData);
 
                 	// var two = template('tuijiaTwoTpl', data.data.two);
                  //    $('#tuijiaTwoInfo').html(two);
