@@ -1428,13 +1428,16 @@
 								console.log("+++++++++++++++++++++")
 								console.log(response.data)
 
-								if (response.data.chemicalType.msgContent == null) {
-									response.data.chemicalType.msgContent = '';
+								if(response.data.chemicalType != null || response.data.chemicalType != ''){
+                                    if (response.data.chemicalType.msgContent == null) {
+                                        response.data.chemicalType.msgContent = '';
+                                    }
+
+                                    if (response.data.chemicalType.msgTitle == null) {
+                                        response.data.chemicalType.msgTitle = '';
+                                    }
 								}
 
-								if (response.data.chemicalType.msgTitle == null) {
-									response.data.chemicalType.msgTitle = '';
-								}
 
 								if(response.data.chemical.chemicalDangerFlag != 1){
 									if(response.data.chemicalType && response.data.chemicalType != {}) {
@@ -1446,13 +1449,15 @@
 											+'<img src="../img/hazardousArticle.png" />'
 											+'<p>' + response.data.chemicalType.msgTitle + '</p>'
 											+'</div>';
-										if (response.data.chemicalType.msgShow == 1 && (response.data.chemicalType.msgContent != ""||response.data.chemicalType.msgContent != null)) {
+											if (response.data.chemicalType != null || response.data.chemicalType != ''){
+												if (response.data.chemicalType.msgShow == 1 && (response.data.chemicalType.msgContent != ""||response.data.chemicalType.msgContent != null)) {
 
-											chemicalTypeTpl += '<div class="shangpin_cont fl">'+ response.data.chemicalType.msgContent +'</div>';
-										}else {
-											$('.shangpin').css('display', 'none');
-											return false;
-										}
+													chemicalTypeTpl += '<div class="shangpin_cont fl">'+ response.data.chemicalType.msgContent +'</div>';
+												}else {
+													$('.shangpin').css('display', 'none');
+													return false;
+												}
+											}
 											chemicalTypeTpl+='</div>';
 						
 										$('.shangpin').html(chemicalTypeTpl);

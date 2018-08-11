@@ -455,7 +455,9 @@
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-
+                if(data.code == -1001){
+                    return false;
+                }
                 for (var i = 0; i < data.data.length; i++) {
                     data.data[i].timestamp = new Date(data.data[i].timestamp).Format("yyyy.MM.dd");
                 }
@@ -489,6 +491,7 @@
        					$('#effect .contTitle span').text('您尚未认证');
        					$('#effect .contTitle i').text('认证');
        					$('#popLogin').text('认证');
+                        $('#popLogin').addClass('qyrz_class');
 						missedLogin() ;
        				}else if(isOld == '-2'){
       //  					$('#effect .contTitle span').text('您的认证正在审核中');
@@ -505,6 +508,11 @@
        			window.location.href = this.href;
        		}
 	     })
+
+        $(document).on('click', '.qyrz_class', function() {
+            sessionStorage.setItem('hzf_showPage', 'flag_qyrz');
+            window.location.href = "../account/account.html";
+        })
     </script>
 </body>
 </html>

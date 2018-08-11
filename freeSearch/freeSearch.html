@@ -719,11 +719,10 @@
 					$('#popLogin').text('认证');
 					missedLogin() ;
 				}else if(isOld == '-2'){
-					// $('#effect .contTitle span').text('您的认证正在审核中');
-					// $('#effect .contTitle i').text('等待审核通过').css('color','#000');
-					// $('#popLogin').hide();
-					// missedLogin() ;
-					window.location.href="../account/account.html";
+					$('#effect .contTitle span').text('您的认证正在审核中');
+					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+					$('#popLogin').hide();
+					missedLogin() ;
 				}
 			}else{
 				window.location.href='../account/account.html';
@@ -747,11 +746,10 @@
 					$('#popLogin').text('认证');
 					missedLogin() ;
 				}else if(isOld == '-2'){
-					// $('#effect .contTitle span').text('您的认证正在审核中');
-					// $('#effect .contTitle i').text('等待审核通过').css('color','#000');
-					// $('#popLogin').hide();
-					// missedLogin() ;
-					window.location.href="../account/account.html";
+					$('#effect .contTitle span').text('您的认证正在审核中');
+					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+					$('#popLogin').hide();
+					missedLogin() ;
 				}
 			}else{
 				window.location.href='../account/account.html';
@@ -775,11 +773,11 @@
 					$('#popLogin').text('认证');
 					missedLogin() ;
 				}else if(isOld == '-2'){
-					// $('#effect .contTitle span').text('您的认证正在审核中');
-					// $('#effect .contTitle i').text('等待审核通过').css('color','#000');
-					// $('#popLogin').hide();
-					// missedLogin() ;
-					window.location.href="../account/account.html";
+					$('#effect .contTitle span').text('您的认证正在审核中');
+					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+					$('#popLogin').hide();
+					missedLogin() ;
+			
 				}
 			}else{
 				window.location.href='../account/account.html';
@@ -831,6 +829,8 @@
 							}
 						str0+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.one.allQuoteNumber+' </span>家报价</p>';
 
+                        data.data.one.validityData = new Date(data.data.one.validityData).Format("yyyy-MM-dd hh:mm:ss");
+                        distanceTime2('distanceTime0', data.data.one.validityData);
 					}
 					
 					if(data.data.two != ''&&data.data.two != null){
@@ -847,6 +847,8 @@
 							}
 						str1+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.two.allQuoteNumber+' </span>家报价</p>';
 
+                        data.data.two.validityData = new Date(data.data.two.validityData).Format("yyyy-MM-dd hh:mm:ss");
+                        distanceTime2('distanceTime1', data.data.two.validityData);
 					}
 					if(data.data.three != ''&&data.data.three != null){
 						str2 += '<img src="../img/tuijian.png"/>'
@@ -862,6 +864,8 @@
 							}
 						str2+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.three.allQuoteNumber+' </span>家报价</p>';
 
+                        data.data.three.validityData = new Date(data.data.three.validityData).Format("yyyy-MM-dd hh:mm:ss");
+                        distanceTime2('distanceTime2', data.data.three.validityData);
 
 					}
                 	
@@ -870,14 +874,6 @@
 					$('#tuijiaTwoInfo0').html(str0);
 					$('#tuijiaTwoInfo1').html(str1);
 					$('#tuijiaTwoInfo2').html(str2);
-
-					data.data.two.validityData = new Date(data.data.two.validityData).Format("yyyy-MM-dd hh:mm:ss");
-
-					console.log(data.data.two.validityData);
-
-					distanceTime2('distanceTime0', data.data.two.validityData);
-					distanceTime2('distanceTime1', data.data.two.validityData);
-					distanceTime2('distanceTime2', data.data.two.validityData);
 
                 	// var two = template('tuijiaTwoTpl', data.data.two);
                  //    $('#tuijiaTwoInfo').html(two);
@@ -905,45 +901,46 @@
 					missedLogin() ;
 					return false;
    				}else if(isOld == '-2'){
-  //  					$('#effect .contTitle span').text('您的认证正在审核中');
-  //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
-  //  					$('#popLogin').hide();
-					// missedLogin() ;
+   					$('#effect .contTitle span').text('您的认证正在审核中');
+   					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+   					$('#popLogin').hide();
+					missedLogin() ;
 
-					window.location.href = this.href;
+				} else {
+					//判断找货列表需求是否超时
+					$.ajax({
+						type: "get",
+						url: pubIP + "buyingInfo/getBuyingState",//v1.0
+						headers: {
+							token: token
+						},
+						data: {
+							buyingId: $(this).attr('data-baojiaid_id')
+						},
+						cache: false,
+						dataType: "json",
+						success: function(data){
+							console.log(data);
+							if(data.code==1){
+								if(companyId == shopCompanyId){
+									alert("您不能对自己公司商品进行报价");
+								}else{
+									window.localStorage.setItem('baojiaid', $(that).attr('data-baojiaid_id'));
+									//$(that).attr('href', 'offer.html');
+									location.href = "offer.html";
+								}
+							}else{
+								$(".modelBox5").show();
+							}
+						},
+						error: function (err) {
+							console.log(err);
+						}
+					})
+
 				}
 
-				//判断找货列表需求是否超时
-				$.ajax({
-					type: "get",
-					url: pubIP + "buyingInfo/getBuyingState",//v1.0
-					headers: {
-						token: token
-					},
-					data: {
-						buyingId: $(this).attr('data-baojiaid_id')
-					},
-					cache: false,
-					dataType: "json",
-					success: function(data){
-						console.log(data);
-						if(data.code==1){
-							if(companyId == shopCompanyId){
-								alert("您不能对自己公司商品进行报价");
-							}else{
-								window.localStorage.setItem('baojiaid', $(that).attr('data-baojiaid_id'));
-								//$(that).attr('href', 'offer.html');
-								location.href = "offer.html";
-							}
-						}else{
-							$(".modelBox5").show();
-						}
-					},
-					error: function (err) {
-						console.log(err);
-					}
-				})
-
+				
 
 				
 				
@@ -1244,6 +1241,8 @@
 	       					$('#effect .contTitle span').text('您尚未认证');
 	       					$('#effect .contTitle i').text('认证');
 	       					$('#popLogin').text('认证');
+	       					$('#popLogin').addClass('qyrz_class');
+
 							missedLogin() ;
 	       				}else if(isOld == '-2'){
 	      //  					$('#effect .contTitle span').text('您的认证正在审核中');
@@ -1261,6 +1260,11 @@
 	       			window.location.href = this.href;
 	       		}
 	        })
+
+	        $(document).on('click', '.qyrz_class', function() {
+				sessionStorage.setItem('hzf_showPage', 'flag_qyrz');
+				window.location.href = "../account/account.html";
+			})
 		</script>
 	</body>
 </html>

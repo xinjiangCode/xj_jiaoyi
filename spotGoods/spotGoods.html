@@ -982,6 +982,7 @@
 	       					$('#effect .contTitle span').text('您尚未认证');
 	       					$('#effect .contTitle i').text('认证');
 	       					$('#popLogin').text('认证');
+	       					$('#popLogin').addClass('qyrz_class');
 							missedLogin() ;
 	       				}
 	       				else if(isOld == '-2'){
@@ -999,6 +1000,11 @@
 	       			window.location.href = this.href;
 	       		}
 	       })
+
+	        $(document).on('click', '.qyrz_class', function() {
+				sessionStorage.setItem('hzf_showPage', 'flag_qyrz');
+				window.location.href = "../account/account.html";
+			})
 	  </script>
 	</body>
 </html>

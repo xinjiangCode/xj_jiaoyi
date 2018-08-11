@@ -152,33 +152,35 @@ if(token){
 					  success: function(json){
 						console.log(json.code);
 					    var rzType = null;
-					  	switch(json.data.type){
-							case 1:
-							  //未认证
-							  rzType = '-1';
-							  break;
-							case 2:
-							  //审核
-							  rzType = '-2';
-							  break;
-							case 3:
-							  //已认证
-							  rzType = '2';
-							  break;
-							case 4:
-							  rzType = '-1';
-							  break;
-							case 5:
-							  rzType = '-2';
-							  break;
-							case 6:
-							  rzType = '-2';
-							  break;
-							default:
-							  rzType = '-1';
-						}
-					  	localStorage.setItem('isOld',rzType);
-
+					    if (json.code.type != '') {
+					    	switch(json.data.type){
+								case 1:
+								  //未认证
+								  rzType = '-1';
+								  break;
+								case 2:
+								  //审核
+								  rzType = '-2';
+								  break;
+								case 3:
+								  //已认证
+								  rzType = '2';
+								  break;
+								case 4:
+								  rzType = '-1';
+								  break;
+								case 5:
+								  rzType = '-2';
+								  break;
+								case 6:
+								  rzType = '-2';
+								  break;
+								default:
+								  rzType = '-1';
+							}
+						  	localStorage.setItem('isOld',rzType);
+						  	
+					    }
 					  	
 
 					  },
