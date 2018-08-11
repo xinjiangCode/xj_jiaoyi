@@ -220,11 +220,9 @@
                         <div class="requireLevel item">
                             <label for="requireLevel">级别要求:</label>
                             <div class="selectPub input" data-selectedindex="0" id="requireLevel">
-                                <span>1</span>
+                                <span></span>
                                 <img src="../img/prl-select.jpg" alt="">
-                                <ul>
-                                    <li data-index="0">1</li>
-                                    <li data-index="1">2</li>
+                                <ul class="jibie_select">
                                 </ul>
                             </div>
                             <!--<select class="input" name="requireLevel" id="requireLevel">-->
@@ -290,6 +288,41 @@
             window.parent.cangkuAddressEdit();
 
         }
+        //级别
+        $.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"productApi/getProductLevelAll",//v1.0
+            cache:false,
+            async:false,
+            dataType: "json",
+            success: function(json){
+                //console.log(json);
+                if(json.code == '1'){
+                    var opt = '';
+                    $.each(json.data, function(i,t) {
+                        if(i==0){
+                            $("#requireLevel").find("span").html(t.levelName);
+                        }
+                        opt += '<li data-index="'+i+'">'+t.levelName+'</li>';
+                    });
+                    $('.jibie_select').html(opt);
+                    $('.selectPub ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().find('span').attr('data-couponId', $(this).attr('id'));//券id  couponId
+                        $(this).parent().parent().find('span').attr('data-dotId', $(this).attr('dotId'));//结算网点id
+                        $(this).parent().parent().find('span').attr('data-this-yue', $(this).attr('data-this-yue'));//卡券余额
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+                    });
+                }
+            }
+        });
 
 
         var addressId="-1";
@@ -358,6 +391,11 @@
                 dataType: 'json',
                 success: function (data) {
                    // console.log(data.data);
+                    var testRes = data.hasOwnProperty("data");//判断json中是否存在某属性
+                    console.log(testRes);
+                    if(testRes === false){
+                        return false;
+                    }
                     var str = '';
                     for (var i = 0; i < data.data.length; i++) {
                         str += '<li  data-index="'+i+'" value="'+i+'" data-addressId="'+data.data[i].dbid+'" title="'+data.data[i].receiver+" "+data.data[i].phone+" "+data.data[i].addressStr+" "+data.data[i].detailedAddress+'">'+data.data[i].receiver+" "+data.data[i].phone+" "+data.data[i].addressStr+" "+data.data[i].detailedAddress+'</li>';
