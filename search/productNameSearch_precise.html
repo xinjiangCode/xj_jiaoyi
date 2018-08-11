@@ -808,7 +808,7 @@ function sear() {
             if (!($("#province  option:selected").val() == '')) {
             	$('.selected1 ul li.province_provice').css('display', 'block');
                 $('.selected1 ul li.province_provice').attr('data-isSelect', '1');
-            	$('.selected1 ul li.province_provice span').html($("#province  option:selected").attr('data-proviceid'));
+            	$('.selected1 ul li.province_provice span').html($("#province  option:selected").text());
                 sear();
             }
             
@@ -885,7 +885,7 @@ function sear() {
             if (!($("#city  option:selected").val() == '')) {
 	            $('.selected1 ul li.city_city').css('display', 'block');
                 $('.selected1 ul li.city_city').attr('data-isSelect', '1');
-	            $('.selected1 ul li.city_city span').html($("#city  option:selected").attr('data-cityid'));
+	            $('.selected1 ul li.city_city span').html($("#city  option:selected").text());
                 sear();
 	        }
 
@@ -949,7 +949,7 @@ function sear() {
         	if (!($("#area option:selected").val() == '')) {
 	        	$('.selected1 ul li.area_area').css('display', 'block');
                 $('.selected1 ul li.area_area').attr('data-isSelect', '1');
-	            $('.selected1 ul li.area_area span').html($("#area  option:selected").attr('data-areaid'));
+	            $('.selected1 ul li.area_area span').html($("#area  option:selected").text());
                 sear();
            	}
 
