@@ -1635,7 +1635,7 @@
 					var testRes = json.hasOwnProperty("data");//判断json中是否存在某属性
 					console.log(testRes);
 					if(testRes === false){
-							return;
+						return false;
 					}
 		        	var str = '';
 		        	for (var i = 0; i < json.data.length; i++) {
