@@ -630,9 +630,9 @@ function xmTanUploadImg2(obj) {
             // var thisPhone = $('#yanzheng_phone').val();
             // sendAjax(thisPhone, $(this));
 
-            console.log(clickFlgCode);
+            console.log(phoneIshas);
 
-            if(!clickFlgCode){ //---------------------------
+            if(!phoneIshas){ //---------------------------
         			return false;
         		}
             
@@ -714,9 +714,13 @@ function xmTanUploadImg2(obj) {
 
         //获取验证码
         $('#huoqu_code').on('click', function () {
-			if(!clickFlgCode){
-        			return false;
-        		}
+			if(!phoneIshas){
+                    return false;
+                }
+
+            if (!clickFlgCode) {
+                return false;
+            }
             
             if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
                 $('#yanzheng_phone').parent().next().css('display', 'block');
@@ -752,7 +756,7 @@ function xmTanUploadImg2(obj) {
                     console.log(data);
                     if(data.code == 1){
                     	   // alert(data.msg);
-                    	   //clickFlgCode = false;
+                    	   clickFlgCode = false;
                     	   var time = 60;
 	                   var timer=setInterval(function () {
 		                      time--;
@@ -762,7 +766,7 @@ function xmTanUploadImg2(obj) {
 		                          clearInterval(timer);
 		                          $("#huoqu_code").css("color","#80acf8");
 		                          $("#huoqu_code").text("获取验证码");
-		                          //clickFlgCode = true;
+		                          clickFlgCode = true;
 		                      }
 		                },1000);
                     }
@@ -804,7 +808,7 @@ function xmTanUploadImg2(obj) {
 //                  console.log(data);
 				    if(data.code == 1){
                     	   // alert(data.msg);
-                    	   //clickFlgCode = false;
+                    	   clickFlgCode = false;
                     	   var time = 60;
 	                   var timer=setInterval(function () {
 		                      time--;
@@ -814,7 +818,7 @@ function xmTanUploadImg2(obj) {
 		                          clearInterval(timer);
 		                          $("#huoqu_code1").css("color","#80acf8");
 		                          $("#huoqu_code1").text("获取验证码");
-		                          //clickFlgCode = true;
+		                          clickFlgCode = true;
 		                      }
 		                },1000);
                     }
@@ -1179,8 +1183,8 @@ function xmTanUploadImg2(obj) {
                 //判断手机号是否加入过企业
                 //var thisPhone = $('#new_phone').val();
                 //sendAjax(thisPhone, $(this));
-                console.log(clickFlgCode);
-                if(!clickFlgCode){
+                console.log(phoneIshas);
+                if(!phoneIshas){
                         return false;
                     }
                 
