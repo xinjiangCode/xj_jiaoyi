@@ -1632,6 +1632,11 @@
 		        async:false,
 		        success: function(json){
 		        	//console.log(json);
+					var testRes = json.hasOwnProperty("data");//判断json中是否存在某属性
+					console.log(testRes);
+					if(testRes === false){
+							return;
+					}
 		        	var str = '';
 		        	for (var i = 0; i < json.data.length; i++) {
 		        		str += '<p style="height: 44px; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2;display: -webkit-box; -webkit-box-orient: vertical;" data-id = '+json.data[i].articleid+'><a href="industryInformation/industryInformationDeatils.html">【公告】<span>'+json.data[i].description+'</span></a></p>';
