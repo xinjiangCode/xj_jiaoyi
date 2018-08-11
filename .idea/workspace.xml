@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="793b945a-347f-499a-a12e-602ad8fff7fe" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/myPurchase-addRequire.html" beforeDir="false" afterPath="$PROJECT_DIR$/account/myPurchase-addRequire.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/objDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/obj/objDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shopManage/addShop.html" beforeDir="false" afterPath="$PROJECT_DIR$/shopManage/addShop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wuliu_service.html" beforeDir="false" afterPath="$PROJECT_DIR$/wuliuOpen/wuliu_service.html" afterDir="false" />
-    </list>
+    <list default="true" id="793b945a-347f-499a-a12e-602ad8fff7fe" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -66,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/wuliuOpen/wuliu_service.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="368">
-              <caret line="571" selection-start-line="571" selection-end-line="571" />
+              <caret line="580" selection-start-line="580" selection-end-line="580" />
             </state>
           </provider>
         </entry>
@@ -289,7 +280,7 @@
       <workItem from="1533521600851" duration="32915000" />
       <workItem from="1533959687317" duration="4180000" />
       <workItem from="1533972195577" duration="21000" />
-      <workItem from="1533983342043" duration="11736000" />
+      <workItem from="1533983342043" duration="12263000" />
     </task>
     <task id="LOCAL-00001" summary="111">
       <created>1531849437068</created>
@@ -351,11 +342,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101930000" />
+    <option name="totallyTimeSpent" value="102457000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17913593" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -751,7 +741,7 @@
     <entry file="file://$PROJECT_DIR$/wuliuOpen/wuliu_service.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
-          <caret line="571" selection-start-line="571" selection-end-line="571" />
+          <caret line="580" selection-start-line="580" selection-end-line="580" />
         </state>
       </provider>
     </entry>
