@@ -2249,7 +2249,9 @@
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                console.log(data.data.state);
+               if(data.code==401){
+                   return;
+               }
 
                 if (!data.data.state && data.data.type != 1) {
                     $('#account_ziliao').attr('data-src', './identification1.html');
