@@ -455,7 +455,9 @@
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-
+                if(data.code == -1001){
+                    return false;
+                }
                 for (var i = 0; i < data.data.length; i++) {
                     data.data[i].timestamp = new Date(data.data[i].timestamp).Format("yyyy.MM.dd");
                 }
