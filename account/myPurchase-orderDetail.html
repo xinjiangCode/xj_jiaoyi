@@ -1082,6 +1082,23 @@
                     //立即支付
                     $(".payBtn").unbind();
                     $(".payBtn").click(function () {
+                        if(res.data.paymentMethod==3){
+                            window.parent.$(".modelBox33 .cf_title").text("支付方式：现汇+承兑");
+                            window.parent.$(".modelBox33 .goPay1").attr("data-isok","1")
+                            window.parent.$(".modelBox33 .goPay2").attr("data-isok","1")
+                        }else if(res.data.paymentMethod==1){
+                            window.parent.$(".modelBox33 .cf_title").text("支付方式：现汇");
+                            window.parent.$(".modelBox33 .goPay1").css("backgroundColor","#6ba1ff")
+                            window.parent.$(".modelBox33 .goPay2").css("backgroundColor","#999")
+                            window.parent.$(".modelBox33 .goPay1").attr("data-isok","1")
+                            window.parent.$(".modelBox33 .goPay2").attr("data-isok","0")
+                        }else if(res.data.paymentMethod==2){
+                            window.parent.$(".modelBox33 .cf_title").text("支付方式：承兑");
+                            window.parent.$(".modelBox33 .goPay1").css("backgroundColor","#999")
+                            window.parent.$(".modelBox33 .goPay2").css("backgroundColor","#6ba1ff")
+                            window.parent.$(".modelBox33 .goPay1").attr("data-isok","0")
+                            window.parent.$(".modelBox33 .goPay2").attr("data-isok","1")
+                        }
                         window.parent.$(".modelBox33").show()
                         window.parent.$(".modelBox33 .totalMoney").text(res.data.total);
                         window.parent.$(".modelBox33 .payBalance").text(res.data.cash);
@@ -1108,8 +1125,16 @@
 
                     })
 //                    弹框立即支付
-                    window.parent.$(".goPay").unbind();
-                    window.parent.$(".goPay").click(function () {
+                    window.parent.$(".goPay1").unbind();
+                    window.parent.$(".goPay1").click(function () {
+                        if(window.parent.$(".modelBox33 .goPay1").attr("data-isok")!=1){
+                            return;
+                        }
+                        if(Number(window.parent.$(".modelBox33 .accountBalance").text())<Number(window.parent.$(".modelBox33 .payBalance").text())){
+                            alert("可用余额不足，请充值")
+                            return;
+                        }
+
                         window.parent.$(".modelBox34 .pay_pass_input").val("");
                         window.parent.$(".modelBox34 .SMScode").val("");
                         window.parent.$("#surePay").attr("data-isok","0");
@@ -1215,8 +1240,9 @@
 
     //获取手机号
     function getPhone(){
+        debugger
         $.ajax({
-            url: pubIP + 'user/getUserInfoByToken', /*v1.0*/
+            url: pubIP + 'payment/financePhoneNumber', /*v1.0*/
             type: 'post',
             headers: {
                 Accept: "application/json; charset=utf-8",
@@ -1228,13 +1254,13 @@
             data: {},
             success: function (data) {
                 if (data.code == 1) {
-                    window.parent.$(".modelBox34 .phone").val(data.data.mobile);
+                    window.parent.$(".modelBox34 .phone").val(data.data.financePhoneNumber);
                     window.parent.$(".modelBox34 .getSMSCode").unbind();
                     window.parent.$(".modelBox34 .getSMSCode").click(function () {
                         if($(this).attr("disabled")=="disabled"){
                             return;
                         }
-                        getSCode(data.data.mobile);
+                        getSCode(data.data.financePhoneNumber);
                     })
                 } else {
                     return;

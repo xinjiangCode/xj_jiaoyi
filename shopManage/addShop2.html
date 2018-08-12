@@ -346,6 +346,7 @@
 		// 点击取消模态框
 		$(window.parent.document).find('.modelBox .cancel').click(function(){
 			$(window.parent.document).find('.modelBox').css('display','none');
+
 		});
 
 		if (sessionStorage.getItem('shop_sort') == 2) {
@@ -354,38 +355,42 @@
 		}
 
 		/*查询仓库地址列表*/
-        $.ajax({
-            url: pubIP + 'warehouse/listWarehouse', /*v1.0*/
-            type: 'post',
-            headers: {
-                Accept: "application/json; charset=utf-8",
-                token: token
-            },
-            cache: false,
-            ansyc: false,
-			dataType: 'json',
-			data: {
-				companyId: companyId
-			},
-            success: function (data) {
-				console.log(data,'list');
-				if(data.code == 1){
-					var str = '';
-					if(data.data && data.data.length>0){
-						$.each(data.data, function(i, item){
-							str += '<option value="'+item.warehouseIds+'">'+item.warehouseName+'</option>';
-						});
-					}else {
-						str='<option selected="selected" value="">请选择提货地址</option>'
-					}
-					$('.selectAddr').html(str);
-					$('.selectAddr option:eq(0)').attr('selected', true);
-				}
-            },
-            error: function(err){
-                console.log(err);
-            }
-        });
+         searchAddress()
+		function  searchAddress() {
+            $.ajax({
+                url: pubIP + 'warehouse/listWarehouse', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: false,
+                dataType: 'json',
+                data: {
+                    companyId: companyId
+                },
+                success: function (data) {
+                    console.log(data,'list');
+                    if(data.code == 1){
+                        var str = '';
+                        if(data.data && data.data.length>0){
+                            $.each(data.data, function(i, item){
+                                str += '<option value="'+item.warehouseIds+'">'+item.warehouseName+'</option>';
+                            });
+                        }else {
+                            str='<option selected="selected" value="">请添加提货地</option>'
+                        }
+                        $('.selectAddr').html(str);
+                        $('.selectAddr option:eq(0)').attr('selected', true);
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
 
 		/*添加仓库地址*/ 
 		function addAddr(warehouseName, warehouseProvince, warehouseCity, warehouseArea, warehouseAddr, warehouseType, defaultFlag){
@@ -412,7 +417,9 @@
 				success: function (data) {
 					console.log(data);
 					if(data.code == 1){
-						$('.selectAddr option:selected').text(warehouseName);
+
+//						$('.selectAddr option:selected').text(warehouseName);
+                        searchAddress()
 					}
 				},
 				error: function(err){
@@ -578,7 +585,8 @@
 		})
 		
 		// 点击确定--关闭模态框
-		$(window.parent.document).find('.modelBox .confirm').click(function(){
+         window.parent.$('.modelBox .confirm').unbind();
+		window.parent.$('.modelBox .confirm').click(function(){
 			var province = $(window.parent.document).find(".modelBox #province option:selected").text(), 
 				city=$(window.parent.document).find(".modelBox #city  option:selected").text(), 
 				area=$(window.parent.document).find(".modelBox #area option:selected").text(), 
@@ -628,7 +636,7 @@
 			infoObj.deliveryType = $(this).val();
 		});
 		//提货地（仓库位置）
-		infoObj.selectAddr = $(".selectAddr option:selected").val();
+		infoObj.selectAddr = $(".selectAddr option:selected").text();
 
 		$(".selectAddr").change(function(){
 			infoObj.selectAddr = $(this).val();
@@ -730,15 +738,23 @@
 
 			// 新增商品-发布供应信息
 
-			toAddShopInfo(infoObj, checkstr);
+			toAddShopInfo(infoObj,checkstr,this);
         	
 		})
 
 
 		// 新增商品-发布供应信息
-		function toAddShopInfo(infoObj, checkstr){
+		function toAddShopInfo(infoObj, checkstr,that){
 			console.log(checkstr);
-			$.ajax({
+            if($(that).attr("cf_norepeat")=="1"){
+                $(that).attr("cf_norepeat","2")
+            }else if($(that).attr("cf_norepeat")=="2"){
+                return;
+            }else{
+                $(that).attr("cf_norepeat","2")
+            }
+
+            $.ajax({
 	            type:"POST",
 	            headers: {
 	                Accept: "application/json; charset=utf-8",
@@ -768,6 +784,7 @@
 					minAmount: $('.minNum').val()//最小购买量(最少购买量应为规格的整数倍)
 	            },
 	            success: function(json){
+                    $(that).attr("cf_norepeat","1")
 	                console.log(json);
 					if(json.code == 1){
 						$('.step_title .step_p').addClass('current');

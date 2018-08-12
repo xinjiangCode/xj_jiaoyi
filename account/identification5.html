@@ -1220,8 +1220,16 @@ function xmTanUploadImg2(obj) {
             img_url2 = $('#id_card_hidden2').val();
 
             var yanzheng_phone = $('#yanzheng_phone').val();
-            
-			
+
+            var that=this;
+            if($(that).attr("cf_norepeat")=="1"){
+                $(that).attr("cf_norepeat","2")
+            }else if($(that).attr("cf_norepeat")=="2"){
+                return;
+            }else{
+                $(that).attr("cf_norepeat","2")
+            }
+
             // v1.0
             $.ajax({
                 url: pubIP + 'companyCertification/addCompanyBaseInfo',
@@ -1247,6 +1255,7 @@ function xmTanUploadImg2(obj) {
                 cache: false,
                 dataType: 'json',
                 success: function (data) {
+                    $(that).attr("cf_norepeat","1")
                     console.log(data);
                    if(data.code == -406){
                         $('#new_code').parent().next().css('验证码错误');
@@ -1256,6 +1265,7 @@ function xmTanUploadImg2(obj) {
                     window.parent.update_runcaiwu();
                 },
                 error: function (err) {
+                    $(that).attr("cf_norepeat","1")
                     console.log(err);
                 }
             });

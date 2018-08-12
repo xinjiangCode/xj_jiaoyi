@@ -1246,7 +1246,7 @@
 
    
     $(document).on('click', '.sub', function () {
-        debugger;
+
         // if($(".zizhi_num").val()==''){
         //     alert('资质编号不能为空!');
         //     return;
@@ -1400,8 +1400,16 @@
 
 
         // if (!($(this).attr('disabled')) && $('.zizhi_num').attr('data-f') == 'true' && $('.textarea').attr('data-f') == 'true' && $('.kuang').attr('data-f') == 'true') {
-            
-            $.ajax({
+        var that=this;
+        if($(that).attr("cf_norepeat")=="1"){
+            $(that).attr("cf_norepeat","2")
+        }else if($(that).attr("cf_norepeat")=="2"){
+            return;
+        }else{
+            $(that).attr("cf_norepeat","2")
+        }
+
+        $.ajax({
                 url: pubIP + 'companyCertification/addQualificationsBaseInfo',
                 type: 'post',
                 headers: {
@@ -1412,6 +1420,7 @@
                 cache: false,
                 dataType: 'json',
                 success: function (data) {
+                    $(that).attr("cf_norepeat","1")
                     console.log(data);
                     if (data.code == 1) {
                         window.parent.tan();
@@ -1422,6 +1431,7 @@
                     
                 },
                 error: function (err) {
+                    $(that).attr("cf_norepeat","1")
                     console.log(err);
                 }
             });

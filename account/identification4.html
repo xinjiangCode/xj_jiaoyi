@@ -925,6 +925,14 @@ function upload_file(obj) {
             if (file_url != null) {
                 $('#wenjian_name').parent().next().css('display', 'none');
                 //v1.0
+                var that=this;
+                if($(that).attr("cf_norepeat")=="1"){
+                    $(that).attr("cf_norepeat","2")
+                }else if($(that).attr("cf_norepeat")=="2"){
+                    return;
+                }else{
+                    $(that).attr("cf_norepeat","2")
+                }
                 $.ajax({
                     url: pubIP + 'companyCertification/addCompanyBaseInfo',
                     type: 'post',
@@ -947,6 +955,8 @@ function upload_file(obj) {
                     cache: false,
                     dataType: 'json',
                     success: function (data) {
+
+                        $(that).attr("cf_norepeat","1")
                         console.log(data);
 
                         if ($('.next_btn_update').css('display') == 'block') {
@@ -957,6 +967,8 @@ function upload_file(obj) {
                         
                     },
                     error: function (err) {
+
+                        $(that).attr("cf_norepeat","1")
                         console.log(err);
                     }
                 });

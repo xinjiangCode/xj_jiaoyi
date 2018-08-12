@@ -270,7 +270,7 @@
                     </div>
                 </div>
                 <div class="toRelease">
-                    <input type="button" onclick="sub() " value="立即发布">
+                    <input type="button" onclick="sub(this)" value="立即发布">
                 </div>
             </form>
         </div>
@@ -306,8 +306,9 @@
                     $.each(json.data, function(i,t) {
                         if(i==0){
                             $("#requireLevel").find("span").html(t.levelName);
+                            $("#requireLevel").attr("data-selectedindex",t.id)
                         }
-                        opt += '<li data-index="'+i+'">'+t.levelName+'</li>';
+                        opt += '<li data-index="'+t.id+'">'+t.levelName+'</li>';
                     });
                     $('.jibie_select').html(opt);
                     $('.selectPub ul li').click(function(){
@@ -462,7 +463,7 @@
         }
 
         //提交
-        function sub() {
+        function sub(that) {
             var isPublic=0;
             if(document.getElementById("isPublic").checked){
                 isPublic=1;
@@ -572,6 +573,15 @@
             console.log(validity)
             //return;
 
+
+            if($(that).attr("cf_norepeat")=="1"){
+                $(that).attr("cf_norepeat","2")
+            }else if($(that).attr("cf_norepeat")=="2"){
+                return;
+            }else{
+                $(that).attr("cf_norepeat","2")
+            }
+
             $.ajax({
                 url: pubIP + 'buyingInfo/addBuyingInfo', /*v1.0*/
                 type: 'post',
@@ -590,7 +600,7 @@
                     deliveryAddress:$("#address").attr("data-addressid"),
                     validity:validity,
                     invoiceType:invoice,
-                    productLevel:$("#requireLevel span").text(),
+                    productLevel:$("#requireLevel").attr("data-selectedindex"),
                     productPacking:$("#specsRequire").val(),
                     productOrigin:$("#addressRequire").val(),
                     note:$("#remark").val(),
@@ -601,6 +611,8 @@
                     invoiceId:$("#shoupiaoAddre").attr("data-addressid")
                 },
                 success: function (data) {
+                    $(that).attr("cf_norepeat","1")
+
                     console.log(data)
                     if(data.code==1){
                         window.parent.$(".manageItem").removeClass("active1");
@@ -614,6 +626,8 @@
                         window.parent.$("#Iframe").attr("src","./myPurchase-requirement.html");
 
                     }else{
+                        $(that).attr("cf_norepeat","1")
+
                         alert(data.msg)
                     }
 

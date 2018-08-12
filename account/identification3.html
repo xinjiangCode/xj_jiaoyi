@@ -587,6 +587,16 @@
         var qiye_bank_account = $('#qiye_bank_account').val();
         var address = $('#address').val();
 
+
+        var that=this;
+        if($(that).attr("cf_norepeat")=="1"){
+            $(that).attr("cf_norepeat","2")
+        }else if($(that).attr("cf_norepeat")=="2"){
+            return;
+        }else{
+            $(that).attr("cf_norepeat","2")
+        }
+
         //v1.0
         $.ajax({
             url: pubIP + 'companyCertification/addCompanyBaseInfo',
@@ -607,6 +617,7 @@
             cache: false,
             dataType: 'json',
             success: function (data) {
+                $(that).attr("cf_norepeat","1")
                 console.log(data);
 
                 if ($('.next_btn_update').css('display') == 'block') {
@@ -617,6 +628,7 @@
                 
             },
             error: function (err) {
+                $(that).attr("cf_norepeat","1")
                 console.log(err);
             }
         });

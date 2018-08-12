@@ -985,6 +985,15 @@
            if ($('#yingye_zhizhao_hidden').val() != '' ) {
                 
                 if ($('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
+
+                    var that=this;
+                    if($(that).attr("cf_norepeat")=="1"){
+                        $(that).attr("cf_norepeat","2")
+                    }else if($(that).attr("cf_norepeat")=="2"){
+                        return;
+                    }else{
+                        $(that).attr("cf_norepeat","2")
+                    }
                     //v1.0
                     $.ajax({
                         url: pubIP + 'companyCertification/addCompanyBaseInfo',
@@ -1020,6 +1029,7 @@
                         cache: false,
                         dataType: 'json',
                         success: function (data) {
+                            $(that).attr("cf_norepeat","1")
                             if (data.code == 1) {
                                 console.log(data);
                                 console.log(data.data.ids);
@@ -1031,6 +1041,7 @@
                             }
                         },
                         error: function (err) {
+                            $(that).attr("cf_norepeat","1")
                             console.log(err);
                         }
                     });   
