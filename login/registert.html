@@ -174,7 +174,7 @@
 						<span class="box"></span><i>&nbsp;我已阅读并同意&nbsp;</i><i class="xieyi" onclick="down_moban()">用户服务协议</i>
 					</li>
 				</ul>
-				<div class="sub" onclick="sub()">
+				<div class="sub" onclick="sub(this)">
 					提交注册
 					<!--<input type="button" value="立即注册" />-->
 				</div>
@@ -652,7 +652,7 @@
               })
           }
 		//提交
-          function sub() {
+          function sub(that) {
               var errorlist='';
               for(var i=0;i<$(".error").length;i++){
                   errorlist+=$(".error").eq(i).text();
@@ -698,6 +698,16 @@
 				  }
 			  }
 				leav=leav+parseInt(numC)+parseInt(strC)+parseInt(str_C);//安全等级
+
+
+              if($(that).attr("cf_norepeat")=="1"){
+                  $(that).attr("cf_norepeat","2")
+              }else if($(that).attr("cf_norepeat")=="2"){
+                  return;
+              }else{
+                  $(that).attr("cf_norepeat","2")
+              }
+
               $.ajax({
                   url: pubIP + 'user/userRegister', /*v1.1*/
                   type: 'post',
@@ -715,6 +725,8 @@
                       securityGrade:leav
 				  },
                   success: function (data) {
+                      debugger
+                      $(that).attr("cf_norepeat","1")
                       console.log(data);
                       if(data.code==1){
                       		$.ajax({ 
@@ -739,7 +751,7 @@
 					                }
 					          },
 					          error:function(xhr,statues,error){
-					              
+                                  $(that).attr("cf_norepeat","1")
 					          }
 					       });
                       }else{

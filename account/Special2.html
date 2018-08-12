@@ -1446,7 +1446,14 @@
             return false;
          }
 
-        
+        var that=this;
+        if($(that).attr("cf_norepeat")=="1"){
+            $(that).attr("cf_norepeat","2")
+        }else if($(that).attr("cf_norepeat")=="2"){
+            return;
+        }else{
+            $(that).attr("cf_norepeat","2")
+        }
             $.ajax({
                 url: pubIP + 'companyCertification/addQualificationsBaseInfo',
                 type: 'post',
@@ -1458,6 +1465,7 @@
                 cache: false,
                 dataType: 'json',
                 success: function (data) {
+                    $(that).attr("cf_norepeat","1")
                     console.log(data);
                     if (data.code == 1) {
                         window.parent.teshu_tan();
@@ -1468,6 +1476,7 @@
                     
                 },
                 error: function (err) {
+                    $(that).attr("cf_norepeat","1")
                     console.log(err);
                 }
             });

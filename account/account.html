@@ -1793,7 +1793,7 @@
                     <div style="border-top: 3px solid #ffffff;margin: 10px 0;margin-left: -47px;margin-right: -73px;"></div>
                     <sapn style="margin-left: 160px;color: #5690f6;">支付余额: </sapn>
                     <span style="width: 130px;height: 31px;line-height: 31px;color: #5690f6;" class="payBalance">10000</span>
-                    <div class="cf_btn Rt goPay"  style="height: 35px;line-height: 35px;">立即支付</div>
+                    <div class="cf_btn Rt goPay goPay1"  style="height: 35px;line-height: 35px;">立即支付</div>
                 </div>
             </div>
             <div style="margin-left: 70px; color: #333333;margin-top: 8px;">承兑方式：</div>
@@ -1805,7 +1805,7 @@
                 </div>
                 <div style=" border-top: 2px solid #ffffff;margin: 15px -73px 10px 0;"></div>
                 <div class="clearFloat clearfix">
-                    <div class="cf_btn Rt goPay"   style="height: 35px;line-height: 35px;margin-left: 35px;">立即支付</div>
+                    <div class="cf_btn Rt goPay goPay2"   style="height: 35px;line-height: 35px;margin-left: 35px;">立即支付</div>
                     <div class="Rt" style="font-size: 16px;line-height: 40px;">
                         <input type="radio" name="beishu" style="vertical-align: sub;"> 背书
                     </div>
@@ -2798,6 +2798,10 @@
        //
 
         $(".manage").click(function () {
+//            document.body.scrollTop=0
+//            document.documentElement.scrollTop=0
+//            $(window).scrollTop(0);
+
             $(this).parent().find("ul").toggle();
             $(this).find('img').eq(0).attr('src',$(this).find('img').eq(0).attr('src')==="../img/cf_open.png"?"../img/cf_close.png":"../img/cf_open.png");
         });
@@ -2983,7 +2987,7 @@
                 alert('请先进行企业认证！');
                 return false;
             }*/
-            
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
             $(".manageItem").removeClass("active1");
             $(this).addClass("active1");
             

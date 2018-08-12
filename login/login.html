@@ -236,6 +236,7 @@
           });
           
           $('#login').click(function(){
+
           	var user = $('#user').val();
           	var pwd = $('#pwd').val();
           	if(user == ''){
@@ -247,7 +248,17 @@
                 $(".error").eq(0).css('background', 'url(../img/input_warning.png) no-repeat').css('background-position', 'left').text('请输入密码！');
           		return false;
           	}
-          	$.ajax({ 
+
+              var that=this;
+              if($(that).attr("cf_norepeat")=="1"){
+                  $(that).attr("cf_norepeat","2")
+              }else if($(that).attr("cf_norepeat")=="2"){
+                  return;
+              }else{
+                  $(that).attr("cf_norepeat","2")
+              }
+
+              $.ajax({
 	          type:"post",
 	          url:pubIP+"user/login",//v1.0
 	          cache:false,
@@ -258,6 +269,8 @@
                       "isAuto":isAuto
 	          },
 	          success: function(json){
+                  $(that).attr("cf_norepeat","1")
+
 	            	console.log(json);
 	                if(json.code == '1'){
                         localStorage.setItem("isAuto",isAuto);
@@ -272,7 +285,7 @@
 	                }
 	          },
 	          error:function(xhr,statues,error){
-	              
+                  $(that).attr("cf_norepeat","1")
 	          }
 	       });
           })
