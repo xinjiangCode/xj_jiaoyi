@@ -256,7 +256,7 @@
 			<div class="offOrder">
 				<div class="offOrderTit">需求信息</div>
 				<div class="offInfo" id="xuqiuInfo">
-					
+
 				</div>
 				<p class="offNum">需求信息编号：<span>3001708091838591697</span></p>
 				<div class="offFoot">
@@ -367,7 +367,7 @@
 			<div class="modelCont">
 				<div class="modeltitle">
 					<span>消息提示</span>
-					<img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+					<img class="close" onclick='$(".modelBox5").hide();' style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
 				</div>
 				<div class="modelcontent">
 					<div class="info">
@@ -375,7 +375,7 @@
 						<p>化学品或者纯度不符合！</p>
 					</div>
 					<div class="modelBtnBox">
-						<div style="background:#5690f6;" class="modelbtn cancel">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+						<div style="background:#5690f6;" class="modelbtn cancel"  onclick='$(".modelBox5").hide();'>确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
 					</div>
 				</div>
 			</div>
@@ -390,7 +390,7 @@
 			<p>采购数量：<%=info.remain%>吨</p>
 			<p>最小供量：<%=info.minAmount%>吨</p>
 			<%if(info.paymentMethod == 1){%>
-			<p>支付方式：现汇</p>	
+			<p>支付方式：现汇</p>
 			<%}else if(info.paymentMethod == 2){%>
 			<p>支付方式：承兑汇票</p>
 			<%}else if(info.paymentMethod == 3){%>
@@ -439,7 +439,7 @@
 				var tot = Number($('#total').text()) - Number($(this).val());
 				$('#payTypePrice').text(tot);
 			})
-			
+
 			$('#oPrice,#num').blur(function(){
 				if($('#oPrice').val() == '' || $('#num').val() == ''){
 					return false;
@@ -452,7 +452,7 @@
 			});
 
 			$('#num').blur(function() {
-				
+
 				var minAmount = window.localStorage.getItem('data-minAmount');
 				var remain = window.localStorage.getItem('data-remain');
 				var num = $('#num').val();
@@ -464,12 +464,12 @@
 				}
 
 			});
-			
+
 			$('.confirm,.close').click(function(){
 				$('.modelBox4').hide();
 				// $('.modelBox5').hide();
 			})
-			
+
 			$('[name="dzs"]').change(function(){
 				if($(this).val() == '2'){
 					$('[name="dz"]').removeAttr('disabled');
@@ -478,11 +478,11 @@
 					$('[name="dz"]').attr('checked',false);
 				}
 			})
-			
+
 			var qgIfId = null;
 			var paymentMethod = null;
 
-			
+
 			$('#sub').click(function(){
 				var flg = true;
 				$('.myOffer input').each(function(){
@@ -496,7 +496,7 @@
 				if(!flg){
 					return false;
 				}
-				
+
 				if(!$('[name="dzs"]:checked').val()){
 					$('.modelcontent p').text('未选择是否支持账期');
 					$('.modelBox5').show();
@@ -539,9 +539,9 @@
 					var cash = $('#payTypePrice').text();
 					var acceptanceTotal = $('#chPrice').val();
 				}
-				
-				
-				
+
+
+
 				$.ajax({
 					type: "post",
 	                url: pubIP + "buyingInfo/addtradingInterestNow",//v1.0
@@ -605,15 +605,15 @@
                 	data.data.info.releaseTime = new Date(data.data.info.releaseTime).Format("yyyy-MM-dd hh:mm:ss");
 
                 	data.data.validityDate = new Date(data.data.validityDate).Format("yyyy-MM-dd hh:mm:ss");
-				
+
 				paymentMethod = data.data.info.paymentMethod;
-				
+
 				if(data.data.info.paymentMethod == '1'){
 					$('#payType').html('<span><span>*</span>现    汇：</span><span id="payTypePrice" style="display: inline; margin-left: 5px;">0</span>元');
 				}else if(data.data.info.paymentMethod == '2'){
 					$('#payType').html('<span><span>*</span>承    兑：</span><span id="payTypePrice" style="display: inline; margin-left: 5px;">0</span>元');
 				}
-				
+
 				qgIfId = data.data.info.buyingIds;
 
 					$('.offFoot span').html(data.data.interestCount+' 家');
@@ -665,7 +665,7 @@
                 }
 			});
 
-			
+
 
 			// $('#select_validity ul li').click(function(){
 			//     event.stopPropagation();
@@ -705,7 +705,7 @@
 	                	console.log(data);
 
 	                	if (data.code == 1) {
-	                		
+
 	                		event.stopPropagation();
 						    $(_that).parent().parent().attr('data-selectedindex', $(_that).attr('data-productid'));
 						    $(_that).parent().parent().find('span').text($(_that).text());
