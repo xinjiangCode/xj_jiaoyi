@@ -3,7 +3,7 @@ var adct = document.getElementsByTagName('title')[0].getAttribute('adct');
 
 document.writeln("<footer>\n" +
     "    <div class=\"footerTop1\">\n" +
-    "        <div class=\"mianCont shouye\" style=\"width: 1230px;height: 90px;background: url(../img/footers_hzf.png) 0 0 no-repeat\">\n" +
+    "        <div class=\"mianCont shouye\" style=\"width: 1230px;height: 90px;background: url(../img/footers_hzf1.png) 0 0 no-repeat\">\n" +
     // "            <div class=\"Lf ftphone\">\n" +
     // "                <div class=\"Lf ftphoneImg ftImg1\">\n" +
     // "                    <!--<img src=\"img/footer1.png\" alt=\"\">-->\n" +
