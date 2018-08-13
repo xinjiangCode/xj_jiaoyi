@@ -217,11 +217,20 @@
                 
             <%}else if(state==4){%>
                 <div class="myPurchase-refused4 Refuse">
-                    <p>拒绝时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=periodTime%></span>&nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span></p>
+
+                    <p>拒绝时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=periodTime%></span>
+                        <%if(sj_type!='mysale'){%>
+                            &nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span>
+                        <%}%>
+                    </p>
                 </div>
             <%}else if(state==5){%>
                 <div class="myPurchase-refusedCancel cancel">
-                    <p>取消时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=periodTime%></span>&nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span></p>
+                    <p>取消时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=periodTime%></span>
+                        <%if(sj_type!='mysale'){%>
+                            &nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span>
+                        <%}%>
+                    </p>
                 </div>
             <%}else if(state==6){%>
                 <div class="myPurchase-refused3 invalid">
@@ -236,6 +245,16 @@
 <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/template.js"></script>
 <script>
+    //获取地址栏参数，name:参数名称
+    function getUrlParms(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)
+            return unescape(r[2]);
+        return null;
+    }
+
+
     $(function(){
         var params = window.location.search.substring(1).split('&');
         for(var i = 0; i<params.length;i++){
@@ -297,6 +316,9 @@
                         res.data.myfromPage=from;
                         var leftTpl = template('leftTpl', res.data);
                         $('.mainLeft.Lf ul').html(leftTpl);
+                        var sj_type = getUrlParms("from");
+                        //alert(sj_type);
+                        res.data.sj_type=sj_type;
                         // 渲染右侧
                         var rightTpl = template('rightTpl', res.data);
                         $('.main.Lf').html(rightTpl);
