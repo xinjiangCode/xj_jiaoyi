@@ -35,7 +35,7 @@
                 <span>用户列表</span>
             </div>
             <div class="fr user_list_btn">
-                <span>添加</span>
+                <span class="member_add">添加</span>
                 <span>增加</span>
                 <span>减少积分</span>
             </div>
@@ -170,6 +170,11 @@
     <script src="../../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../js/common.js"></script>
     <script>
+        $('.member_add').click(function() {
+            window.parent.alert_show('.add_member_alert');
+        });
+
+        
 
     </script>
 </body>

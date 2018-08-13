@@ -1,10 +1,13 @@
  //var pubIP = 'http://api.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
+var pubIP = 'http://192.168.1.202:7777/service/';
 //var pubIP = 'http://127.0.0.1:7777/service/';
 var downIP = 'http://file.xjv56.com/';
 //var downIP = 'http://192.168.1.80:8680/web-file/';
 //var pubIP = 'http://192.168.1.165:7777/service/';
 //var token = 'ceshi123456';
+
+// 物流交易衔接的链接
+var wuliuIP = 'http://127.0.0.1:8020/';
 
 var uplodImgPath = 'http://file.xjv56.com/bfile/fileUpload.htm';
 //var uplodImgPath = 'http://192.168.1.80:8680/bfile/fileUpload.htm';

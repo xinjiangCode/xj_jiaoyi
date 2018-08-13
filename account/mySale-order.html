@@ -217,7 +217,7 @@
                         <a href="./mySale-orderDetailStatus.html?userType=0&id=<%=list[i].transactionOrderIdStr%>" style="display:block;width: 100%;height: 100%;">查看订单</a>
                     </div>
                     <div class="orderContItem publish_wuliu_xuqiu">
-                        <a target="_blank" href="http://127.0.0.1:8020/allWuliu/xj_wuliu_gy/account.html" style="display:block;width: 100%;height: 100%;">发布物流需求</a>
+                        <a target="_blank" href="javascript:;" style="display:block;width: 100%;height: 100%;">发布物流需求</a>
                     </div>
                  </div>
             </div>
@@ -230,6 +230,8 @@
 
     $(document).on('click', '.publish_wuliu_xuqiu a', function() {
         // window.parent
+        // window.location.href = "";
+        $(this).attr('href', wuliuIP+'allWuliu/xj_wuliu_gy/account.html')
     })
 
     $(function(){
