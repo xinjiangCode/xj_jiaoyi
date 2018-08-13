@@ -166,8 +166,7 @@
 			
 			#editShoupiaoAddress .cont>.main {
 				width: 450px;
-				max-height: 600px;
-				overflow-y: scroll;
+				height: 512px;
 				background: url(../img/gsxq_cont.gif);
 				background-size: 100% 100%;
 				font-size: 14px;
@@ -176,7 +175,10 @@
 			.addAddressBox {
 				overflow: hidden;
 			}
-			
+			.addAddressBoxCont{
+				height: 390px;
+				overflow-y: scroll;
+			}
 			.addAddress {
 				float: right;
 				margin-right: 33px;
@@ -279,7 +281,7 @@
 			}
 			
 			.modelpop .cont {
-				overflow: auto;
+				/*overflow: auto;*/
 				/* min-height: 560px; */
 				background: white;
 			}
@@ -909,7 +911,7 @@
 								<li class="clearfix">
 									<div class="fl" style="margin-left: 80px;">
 										<label for="" style="color: #6c6d6e; font-size: 14px;">手机号码：</label>
-										<input  type="text" class="input" id="cangkuName" style="font-size: 13px;" placeholder="请输入手机号码">
+										<input  type="text" class="input" id="cangkuName" maxlength="11" style="font-size: 13px;" placeholder="请输入手机号码">
 									</div>
 									<span class="tishi fl"></span>
 								</li>
@@ -1035,7 +1037,9 @@
 		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
 		<script type="text/javascript">
-
+            $('#cangkuName').bind('input propertychange',function () {
+                $(this).val($(this).val().replace(/\D/g,''));
+            });
 
 			//大家都在买
 			$.ajax({
@@ -1088,6 +1092,13 @@
 				$('.modelBox').hide();
 			})
 			$('.addAddress').click(function() {
+
+			    $("#receiver").val("");
+                $("#detail_address").val("");
+                $("#cangkuName").val("");
+                $("#receiver").val("");
+                $("#province option").eq(0).attr("selected","selected")
+                $("#city option").eq(0).attr("selected","selected")
 				$('.modelBox').show();
 			})
 			/*添加仓库地址*/ 
@@ -1122,13 +1133,25 @@
 					alert('请输入手机号码');
 					return false;
 				}
+				if(!warehouseName){
+                    alert('请输入正确手机号码');
+                    return false;
+				}
 				//console.log(warehouseType);
 				/*添加仓库地址*/ 
-				addAddr(receiver,province,city,detail_address,warehouseName,defaultFlag);
+				addAddr(receiver,province,city,detail_address,warehouseName,defaultFlag,this);
 				
 			});
-			function addAddr(receiver,provenceId,cityId,detailedAddress,phone,defaultStr){
-				$.ajax({
+			function addAddr(receiver,provenceId,cityId,detailedAddress,phone,defaultStr,that){
+                if($(that).attr("cf_norepeat")=="1"){
+                    $(that).attr("cf_norepeat","2")
+                }else if($(that).attr("cf_norepeat")=="2"){
+                    return;
+                }else{
+                    $(that).attr("cf_norepeat","2")
+                }
+
+                $.ajax({
 					url: pubIP + 'address/addHarvestAddress', /*v1.0*/
 					type: 'post',
 					headers: {
@@ -1148,6 +1171,7 @@
 						companyId:companyId
 					},
 					success: function (data) {
+                        $(that).attr("cf_norepeat","1")
 						console.log(data);
 						if(data.code == 1){
 							var objid = localStorage.getItem('objid');
@@ -1193,6 +1217,7 @@
 						}
 					},
 					error: function(err){
+                        $(that).attr("cf_norepeat","1")
 						console.log(err);
 					}
 				});
@@ -1750,6 +1775,7 @@
 										}
 									});
 									// 点击提交
+                                    $('#toXunpan').find('.commitBtn').unbind();
 									$('#toXunpan').find('.commitBtn').click(function() {
 										// 支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限
 										//debugger
@@ -1787,7 +1813,18 @@
 										}
 										var beizhu = $('#xj_bei').val();
 
-										// 添加询盘
+
+
+                                        var that=this;
+                                        if($(that).attr("cf_norepeat")=="1"){
+                                            $(that).attr("cf_norepeat","2")
+                                        }else if($(that).attr("cf_norepeat")=="2"){
+                                            return;
+                                        }else{
+                                            $(that).attr("cf_norepeat","2")
+                                        }
+
+                                        // 添加询盘
 										$.ajax({
 											type: "post",
 											headers: {
@@ -1814,6 +1851,7 @@
 												datas: JSON.stringify(goodsinfoObj)
 											},
 											success: function(res2) {
+                                                $(that).attr("cf_norepeat","1")
 												console.log(res2);
 												if(res2.code == 1) { //success
 													$('#enquirySuccess').css('display', 'block');

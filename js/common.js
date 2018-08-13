@@ -1,5 +1,6 @@
  //var pubIP = 'http://api.xjv56.com/service/';
 var pubIP = 'http://192.168.1.80:7777/service/';
+//var pubIP = 'http://127.0.0.1:7777/service/';
 var downIP = 'http://file.xjv56.com/';
 //var downIP = 'http://192.168.1.80:8680/web-file/';
 //var pubIP = 'http://192.168.1.165:7777/service/';
@@ -368,3 +369,12 @@ function cf_alert(aa,msg) {
     }
 
 }
+// 手机号判断
+ function isPhone(poneInput) {
+     var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+     if (!myreg.test(poneInput)) {
+         return false;
+     } else {
+         return true;
+     }
+ }

@@ -167,7 +167,7 @@
                         </div>
                         <span class="ts"></span>
                     </div>
-                    <i class="red" style="display:block;margin-left: 113px;margin-top: 120px;">请上传营业执照或者扫描件！ 照片大小 < 2MB</i>
+                    <i class="red" style="display:block;margin-left: 113px;margin-top: 120px;">请上传营业执照或者扫描件！ 照片大小 < 2MB 图片格式为jpg、jpeg、png</i>
                 </li>
             </ul>
 
@@ -507,6 +507,16 @@ $(function () {
 
             if ($('#zhengjian_hidden2').val() != '' && $('#zhengjian_hidden1').val() != '') {
                 //v1.0
+                var that=this;
+                if($(that).attr("cf_norepeat")=="1"){
+                    $(that).attr("cf_norepeat","2")
+                }else if($(that).attr("cf_norepeat")=="2"){
+                    return;
+                }else{
+                    $(that).attr("cf_norepeat","2")
+                }
+
+
                 $.ajax({
                     url: pubIP + 'companyCertification/addCompanyBaseInfo',
                     type: 'post',
@@ -526,12 +536,14 @@ $(function () {
                     cache: false,
                     dataType: 'json',
                     success: function (data) {
+                        $(that).attr("cf_norepeat","1")
                         console.log(data);
 
                         window.location.href = 'identification3.html';
 
                     },
                     error: function (err) {
+                        $(that).attr("cf_norepeat","1")
                         console.log(err);
                     }
                 });

@@ -522,7 +522,7 @@
 
                 //企业已经认证
                 if(json.code == '1'){
-                    if(json.data.state==1){//企业已经认证'   企业信息审核状态 0：待审核 1：已审核  2：已拒绝  3重新审核     -1  企业信息未填写完成',
+                    if(json.data.state==1 || json.data.state==3){//企业已经认证'   企业信息审核状态 0：待审核 1：已审核  2：已拒绝  3重新审核     -1  企业信息未填写完成',
                         $('.qiye_renzheng_img').attr('src', '../img/cf_qiyerenzheng.png');
                         $('.qiye_renzheng_info').text('企业认证').css("color","#6ea3ff");
 
@@ -540,8 +540,6 @@
                             $("#companyNameType").text("贸易商");
                         }else if(json.data.companyType == 2){
                             $("#companyNameType").text("终端");
-                        }else if(json.data.companyType == 3){
-                            $("#companyNameType").text("其它");
                         }
                         
                         $("#companyName").text(json.data.companyName)

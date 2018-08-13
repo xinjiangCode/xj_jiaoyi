@@ -557,6 +557,7 @@ if(adct == '首页' ){
 document.writeln(headLink);
 //var headerip = 'http://api.xjv56.com/service/';
 var headerip = 'http://192.168.1.80:7777/service/';
+//var headerip = 'http://127.0.0.1:7777/service/';
 //var headerip = 'http://192.168.1.165:7777/service/';
 //header ip
 window.onload = function(){
@@ -654,6 +655,15 @@ window.onload = function(){
 		
 	   $('.seachListDp').css('left',(($(window).width()-1230)/2+294+56)+'px');
 		
+		
+		var url = window.location.href;
+		if (url.indexOf('result') != -1) {  //供应商搜索页面，供应商加样式
+			$('.actSchType').removeClass('actSchType');
+			$('.schType span').eq(1).addClass('actSchType');
+			$('#seachIpt').val('');
+			$('#seachIpt').prop('placeholder','输入供应商名称');
+		}
+
 	   $(document).on('click','.schType>span',function(){
 			$('.actSchType').removeClass('actSchType');
 			$(this).addClass('actSchType');

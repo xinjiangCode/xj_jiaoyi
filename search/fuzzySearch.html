@@ -34,10 +34,6 @@
 			width: 206px;
 		}
 
-		.supplierType {
-			padding-top: 6px;
-		}
-
 		.supplierItem a {
 			margin-top: 0px;
 		}
@@ -67,6 +63,19 @@
 		.supplierType .span_type span:hover {
 			color: #6A9EF7;
 		}
+
+		.rtHotObj {
+			height: 460px;
+		}
+
+		.nothing {
+			padding: 29px 0;
+			overflow: hidden;
+			text-align: center;
+			color: #666;
+    		font-size: 18px;
+			border-bottom: 2px dotted #e1e1e8;
+		}
     </style>
 </head>
 <body>
@@ -77,7 +86,7 @@
 	<div class="mianCont" style="margin-top: 20px;">
 		<div class="laftSch">
 			<div class="supplierType">
-				供应商类型：         
+				分类：         
 				<span class="act">    全部   </span>
 				<span class="span_type"></span>
 			</div>
@@ -179,7 +188,7 @@
 	</div>
 
 
-    <div class="mianCont" style="text-align: center;margin-top: 39px;">
+    <div class="mianCont" style="text-align: center;margin-top: 25px; margin-bottom: 25px; padding-right: 290px; box-sizing: border-box;">
         <ul class="pagination" id="page1"></ul>
         <div class="pageJump">
                 <span class="allPageN">0/0</span>
@@ -199,7 +208,15 @@
 		 <% for (i in list) { %>
 		 	<div class="parent_div" data-chemicalId="<%=list[i].chemicalId%>">
 				<div class="objLeftInfo">
-					<div class="objImg" style="background: url(<%=list[i].productPic%>) no-repeat;background-size:cover;background-position: center;"> <img src="../img/wei.png"/> </div>
+					<div class="objImg" style="background: url(<%=list[i].productPic%>) no-repeat;background-size:cover;background-position: center;"> 
+					<% if (list[i].chemicalDangerFlag == 1) {%>
+					<img src="../img/pu.png"/> 
+					<%} else if (list[i].chemicalDangerFlag == 2) {%>
+					<img src="../img/wei.png"/>
+					<%} else if (list[i].chemicalDangerFlag == 3) {%>
+					<img src="../img/te.png"/>
+					<%}%>
+					</div>
 					<h1 style="font-size: <%=list[i].chemicalName.length >= 15 ? '14' : '20'%>px;"><%=list[i].chemicalName%></h1>
 					<div class="lfBtmInfo">
 						<img src="../img/hazardousArticle.png"/>
@@ -300,43 +317,49 @@
 				  },
 			      success: function(json){
 			      	console.log(json);
-			      	if(!json){
-			        	return;
+			      	if(json.data.length != 0){
+			        	
+			      		var typeStr = '';
+				        $.each(json.data,function(i,t){
+			        		//类别
+			        		$.each(t.categoryList,function(i,t){
+			        			typeStr+='<span>'+t.categoryName+'</span>';
+			        		})
+			        		$('.span_type').html(typeStr);
+				        		
+				        })
+				        var Dom =  template("chemical",{list:json.data});
+		            	$('.schObjBox').html(Dom);
+
+		            	$('#paeTotal').html(json.data.length);
+
+		            	$('.page_total').html('1/1');
+
+		            	if (isFirst) {
+
+			            	Page({
+					            num: pageNum,
+					            elem: $('#page1'),
+					            callback: function(n) {
+					                console.log(n);
+					                loadAjax(categoryName,n);
+					            }
+					        });
+
+					        $('.total').text(json.pages);
+
+					        isFirst = false;
+
+					    }
+
+					    $('.allPageN').text(pageNum+'/'+json.pages);
+
+			      	} else {
+			      		$('.pageJump').hide();
+			      		$('.schObjBox').addClass('nothing');
+			      		$('.schObjBox').text('未查询到任何相关此产品');
 			      	}
-			      	var typeStr = '';
-			        $.each(json.data,function(i,t){
-		        		//类别
-		        		$.each(t.categoryList,function(i,t){
-		        			typeStr+='<span>'+t.categoryName+'</span>';
-		        		})
-		        		$('.span_type').html(typeStr);
-			        		
-			        })
-			        var Dom =  template("chemical",{list:json.data});
-	            	$('.schObjBox').html(Dom);
-
-	            	$('#paeTotal').html(json.data.length);
-
-	            	$('.page_total').html('1/1');
-
-	            	if (isFirst) {
-
-		            	Page({
-				            num: pageNum,
-				            elem: $('#page1'),
-				            callback: function(n) {
-				                console.log(n);
-				                loadAjax(categoryName,n);
-				            }
-				        });
-
-				        $('.total').text(json.pages);
-
-				        isFirst = false;
-
-				    }
-
-				    $('.allPageN').text(pageNum+'/'+json.pages);
+			      	
 
 			      },
 			      error:function(xhr,statues,error){
