@@ -321,24 +321,24 @@
                             //     $('#currenthui').text('0');
                             // }
                             //承兑加现汇
-                            if(res.data.paymentMethod == 3){
-                                $('#chengdui').on("input",function () {
-                                    var totalMoney = $('#totalmoney').val();//总金额
-                                    var acceptanceTotal=$('#chengdui').val();//承兑金额
-                                    if(Number(totalMoney-acceptanceTotal)==0){
-                                        alert('现汇价不能都为空');
-                                        return;
-                                    }else if(Number(totalMoney-acceptanceTotal)<0){
-                                        alert('承兑价不能大于总价');
-                                        return;
-                                    }else if(acceptanceTotal==0 || acceptanceTotal == "" || acceptanceTotal == null){
-                                        alert('承兑价不能都为空');
-                                        return;
-                                    }else{
-                                        $('#currenthui').text(Number(totalMoney-acceptanceTotal));
-                                    }
-                                })
-                            }
+                            $('#chengdui').on("input",function () {
+                                var totalMoney = $('#totalmoney').val();//总金额
+                                var acceptanceTotal=$('#chengdui').val();//承兑金额
+                                if(Number(totalMoney-acceptanceTotal)==0){
+                                    alert('现汇价不能都为空');
+                                    $('#chengdui').val('');
+                                    $('#currenthui').text('');
+                                    return;
+                                }else if(Number(totalMoney-acceptanceTotal)<0){
+                                    alert('承兑价不能大于总价');
+                                    $('#chengdui').val('');
+                                    $('#currenthui').text('');
+                                    return;
+                                }else{
+                                    $('#currenthui').text(Number(totalMoney-acceptanceTotal));
+                                }
+                            })
+
                             // 支持账期
                             var debtTermKey='',debtTermValue='';
                             $(document).on('change','input:radio[name="overTime"]',function () {
@@ -366,6 +366,12 @@
                                 if(!acceptanceTotal && !$('#currenthui').text()){
                                     alert('现汇和承兑价不能都为空');
                                     return;
+                                }
+                                if(res.data.paymentMethod == 3){
+                                    if(acceptanceTotal==0 || acceptanceTotal == "" || acceptanceTotal == null){
+                                        alert('承兑价不能都为空');
+                                        return;
+                                    }
                                 }
                                 if(!debtTermKey){
                                     alert('请选择支持账期与否');
