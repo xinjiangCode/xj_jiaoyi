@@ -174,7 +174,66 @@
             window.parent.alert_show('.add_member_alert');
         });
 
-        
+        window.parent.$('.member_descript').blur(function() {
+            if ($(this).val() == '') {
+                $(this).parent().find('.ts_add_member').html('职能描述不能为空');
+            } else {
+                $(this).parent().find('.ts_add_member').html('');
+            }
+        })
+
+        window.parent.$('.member_phone').blur(function() {
+            if ($(this).val() == '') {
+                $(this).parent().find('.ts_add_member').html('手机号码不能为空');
+            } else {
+                $(this).parent().find('.ts_add_member').html('');
+            }
+        })
+
+        // 确认添加
+        window.parent.$('.add_member').unbind();
+        window.parent.$('.add_member').click(function() {
+
+            var member_phone = window.parent.$('.member_phone');
+
+            var member_descript = window.parent.$('.member_descript');
+
+            // var reg = /^\d+$/;
+            // if (reg.test(member_phone.val()) != true) {
+            //     member_phone.parent().find('.ts_add_member').html('手机号码不能为空');
+            //     return false;
+            // }
+
+            // if (member_descript.val() == '') {
+            //     member_descript.parent().find('.ts_add_member').html('职能描述不能为空');
+            //     return false;
+            // }
+
+
+            // $.ajax({
+            //     url: pubIP + 'userPermissions/addUserAffiliated',
+            //     type: 'post',
+            //     headers: {
+            //         Accept: "application/json; charset=utf-8",
+            //         token: token
+            //     },
+            //     data: {
+            //         phone: phone,
+            //         jobDec: job
+            //     },
+            //     cache: false,
+            //     dataType: 'json',
+            //     success: function (json) {
+            //         console.log(json);
+            //         if (json.code == 1) {
+
+            //         }
+            //     },
+            //     error: function(err) {
+            //         console.log(err);
+            //     }
+            // });
+        });
 
     </script>
 </body>
