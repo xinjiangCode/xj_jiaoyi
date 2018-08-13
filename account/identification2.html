@@ -226,7 +226,7 @@
                             'background-color':'#f6f6f6'
                     });
                     $(obj).parent().find('input[type="hidden"]').val(data.url);
-                    $(obj).parent().parent().next().css('display', 'none');
+                    $(obj).parent().parent().find('.ts').css('display', 'none');
                 },
                 error: function (err) {
                     console.log(err);
@@ -613,7 +613,7 @@ $(function () {
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                console.log(data.data.company.qualificationStatus);
+                //console.log(data.data.company.qualificationStatus);
 
                 // if (data.data.company.qualificationStatus != 0) {
             

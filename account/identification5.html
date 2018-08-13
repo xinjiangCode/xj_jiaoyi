@@ -506,6 +506,8 @@ function xmTanUploadImg2(obj) {
                         $('input[type=text]').attr('disabled',true);
                         $('input[type=radio]').attr('disabled',true);
 
+                        update_info();
+
                         $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在等待审核');
                         window.parent.tan6();
 
@@ -513,6 +515,7 @@ function xmTanUploadImg2(obj) {
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'none');
 
+                        update_info();
 
                         $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在审核中');
                         window.parent.tan6();
@@ -520,11 +523,14 @@ function xmTanUploadImg2(obj) {
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'inline-block');
+
+                        update_info();
                         
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'inline-block');
 
+                        update_info();
 
                     } else if (data.data.type == 5) {  //企业资料二次审核中
                         if (window.localStorage.getItem('add-flag') == 'true') {   //认证过
@@ -536,6 +542,8 @@ function xmTanUploadImg2(obj) {
                             $('.weiRenZheng').css('display', 'inline-block');
                         }
 
+                        update_info();
+
                     } else if (data.data.type == 6) {  //出金账户资料二次审核
                         if (window.localStorage.getItem('add-flag') == 'true') {   //认证过
                             $('.weiRenZheng.shenhezhong').css('display', 'none');
@@ -545,6 +553,8 @@ function xmTanUploadImg2(obj) {
                         } else {
                             $('.weiRenZheng').css('display', 'inline-block');
                         }
+
+                        update_info();
                         
                     } else if (data.data.type == 1) {  //没有提交
                         $('.weiRenZheng').css('display', 'inline-block');
@@ -1055,8 +1065,8 @@ function xmTanUploadImg2(obj) {
             cache: false,
             dataType: 'json',
             success: function (data) {
-                console.log(data);
-                console.log(data.data.company.qualificationStatus);
+                //console.log(data);
+                //console.log(data.data.company.qualificationStatus);
 
                 // if (data.data.company.qualificationStatus != 0) {
 
@@ -1067,23 +1077,25 @@ function xmTanUploadImg2(obj) {
                 //     update_info();
                 // }
 
-                if (data.data.company.state == -1) { //未提交
-                    $('.weiRenZheng.next_btn').css('display', 'block');
-                    $('.next_btn_update').css('display', 'none');
-                } else if (data.data.company.state == 0) { //待审核
-                    $('.weiRenZheng.next_btn').css('display', 'none');
-                    $('.next_btn_update').css('display', 'none');
+                // if (data.data.company.state == -1) { //未提交
+                //     $('.weiRenZheng.next_btn').css('display', 'block');
+                //     $('.next_btn_update').css('display', 'none');
+                // } else if (data.data.company.state == 0) { //待审核
+                //     $('.weiRenZheng.next_btn').css('display', 'none');
+                //     $('.next_btn_update').css('display', 'none');
 
-                    $('input[type=file]').attr('disabled',true);
-                    $('input[type=text]').attr('disabled',true);
-                    $('input[type=radio]').attr('disabled',true);
-                } else {
-                    $('input[type=file]').attr('disabled',true);
-                    $('input[type=text]').attr('disabled',true);
-                    $('input[type=radio]').attr('disabled',true);
-                }
+                //     $('input[type=file]').attr('disabled',true);
+                //     $('input[type=text]').attr('disabled',true);
+                //     $('input[type=radio]').attr('disabled',true);
+                //     update_info();
+                // } else {
+                //     $('input[type=file]').attr('disabled',true);
+                //     $('input[type=text]').attr('disabled',true);
+                //     $('input[type=radio]').attr('disabled',true);
+                //     update_info();
+                // }
 
-                update_info();
+                
             },
             error: function (err) {
                 console.log(err);
@@ -1112,7 +1124,7 @@ function xmTanUploadImg2(obj) {
                     success: function (data) {
                         if (data.code == 1) {
                             console.log(data);
-                            console.log(data.data.picInfos[7].picUrl);
+                            //console.log(data.data.picInfos[7].picUrl);
                             $('#caiwu_name').val(data.data.company.financeName);
                             $('#id_number').val(data.data.company.financeIdNumber);
 
