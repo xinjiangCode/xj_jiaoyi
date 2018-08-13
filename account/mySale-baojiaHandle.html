@@ -293,8 +293,8 @@
 
                             // 点击生成订单
                             // 现汇金额
-                            var totalMoney=$('#totalmoney').val(),
-                                acceptanceTotal=$('#chengdui').val();//承兑金额
+                            var totalMoney=$('#totalmoney').val();
+                            var acceptanceTotal=$('#chengdui').val();//承兑金额
                             $('#currenthui').text((res.data.total-0)-(res.data.acceptanceTotal-0));
                                 console.log(acceptanceTotal,totalMoney)
                             // 1、改变总金额--现汇金额变化
@@ -318,7 +318,7 @@
                             // 2、承兑金额--现汇金额变化
                             if(res.data.paymentMethod == 2){
                                 $('#chengdui').blur(function(){
-                                    acceptanceTotal=$('#chengdui').val();
+                                    var acceptanceTotal=$('#chengdui').val();
                                     if(acceptanceTotal.trim()){
                                         if(totalMoney-0 <= acceptanceTotal-0){
                                             $('#chengdui').val(totalMoney);
@@ -344,7 +344,7 @@
                                 debtTermValue = $(this).val();
                             })
                             $('.scOrder').click(function(){
-                                acceptanceTotal=$('#chengdui').val();//承兑金额
+                                var acceptanceTotal=$('#chengdui').val();//承兑金额
                                 var note=$('.remark').val(),//总金额
                                     dealTotal=res.data.dealTotal;//成交总价
                                 if($('#totalmoney').val().trim()){
@@ -356,7 +356,11 @@
                                 if(!acceptanceTotal && !$('#currenthui').text()){
                                     alert('现汇和承兑价不能都为空');
                                     return;
-                                } 
+                                }
+                                if(acceptanceTotal == ''||acceptanceTotal == null){
+                                    alert('承兑价不能都为空');
+                                    return;
+                                }
                                 if(!debtTermKey){
                                     alert('请选择支持账期与否');
                                     return;
@@ -436,7 +440,7 @@
                         window.location.href="./account.html";
 
                     }else{
-                        alert(res.msg);
+                        alert(res.code);
                     }
                 },
                 error: function(err){
