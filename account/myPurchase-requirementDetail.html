@@ -130,7 +130,7 @@
 
     <script type="text/html" id="requireContTpl">
         <div class="requireHead bacFD clearfix">
-            <div class="endTime ml44 Lf">最后有限期： <span><%=deliveryDate%></span></div>
+            <div class="endTime ml44 Lf">最后有限期： <span><%=validityDate%></span></div>
             <div class="reqireNo Lf">采购需求编号：<span><%=buyingId%></span></div>
             <div class="updateTime Lf">发布时间： <span><%=releaseTime%></span></div>
         </div>
@@ -293,7 +293,7 @@
 
                     data.data.releaseTime = new Date(data.data.releaseTime).Format("yyyy-MM-dd hh:mm:ss");
                     data.data.deliveryDate = new Date(data.data.deliveryDate).Format("yyyy-MM-dd hh:mm:ss");
-
+                    data.data.validityDate = new Date(data.data.validityDate).Format("yyyy-MM-dd hh:mm:ss");
                     data.data.deliveryJson = JSON.parse(data.data.deliveryJson);
 
                     result1 = template('requireContTpl', data.data);

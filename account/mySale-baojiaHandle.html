@@ -163,7 +163,7 @@
                         <script type="text/html" id="rightBottomTpl">
                             <div>
                                 <label for="">* 成交总价:
-                                    <input id="totalmoney" type="text" class="input" value="<%=dealTotal%>">
+                                    <input id="totalmoney" type="text" class="input" readonly value="<%=dealTotal%>">
                                 </label>
                             </div>
                             <div>
@@ -173,11 +173,11 @@
                                     </label>
                                     <div class="xhje">
                                         <p>现汇金额为</p>
-                                        <p>￥<i style="font-weight:bold;" class="yellow" id="currenthui"><%=exchangeTotal%></i>元</p>
+                                        <p>￥<i style="font-weight:bold;" class="yellow" id="currenthui"><%=dealTotal%></i>元</p>
                                     </div>
                                 <%}else if(paymentMethod == 2){%>
                                     <label for="">* 承兑:
-                                        <input id="chengdui" type="text" class="input">
+                                        <input id="chengdui" type="text" class="input" readonly value="<%=dealTotal%>">
                                     </label>
                                     <div class="xhje">
                                         <p>现汇金额为</p>
@@ -316,19 +316,29 @@
                                 
                             });
                             // 2、承兑金额--现汇金额变化
-                            if(res.data.paymentMethod == 2){
-                                $('#chengdui').blur(function(){
-                                    var acceptanceTotal=$('#chengdui').val();
-                                    if(acceptanceTotal.trim()){
-                                        if(totalMoney-0 <= acceptanceTotal-0){
-                                            $('#chengdui').val(totalMoney);
-                                            $('#currenthui').text('0');
-                                        }else{
-                                            $('#currenthui').text(totalMoney-acceptanceTotal);
-                                        }
-                                    }
-                                });
-                            }
+                            // if(res.data.paymentMethod == 2){
+                            //     $('#chengdui').val(totalMoney);
+                            //     $('#currenthui').text('0');
+                            // }
+                            //承兑加现汇
+                            $('#chengdui').on("input",function () {
+                                var totalMoney = $('#totalmoney').val();//总金额
+                                var acceptanceTotal=$('#chengdui').val();//承兑金额
+                                if(Number(totalMoney-acceptanceTotal)==0){
+                                    alert('现汇价不能都为空');
+                                    $('#chengdui').val('');
+                                    $('#currenthui').text('');
+                                    return;
+                                }else if(Number(totalMoney-acceptanceTotal)<0){
+                                    alert('承兑价不能大于总价');
+                                    $('#chengdui').val('');
+                                    $('#currenthui').text('');
+                                    return;
+                                }else{
+                                    $('#currenthui').text(Number(totalMoney-acceptanceTotal));
+                                }
+                            })
+
                             // 支持账期
                             var debtTermKey='',debtTermValue='';
                             $(document).on('change','input:radio[name="overTime"]',function () {
@@ -357,9 +367,11 @@
                                     alert('现汇和承兑价不能都为空');
                                     return;
                                 }
-                                if(acceptanceTotal == ''||acceptanceTotal == null){
-                                    alert('承兑价不能都为空');
-                                    return;
+                                if(res.data.paymentMethod == 3){
+                                    if(acceptanceTotal==0 || acceptanceTotal == "" || acceptanceTotal == null){
+                                        alert('承兑价不能都为空');
+                                        return;
+                                    }
                                 }
                                 if(!debtTermKey){
                                     alert('请选择支持账期与否');
