@@ -293,7 +293,7 @@
 
                     data.data.releaseTime = new Date(data.data.releaseTime).Format("yyyy-MM-dd hh:mm:ss");
                     data.data.deliveryDate = new Date(data.data.deliveryDate).Format("yyyy-MM-dd hh:mm:ss");
-
+                    data.data.validityDate = new Date(data.data.validityDate).Format("yyyy-MM-dd hh:mm:ss");
                     data.data.deliveryJson = JSON.parse(data.data.deliveryJson);
 
                     result1 = template('requireContTpl', data.data);
