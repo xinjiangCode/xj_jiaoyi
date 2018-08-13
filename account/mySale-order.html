@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="../css/myPurchase-order.css">
     <style>
         .myPurchase-status{
-            padding-left: 60px;
+            padding-left: 0px;
         }
         .myPurchase-status span:nth-child(1) {
-            width: 188px;
+            /*width: 188px;*/
+            width: 186px;
             text-align: center;
         }
         .myPurchase-status span:nth-child(2),
@@ -23,12 +24,14 @@
         }
         .myPurchase-status span:nth-child(3),
         .orderItemCont .orderQuantity{
-            width: 130px;
+            /*width: 130px;*/
+            width: 100px;
             text-align: center;
         }
         .myPurchase-status span:nth-child(4),
         .orderItemCont .sumMoney{
-            width: 181px;
+            /*width: 181px;*/
+            width: 130px;
             text-align: center;
         }
         .myPurchase-status span:nth-child(5),
@@ -44,9 +47,7 @@
         .orderItemCont .orderViewdetail{
             width: 78px;
         }
-        .orderItemCont .orderName{
-            width: 186px;
-        }
+        
         .active {
             color: #5590F6;
             position: relative;
@@ -63,7 +64,31 @@
     			display: inline-block;
         }
 
-       
+        .orderItemCont .orderName {
+            width: 186px;
+            height: 100%;
+            display: table;
+            margin-top: 0px;
+        }
+
+        .orderItemCont .orderName span {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            height: 100%;
+        }
+
+        .publish_wuliu_xuqiu a {
+            height: 30px;
+            background: #5590F6;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 2px;
+            display: inline-block;
+            color: #fff;
+            margin-left: 20px;
+            margin-top: 29px;
+        }
     </style>
 </head>
 <body>
@@ -90,6 +115,7 @@
             <span>金额</span>
             <span>订单状态</span>
             <span>操作</span>
+            <span>物流状态</span>
         </div>
         <div class="myPurchase-orders" id="myPurchase-orders">
             
@@ -118,8 +144,8 @@
                     <span class="Rt">下单日期：<%=list[i].submitTime%></span>
                 </div>
                 <div class="orderItemCont clearfix">
-                    <div class="orderContItem orderNum"><span><%=i-0+1%></span></div>
-                    <div class="orderContItem orderName" style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;" title="<%=list[i].productName%>"><%=list[i].productName%></div>
+                    <!-- <div class="orderContItem orderNum"><span><%=i-0+1%></span></div> -->
+                    <div class="orderContItem orderName"><span style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;" title="<%=list[i].productName%>"><%=list[i].productName%></span></div>
                     <div class="orderContItem orderPurity"><%=list[i].productPurity ? list[i].productPurity : 0%>%</div>
                     <div class="orderContItem orderQuantity"><%=list[i].sum?list[i].sum:0%><%=list[i].productUnit%></div>
                     <div class="orderContItem sumMoney">
@@ -190,6 +216,9 @@
                     <div class="orderContItem orderViewdetail">
                         <a href="./mySale-orderDetailStatus.html?userType=0&id=<%=list[i].transactionOrderIdStr%>" style="display:block;width: 100%;height: 100%;">查看订单</a>
                     </div>
+                    <div class="orderContItem publish_wuliu_xuqiu">
+                        <a target="_blank" href="http://127.0.0.1:8020/allWuliu/xj_wuliu_gy/account.html" style="display:block;width: 100%;height: 100%;">发布物流需求</a>
+                    </div>
                  </div>
             </div>
         <%}%>
@@ -198,6 +227,11 @@
     // $('.goPage').click(function(){
     //     addMsg($('.page_page').val()-1);
     // })
+
+    $(document).on('click', '.publish_wuliu_xuqiu a', function() {
+        // window.parent
+    })
+
     $(function(){
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
         var orderMsg = '',//订单编号Or商品名称--notRequired
