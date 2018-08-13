@@ -193,9 +193,7 @@ if(token){
 								  rzType = '-1';
 							}
 						  	localStorage.setItem('isOld',rzType);
-                            if(json.data.state>1){
-                                companyId = json.data.companyId;
-                            }
+                             
 					    }
 					  },
 					  error:function(xhr,statues,error){
@@ -204,6 +202,7 @@ if(token){
 				});
 		  		//localStorage.setItem('isOld','2');
 		  	}
+            companyId = json.data.companyId;
 			userId = json.data.id;
 		  },
 		  error:function(xhr,statues,error){
