@@ -350,9 +350,9 @@
 
             window.localStorage.setItem('data-interestid', $(this).attr('data-interestid'));
 
-            // $(this).find('a').attr('href', './myPurchase-requirementDetailView.html');
-//            window.location.href="./myPurchase-requirementDetailView.html";
-            window.location.href = './myPurchase-orderDetail.html?userType=1&id='+$(this).attr('data-orderid')+'';
+            $(this).find('a').attr('href', './myPurchase-requirementDetailView.html');
+           window.location.href="./myPurchase-requirementDetailView.html";
+            // window.location.href = './myPurchase-orderDetail.html?userType=1&id='+$(this).attr('data-orderid')+'';
 
         })
 
