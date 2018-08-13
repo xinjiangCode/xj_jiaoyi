@@ -522,7 +522,7 @@
 
                 //企业已经认证
                 if(json.code == '1'){
-                    if(json.data.state==1){//企业已经认证'   企业信息审核状态 0：待审核 1：已审核  2：已拒绝  3重新审核     -1  企业信息未填写完成',
+                    if(json.data.state==1 || json.data.state==3){//企业已经认证'   企业信息审核状态 0：待审核 1：已审核  2：已拒绝  3重新审核     -1  企业信息未填写完成',
                         $('.qiye_renzheng_img').attr('src', '../img/cf_qiyerenzheng.png');
                         $('.qiye_renzheng_info').text('企业认证').css("color","#6ea3ff");
 
@@ -540,8 +540,6 @@
                             $("#companyNameType").text("贸易商");
                         }else if(json.data.companyType == 2){
                             $("#companyNameType").text("终端");
-                        }else if(json.data.companyType == 3){
-                            $("#companyNameType").text("其它");
                         }
                         
                         $("#companyName").text(json.data.companyName)
@@ -577,14 +575,69 @@
 
                     //去资质认证
                     $('.go_zizhi').click(function() {
-                        if(json.data.state==1 && json.data.aType==null) {
+                        if(json.data.state ==1 || json.data.state == 3) {
                             window.parent.$('.zizhi_renzheng').click();
                         }    
                     });
 
                     //去企业认证
                     $('.go_qiye').click(function() {
-                        window.parent.$('#account_ziliao').click();
+                        if (json.data.state == null) {
+                            window.parent.$('#account_ziliao').click();
+                        } else if (json.data.state == -1) {
+                            $.ajax({
+                                url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
+                                type: 'post',
+                                headers: {
+                                    Accept: "application/json; charset=utf-8",
+                                    token: token
+                                },
+                                data: {
+                                    token: token
+                                },
+                                cache: false,
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log(data);
+                                    console.log(data.data.state);
+
+                                    if (data.data.state && data.data.type == 1) {
+                                        window.parent.$(".manageItem").removeClass("active1");
+                                        window.parent.$(".flag_qyrz").addClass("active1");
+                                        location.href="identification"+data.data.state+".html"; 
+                                        if (companyId) {
+                                            window.parent.tiao_tan();
+                                        }
+                                        
+                                    } else {
+                                        if (data.data.type == 7) {  //等待审核
+                                            // window.parent.tan3();
+                                        } else if (data.data.type == 2) {  //正在审核
+                                            window.parent.tan4();
+                                        } else if (data.data.type == 4) {  //已拒绝
+                                            window.parent.tan5();
+                                        } else if (data.data.type == 5) {  //企业二次审核
+                                            window.parent.tan6();
+                                        } else if (data.data.type == 6) {  //出金二次修改
+                                            window.parent.tan7();
+                                        }
+                      
+                                        location.href="../identification1.html"; 
+                                    }
+
+                                      
+                                },
+                                error: function (err) {
+                                    console.log(err);
+                                }
+                            });
+                            // window.parent.$('#account_ziliao').attr('data-src', 'identification1.html');
+                            // window.parent.$('#account_ziliao').click();
+
+                        } else {
+                            window.parent.$('.qiye_renzheng').click();
+                        }
+                        
                     });
                     
                 }else{

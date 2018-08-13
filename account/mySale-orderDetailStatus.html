@@ -1110,10 +1110,10 @@
                                 orderId: id
                             },
                             success: function(res){
-                                if(code==0){
+                                if(res.code==0){
                                     alert("该订单已超时！")
                                     window.location.reload();
-                                }else if(code==1){
+                                }else if(res.code==1){
                                     toSendGoods(id);
                                 }
                             },

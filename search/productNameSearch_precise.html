@@ -487,7 +487,6 @@
 					}
 
 					$('#guige_size').html(guigeStr);
-
 					$('.guige_shuzi').html(json.data.specificationList.length);
 
 				},
@@ -646,6 +645,8 @@
 							}
 						}
 					}
+
+					$('.guige_shuzi').html(json.data.specificationList.length);
 
 
 					$(document).on('click', '.xunpan_detail', function() {
@@ -980,10 +981,13 @@ function sear() {
 	       					$('#popLogin').text('认证');
 							missedLogin() ;
 	       				}else if(isOld == '-2'){
-	       					$('#effect .contTitle span').text('您的认证正在审核中');
-	       					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
-	       					$('#popLogin').hide();
-							missedLogin() ;
+	      //  					$('#effect .contTitle span').text('您的认证正在审核中');
+	      //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+	      //  					$('#popLogin').hide();
+							// missedLogin() ;
+
+							window.location.href = this.href;
+
 	       				}
 	       			}else{
 	       				window.location.href = this.href;

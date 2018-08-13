@@ -111,7 +111,7 @@
 		<div class="content">为了保障平台交易安全，您需要进行企业信息认证，认证完毕后您 才可以在平台进行交易。</div>
 		<div class="time_djs"><span>10</span>秒后自动跳转到首页</div>
 		<div class="sub">
-			<div class="ident Lf"><a onclick="sessionStorage.setItem('cf_showPage','1')" href="../account/account.html">企业信息认证</a></div>
+			<div class="ident Lf"><a href="javascript:;">企业信息认证</a></div>
 			<div class="idex Rt"><a href="../index.html">返回首页</a></div>
 		</div>
 	</div>
@@ -143,6 +143,13 @@
         loop: true,
         autoplay:true,
     })
+
+    // hzf_showPage
+    $('.ident a').click(function() {
+    	sessionStorage.setItem('cf_showPage','1');
+    	sessionStorage.setItem('hzf_showPage', 'flag_qyrz');
+    	window.location.href = "../account/account.html";
+    });
 
 
     $(function () {

@@ -7,7 +7,7 @@
 	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
 	    <meta http-equiv="Pragma" content="no-cache">
 	    <meta name="format-detection" content="telephone=no" />
-		<title adct="首页">新疆化学品经营服务平台</title>
+		<title adct="首页" adct1="0">新疆化学品经营服务平台</title>
 		<link rel="stylesheet" type="text/css" href="css/mCustomScrollbar.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
 		<link rel="stylesheet" type="text/css" href="css/result.css"/>
@@ -26,6 +26,8 @@
 			}
 			.address{
 				padding: 16px 0;
+    			padding-bottom: 55px;
+    			overflow: visible;
 			}
 			.navbar2>ul li{
 				padding: 6px 25px;
@@ -35,6 +37,18 @@
 			}
 			.navbar2>.title{
 				margin-top: 7px;
+				width: 85px;
+    			text-align: right;
+			}
+
+			div#changeAdd {
+			    margin-left: 22px;
+			}
+
+			.address>.title{
+				/*width: 85px;*/
+    			text-align: right;	
+    			line-height: 37px;
 			}
 			.shoplist>ul li{
 				border-bottom: 2px dotted #e1e1e8;
@@ -61,8 +75,34 @@
 				margin-bottom: 0;
 			}
 			.shoplist .right{
-				width: 408px;
+				width: 442px;
+				overflow: hidden;
+				height: 125px;
 			}
+
+			.shoplist>ul li>.right>.rightImg>img {
+				width: 121px;
+			}
+
+			.shoplist>ul li>.right>.rightImg {
+				margin-left: 21px;
+			}
+
+			.shoplist>ul li>.right>.rightTitle>.title {
+				margin-right: 0px;
+			}
+
+			.shoplist>ul li>.leftTitle img {
+				vertical-align: sub;
+				float: none;
+			}
+
+			.title span, .rightImg {
+				cursor: pointer;
+			}
+
+
+
 		</style>
 	</head>
 	<body>
@@ -70,32 +110,31 @@
 		<div class="stateList mianCont">
 			<div class="first">首页&nbsp;></div>
 			<div>供应商&nbsp;></div>
-			<div class="last"> 新疆&nbsp;&nbsp;&nbsp;&nbsp;<span>x</span></div>
+			<!-- <div class="last"> 新疆&nbsp;&nbsp;&nbsp;&nbsp;<span>x</span></div> -->
 		</div>
 
 		<div class="navbar2 mianCont">
 			<div class="title">供应商类型:</div>
 			<ul>
-				<li class="active">
-					全部
-				</li>
-				<li>
-					生产厂家
-				</li>
-				<li>
-					贸易商
-				</li>
-				<li>
-					终端
-				</li>
+				<li class="active">全部</li>
+				<li>生产厂家</li>
+				<li>贸易商</li>
+				<li>终端</li>
 			</ul>
 		</div>
 		<div class="address mianCont">
 			<div class="title">所在地区:</div>
-			<select name="" id="changeAdd">
+			<!-- <select name="" id="changeAdd">
 				<option value="新疆">新疆</option>
 				<option value="湖北">湖北</option>
-			</select>
+			</select> -->
+			<div class="selectPub provice1" id="changeAdd" data-selectedindex="-1" data-proviceid="" style="float: left;width: 115px;">
+                <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择省</span>
+                <img src="img/prl-select.jpg" alt="">
+                <ul>
+					
+                </ul>
+            </div>
 		</div>
 
 		<div class="shoplist mianCont">
@@ -146,62 +185,122 @@
 	                <span class="allPageN">1/200</span>
 	                共<span class="allPageSize"></span>页，
 	            <span>到第</span>
-	            <input type="text"/>
+	            <input type="text" style="text-align: center;/>
 	            <span>页</span>
 	            <button type="button" class="button">GO</button>
 	        </div>
 	    </div>
+	    <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/pager.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" >
             $('.objListBox>div:nth-child(5n)').css('margin-right','0');
             var isFirst = true;
+
+            var first = true;
+
             var cont = localStorage.getItem('seachSupplier');
             console.log(cont);
-            getData(0,cont,'','新疆');
+            getData(1,cont,'','');
+
+            //查询省
+            $.ajax({
+		        url: pubIP + 'address/listProvince', /*v1.0*/
+		        type: 'post',
+		        headers: {
+		            Accept: "application/json; charset=utf-8",
+		            token: token
+		        },
+		        cache: false,
+		        ansyc: false,
+		        dataType: 'json',
+		        success: function (data) {
+		           console.log(data);
+		            var str = '<li data-proviceid="">请选择省</li>';
+		            for (var i = 0; i < data.data.length; i++) {
+		                str += '<li  data-index="'+i+'" value="'+i+'" data-proviceId="'+data.data[i].provinceid+'" data-province="'+data.data[i].province+'">'+data.data[i].province+'</li>';
+		            }
+
+		            $('.provice1 ul').html(str);
+
+		            $('.provice1 ul li').click(function(){
+		                event.stopPropagation();
+		                $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+		                $(this).parent().parent().attr('data-proviceid', $(this).attr('data-proviceid'));
+		                $(this).parent().parent().find('span').text($(this).text());
+		                $(this).parent().parent().children('img').attr('src', 'img/prl-select.jpg')
+		                $(this).parent().css('display','none');
+
+		                var p = $(this).parent().parent().attr('data-proviceid');
+
+		                if (p == '-1') {
+		                	p = ''
+		                }
+
+		                var t = $('.navbar2 ul li.active').text();
+		                if (t == '全部') {
+		                	t = '';
+		                } else if (t == '生产厂家') {
+		                	t = 0;
+		                } else if (t == '贸易商') {
+		                	t = 1;
+		                } else if (t == '终端') {
+		                	t = 2;
+		                }
+
+		                getData(1,cont,t,p);
+		                
+		            });
+		        },
+		        error: function(err){
+		            console.log(err);
+		        }
+		    });
             
             $('.navbar2 ul li').click(function(){
+
+            	first = false;
             		isFirst = true;
             		$('.navbar2 ul .active').removeClass('active');
             		$(this).addClass('active');
             		var compType = '';
             		switch($.trim($(this).text())){
-				    case '生产厂家':
-				        compType = 0;
-				        break;
-				    case '贸易商':
-				        compType = 1;
-				        break;
-				    case '终端':
-				        compType = 2;
-				        break;
-				    default:
-    						compType = '';
-				}
-            		getData(0,cont, compType,'新疆');
+					    case '生产厂家':
+					        compType = 0;
+					        break;
+					    case '贸易商':
+					        compType = 1;
+					        break;
+					    case '终端':
+					        compType = 2;
+					        break;
+					    default:
+	    					compType = '';
+					}
+
+            		getData(1,cont, compType,$('.provice1').attr('data-proviceid'));
             })
             
-            $('#changeAdd').change(function(){
-            		isFirst = true;
-            		var compType = '';
-            		switch($.trim($(this).text())){
-				    case '生产厂家':
-				        compType = 0;
-				        break;
-				    case '贸易商':
-				        compType = 1;
-				        break;
-				    case '终端':
-				        compType = 2;
-				        break;
-				    default:
-    						compType = '';
-				}
-            		getData(0,cont,compType,$(this).val());
-            })
+    //         $('#changeAdd').change(function(){
+    //         		isFirst = true;
+    //         		var compType = '';
+    //         		switch($.trim($(this).text())){
+				//     case '生产厂家':
+				//         compType = 0;
+				//         break;
+				//     case '贸易商':
+				//         compType = 1;
+				//         break;
+				//     case '终端':
+				//         compType = 2;
+				//         break;
+				//     default:
+    // 						compType = '';
+				// }
+    //         		getData(0,cont,compType,$(this).val());
+    //         })
             
             //渲染
             function addDom(data){
@@ -230,7 +329,7 @@
 						}    
             			domStr += '<li><div class="leftImg Lf"><img src="'+t.storeImage+'" alt=""></div>\
 								<div class="leftTitle Lf">\
-									<div class="title">'+t.storeName+qrz+'</div>\
+									<div class="title"><span data-companyId="'+t.companyId+'">'+t.storeName+'</span>'+qrz+'</div>\
 									<div>公司类型: <span>'+compType+'</span></div>\
 									<div>所在地区: <span>'+t.companyAddress2+'</span></div>\
 								</div>\
@@ -240,7 +339,10 @@
 										<div class="title">热卖商品</div>\
 									</div>';
 						$.each(t.hotProducs,function(i,t){
-							domStr += '<div class="rightImg Lf" productId="'+t.productId+'"><img src="'+t.productPic+'" alt=""></div>';
+
+							t.productPic = t.productPic.split(',')[0];
+
+							domStr += '<div class="rightImg Lf" supplyId="'+t.supplyId+'"><img src="'+t.productPic+'" alt=""></div>';
 						})
 						domStr += '</div></li>';
             		});
@@ -248,9 +350,15 @@
             }
             
             $(document).on('click','.rightImg',function(){
-            		localStorage.setItem('productId',$(this).attr('productId'));
-            		location.href = '../obj/objDetails.html';
+            		localStorage.setItem('objid',$(this).attr('supplyId'));
+            		location.href = 'obj/objDetails.html';
             })
+
+            //点击进入店铺首页
+            $(document).on('click', '.title span', function() {
+            	window.localStorage.setItem('thisCompanyId', $(this).attr('data-companyId'));
+            	window.location.href = 'shopManage/storeIndex.html';
+            });
             
             //请求
 			function getData(num,cont,type,add){
@@ -264,7 +372,7 @@
 				  },
 			      data:{
 			      	'companyType':type,
-			      	'address':add,
+			      	'provinceId':add,
 		    	  	'content':cont,
 		    	  	'sEcho':num,
 		    	  	'pageNum':num
@@ -285,13 +393,16 @@
 					        elem: $('#page1'),
 					        callback: function(n) {
 					            //console.log(n);
-					            addMsg(n-1);
+					            getData(n, cont,type,add);
 					        }
 					    });
-					    $('.allPageN').text(num+1+'/'+json.pages);
-					    $('.allPageSize').text(json.pages);
+					    
 					    isFirst = false;
 			        }
+			        $('.pagerBox').show();
+			        $('.pageJump').show();
+			        $('.allPageN').text(num+'/'+json.pages);
+					   $('.allPageSize').text(json.pages);
 			        addDom(json.aData);
 			      },
 			      error:function(xhr,statues,error){

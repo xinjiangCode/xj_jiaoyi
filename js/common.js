@@ -1,5 +1,6 @@
  //var pubIP = 'http://api.xjv56.com/service/';
 var pubIP = 'http://192.168.1.80:7777/service/';
+//var pubIP = 'http://127.0.0.1:7777/service/';
 var downIP = 'http://file.xjv56.com/';
 //var downIP = 'http://192.168.1.80:8680/web-file/';
 //var pubIP = 'http://192.168.1.165:7777/service/';
@@ -49,7 +50,7 @@ document.writeln("<div class=\"pop\" id=\"effect\">\n" +
     "\t\t\t<div class=\"close Rt\" onclick=\"cf_popEffectClose1(this)\"></div>\n" +
     "\t\t</div>\n" +
     "\t\t<div class=\"deanger\"></div>\n" +
-    "\t\t<div class=\"contTitle\">您好，<span>您的登陆已经过期</span>,请先<i onclick=\"popEffectLogin()\" style=\"color: #00a0e9;\">登陆</i>，以便使用更多功能。</div>\n" +
+    "\t\t<div class=\"contTitle\">您好，<span>您的登录已经过期</span>,请先<i onclick=\"popEffectLogin()\" style=\"color: #00a0e9;\">登录</i>，以便使用更多功能。</div>\n" +
     "\t\t<div class=\"popLogin\" id=\"popLogin\" onclick=\"popEffectLogin()\">登录</div>\n" +
     "\t</div>\n" +
     "</div>");
@@ -135,11 +136,24 @@ if(token){
 		  				if(location.href.indexOf('account') != -1 || location.href.indexOf('shopManage') != -1){
 		  					$("#effect" , parent.document).show();
 		  				}else{
-		  					missedLogin() ;
+		  					missedLogin();
 		  				}
 		  			}
 		  		}
-		  	}else{
+                return false;
+		  	}else if(json.code == -1001){
+                localStorage.setItem('isOld','1');
+                localStorage.setItem('token','');
+                if(!(location.href.indexOf('index') != -1 || location.href.indexOf('aboutUs') != -1)){
+                    //if(location.href.indexOf('index') == -1){
+                    if(location.href.indexOf('account') != -1 || location.href.indexOf('shopManage') != -1){
+                        $("#effect" , parent.document).show();
+                    }else{
+                        missedLogin();
+                    }
+                }
+                return false;
+            }else{
 		  		//是否认证
 		  		$.ajax({ 
 					  type:"post",
@@ -179,10 +193,10 @@ if(token){
 								  rzType = '-1';
 							}
 						  	localStorage.setItem('isOld',rzType);
-						  	
+                            if(json.data.state>1){
+                                companyId = json.data.companyId;
+                            }
 					    }
-					  	
-
 					  },
 					  error:function(xhr,statues,error){
 					      
@@ -190,9 +204,7 @@ if(token){
 				});
 		  		//localStorage.setItem('isOld','2');
 		  	}
-			companyId = json.data.companyId;
 			userId = json.data.id;
-			
 		  },
 		  error:function(xhr,statues,error){
 		      

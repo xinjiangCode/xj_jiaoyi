@@ -110,6 +110,22 @@
             display: none;
         }
 
+        .delete_btn {
+            color: #80acf8;
+            position: absolute;
+            left: 380px;
+            top: 85px;
+            cursor: pointer;
+        }
+
+        .delete_btn1 {
+            color: #80acf8;
+            position: absolute;
+            left: 380px;
+            top: 124px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -229,7 +245,7 @@
                         <input type="file" id="yingye_zhizhao_pic" class="inputfile" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
                         <input type="hidden" name="" value="" id="yingye_zhizhao_hidden">
                     </div>
-                    <i class="red" style="display: block;margin-top: 22px;font-size: 14px;">请上传营业执照或者扫描件！ 照片大小 < 2MB</i>
+                    <i class="red" style="display: block;margin-top: 22px;font-size: 14px;">请上传营业执照或者扫描件！ 照片大小 < 2MB 图片格式为jpg、jpeg、png</i>
                 </div>
                 <span class="ts yingye"></span>
             </li>
@@ -243,6 +259,8 @@
                         <input type="hidden" name="" value="" id="saomiaojian_hidden">
                     </div>
                 </div>
+                <span></span>
+                <span class="delete_btn">删除</span>
             </li>
             <li>
                 <div class="left1" style="width: 418px;">《税务登记证副本》或《一般纳税人资格证书》扫描件:</div>
@@ -254,6 +272,8 @@
                         <input type="hidden" name="" value="" id="chajian_hidden">
                     </div>
                 </div>
+                <span></span>
+                <span class="delete_btn1">删除</span>
             </li>
             <!-- <li>
                 <div class="left1 Lf"><i class="red">*</i>地址:</div>
@@ -344,22 +364,10 @@
         })
 
         
-        // //监听backspace事件
-        // $('.qiye_name').on("keyup",function(e){
-        //     var _this = $(this);
-        //     var ev = e;
-        //     keyupFun(_this,ev);
-        // });
-
-        //     function keyupFun(value,e){
-        //         var k = e.keyCode;
-        //         var val = e.key;
-        //         if(k == 8){             //8是backspace的keyCode
-        //             value.focus();
-        //         }else{
-        //             return false;
-        //         }
-        //     }
+        $('.delete_btn1, .delete_btn').click(function() {
+            $(this).parent().find('.uploade').css('background', 'url("") rgb(246, 246, 246)');
+            $(this).parent().find('.uploade').find('input[type="hidden"]').val('');
+        });
 
         
         selectProvince('');
@@ -1285,6 +1293,11 @@
                         $('#faren_name').val(data.data.company.legalPerson);
                         $('#id_number').val(data.data.company.legalIdNumber);
 
+
+                        //不能删除
+                        $('.delete_btn1').hide();
+                        $('.delete_btn').hide();
+
                     } else {
                         alert(data.msg);
                     }
@@ -1587,6 +1600,8 @@
         $('#province').attr('disabled', false);
         $('#city').attr('disabled', false);
         $('#area').attr('disabled', false);
+        $('.delete_btn').show();
+        $('.delete_btn1').show();
 		$(this).addClass('yiRenZheng1');
 		$(this).text('修改完成');
 	})
