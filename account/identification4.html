@@ -300,34 +300,35 @@ $(".showjieshi").on("click",function(){
 })
 //下载协议模板
 function down_moban(){
-        $.ajax({
-            url: pubIP + 'agreement/findAgreementInfo?agreementId=3',
-            type: 'get',
-            dataType: 'json',
-            success: function (data) {
-                //console.log(data);
-                var thisUrl = data.data.fileUrl;
-                window.location.href=thisUrl;
-//                $.ajax({
-//                    url: downIP + 'bfile/fileDown.htm',
-//                    type: 'post',
-//                    data:{
-//                        fileUrl: thisUrl
-//                    },
-//                    dataType: 'json',
-//                    success: function (data1) {
-//                        console.log("+++++++++++++++++++++========");
-//                        console.log(data1);
-//                    },
-//                    error: function (err) {
-//                        console.log(err);
-//                    }
-//                })
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        })
+    window.open("/cys/web/viewer.html");
+//        $.ajax({
+//            url: pubIP + 'agreement/findAgreementInfo?agreementId=3',
+//            type: 'get',
+//            dataType: 'json',
+//            success: function (data) {
+//                //console.log(data);
+//                var thisUrl = data.data.fileUrl;
+//                window.location.href=thisUrl;
+////                $.ajax({
+////                    url: downIP + 'bfile/fileDown.htm',
+////                    type: 'post',
+////                    data:{
+////                        fileUrl: thisUrl
+////                    },
+////                    dataType: 'json',
+////                    success: function (data1) {
+////                        console.log("+++++++++++++++++++++========");
+////                        console.log(data1);
+////                    },
+////                    error: function (err) {
+////                        console.log(err);
+////                    }
+////                })
+//            },
+//            error: function (err) {
+//                console.log(err);
+//            }
+//        })
     }
 
 var file_url = null;

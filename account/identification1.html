@@ -294,7 +294,7 @@
                     <input type="text" placeholder="盖章资料上传" id="wenjian_name"><span onclick="down_moban()" style="margin-left: 55px;color: #80acf8;">《下载企业认证协议模板》</span>
                     <input type="file" id="wenjian" onchange="upload_file(this);" accept="application/pdf" readonly>
                 </div>
-                <div class="right1 Lf yiRenZheng"><a href="##" download="" id="file_look" style="line-height: 38px;">在线查看</a></div>
+                <div class="right1 Lf yiRenZheng"><span onclick="down_moban()" id="file_look" style="line-height: 38px;">在线查看</span></div>
             </li>
         </ul>
     </div>
@@ -625,35 +625,38 @@
 
     //下载协议模板
     function down_moban(){
-        $.ajax({
-            url: pubIP + 'agreement/findAgreementInfo?agreementId=2',
-            type: 'get',
-            dataType: 'json',
-            success: function (data) {
-                //console.log(data);
-                var thisUrl = data.data.fileUrl;
-//                download(thisUrl)
-                window.location.href=thisUrl
-//                $.ajax({
-//                    url: downIP + 'bfile/fileDown.htm',
-//                    type: 'post',
-//                    data:{
-//                        fileUrl: thisUrl
-//                    },
-////                    dataType: 'json',
-//                    success: function (data1) {
-//                        console.log("+++++++++++++++++++++========");
-//                        console.log(data1);
-//                    },
-//                    error: function (err) {
-//                        console.log(err);
-//                    }
-//                })
-            },
-            error: function (err) {
-                console.log(err);
-            }
-        })
+        window.open("/cys/web/viewer.html");
+
+//        $.ajax({
+//            url: pubIP + 'agreement/findAgreementInfo?agreementId=2',
+//            type: 'get',
+//            dataType: 'json',
+//            success: function (data) {
+//                //console.log(data);
+//                var thisUrl = data.data.fileUrl;
+////                download(thisUrl)
+////                window.location.href=thisUrl
+////                window.location.href=pubIP+"/akane/resources/plugin/pdfJs/generic/web/viewer.html?file=/akane/displayPDF.do?id=966c6f0e-3c06-4154-aafd-afdbee5bcb65"
+////                $.ajax({
+////                    url: downIP + 'bfile/fileDown.htm',
+////                    type: 'post',
+////                    data:{
+////                        fileUrl: thisUrl
+////                    },
+//////                    dataType: 'json',
+////                    success: function (data1) {
+////                        console.log("+++++++++++++++++++++========");
+////                        console.log(data1);
+////                    },
+////                    error: function (err) {
+////                        console.log(err);
+////                    }
+////                })
+//            },
+//            error: function (err) {
+//                console.log(err);
+//            }
+//        })
     }
 
     var img_url1 = null;
