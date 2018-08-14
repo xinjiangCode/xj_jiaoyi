@@ -67,14 +67,15 @@
 
         .sousuo {
             display: inline-block;
-            width: 50px;
+            width: 82px;
             height: 30px;
-            margin-left: 5px;
+            margin: 10px 0px 0px 12px;
             background-color: #007aff;
             text-align: center;
             line-height: 30px;
             color: #fff;
             border-radius: 5px;
+            cursor: pointer;
         }
 
         .none {
@@ -342,6 +343,10 @@
             vertical-align: bottom;
         }
 
+        .btn {
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -407,7 +412,7 @@
                 <li style="overflow: visible;" class="clearfix">
                     <div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>
                     <div class="right1 Lf">
-                        <div name="" id="textarea0" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #999;" contenteditable="false"></div>
+                        <div name="" id="textarea0" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #ebe9ea;" contenteditable="false"></div>
                     </div>
                     <span class="ts2">许可经营不能为空</span>
                     <div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>
@@ -575,7 +580,8 @@
         $('.laydate-icon').css({
             'backgroundImage': 'url(../img/yh_rili.png)',
             'backgroundPosition': '137px',
-            'backgroundSize': '11%'
+            'backgroundSize': '11%',
+            'border': '1px solid #ebe9ea'
         });
 
 
@@ -695,7 +701,8 @@
                                 $('.laydate-icon').css({
                                     'backgroundImage': 'url(../img/yh_rili.png)',
                                     'backgroundPosition': '137px',
-                                    'backgroundSize': '11%'
+                                    'backgroundSize': '11%',
+                                    'border': '1px solid #ebe9ea'
                                 });
                             }
                             for (var j = 0; j < data.data[i].picInfos.length-1; j++) {
@@ -1042,7 +1049,7 @@
                     +'<li style="overflow: visible;" class="clearfix">'
                         +'<div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>'
                         +'<div class="right1 Lf">'
-                            +'<div name="" id="textarea'+i+'" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #999;"  contenteditable="false"></div>'
+                            +'<div name="" id="textarea'+i+'" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #ebe9ea;"  contenteditable="false"></div>'
                         +'</div>'
                         +'<span class="ts2">许可经营不能为空</span>'
                         +'<div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>'
@@ -1081,7 +1088,8 @@
         $('.laydate-icon').css({
             'backgroundImage': 'url(../img/yh_rili.png)',
             'backgroundPosition': '137px',
-            'backgroundSize': '11%'
+            'backgroundSize': '11%',
+            'border': '1px solid #ebe9ea'
         });
 
         $.ajax({

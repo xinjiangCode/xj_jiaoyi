@@ -68,14 +68,15 @@
 
         .sousuo {
             display: inline-block;
-            width: 50px;
+            width: 82px;
             height: 30px;
-            margin-left: 5px;
+            margin: 10px 0px 0px 12px;
             background-color: #007aff;
             text-align: center;
             line-height: 30px;
             color: #fff;
             border-radius: 5px;
+            cursor: pointer;
         }
 
         .none {
@@ -342,6 +343,10 @@
             font-size: 12px;
             vertical-align: bottom;
         }
+
+        .btn {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -419,7 +424,7 @@
                         <div class="sousuo_div">
                             <input type="text" id="" class="input_width">
                             <img src="../img/sousuo.png" class="sousuo_img" alt="">
-                            <span class="sousuo">搜索</span>
+                            <span class="sousuo" style="margin: 10px 0px 0px 8px;">搜索</span>
                         </div>
                         <div class="cousuo_cont">
                             <ul class="sousuo_ul">
@@ -576,7 +581,8 @@
         $('.laydate-icon').css({
             'backgroundImage': 'url(../img/yh_rili.png)',
             'backgroundPosition': '137px',
-            'backgroundSize': '11%'
+            'backgroundSize': '11%',
+            'border': '1px solid #ebe9ea'
         });
 
 
@@ -701,7 +707,8 @@
                                 $('.laydate-icon').css({
                                     'backgroundImage': 'url(../img/yh_rili.png)',
                                     'backgroundPosition': '137px',
-                                    'backgroundSize': '11%'
+                                    'backgroundSize': '11%',
+                                    'border': '1px solid #ebe9ea'
                                 });
                             }
                             for (var j = 0; j < data.data[i].picInfos.length-1; j++) {
@@ -1034,7 +1041,8 @@
         $('.laydate-icon').css({
             'backgroundImage': 'url(../img/yh_rili.png)',
             'backgroundPosition': '137px',
-            'backgroundSize': '11%'
+            'backgroundSize': '11%',
+            'border': '1px solid #ebe9ea'
         });
 
         $.ajax({
