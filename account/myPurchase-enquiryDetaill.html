@@ -218,7 +218,7 @@
             <%}else if(state==4){%>
                 <div class="myPurchase-refused4 Refuse">
 
-                    <p>拒绝时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=periodTime%></span>
+                    <p>拒绝时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=updateTime%></span>
                         <%if(sj_type!='mysale'){%>
                             &nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span>
                         <%}%>
@@ -226,7 +226,7 @@
                 </div>
             <%}else if(state==5){%>
                 <div class="myPurchase-refusedCancel cancel">
-                    <p>取消时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=periodTime%></span>
+                    <p>取消时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=updateTime%></span>
                         <%if(sj_type!='mysale'){%>
                             &nbsp;&nbsp;您可以<span data-state="<%=state%>" class="blue two_xunjia lastBtn" data-supplierid="<%=supplyId%>">&nbsp;&nbsp;再次询价</span>
                         <%}%>
@@ -234,7 +234,7 @@
                 </div>
             <%}else if(state==6){%>
                 <div class="myPurchase-refused3 invalid">
-                    <p>失效时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=periodTime%></span>&nbsp;&nbsp;</p>
+                    <p>失效时间&nbsp;&nbsp;<span class="red" style="font-weight:bold;"><%=updateTime%></span>&nbsp;&nbsp;</p>
                 </div>
             <%}%> 
         </script>

@@ -216,24 +216,24 @@
                     } else if (data.data.state == 2) {  //确认
                         str += '<div class="invalid">报价状态： 已确认</div>'
                                 +'<div>'
-                                    +'报价最后有效期为：<span class="yellow time time2">'+data.data.submitTime+'</span>&nbsp;'
+                                    +'报价最后有效期为：<span class="yellow time time2">'+data.data.bjyxq+'</span>&nbsp;'
                                     +'您可以： <span class="look_order"><a href="./mySale-orderDetailStatus.html?userType=1&id='+data.data.orderNoId+'" style="color:#6A9EF7;">查看订单</a></span>'
                                 +'</div>';
                                 
                     } else if (data.data.state == 4) { //拒绝
                         str += '<div class="invalid">报价状态： 已拒绝</div>'
                             +'<div>'
-                                +'拒绝时间：<span class="yellow time time1">'+data.data.submitTime+'</span>' 
+                                +'拒绝时间：<span class="yellow time time1">'+data.data.updateTime+'</span>' 
                             +'</div>';
                     } else if (data.data.state == 5) {
                         str += '<div class="invalid">报价状态： 已取消</div>'
                             +'<div>'
-                                +'取消时间：<span class="yellow time time1">'+data.data.submitTime+'</span>'
+                                +'取消时间：<span class="yellow time time1">'+data.data.updateTime+'</span>'
                             +'</div>';
                     } else if (data.data.state == 6) {
                         str += '<div class="invalid">报价状态： 已失效</div>'
                             +'<div>'
-                                +'失效时间：<span class="yellow time time1">'+data.data.submitTime+'</span> '
+                                +'失效时间：<span class="yellow time time1">'+data.data.updateTime+'</span> '
                             +'</div>';
                     }
 

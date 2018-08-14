@@ -238,7 +238,7 @@
             <div class="orderItemCont clearfix">
                 <div class="orderContItem orderNum"><span><%=i-0+1%></span></div>
                 <div class="orderContItem orderN"><%=list[i].productName%></div>
-                <div class="orderContItem orderViewdetail tiao_btn" data-baojia="<%=list[i].interestId%>" data-state1="<%=list[i].state%>" data-caigou1="<%=list[i].buyingId%>"><a href="javascript:;" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
+                <div class="orderContItem orderViewdetail tiao_btn" data-interestid="<%=list[i].interestId%>" data-state1="<%=list[i].state%>" data-caigou1="<%=list[i].buyingId%>"><a href="javascript:;" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
                 <%if (list[i].state == 1) {%>
                 <div class="orderContItem orderStatus" style="color: #FF7E28;">待确认</div>
                 <%} else if (list[i].state == 2) {%>
@@ -384,7 +384,7 @@
         });
 
         $(document).on('click', '.tiao_btn', function () {
-            window.localStorage.setItem('data-baojia', $(this).attr('data-baojia'));
+            window.localStorage.setItem('data-interestid', $(this).attr('data-interestid'));
             window.localStorage.setItem('data-state1', $(this).attr('data-state1'));
             window.localStorage.setItem('data-caigou1', $(this).attr('data-caigou1'));
 
