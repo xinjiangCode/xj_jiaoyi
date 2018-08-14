@@ -532,6 +532,7 @@
         
         function edit(dbid, name, province, city, detail_address, phone, moren_address) {
             /*v1.0*/
+            var that = this;
             $.ajax({
                 url: pubIP + 'address/editHarvestAddress', 
                 type: 'post',
