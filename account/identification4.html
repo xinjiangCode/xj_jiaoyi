@@ -595,8 +595,12 @@ function upload_file(obj) {
                 cache: false,
                 dataType: 'json',
                 success: function (data) {
+                    console.log("+===============");
                     console.log(data);
-                    window.location.href = 'identification5.html';
+                    if(data.code==1){
+                        window.location.href = 'identification5.html';
+                    }
+
                 },
                 error: function (err) {
                     console.log(err);
