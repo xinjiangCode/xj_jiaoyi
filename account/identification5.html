@@ -699,14 +699,19 @@ function xmTanUploadImg2(obj) {
                             return false;
                         }
                        /* code_num.val(data.data);*/
-                        window.parent.add_tan();
-                        $('.weiRenZheng').css('display', 'none');
-                        // window.localStorage.removeItem('add-flag');
-                        window.localStorage.setItem('add-flag', 'true');
+                        if(data.code == 1){
+                            window.parent.add_tan();
+                            $('.weiRenZheng').css('display', 'none');
+                            // window.localStorage.removeItem('add-flag');
+                            window.localStorage.setItem('add-flag', 'true');
 
-                        $('input[type=file]').attr('disabled',true);
-                        $('input[type=text]').attr('disabled',true);
-                        $('input[type=radio]').attr('disabled',true);
+                            $('input[type=file]').attr('disabled',true);
+                            $('input[type=text]').attr('disabled',true);
+                            $('input[type=radio]').attr('disabled',true);
+                        }else {
+                            alert(data.msg);
+                        }
+
                        
                     },
                     error: function (err) {
