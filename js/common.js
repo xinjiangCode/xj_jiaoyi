@@ -1,7 +1,7 @@
 //var pubIP = 'http://api.xjv56.com/service/';
- // var pubIP = 'http://192.168.1.80:7777/service/';
+ var pubIP = 'http://192.168.1.80:7777/service/';
 
-var pubIP = 'http://192.168.1.219:7777/service/';
+// var pubIP = 'http://192.168.1.219:7777/service/';
 
 //var pubIP = 'http://127.0.0.1:7777/service/';
 //var token = 'ceshi123456';
