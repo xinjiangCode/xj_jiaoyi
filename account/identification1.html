@@ -652,38 +652,19 @@
 
     //下载协议模板
     function down_moban(){
-//        window.open("/cys/web/viewer.html");
-        window.open("http://wl.cys.xjv56.com/web/viewer.html");
-//        $.ajax({
-//            url: pubIP + 'agreement/findAgreementInfo?agreementId=2',
-//            type: 'get',
-//            dataType: 'json',
-//            success: function (data) {
-//                //console.log(data);
-//                var thisUrl = data.data.fileUrl;
-////                download(thisUrl)
-////                window.location.href=thisUrl
-////                window.location.href=pubIP+"/akane/resources/plugin/pdfJs/generic/web/viewer.html?file=/akane/displayPDF.do?id=966c6f0e-3c06-4154-aafd-afdbee5bcb65"
-////                $.ajax({
-////                    url: downIP + 'bfile/fileDown.htm',
-////                    type: 'post',
-////                    data:{
-////                        fileUrl: thisUrl
-////                    },
-//////                    dataType: 'json',
-////                    success: function (data1) {
-////                        console.log("+++++++++++++++++++++========");
-////                        console.log(data1);
-////                    },
-////                    error: function (err) {
-////                        console.log(err);
-////                    }
-////                })
-//            },
-//            error: function (err) {
-//                console.log(err);
-//            }
-//        })
+        $.ajax({
+            url: pubIP + 'agreement/findAgreementInfo?agreementId=2',
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                //console.log(data);
+                var thisUrl = data.data.fileUrl;
+                window.open("../generic/web/viewer.html?thisUrl="+thisUrl);
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
     }
 
     var img_url1 = null;
