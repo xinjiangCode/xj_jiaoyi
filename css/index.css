@@ -962,3 +962,8 @@ input::-webkit-inner-spin-button {
 input{
 	-moz-appearance:textfield;
 }
+
+
+.btn {
+	cursor: pointer;
+}
