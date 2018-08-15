@@ -1283,7 +1283,7 @@
             <div class="info">
                 <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
                 <p><span>危险化学品资质认证审核未通过</span>，请您重新填写进行认证！</p>
-                <p class="jj_yuanying" style="color: red;font-size: 14px;text-align: left;">拒绝理由：<span></span></p>
+                <p class="jj_yuanying" style="color: red;font-size: 14px;text-align: left;">拒绝理由：<span style="color: red; font-size: 14px;"></span></p>
             </div>
             <div class="modelBtnBox">
                 <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
@@ -2651,6 +2651,7 @@
     //危险化学品认证资质已拒绝
     function jujue_weixian(reasons) {
         $(".jj_yuanying span").html(reasons);
+        
         $('.modelBox19').css('display', 'block');
     }
 
@@ -2781,17 +2782,17 @@
                 console.log(data.data.state);
 
                 
-                if (data.data.type == 7) {  //等待审核
-                    window.parent.tan3();
-                } else if (data.data.type == 2) {  //正在审核
-                    window.parent.tan4();
-                } else if (data.data.type == 4) {  //已拒绝
-                    window.parent.tan5();
-                } else if (data.data.type == 5) {  //企业二次审核
-                    window.parent.tan6();
-                } else if (data.data.type == 6) {  //出金二次修改
-                    window.parent.tan7();
-                }
+                // if (data.data.type == 7) {  //等待审核
+                //     window.parent.tan3();
+                // } else if (data.data.type == 2) {  //正在审核
+                //     // window.parent.tan4();
+                // } else if (data.data.type == 4) {  //已拒绝
+                //     window.parent.tan5();
+                // } else if (data.data.type == 5) {  //企业二次审核
+                //     window.parent.tan6();
+                // } else if (data.data.type == 6) {  //出金二次修改
+                //     window.parent.tan7();
+                // }
                           
             },
             error: function (err) {

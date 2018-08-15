@@ -51,8 +51,8 @@
         .center1>ul>li>.right2{line-height: 38px;margin-left: -30px;}
         .center1>ul>li>.right2>input{margin-left: 30px;}
         .bottom1{overflow: hidden;margin-top: 60px;font-size: 16px;margin-left: 145px;margin-bottom: 54px;}
-        .bottom1>.add{width: 240px;height: 42px;line-height: 42px;margin-left: 155px;margin-top: 0;}
-        .bottom1>.sub{width: 107px;height: 40px;line-height: 40px;background-color: white;color: #666666;border: 1px solid #666666;margin-left: 10px;margin-top: 0;}
+        .bottom1>.add{/*width: 240px;*/ width:172px; height: 42px;line-height: 42px;margin-left: 155px;margin-top: 0;}
+        .bottom1>.sub{/*width: 107px;*/ width:172px; height: 40px;line-height: 40px;background-color: white;color: #666666;border: 1px solid #666666;margin-left: 10px;margin-top: 0;}
         
         .pic_div .uploade {
             margin-right: 10px;
@@ -319,15 +319,17 @@
 	        border: 1px solid #ebe9ea;
         }
         .bottom1>.shenhe {
-            width: 107px;
+            /*width: 107px;*/
             height: 40px;
             line-height: 40px;
             background-color: white;
             color: #666666;
             border: 1px solid #666666;
-            margin-left: 10px;
+            /*margin-left: 10px;*/
             margin-top: 0;
             background: #ccc;
+            width: 357px;
+            margin-left: 150px;
         }
 
         .delete_info {
@@ -360,6 +362,12 @@
 
         input[type="text"]:disabled {
             background-color: #fafafa;
+        }
+
+        .delete_pic {
+            visibility: hidden;
+            position: absolute;
+
         }
     </style>
 </head>
@@ -419,6 +427,7 @@
                             <input type="hidden" class="hd0" id="hidden">
                         </div>
                         <div class="ts1">至少添加一张图片</div>
+                        <a href="##" class="delete_pic">删除</a>
                         <a href="##" class="add_pic add_pic1" data-pic="pic" style="float: left;font-size: 14px; position: absolute; bottom: 0px;">继续添加图片</a>
                     </div>
 
@@ -465,7 +474,7 @@
     <div class="bottom1">
         <div class="btn Lf add add1">继续添加其他资质</div>
         <div class="btn Lf sub">提交</div>
-        <div class="btn Lf shenhe" style="display: none;">审核中</div>
+        <div class="btn Lf shenhe" style="display: none;">审核中，请耐心等待</div>
     </div>
 
     
@@ -577,11 +586,13 @@
                         'background':'url('+data.url+') no-repeat',
                         'background-position':'center',
                         'background-size':'contain',
-                        'background-color':'#f6f6f6'
+                        'background-color':'#fafafa'
                 });
                 $(obj).next().val(data.url);
                 $(obj).parent().parent().find('.ts1').css('display', 'none');
                 $(obj).attr('data-flag', '0');
+
+                $(obj).parent().parent().find('.delete_pic').css('visibility', 'visible');
             },
             error: function (err) {
                 console.log(err);
@@ -745,11 +756,11 @@
 //                        $('#zizhi_type'+i+' option[value="'+data.data[i].qualificationType+'"]').attr("selected",true);
                         $('#zizhi_type'+i).find("span").text(data.data[i].qualificationName)
                         $('#zizhi_type'+i).find('span').attr("data-spanvalue",data.data[i].qualificationTypeIds)
-                        $('#zizhi_type'+i).attr('disabled', "disabled").css("background-color","#ddd");
+                        $('#zizhi_type'+i).attr('disabled', "disabled").css("background-color","#fafafa");
                         
                         //资质编号
                         $('#zizhi_num'+i).val(data.data[i].qualificationNum);
-                        $('#zizhi_num'+i).attr('readonly', 'readonly').css("background-color","#ddd");
+                        $('#zizhi_num'+i).attr('readonly', 'readonly').css("background-color","#fafafa");
 
                         //资质图片
                         // for (var j = 0; j < data.data[i].picInfos.length; j++) {
@@ -779,6 +790,9 @@
                         //不让点击添加图片
                         $(".add_pic").hide();
 
+                        // 不让删除
+                        $('.delete_pic').css('visibility', 'hidden');
+
                         data.data[i].qualificationDataBegin = new Date(data.data[i].qualificationDataBegin).Format("yyyy-MM-dd");
 
                         data.data[i].qualificationDataExpire = new Date(data.data[i].qualificationDataExpire).Format("yyyy-MM-dd");
@@ -792,8 +806,8 @@
                         /*var arr = data.data[i].operationLimit.split(';')*/
                         
                         //时间
-                        $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin).attr('disabled', "disabled").css("background-color","#ddd");
-                        $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire).attr('disabled', "disabled").css("background-color","#ddd");
+                        $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin).attr('disabled', "disabled").css("background-color","#fafafa");
+                        $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire).attr('disabled', "disabled").css("background-color","#fafafa");
 
                         $('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
 
@@ -863,6 +877,18 @@
             $(this).parent().remove();
         });
 
+        $(document).on('click', '.delete_pic', function() {
+            
+            if ($(this).parent().find('.uploade').length != 1) {
+                $(this).parent().find('.uploade').eq($(this).parent().find('.uploade').length-1).remove();
+            }  else {
+                $(this).parent().find('.uploade').eq(0).css('background', 'url("")');
+                $(this).parent().find('.uploade').eq(0).find('input[type="hidden"]').val('');
+                $(this).css('visibility', 'hidden');
+            }  
+            
+        });
+
 
         $(document).on('click', '.edit_btn', function() {
             
@@ -877,6 +903,9 @@
            $(this).parent().find('.zizhi_num').attr('readonly', false).css("background-color","#fff");;
            // $(this).parent().find('.textarea').attr('contenteditable', true);
            $(this).parent().find(".add_pic").show().css('display', 'inline-block');
+
+           $(this).parent().find(".delete_pic").css('visibility', 'visible').css('display', 'inline-block');
+
            $(this).parent().find(".btn1").show();
            $(this).parent().find(".start").attr('disabled', false).css("background-color","#fff");
            $(this).parent().find(".end").attr('disabled', false).css("background-color","#fff");
@@ -908,13 +937,20 @@
                         //window.parent.shenhe();  
                         $(".sub").hide();
                         $(".shenhe").show();
+                        $(".add1").hide();
                         $('.btn.edit_btn').css('display', 'none');
                         $('.sub').attr('disabled', true);
                         $('.quxiao_add').css('display', 'none');
                         $('.shou_pic').css('display', 'none');
 
                     } else if (data.data.aType == 0 && data.data.aState == 2) {  //已拒绝
-                        window.parent.jujue_weixian(data.data.refuseReason); 
+
+                        if (data.data.refuseReason) {
+                            window.parent.jujue_weixian(data.data.refuseReason); 
+                        } else {
+                            window.parent.jujue_weixian('无');
+                        }
+                        
                         $(".shenhe").hide();
                         $('.btn.edit_btn').css('display', 'block');
                         $('.sub').attr('disabled', false);
@@ -947,7 +983,7 @@
         $(document).on('click', '.add_pic', function() {
             var pic = $(this).attr('data-pic');
 
-           var cla = $(this).prev().prev().find('input[type="file"]').attr('class');
+           var cla = $(this).prev().prev().prev().find('input[type="file"]').attr('class');
 
             //console.log(cla);
 
@@ -1010,6 +1046,7 @@
                                 +'<input type="hidden" class="hd0">'
                             +'</div>'
                             +'<div class="ts1">至少添加一张图片</div>'
+                            +'<a href="##" class="delete_pic">删除</a>'
                             +'<a href="##" class="add_pic" data-pic="pic" style="float: left;font-size: 14px; position: absolute; bottom: 0px;">继续添加图片</a>'
                         +'</div>'
                     +'</li>'
