@@ -127,13 +127,19 @@
         }
 
         .ts_color {
-            color: #999;
+            color: rgb(0, 122, 255);
         }
 
         .card_pic_ts {
             color: #999;
             font-size: 14px;
             margin-left: 89px;
+        }
+
+        .card_pic_ts span {
+            display: inline-block;
+            width: 152px;
+            text-align: center;
         }
 
     </style>
@@ -307,7 +313,7 @@
                     <input type="text" placeholder="盖章资料上传" id="wenjian_name"><span onclick="down_moban()" style="margin-left: 55px;color: #80acf8;">《下载企业认证协议模板》</span>
                     <input type="file" id="wenjian" onchange="upload_file(this);" accept="application/pdf" readonly>
                 </div>
-                <div class="right1 Lf yiRenZheng"><span onclick="down_moban()" id="file_look" style="line-height: 38px;">在线查看</span></div>
+                <div class="right1 Lf yiRenZheng"><span onclick="down_moban()" id="file_look" style="line-height: 38px; color: rgb(0, 122, 255);">在线查看</span></div>
             </li>
         </ul>
     </div>
@@ -349,7 +355,7 @@
                     <div class="right">
                        <div class="card_pic_ts">
                             <span>请上传身份证正面照片</span>
-                            <span style="margin-left: 28px;">请上传身份证反面照片</span>
+                            <span style="margin-left: 16px;">请上传身份证反面照片</span>
                         </div>
                     </div>
                 </li>
@@ -840,7 +846,12 @@
                             $(window.parent.document).find('.jujue p').html('企业基本信息的审核<span>未通过</span>，请重新修改提交');
                         }
 
-                        $(window.parent.document).find('.jujue_liyou span').html(''+data.data.reasons.reasons+'');
+                        if (data.data.reasons.reasons != '') {
+                            $(window.parent.document).find('.jujue_liyou span').html(data.data.reasons.reasons);
+                        } else {
+                            
+                            $(window.parent.document).find('.jujue_liyou span').html('无');
+                        }
                         
 
                         window.parent.tan5();
@@ -976,8 +987,8 @@
             var id_number_reg = $('#id_number').val();
             
             // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
-            // var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
-            var reg = /^\d+$/
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+            // var reg = /^\d+$/
             if(reg.test(id_number_reg) === false) { 
                 $('#id_number').parent().next().html('身份证号输入格式不正确');
                 return false; 
@@ -1164,8 +1175,8 @@
             var id_number_reg = $('#id_number').val();
             
             // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
-            // var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
-            var reg = /^\d+$/
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+            // var reg = /^\d+$/
             if(reg.test(id_number_reg) === false) { 
                 $('#id_number').parent().next().html('身份证号输入格式不正确');
                 return false; 
@@ -1416,8 +1427,8 @@
             var id_number_reg = $('#id_number').val();
             
             // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
-            // var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
-            var reg = /^\d+$/
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+            // var reg = /^\d+$/
             if(reg.test(id_number_reg) === false) { 
                 $('#id_number').parent().next().html('身份证号输入格式不正确');
                 return false; 

@@ -950,6 +950,7 @@ footer .friendList a{
 
 input{
 	line-height: 100%;
+	border: 1px solid #eaeaea;
 }
 /* 谷歌 */
 input::-webkit-outer-spin-button,
@@ -966,4 +967,9 @@ input{
 
 .btn {
 	cursor: pointer;
+}
+
+
+input[type="text"]:disabled {
+	background-color: #fafafa;
 }
