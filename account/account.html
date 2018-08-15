@@ -572,6 +572,31 @@
             margin-left: 95px;
         } 
 
+/*
+        .mask{position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #000;opacity:0.5;filter: Alpha(opacity=50);z-index: 98;transition:all 1s;display: none}
+        
+        .bigimg {
+            z-index: 200;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+        }*/
+
+        .look_pic {
+            display: none;
+            z-index: 200;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
     </style>
 
 </head>
@@ -693,6 +718,13 @@
 
 
         </ul>
+
+        <!-- 点击查看大图 -->
+        <!-- <img src="" alt="" class="bigimg">
+        <div class="mask">
+            <img src="../img/close.png" alt="">
+        </div> -->
+
     </div>
 
     <div class="countRight Rt">
@@ -2220,13 +2252,57 @@
     </div>
 </div>
 
+<div class="look_pic">
+    <div class="pic_div">
+        <img src="" alt="" class="bigpic">
+    </div>
+</div>
+
 <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    
+<!-- <script src="../js/zoom.js" type="text/javascript" charset="utf-8"></script> -->
+
 <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
 <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript" >
+
+
+        function look_pic(w, h, pic_url) {
+
+            $('.bigpic').css({
+                height: h,
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                margin: 'auto',
+                position: 'absolute'
+            });
+
+            $('.look_pic img').attr('src', pic_url);
+
+            $('.look_pic').show();
+        }
+
+        $('.look_pic').click(function() {
+            $(this).hide();
+            $(this).attr('src', '');
+        });
+
+        // /*
+        //  smallimg   // 小图
+        //  bigimg  //点击放大的图片
+        //  mask   //黑色遮罩
+        //  */
+        // var obj = new zoom('mask', 'bigimg',$(".smallimg"));
+        // // var obj = new zoom('mask', 'bigimg', $("#Iframe").contents().find(".smallimg"));        
+        
+        // obj.init();
+        
+
 
     // 调用删除弹框
     function warn_alert(aa, msg) {

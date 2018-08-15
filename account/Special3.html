@@ -348,6 +348,19 @@
 
         }
 
+        .look_bigpic {
+            position: absolute;
+            left: 125px;
+            bottom: 2px;
+            color: rgb(0, 122, 255);
+            cursor: pointer;
+            z-index: 200;
+        }
+
+        .look_bigpic img {
+            width: 25px;
+        }
+
     </style>
 </head>
 <body>
@@ -404,6 +417,7 @@
                             <i style=""></i>
                             <input type="file" class="input_blur preview pic1" id="uploade_preview0">
                             <input type="hidden" class="hd0" id="hidden">
+                            <div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>
                         </div>
                         <div class="ts1">至少添加一张图片</div>
                         <a href="##" class="delete_pic">删除</a>
@@ -463,6 +477,12 @@
 
 <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript">
+
+    $(document).on('click', '.look_bigpic', function(e) {
+        e.stopPropagation();
+        // console.log($(this).parent().find('.uploade').height());
+        window.parent.look_pic($(this).parent().width(), $(this).parent().height(), $(this).prev().val());
+    });
 
     var startTime1 = '';
     var endTime1 = '';
@@ -994,6 +1014,7 @@
                                 +'<i style=""></i>'
                                 +'<input type="file" class="input_blur preview '+(pic+ind)+'" id="uploade_preview'+(ind-1)+'">'
                                 +'<input type="hidden" class="hd'+(ind-1)+'" id="hidden">'
+                                +'<div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>'
                             +'</div>';
 
                 $(this).parent().find('.ts1').before(str); 
@@ -1043,6 +1064,7 @@
 
                                 +'<input type="file" class="input_blur preview pic1" id="uploade_preview0">'
                                 +'<input type="hidden" class="hd0">'
+                                +'<div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>'
                             +'</div>'
                             +'<div class="ts1">至少添加一张图片</div>'
                             +'<a href="##" class="delete_pic">删除</a>'
