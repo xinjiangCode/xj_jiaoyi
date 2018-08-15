@@ -945,8 +945,8 @@
 
                     } else if (data.data.aType == 0 && data.data.aState == 2) {  //已拒绝
 
-                        if (data.data.refuseReason) {
-                            window.parent.jujue_weixian(data.data.refuseReason); 
+                        if (data.data.aRefuse) {
+                            window.parent.jujue_weixian(data.data.aRefuse); 
                         } else {
                             window.parent.jujue_weixian('无');
                         }
