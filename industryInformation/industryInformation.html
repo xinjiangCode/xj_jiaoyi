@@ -311,7 +311,7 @@
             var img = $(this).find('img')[0];
             var index = $(this).index() + 1;
             $(img).attr('src', '../img/xjxj_logo'+index+index+'.png');
-
+            $(this).css('cursor','pointer');
         }).on('mouseleave', function () {
             if (!isActive) {
                 if (!($(this).hasClass('isActive'))) {

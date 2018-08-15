@@ -51,6 +51,9 @@ body {
 	-khtml-user-select: none; 
 	user-select: none;  
 }
+button{
+	cursor: pointer;
+}
 input,textarea,button{
 	font-family: "Microsoft YaHei",Arial;
 }
@@ -964,6 +967,16 @@ input{
 }
 
 
-.btn {
+.btn,.callKf img,.inputfile,.uploade input,.shop_list_table input,.add_address_btn,.cancel,
+.shangjia,.look_detail_btn,.list_cont input,.toRelease input,.jifenNav div,.sousuo_order img,
+.selec input,.list_center input,.ul_title input,.title a,.box .box1 li{
 	cursor: pointer;
+}
+
+#addGz img,#company_type input,#moren_address,#upL0go,#enquireyRange,#isPublic,#oranger li{
+	cursor: pointer;
+}
+
+.time input,{
+	cursor: auto;
 }
