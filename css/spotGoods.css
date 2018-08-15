@@ -308,6 +308,10 @@
 .wcCtObjBox .hidetxt p{
 	padding-left:  60px;;
 	text-align: left;
+	width: 140px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .wcCtObjBox .hidetxt h3 span{
 	color: #E33B3B;
