@@ -58,6 +58,7 @@
 				box-sizing: border-box;
 			}
 			.rsGoods>div:hover{
+				cursor:pointer;
 				box-shadow: 1px 2px 14px #ccc;
 				-webkit-box-shadow:1px 2px 14px #ccc;
 			    -moz-box-shadow: 1px 2px 14px #ccc;
@@ -752,13 +753,15 @@
 				</div>
 		     <% } %>
 		</script>
-		<script type="text/javascript" >      
+		<script type="text/javascript" >
+
 			$('.tsBg').height($(window).height());
 			$('.yzhhBox>div:nth-child(3n)').css('margin-right','0');
 			
 			$(document).on('mouseover','.spotTj1>div',function(){
 				$(this).find('.pcep').css('opacity','0');
 				$(this).find('.hideInfo').show();
+				$('.wcCtObjBox>div').css('cursor','pointer');
 			})
 			$(document).on('mouseleave','.spotTj1>div',function(){
 				$(this).find('.pcep').css('opacity','1');

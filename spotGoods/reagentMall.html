@@ -657,6 +657,7 @@
 			$(document).on('mouseover','.wcCtObjBox>div',function(){
 				$(this).find('.pcep').css('opacity','0');
 				$(this).find('.hideInfo').show();
+				$('.wcCtObjBox>div').css('cursor','pointer');
 			})
 			$(document).on('mouseleave','.wcCtObjBox>div',function(){
 				$(this).find('.pcep').css('opacity','1');

@@ -1078,7 +1078,7 @@
 					<div class="ts_tousu"></div>
 				</div>
 	            <div class="modelBtnBox">
-	                <div style="background:#5690f6;" class="modelbtn confirm liji_submit">立即提交</div>
+	                <div style="background:#5690f6;width:130px;height:35px;line-height:35px;" class="modelbtn confirm liji_submit">立即提交</div>
 	            </div>
 	        </div>
 		</div>
@@ -1095,7 +1095,7 @@
 						<p>该报价需求已经超时！</p>
 					</div>
 					<div class="modelBtnBox_hzf">
-						<div style="background:#5690f6;" class="modelbtn_hzf">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+						<div style="background:#5690f6;width:130px;height:35px;line-height:35px;" class="modelbtn_hzf">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
 					</div>
 				</div>
 			</div>
@@ -1114,7 +1114,7 @@
 		                <p class="innerSuccmsg">添加成功</p>
 		            </div>
 		            <div class="modelBtnBox">
-		                <div style="background:#5690f6; margin-top: 20px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+		                <div style="background:#5690f6; margin-top: 20px;width:130px;height:35px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
 		            </div>
 		        </div>
 		    </div>
@@ -1375,6 +1375,7 @@
 			$(document).on('mouseover','.wcCtObjBox>div',function(){
 				$(this).find('.pcep').css('opacity','0');
 				$(this).find('.hideInfo').show();
+				$('.wcCtObjBox>div').css('cursor','pointer');
 			})
 			$(document).on('mouseleave','.wcCtObjBox>div',function(){
 				$(this).find('.pcep').css('opacity','1');

@@ -170,6 +170,12 @@
         .uploade {
             background: url(../img/product_pic.png);
         }
+
+        .card_pic_ts {
+            color: #999;
+            font-size: 14px;
+            margin-left: 120px;
+        }
     
     </style>
 </head>
@@ -236,7 +242,7 @@
                     <div class="right1 Lf"><input type="text" id="id_number"></div>
                     <div class="ts">身份证号格式不正确</div>
                 </li>
-                <li>
+                <li style="padding-bottom: 0px;">
                     <div class="left1 Lf"><i class="red">*</i>身份证上传:</div>
                     <div class="right1 Lf">
                         <div class="uploade Lf">
@@ -253,6 +259,14 @@
                         </div>
                     </div>
                     <div class="ts">身份证上传不能为空</div>
+                </li>
+                <li style="margin-top: 10px;">
+                    <div class="right">
+                       <div class="card_pic_ts">
+                            <span>请上传身份证正面照片</span>
+                            <span style="margin-left: 28px;">请上传身份证反面照片</span>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -515,6 +529,10 @@ function xmTanUploadImg2(obj) {
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'none');
 
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
                         update_info();
 
                         $(window.parent.document).find('.modelBox6 .info p span').html('企业认证正在审核中');
@@ -523,12 +541,18 @@ function xmTanUploadImg2(obj) {
                     } else if (data.data.type == 3) {  //已认证
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'inline-block');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
 
                         update_info();
                         
                     } else if (data.data.type == 4) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".yiRenZheng.update_btn").css('display', 'inline-block');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
 
                         update_info();
 
@@ -542,6 +566,10 @@ function xmTanUploadImg2(obj) {
                             $('.weiRenZheng').css('display', 'inline-block');
                         }
 
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
                         update_info();
 
                     } else if (data.data.type == 6) {  //出金账户资料二次审核
@@ -553,6 +581,10 @@ function xmTanUploadImg2(obj) {
                         } else {
                             $('.weiRenZheng').css('display', 'inline-block');
                         }
+
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
 
                         update_info();
                         
@@ -604,8 +636,8 @@ function xmTanUploadImg2(obj) {
             var id_number_reg = $('#id_number').val();
             
             // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
-            // var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
-            var reg = /^\d+$/
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+            // var reg = /^\d+$/
             if(reg.test(id_number_reg) === false) { 
                 $('#id_number').parent().next().css('display', 'block');
                 return; 
@@ -859,8 +891,8 @@ function xmTanUploadImg2(obj) {
             var id_number_reg = $('#id_number').val();
             
             // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
-            // var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
-            var reg = /^\d+$/
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+            // var reg = /^\d+$/
             if(reg.test(id_number_reg) === false) { 
                 $('#id_number').parent().next().css('display', 'block');
                 return; 
@@ -1180,8 +1212,8 @@ function xmTanUploadImg2(obj) {
             var id_number_reg = $('#id_number').val();
             
             // 身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X 
-            // var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
-            var reg = /^\d+$/
+            var reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/; 
+            // var reg = /^\d+$/
             if(reg.test(id_number_reg) === false) { 
                 $('#id_number').parent().next().css('display', 'block');
                 return; 
