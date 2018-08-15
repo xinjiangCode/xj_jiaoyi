@@ -163,7 +163,7 @@
                         <script type="text/html" id="rightBottomTpl">
                             <div>
                                 <label for="">* 成交总价:
-                                    <input id="totalmoney" type="text" class="input" readonly value="<%=dealTotal%>">
+                                    <input id="totalmoney" type="text" class="input" readonly value="<%=total%>">
                                 </label>
                             </div>
                             <div>
@@ -173,11 +173,11 @@
                                     </label>
                                     <div class="xhje">
                                         <p>现汇金额为</p>
-                                        <p>￥<i style="font-weight:bold;" class="yellow" id="currenthui"><%=dealTotal%></i>元</p>
+                                        <p>￥<i style="font-weight:bold;" class="yellow" id="currenthui"><%=total%></i>元</p>
                                     </div>
                                 <%}else if(paymentMethod == 2){%>
                                     <label for="">* 承兑:
-                                        <input id="chengdui" type="text" class="input" readonly value="<%=dealTotal%>">
+                                        <input id="chengdui" type="text" class="input" value="<%=total%>" readonly>
                                     </label>
                                     <div class="xhje">
                                         <p>现汇金额为</p>
@@ -289,7 +289,7 @@
                             var rightBottomTpl = template('rightBottomTpl', res.data);
                             $('.infoHandleCont>.left').html(rightBottomTpl);
 
-                         $("#totalmoney").val(res.data.total)
+                         //$("#totalmoney").val(res.data.total)
 
                             // 点击生成订单
                             // 现汇金额
