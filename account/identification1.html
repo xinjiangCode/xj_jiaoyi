@@ -126,6 +126,16 @@
             cursor: pointer;
         }
 
+        .ts_color {
+            color: #999;
+        }
+
+        .card_pic_ts {
+            color: #999;
+            font-size: 14px;
+            margin-left: 89px;
+        }
+
     </style>
 </head>
 <body>
@@ -196,10 +206,13 @@
             </li>
             <li>
                 <div class="left1 Lf"><i class="red">*</i>营业期限:</div>
-                <div class="right1 Lf" id="yingye_date">
+                <!-- <div class="right1 Lf" id="yingye_date">
                     <input type="text" class="date-input laydate-icon" placeholder="请选择日期" id="test1">
                     <span style="height: 38px;line-height: 38px;">&nbsp;-&nbsp; </span>
                     <input type="text" class="date-input laydate-icon" placeholder="请选择日期" id="test2">
+                </div> -->
+                <div class="right1 Lf" id="yingye_date">
+                    <input type="text" class="" id="test3">
                 </div>
                 <span class="ts"></span>
             </li>
@@ -245,7 +258,7 @@
                         <input type="file" id="yingye_zhizhao_pic" class="inputfile" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">
                         <input type="hidden" name="" value="" id="yingye_zhizhao_hidden">
                     </div>
-                    <i class="red" style="display: block;margin-top: 22px;font-size: 14px;">请上传营业执照或者扫描件！ 照片大小 < 2MB 图片格式为jpg、jpeg、png</i>
+                    <i class="ts_color" style="display: block;margin-top: 22px;font-size: 14px;">请上传营业执照或者扫描件！ 照片大小 < 2MB 图片格式为jpg、jpeg、png</i>
                 </div>
                 <span class="ts yingye"></span>
             </li>
@@ -330,6 +343,14 @@
                             <input type="hidden" name="" value="" id="zhengjian_hidden2">
                         </div>
                         <span class="ts"></span>
+                    </div>
+                </li>
+                <li style="margin-top: 10px;">
+                    <div class="right">
+                       <div class="card_pic_ts">
+                            <span>请上传身份证正面照片</span>
+                            <span style="margin-left: 28px;">请上传身份证反面照片</span>
+                        </div>
                     </div>
                 </li>
             </ul>
@@ -913,17 +934,22 @@
             }
 
 
-            startTime = $('#test1').val();
-            endTime = $('#test2').val();
+            // startTime = $('#test1').val();
+            // endTime = $('#test2').val();
 
-            if (startTime == '' || endTime == '' ) {
-                $('#test2').parent().next().html('营业期限不能为空');
+            // if (startTime == '' || endTime == '' ) {
+            //     $('#test2').parent().next().html('营业期限不能为空');
+            //     return;
+            // } if (startTime > endTime) {
+            //     $('#test2').parent().next().html('开始时间不能大于结束时间');
+            //     return;
+            // } else {
+            //     $('#test2').parent().next().html('');
+            // }
+
+            if ($('#test3').val() == '') {
+                $('#test3').parent().next().html('营业期限不能为空');
                 return;
-            } if (startTime > endTime) {
-                $('#test2').parent().next().html('开始时间不能大于结束时间');
-                return;
-            } else {
-                $('#test2').parent().next().html('');
             }
 
             
@@ -1021,8 +1047,9 @@
                             registeredCapital: zhuce_money,
                             businessLicense: yingye_num,
                             operatingPeriodStartTime: startTime,
-                            operatingPeriodEndTime: endTime,
-                            companyAddress: company_address,
+                            // operatingPeriodEndTime: endTime,
+                            // companyAddress: company_address,
+                            operatingPeriod: $('#test3').val(),
                             companyAddress2: companyAddress2,
                             provinceId: provinceId,
                             cityId: cityId,
@@ -1173,6 +1200,14 @@
         });
 
         
+        $('#test3').blur(function() {
+            // operatingPeriod
+            if ($('#test3').val() == '') {
+                $('#test3').parent().next().html('证件不能为空');
+            } else {
+                $('#test3').parent().next().html('');
+            }
+        });
         
 
 
@@ -1210,11 +1245,14 @@
                         $('#zhuce_money').val(data.data.company.registeredCapital);
                         $('#yingye_num').val(data.data.company.businessLicense);
 
-                        data.data.company.operatingPeriodStartTime = new Date(data.data.company.operatingPeriodStartTime).Format("yyyy-MM-dd");
+                        // data.data.company.operatingPeriodStartTime = new Date(data.data.company.operatingPeriodStartTime).Format("yyyy-MM-dd");
                         
-                        data.data.company.operatingPeriodEndTime = new Date(data.data.company.operatingPeriodEndTime).Format("yyyy-MM-dd");
-                        $('#test1').val(data.data.company.operatingPeriodStartTime);
-                        $('#test2').val(data.data.company.operatingPeriodEndTime);
+                        // data.data.company.operatingPeriodEndTime = new Date(data.data.company.operatingPeriodEndTime).Format("yyyy-MM-dd");
+
+
+                        // $('#test1').val(data.data.company.operatingPeriodStartTime);
+                        // $('#test2').val(data.data.company.operatingPeriodEndTime);
+                        $('#test3').val(data.data.company.operatingPeriod);
 
                         $('#wenjian_name').val(data.data.files[0].fileName);
                         $('#wenjian_name').attr('data-wj', data.data.files[0].dbid);
@@ -1341,17 +1379,22 @@
                 $('#yingye_num').parent().next().html('');
             }
 
-            startTime = $('#test1').val();
-            endTime = $('#test2').val();
+            // startTime = $('#test1').val();
+            // endTime = $('#test2').val();
             
-            if (startTime == '' || endTime == '' ) {
-                $('#test2').parent().next().html('营业期限不能为空');
+            // if (startTime == '' || endTime == '' ) {
+            //     $('#test2').parent().next().html('营业期限不能为空');
+            //     return;
+            // } if (startTime > endTime) {
+            //     $('#test2').parent().next().html('开始时间不能大于结束时间');
+            //     return;
+            // } else {
+            //     $('#test2').parent().next().html('');
+            // }
+
+            if ($('#test3').val() == '') {
+                $('#test3').parent().next().html('营业期限不能为空');
                 return;
-            } if (startTime > endTime) {
-                $('#test2').parent().next().html('开始时间不能大于结束时间');
-                return;
-            } else {
-                $('#test2').parent().next().html('');
             }
 
             
@@ -1450,8 +1493,9 @@
                             companyName: qiye_name,
                             registeredCapital: zhuce_money,
                             businessLicense: yingye_num,
-                            operatingPeriodStartTime: startTime,
-                            operatingPeriodEndTime: endTime,
+                            // operatingPeriodStartTime: startTime,
+                            // operatingPeriodEndTime: endTime,
+                            operatingPeriod: $('#test3').val(),
                             companyAddress: company_address,
                             provinceId: provinceId,
                             cityId: cityId,
@@ -1513,8 +1557,9 @@
                             companyName: qiye_name,
                             registeredCapital: zhuce_money,
                             businessLicense: yingye_num,
-                            operatingPeriodStartTime: startTime,
-                            operatingPeriodEndTime: endTime,
+                            // operatingPeriodStartTime: startTime,
+                            // operatingPeriodEndTime: endTime,
+                            operatingPeriod: $('#test3').val(),
                             companyAddress: company_address,
                             provinceId: provinceId,
                             cityId: cityId,
