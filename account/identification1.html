@@ -925,7 +925,18 @@
             } else {
                 $('#yingye_num').parent().next().html('');
             }
-
+            if($("#province>span").text() == "请选择省"){
+                $("#province").parent().next().html("请选择正确的省份");
+                return false;
+            }
+            if($("#city>span").text() == "请选择市"){
+                $("#province").parent().next().html("请选择正确的市");
+                return false;
+            }
+            if($("#area>span").text() == "请选择区"){
+                $("#province").parent().next().html("请选择正确的区");
+                return false;
+            }
 
             // startTime = $('#test1').val();
             // endTime = $('#test2').val();
