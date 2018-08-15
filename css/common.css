@@ -88,3 +88,7 @@ span.line-height {
 select {
 	border-color: #D3D3D3;
 }
+
+input[type="text"]:disabled {
+    background-color: #fafafa;
+}
