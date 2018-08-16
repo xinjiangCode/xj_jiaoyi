@@ -88,11 +88,12 @@
         .sousuo_img {
             position: absolute;
             left: 162px;
-            top: 9px;
+            top: 15px;
         }
 
         .cousuo_cont {
             border: 1px solid #ebe9ea;
+            /*width: 143px;*/
             width: 357px;
             margin-top: -1px;
             border-top: none;
@@ -100,22 +101,25 @@
             left: 155px;
             position: absolute;
             background-color: #fff;
-            height: 150px;
-                overflow-y: auto;
+            height: 149px;
+            overflow-y: auto;
         }
 
         ul.sousuo_ul {
-            padding-top: 15px;
+            /*padding-top: 15px;*/
         }
 
         ul.sousuo_ul li {
             padding-left: 5px;
             box-sizing: border-box;
-            margin-bottom: 15px;
+            line-height: 37px;
+            /*margin-bottom: 15px;*/
+            height: 37px;
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
         }
+
 
         .cousuo_cont {
             display: none;
@@ -1259,11 +1263,13 @@
 
     });
 
-    $(document).on('click', '.sousuo', function () {
+    // $(document).on('click', '.sousuo', function () {
+    $(document).on('input propertychange', '.input_width', function(){
 
-        var cont = $(this).prev().prev().val();
-
+        // var cont = $(this).prev().prev().val();
         var _this = $(this);
+
+        var cont = $(this).val();
         
         // if ($('.cousuo_cont').css('display') == 'block') {
         //     $('.cousuo_cont').css('display', 'none');
@@ -1285,20 +1291,22 @@
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                if (data.data.length == 0 ) {
-                    var str1 = '';
-                    str1 += '<li style="color: #999;">暂无数据</li>';
-                    _this.parent().next('.cousuo_cont').css('display','block');
-                    _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str1);
-                    // $('.sousuo_ul').html(str1);
-                } else {
-                    var str2 = ''
-                    for (var i = 0; i < data.data.length; i++) {
-                        str2 += '<li data-index= "'+data.data[i].chemicalId+'" >'+data.data[i].chemicalName+'</li>';
+                if (data.code == 1) {
+                    if (data.data.length == 0 ) {
+                        var str1 = '';
+                        str1 += '<li style="color: #999;">暂无数据</li>';
+                        _this.parent().next('.cousuo_cont').css('display','block');
+                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str1);
+                        // $('.sousuo_ul').html(str1);
+                    } else {
+                        var str2 = ''
+                        for (var i = 0; i < data.data.length; i++) {
+                            str2 += '<li data-index= "'+data.data[i].chemicalId+'" >'+data.data[i].chemicalName+'</li>';
+                        }
+                        // $('.sousuo_ul').html(str2);
+                        _this.parent().next('.cousuo_cont').css('display','block');
+                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str2);
                     }
-                    // $('.sousuo_ul').html(str2);
-                    _this.parent().next('.cousuo_cont').css('display','block');
-                    _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str2);
                 }
             },
             error: function (err) {
@@ -1327,6 +1335,12 @@
             $(this).parents('li').prev().find('.textarea').append('<div data-ind="'+$(this).attr('data-index')+'">'+$(this).text()+'<span class="delete_info delete_div" style="cursor: pointer;">x</span></div>');
             $(this).parents('li').prev().find('.ts2').css('visibility', 'hidden');
         }
+    });
+    
+
+    $(document).on('mouseenter', '.sousuo_ul li', function () {
+        $('.sousuo_ul li').css('background', '');
+        $(this).css('background', '#F6F6F6').css('cursor', 'pointer');
     });
 
 

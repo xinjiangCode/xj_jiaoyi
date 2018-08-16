@@ -2364,6 +2364,11 @@
 
                 if (!data.data.state && data.data.type != 1) {
                     $('#account_ziliao').attr('data-src', './identification1.html');
+                    $('.yiRenZheng').show();
+                    $('.weiRenZheng').hide();
+                } else {
+                    $('.yiRenZheng').hide();
+                    $('.weiRenZheng').show();
                 }
                           
             },
@@ -2375,35 +2380,35 @@
 
 
 
-	$.ajax({
-        url: pubIP+'companyCertification/getCompanyStateByUserToken', /*v1.0*/
-        type: 'post',
-        headers: {
-            Accept: "application/json; charset=utf-8",
-            token: token
-        },
-        cache: false,
-        ansyc: true,
-        dataType: 'json',
-        data:{
-            token: token
-        },
-        success: function (data) {
-            console.log(data)
-            if(data.data != 1){
-	            	$('.yiRenZheng').show();
-	            	$('.weiRenZheng').hide();
-            }else{
-                $('.weiRenZheng').show();
-          	    $('.yiRenZheng').hide();
-				/*$('.yiRenZheng').show();
-            		$('.weiRenZheng').hide();*/
-            }
-        },
-        error: function(err){
-            console.log(err);
-        }
-    });
+	// $.ajax({
+ //        url: pubIP+'companyCertification/getCompanyStateByUserToken', /*v1.0*/
+ //        type: 'post',
+ //        headers: {
+ //            Accept: "application/json; charset=utf-8",
+ //            token: token
+ //        },
+ //        cache: false,
+ //        ansyc: true,
+ //        dataType: 'json',
+ //        data:{
+ //            token: token
+ //        },
+ //        success: function (data) {
+ //            console.log(data)
+ //            if(data.data != 1){
+	//             	$('.yiRenZheng').show();
+	//             	$('.weiRenZheng').hide();
+ //            }else{
+ //                $('.weiRenZheng').show();
+ //          	    $('.yiRenZheng').hide();
+	// 			/*$('.yiRenZheng').show();
+ //            		$('.weiRenZheng').hide();*/
+ //            }
+ //        },
+ //        error: function(err){
+ //            console.log(err);
+ //        }
+ //    });
 
     //实名认证
 
