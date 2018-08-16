@@ -107,7 +107,13 @@
 
                     var str = '';
 
+                    
+
                     for (var i = 0; i < json.data.length; i++) {
+                        if (json.data[i].bankName == null) {
+                            json.data[i].bankName = ''
+                        }
+
                         str += '<li>'
                             +'<div class="cardItem">'
                                 +'<div class="cardTop">'

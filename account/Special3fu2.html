@@ -8,7 +8,7 @@
     <meta http-equiv="Cache-Control" CONTENT="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
     <meta name="format-detection" content="telephone=no" />
-    <title adct1="1">新疆化学品经营服务平台</title>
+    <title>新疆化学品经营服务平台</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css"/>
     <style type="text/css">
         .xiaoshi{display: none;}
@@ -16,7 +16,6 @@
 
         input[type='text'].input_width{
             padding-left: 30px;
-            text-indent: 10px;
         }
         .btn{width: 359px;height: 51px;line-height:51px;background-color: #007aff;border-radius: 5px;text-align: center;color: white;margin-left: 95px;margin-top: 54px;}
         .red{color: red;}
@@ -51,8 +50,8 @@
         .center1>ul>li>.right2{line-height: 38px;margin-left: -30px;}
         .center1>ul>li>.right2>input{margin-left: 30px;}
         .bottom1{overflow: hidden;margin-top: 60px;font-size: 16px;margin-left: 145px;margin-bottom: 54px;}
-        .bottom1>.add{/*width: 240px;*/ width:172px; height: 42px;line-height: 42px;margin-left: 155px;margin-top: 0;}
-        .bottom1>.sub{/*width: 107px;*/ width:172px; height: 40px;line-height: 40px;background-color: white;color: #666666;border: 1px solid #666666;margin-left: 10px;margin-top: 0;}
+        .bottom1>.add{width: 172px;height: 42px;line-height: 42px;margin-left: 155px;margin-top: 0;}
+        .bottom1>.sub{width: 172px;height: 40px;line-height: 40px;background-color: white;color: #666666;border: 1px solid #666666;margin-left: 10px;margin-top: 0;}
         
         .pic_div .uploade {
             margin-right: 10px;
@@ -103,7 +102,7 @@
             position: absolute;
             background-color: #fff;
             height: 149px;
-    		overflow-y: auto;
+            overflow-y: auto;
         }
 
         ul.sousuo_ul {
@@ -169,7 +168,8 @@
             font-size: 14px;
             display: none;
             position: absolute;
-            margin-top: 40px;
+            margin-top: 47px;
+            margin-left: 163px;
         }
 
         .ts2 {
@@ -315,23 +315,10 @@
         .textarea {
             overflow: auto;
         }
-		.center1 .right1 .zizhi_num{
-		    height: 38px;
-	        box-sizing: border-box;
-	        border: 1px solid #ebe9ea;
-        }
-        .bottom1>.shenhe {
-            /*width: 107px;*/
-            height: 40px;
-            line-height: 40px;
-            background-color: white;
-            color: #666666;
-            border: 1px solid #666666;
-            /*margin-left: 10px;*/
-            margin-top: 0;
-            background: #ccc;
-            width: 357px;
-            margin-left: 150px;
+        .center1 .right1 .zizhi_num{
+            height: 38px;
+            box-sizing: border-box;
+            border: 1px solid #ebe9ea;
         }
 
         .delete_info {
@@ -350,20 +337,12 @@
             vertical-align: bottom;
         }
 
-        .btn {
-            cursor: pointer;
-        }
-
-        .ts_color {
-            color: rgb(0, 122, 255);
-        }
-
         .selectPub, .textarea {
             color: #666;
         }
 
-        input[type="text"]:disabled {
-            background-color: #fafafa;
+        .ts_color {
+            color: rgb(0, 122, 255);
         }
 
         .delete_pic {
@@ -371,7 +350,7 @@
             position: absolute;
 
         }
-    
+
         .look_bigpic {
             position: absolute;
             left: 125px;
@@ -385,23 +364,6 @@
             width: 25px;
         }
 
-        .btn.edit_edit {
-            margin-left: 150px;
-            margin-top: 2px;
-        }
-
-        .add_submit, .shenhe_btn {
-            display: none;
-        }
-
-        .shenhe_btn {
-            margin-left: 295px;
-        }
-
-        .shenhe_btn img {
-            width: 360px;
-        }
-
     </style>
 </head>
 <body>
@@ -409,17 +371,17 @@
     <div class="header">
         <ul>
             <li>
-                <a href="./Special1.html" style="color: #007aff;">
+                <a href="./Special1.html" style="color: #999;">
                     危险化学品认证
                 </a>
             </li>
             <li>
-                <a href="javascript:;" style="color: #999999;">
+                <a href="javascript:;" style="color: #999;">
                     特殊资质认证
                 </a>
             </li>
             <li>
-                <a href="./Special3.html" style="color: #999999;">
+                <a href="./Special3.html" style="color: #007aff;">
                     其他资质信息
                 </a>
             </li>
@@ -463,11 +425,10 @@
                         <div class="ts1">至少添加一张图片</div>
                         <a href="##" class="delete_pic">删除</a>
                         <a href="##" class="add_pic add_pic1" data-pic="pic" style="float: left;font-size: 14px; position: absolute; bottom: 0px;">继续添加图片</a>
-                        
                     </div>
 
                 </li>
-                <li   style="overflow: visible;" class="clearfix">
+                <li style="overflow: visible;" class="clearfix">
                     <div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>
                     <div class="right1 Lf">
                         <div name="" id="textarea0"  class="textarea"  style="width: 359px;height: 88px; border: 1px solid #ebe9ea;" contenteditable="false" ></div>
@@ -494,9 +455,9 @@
                 <li class="clearfix">
                     <div class="left1 Lf"><i class="red">*</i>有效期起:</div>
                     <div class="right1 Lf">
-                        <input type="text" class="date-input laydate-icon kuang start"  placeholder="请选择日期" id="test1">
+                        <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 10px;" placeholder="请选择日期" id="test1">
                         <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
-                        <input type="text" class="date-input laydate-icon kuang end"  placeholder="请选择日期" id="test2">
+                        <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 10px;" placeholder="请选择日期" id="test2">
                     </div>
                     <span class="ts">有效期不能为空</span>
                 </li>
@@ -506,18 +467,11 @@
     </div>
     
 
-    <div class="bottom1 edit_btn">
-        <div class="btn edit_edit">编辑</div>
-    </div>
-
-    <div class="bottom1 add_submit">
+    <div class="bottom1">
         <div class="btn Lf add add1">继续添加其他资质</div>
         <div class="btn Lf sub">提交</div>
     </div>
 
-    <div class="bottom1 shenhe_btn">
-        <div class="Lf"><img src="../img/shenhe.png" alt=""></div>
-    </div>
     
 </div>
 
@@ -548,11 +502,11 @@
     })
     laydate({
         elem: '#test2',
-        format: 'YYYY-MM-DD',
+        format: 'YYYY-MM-DD ',
         istime: false,
         choose: function(dates){ //选择好日期的回调
             $("#test2").parent().next().css('display', 'none');
-            endTime1 = dates;
+            startTime1 = dates;
         }
     })
 
@@ -562,11 +516,46 @@
             format: 'YYYY-MM-DD',
             istime: false,
             choose: function(dates){ //选择好日期的回调
-                $("#"+id).parent().next().css('display', 'none');
-                /*endTime1 = dates;*/
+                $('#'+id).parent().next().css('display', 'none');
+                startTime1 = dates;
             }
         })
     }
+
+	$('.header ul li:nth-child(2) a').on('click', function () {
+		
+		
+        $.ajax({
+            url: pubIP + 'companyCertification/getQualificationsStateByCompanyId',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                companyId: companyId
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.data == 'false') {
+                    // if (window.localStorage.getItem('data-subFlag') == '0') {
+                        window.parent.tan1();   
+                    // } else {
+                    //     window.parent.tan2();
+                    // }
+                    
+                } else {
+                    location.href="Special2.html";
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+
+        
+    });
 
     //不同浏览器下的路径不同
     function getObjectURL(file) {
@@ -587,11 +576,9 @@
         return url;
     }
 
-
     $(document).on('change','.input_blur',function(){
             xmTanUploadImg(this);
         })
-
 
     //选择图片，马上预览
     function xmTanUploadImg(obj) {
@@ -627,13 +614,11 @@
                 // console.log(data);
                 /*img_url1 = data.url;*/
                 // $(obj).prev().attr('src', data.url);
-                // $(obj).next().val(data.url);
-                // $(obj).prev().attr('data-flag', '0');
                 $(obj).parent().css({
                         'background':'url('+data.url+') no-repeat',
                         'background-position':'center',
                         'background-size':'contain',
-                        'background-color':'#fafafa'
+                        'background-color':'#f6f6f6'
                 });
                 $(obj).next().val(data.url);
                 $(obj).parent().parent().find('.ts1').css('display', 'none');
@@ -650,6 +635,7 @@
 
     $(function(){
 
+
         $('.laydate-icon').css({
             'backgroundImage': 'url(../img/yh_rili.png)',
             'backgroundPosition': '137px',
@@ -657,45 +643,6 @@
             'border': '1px solid #ebe9ea'
         });
 
-
-        $('.header ul li:nth-child(2) a').on('click', function () {
-            
-            $.ajax({
-                url: pubIP + 'companyCertification/getQualificationsStateByCompanyId',
-                type: 'post',
-                headers: {
-                    Accept: "application/json; charset=utf-8",
-                    token: token
-                },
-                data: {
-                    companyId: companyId
-                },
-                cache: false,
-                dataType: 'json',
-                success: function (data) {
-                    console.log(data);
-                    if (data.data == 'false') { 
-                        
-                            window.parent.tan1();   
-                        // } else {
-                        //     window.parent.tan2();
-                        // }
-                        
-                    } else {
-                        location.href="Special2.html";
-                    }
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-
-            
-        });
-
-    
-
-    
         searchAjax();
 
    
@@ -709,12 +656,12 @@
                     token: token
                 },
                 data: {
-                    type: 0
+                    type: 2
                 },
                 cache: false,
                 dataType: 'json',
                 success: function (data) {
-                    console.log(data);
+                    /*console.log(data);*/
 
                     var str = '';
                     for (var i = 0; i < data.data.length; i++) {
@@ -740,10 +687,11 @@
                         event.stopPropagation();
                         $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                         $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().find('span').attr('data-spanvalue', $(this).attr('data-ids'));
                         $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                         $(this).parent().css('display','none');
                     });
-                    searchAjax();           
+                    searchAjax();            
                     
                 },
                 error: function (err) {
@@ -753,11 +701,15 @@
         }
 
 
+        
+    
+    
+     
     
         var isfirst = true;
         function searchAjax() {
             $.ajax({
-                url: pubIP+'companyCertification/getQualificationsBaseInfoAndStrByCompanyId',
+                url: pubIP + 'companyCertification/getQualificationsBaseInfoAndStrByCompanyId',
                 type: 'post',
                 headers: {
                     Accept: "application/json; charset=utf-8",
@@ -765,7 +717,7 @@
                 },
                 data: {
                     companyId: companyId,
-                    type: 0
+                    type: 2
                 },
                 cache: false,
                 dataType: 'json',
@@ -776,6 +728,7 @@
                         for (var i = 0; i < data.data.length; i++) {
                             if(i > 0){
                                 $('.add').click();
+
                                 $('.laydate-icon').css({
                                     'backgroundImage': 'url(../img/yh_rili.png)',
                                     'backgroundPosition': '137px',
@@ -794,13 +747,13 @@
                     }
 
 
-                    console.log(data.data)
+                    
                     for (var i = 0; i < data.data.length; i++) {
 
                         $('.c'+i).attr('data-qiyeId', data.data[i].ids);
                        
                         //资质类型
-//                        $('#zizhi_type'+i+' option[value="'+data.data[i].qualificationType+'"]').attr("selected",true);
+                        //$('#zizhi_type'+i+' option[value="'+data.data[i].qualificationTypeIds+'"]').attr("selected",true);
                         $('#zizhi_type'+i).find("span").text(data.data[i].qualificationName)
                         $('#zizhi_type'+i).find('span').attr("data-spanvalue",data.data[i].qualificationTypeIds)
                         $('#zizhi_type'+i).attr('disabled', "disabled").css("background-color","#fafafa");
@@ -808,12 +761,13 @@
                         //资质编号
                         $('#zizhi_num'+i).val(data.data[i].qualificationNum);
                         $('#zizhi_num'+i).attr('readonly', 'readonly').css("background-color","#fafafa");
+                        //$('#zizhi_num'+i).attr('data-f', 'true');
 
                         //资质图片
                         // for (var j = 0; j < data.data[i].picInfos.length; j++) {
                         //     $('.c'+i+' .pic'+(j+1)).attr('data-picids', data.data[i].picInfos[j].ids);
                         //     $('.c'+i+' .pic'+(j+1)).attr('src', data.data[i].picInfos[j].picUrl);
-                        //     $('.c'+i+' .pic'+(j+1)).attr('data-flag', '0');
+                            
                         // }
 
                         for (var j = 0; j < data.data[i].picInfos.length; j++) {
@@ -836,7 +790,6 @@
 
                         //不让点击添加图片
                         $(".add_pic").hide();
-
                         // 不让删除
                         $('.delete_pic').css('visibility', 'hidden');
 
@@ -846,8 +799,8 @@
 
                         //许可经营范围
                         $('#textarea'+ i).attr('data-textarea', data.data[i].operationLimit);
-                        //不让添加
-                        $(".btn1").hide();
+                         //不让添加
+                         $(".btn1").hide();
                         
 
                         /*var arr = data.data[i].operationLimit.split(';')*/
@@ -856,11 +809,13 @@
                         $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin).attr('disabled', "disabled").css("background-color","#fafafa");
                         $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire).attr('disabled', "disabled").css("background-color","#fafafa");
 
-                        // $('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
+                        $('.c'+i+ ' .start').attr('data-f', 'true');
+                        $('.c'+i+ ' .end').attr('data-f', 'true');
+
+                        $('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
 
                     }
                     $('.textarea').each(function(){
-                        $(this).attr('display',true)
                         var that = this;
                         var idArr =  $(this).attr('data-textarea');
                         if (idArr) {
@@ -879,6 +834,43 @@
                         }
                         
                     });
+
+
+                    // 模拟下拉框
+                    $('.zizhi_type0').click(function(event){
+
+                        if($(this).attr("disabled")=="disabled"){ //判断是否可以点击
+                          return;
+                        }
+
+                        if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
+                            $(this).children('img').attr('src', '../img/prl-select.jpg')
+                        } else {
+                            $(this).children('img').attr('src', '../img/prl-selected.jpg')
+                        }
+
+                        event.stopPropagation();
+
+                        $(this).children('ul').toggle();
+                        var that = $(this);
+                        that.find('li').each(function(){
+                            $(this).mouseover(function(){
+                                $(this).addClass('hovered')
+                            });
+                            $(this).mouseleave(function(){
+                                $(this).removeClass('hovered')
+                            });
+                            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+                                $(this).css({'background': '#6ea3ff','color': '#fff'});
+                                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+                            }
+                        });
+
+                    }).mouseleave(function (event) {
+                        $(this).children('img').attr('src', '../img/prl-select.jpg');
+                        $(this).children('ul').hide();
+                    });
+
 
                     stateAjax();
                 },
@@ -919,10 +911,12 @@
             });
         }
 
+
         // 删除经营范围
         $(document).on('click', '.delete_div', function() {
             $(this).parent().remove();
         });
+
 
         $(document).on('click', '.delete_pic', function() {
             
@@ -938,22 +932,19 @@
 
 
         $(document).on('click', '.edit_btn', function() {
-
-            $(this).hide();
-            $('.add_submit').show();
+           
             
-           $(this).parent().find('.zizhi_type').attr('disabled', false).css("background-color","#fff");
+            $(this).parent().find('.zizhi_type').attr("disabled",false).css("background-color","#fff");
             isSelect=true;
 
             $('.delete_info').addClass('delete_div');
             $('.delete_info').css('cursor', 'pointer');
 
             $(this).parent().find('.preview').attr('disabled', false);
-
-           $(this).parent().find('.zizhi_num').attr('readonly', false).css("background-color","#fff");;
+            
+            $(this).parent().find('.zizhi_num').attr('readonly', false).css("background-color","#fff");
            // $(this).parent().find('.textarea').attr('contenteditable', true);
            $(this).parent().find(".add_pic").show().css('display', 'inline-block');
-
            $(this).parent().find(".delete_pic").css('visibility', 'visible').css('display', 'inline-block');
 
            $(this).parent().find(".btn1").show();
@@ -962,6 +953,7 @@
 
         });
 
+    
 
         function stateAjax() {
 
@@ -979,42 +971,13 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
-                    if(data.data==null){
-                        return;
-                    }
-                    //未审核
-                    if (data.data.aType == 0 && data.data.aState == 0) {
-                        //window.parent.shenhe();  
-                        $(".sub").hide();
-                        $(".shenhe_btn").show();  
 
-                        $(".add1").hide();
-                        $('.edit_btn').css('display', 'none');
-                        $('.sub').attr('disabled', true);
-                        $('.quxiao_add').css('display', 'none');
-                        $('.shou_pic').css('display', 'none');
-
-                    } else if (data.data.aType == 0 && data.data.aState == 2) {  //已拒绝
-
-                        if (data.data.aRefuse) {
-                            window.parent.jujue_weixian(data.data.aRefuse); 
-                        } else {
-                            window.parent.jujue_weixian('无');
-                        }
-                        
-                        $(".shenhe_btn").hide();
-                        $('.edit_btn').css('display', 'block');
-                        $('.sub').attr('disabled', false);
-                        $('.quxiao_add').css('display', 'block');
-                        $('.shou_pic').css('display', 'block');
-                    }else {
-                        $('.edit_btn').css('display', 'block');
-                        $('.sub').attr('disabled', false);
-                        $('.quxiao_add').css('display', 'block');
-                        $('.shou_pic').css('display', 'block');
-                        $(".shenhe_btn").hide();
-                        $(".sub").show();
-                    }
+                    
+                    $('.btn.edit_btn').css('display', 'block');
+                    $('.sub').attr('disabled', false);
+                    $('.quxiao_add').css('display', 'block');
+                    $('.shou_pic').css('display', 'block');
+                    
 
                 },
                 error: function(err) {
@@ -1034,21 +997,27 @@
         $(document).on('click', '.add_pic', function() {
             var pic = $(this).attr('data-pic');
 
-           var cla = $(this).prev().prev().prev().find('input[type="file"]').attr('class');
+            var cla = $(this).prev().prev().prev().find('input[type="file"]').attr('class');
 
-            //console.log(cla);
+            console.log(cla);
 
             ind = Number(cla.substr(22));
             console.log(ind);
-           /* console.log(ind);*/
             if (ind < 10) {
 
                 ind++;
+                // var str =   '<div class="uploade" style="float: left;">'
+                //                 +'<i style=""></i>'
+                //                 +'<img src="../img/list_logo.png" alt="" class="preview '+(pic+ind)+'" id="uploade_preview'+(ind-1)+'">'
+                //                 +'<input type="file" class="input_blur " onchange="xmTanUploadImg(this);">'
+                //                 +'<input type="hidden" class="hd'+pic+'" id="hidden">'
+                //             +'</div>';
+
                 var str =   '<div class="uploade" style="float: left;">'
                                 +'<i style=""></i>'
                                 +'<input type="file" class="input_blur preview '+(pic+ind)+'" id="uploade_preview'+(ind-1)+'">'
                                 +'<input type="hidden" class="hd'+(ind-1)+'" id="hidden">'
-                                +'<div class="look_bigpic"><img src="../img/big_pic.png" alt></div>'
+                                +'<div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>'
                             +'</div>';
 
                 $(this).parent().find('.ts1').before(str); 
@@ -1056,11 +1025,10 @@
             } else {
                 $(this).html('最多只能添加十张');
             }
+            
 
         });
-
-
-       
+    
     var j = 3;
     var i = 1;
     var p = 1;
@@ -1074,14 +1042,16 @@
                     +'<li>'
                         +'<div class="left1 Lf"><i class="red">*</i>资质类型:</div>'
                         +'<div class="right1 Lf">'
-//                            +'<select name="" class="zizhi_type zizhi_type'+i+'" id="zizhi_type'+i+'">'
-//
-//                            +'</select>'
+                            // +'<select name="" class="zizhi_type" id="zizhi_type'+i+'">'
+                                
+                            // +'</select>'
+
                             +'<div class="selectPub zizhi_type zizhi_type'+i+'" id="zizhi_type'+i+'" data-selectedindex='+i+' value="">'
                                 +'<span></span>'
                                 +'<img src="../img/prl-select.jpg" alt="">'
                                 +'<ul></ul>'
                             +' </div>'
+
                         +'</div>'
                     +'</li>'
                     +'<li>'
@@ -1094,9 +1064,10 @@
                         +'<div class="right1 Lf pic_div">'
                             +'<div class="uploade" style="float: left;">'
                                 +'<i style=""></i>'
+
                                 +'<input type="file" class="input_blur preview pic1" id="uploade_preview0">'
                                 +'<input type="hidden" class="hd0">'
-                                +'<div class="look_bigpic"><img src="../img/big_pic.png" alt></div>'
+                                +'<div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>'
                             +'</div>'
                             +'<div class="ts1">至少添加一张图片</div>'
                             +'<a href="##" class="delete_pic">删除</a>'
@@ -1129,9 +1100,9 @@
                     +'<li>'
                         +'<div class="left1 Lf"><i class="red">*</i>有效期起:</div>'
                         +'<div class="right1 Lf huoqu_date">'
-                            +'<input type="text" class="date-input laydate-icon kuang start"  placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 1)+'">'
+                            +'<input type="text" class="date-input laydate-icon kuang start" style="text-indent:4px;" placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 1)+'">'
                             +'<span style="height: 38px;line-height: 38px;">&nbsp; 至&nbsp; </span>'
-                            +'<input type="text" class="date-input laydate-icon kuang end"  placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 2)+'">'
+                            +'<input type="text" class="date-input laydate-icon kuang end" style="text-indent:4px;" placeholder="请选择日期" onclick="lay(this.id)" id="test'+(center1 + 2)+'">'
                         +'</div>'
                         +'<span class="ts">有效期不能为空</span>'
                     +'</li>'
@@ -1149,6 +1120,7 @@
             'border': '1px solid #ebe9ea'
         });
 
+
         $.ajax({
             url: pubIP + 'companyCertification/getQualificationTypeList',
             type: 'post',
@@ -1157,14 +1129,20 @@
                 token: token
             },
             data: {
-                type: 0
+                type: 2
             },
             cache: false,
             dataType: 'json',
             success: function (data) {
-                console.log(data);
+                /*console.log(data);*/
 
                 var str = '';
+                // for (var i = 0; i < data.data.length; i++) {
+                //     str += '<option value="'+data.data[i].qualificationTypeIds+'" data-ids="'+data.data[i].qualificationTypeIds+'">'+data.data[i].typeName+'</option>';
+                // }
+
+                // $('.zizhi_type').html(str);
+
                 for (var i = 0; i < data.data.length; i++) {
 
                     str += '<li data-index="'+i+'" value="'+data.data[i].ids+'" data-ids="'+data.data[i].ids+'">'+data.data[i].typeName+'</li>';
@@ -1176,13 +1154,12 @@
 
                 }
 
+                console.log(p);
+
                 $('.zizhi_type'+(p)).find("ul").html(str);
-
-
 
                 // 模拟下拉框
                 $('.zizhi_type'+(p)).click(function(event){
-
                     if($(this).attr("disabled")=="disabled"){ //判断是否可以点击
                         return;
                     }
@@ -1226,13 +1203,13 @@
 
                 console.log($('.zizhi_type'+(p)));
                 p++;
+
             },
             error: function (err) {
                 console.log(err);
             }
         });
-
-
+        
 
     });
 
@@ -1240,6 +1217,7 @@
     $(document).on('click', '.btn1', function() {
         $(this).next().find('.sousuo_ul').empty();
         $(this).parent().parent().find('.add_fanwei').css('display', 'block');
+
     });
 
     // $(document).on('click', '.sousuo', function () {
@@ -1249,118 +1227,11 @@
         var _this = $(this);
 
         var cont = $(this).val();
-
-        //应该不要了
-        // if ( _this.parent().next('.cousuo_cont').css('display') == 'block') {
-        //     _this.parent().next('.cousuo_cont').css('display', 'none');
+        
+        // if ($('.cousuo_cont').css('display') == 'block') {
+        //     $('.cousuo_cont').css('display', 'none');
         // } else if($('.cousuo_cont').css('display') == 'none') {
-        //     _this.parent().next('.cousuo_cont').css('display', 'block');
-        // }
-
-        $.ajax({
-            url: pubIP + 'productApi/listChemicalLikeByName',
-            type: 'get',
-            headers: {
-                Accept: "application/json; charset=utf-8",
-                token: token
-            },
-            data: {
-                chemicalStr: cont
-            },
-            cache: false,
-            dataType: 'json',
-            success: function (data) {
-                console.log(data);
-                if (data.code == 1) {
-                    if (data.data.length == 0 ) {
-                        var str1 = '';
-                        str1 += '<li style="color: #999;">暂无数据</li>';
-                        _this.parent().next('.cousuo_cont').css('display','block');
-                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str1);
-                        // $('.sousuo_ul').html(str1);
-                    } else {
-                        var str2 = ''
-                        for (var i = 0; i < data.data.length; i++) {
-                            str2 += '<li data-index= "'+data.data[i].chemicalId+'" >'+data.data[i].chemicalName+'</li>';
-                        }
-                        // $('.sousuo_ul').html(str2);
-                        _this.parent().next('.cousuo_cont').css('display','block');
-                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str2);
-                    }
-                }
-            },
-            error: function (err) {
-                console.log();
-            }
-        })
-
-    });
-
-    $(document).on('click', '.sousuo', function () {
-
-        var cont = $(this).prev().prev().val();
-        var _this = $(this);
-
-        // var cont = $(this).val();
-
-        //应该不要了
-        // if ( _this.parent().next('.cousuo_cont').css('display') == 'block') {
-        //     _this.parent().next('.cousuo_cont').css('display', 'none');
-        // } else if($('.cousuo_cont').css('display') == 'none') {
-        //     _this.parent().next('.cousuo_cont').css('display', 'block');
-        // }
-
-        $.ajax({
-            url: pubIP + 'productApi/listChemicalLikeByName',
-            type: 'get',
-            headers: {
-                Accept: "application/json; charset=utf-8",
-                token: token
-            },
-            data: {
-                chemicalStr: cont
-            },
-            cache: false,
-            dataType: 'json',
-            success: function (data) {
-                console.log(data);
-                if (data.code == 1) {
-                    if (data.data.length == 0 ) {
-                        var str1 = '';
-                        str1 += '<li style="color: #999;">暂无数据</li>';
-                        _this.parent().next('.cousuo_cont').css('display','block');
-                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str1);
-                        // $('.sousuo_ul').html(str1);
-                    } else {
-                        var str2 = ''
-                        for (var i = 0; i < data.data.length; i++) {
-                            str2 += '<li data-index= "'+data.data[i].chemicalId+'" >'+data.data[i].chemicalName+'</li>';
-                        }
-                        // $('.sousuo_ul').html(str2);
-                        _this.parent().next('.cousuo_cont').css('display','block');
-                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str2);
-                    }
-                }
-            },
-            error: function (err) {
-                console.log();
-            }
-        })
-
-    });
-
-    $(document).on('click', '.sousuo', function () {
-
-        var cont = $(this).prev().prev().val();
-        var _this = $(this);
-
-        // var cont = $(this).val();
-
-        //应该不要了
-        // if ( _this.parent().next('.cousuo_cont').css('display') == 'block') {
-        //     _this.parent().next('.cousuo_cont').css('display', 'none');
-        // } else if($('.cousuo_cont').css('display') == 'none') {
-        //     _this.parent().next('.cousuo_cont').css('display', 'block');
+        //     $('.cousuo_cont').css('display', 'block');
         // }
 
         $.ajax({
@@ -1406,11 +1277,13 @@
         if ($(this).val() == '') {
             $(this).parent().next().css('display', 'none');
         }
-    })    
+    })   
 
     $(document).on('click',function(){
         $('.cousuo_cont').hide();
-    })
+    }) 
+
+    
 
     $(document).on('click', '.sousuo_ul li', function () {
         if ($(this).text() != '暂无数据') {
@@ -1424,7 +1297,6 @@
         $('.sousuo_ul li').css('background', '');
         $(this).css('background', '#F6F6F6').css('cursor', 'pointer');
     });
-
 
     $(document).on('click', '.quxiao_div', function() {
         
@@ -1475,6 +1347,8 @@
    
     $(document).on('click', '.sub', function () {
 
+        
+
         // if($(".zizhi_num").val()==''){
         //     alert('资质编号不能为空!');
         //     return;
@@ -1488,14 +1362,12 @@
         //     return;
         // }
 
-
-
-
         var json = {
-            type: 0,
+            type: 2,
             companyId:companyId,
             
         };
+
 
         var isOk = true;
 
@@ -1530,7 +1402,6 @@
                 json['qualificationId'+(y+1)] = $(center1[y]).attr('data-qiyeid');
             }
 
-        
             if ($('.c'+y+' .uploade input[type="hidden"]').val() != '') {
                 var img = '';
 
@@ -1543,8 +1414,10 @@
                     if ($('.c'+y+' .preview').attr('data-flag')) {
                         img += $('.c'+y+' .preview.pic'+(i+1)+'').next().val()+';';
                     } 
+
                     
                 }
+                
                 json['imgs'+(y+1)] = img;
 
             } else {
@@ -1626,8 +1499,6 @@
             return false;
          }
 
-
-        // if (!($(this).attr('disabled')) && $('.zizhi_num').attr('data-f') == 'true' && $('.textarea').attr('data-f') == 'true' && $('.kuang').attr('data-f') == 'true') {
         var that=this;
         if($(that).attr("cf_norepeat")=="1"){
             $(that).attr("cf_norepeat","2")
@@ -1638,32 +1509,32 @@
         }
 
         $.ajax({
-                url: pubIP + 'companyCertification/addQualificationsBaseInfo',
-                type: 'post',
-                headers: {
-                    Accept: "application/json; charset=utf-8",
-                    token: token
-                },
-                data: json,
-                cache: false,
-                dataType: 'json',
-                success: function (data) {
-                    $(that).attr("cf_norepeat","1")
-                    console.log(data);
-                    if (data.code == 1) {
-                        window.parent.tan();
-                        window.location.reload();
-                        window.localStorage.setItem('data-subFlag', '0');
-                        $('.bottom1 >div').hide();
-                    }
-                    
-                },
-                error: function (err) {
-                    $(that).attr("cf_norepeat","1")
-                    console.log(err);
+            url: pubIP + 'companyCertification/addQualificationsBaseInfo',
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: json,
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                $(that).attr("cf_norepeat","1")
+                console.log(data);
+                if (data.code == 1) {
+                    window.parent.other_tan();
+                    // window.parent.$(".modelBox0").eq(0).find(".modelcontent").find(".info").find("span").text("其他资质认证提交成功");
+                    window.location.reload();
+                    window.localStorage.setItem('data-subFlag', '0');
                 }
-            });
-        // }
+                
+            },
+            error: function (err) {
+                $(that).attr("cf_norepeat","1")
+                console.log(err);
+            }
+        });
+        
         
 
     });
@@ -1677,66 +1548,51 @@
         // if (zizhi_num1_reg.test(zizhi_num1) != true) {
         if (zizhi_num1 == '') {
             $(this).parent().next().css('display', 'inline-block');
-            $(this).attr('data-f','false');
-            return;
+            return false;
+            // $(this).attr('data-f','false');
         } else {
             $(this).parent().next().css('display', 'none');
-            $(this).attr('data-f','true');
+            // $(this).attr('data-f','true');
         }
 
     });
 
 
-
-    /*$(document).on('blur', '.input_blur', function() {
-
-        var center1 = $('.center1');
-
-        for (var y = 0; y < center1.length; y++) {
-
-            for (var i = 0; i < $('.c'+y+' .preview').length; i++) {
-                console.log(i);
-                if ($('.c'+y+' .preview.pic1').prev().attr('src') == '../img/list_logo.png') {
-                    $('.c'+y+' .preview.pic1').parent().next().css('display', 'none');
-                } else {
-                    $('.c'+y+' .preview.pic1').parent().next().css('display', 'inline-block');
-                }
-
-            }
-
-        }
-
-    });*/
-
     $(document).on('blur', '.textarea', function() {
 
         if ($(this).text() == '') {
             $(this).parent().next().css('display', 'inline-block');
-            $(this).attr('data-f','false');
+            return false;
+            // $(this).attr('data-f','false');
         } else {
             $(this).parent().next().css('display', 'none');
-            $(this).attr('data-f','true');
+            // $(this).attr('data-f','true');
         }
 
     });
 
     $(document).on('blur', '.start', function () {
         if ($(this).val() == '') {
+            $(this).parent().next().text('有效期不能为空');
             $(this).parent().next().css('display', 'inline-block');
-            $(this).attr('data-f','false');
+            return false;
+            // $(this).attr('data-f','false');
         } else {
             $(this).parent().next().css('display', 'none');
-            $(this).attr('data-f','true');
+            // $(this).attr('data-f','true');
         }
     });
 
     $(document).on('blur', '.end', function () {
         if ($(this).val() == '') {
+            $(this).parent().next().text('有效期不能为空');
             $(this).parent().next().css('display', 'inline-block');
-            $(this).attr('data-f','false');
+            return false;
+            // $(this).attr('data-f','false');
         } else {
             $(this).parent().next().css('display', 'none');
-            $(this).attr('data-f','true');
+            // $(this).attr('data-f','true');
+
         }
     });
  

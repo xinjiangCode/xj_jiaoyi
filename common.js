@@ -209,7 +209,9 @@ if(token){
 // 模拟下拉框
 
 var adct1 = document.getElementsByTagName('title')[0].getAttribute('adct1');
+
 $('.selectPub').click(function(event){
+	
 	console.log($(this).attr("disabled"))
 	if($(this).attr("disabled")=="disabled"){return;}//不可选
 	if(adct1==1){

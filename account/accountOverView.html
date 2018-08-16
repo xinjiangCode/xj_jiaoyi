@@ -129,6 +129,12 @@
             height: 129px;
             border-radius: 50%;
         }
+
+        .orderItem, .my_xunpan, .my_baojia {
+            cursor: pointer;
+        }
+
+
     </style>
 </head>
 <body>
@@ -228,19 +234,19 @@
         <div class="state Lf">销售订单</div>
         <div class="orderList Lf" style="border-bottom: 1px solid #e3e3e3;">
             <ul class="clearfix ul">
-                <li class="orderItem Lf">
+                <li class="orderItem sale_order1 Lf">
                     <div class="imgs"><img src="../img/cf_order0.png" alt=""></div>
                     <div class="orderItemTitle">全  部 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem sale_order2 Lf">
                     <div class="imgs"><img src="../img/cf_order1.png" alt=""></div>
                     <div class="orderItemTitle">待支付 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem sale_order3 Lf">
                     <div class="imgs"><img src="../img/cf_order2.png" alt=""></div>
                     <div class="orderItemTitle">待发货 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem sale_order4 Lf">
                     <div class="imgs"><img src="../img/cf_order3.png" alt=""></div>
                     <div class="orderItemTitle">待收货 0</div>
                 </li>
@@ -259,19 +265,19 @@
         <div class="state Lf">采购订单</div>
         <div class="orderList Lf">
             <ul class="clearfix ul">
-                <li class="orderItem Lf">
+                <li class="orderItem purchase1 Lf">
                     <div class="imgs"><img src="../img/cf_order0.png" alt=""></div>
                     <div class="orderItemTitle">全  部 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem purchase2 Lf">
                     <div class="imgs"><img src="../img/cf_order1.png" alt=""></div>
                     <div class="orderItemTitle">待支付 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem purchase3 Lf">
                     <div class="imgs"><img src="../img/cf_order2.png" alt=""></div>
                     <div class="orderItemTitle">待发货 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem purchase4 Lf">
                     <div class="imgs"><img src="../img/cf_order3.png" alt=""></div>
                     <div class="orderItemTitle">待收货 0</div>
                 </li>
@@ -290,7 +296,7 @@
 
 <div class="offer Lf yiRenZheng">
     <div class="title">我的询盘</div>
-    <div class="left1 Lf">
+    <div class="left1 my_xunpan Lf">
         <div class="left2 Lf">
             <img src="../img/cf_offer1.png" alt="">
         </div>
@@ -299,7 +305,7 @@
             <div class="name">已发询盘</div>
         </div>
     </div>
-    <div class="left1 Lf">
+    <div class="left1 my_xunpan Lf">
         <div class="left2 Lf">
             <img src="../img/cf_offer2.png" alt="">
         </div>
@@ -311,7 +317,7 @@
 </div>
 <div class="offer yiRenZheng" style="float: right;">
     <div class="title">我的报价</div>
-    <div class="left1 Lf">
+    <div class="left1 my_baojia Lf">
         <div class="left2 Lf">
             <img src="../img/cf_offer3.png" alt="">
         </div>
@@ -320,7 +326,7 @@
             <div class="name">待处理</div>
         </div>
     </div>
-    <div class="left1 Lf">
+    <div class="left1 my_baojia Lf">
         <div class="left2 Lf">
             <img src="../img/cf_offer4.png" alt="">
         </div>
@@ -374,6 +380,55 @@
         window.parent.$("#Iframe").css('height',1584);
         getUser();
     })
+
+    // 销售订单
+    $('.sale_order1, .sale_order2, .sale_order3, .sale_order4').click(function() {
+        window.location.href = "mySale-order.html";
+        
+        window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
+        window.parent.$(".manageItem").removeClass("active1");
+        window.parent.$(".hzf_wdxsdd").addClass("active1");
+        window.parent.$(".hzf_wdxsdd").parent().parent().show();
+        window.parent.$(".hzf_wdxsdd").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+
+    });
+
+    // 采购订单
+    $('.purchase1, .purchase2, .purchase3, .purchase4').click(function() {
+        window.location.href = "./myPurchase-order.html";
+        
+        window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
+        window.parent.$(".manageItem").removeClass("active1");
+        window.parent.$(".hzf_wdcgdd").addClass("active1");
+        window.parent.$(".hzf_wdcgdd").parent().parent().show();
+        window.parent.$(".hzf_wdcgdd").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+
+    });
+
+    // 我的询盘
+    $('.my_xunpan').click(function() {
+        window.location.href = "./myPurchase-enquiry.html";
+        
+        window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
+        window.parent.$(".manageItem").removeClass("active1");
+        window.parent.$(".hzf_wdxp").addClass("active1");
+        window.parent.$(".hzf_wdxp").parent().parent().show();
+        window.parent.$(".hzf_wdxp").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+
+    });
+
+    // 我的报价
+    $('.my_baojia').click(function() {
+        window.location.href = "./mySale-baojia.html";
+        
+        window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
+        window.parent.$(".manageItem").removeClass("active1");
+        window.parent.$(".hzf_wdbj").addClass("active1");
+        window.parent.$(".hzf_wdbj").parent().parent().show();
+        window.parent.$(".hzf_wdbj").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+
+    });
+
 
     //右侧报价订单数据显示
     if (companyId) {

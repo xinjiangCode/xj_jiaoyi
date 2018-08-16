@@ -364,6 +364,15 @@
             width: 25px;
         }
 
+        .btn.edit_edit {
+            margin-left: 150px;
+            margin-top: 2px;
+        }
+
+        .add_submit {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -466,8 +475,10 @@
         </div>
     </div>
     
-
-    <div class="bottom1">
+    <div class="bottom1 edit_btn">
+        <div class="btn edit_edit">编辑</div>
+    </div>
+    <div class="bottom1 add_submit">
         <div class="btn Lf add add1">继续添加其他资质</div>
         <div class="btn Lf sub">提交</div>
     </div>
@@ -724,6 +735,11 @@
                 success: function (data) {
                     console.log(data);
 
+                    if (data.data.length == 0) {
+                        $('.edit_btn').hide();
+                        $('.add_submit').show();
+                    }
+
                     if(isfirst){
                         for (var i = 0; i < data.data.length; i++) {
                             if(i > 0){
@@ -812,7 +828,7 @@
                         $('.c'+i+ ' .start').attr('data-f', 'true');
                         $('.c'+i+ ' .end').attr('data-f', 'true');
 
-                        $('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
+                        //$('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
 
                     }
                     $('.textarea').each(function(){
@@ -932,6 +948,9 @@
 
 
         $(document).on('click', '.edit_btn', function() {
+
+            $(this).hide();
+            $('.add_submit').show();
            
             
             $(this).parent().find('.zizhi_type').attr("disabled",false).css("background-color","#fff");
@@ -1232,6 +1251,59 @@
         //     $('.cousuo_cont').css('display', 'none');
         // } else if($('.cousuo_cont').css('display') == 'none') {
         //     $('.cousuo_cont').css('display', 'block');
+        // }
+
+        $.ajax({
+            url: pubIP + 'productApi/listChemicalLikeByName',
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                chemicalStr: cont
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.code == 1) {
+                    if (data.data.length == 0 ) {
+                        var str1 = '';
+                        str1 += '<li style="color: #999;">暂无数据</li>';
+                        _this.parent().next('.cousuo_cont').css('display','block');
+                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str1);
+                        // $('.sousuo_ul').html(str1);
+                    } else {
+                        var str2 = ''
+                        for (var i = 0; i < data.data.length; i++) {
+                            str2 += '<li data-index= "'+data.data[i].chemicalId+'" >'+data.data[i].chemicalName+'</li>';
+                        }
+                        // $('.sousuo_ul').html(str2);
+                        _this.parent().next('.cousuo_cont').css('display','block');
+                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str2);
+                    }
+                }
+            },
+            error: function (err) {
+                console.log();
+            }
+        })
+
+    });
+
+    $(document).on('click', '.sousuo', function () {
+
+        var cont = $(this).prev().prev().val();
+        var _this = $(this);
+
+        // var cont = $(this).val();
+
+        //应该不要了
+        // if ( _this.parent().next('.cousuo_cont').css('display') == 'block') {
+        //     _this.parent().next('.cousuo_cont').css('display', 'none');
+        // } else if($('.cousuo_cont').css('display') == 'none') {
+        //     _this.parent().next('.cousuo_cont').css('display', 'block');
         // }
 
         $.ajax({
