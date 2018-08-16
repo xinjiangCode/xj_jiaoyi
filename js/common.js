@@ -3,8 +3,8 @@
 var pubIP = 'http://192.168.1.80:7777/service/';
 //var pubIP = 'http://192.168.1.219:7777/service/';
 // 物流交易衔接的链接
-var wuliuIP = 'http://wl.web.xjv56.com/';
-// var wuliuIP = 'http://192.168.1.159:8080/';
+// var wuliuIP = 'http://wl.web.xjv56.com/';
+var wuliuIP = 'http://192.168.1.159:8080/';
 //跳回登录页
 var homeUrl = 'http://192.168.1.80:8180/';
 //var homeUrl = 'http://web.xjv56.com/';

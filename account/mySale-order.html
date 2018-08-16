@@ -220,7 +220,7 @@
                         <a href="./mySale-orderDetailStatus.html?userType=0&id=<%=list[i].transactionOrderIdStr%>" style="display:block;width: 100%;height: 100%;">查看订单</a>
                     </div>
                     <div class="orderContItem publish_wuliu_xuqiu">
-                        <a target="_blank" href="javascript:;" style="display:block;width: 100%;height: 100%;">发布物流需求</a>
+                        <a target="_blank" href="javascript:;" data-productName="<%=list[i].productName%>" data-sum="<%=list[i].sum%>" data-orderId="<%=list[i].transactionOrderIdStr%>" data-chemicalName="<%=list[i].chemicalName%>" data-chemicalId="<%=list[i].chemicalId%>" style="display:block;width: 100%;height: 100%;">发布物流需求</a>
                     </div>
                  </div>
             </div>
@@ -232,10 +232,16 @@
     // })
 
     $(document).on('click', '.publish_wuliu_xuqiu a', function() {
+        var productName = $(this).attr('data-productName');
+        var sum = $(this).attr('data-sum');
+        var orderId = $(this).attr('data-orderId');
+        var chemicalName = $(this).attr('data-chemicalName');
+        var chemicalId = $(this).attr('data-chemicalId');
         // window.parent
         // window.location.href = "";
-        $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token)
-        // $(this).attr('href', wuliuIP+'allWuliu/account.html?type=1&token='+token)
+        
+        // $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+productName+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+chemicalName)
+        $(this).attr('href', wuliuIP+'allWuliu/account.html?type=1&token='+token+'&productName='+productName+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+chemicalName)
     })
 
     $(function(){
