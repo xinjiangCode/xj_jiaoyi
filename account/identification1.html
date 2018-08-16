@@ -756,12 +756,17 @@
             success: function (data) {
                 //console.log(data);
                 var thisUrl = data.data.fileUrl;
-                window.open("../generic/web/viewer.html?thisUrl="+thisUrl);
+                openWin("../generic/web/viewer.html?thisUrl="+thisUrl);
             },
             error: function (err) {
                 console.log(err);
             }
         })
+    }
+    function openWin(url) {
+        $('body').append($('<a href="' + url + '" target="_blank" id="openWin"></a>'))
+        document.getElementById("openWin").click();//点击事件
+        $('#openWin').remove();
     }
 
     var img_url1 = null;
