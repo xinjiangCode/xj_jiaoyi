@@ -207,19 +207,19 @@
 
     <div class="bottom1">
         <div class="left1 Lf">
-            提现出金账户
+            票据收票账户
         </div>
         <div class="right2 Lf">
             <ul>
                 <li>
                     <div class="left1 Lf"><i class="red">*</i>承兑账户名称:</div>
                     <div class="right1 Lf"><input type="text" id="chujin_account_name1"></div>
-                    <div class="ts">出金账户名称不能为空</div>
+                    <div class="ts">承兑账户名称不能为空</div>
                 </li>
                 <li>
                     <div class="left1 Lf"><i class="red">*</i>承兑账号:</div>
                     <div class="right1 Lf"><input type="text" id="chujin_account_account1" maxlength="30"></div>
-                    <div class="ts">出金账户账号格式不正确</div>
+                    <div class="ts">承兑账户账号格式不正确</div>
                 </li>
                 <li>
                     <div class="left1 Lf"><i class="red">*</i>开户银行信息:</div>
@@ -236,7 +236,7 @@
 
     <div class="bottom1">
         <div class="left1 Lf">
-            票据收票账户
+            提现出金账户
         </div>
         <div class="right2 Lf">
             <ul>
@@ -546,11 +546,11 @@ function upload_file(obj) {
                 return false;
             }
 
-            if (chujin_account_account2 == chujin_account_account1) {
-                $('#chujin_account_account2').parent().next().text('提现账号和票据收票账号不能一致');
-                $('#chujin_account_account2').parent().next().css('display', 'block');
-                return false;
-            }
+            // if (chujin_account_account2 == chujin_account_account1) {
+            //     $('#chujin_account_account2').parent().next().text('提现账号和票据收票账号不能一致');
+            //     $('#chujin_account_account2').parent().next().css('display', 'block');
+            //     return false;
+            // }
 
 
             if ($('#chujin_account_account1').attr('data-cunzai') == '1') {
@@ -699,11 +699,12 @@ function upload_file(obj) {
                 $(this).parent().next().text('出金账户账号格式不正确');
                 $(this).parent().next().css('display', 'block');
                 return;
-            } else if (chujin_account_account2 == $('#chujin_account_account1').val()) {
-                $(this).parent().next().text('提现账号和票据收票账号不能一致');
-                $(this).parent().next().css('display', 'block');
-                return;
-            } else {
+            } //else if (chujin_account_account2 == $('#chujin_account_account1').val()) {
+                // $(this).parent().next().text('提现账号和票据收票账号不能一致');
+                // $(this).parent().next().css('display', 'block');
+                // return;
+            //} 
+            else {
                 $(this).parent().next().css('display', 'none');
                 var _that = $(this);
                 $.ajax({
@@ -897,11 +898,11 @@ function upload_file(obj) {
                 return;
             }
 
-            if (chujin_account_account2 == chujin_account_account1) {
-                $('#chujin_account_account2').parent().next().text('提现账号和票据收票账号不能一致');
-                $('#chujin_account_account2').parent().next().css('display', 'block');
-                return false;
-            }
+            // if (chujin_account_account2 == chujin_account_account1) {
+            //     $('#chujin_account_account2').parent().next().text('提现账号和票据收票账号不能一致');
+            //     $('#chujin_account_account2').parent().next().css('display', 'block');
+            //     return false;
+            // }
 
            
             if ($('#chujin_account_account1').attr('data-cunzai') == '1') {

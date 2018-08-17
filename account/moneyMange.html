@@ -40,7 +40,7 @@
         <div class="left1 Lf"><img class="logo_img" src="../img/zthx_logo.png" alt=""></div>
         <div class="right1 Lf">
             <div class="top1">企业名称： <a class="qiye_name" href="##">中泰化学</a></div>
-            <div class="top1">注册时间： <span class="register_time" style="color:#707070;">2018-04-02 12: 30: 25</span></div>
+            <div class="top1">审核通过时间： <span class="register_time" style="color:#707070;">2018-04-02 12: 30: 25</span></div>
         </div>
     </div>
 
@@ -129,14 +129,16 @@
                     $('.yhCardList').html(str);
 
                 }
-
+                
                 if (json.store != null) {
-                    if (json.store.addTime != null) {
-                        json.store.addTime = new Date(json.store.addTime).Format("yyyy-MM-dd");
+                    if (json.store.authTime != null) {
+                        //json.store.addTime = new Date(json.store.addTime).Format("yyyy-MM-dd");
+                        json.store.authTime = new Date(json.store.authTime).Format("yyyy-MM-dd");
                     }
                     
                     $('.qiye_name').text(json.store.companyName);
-                    $('.register_time').text(json.store.addTime == null ? ' ' : json.store.addTime);
+                    //$('.register_time').text(json.store.addTime == null ? ' ' : json.store.addTime);
+                    $('.register_time').text(json.store.authTime == null ? ' ' : json.store.authTime);
                     $('.logo_img').attr('src', json.store.storeImage);
                 }
             }
