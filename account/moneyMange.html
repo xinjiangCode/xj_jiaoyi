@@ -106,27 +106,48 @@
                 if (json.data.length != 0) {
 
                     var str = '';
-
+                    var str1 = '';
                     
+                    if (sessionStorage.getItem('flag') == '1') {
 
-                    for (var i = 0; i < json.data.length; i++) {
-                        if (json.data[i].bankName == null) {
-                            json.data[i].bankName = ''
-                        }
-
-                        str += '<li>'
+                        str1 += '<li>'
                             +'<div class="cardItem">'
                                 +'<div class="cardTop">'
                                     +'<img src="../img/Zxlogo.png" alt="">'
                                 +'</div>'
-                                +'<div class="kaihuhang">'+json.data[i].bankName+'</div>'
-                                +'<div class="kaihuming">开户名：'+json.data[i].accountName+'</div>'
-                                +'<div class="cardNum">'+json.data[i].accountId+'</div>'
+                                +'<div class="kaihuhang">'+json.data[0].bankName+'</div>'
+                                +'<div class="kaihuming">开户名：'+json.data[0].accountName+'</div>'
+                                +'<div class="cardNum">'+json.data[0].accountId+'</div>'
                             +'</div>'
                         +'</li>'
+
+                        $('.yhCardList').html(str1);
+
+                        sessionStorage.setItem('flag', '');
+
+                    } else {
+
+                        for (var i = 0; i < json.data.length; i++) {
+                            if (json.data[i].bankName == null) {
+                                json.data[i].bankName = ''
+                            }
+
+                            str += '<li>'
+                                +'<div class="cardItem">'
+                                    +'<div class="cardTop">'
+                                        +'<img src="../img/Zxlogo.png" alt="">'
+                                    +'</div>'
+                                    +'<div class="kaihuhang">'+json.data[i].bankName+'</div>'
+                                    +'<div class="kaihuming">开户名：'+json.data[i].accountName+'</div>'
+                                    +'<div class="cardNum">'+json.data[i].accountId+'</div>'
+                                +'</div>'
+                            +'</li>'
+                        }
+
+                        $('.yhCardList').html(str);
                     }
 
-                    $('.yhCardList').html(str);
+                    
 
                 }
                 
