@@ -1,13 +1,13 @@
 //api地址
-//var pubIP = 'http://api.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
+var pubIP = 'http://api.xjv56.com/service/';
+//var pubIP = 'http://192.168.1.80:7777/service/';
 //var pubIP = 'http://192.168.1.223:7777/service/';
 // 物流交易衔接的链接
-// var wuliuIP = 'http://wl.web.xjv56.com/';
-var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
+var wuliuIP = 'http://wl.web.xjv56.com/';
+//var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
 //跳回登录页
-var homeUrl = 'http://192.168.1.80:8180/';
-//var homeUrl = 'http://web.xjv56.com/';
+//var homeUrl = 'http://192.168.1.80:8180/';
+var homeUrl = 'http://web.xjv56.com/';
 //下载地址
 var downIP = 'http://file.xjv56.com/';
 //var downIP = 'http://192.168.1.80:8680/web-file/';
