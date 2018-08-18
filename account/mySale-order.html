@@ -261,7 +261,6 @@
                 dataType: "json",
                 success: function(json){
                     console.log(json);
-
                     //$(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
 
                     openWin( wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName));
@@ -272,10 +271,7 @@
                 }
             })
         }else{
-
-
-
-            $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=2&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
+            $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
         }
     })
 
