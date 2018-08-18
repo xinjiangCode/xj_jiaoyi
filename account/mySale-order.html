@@ -261,16 +261,33 @@
                 dataType: "json",
                 success: function(json){
                     console.log(json);
-                    openWin(wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+productName+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+chemicalName);
+
+                    //$(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
+
+                    openWin( wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName));
+
                 },
                 error: function(err){
                     console.log(err);
                 }
             })
         }else{
-            $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=2&token='+token+'&productName='+productName+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+chemicalName)
+
+
+
+            $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=2&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
         }
     })
+
+    var decToHex = function(str) {
+        if (str == '') {
+            return '';
+        }
+        var res=[];
+        for(var i=0;i < str.length;i++)
+            res[i]=("00"+str.charCodeAt(i).toString(16)).slice(-4);
+        return "\@u"+res.join("\@u");
+    }
 
     $(function(){
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
