@@ -910,10 +910,10 @@ footer .friendList a{
 	width: 132px;
 	height: 37px;
 	line-height: 37px;
-	border: 1px solid #ebe9ea;
+	border: 1px solid #e7e7e7;
 	box-sizing: border-box;
 	padding-left: 10px;
-	color: #999;
+	color: #666666;
 	cursor: pointer;
 }
 .selectPub>img{
@@ -953,7 +953,7 @@ footer .friendList a{
 
 input{
 	line-height: 100%;
-	border: 1px solid #eaeaea;
+	border: 1px solid #e7e7e7;
 }
 /* 谷歌 */
 input::-webkit-outer-spin-button,

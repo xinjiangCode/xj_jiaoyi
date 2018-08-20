@@ -46,7 +46,7 @@ html,body {
 }
 
 input[type='text'] {
-	border-color: #D3D3D3;
+	border-color: #e7e7e7;
 	border-width: 1px;
     border-style: solid;
     border-radius: 2px;
@@ -86,7 +86,7 @@ span.line-height {
 }
 
 select {
-	border-color: #D3D3D3;
+	border-color: #e7e7e7;
 }
 
 input[type="text"]:disabled {
