@@ -1226,39 +1226,41 @@
 	        
 			//拦截链接
 	        $(document).on('click','a',function(e){
-	       		e.preventDefault();
-	       		var isOld = localStorage.getItem('isOld');
-	       		if(isOld != '2'){
-	       			var ttxt = $.trim($(this).text());
-	       			console.log(ttxt);
-	       			if(ttxt == '用户中心' || ttxt == '立即发布需求' || ttxt == '立即报价' || ttxt == '我的询盘' || ttxt == '我的报价' ){
-	       				if(isOld == '1'){
-	       					$('#effect .contTitle span').text('您尚未登录');
-							missedLogin() ;
-	       				}else if(isOld == '0'){
-	       					missedLogin() ;
-	       				}else if(isOld == '-1'){
-	       					$('#effect .contTitle span').text('您尚未认证');
-	       					$('#effect .contTitle i').text('认证');
-	       					$('#popLogin').text('认证');
-	       					$('#popLogin').addClass('qyrz_class');
+	        	if ($(this).find('span').text() != '物流服务') {
+		       		e.preventDefault();
+		       		var isOld = localStorage.getItem('isOld');
+		       		if(isOld != '2'){
+		       			var ttxt = $.trim($(this).text());
+		       			console.log(ttxt);
+		       			if(ttxt == '用户中心' || ttxt == '立即发布需求' || ttxt == '立即报价' || ttxt == '我的询盘' || ttxt == '我的报价' ){
+		       				if(isOld == '1'){
+		       					$('#effect .contTitle span').text('您尚未登录');
+								missedLogin() ;
+		       				}else if(isOld == '0'){
+		       					missedLogin() ;
+		       				}else if(isOld == '-1'){
+		       					$('#effect .contTitle span').text('您尚未认证');
+		       					$('#effect .contTitle i').text('认证');
+		       					$('#popLogin').text('认证');
+		       					$('#popLogin').addClass('qyrz_class');
 
-							missedLogin() ;
-	       				}else if(isOld == '-2'){
-	      //  					$('#effect .contTitle span').text('您的认证正在审核中');
-	      //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
-	      //  					$('#popLogin').hide();
-							// missedLogin() ;
+								missedLogin() ;
+		       				}else if(isOld == '-2'){
+		      //  					$('#effect .contTitle span').text('您的认证正在审核中');
+		      //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+		      //  					$('#popLogin').hide();
+								// missedLogin() ;
 
-							window.location.href = this.href;
-						}
-						
-	       			}else{
-	       				window.location.href = this.href;
-	       			}
-	       		}else{
-	       			window.location.href = this.href;
-	       		}
+								window.location.href = this.href;
+							}
+							
+		       			}else{
+		       				window.location.href = this.href;
+		       			}
+		       		}else{
+		       			window.location.href = this.href;
+		       		}
+		       	}
 	        })
 
 	        $(document).on('click', '.qyrz_class', function() {

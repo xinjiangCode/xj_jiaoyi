@@ -25,6 +25,10 @@
         .main {
             width: 935px;
         }
+
+        textarea.remark {
+            border: 1px solid #e7e7e7;
+        }
     </style>
 </head>
 <script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
@@ -295,7 +299,7 @@
                             // 现汇金额
                             var totalMoney=$('#totalmoney').val();
                             var acceptanceTotal=$('#chengdui').val();//承兑金额
-                            $('#currenthui').text((res.data.total-0)-(res.data.acceptanceTotal-0));
+                            $('#currenthui').text((res.data.total-0)-(acceptanceTotal-0));
                                 console.log(acceptanceTotal,totalMoney)
                             // 1、改变总金额--现汇金额变化
                             $('#totalmoney').blur(function(){
