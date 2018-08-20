@@ -670,7 +670,7 @@ input[type='text'].page_page {
 
 /*已经失效的弹框*/
 #effect{display:none;position: fixed;top: 0;left: 0;right:0;bottom: 0;width: 100%;height: 100%;z-index: 999;background-color: rgba(102,102,102,0.5);}
-#effect>.cont{position: fixed;top: 50%;left: 50%;width: 450px;height: 279px;background-color: #ffffff;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);background: url('../img/cf_popBackground.png') no-repeat ; background-size: contain;}
+#effect>.cont{position: fixed;top: 50%;left: 50%;width: 450px;height: 275px;background-color: #ffffff;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);background: url('../img/cf_popBackground.png') no-repeat ; background-size: contain;}
 #effect>.cont>.cance2{margin: 0;padding: 0 20px;height: 50px;line-height: 50px;background: url('../img/cf_popbackgr.png') no-repeat ;background-size: contain;}
 #effect>.cont>.cance2>.popTitle{color:#5992f3;font-size: 16px;}
 #effect>.cont>.cance2>.close{width: 16px;height: 16px;margin-top: 17px; background: url('../img/cf_close1.png') no-repeat ; background-size: contain;}
@@ -910,10 +910,10 @@ footer .friendList a{
 	width: 132px;
 	height: 37px;
 	line-height: 37px;
-	border: 1px solid #ebe9ea;
+	border: 1px solid #e7e7e7;
 	box-sizing: border-box;
 	padding-left: 10px;
-	color: #999;
+	color: #666666;
 	cursor: pointer;
 }
 .selectPub>img{
@@ -953,7 +953,7 @@ footer .friendList a{
 
 input{
 	line-height: 100%;
-	border: 1px solid #eaeaea;
+	border: 1px solid #e7e7e7;
 }
 /* 谷歌 */
 input::-webkit-outer-spin-button,
