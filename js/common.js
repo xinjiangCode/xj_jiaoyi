@@ -1,10 +1,10 @@
 //api地址
-var pubIP = 'http://api.xjv56.com/service/';
-//var pubIP = 'http://192.168.1.80:7777/service/';
-//var pubIP = 'http://192.168.1.223:7777/service/';
+// var pubIP = 'http://api.xjv56.com/service/';
+var pubIP = 'http://192.168.1.80:7777/service/';
+// var pubIP = 'http://192.168.1.104:7777/service/';
 // 物流交易衔接的链接
-var wuliuIP = 'http://wl.web.xjv56.com/';
-//var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
+// var wuliuIP = 'http://wl.web.xjv56.com/';
+var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
 //跳回登录页
 //var homeUrl = 'http://192.168.1.80:8180/';
 var homeUrl = 'http://web.xjv56.com/';
@@ -52,11 +52,11 @@ document.writeln("<div class=\"pop\" id=\"effect\">\n" +
     "\t<div class=\"cont\" >\n" +
     "\t\t<div class=\"cance2\" >\n" +
     "\t\t\t<span class=\"popTitle Lf\" >提示</span>\n" +
-    "\t\t\t<div class=\"close Rt\" onclick=\"cf_popEffectClose1(this)\"></div>\n" +
+    "\t\t\t<div class=\"close Rt\" style=\"width:46px;height:48px;margin-right: -20px;margin-top: 0; background: url('img/gsxq_del.png') no-repeat ; background-size: contain;\" onclick=\"cf_popEffectClose1(this)\"></div>\n" +
     "\t\t</div>\n" +
     "\t\t<div class=\"deanger\"></div>\n" +
     "\t\t<div class=\"contTitle\">您好，<span>您的登录已经过期</span>,请先<i onclick=\"popEffectLogin()\" style=\"color: #00a0e9;\">登录</i>，以便使用更多功能。</div>\n" +
-    "\t\t<div class=\"popLogin\" id=\"popLogin\" onclick=\"popEffectLogin()\">登录</div>\n" +
+    "\t\t<div class=\"popLogin\" style=\"width:130px;height:35px;line-height:35px;font-size:16px;\" id=\"popLogin\" onclick=\"popEffectLogin()\">登录</div>\n" +
     "\t</div>\n" +
     "</div>");
 //当返回code为401时需要调用此方法

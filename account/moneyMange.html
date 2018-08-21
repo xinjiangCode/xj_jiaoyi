@@ -135,8 +135,15 @@
                             str += '<li>'
                                 +'<div class="cardItem">'
                                     +'<div class="cardTop">'
-                                        +'<img src="../img/Zxlogo.png" alt="">'
-                                    +'</div>'
+                                        if (i == 0) {
+                                            str += '<img src="../img/Zxlogo.png" alt="">'
+                                        }else if (i == 1) {
+                                            str += '<img src="../img/Zxlogo1.png" alt="">'
+                                        } else if ( i == 2) {
+                                            str += '<img src="../img/Zxlogo2.png" alt="">'
+                                        }
+                                        
+                                    str += '</div>'
                                     +'<div class="kaihuhang">'+json.data[i].bankName+'</div>'
                                     +'<div class="kaihuming">开户名：'+json.data[i].accountName+'</div>'
                                     +'<div class="cardNum">'+json.data[i].accountId+'</div>'

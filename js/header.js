@@ -534,7 +534,7 @@ if(adct == '首页' ){
 		<a href="spotGoods/reagentMall.html"><span>试剂商城</span></a>\
 		<a href="freeSearch/freeSearch.html"><span>免费找货</span></a>\
 		<a href="##"><span>金融服务</span></a>\
-		<a href="wuliuOpen/wuliu_service.html"><span>物流服务</span></a>\
+		<a target="_blank" href="'+wuliuIP+'index.html" class="wuliu"><span>物流服务</span></a>\
 		<a href="flashSale/buying.html"><span>抢购</span></a>\
 		<a href="flashSale/flashSale.html"><span>抢货</span></a>\
 		<a href="industryInformation/industryInformation.html"><span>行业资讯</span></a>\
@@ -546,7 +546,7 @@ if(adct == '首页' ){
 		<a href="../spotGoods/reagentMall.html"><span>试剂商城</span></a>\
 		<a href="../freeSearch/freeSearch.html"><span>免费找货</span></a>\
 		<a href="##"><span>金融服务</span></a>\
-		<a href="../wuliuOpen/wuliu_service.html"><span>物流服务</span></a>\
+		<a target="_blank" href="'+wuliuIP+'index.html" class="wuliu"><span>物流服务</span></a>\
 		<a href="../flashSale/buying.html"><span>抢购</span></a>\
 		<a href="../flashSale/flashSale.html"><span>抢货</span></a>\
 		<a href="../industryInformation/industryInformation.html"><span>行业资讯</span></a>\
@@ -555,9 +555,12 @@ if(adct == '首页' ){
 }
 
 document.writeln(headLink);
-var headerip = 'http://api.xjv56.com/service/';
-//var headerip = 'http://192.168.1.80:7777/service/';
-//var headerip = 'http://127.0.0.1:7777/service/';
+// var headerip = 'http://api.xjv56.com/service/';
+var headerip = 'http://192.168.1.80:7777/service/';
+
+// var headerip = 'http://127.0.0.1:7777/service/';
+
+var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
 
 //var headerip = 'http://192.168.1.223:7777/service/';
 //header ip
