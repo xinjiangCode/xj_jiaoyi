@@ -234,11 +234,7 @@
     // $('.goPage').click(function(){
     //     addMsg($('.page_page').val()-1);
     // })
-    function openWin(url) {
-        $('body').append($('<a href="' + url + '" target="_blank" id="openWin"></a>'))
-        document.getElementById("openWin").click();//点击事件
-        $('#openWin').remove();
-    }
+
     $(document).on('click', '.publish_wuliu_xuqiu a', function() {
         var productName = $(this).attr('data-productName');
         var sum = $(this).attr('data-sum');
@@ -261,10 +257,12 @@
                 dataType: "json",
                 success: function(json){
                     console.log(json);
-                    //$(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
-
-                    openWin( wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName));
-
+                    if(json.code == 1){
+                        window.parent.$("#Ifream").attr("src","./mySale-order.html");
+                        //$(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
+                        openWin( wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName));
+                    }
+                    
                 },
                 error: function(err){
                     console.log(err);
@@ -274,6 +272,11 @@
             $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
         }
     })
+    // function openWin(url) {
+    //     $('body').append($('<a href="' + url + '" target="_blank" id="openWin"></a>'))
+    //     document.getElementById("openWin").click();//点击事件
+    //     $('#openWin').remove();
+    // }
 
     var decToHex = function(str) {
         if (str == '') {
