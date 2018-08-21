@@ -80,6 +80,7 @@ label.ml10 {
 	margin-left: 73px;
 	font-size: 14px;
 	display: inline-block;
+	cursor: pointer;
 }
 
 .add_address_btn ,.add_address_btn1{
@@ -95,7 +96,8 @@ label.ml10 {
     -ms-border-radius:2px;  
     -o-border-radius:2px;  
     border-radius: 2px;
-    margin-left: 69px; 
+	margin-left: 69px; 
+	cursor: pointer;
 }
 
 .cancel ,.cancel1{
@@ -111,7 +113,8 @@ label.ml10 {
     -moz-border-radius:2px; 
     -ms-border-radius:2px;  
     -o-border-radius:2px;  
-    border-radius: 2px;
+	border-radius: 2px;
+	cursor: pointer;
 }
 
 .shouhuo_person_list {

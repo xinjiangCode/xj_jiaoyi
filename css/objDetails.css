@@ -61,6 +61,9 @@ body{
 	padding-right: 15px;
 	box-sizing: border-box;
 }
+.objDetailsImgList div{
+	cursor: pointer;
+}
 .swiper-slide{
 	background: #f0f0f0;
 	border: 1px #ebe9ea solid;
