@@ -560,6 +560,8 @@ var headerip = 'http://192.168.1.80:7777/service/';
 
 // var headerip = 'http://127.0.0.1:7777/service/';
 
+var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
+
 //var headerip = 'http://192.168.1.223:7777/service/';
 //header ip
 window.onload = function(){
