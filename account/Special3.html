@@ -23,7 +23,7 @@
         .uploade{ border: 1px solid #ebe9ea;}
          a{color: #80acf8;}
          html,body{min-width: 988px;width: 988px;background-color: white;overflow: hidden;margin: auto;font-size: 14px;}
-        .container{width:986px;border: 1px solid #f1f1f1;overflow-y: auto; height: 1595px;overflow-x: hidden;}
+        .container{width:986px;border: 1px solid #f1f1f1;}
         .header{padding: 18px 165px;border-bottom: 1px solid #f1f1f1;}
         .header>ul{overflow: hidden;width: 830px;}
         .header>ul>li{float: left;height: 18px;line-height: 18px;font-size: 16px;margin-right: 155px;}
@@ -373,6 +373,18 @@
             display: none;
         }
 
+        .container {
+            overflow: hidden;
+            width: 950px;
+        }
+
+        .parent_div {
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 600px;
+            width: 970px;
+        }
+
     </style>
 </head>
 <body>
@@ -397,91 +409,95 @@
         </ul>
     </div>
     
-    <div id="center">
-        <div class="center1 c0">
-            <ul>
-                <li class="clearfix">
-                    <div class="left1 Lf"><i class="red">*</i>资质类型:</div>
-                    <div class="right1 Lf">
-                        <div class="selectPub zizhi_type zizhi_type0" id="zizhi_type0" data-selectedindex="">
-                            <span></span>
-                            <img src="../img/prl-select.jpg" alt="">
-                            <ul>
-                                <li data-index="1">10</li>
-                                <li data-index="2">20</li>
-                                <li data-index="3">30</li>
-                            </ul>
-                        </div>
-                        <!--<select name="" class="zizhi_type zizhi_type0" id="zizhi_type0">-->
+    <div class="parent_div">
+        <div id="center">
+            <div class="center1 c0">
+                <ul>
+                    <li class="clearfix">
+                        <div class="left1 Lf"><i class="red">*</i>资质类型:</div>
+                        <div class="right1 Lf">
+                            <div class="selectPub zizhi_type zizhi_type0" id="zizhi_type0" data-selectedindex="">
+                                <span></span>
+                                <img src="../img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="1">10</li>
+                                    <li data-index="2">20</li>
+                                    <li data-index="3">30</li>
+                                </ul>
+                            </div>
+                            <!--<select name="" class="zizhi_type zizhi_type0" id="zizhi_type0">-->
 
-                        <!--</select>-->
-                    </div>
-                </li>
-                <li class="clearfix">
-                    <div class="left1 Lf"><i class="red">*</i>资质编号:</div>
-                    <div class="right1 Lf"><input type="text" class="zizhi_num" id="zizhi_num0"></div>
-                    <span class="ts">资质编号不能为空</span>
-                </li>
-                <li class="clearfix" style="position: relative;">
-                    <div class="left1 Lf"><i class="red">*</i>资质图片:</div>
-                    <div class="right1 Lf pic_div">
-                        <div class="uploade" style="float: left;">
-                            <i style=""></i>
-                            <input type="file" class="input_blur preview pic1" id="uploade_preview0">
-                            <input type="hidden" class="hd0" id="hidden">
-                            <div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>
+                            <!--</select>-->
                         </div>
-                        <div class="ts1">至少添加一张图片</div>
-                        <a href="##" class="delete_pic">删除</a>
-                        <a href="##" class="add_pic add_pic1" data-pic="pic" style="float: left;font-size: 14px; position: absolute; bottom: 0px;">继续添加图片</a>
-                    </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left1 Lf"><i class="red">*</i>资质编号:</div>
+                        <div class="right1 Lf"><input type="text" class="zizhi_num" id="zizhi_num0"></div>
+                        <span class="ts">资质编号不能为空</span>
+                    </li>
+                    <li class="clearfix" style="position: relative;">
+                        <div class="left1 Lf"><i class="red">*</i>资质图片:</div>
+                        <div class="right1 Lf pic_div">
+                            <div class="uploade" style="float: left;">
+                                <i style=""></i>
+                                <input type="file" class="input_blur preview pic1" id="uploade_preview0">
+                                <input type="hidden" class="hd0" id="hidden">
+                                <div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>
+                            </div>
+                            <div class="ts1">至少添加一张图片</div>
+                            <a href="##" class="delete_pic">删除</a>
+                            <a href="##" class="add_pic add_pic1" data-pic="pic" style="float: left;font-size: 14px; position: absolute; bottom: 0px;">继续添加图片</a>
+                        </div>
 
-                </li>
-                <li style="overflow: visible;" class="clearfix">
-                    <div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>
-                    <div class="right1 Lf">
-                        <div name="" id="textarea0"  class="textarea"  style="width: 359px;height: 88px; border: 1px solid #e7e7e7;" contenteditable="false" ></div>
-                    </div>
-                    <span class="ts2">许可经营不能为空</span>
-                    <div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>
-                    
-                </li>
-                <li class="add_fanwei none">
-                    <div class="left1 Lf"><i class="red">*</i>添加许可经营范围:</div>
-                    <div>
-                        <div class="sousuo_div">
-                            <input type="text" id="" class="input_width">
-                            <img src="../img/sousuo.png" class="sousuo_img" alt="">
-                            <span class="sousuo" style="margin: 10px 0px 0px 8px;">搜索</span>
+                    </li>
+                    <li style="overflow: visible;" class="clearfix">
+                        <div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>
+                        <div class="right1 Lf">
+                            <div name="" id="textarea0"  class="textarea"  style="width: 359px;height: 88px; border: 1px solid #e7e7e7;" contenteditable="false" ></div>
                         </div>
-                        <div class="cousuo_cont">
-                            <ul class="sousuo_ul">
-                                
-                            </ul>
+                        <span class="ts2">许可经营不能为空</span>
+                        <div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>
+                        
+                    </li>
+                    <li class="add_fanwei none">
+                        <div class="left1 Lf"><i class="red">*</i>添加许可经营范围:</div>
+                        <div>
+                            <div class="sousuo_div">
+                                <input type="text" id="" class="input_width">
+                                <img src="../img/sousuo.png" class="sousuo_img" alt="">
+                                <span class="sousuo" style="margin: 10px 0px 0px 8px;">搜索</span>
+                            </div>
+                            <div class="cousuo_cont">
+                                <ul class="sousuo_ul">
+                                    
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class="clearfix">
-                    <div class="left1 Lf"><i class="red">*</i>有效期起:</div>
-                    <div class="right1 Lf">
-                        <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 10px;" placeholder="请选择日期" id="test1">
-                        <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
-                        <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 10px;" placeholder="请选择日期" id="test2">
-                    </div>
-                    <span class="ts">有效期不能为空</span>
-                </li>
-            </ul>
-            <i class="ts_color" style="display: block;margin-top: 22px;font-size: 14px;margin-left: 155px;">请上传营业执照或者扫描件！ 照片大小 < 2MB,最多上传10张</i>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left1 Lf"><i class="red">*</i>有效期起:</div>
+                        <div class="right1 Lf">
+                            <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 10px;" placeholder="请选择日期" id="test1">
+                            <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
+                            <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 10px;" placeholder="请选择日期" id="test2">
+                        </div>
+                        <span class="ts">有效期不能为空</span>
+                    </li>
+                </ul>
+                <i class="ts_color" style="display: block;margin-top: 22px;font-size: 14px;margin-left: 155px;">请上传营业执照或者扫描件！ 照片大小 < 2MB,最多上传10张</i>
+            </div>
+        </div>
+        
+        <div class="bottom1 edit_btn">
+            <div class="btn edit_edit">编辑</div>
+        </div>
+        <div class="bottom1 add_submit">
+            <div class="btn Lf add add1">继续添加其他资质</div>
+            <div class="btn Lf sub">提交</div>
         </div>
     </div>
+
     
-    <div class="bottom1 edit_btn">
-        <div class="btn edit_edit">编辑</div>
-    </div>
-    <div class="bottom1 add_submit">
-        <div class="btn Lf add add1">继续添加其他资质</div>
-        <div class="btn Lf sub">提交</div>
-    </div>
 
     
 </div>
