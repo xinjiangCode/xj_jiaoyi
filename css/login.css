@@ -200,6 +200,7 @@ a{
 	margin-top: 2px;
 	background: url("../img/cf_noChoose.png") no-repeat;
 	background-size: 100% 100%;
+	cursor: pointer;
 }
 .reg-box>li>.active{
 	background: url("../img/cf_choose.png") no-repeat;
@@ -277,7 +278,7 @@ a{
 	color: white;
 	background-color: #5892f3;
 	margin: 0 auto;
-
+    cursor: pointer;
 	margin-top: 25px;
 	font-size: 19px;
 }
