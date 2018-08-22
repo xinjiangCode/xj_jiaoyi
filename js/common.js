@@ -63,6 +63,11 @@ document.writeln("<div class=\"pop\" id=\"effect\">\n" +
 function missedLogin() {
     window.parent.$("#effect").css("display","block");
 }
+
+if (adct == '免费找货') {
+    $('.close').css('background', 'url("../img/gsxq_del.png") no-repeat');
+}
+
 //跳回登录页
 function popEffectLogin() {
 	var isOld = localStorage.getItem('isOld');

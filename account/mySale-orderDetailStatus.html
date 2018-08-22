@@ -117,6 +117,10 @@
         .goodsInfoTitle span {
             width: auto;
         }
+
+        .goodsInfoTitle.title_span span {
+            width: 10%;
+        }
     </style>
 </head>
 <body style="background: #fff;">
@@ -925,7 +929,7 @@
         <div class="od_goodsInfo">
             <div class="title">商品明细</div>
             <div class="goodsInfo">
-                <div class="goodsInfoTitle">
+                <div class="goodsInfoTitle title_span">
                     <span>商品名称</span>
                     <span>形态</span>
                     <span>规格</span>
@@ -1114,7 +1118,8 @@
                 console.log(json);
                 if (json.code == 1) {
                     // console.log(json.data.logisticsOrderId);
-                    var str = '';
+                    if (json.data) {
+                        var str = '';
                     
                         str += '<tr class="goodsInfoTitle">'
                                     +'<td>'+json.data.logisticsOrderId+'</td>'
@@ -1126,30 +1131,31 @@
                                 +'</tr>';
                    
 
-                    $('.wuliu_tbody').html(str);
-                    
-                    $('.wuliu_order_id').text(json.data.logisticsOrderId);
-                    $('.order_dun').text(json.data.goodsNum);
-                    
-                    if (json.data.status == 1) {
-                        json.data.status = '未分配'
-                    } else if (json.data.status == 2){
-                        json.data.status = '未报价'
-                    } else if (json.data.status == 3) {
-                        json.data.status = '未推送'
-                    } else if (json.data.status == 4) {
-                        json.data.status = '待确认'
-                    } else if (json.data.status == 5) {
-                        json.data.status = '已确认'
-                    } else if (json.data.status == 6) {
-                        json.data.status = '已过期'
-                    } else if (json.data.status == 10) {
-                        json.data.status = '供应商取消订单'
-                    } else if (json.data.status == 6) {
-                        json.data.status = '承运商取消订单'
-                    }
+                        $('.wuliu_tbody').html(str);
+                        
+                        $('.wuliu_order_id').text(json.data.logisticsOrderId);
+                        $('.order_dun').text(json.data.goodsNum);
+                        
+                        if (json.data.status == 1) {
+                            json.data.status = '未分配'
+                        } else if (json.data.status == 2){
+                            json.data.status = '未报价'
+                        } else if (json.data.status == 3) {
+                            json.data.status = '未推送'
+                        } else if (json.data.status == 4) {
+                            json.data.status = '待确认'
+                        } else if (json.data.status == 5) {
+                            json.data.status = '已确认'
+                        } else if (json.data.status == 6) {
+                            json.data.status = '已过期'
+                        } else if (json.data.status == 10) {
+                            json.data.status = '供应商取消订单'
+                        } else if (json.data.status == 6) {
+                            json.data.status = '承运商取消订单'
+                        }
 
-                    $('.status').text(json.data.status);
+                        $('.status').text(json.data.status);
+                    }
 
                 }
             },

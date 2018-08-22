@@ -699,10 +699,21 @@ window.onload = function(){
 			  	token: token
 			  },
 		      success: function(json){
-		        //console.log(json);
+		        console.log(json);
 		        	if(json.code == '1'){
 		        		$('#hello').html('你好，'+json.data.loginName); 
 		        		$('.userBox>p').html('欢迎，'+json.data.loginName+'登录');
+		        		if (json.logo) {
+		        			$('.userBox .cpImgLogo').css({
+			        			'background': 'url("'+json.logo+'") no-repeat center center',
+			        			
+			        		});
+		        		} else {
+		        			$('.userBox .cpImgLogo').css({
+			        			'background': 'url("")'
+			        		});
+		        		}
+		        		
 			        if(adct == '首页' ){
 			        		$('.hsUser').show();
 			        		$('.ntUser').hide();

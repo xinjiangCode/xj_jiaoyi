@@ -594,14 +594,14 @@ function xmTanUploadImg2(obj) {
                         update_info();
 
                     } else if (data.data.type == 5) {  //企业资料二次审核中
-                        if (window.localStorage.getItem('add-flag') == 'true') {   //认证过
+                        //if (window.localStorage.getItem('add-flag') == 'true') {   //认证过
                             $('.weiRenZheng.shenhezhong').css('display', 'none');
                             $('.yiRenZheng.mei').css('display', 'inline-block');
                             $(".weiRenZheng").addClass('xiaoshi');
                             $(".yiRenZheng.update_btn").css('display', 'inline-block');
-                        } else {
-                            $('.weiRenZheng').css('display', 'inline-block');
-                        }
+                        // } else {
+                        //     $('.weiRenZheng').css('display', 'inline-block');
+                        // }
 
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
@@ -610,14 +610,14 @@ function xmTanUploadImg2(obj) {
                         update_info();
 
                     } else if (data.data.type == 6) {  //出金账户资料二次审核
-                        if (window.localStorage.getItem('add-flag') == 'true') {   //认证过
+                        //if (window.localStorage.getItem('add-flag') == 'true') {   //认证过
                             $('.weiRenZheng.shenhezhong').css('display', 'none');
                             $('.yiRenZheng.mei').css('display', 'inline-block');
                             $(".weiRenZheng").addClass('xiaoshi');
                             $(".yiRenZheng.update_btn").css('display', 'inline-block');
-                        } else {
-                            $('.weiRenZheng').css('display', 'inline-block');
-                        }
+                        // } else {
+                        //     $('.weiRenZheng').css('display', 'inline-block');
+                        // }
 
                         $('input[type=file]').attr('disabled',true);
                         $('input[type=text]').attr('disabled',true);
