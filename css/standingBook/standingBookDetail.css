@@ -96,10 +96,12 @@
 	float: left;
 	font-size: 14px;
 	color: #282828;
+	
 }
 
 input[type="radio" i] {
-    margin: 0px;
+	margin: 0px;
+	cursor: pointer;
 }
 
 .list_title_one {

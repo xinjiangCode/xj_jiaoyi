@@ -109,6 +109,9 @@ button{
 	float:right;
 	overflow: hidden;
 }
+.close{
+	cursor: pointer;
+}
 .collect{
 	margin-right: 26px;
 }
