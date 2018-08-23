@@ -278,7 +278,7 @@
 			.modelCont{
 				position: absolute;
 			    width: 450px;
-			    min-height: 276px;
+			    min-height: 275px;
 			    left: 50%;
 			    top: 50%;
 			    margin-left: 0 !important;
@@ -632,7 +632,7 @@
 			</div>
 		</div>
 		<!-- 报价需求超时弹窗 -->
-		<div class="modelBox5" >
+		<div class="modelBox5">
 			<div class="modelCont">
 				<div class="modeltitle">
 					<span>消息提示</span>
@@ -644,7 +644,7 @@
 						<p>该报价需求已经超时！</p>
 					</div>
 					<div class="modelBtnBox">
-						<div style="background:#5690f6;" class="modelbtn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+						<div style="background:#5690f6;width:130px;height:35px;line-height:35px;font-size:16px;" class="modelbtn">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
 					</div>
 				</div>
 			</div>
@@ -818,7 +818,7 @@
 					if(data.data.one != ''&&data.data.one != null){
 						str0 += '<img src="../img/tuijian.png"/>'
 						+'<h1 title="'+data.data.one.chemicalName+'">'+data.data.one.chemicalName+'</h1>'
-						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.one.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.one.productPurity+'%   </span></span></p>'
+						+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; width: 52px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.one.remain+'">'+data.data.one.remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.one.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.one.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
 						+'<p id="distanceTime0"></p>';
@@ -836,7 +836,7 @@
 					if(data.data.two != ''&&data.data.two != null){
 						str1 += '<img src="../img/tuijian.png"/>'
 						+'<h1 title="'+data.data.two.chemicalName+'">'+data.data.two.chemicalName+'</h1>'
-						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.two.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.two.productPurity+'%   </span></span></p>'
+						+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; width: 52px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.two.remain+'">'+data.data.two.remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.two.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.two.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
 						+'<p id="distanceTime1"></p>';
@@ -853,7 +853,7 @@
 					if(data.data.three != ''&&data.data.three != null){
 						str2 += '<img src="../img/tuijian.png"/>'
 						+'<h1 title="'+data.data.three.chemicalName+'">'+data.data.three.chemicalName+'</h1>'
-						+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.three.remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.three.productPurity+'%   </span></span></p>'
+						+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; width: 52px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.three.remain+'">'+data.data.three.remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.three.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.three.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
 						+'<p id="distanceTime2"></p>';
@@ -1077,7 +1077,7 @@
 
 		                		str += '<div class="fsObjItem">'
 				        			+'<h1 title="'+data.data.list[i].chemicalName+'">'+data.data.list[i].chemicalName+'</h1>'
-				        			+'<p><span class="gbRight">数 量: <span class="hasColoR">'+data.data.list[i].remain+'吨</span></span><span>纯 度: <span class="hasColoR">'+data.data.list[i].productPurity+'%   </span></span></p>'
+				        			+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; width: 52px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.list[i].remain+'">'+data.data.list[i].remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.list[i].productPurity+'%   </span></span></p>'
 				        			+'<p>交货地: <span class="delivery_address1">'+data.data.list[i].warehouse.warehouseProvince+' '+data.data.list[i].warehouse.warehouseCity+' '+data.data.list[i].warehouse.warehouseArea+'</span></p>'
 				        			+'<p style="margin-top: 37px;">剩余时间：</p>'
 				        			+'<p class="p_span" id="distanceTime'+(num+1)+i+'"></p>';
@@ -1226,39 +1226,41 @@
 	        
 			//拦截链接
 	        $(document).on('click','a',function(e){
-	       		e.preventDefault();
-	       		var isOld = localStorage.getItem('isOld');
-	       		if(isOld != '2'){
-	       			var ttxt = $.trim($(this).text());
-	       			console.log(ttxt);
-	       			if(ttxt == '用户中心' || ttxt == '立即发布需求' || ttxt == '立即报价' || ttxt == '我的询盘' || ttxt == '我的报价' ){
-	       				if(isOld == '1'){
-	       					$('#effect .contTitle span').text('您尚未登录');
-							missedLogin() ;
-	       				}else if(isOld == '0'){
-	       					missedLogin() ;
-	       				}else if(isOld == '-1'){
-	       					$('#effect .contTitle span').text('您尚未认证');
-	       					$('#effect .contTitle i').text('认证');
-	       					$('#popLogin').text('认证');
-	       					$('#popLogin').addClass('qyrz_class');
+	        	if ($(this).find('span').text() != '物流服务') {
+		       		e.preventDefault();
+		       		var isOld = localStorage.getItem('isOld');
+		       		if(isOld != '2'){
+		       			var ttxt = $.trim($(this).text());
+		       			console.log(ttxt);
+		       			if(ttxt == '用户中心' || ttxt == '立即发布需求' || ttxt == '立即报价' || ttxt == '我的询盘' || ttxt == '我的报价' ){
+		       				if(isOld == '1'){
+		       					$('#effect .contTitle span').text('您尚未登录');
+								missedLogin() ;
+		       				}else if(isOld == '0'){
+		       					missedLogin() ;
+		       				}else if(isOld == '-1'){
+		       					$('#effect .contTitle span').text('您尚未认证');
+		       					$('#effect .contTitle i').text('认证');
+		       					$('#popLogin').text('认证');
+		       					$('#popLogin').addClass('qyrz_class');
 
-							missedLogin() ;
-	       				}else if(isOld == '-2'){
-	      //  					$('#effect .contTitle span').text('您的认证正在审核中');
-	      //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
-	      //  					$('#popLogin').hide();
-							// missedLogin() ;
+								missedLogin() ;
+		       				}else if(isOld == '-2'){
+		      //  					$('#effect .contTitle span').text('您的认证正在审核中');
+		      //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+		      //  					$('#popLogin').hide();
+								// missedLogin() ;
 
-							window.location.href = this.href;
-						}
-						
-	       			}else{
-	       				window.location.href = this.href;
-	       			}
-	       		}else{
-	       			window.location.href = this.href;
-	       		}
+								window.location.href = this.href;
+							}
+							
+		       			}else{
+		       				window.location.href = this.href;
+		       			}
+		       		}else{
+		       			window.location.href = this.href;
+		       		}
+		       	}
 	        })
 
 	        $(document).on('click', '.qyrz_class', function() {

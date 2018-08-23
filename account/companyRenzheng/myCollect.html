@@ -20,7 +20,7 @@
         text-align: center;
         height: 26px;
         width: 68px;
-        border: 1px solid #A3A3A3;
+        border: 1px solid #e7e7e7;
         line-height: 26px;
         font-size: 12px;
         display: inline-block;
@@ -29,6 +29,7 @@
         -ms-border-radius:2px;  
         -o-border-radius:2px;  
         border-radius: 2px;
+        cursor: pointer;
     }
 
     .shop_list_table {
@@ -91,8 +92,16 @@
    		var isFirst = true;
    		//var nNum = 0;
    		function addDom(data){
+        
    			var str = ''
    			$.each(data,function(i,t){
+          if (t.companyType == 0) {
+            t.companyType = '厂家';
+          } else if (t.companyType == 1) {
+            t.companyType = '贸易商';
+          } else if (t.companyType = 2) {
+            t.companyType = '终端'
+          }
    				str += '<tr>\
 			            <td class="go_store" data-companyId="'+t.companyId+'">'+t.companyName+'</td>\
 			            <td>'+t.companyType+'</td>\
@@ -125,36 +134,40 @@
 	          },
 	          success: function(json){
 	            console.log(json);
-	            if(json.aData.length == 0){
-		        		$('.pageJump').hide();
-		        		$('.shouhuo_person_list tbody').html('') ;
-		        		$('#notdata').show();
-		        		$('#page1').hide();
-		        		isFirst = false;
-		        		return false;
-		        }
-		        if(isFirst){
-		        		//var all = Math.ceil(json.iTotalRecords/10);
-		        		//总页数字段暂缺
-		        		Page({
-				        num: json.pages,
-				        elem: $('#page1'),
-				        callback: function(n) {
-				            //console.log(n);
-				            getData(n);
-				            num = n;
-				        }
-				    });
 
 
-				    
-				    isFirst = false;
-		        }
+                  if(json.aData.length == 0){
+                      $('.pageJump').hide();
+                      $('.shouhuo_person_list tbody').html('') ;
+                      $('#notdata').show();
+                      $('#page1').hide();
+                      isFirst = false;
+                      return false;
+                  }
+                  if(isFirst){
+                      //var all = Math.ceil(json.iTotalRecords/10);
+                      //总页数字段暂缺
+                      Page({
+                      num: json.pages,
+                      elem: $('#page1'),
+                      callback: function(n) {
+                          //console.log(n);
+                          getData(n);
+                          num = n;
+                      }
+                  });
 
-            $('.allPageN').text(num+'/'+json.pages);
-            $('.allPageSize').text(json.pages);
 
-		        addDom(json.aData);
+                  
+                  isFirst = false;
+                  }
+
+                  $('.allPageN').text(num+'/'+json.pages);
+                  $('.allPageSize').text(json.pages);
+
+                  addDom(json.aData);
+
+	            
 	          },
 	          error:function(xhr,statues,error){
 	              

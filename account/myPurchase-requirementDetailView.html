@@ -217,7 +217,7 @@
                         str += '<div class="invalid">报价状态： 已确认</div>'
                                 +'<div>'
                                     +'报价最后有效期为：<span class="yellow time time2">'+data.data.bjyxq+'</span>&nbsp;'
-                                    +'您可以： <span class="look_order"><a href="./mySale-orderDetailStatus.html?userType=1&id='+data.data.orderNoId+'" style="color:#6A9EF7;">查看订单</a></span>'
+                                    +'您可以： <span class="look_order"><a href="./myPurchase-orderDetail.html?userType=1&id='+data.data.orderNoId+'" style="color:#6A9EF7;">查看订单</a></span>'
                                 +'</div>';
                                 
                     } else if (data.data.state == 4) { //拒绝
@@ -298,7 +298,10 @@
         $(document).on('click', '.ok_jiaoyi', function () {
                 window.parent.surejiaoyi();
         })
-        $(window.parent.document).on('click', '.suerjiaoyi', function () {
+        window.parent.$('.suerjiaoyi').unbind();
+        window.parent.$('.suerjiaoyi').click(function() {
+
+        // $(window.parent.document).on('click', '.suerjiaoyi', function () {
             console.log($(this).text());
             $.ajax({
                 type:"get",

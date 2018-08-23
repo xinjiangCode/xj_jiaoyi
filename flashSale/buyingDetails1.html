@@ -390,7 +390,7 @@
 			</div>
 			<!-- 弹窗 -->
 			<div class="modelpop" id="toXunpan">
-				<div class="cont">
+				<div class="cont" >
 					<div class="title">
 						<span>我要询价</span>
 						<img src="../img/gsxq_del.png" height="48" alt="" class="close">
@@ -411,8 +411,8 @@
 							</li>
 							<li>
 								<label for="xj_fapiaoType">发票类型</label>
-								<input class="xj_fapiaoType" name="xj_fapiaoType" value="1" type="radio"><span style="margin-right:40px;">普通发票</span>
-								<input class="xj_fapiaoType" name="xj_fapiaoType" value="2" type="radio"><span>专用发票</span>
+								<input class="xj_fapiaoType" name="xj_fapiaoType" value="1" type="radio" style="cursor:pointer"><span style="margin-right:40px;">普通发票</span>
+								<input class="xj_fapiaoType" name="xj_fapiaoType" value="2" type="radio" style="cursor:pointer"><span>专用发票</span>
 							</li>
 							<li class="i">
 								<label for="xj_shoupiaoAddress">收票地址</label>
@@ -432,14 +432,14 @@
 								<textarea style="width:385px;height: 101px;" class="input" placeholder="请输入您的问题" name="xj_bei" id="xj_bei"></textarea>
 							</li>
 							<li class="i">
-								<div class="commitBtn">提交</div>
+								<div class="commitBtn" style="width:130px;height: 35px;font-size: 16px;line-height:35px;">提交</div>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="modelpop" id="editShoupiaoAddress">
-				<div class="cont">
+				<div class="cont"  >
 					<div class="title">
 						<span>地址管理</span>
 						<img src="../img/gsxq_del.png" height="45" alt="" class="close">
@@ -482,7 +482,7 @@
 								<span style="margin-left: 9px;">提交成功</span>
 							</div>
 							<p>您发起的询价<span>已成功提交</span>，请耐心等待商家反馈！</p>
-							<div class="tosurebtn">确认</div>
+							<div class="tosurebtn" style="width:130px;height: 35px;font-size: 16px;line-height:35px;">确认</div>
 						</div>
 					</div>
 				</div>
@@ -521,7 +521,7 @@
 						Accept: "application/json; charset=utf-8",
 						token: token
 					},
-					url: "http://192.168.1.70:7777/service/acticityApi/findActivityGoodsInfo",//v1.0
+					url: pubIP+"acticityApi/findActivityGoodsInfo",//v1.0
 					cache: false,
 					data: {
 						supplyId: objid,

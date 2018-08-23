@@ -71,11 +71,12 @@
         .modelcontent select{
             width: 230px;
             height: 40px;
-            border: 1px solid #8B8B8B;
+            border: 1px solid #e7e7e7;
             line-height: 40px;
             border-radius: 3px;
             margin: 50px auto;
             background: #F8F8F8;
+            cursor: pointer;
         }
         .modelBtnBox{
             width: 302px;
@@ -85,14 +86,14 @@
         }
         .modelbtn{
             float: left;
-            width: 145px;
-            height: 45px;
+            width: 130px;
+            height: 35px;
             border: 1px solid #5690f6;
             font-size: 18px;
             color: #fff;
             box-sizing: border-box;
             text-align: center;
-            line-height: 45px;
+            line-height: 35px;
             border-radius: 3px;
             cursor: pointer;
         }
@@ -101,7 +102,7 @@
             margin-right: -5px;
         }
 
-         @font-face {
+        @font-face {
             font-family: "YourFont";
             src: url('../font/AGENCYR.TTF');
         }
@@ -112,6 +113,14 @@
         .orderSum {
             border-bottom: 1px solid #EBE9EA;
         }
+
+        .goodsInfoTitle span {
+            width: auto;
+        }
+
+        .goodsInfoTitle.title_span span {
+            width: 10%;
+        }
     </style>
 </head>
 <body style="background: #fff;">
@@ -120,8 +129,8 @@
             <div class="Lf">订单状态</div>
             <div class="Rt">
                 <span>重要提醒：暂无数据</span>
-                <img src="../img/mp_qiE.png" alt="在线客服">
-                <span class="blue">在线客服</span>
+                <img style="cursor: pointer; "src="../img/mp_qiE.png" alt="在线客服">
+                <span style="cursor: pointer;" class="blue">在线客服</span>
             </div>
         </div>
         <!-- 订单超时,订单已取消 不展示进度条 <div class="orderStatus_progress bacFD">-->
@@ -920,7 +929,7 @@
         <div class="od_goodsInfo">
             <div class="title">商品明细</div>
             <div class="goodsInfo">
-                <div class="goodsInfoTitle">
+                <div class="goodsInfoTitle title_span">
                     <span>商品名称</span>
                     <span>形态</span>
                     <span>规格</span>
@@ -1016,7 +1025,7 @@
                                 <td>目的地</td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="wuliu_tbody">
                             <tr class="goodsInfoTitle">
                                 <td>1</td>
                                 <td>1</td>
@@ -1029,9 +1038,9 @@
                     </table>
                 </div>
                 <div class="goodsInfoTitle">
-                    <div style="margin-left: 18px; margin-right: 40px;" class="Lf">物流订单编号：<span class="yellow"></span></div>
-                        <div class="Lf" style=" margin-right: 40px;">订单吨数：<span class="yellow"></span></div>
-                        <div class="Lf" style=" margin-right: 40px;">状态：<span class="yellow"></span></div>
+                    <div class="clearfix Lf" style="margin-left: 18px; margin-right: 40px;"> <div class="Lf">物流订单编号：</div><span class="Lf yellow wuliu_order_id"></span></div>
+                        <div class="clearfix Lf" style=" margin-right: 40px;"><div class="Lf">订单吨数：</div><span class="Lf yellow order_dun"></span></div>
+                        <div class="clearfix Lf" style=" margin-right: 40px;"><div class="Lf">状态：</div><span class="Lf yellow status"></span></div>
                 </div>
             </div>
         </div>
@@ -1085,8 +1094,77 @@
         getOrderInfo(userType, id);
         
         console.log(id);
+
+        wuliuInfo(id);
         
     });
+
+    //获取物流信息  wuliu_tbody
+    // http://192.168.1.199:7777/service/wlLogisticsDemand/queryByIdOrNo?transactionOrderId=a6509505480f4d83aa2892f1fcdce693
+    function wuliuInfo(id) {
+        $.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: 'http://192.168.1.199:7777/service/wlLogisticsDemand/queryByIdOrNo',//v1.0
+            cache:false,
+            data:{
+                transactionOrderId: id
+            },
+            dataType: 'json',
+            success: function(json){
+                console.log(json);
+                if (json.code == 1) {
+                    // console.log(json.data.logisticsOrderId);
+                    if (json.data) {
+                        var str = '';
+                    
+                        str += '<tr class="goodsInfoTitle">'
+                                    +'<td>'+json.data.logisticsOrderId+'</td>'
+                                    +'<td>'+json.data.carrierCompanyName+'</td>'
+                                    +'<td>'+json.data.sendUser+'</td>'
+                                    +'<td>'+json.data.sendPhone+'</td>'
+                                    +'<td>'+json.data.sendProvince+json.data.sendCity+json.data.sendArea+'</td>'
+                                    +'<td>'+json.data.receiveProvince+json.data.receiveCity+json.data.receiveArea+'</td>'
+                                +'</tr>';
+                   
+
+                        $('.wuliu_tbody').html(str);
+                        
+                        $('.wuliu_order_id').text(json.data.logisticsOrderId);
+                        $('.order_dun').text(json.data.goodsNum);
+                        
+                        if (json.data.status == 1) {
+                            json.data.status = '未分配'
+                        } else if (json.data.status == 2){
+                            json.data.status = '未报价'
+                        } else if (json.data.status == 3) {
+                            json.data.status = '未推送'
+                        } else if (json.data.status == 4) {
+                            json.data.status = '待确认'
+                        } else if (json.data.status == 5) {
+                            json.data.status = '已确认'
+                        } else if (json.data.status == 6) {
+                            json.data.status = '已过期'
+                        } else if (json.data.status == 10) {
+                            json.data.status = '供应商取消订单'
+                        } else if (json.data.status == 6) {
+                            json.data.status = '承运商取消订单'
+                        }
+
+                        $('.status').text(json.data.status);
+                    }
+
+                }
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+    }
+
     // 获取信息
     function getOrderInfo(userType, id){
         $.ajax({

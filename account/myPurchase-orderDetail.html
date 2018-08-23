@@ -37,6 +37,15 @@
             .payBtn:hover {
                 background: #5590F6;
             }
+
+            @font-face {
+                font-family: "YourFont";
+                src: url('../font/AGENCYR.TTF');
+            }
+
+            .fontStyle{
+                font-family: "YourFont";
+            }
     </style>
 </head>
 <body style="background: #fff;">
@@ -786,6 +795,9 @@
                     <%}%>
                 <%} else if(state==3){%><!-- 订单等待确认收货（支付成功，物流未完成） -->
                     <p>订单状态：订单已经支付成功，等待确认收货。</p>
+                    <div class="btnBox clearfix">
+                        <div class="shouhuoBtn btn btnActive">确认收货</div>
+                    </div>
                 <%} else if(state==4){%><!-- 待结算（支付完成已确认收货） -->
                     <p>订单状态：订单已经支付完成，买家已确认收货，等待结算。</p>
                 <%} else if(state==5){%><!-- 待完成（已结算） -->
@@ -1076,9 +1088,18 @@
                         window.parent.sureshouhuo();
                        // toCancelOrder(id);
                     });
-                    $(window.parent.document).on('click', '.suershouhuo', function() {
+
+                    window.parent.$('.modelBox30 .suershouhuo').unbind();
+                    window.parent.$('.modelBox30 .sure_shou').unbind();
+                    window.parent.$('.modelBox30 .sure_shou').click(function() {
                         suregoods(id);
-                    })
+                    });
+
+                    $('.shouhuoBtn').click(function() {
+                        window.parent.sureshouhuo();
+                    });
+
+
                     //立即支付
                     $(".payBtn").unbind();
                     $(".payBtn").click(function () {
@@ -1214,6 +1235,7 @@
     }
     // 订单确认
     function suregoods(id){
+        
         $.ajax({
             type:"get",
             headers: {
@@ -1240,7 +1262,7 @@
 
     //获取手机号
     function getPhone(){
-        debugger
+        // debugger
         $.ajax({
             url: pubIP + 'payment/financePhoneNumber', /*v1.0*/
             type: 'post',

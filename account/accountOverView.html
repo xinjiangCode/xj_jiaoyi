@@ -24,16 +24,16 @@
         .header1>.head>.right1{margin-left: 40px;font-size: 14px;}
         .header1>.head>.right1>.top1{margin-top: 45px;font-size: 24px;}
         .header1>.head>.right1>.top1>.duanWei{font-size: 12px;color: #ff8d46;margin-left: 5px;   }
-        .header1>.head>.right1>.bottom1{margin-top: 15px;overflow: hidden;}
+        .header1>.head>.right1>.bottom1{overflow: hidden;}
         .header1>.head>.right1>.bottom1>div{margin-right: 40px;}
-        .header1>.head>.right1>.bottom1 .intell{margin-top: 29px;}
+        .header1>.head>.right1>.bottom1 .intell{margin-top: 20px;}
         .header1>.head>.right1>.bottom1 .intell span{float: left;}
         .header1>.head>.right1>.bottom1 .intell img{width: 25px;height: 29px;margin-left: 15px;margin-top: -5px;}
-        .header1>.head>.right1>.bottom1>div>div{margin-top: 25px; font-size: 14px;}
+        .header1>.head>.right1>.bottom1>div>div{margin-top: 20px; font-size: 14px;}
         .header1>.bottom2{margin-left: 40px;color: #ff6559;padding: 10px 0;}
 
         .header1>.head>.right2{padding-top: 6px;}
-        .header1>.head>.right2>div{margin-top: 25px;font-size: 14px;}
+        .header1>.head>.right2>div{margin-top: 20px;font-size: 14px;}
 
         .header1>.head>.right3{float:right;padding-top: 40px;margin-right: 15px;font-size: 13px;}
         .header1>.head>.right3>.btn{width: 136px;height: 32px;line-height:32px;text-align:center;color: white;background-color: #007aff;border-radius: 2px;}
@@ -41,7 +41,7 @@
 
         .header2{width: 980px;border: 1px solid #f1f1f1;overflow: hidden;}
         .header2>.title{font-size:18px;padding:18px 0;margin: 0 15px;border-bottom: 1px solid #f1f1f1;}
-        .header2>.integ{padding: 0 24px;margin-top: 22px;}
+        .header2>.integ{padding: 0 24px;margin-top: 20px;}
         .header2>.growValue{padding: 0 24px;margin-top: 22px;}
         .header2>.growValue>.progBar{overflow:hidden;width: 200px;height: 14px;border-radius: 10px;background-color: #e7e7e7;position: relative;margin-top: 5px;}
         .header2>.growValue>.progBar>.lan{position: absolute; top:0; left: 0;bottom: 0;background-color: #007aff;width: 50%;border-radius: 10px;}
@@ -129,6 +129,12 @@
             height: 129px;
             border-radius: 50%;
         }
+
+        .orderItem, .my_xunpan, .my_baojia {
+            cursor: pointer;
+        }
+
+
     </style>
 </head>
 <body>
@@ -144,7 +150,7 @@
 
                 <div class="span_cread">商户信用：<span class="cread_num" style="margin-right: 5px;"> 0</span>分</div>
             </div>
-            <div class="right1 Lf">
+            <div class="right1 Lf" style="margin-top: 20px;">
                 <div class="top1"><span>会员账号:</span>
                     <!--<i class="duanWei">黄金会员</i>-->
                 </div>
@@ -178,13 +184,13 @@
                     </div>
                 </div>
             </div>
-            <div class="right2 Lf weiRenZheng">
+            <div class="right2 Lf weiRenZheng" style="margin-top: 50px;">
                 <div>所属企业：<i style="color: #fe776d;">&nbsp;--&nbsp;</i></div>
                 <div>所属部门：<i style="color: #fe776d;">&nbsp;--&nbsp;</i></div>
                 <div>企业类型：<i style="color: #fe776d;">&nbsp;--&nbsp;</i></div>
                 <!--<div>店铺二级域名:<i style="color: #fe776d;">&nbsp;&#45;&#45;&nbsp;</i></div>-->
             </div>
-            <div class="right2 Lf yiRenZheng" style="display: none;">
+            <div class="right2 Lf yiRenZheng" style="display: none;margin-top: 10px;">
                 <div class="">所属企业：<span id="companyName">&nbsp;中泰化学&nbsp;</span></div>
                 <div>所属部门：<span id="orgName">&nbsp;供应商&nbsp;</span></div>
                 <div>企业类型：<span  id="companyNameType">&nbsp;黄金会员&nbsp;</span></div>
@@ -198,8 +204,8 @@
     </div>
     <div class="header2">
         <div class="title">会员信息</div>
-        <div class="weiRenZhengID" style="padding: 15px 24px;overflow: hidden;"><img style="margin-top: -2px;"  src="../img/cf_weirenzheng.png" alt="">&nbsp;实名认证：<span style="color: #ff796e; cursor: pointer;" class="weiRenZheng_btn">未认证</span></div>
-        <div class="yiRenZhengID" style="padding: 15px 24px;overflow: hidden;font-size: 14px; display: none;">
+        <div class="weiRenZhengID" style="padding: 20px 24px;overflow: hidden;"><img style="margin-top: -2px;"  src="../img/cf_weirenzheng.png" alt="">&nbsp;实名认证：<span style="color: #ff796e; cursor: pointer;" class="weiRenZheng_btn">未认证</span></div>
+        <div class="yiRenZhengID" style="padding: 20px 24px;overflow: hidden;font-size: 14px; display: none;">
             <img  src="../img/cf_weirenzheng.png" alt=""> <span class="Lf">&nbsp;实名认证：</span>
             <span class="Lf" style="color: #8dc44d;">&nbsp;已认证&nbsp;</span>
             <img style="margin-top: 5px;" src="../img/cf_shimingok.png" alt="">
@@ -209,7 +215,7 @@
             <!--</div>-->
         </div>
         <div class="yiRenZheng integ">
-            <span style="margin-right: 300px;">公司总积分：  100000分</span>
+            <span style="margin-right: 300px;margin-top: 0;">公司总积分：  100000分</span>
             <span>个人可用积分：  100000分</span>
         </div>
         <div class="yiRenZheng growValue">
@@ -228,19 +234,19 @@
         <div class="state Lf">销售订单</div>
         <div class="orderList Lf" style="border-bottom: 1px solid #e3e3e3;">
             <ul class="clearfix ul">
-                <li class="orderItem Lf">
+                <li class="orderItem sale_order1 Lf">
                     <div class="imgs"><img src="../img/cf_order0.png" alt=""></div>
                     <div class="orderItemTitle">全  部 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem sale_order2 Lf">
                     <div class="imgs"><img src="../img/cf_order1.png" alt=""></div>
                     <div class="orderItemTitle">待支付 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem sale_order3 Lf">
                     <div class="imgs"><img src="../img/cf_order2.png" alt=""></div>
                     <div class="orderItemTitle">待发货 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem sale_order4 Lf">
                     <div class="imgs"><img src="../img/cf_order3.png" alt=""></div>
                     <div class="orderItemTitle">待收货 0</div>
                 </li>
@@ -259,19 +265,19 @@
         <div class="state Lf">采购订单</div>
         <div class="orderList Lf">
             <ul class="clearfix ul">
-                <li class="orderItem Lf">
+                <li class="orderItem purchase1 Lf">
                     <div class="imgs"><img src="../img/cf_order0.png" alt=""></div>
                     <div class="orderItemTitle">全  部 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem purchase2 Lf">
                     <div class="imgs"><img src="../img/cf_order1.png" alt=""></div>
                     <div class="orderItemTitle">待支付 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem purchase3 Lf">
                     <div class="imgs"><img src="../img/cf_order2.png" alt=""></div>
                     <div class="orderItemTitle">待发货 0</div>
                 </li>
-                <li class="orderItem Lf">
+                <li class="orderItem purchase4 Lf">
                     <div class="imgs"><img src="../img/cf_order3.png" alt=""></div>
                     <div class="orderItemTitle">待收货 0</div>
                 </li>
@@ -290,7 +296,7 @@
 
 <div class="offer Lf yiRenZheng">
     <div class="title">我的询盘</div>
-    <div class="left1 Lf">
+    <div class="left1 my_xunpan Lf">
         <div class="left2 Lf">
             <img src="../img/cf_offer1.png" alt="">
         </div>
@@ -299,7 +305,7 @@
             <div class="name">已发询盘</div>
         </div>
     </div>
-    <div class="left1 Lf">
+    <div class="left1 my_xunpan Lf">
         <div class="left2 Lf">
             <img src="../img/cf_offer2.png" alt="">
         </div>
@@ -311,7 +317,7 @@
 </div>
 <div class="offer yiRenZheng" style="float: right;">
     <div class="title">我的报价</div>
-    <div class="left1 Lf">
+    <div class="left1 my_baojia Lf">
         <div class="left2 Lf">
             <img src="../img/cf_offer3.png" alt="">
         </div>
@@ -320,7 +326,7 @@
             <div class="name">待处理</div>
         </div>
     </div>
-    <div class="left1 Lf">
+    <div class="left1 my_baojia Lf">
         <div class="left2 Lf">
             <img src="../img/cf_offer4.png" alt="">
         </div>
@@ -374,6 +380,55 @@
         window.parent.$("#Iframe").css('height',1584);
         getUser();
     })
+
+    // 销售订单
+    $('.sale_order1, .sale_order2, .sale_order3, .sale_order4').click(function() {
+        window.location.href = "mySale-order.html";
+        
+        window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
+        window.parent.$(".manageItem").removeClass("active1");
+        window.parent.$(".hzf_wdxsdd").addClass("active1");
+        window.parent.$(".hzf_wdxsdd").parent().parent().show();
+        window.parent.$(".hzf_wdxsdd").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+
+    });
+
+    // 采购订单
+    $('.purchase1, .purchase2, .purchase3, .purchase4').click(function() {
+        window.location.href = "./myPurchase-order.html";
+        
+        window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
+        window.parent.$(".manageItem").removeClass("active1");
+        window.parent.$(".hzf_wdcgdd").addClass("active1");
+        window.parent.$(".hzf_wdcgdd").parent().parent().show();
+        window.parent.$(".hzf_wdcgdd").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+
+    });
+
+    // 我的询盘
+    $('.my_xunpan').click(function() {
+        window.location.href = "./myPurchase-enquiry.html";
+        
+        window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
+        window.parent.$(".manageItem").removeClass("active1");
+        window.parent.$(".hzf_wdxp").addClass("active1");
+        window.parent.$(".hzf_wdxp").parent().parent().show();
+        window.parent.$(".hzf_wdxp").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+
+    });
+
+    // 我的报价
+    $('.my_baojia').click(function() {
+        window.location.href = "./mySale-baojia.html";
+        
+        window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
+        window.parent.$(".manageItem").removeClass("active1");
+        window.parent.$(".hzf_wdbj").addClass("active1");
+        window.parent.$(".hzf_wdbj").parent().parent().show();
+        window.parent.$(".hzf_wdbj").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+
+    });
+
 
     //右侧报价订单数据显示
     if (companyId) {

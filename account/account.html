@@ -32,12 +32,12 @@
         .pop>.cont{position: fixed;top: 50%;left: 50%;width: 628px;height: 363px;background-color: #ffffff;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);}
         /*.pop>.cont>.cancel{text-align: right;color: #9E9E9E;margin-bottom: 37px;margin-top: 18px;margin-right: 18px;}*/
         /*.pop .close{background: }*/
-        .pop>.cont>.cance2{margin: 0;padding: 0 20px;height: 50px;line-height: 50px;background: url("../img/cf_popbackgr.png") no-repeat ; margin-bottom: 27px;background-size: contain;}
+        .pop>.cont>.cance2{margin: 0;padding-left:20px;height: 50px;line-height: 50px;background: url("../img/cf_popbackgr.png") no-repeat ; margin-bottom: 27px;background-size: contain;}
         .pop>.cont>.cance2>.popTitle{color:#5992f3;font-size: 16px;}
         .pop>.cont>div{overflow: hidden;padding: 0;}
         .pop>.cont>div>.leftTitle{margin-left:53px;width: 120px;text-align: right;margin-right: 18px;height:36px;line-height: 36px;}
         .pop>.cont>div>.popInput{width: 337px;height:38px;}
-        .pop>.cont>div>.popInput>input{width: 100%;height:28px;line-height: 28px;margin-top: 1px;border: 1px solid #C6C6C6;text-indent: 10px;}
+        .pop>.cont>div>.popInput>input{width: 100%;height:28px;line-height: 28px;margin-top: 1px;border: 1px solid #e7e7e7;text-indent: 10px;}
         .pop>.cont>.forget2{text-align: right;margin-right: 100px;margin-top: 10px;}
         .pop>.cont>.forget2>a{color: #007aff;}
         .pop>.cont>.popBottom{margin-left: 90px;margin-top: 35px;}
@@ -167,7 +167,7 @@
         .qiye_name_input {
             width: 481px;
             height: 34px;
-            border-color: #d3d3d3;
+            border-color: #e7e7e7;
             border-width: 1px;
             border-style: solid;
             text-indent: 10px;
@@ -176,7 +176,7 @@
         .selectPub {
             width: 483px;
             height: 38px;
-            border: 1px solid #d3d3d3;
+            border: 1px solid #e7e7e7;
             margin-right: 0px;
         }
 
@@ -281,7 +281,7 @@
             width: 190px;
             margin-bottom: 17px;
             text-indent: 10px;
-            border: 1px solid #A8A8A8;
+            border: 1px solid #e7e7e7;
         }
 
         .info label {
@@ -312,7 +312,7 @@
 
         input#test1 {
             width: 172px;
-            border: 1px solid #A8A8A8;
+            border: 1px solid #e7e7e7;
         }
 
         .modelbtn1.upload_info, .modelbtn1.cancel_info.confirm {
@@ -393,7 +393,7 @@
 		.modelCont{
             position: absolute;
             width: 450px;
-            min-height: 276px;
+            min-height: 275px;
             left: 50%;
             top: 50%;
             /*margin-left: -225px;
@@ -436,14 +436,14 @@
         }
         .modelbtn{
             float: left;
-            width: 145px;
-            height: 45px;
+            width: 130px;
+            height: 35px;
             border: 1px solid #5690f6;
-            font-size: 15px;
+            font-size: 16px;
             color: #fff;
             box-sizing: border-box;
             text-align: center;
-            line-height: 45px;
+            line-height: 35px;
             border-radius: 3px;
             cursor: pointer;
             margin: 18px auto 0 80px;
@@ -558,7 +558,7 @@
             padding-left: 0px;
 
         }
-        .cf_btn{width: 120px;height: 40px;line-height: 40px;text-align: center;border-radius: 3px;background-color: #6ba1ff;color: white;}
+        .cf_btn{width: 120px;height: 40px;line-height: 40px;text-align: center;border-radius: 3px; cursor: pointer;background-color: #6ba1ff;color: white;}
         .cf_btn:hover{background-color: #5388ff;color: white;}
         .cf_btn.cancel{width: 120px;height: 40px;line-height: 40px;text-align: center;border-radius: 3px;background-color: white;color: #ffb387;border: 1px solid #ffb387;}
         .cf_btn.cancel:hover{background-color: #ffb387;color: white;}
@@ -571,6 +571,31 @@
             font-size: 12px;
             margin-left: 95px;
         } 
+
+/*
+        .mask{position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #000;opacity:0.5;filter: Alpha(opacity=50);z-index: 98;transition:all 1s;display: none}
+        
+        .bigimg {
+            z-index: 200;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+        }*/
+
+        .look_pic {
+            display: none;
+            z-index: 200;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
     </style>
 
@@ -693,6 +718,13 @@
 
 
         </ul>
+
+        <!-- 点击查看大图 -->
+        <!-- <img src="" alt="" class="bigimg">
+        <div class="mask">
+            <img src="../img/close.png" alt="">
+        </div> -->
+
     </div>
 
     <div class="countRight Rt">
@@ -720,7 +752,7 @@
                     <p><span>危险化学品认证提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
                 </div>
                 <div class="modelBtnBox">
-                    <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                    <div style="background:#5690f6; width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
                 </div>
             </div>
         </div>
@@ -739,7 +771,7 @@
                    <p><span>危险化学品认证信息正在审核或未进行危险化学品认证！</span></p>
                 </div>
                 <div class="modelBtnBox">
-                    <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                    <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
                 </div>
             </div>
         </div>
@@ -757,7 +789,7 @@
                 <p>未进行危险化学品认证，请先进行危险化学品认证！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -775,7 +807,7 @@
                 <p><span>特殊资质认证提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -793,17 +825,17 @@
                 <p><span>其他资质认证提交成功！</span></p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
 </div>
 <!--修改手机号弹框-->
-<div class="pop" id="updataPhone" >
+<div class="pop" id="updataPhone">
     <div class="cont" style="width: 650px;">
         <div class="cance2">
             <span class="popTitle Lf">获取验证码</span>
-            <span class="close Rt" onclick="close1(this)"><img src="../img/cf_close1.png" alt=""></span>
+            <span class="close Rt" onclick="close1(this)"><img src="../img/gsxq_del.png" alt=""></span>
         </div>
         <div style="width: 650px; height: 35px;line-height: 35px;color: #fb6047;background-color: #fff7e9;font-size: 14px;margin: auto;text-align: center;margin-bottom: 20px;">提示：若手机丢失或者损坏，则不能直接更换手机，请联系客服400-0012-556（10:00～19:00）</div>
         <div>
@@ -835,7 +867,7 @@
 
         <!--<div class="forget2"><a href="##">忘记密码?</a></div>-->
         <div class="popBottom">
-            <div class="btn Lf popCancel theNext" onclick="show1('#updataNewPhone')" style="font-size: 15px;">下一步</div>
+            <div class="btn Lf popCancel theNext" onclick="show1('#updataNewPhone')" style="width:130px;height:35px;font-size:16px;line-height:35px;margin-left: 103px;">下一步</div>
             <!--<div class="btn Lf popReset" onclick="reset(this)">重置</div>
             <div class="btn Lf popSure" id="updataPhoneSub">确定</div>-->
         </div>
@@ -846,7 +878,7 @@
     <div class="cont" style="width: 650px;">
         <div class="cance2">
             <span class="popTitle Lf">新手机号更换</span>
-            <span class="close Rt" onclick="close1(this)"><img src="../img/cf_close1.png" alt=""></span>
+            <span class="close Rt" onclick="close1(this)"><img src="../img/gsxq_del.png" alt=""></span>
         </div>
         <div style="width: 650px; height: 35px;line-height: 35px;color: #fb6047;background-color: #fff7e9;font-size: 14px;margin: auto;text-align: center;margin-bottom: 20px;">提示：若手机丢失或者损坏，则不能直接更换手机，请联系客服400-0012-556（10:00～19:00）</div>
         <div>
@@ -878,8 +910,8 @@
 
         <!--<div class="forget2"><a href="##">忘记密码?</a></div>-->
         <div class="popBottom">
-        	<div class="btn Lf popSure" id="updataPhoneSub">提交</div>
-            <div class="btn Lf popCancel close">取消</div>
+        	<div class="btn Lf popSure" id="updataPhoneSub" style="width:130px;height:35px;font-size:16px;line-height:35px;">提交</div>
+            <div class="btn Lf popCancel close" style="width:130px;height:35px;font-size:16px;line-height:35px;">取消</div>
             <!--<div class="btn Lf popReset" onclick="reset(this)">重置</div>-->
             
         </div>
@@ -921,8 +953,8 @@
             <div class="forget2"><a href="../login/findPass.html" style="font-size: 14px;">忘记密码?</a></div>
             <div class="popBottom">
                 <!--<div class="btn Lf popCancel close" onclick="close1()">取消</div>-->
-                <div class="btn Lf popReset" onclick="reset(this)" style="font-size: 15px;">重置</div>
-                <div class="btn Lf popSure" id="updataPwdSub" style="font-size: 15px;">确定</div>
+                <div class="btn Lf popReset" onclick="reset(this)" style="width:130px;height:35px;font-size:16px;line-height:35px;">重置</div>
+                <div class="btn Lf popSure" id="updataPwdSub" style="width:130px;height:35px;font-size:16px;line-height:35px;">确定</div>
             </div>
         
     </div>
@@ -930,7 +962,7 @@
 
 <!--修改交易密码弹框-->
 <div class="pop " id="updataPayPwd">
-    <div class="cont" style="width: 620px; height: 430px;">
+    <div class="cont" style="width: 621px; height: 430px;">
         <div class="cancel" style="margin-left: 0px; margin-top: 0px;">
             <span class="popTitle Lf">修改密码</span>
             <span class="close" style="float: right;cursor: pointer;" onclick="close1(this)"><img src="../img/gsxq_del.png" alt=""></span>
@@ -962,8 +994,8 @@
 
         <div class="forget2"><a href="../payPass.html" style="font-size: 14px;">忘记密码?</a></div>
         <div class="popBottom">
-            <div class="btn Lf popCancel close" onclick="close1(this)" style="font-size: 15px;">取消</div>
-            <div class="btn Lf popSure" id="updataPayPwdSub" style="font-size: 15px;">确定</div>
+            <div class="btn Lf popCancel " onclick="close1(this)" style="width:130px;height:35px;font-size:16px;line-height:35px;">取消</div>
+            <div class="btn Lf popSure" id="updataPayPwdSub" style="width:130px;height:35px;font-size:16px;line-height:35px;">确定</div>
         </div>
     </div>
 </div>
@@ -1011,7 +1043,7 @@
                 <p>企业认证正在等待审核中</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1031,7 +1063,7 @@
                 <p>企业认证正在审核中</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1046,8 +1078,8 @@
         <div class="modelcontent">
             <div class="modelTxt"></div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
-                <div style="color:#5690f6;margin-left: 12px;" class="modelbtn cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+                <div style="background:#5690f6; margin: 40px 0 0 0;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="color:#5690f6;margin: 40px 0 0 0;margin-left:40px;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
             </div>
         </div>
     </div>
@@ -1066,7 +1098,7 @@
                 <div class="jujue_liyou">拒绝理由：<span>这是拒绝理由信息~</span></div>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1084,7 +1116,7 @@
                 <p><span>企业基本信息正在审核中</span>，请耐心等待！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1102,7 +1134,7 @@
                 <p><span>出金账户资料正在审核中</span>，请耐心等待!</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1120,7 +1152,7 @@
                 <p><span>企业认证信息提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1138,7 +1170,7 @@
                 <p>欢迎回来，请继续您的填写企业信息！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1156,7 +1188,7 @@
                 <p><span>出金账户修改提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm ook4">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm ook4">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1174,7 +1206,7 @@
                 <p><span>企业信息修改提交成功</span>，我们将于1-3个工作日内帮您审核，请耐心等待！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm ook">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm ook">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1192,7 +1224,7 @@
                 <p>运营者信息修改成功！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm ook1">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm ook1">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1210,7 +1242,7 @@
                 <p>发票信息修改成功！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm ook2">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm ook2">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1228,7 +1260,7 @@
                 <p>财务信息修改成功！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm ook3">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm ook3">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1247,7 +1279,7 @@
                 <p style="text-align:center;">删除成功！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm ok_ok1">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm ok_ok1">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1266,7 +1298,7 @@
                 <p><span>资质正在审核</span>，请您耐心等待！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1283,10 +1315,10 @@
             <div class="info">
                 <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
                 <p><span>危险化学品资质认证审核未通过</span>，请您重新填写进行认证！</p>
-                <p class="jj_yuanying" style="color: red;font-size: 14px;text-align: left;">拒绝理由：<span></span></p>
+                <p class="jj_yuanying" style="color: red;font-size: 14px;text-align: left;">拒绝理由：<span style="color: red; font-size: 14px;"></span></p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1306,7 +1338,7 @@
                 <p class="jj_yuanying2" style="color: red;font-size: 14px;text-align: left;">拒绝理由：<span></span></p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
             </div>
         </div>
     </div>
@@ -1325,8 +1357,8 @@
                 <p><span>商品添加成功</span>，您可以：</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too confirm" data-src="../shopManage/addShop.html">继续添加商品</div>
-                <div style="background:#5690f6;" class="modelbtn modelbtn2 ml10 backShopList confirm" data-src="../shopManage/shopManage.html">返回商品列表</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn modelbtn2 addShop_too confirm" data-src="../shopManage/addShop.html">继续添加商品</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn modelbtn2 ml10 backShopList confirm" data-src="../shopManage/shopManage.html">返回商品列表</div>
             </div>
         </div>
     </div>
@@ -1345,7 +1377,7 @@
                 <p><span>商品修改成功</span>，您可以：</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn backShopList ml75 confirm" data-src="../shopManage/shopManage.html">返回商品列表</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn backShopList ml75 confirm" data-src="../shopManage/shopManage.html">返回商品列表</div>
             </div>
         </div>
     </div>
@@ -1402,8 +1434,8 @@
                 </div>
             </div>
             <div class="modelBtnBox width100 clearfix">
-                <div style="background:#5690f6;" class="modelbtn1 upload_info">上传</div>
-                <div style="background:#5690f6;" class="modelbtn1 cancel_info confirm">取消</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn1 upload_info">上传</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn1 cancel_info confirm">取消</div>
             </div>
         </div>
     </div>
@@ -1423,7 +1455,7 @@
                 <p>恭喜您，<span>实名认证成功</span>，将获得*****的积分奖励！</p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">返回</div>
             </div>
         </div>
     </div>
@@ -1443,7 +1475,7 @@
                 <p></p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">返回</div>
             </div>
         </div>
     </div>
@@ -1463,15 +1495,15 @@
                 <p></p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too del_sure confirm">确定</div>
-                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList del_back confirm">返回</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn modelbtn2 addShop_too del_sure confirm">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn modelbtn2 ml10 backShopList del_back confirm">返回</div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- 删除成功 -->
-<div class="modelBox26" style="z-index: 99999">
+<div class="modelBox26" style="z-index: 99999;">
     <div class="modelCont">
         <div class="modeltitle">
             <span>消息提示</span>
@@ -1484,14 +1516,14 @@
                 <p></p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">返回</div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- 地址修改成功 -->
-<div class="modelBox27" style="z-index: 99999">
+<div class="modelBox27" style="z-index: 99999;">
     <div class="modelCont">
         <div class="modeltitle">
             <span>消息提示</span>
@@ -1504,7 +1536,7 @@
                 <p></p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn confirm">返回</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">返回</div>
             </div>
         </div>
     </div>
@@ -1525,8 +1557,8 @@
                 <p></p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm suerjiaoyi">确定</div>
-                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn modelbtn2 addShop_too  confirm suerjiaoyi">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
             </div>
         </div>
     </div>
@@ -1545,8 +1577,8 @@
                 <p></p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm jujuejiaoyi">确定</div>
-                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn modelbtn2 addShop_too  confirm jujuejiaoyi">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
             </div>
         </div>
     </div>
@@ -1566,15 +1598,15 @@
                 <p></p>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm suershouhuo">确定</div>
-                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
+                <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn modelbtn2 sure_shou addShop_too  confirm suershouhuo">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- 新增收仓库 -->
-<div class="modelBox31" >
+<div class="modelBox31">
     <div class="modelCont" style="width: 1000px;">
         <div class="modeltitle"  style="width: 1000px;">
             <span>新增仓库</span>
@@ -1586,7 +1618,7 @@
                     <li class="clearfix">
                         <div class="fl">
                             <label class="ml" for=""><span class="required">*</span>仓库名称：</label>
-                            <input type="text" class="shouhuo_person" id="name" placeholder="请输入仓库名称" style="border: 1px solid #d3d3d3;width: 343px;text-indent: 10px;">
+                            <input type="text" class="shouhuo_person" id="name" placeholder="请输入仓库名称" style="border: 1px solid #e7e7e7;width: 343px;text-indent: 10px;">
                         </div>
                         <span class="tishi fl"></span>
                     </li>
@@ -1637,16 +1669,16 @@
                     <li class="clearfix">
                         <div class="fl">
                             <label for="" class="ml"><span class="required">*</span>详细地址：</label>
-                            <input type="text" class="shouhuo_person" id="detail_address" placeholder="请输入详细地址" style="border: 1px solid #d3d3d3;width: 343px;text-indent: 10px;">
+                            <input type="text" class="shouhuo_person" id="detail_address" placeholder="请输入详细地址" style="border: 1px solid #e7e7e7;width: 343px;text-indent: 10px;">
                         </div>
                         <span class="tishi fl"></span>
                     </li>
                     <li class="clearfix">
-                        <input type="checkbox" name="" class="moren" id="moren_address" value="设置为默认的收货地址"  />设置为默认的收货地址
+                        <input type="checkbox" name="" style=" margin-left: 99px;" class="moren" id="moren_address" value="设置为默认的收货地址"  />设置为默认的收货地址
                     </li>
                     <li class="clearfix">
-                        <span class="add_address_btn">添加该地址</span>
-                        <span class="cancel">取消</span>
+                        <span class="add_address_btn" style="width:130px;height:35px;line-height:35px;font-size:16px;margin-left: 130px">添加该地址</span>
+                        <span class="cancel" style="width:130px;height:35px;line-height:35px;font-size:16px;margin-left:20px;">取消</span>
                     </li>
                 </ul>
             </div>
@@ -1665,8 +1697,8 @@
                 </table>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm suershouhuo" id="cangkuAddressSure">确定</div>
-                <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi" id="cangkuAddressCancel">返回</div>
+                <div style="background:#5690f6;width:130px;height:35px;line-height:35px;font-size:16px;" class="modelbtn modelbtn2 addShop_too  confirm suershouhuo" id="cangkuAddressSure">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6;width:130px;height:35px;line-height:35px;font-size:16px;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi" id="cangkuAddressCancel">返回</div>
 
             </div>
         </div>
@@ -1685,7 +1717,7 @@
                     <li class="clearfix">
                         <div class="fl">
                             <label class="ml" for="">收货人：</label>
-                            <input type="text" class="shouhuo_person" id="name1" placeholder="请输入收货人姓名" style="border: 1px solid #d3d3d3;width: 347px;text-indent: 10px;">
+                            <input type="text" class="shouhuo_person" id="name1" placeholder="请输入收货人姓名" style="width: 347px;text-indent: 10px;">
                         </div>
                         <span class="tishi fl"></span>
                     </li>
@@ -1720,23 +1752,23 @@
                     <li class="clearfix">
                         <div class="fl">
                             <label for="">详细地址：</label>
-                            <input type="text" class="shouhuo_person" id="detail_address1" placeholder="请输入详细地址" style="border: 1px solid #d3d3d3;width: 347px;text-indent: 10px;">
+                            <input type="text" class="shouhuo_person" id="detail_address1" placeholder="请输入详细地址" style="width: 347px;text-indent: 10px;">
                         </div>
                         <span class="tishi fl"></span>
                     </li>
                     <li class="clearfix">
                         <div class="fl">
                             <label for="">手机号码：</label>
-                            <input type="text" class="shouhuo_person" id="phone1" placeholder="请输入手机号码" style="border: 1px solid #d3d3d3;width: 347px;text-indent: 10px;">
+                            <input type="text" class="shouhuo_person" id="phone1" placeholder="请输入手机号码" style="width: 347px;text-indent: 10px;">
                         </div>
                         <div class="tishi fl"></div>
                     </li>
                     <li>
-                        <input type="checkbox" name="" class="moren" id="moren_address1" value="" />设置为默认的收货地址
+                        <input type="checkbox" name="" style="margin-left:75px;" class="moren" id="moren_address1" value="" />设置为默认的收货地址
                     </li>
                     <li>
-                        <span class="add_address_btn1">添加该地址</span>
-                        <span class="cancel1">取消</span>
+                        <span class="add_address_btn1" style="width:130px;height:35px;line-height:35px;font-size:16px;margin-left:92px;">添加该地址</span>
+                        <span class="cancel1" style="width:130px;height:35px;line-height:35px;font-size:16px;margin-left: 10px;">取消</span>
                     </li>
                 </ul>
             </div>
@@ -1756,7 +1788,7 @@
                 </table>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;" class="modelbtn modelbtn2 addShop_too  confirm suershouhuo" id="shouhuoAddressSure">确定</div>
+                <div style="background:#5690f6;width:130px;height:35px;line-height:35px;font-size:16px;" class="modelbtn modelbtn2 addShop_too  confirm suershouhuo" id="shouhuoAddressSure">确定</div>
                 <div style="border: 2px solid #5690f6; color: #5690f6;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi" id="shouhuoAddressCancel">返回</div>
             </div>
         </div>
@@ -1794,28 +1826,28 @@
             <div style="margin-top: 14px;margin-left: 70px; color: #333333;">现汇方式：</div>
             <div class="clearFloat clearfix" style="margin-top: 10px;font-size: 16px;background-color: #f9f9f9;padding: 10px 73px 10px 0;">
                 <div style="margin-left: 47px;line-height: 31px; color: #666666;">
-                    <input checked type="radio" name="xuNi" value="虚拟账户" style="margin-left: 20px;">虚拟账户
+                    <input checked type="radio" name="xuNi" value="虚拟账户" style="margin-left: 20px;cursor: pointer;">虚拟账户
                     <span style="margin-left: 54px;">可用余额：</span>
                     <span class="accountBalance">0.00</span>
                     <span class="cf_btnA Rt" style="margin-right: 35px;color: #5690f6;font-weight: bold;">充值</span>
                     <div style="border-top: 3px solid #ffffff;margin: 10px 0;margin-left: -47px;margin-right: -73px;"></div>
-                    <sapn style="margin-left: 160px;color: #5690f6;">支付余额: </sapn>
+                    <span style="margin-left: 160px;color: #5690f6;">支付金额: </span>
                     <span style="width: 130px;height: 31px;line-height: 31px;color: #5690f6;" class="payBalance">10000</span>
-                    <div class="cf_btn Rt goPay goPay1"  style="height: 35px;line-height: 35px;">立即支付</div>
+                    <div class="cf_btn Rt goPay goPay1"  style="width:130px;height:35px;line-height:35px;font-size:16px;">立即支付</div>
                 </div>
             </div>
             <div style="margin-left: 70px; color: #333333;margin-top: 8px;">承兑方式：</div>
             <div class="clearFloat clearfix" style="margin-top: 10px;font-size: 16px; color: #666666;background-color: #f9f9f9;padding: 10px 73px 10px 0;">
                 <div style="margin-left: 47px;">
-                    <input checked type="radio" name="chengDui" value="中信银行" style="margin-left: 25px;">中信银行
-                    <input type="radio" name="chengDui" value="库尔勒银行" style="margin-left: 30px;">库尔勒银行
-                    <input type="radio" name="chengDui" value="招商银行" style="margin-left: 30px;">招商银行
+                    <input checked type="radio" name="chengDui" value="中信银行" style="margin-left: 25px;cursor: pointer;">中信银行
+                    <input type="radio" name="chengDui" value="库尔勒银行" style="margin-left: 30px;cursor: pointer;">库尔勒银行
+                    <input type="radio" name="chengDui" value="招商银行" style="margin-left: 30px;cursor: pointer;">招商银行
                 </div>
                 <div style=" border-top: 2px solid #ffffff;margin: 15px -73px 10px 0;"></div>
                 <div class="clearFloat clearfix">
-                    <div class="cf_btn Rt goPay goPay2"   style="height: 35px;line-height: 35px;margin-left: 35px;">立即支付</div>
+                    <div class="cf_btn Rt goPay goPay2"   style="width:130px;height:35px;line-height:35px;font-size:16px;margin-left: 35px;">立即支付</div>
                     <div class="Rt" style="font-size: 16px;line-height: 40px;">
-                        <input type="radio" name="beishu" style="vertical-align: sub;"> 背书
+                        <input type="radio" name="beishu" style="vertical-align: sub;cursor: pointer;"> 背书
                     </div>
                 </div>
             </div>
@@ -1845,30 +1877,30 @@
             <div class="item clearfix">
                 <div class="itemLeftTitle Lf">支付密码：</div>
                 <div class="itemRight Lf">
-                    <input class="pay_pass_input" type="password" style="width: 230px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1">
+                    <input class="pay_pass_input" type="password" style="width: 200px;height: 32px;line-height: 32px;">
                     <a href="../login/findPass.html" style="font-size: 16px;color: #5690f6;margin-left: 20px;">忘记密码？</a>
                 </div>
             </div>
             <div class="item clearfix">
                 <div class="itemLeftTitle Lf">手机号：</div>
                 <div class="itemRight Lf">
-                    <input type="text" class="phone" style="width: 230px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1" disabled="disabled">
-                    <span class="cf_btn getSMSCode" style="width: 102px;display: inline-block;height: 35px;line-height: 35px;">获取验证码</span>
+                    <input type="text" class="phone" style="width: 200px;height: 32px;line-height: 32px;" disabled="disabled">
+                    <span class="cf_btn getSMSCode" style="width: 130px;display: inline-block;height: 35px;line-height: 35px;">获取验证码</span>
                 </div>
             </div>
             <div class="item clearfix">
                 <div class="itemLeftTitle Lf">输入验证码：</div>
-                <div class="itemRight Lf"><input type="text" class="SMScode"  style="width: 336px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1"></div>
+                <div class="itemRight Lf"><input type="text" class="SMScode"  style="width: 336px;height: 32px;line-height: 32px;"></div>
             </div>
 
-            <div class="cf_btn " id="surePay" style="margin: 0 auto;width: 310px;height: 40px;line-height: 40px;font-size: 14px;background-color: #c2ccd1;" data-isok="0" data-isok1="0" data-isok2="0">确认支付</div>
+            <div class="cf_btn " id="surePay" style="margin: 0 auto;width: 130px;height: 35px;line-height: 35px;font-size: 16px;background-color: #c2ccd1;" data-isok="0" data-isok1="0" data-isok2="0">确认支付</div>
         </div>
 
     </div>
 </div>
 
 <!--提现-->
-<div class="modelBox35" style="font-size: 14px; ">
+<div class="modelBox35" style="font-size: 14px;">
     <div class="modelCont" style="width: 633px;height: 470px;">
         <div class="modeltitle" style="width: 100%;">
             <span>提现</span>
@@ -1881,30 +1913,30 @@
             </div>
             <div class="item clearfix">
                 <div class="itemLeftTitle Lf"><i style="color: red;">* </i>提现金额：</div>
-                <div class="itemRight Lf"><input type="text" class="tiXianMoney" placeholder="请输入金额" style="width: 336px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1"></div>
+                <div class="itemRight Lf"><input type="text" class="tiXianMoney" placeholder="请输入金额" style="width: 336px;height: 31px;line-height: 31px;"></div>
             </div>
             <div class="item clearfix">
                 <div class="itemLeftTitle Lf "><i style="color: red;">* </i>支付密码：</div>
                 <div class="itemRight Lf">
-                    <input type="password" class="payPassWord" style="width: 230px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1">
+                    <input type="password" class="payPassWord" style="width: 200px;height: 31px;line-height: 31px;">
                     <a href="../login/findPass.html" style="font-size: 16px;color: #5690f6;margin-left: 20px;">忘记密码？</a>
                 </div>
             </div>
             <div class="item clearfix">
                 <div class="itemLeftTitle Lf"><i style="color: red;">* </i>手机号：</div>
                 <div class="itemRight Lf">
-                    <input type="text" class="phone" style="width: 230px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1" disabled>
-                    <span class="cf_btn getSMSCode"  style="width: 102px;display: inline-block;height: 35px;line-height: 35px;">获取验证码</span>
+                    <input type="text" class="phone" style="width: 200px;height: 31px;line-height: 31px;" disabled>
+                    <span class="cf_btn getSMSCode"  style="width: 130px;display: inline-block;height: 35px;line-height: 35px;">获取验证码</span>
                 </div>
             </div>
             <div class="item clearfix">
                 <div class="itemLeftTitle Lf"><i style="color: red;">* </i>输入验证码：</div>
-                <div class="itemRight Lf"><input type="text" class="SMScode" style="width: 336px;height: 33px;line-height: 33px;border: 1px solid #c2ccd1"></div>
+                <div class="itemRight Lf"><input type="text" class="SMScode" style="width: 336px;height: 31px;line-height: 31px;"></div>
             </div>
 
             <div class="clearfix" style="margin: 0 auto;text-align: center;margin-top: 40px;">
-                <div class="cf_btn Lf cancel" style="width: 136px;height: 38px;line-height: 38px;font-size: 14px;margin-left: 150px;">取消</div>
-                <div class="cf_btn Lf" id="sureTiXian" style="width: 136px;height: 40px;line-height: 40px;font-size: 14px;margin-left: 56px;background-color: #c2ccd1; " data-isok="0" data-isok1="0" data-isok2="0">确认提现</div>
+                <div class="cf_btn Lf cancel" style="width: 130px;height: 35px;line-height: 35px;font-size: 16px;margin-left: 190px;">取消</div>
+                <div class="cf_btn Lf" id="sureTiXian" style="width: 130px;height: 35px;line-height: 35px;font-size: 16px;margin-left: 56px;background-color: #c2ccd1; " data-isok="0" data-isok1="0" data-isok2="0">确认提现</div>
             </div>
 
         </div>
@@ -2011,7 +2043,7 @@
                </div>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6; margin: 50px auto 0 45px;" class="modelbtn confirm">确定</div>
+                <div style="background:#5690f6;width:130px;height:35px;line-height:35px;font-size:16px; margin: 50px auto 0 80px;" class="modelbtn confirm">确定</div>
             </div>
         </div>
     </div>
@@ -2125,7 +2157,7 @@
                </div>
                <div class="clearfix">
                    <span class="span fl" style="color: #6c6d6e; width: 110px;">预警额度：</span>
-                   <input type="text" class="yujing_edu_input fl" style="width: 387px; height: 34px; font-size: 13px; border: 1px solid #ebe9ea; text-indent: 10px;">
+                   <input type="text" class="yujing_edu_input fl" style="width: 387px; height: 34px; font-size: 13px;text-indent: 10px;">
                </div>
             </div>
             <div class="modelBtnBox" style="margin-top: 30px;">
@@ -2137,7 +2169,7 @@
 </div>
 
 <!-- 权限管理-添加成员 -->
-<div class="add_member_alert">
+<div class="add_member_alert" >
     <div class="modelCont">
         <div class="modeltitle">
             <span>添加成员</span>
@@ -2146,12 +2178,12 @@
         <div class="modelcontent">
             <div class="clearfix" style="padding-top: 40px;">
                <span class="span fl" style="color: #6c6d6e; width: 110px; margin-left: 35px; line-height: 34px;">手机号码：</span>
-               <input type="text" class="member_phone fl" style="width: 260px; height: 34px; font-size: 13px; border: 1px solid #ebe9ea; text-indent: 10px;">
+               <input type="text" class="member_phone fl" style="width: 260px; height: 34px; font-size: 13px; text-indent: 10px;">
                <div class="ts_add_member"></div>
            </div>
            <div class="clearfix" style="padding-top: 30px;">
                <span class="span fl" style="color: #6c6d6e; width: 110px; margin-left: 35px; line-height: 34px;">职能描述：</span>
-               <textarea style="color: #999; width: 260px;font-size: 13px; border: 1px solid #ebe9ea; text-indent: 10px; height: 100px; overflow: hidden;" class="member_descript" style="vertical-align: text-top;" placeholder="请输入职能描述"></textarea>
+               <textarea style="color: #999; width: 260px;font-size: 13px;border: 1px solid #e7e7e7; text-indent: 10px; height: 100px; overflow: hidden;" class="member_descript" style="vertical-align: text-top;" placeholder="请输入职能描述"></textarea>
                <div class="ts_add_member"></div>
            </div>
            <div class="modelBtnBox" style="margin-top: 30px;">
@@ -2220,13 +2252,57 @@
     </div>
 </div>
 
+<div class="look_pic">
+    <div class="pic_div">
+        <img src="" alt="" class="bigpic">
+    </div>
+</div>
+
 <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    
+<!-- <script src="../js/zoom.js" type="text/javascript" charset="utf-8"></script> -->
+
 <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
 <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript" >
+
+
+        function look_pic(w, h, pic_url) {
+
+            $('.bigpic').css({
+                height: h*2,
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                margin: 'auto',
+                position: 'absolute'
+            });
+
+            $('.look_pic img').attr('src', pic_url);
+
+            $('.look_pic').show();
+        }
+
+        $('.look_pic').click(function() {
+            $(this).hide();
+            $(this).attr('src', '');
+        });
+
+        // /*
+        //  smallimg   // 小图
+        //  bigimg  //点击放大的图片
+        //  mask   //黑色遮罩
+        //  */
+        // var obj = new zoom('mask', 'bigimg',$(".smallimg"));
+        // // var obj = new zoom('mask', 'bigimg', $("#Iframe").contents().find(".smallimg"));        
+        
+        // obj.init();
+        
+
 
     // 调用删除弹框
     function warn_alert(aa, msg) {
@@ -2288,6 +2364,11 @@
 
                 if (!data.data.state && data.data.type != 1) {
                     $('#account_ziliao').attr('data-src', './identification1.html');
+                    $('.yiRenZheng').show();
+                    $('.weiRenZheng').hide();
+                } else {
+                    $('.yiRenZheng').hide();
+                    $('.weiRenZheng').show();
                 }
                           
             },
@@ -2299,35 +2380,35 @@
 
 
 
-	$.ajax({
-        url: pubIP+'companyCertification/getCompanyStateByUserToken', /*v1.0*/
-        type: 'post',
-        headers: {
-            Accept: "application/json; charset=utf-8",
-            token: token
-        },
-        cache: false,
-        ansyc: true,
-        dataType: 'json',
-        data:{
-            token: token
-        },
-        success: function (data) {
-            console.log(data)
-            if(data.data != 1){
-	            	$('.yiRenZheng').show();
-	            	$('.weiRenZheng').hide();
-            }else{
-                $('.weiRenZheng').show();
-          	    $('.yiRenZheng').hide();
-				/*$('.yiRenZheng').show();
-            		$('.weiRenZheng').hide();*/
-            }
-        },
-        error: function(err){
-            console.log(err);
-        }
-    });
+	// $.ajax({
+ //        url: pubIP+'companyCertification/getCompanyStateByUserToken', /*v1.0*/
+ //        type: 'post',
+ //        headers: {
+ //            Accept: "application/json; charset=utf-8",
+ //            token: token
+ //        },
+ //        cache: false,
+ //        ansyc: true,
+ //        dataType: 'json',
+ //        data:{
+ //            token: token
+ //        },
+ //        success: function (data) {
+ //            console.log(data)
+ //            if(data.data != 1){
+	//             	$('.yiRenZheng').show();
+	//             	$('.weiRenZheng').hide();
+ //            }else{
+ //                $('.weiRenZheng').show();
+ //          	    $('.yiRenZheng').hide();
+	// 			/*$('.yiRenZheng').show();
+ //            		$('.weiRenZheng').hide();*/
+ //            }
+ //        },
+ //        error: function(err){
+ //            console.log(err);
+ //        }
+ //    });
 
     //实名认证
 
@@ -2554,6 +2635,7 @@
         $('.okClose').css('display', 'block');
     }
 
+
     // 危险化学品认证提交成功
     function tan() {
         $('.modelBox0').css('display', 'block');
@@ -2651,6 +2733,7 @@
     //危险化学品认证资质已拒绝
     function jujue_weixian(reasons) {
         $(".jj_yuanying span").html(reasons);
+        
         $('.modelBox19').css('display', 'block');
     }
 
@@ -2781,17 +2864,17 @@
                 console.log(data.data.state);
 
                 
-                if (data.data.type == 7) {  //等待审核
-                    window.parent.tan3();
-                } else if (data.data.type == 2) {  //正在审核
-                    window.parent.tan4();
-                } else if (data.data.type == 4) {  //已拒绝
-                    window.parent.tan5();
-                } else if (data.data.type == 5) {  //企业二次审核
-                    window.parent.tan6();
-                } else if (data.data.type == 6) {  //出金二次修改
-                    window.parent.tan7();
-                }
+                // if (data.data.type == 7) {  //等待审核
+                //     window.parent.tan3();
+                // } else if (data.data.type == 2) {  //正在审核
+                //     // window.parent.tan4();
+                // } else if (data.data.type == 4) {  //已拒绝
+                //     window.parent.tan5();
+                // } else if (data.data.type == 5) {  //企业二次审核
+                //     window.parent.tan6();
+                // } else if (data.data.type == 6) {  //出金二次修改
+                //     window.parent.tan7();
+                // }
                           
             },
             error: function (err) {

@@ -181,6 +181,7 @@ a{
 	vertical-align: text-bottom;
 	background: url("../img/cf_noChoose.png") no-repeat;
 	background-size: 100% 100%;
+	cursor: pointer;
 }
 .reg-box>li>.active{
 	background: url("../img/cf_choose.png") no-repeat;
@@ -209,6 +210,7 @@ a{
 	width: 162px;
 	height: 35px;
 	overflow: hidden;
+	cursor: pointer;
 }
 .codeImg>img{
 	float: left;
@@ -232,6 +234,7 @@ a{
 	color: #ffffff;
 	border-radius: 2px;
 	font-size: 17px;
+	cursor: pointer;
 }
 
 .sub{
@@ -248,6 +251,7 @@ a{
 	margin-top: 23px;
 	font-size: 15px;
 	background-color: #fcfcfc;
+	cursor: pointer;
 }
 .sub:hover{background-color: #3582F8; color: white;}
 

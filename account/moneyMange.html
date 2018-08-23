@@ -40,7 +40,7 @@
         <div class="left1 Lf"><img class="logo_img" src="../img/zthx_logo.png" alt=""></div>
         <div class="right1 Lf">
             <div class="top1">企业名称： <a class="qiye_name" href="##">中泰化学</a></div>
-            <div class="top1">注册时间： <span class="register_time" style="color:#707070;">2018-04-02 12: 30: 25</span></div>
+            <div class="top1">审核通过时间： <span class="register_time" style="color:#707070;">2018-04-02 12: 30: 25</span></div>
         </div>
     </div>
 
@@ -106,31 +106,67 @@
                 if (json.data.length != 0) {
 
                     var str = '';
+                    var str1 = '';
+                    
+                    if (sessionStorage.getItem('flag') == '1') {
 
-                    for (var i = 0; i < json.data.length; i++) {
-                        str += '<li>'
+                        str1 += '<li>'
                             +'<div class="cardItem">'
                                 +'<div class="cardTop">'
                                     +'<img src="../img/Zxlogo.png" alt="">'
                                 +'</div>'
-                                +'<div class="kaihuhang">'+json.data[i].bankName+'</div>'
-                                +'<div class="kaihuming">开户名：'+json.data[i].accountName+'</div>'
-                                +'<div class="cardNum">'+json.data[i].accountId+'</div>'
+                                +'<div class="kaihuhang">'+json.data[0].bankName+'</div>'
+                                +'<div class="kaihuming">开户名：'+json.data[0].accountName+'</div>'
+                                +'<div class="cardNum">'+json.data[0].accountId+'</div>'
                             +'</div>'
                         +'</li>'
+
+                        $('.yhCardList').html(str1);
+
+                        sessionStorage.setItem('flag', '');
+
+                    } else {
+
+                        for (var i = 0; i < json.data.length; i++) {
+                            if (json.data[i].bankName == null) {
+                                json.data[i].bankName = ''
+                            }
+
+                            str += '<li>'
+                                +'<div class="cardItem">'
+                                    +'<div class="cardTop">'
+                                        if (i == 0) {
+                                            str += '<img src="../img/Zxlogo.png" alt="">'
+                                        }else if (i == 1) {
+                                            str += '<img src="../img/Zxlogo1.png" alt="">'
+                                        } else if ( i == 2) {
+                                            str += '<img src="../img/Zxlogo2.png" alt="">'
+                                        }
+                                        
+                                    str += '</div>'
+                                    +'<div class="kaihuhang">'+json.data[i].bankName+'</div>'
+                                    +'<div class="kaihuming">开户名：'+json.data[i].accountName+'</div>'
+                                    +'<div class="cardNum">'+json.data[i].accountId+'</div>'
+                                +'</div>'
+                            +'</li>'
+                        }
+
+                        $('.yhCardList').html(str);
                     }
 
-                    $('.yhCardList').html(str);
+                    
 
                 }
-
+                
                 if (json.store != null) {
-                    if (json.store.addTime != null) {
-                        json.store.addTime = new Date(json.store.addTime).Format("yyyy-MM-dd");
+                    if (json.store.authTime != null) {
+                        //json.store.addTime = new Date(json.store.addTime).Format("yyyy-MM-dd");
+                        json.store.authTime = new Date(json.store.authTime).Format("yyyy-MM-dd");
                     }
                     
                     $('.qiye_name').text(json.store.companyName);
-                    $('.register_time').text(json.store.addTime == null ? ' ' : json.store.addTime);
+                    //$('.register_time').text(json.store.addTime == null ? ' ' : json.store.addTime);
+                    $('.register_time').text(json.store.authTime == null ? ' ' : json.store.authTime);
                     $('.logo_img').attr('src', json.store.storeImage);
                 }
             }

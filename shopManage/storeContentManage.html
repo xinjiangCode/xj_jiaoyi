@@ -30,7 +30,7 @@
 
     .store_product textarea {
         border-radius: 2px;
-        border: 1px #E5E5E5 solid;
+        border: 1px #e7e7e7 solid;
     }
     
     .update_btn {
@@ -55,14 +55,16 @@
             border: 1px solid #ebe9ea;
             height: 98px;
             width: 196px;
+           
     }
     #upL0go{
-    		position: absolute;
+    	position: absolute;
 	    left: 0;
 	    top: 0;
 	    width: 100%;
 	    height: 100%;
-	    opacity: 0;
+        opacity: 0;
+
     }
    	#zhuying{
     		width: 559px;
@@ -82,7 +84,7 @@
     .modelCont {
         position: absolute;
         width: 450px;
-        min-height: 276px;
+        min-height: 275px;
         left: 50%;
         top: 50%;
         margin-left: 0 !important;
@@ -138,14 +140,14 @@
     }
     .modelbtn {
         float: left;
-        width: 145px;
-        height: 45px;
+        width: 130px;
+        height: 35px;
         border: 1px solid #5690f6;
         font-size: 18px;
         color: #fff;
         box-sizing: border-box;
         text-align: center;
-        line-height: 45px;
+        line-height: 35px;
         border-radius: 3px;
         cursor: pointer;
         margin: 18px auto 0 80px;
@@ -157,9 +159,10 @@
         display: inline-block;
         margin-left: 20px;
     }
+    #edui1{border:1px solid #e7e7e7;}
 </style>
 <body>
-<div class="modelBox24">
+<div class="modelBox24" >
     <div class="modelCont">
         <div class="modeltitle">
             <span>消息提示</span>
@@ -186,7 +189,7 @@
                         <span class="span">企业LOGO：</span>
                     </div>
                     <div class="fileLgoBox">
-                    		<img src="../img/list_logo.png" alt="logo">
+                    		<img src="../img/add_pic_bg.png" alt="logo">
                     		<input type="file" name="upL0go" id="upL0go"  onchange="xmTanUploadImg1(this)"/>
                     </div>
                     <!-- <div class="jianyi_size">建议上传尺寸为129*129的图片</div> -->
@@ -432,8 +435,12 @@
 	            		console.log(json.msg);
 	            		return false;
 	            }
-	            $('.fileLgoBox img').attr('src',json.data.storeImage);
-	            $('#zhuying').val(json.data.mainProduct);
+                if (json.data.storeImage) {
+                    $('.fileLgoBox img').attr('src',json.data.storeImage);
+                }
+
+                $('#zhuying').val(json.data.mainProduct);
+	            
 	            
                 console.log(json.data.briefIntroduction);
                 //判断ueditor 编辑器是否创建成功

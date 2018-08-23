@@ -40,6 +40,7 @@ body{
 }
 .breadcrumbType>span{
 	padding:  7px 23px; 
+	cursor: pointer;
 }
 .breadcrumbType .act{
 	color: #fff;
@@ -48,6 +49,7 @@ body{
 .breadcrumbType2>span{
 	padding: 20px 25px;
 	position: relative;
+	cursor: pointer;
 }
 .breadcrumbType2 img{
 	margin-left: 6px;
@@ -80,13 +82,14 @@ body{
 	color: #4079d7;
 }
 .breadcrumbType2 div i{
-	border: 1px #d0d0d0 solid;
+	border: 1px #e7e7e7 solid;
 	color: #d0d0d0;
 	width: 20px;
 	height: 22px;
 	display: inline-block;
     line-height: 20px;
-    text-align: center;
+	text-align: center;
+	cursor: pointer;
 }
 .breadcrumbType2 div i:hover{
 	background: #699ef7;

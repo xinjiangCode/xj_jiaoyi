@@ -93,6 +93,7 @@
 </head>
 <body>
     <div class="main">
+        
         <div class="myPurchase-title clearfix">
             <div class="Lf">我的销售订单</div>
             <div class="Rt">
@@ -108,6 +109,7 @@
             <span data-type="4">确认收货</span>
             <span data-type="5">已完成</span>
         </div>
+
         <div class="myPurchase-status clearfix">
             <span>近三个月的订单</span>
             <span>纯度</span>
@@ -117,6 +119,7 @@
             <span>操作</span>
             <span>物流状态</span>
         </div>
+        
         <div class="myPurchase-orders" id="myPurchase-orders">
             
         </div>
@@ -145,7 +148,7 @@
                 </div>
                 <div class="orderItemCont clearfix">
                     <!-- <div class="orderContItem orderNum"><span><%=i-0+1%></span></div> -->
-                    <div class="orderContItem orderName"><span style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;" title="<%=list[i].productName%>"><%=list[i].productName%></span></div>
+                    <div class="orderContItem orderName" style="line-height: 89px;margin-top: 0px;overflow: hidden;display: block;"><span style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;display: inline-block;width: 100%;text-indent: 1em;" title="<%=list[i].productName%>"><%=list[i].productName%></span></div>
                     <div class="orderContItem orderPurity"><%=list[i].productPurity ? list[i].productPurity : 0%>%</div>
                     <div class="orderContItem orderQuantity"><%=list[i].sum?list[i].sum:0%><%=list[i].productUnit%></div>
                     <div class="orderContItem sumMoney">
@@ -217,7 +220,11 @@
                         <a href="./mySale-orderDetailStatus.html?userType=0&id=<%=list[i].transactionOrderIdStr%>" style="display:block;width: 100%;height: 100%;">查看订单</a>
                     </div>
                     <div class="orderContItem publish_wuliu_xuqiu">
-                        <a target="_blank" href="javascript:;" style="display:block;width: 100%;height: 100%;">发布物流需求</a>
+                        <%if(list[i].publishLogisticsStatus == 0){%>
+                            <a target="_blank" href="javascript:;" data-type="1" data-productName="<%=list[i].productName%>" data-sum="<%=list[i].sum%>" data-orderId="<%=list[i].transactionOrderIdStr%>" data-chemicalName="<%=list[i].chemicalName%>" data-chemicalId="<%=list[i].chemicalId%>" style="display:block;width: 100%;height: 100%;">发布物流需求</a>
+                        <%} else{%>
+                            <a target="_blank" href="javascript:;" data-type="2" data-productName="<%=list[i].productName%>" data-sum="<%=list[i].sum%>" data-orderId="<%=list[i].transactionOrderIdStr%>" data-chemicalName="<%=list[i].chemicalName%>" data-chemicalId="<%=list[i].chemicalId%>" style="display:block;width: 100%;height: 100%;">查看物流详情</a>
+                        <%}%>
                     </div>
                  </div>
             </div>
@@ -229,10 +236,57 @@
     // })
 
     $(document).on('click', '.publish_wuliu_xuqiu a', function() {
-        // window.parent
-        // window.location.href = "";
-        $(this).attr('href', wuliuIP+'allWuliu/xj_wuliu_gy/account.html')
+        var productName = $(this).attr('data-productName');
+        var sum = $(this).attr('data-sum');
+        var orderId = $(this).attr('data-orderId');
+        var chemicalName = $(this).attr('data-chemicalName');
+        var chemicalId = $(this).attr('data-chemicalId');
+        var thisType = $(this).attr('data-type');
+        if(thisType == 1){
+            $.ajax({
+                type:"get",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                url: pubIP+"orderApi/updateOrderDelivery",
+                cache:false,
+                data:{
+                    orderId: orderId,//订单号
+                },
+                dataType: "json",
+                success: function(json){
+                    console.log(json);
+                    if(json.code == 1){
+                        window.parent.$("#Ifream").attr("src","./mySale-order.html");
+                        //$(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
+                        openWin( wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName));
+                    }
+                    
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            })
+        }else{
+            $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
+        }
     })
+    // function openWin(url) {
+    //     $('body').append($('<a href="' + url + '" target="_blank" id="openWin"></a>'))
+    //     document.getElementById("openWin").click();//点击事件
+    //     $('#openWin').remove();
+    // }
+
+    var decToHex = function(str) {
+        if (str == '') {
+            return '';
+        }
+        var res=[];
+        for(var i=0;i < str.length;i++)
+            res[i]=("00"+str.charCodeAt(i).toString(16)).slice(-4);
+        return "\@u"+res.join("\@u");
+    }
 
     $(function(){
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');

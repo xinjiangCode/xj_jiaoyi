@@ -109,7 +109,7 @@
     height: 35px;
     line-height: 35px;
     padding-left: 10px;
-    border: 1px solid #EBE9EA;
+    border: 1px solid #e7e7e7;
     vertical-align: middle;
 }
 .purchaseInfo .enquiryDate{
@@ -133,7 +133,7 @@
     margin-right: 40px;
     text-align: center;
     line-height: 35px;
-    border: 1px solid #EBE9EA;
+    border: 1px solid #e7e7e7;
     border-radius: 2px;
     cursor: pointer;
 }

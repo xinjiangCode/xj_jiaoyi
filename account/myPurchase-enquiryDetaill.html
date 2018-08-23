@@ -313,6 +313,8 @@
                         console.log(res.data)
                         res.data.resultTime = new Date(res.data.resultTime).Format("yyyy-MM-dd hh:mm:ss");
                         res.data.periodTime = new Date(res.data.periodTime).Format("yyyy-MM-dd hh:mm:ss");
+                        res.data.updateTime = new Date(res.data.updateTime).Format("yyyy-MM-dd hh:mm:ss");
+                        
                         res.data.myfromPage=from;
                         var leftTpl = template('leftTpl', res.data);
                         $('.mainLeft.Lf ul').html(leftTpl);

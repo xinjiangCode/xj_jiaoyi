@@ -8,7 +8,7 @@
 		<meta http-equiv="Cache-Control" CONTENT="no-cache">
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta name="format-detection" content="telephone=no" />
-		<title>新疆化学品经营服务平台</title>
+		<title adct="立即询盘">新疆化学品经营服务平台</title>
 		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css" />
 		<link rel="stylesheet" type="text/css" href="../css/index.css" />
 		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
@@ -107,7 +107,7 @@
 				height: 35px;
 				padding-left: 10px;
 				box-sizing: border-box;
-				border: 1px solid #e3e3e3;
+				border: 1px solid #e7e7e7;
 			}
 			
 			::-webkit-input-placeholder {
@@ -137,12 +137,12 @@
 			}
 			
 			.commitBtn {
-				width: 140px;
-				height: 45px;
+				width: 130px;
+				height: 35px;
 				background-color: #5690f6;
-				font-size: 18px;
+				font-size: 16px;
 				color: #fff;
-				line-height: 45px;
+				line-height: 35px;
 				text-align: center;
 				border-radius: 3px;
 				margin: 0 auto;
@@ -261,13 +261,13 @@
 			}
 			
 			.tosurebtn {
-				width: 140px;
-				height: 45px;
+				width: 130px;
+				height: 35px;
 				background: #5690f6;
-				line-height: 45px;
+				line-height: 35px;
 				border-radius: 5px;
 				margin: 30px auto 0;
-				font-size: 18px;
+				font-size: 16px;
 				color: #fff;
 				cursor: pointer;
 			}
@@ -303,7 +303,7 @@
 			.modelCont {
 				position: absolute;
 				width: 450px;
-				min-height: 276px;
+				min-height: 275px;
 				left: 50%;
 				top: 50%;
 				transform: translate(-50%, -50%);
@@ -351,7 +351,7 @@
 			.modelcontent select {
 				width: 151px;
 				height: 40px;
-				border: 1px solid #8B8B8B;
+				border: 1px solid #e7e7e7;
 				line-height: 40px;
 				border-radius: 3px;
 				background: #fff;
@@ -360,7 +360,7 @@
 			
 			.modelcontent .input {
 				width: 309px;
-				border: 1px solid #8B8B8B;
+				border: 1px solid #e7e7e7;
 				line-height: 40px;
 				border-radius: 3px;
 				background: #fff;
@@ -424,7 +424,7 @@
 			.img_bg img {
 				width: 74px;
 				height: 67px;
-				margin-top: 17px;
+				margin-top: 30px;
 				margin-bottom: 13px;
 			}
 
@@ -576,6 +576,23 @@
 			.payType {
 				display: none;
 				margin-right: 20px;
+			}
+			.objDetailsImgList div{
+				cursor: pointer;
+			}
+			.payType input{
+				cursor: pointer;
+			}
+			#addGz img{
+				cursor: pointer;
+			} 
+
+			.sellerRt button {
+				margin-bottom: 15px;
+			}
+
+			.sellerRt>div {
+				margin-bottom: 20px;
 			}
 			
 		</style>
@@ -756,15 +773,15 @@
 
 								<div class="spxq" style="margin-right: 53px;float: left;">
 									<p><i>商品名称：</i><span class="blueClor"><%=productName%></span> </p>
-									<p class="shiji"><i>规       格：</i><%=productSpecUnitStr%></p>
-									<p class="dazong"><i>规       格：</i><%=productSpecUnitStr%></p>
+									<p class="shiji"><i>规       格：</i><%=productSpecNum%><%=productSpecUnitStr%></p>
+									<p class="dazong"><i>规       格：</i><%=productSpecNum%><%=productSpecUnitStr%></p>
 									<p><i>产品等级：</i><%=levelName%></p>
 
 								</div>
 
 								<div class="spxq">
 									<p><i>形        态：</i><%=productFormStr%></p>
-									<p><i>纯        度：</i><%=productPurity%></p>
+									<p><i>纯        度：</i><%=productPurity%>%</p>
 									<p><i>厂家/产地：</i><%=productOrigin%></p>
 
 								</div>
@@ -873,7 +890,7 @@
 				</div>
 			</div>
 			<!-- 弹窗 -->
-			<div class="modelBox">
+			<div class="modelBox" >
 				<div class="modelCont" style="width: 620px;">
 					<div class="modeltitle" style="width: 620px;">
 						<span>新增收货地址</span>
@@ -933,7 +950,7 @@
 						<span>我要询价</span>
 						<img src="../img/gsxq_del.png" height="48" alt="" class="close">
 					</div>
-					<div class="main">
+					<div class="main" style="padding-bottom:43px;">
 						<ul>
 							<li>
 								<label for="xj_goodsNum">购买数量：</label>
@@ -949,8 +966,8 @@
 							</li>
 							<li>
 								<label for="">发票类型：</label>
-								<input class="xj_fapiaoType" name="xj_fapiaoType" value="1" type="radio" style="margin-left: 0;"><span style="margin-right:40px;">普通发票</span>
-								<input class="xj_fapiaoType" name="xj_fapiaoType" value="2" type="radio"><span style="font-size: 13px;">专用发票</span>
+								<input class="xj_fapiaoType" name="xj_fapiaoType" value="1" type="radio" style="margin-left: 0;cursor: pointer;"><span style="margin-right:40px;">普通发票</span>
+								<input class="xj_fapiaoType" name="xj_fapiaoType" value="2" type="radio" style="cursor: pointer;"><span style="font-size: 13px;">专用发票</span>
 							</li>
 							<li class="i">
 								<label for="">收票地址：</label>
@@ -970,7 +987,7 @@
 								<textarea style="width:385px;height: 101px;font-size: 13px;" class="input" placeholder="请输入您的问题" name="xj_bei" id="xj_bei"></textarea>
 							</li>
 							<li class="i">
-								<div class="commitBtn" style="font-size: 15px;">提交</div>
+								<div class="commitBtn" style="font-size: 16px;">提交</div>
 							</li>
 						</ul>
 					</div>
@@ -1016,7 +1033,7 @@
 						<span>消息提示</span>
 						<img src="../img/gsxq_del.png" height="45" alt="" class="close">
 					</div>
-					<div class="main">
+					<div class="main" style="height:230px;">
 						<div class="successImg"></div>
 						<div class="successMsg">
 							<div class="successMsgInfo">
@@ -1925,7 +1942,8 @@
 									token: token
 								},
 								data: {
-									companyId: companyId_this,
+									// companyId: companyId_this,
+									companyId: companyId,
 									storeId: storeId
 								},
 								success: function(res) {

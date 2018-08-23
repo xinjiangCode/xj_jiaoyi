@@ -181,7 +181,7 @@
 
     <script type="text/html" id="requireContTpl">
         <div class="ceiContHead bacFD clearfix">
-            <div class="endTime ml44 Lf">最后有限期： <span style="color:#FF7A46;" class="time"><%=deliveryDate%></span></div>
+            <div class="endTime ml44 Lf">最后有限期： <span style="color:#FF7A46;" class="time"><%=validityDate%></span></div>
             <div class="reqireNo Lf">采购需求编号：<span><%=buyingId%></span></div>
             <div class="updateTime Lf">发布时间： <span><%=releaseTime%></span></div>
         </div>
@@ -293,6 +293,7 @@
                 if(data.data){
 
                     data.data.submitTime = new Date(data.data.submitTime).Format("yyyy-MM-dd hh:mm:ss");
+                    data.data.updateTime = new Date(data.data.updateTime).Format("yyyy-MM-dd hh:mm:ss");
                     data.data.bjyxq = new Date(data.data.bjyxq).Format("yyyy-MM-dd hh:mm:ss");
 
                     
@@ -364,7 +365,7 @@
                 if(data.data){
 
                     data.data.releaseTime = new Date(data.data.releaseTime).Format("yyyy-MM-dd hh:mm:ss");
-                    data.data.deliveryDate = new Date(data.data.deliveryDate).Format("yyyy-MM-dd hh:mm:ss");
+                    data.data.validityDate = new Date(data.data.validityDate).Format("yyyy-MM-dd hh:mm:ss");
 
                     data.data.deliveryJson = JSON.parse(data.data.deliveryJson);
 

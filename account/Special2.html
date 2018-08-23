@@ -23,7 +23,7 @@
         .uploade{ border: 1px solid #ebe9ea;}
          a{color: #80acf8;}
          html,body{min-width: 988px;width: 988px;background-color: white;overflow: hidden;margin: auto;font-size: 14px;}
-        .container{width:986px;border: 1px solid #f1f1f1;overflow-y: auto; height: 1595px;overflow-x: hidden;}
+        .container{width:986px;border: 1px solid #f1f1f1;}
         .header{padding: 18px 165px;border-bottom: 1px solid #f1f1f1;}
         .header>ul{overflow: hidden;width: 830px;}
         .header>ul>li{float: left;height: 18px;line-height: 18px;font-size: 16px;margin-right: 155px;}
@@ -50,8 +50,8 @@
         .center1>ul>li>.right2{line-height: 38px;margin-left: -30px;}
         .center1>ul>li>.right2>input{margin-left: 30px;}
         .bottom1{overflow: hidden;margin-top: 60px;font-size: 16px;margin-left: 145px;margin-bottom: 54px;}
-        .bottom1>.add{width: 240px;height: 42px;line-height: 42px;margin-left: 155px;margin-top: 0;}
-        .bottom1>.sub{width: 107px;height: 40px;line-height: 40px;background-color: white;color: #666666;border: 1px solid #666666;margin-left: 10px;margin-top: 0;}
+        .bottom1>.add{width: 172px;height: 42px;line-height: 42px;margin-left: 155px;margin-top: 0;}
+        .bottom1>.sub{width: 172px;height: 40px;line-height: 40px;background-color: white;color: #666666;border: 1px solid #666666;margin-left: 10px;margin-top: 0;}
         
         .pic_div .uploade {
             margin-right: 10px;
@@ -67,14 +67,15 @@
 
         .sousuo {
             display: inline-block;
-            width: 50px;
+            width: 82px;
             height: 30px;
-            margin-left: 5px;
+            margin: 10px 0px 0px 12px;
             background-color: #007aff;
             text-align: center;
             line-height: 30px;
             color: #fff;
             border-radius: 5px;
+            cursor: pointer;
         }
 
         .none {
@@ -87,11 +88,12 @@
         .sousuo_img {
             position: absolute;
             left: 162px;
-            top: 9px;
+            top: 15px;
         }
 
         .cousuo_cont {
             border: 1px solid #ebe9ea;
+            /*width: 143px;*/
             width: 357px;
             margin-top: -1px;
             border-top: none;
@@ -99,22 +101,25 @@
             left: 155px;
             position: absolute;
             background-color: #fff;
-            height: 150px;
-                overflow-y: auto;
+            height: 149px;
+            overflow-y: auto;
         }
 
         ul.sousuo_ul {
-            padding-top: 15px;
+            /*padding-top: 15px;*/
         }
 
         ul.sousuo_ul li {
             padding-left: 5px;
             box-sizing: border-box;
-            margin-bottom: 15px;
+            line-height: 37px;
+            /*margin-bottom: 15px;*/
+            height: 37px;
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
         }
+
 
         .cousuo_cont {
             display: none;
@@ -313,33 +318,96 @@
         .center1 .right1 .zizhi_num{
             height: 38px;
             box-sizing: border-box;
-            border: 1px solid #ebe9ea;
+            border: 1px solid #e7e7e7;
         }
 
-        .bottom1>.shenhe {
-            width: 107px;
+        /*.bottom1>.shenhe {
             height: 40px;
             line-height: 40px;
             background-color: white;
             color: #666666;
             border: 1px solid #666666;
-            margin-left: 10px;
             margin-top: 0;
             background: #ccc;
-        }
+            width: 357px;
+            margin-left: 150px;
+        }*/
+
 
         .delete_info {
             width: 13px; 
             height: 13px;
             text-align: center;
             line-height: 11px;
-            border: 1px solid #4e4e4e;
+            /*border: 1px solid #4e4e4e;*/
+            border: 1px solid red;
             border-radius: 50%;
             display: inline-block;
-            color: #4e4e4e;
+            /*color: #4e4e4e;*/
+            color: red;
             margin-left: 5px;
             font-size: 12px;
             vertical-align: bottom;
+        }
+
+        .btn {
+            cursor: pointer;
+        }
+
+        .selectPub, .textarea {
+            color: #666;
+        }
+
+        .ts_color {
+            color: rgb(0, 122, 255);
+        }
+
+        .delete_pic {
+            visibility: hidden;
+            position: absolute;
+
+        }
+
+        .look_bigpic {
+            position: absolute;
+            left: 125px;
+            bottom: 2px;
+            color: rgb(0, 122, 255);
+            cursor: pointer;
+            z-index: 200;
+        }
+
+        .look_bigpic img {
+            width: 25px;
+        }
+
+        .btn.edit_edit {
+            margin-left: 150px;
+            margin-top: 2px;
+        }
+
+        .add_submit, .shenhe_btn {
+            display: none;
+        }
+
+        .shenhe_btn {
+            margin-left: 360px;
+        }
+
+        .shenhe_btn img {
+            width: 209px;
+        }
+
+        .container {
+            overflow: hidden;
+            width: 950px;
+        }
+
+        .parent_div {
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 600px;
+            width: 970px;
         }
 
     </style>
@@ -366,86 +434,96 @@
         </ul>
     </div>
     
-    <div id="center">
-        <div class="center1 c0">
-            <ul>
-                <li>
-                    <div class="left1 Lf"><i class="red">*</i>资质类型:</div>
-                    <div class="right1 Lf">
-                        <!-- <select name="" class="zizhi_type" id="zizhi_type0">
-
-                        </select> -->
-                        <div class="selectPub zizhi_type zizhi_type0" id="zizhi_type0" data-selectedindex="">
-                            <span></span>
-                            <img src="../img/prl-select.jpg" alt="">
-                            <ul>
-                                <li data-index="1">10</li>
-                                <li data-index="2">20</li>
-                                <li data-index="3">30</li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li class="clearfix">
-                    <div class="left1 Lf"><i class="red">*</i>资质编号:</div>
-                    <div class="right1 Lf"><input type="text" class="zizhi_num" id="zizhi_num0"></div>
-                    <span class="ts">资质编号不能为空</span>
-                </li>
-                <li class="clearfix" style="position: relative;">
-                    <div class="left1 Lf"><i class="red">*</i>资质图片:</div>
-                    <div class="right1 Lf pic_div">
-                        <div class="uploade" style="float: left;">
-                            <i style=""></i>
-                            <input type="file" class="input_blur preview pic1" id="uploade_preview0">
-                            <input type="hidden" class="hd0" id="hidden">
-                        </div>
-                        <div class="ts1">至少添加一张图片</div>
-                        <a href="##" class="add_pic add_pic1" data-pic="pic" style="float: left;font-size: 14px; position: absolute; bottom: 0px;">继续添加图片</a>
-                    </div>
-
-                </li>
-                <li style="overflow: visible;" class="clearfix">
-                    <div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>
-                    <div class="right1 Lf">
-                        <div name="" id="textarea0" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #999;" contenteditable="false"></div>
-                    </div>
-                    <span class="ts2">许可经营不能为空</span>
-                    <div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>
-                </li>
-                <li class="add_fanwei none">
-                    <div class="left1 Lf"><i class="red">*</i>添加许可经营范围:</div>
-                    <div>
-                        <div class="sousuo_div">
-                            <input type="text" id="" class="input_width">
-                            <img src="../img/sousuo.png" class="sousuo_img" alt="">
-                            <span class="sousuo">搜索</span>
-                        </div>
-                        <div class="cousuo_cont">
-                            <ul class="sousuo_ul">
-                                
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="left1 Lf"><i class="red">*</i>有效期起:</div>
-                    <div class="right1 Lf">
-                        <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 0px;" placeholder="请选择日期" id="test1">
-                        <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
-                        <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 0px;" placeholder="请选择日期" id="test2">
-                    </div>
-                    <span class="ts">有效期不能为空</span>
-                </li>
-            </ul>
-            <i class="red" style="display: block;margin-top: 22px;font-size: 14px;margin-left: 155px;">请上传营业执照或者扫描件！ 照片大小 < 2MB</i>
+    <div class="parent_div">
+        <div class="bottom1 shenhe_btn">
+            <div class="Lf"><img src="../img/shenhe.png" alt=""></div>
         </div>
-    </div>
-    
+        
+        <div id="center">
+            <div class="center1 c0">
+                <ul>
+                    <li>
+                        <div class="left1 Lf"><i class="red">*</i>资质类型:</div>
+                        <div class="right1 Lf">
+                            <!-- <select name="" class="zizhi_type" id="zizhi_type0">
 
-    <div class="bottom1">
-        <div class="btn Lf add add1">继续添加其他资质</div>
-        <div class="btn Lf sub">提交</div>
-        <div class="btn Lf shenhe" style="display: none;">审核中</div>
+                            </select> -->
+                            <div class="selectPub zizhi_type zizhi_type0" id="zizhi_type0" data-selectedindex="">
+                                <span></span>
+                                <img src="../img/prl-select.jpg" alt="">
+                                <ul>
+                                    <li data-index="1">10</li>
+                                    <li data-index="2">20</li>
+                                    <li data-index="3">30</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <div class="left1 Lf"><i class="red">*</i>资质编号:</div>
+                        <div class="right1 Lf"><input type="text" class="zizhi_num" id="zizhi_num0"></div>
+                        <span class="ts">资质编号不能为空</span>
+                    </li>
+                    <li class="clearfix" style="position: relative;">
+                        <div class="left1 Lf"><i class="red">*</i>资质图片:</div>
+                        <div class="right1 Lf pic_div">
+                            <div class="uploade" style="float: left;">
+                                <i style=""></i>
+                                <input type="file" class="input_blur preview pic1" id="uploade_preview0">
+                                <input type="hidden" class="hd0" id="hidden">
+                                <div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>
+                            </div>
+                            <div class="ts1">至少添加一张图片</div>
+                            <a href="##" class="delete_pic">删除</a>
+                            <a href="##" class="add_pic add_pic1" data-pic="pic" style="float: left;font-size: 14px; position: absolute; bottom: 0px;">继续添加图片</a>
+                        </div>
+
+                    </li>
+                    <li style="overflow: visible;" class="clearfix">
+                        <div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>
+                        <div class="right1 Lf">
+                            <div name="" id="textarea0" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #e7e7e7;" contenteditable="false"></div>
+                        </div>
+                        <span class="ts2">许可经营不能为空</span>
+                        <div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>
+                    </li>
+                    <li class="add_fanwei none">
+                        <div class="left1 Lf"><i class="red">*</i>添加许可经营范围:</div>
+                        <div>
+                            <div class="sousuo_div">
+                                <input type="text" id="" class="input_width">
+                                <img src="../img/sousuo.png" class="sousuo_img" alt="">
+                                <span class="sousuo">搜索</span>
+                            </div>
+                            <div class="cousuo_cont">
+                                <ul class="sousuo_ul">
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="left1 Lf"><i class="red">*</i>有效期起:</div>
+                        <div class="right1 Lf">
+                            <input type="text" class="date-input laydate-icon kuang start" style="text-indent: 10px;" placeholder="请选择日期" id="test1">
+                            <span style="height: 38px;line-height: 38px;">&nbsp;至&nbsp; </span>
+                            <input type="text" class="date-input laydate-icon kuang end" style="text-indent: 10px;" placeholder="请选择日期" id="test2">
+                        </div>
+                        <span class="ts">有效期不能为空</span>
+                    </li>
+                </ul>
+                <i class="ts_color" style="display: block;margin-top: 22px;font-size: 14px;margin-left: 155px;">请上传营业执照或者扫描件！ 照片大小 < 2MB,最多上传10张</i>
+            </div>
+        </div>
+        
+        <div class="bottom1 edit_btn">
+            <div class="btn edit_edit">编辑</div>
+        </div>
+
+        <div class="bottom1 add_submit">
+            <div class="btn Lf add add1">继续添加其他资质</div>
+            <div class="btn Lf sub">提交</div>
+        </div>
     </div>
 
     
@@ -456,6 +534,12 @@
 
 <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript">
+
+    $(document).on('click', '.look_bigpic', function(e) {
+        e.stopPropagation();
+        // console.log($(this).parent().find('.uploade').height());
+        window.parent.look_pic($(this).parent().width(), $(this).parent().height(), $(this).prev().val());
+    });
 
     var startTime1 = '';
     var endTime1 = '';
@@ -556,11 +640,13 @@
                         'background':'url('+data.url+') no-repeat',
                         'background-position':'center',
                         'background-size':'contain',
-                        'background-color':'#f6f6f6'
+                        'background-color':'#fafafa'
                 });
                 $(obj).next().val(data.url);
                 $(obj).parent().parent().find('.ts1').css('display', 'none');
                 $(obj).attr('data-flag', '0');
+
+                $(obj).parent().parent().find('.delete_pic').css('visibility', 'visible');
             },
             error: function (err) {
                 console.log(err);
@@ -575,7 +661,8 @@
         $('.laydate-icon').css({
             'backgroundImage': 'url(../img/yh_rili.png)',
             'backgroundPosition': '137px',
-            'backgroundSize': '11%'
+            'backgroundSize': '11%',
+            'border': '1px solid #ebe9ea'
         });
 
 
@@ -695,7 +782,8 @@
                                 $('.laydate-icon').css({
                                     'backgroundImage': 'url(../img/yh_rili.png)',
                                     'backgroundPosition': '137px',
-                                    'backgroundSize': '11%'
+                                    'backgroundSize': '11%',
+                                    'border': '1px solid #ebe9ea'
                                 });
                             }
                             for (var j = 0; j < data.data[i].picInfos.length-1; j++) {
@@ -719,12 +807,12 @@
                         //$('#zizhi_type'+i+' option[value="'+data.data[i].qualificationType+'"]').attr("selected",true);
                         $('#zizhi_type'+i).find("span").text(data.data[i].qualificationName);
                         $('#zizhi_type'+i).find('span').attr("data-spanvalue",data.data[i].qualificationTypeIds);
-                        $('#zizhi_type'+i).attr('disabled', "disabled").css("background-color","#ddd");
+                        $('#zizhi_type'+i).attr('disabled', "disabled").css("background-color","#fafafa");
                         // $('#zizhi_type'+i).attr('data-f', 'true');
                         
                         //资质编号
                         $('#zizhi_num'+i).val(data.data[i].qualificationNum);
-                        $('#zizhi_num'+i).attr('readonly', 'readonly').css("background-color","#ddd");
+                        $('#zizhi_num'+i).attr('readonly', 'readonly').css("background-color","#fafafa");
                         // $('#zizhi_num'+i).attr('data-f', 'true');
 
                         //资质图片
@@ -756,6 +844,8 @@
                         //不让点击添加图片
                         $(".add_pic").hide();
 
+                        $('.delete_pic').css('visibility', 'hidden');
+
                         data.data[i].qualificationDataBegin = new Date(data.data[i].qualificationDataBegin).Format("yyyy-MM-dd");
 
                         data.data[i].qualificationDataExpire = new Date(data.data[i].qualificationDataExpire).Format("yyyy-MM-dd");
@@ -770,11 +860,11 @@
                         /*var arr = data.data[i].operationLimit.split(';')*/
                         
                         //时间
-                        $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin).attr('disabled', "disabled").css("background-color","#ddd");
-                        $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire).attr('disabled', "disabled").css("background-color","#ddd");
+                        $('.c'+i+ ' .start').val(data.data[i].qualificationDataBegin).attr('disabled', "disabled").css("background-color","#fafafa");
+                        $('.c'+i+ ' .end').val(data.data[i].qualificationDataExpire).attr('disabled', "disabled").css("background-color","#fafafa");
 
 
-                        $('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
+                        // $('.c'+i).append('<div class="btn edit_btn" style="width: 82px;height: 30px;line-height: 30px;margin: 45px 0 0 298px;">编辑</div>');
 
                     }
                     $('.textarea').each(function(){
@@ -887,7 +977,22 @@
             $(this).parent().remove();
         });
 
+        $(document).on('click', '.delete_pic', function() {
+            
+            if ($(this).parent().find('.uploade').length != 1) {
+                $(this).parent().find('.uploade').eq($(this).parent().find('.uploade').length-1).remove();
+            }  else {
+                $(this).parent().find('.uploade').eq(0).css('background', 'url("")');
+                $(this).parent().find('.uploade').eq(0).find('input[type="hidden"]').val('');
+                $(this).css('visibility', 'hidden');
+            }  
+            
+        });
+
         $(document).on('click', '.edit_btn', function() {
+
+            $(this).hide();
+            $('.add_submit').show();
             
             $(this).parent().find('.zizhi_type').attr('disabled', false).css("background-color","#fff");
             isSelect=true;
@@ -900,6 +1005,8 @@
             $(this).parent().find('.zizhi_num').attr('readonly', false).css("background-color","#fff");
             //$(this).parent().find('.textarea').attr('contenteditable', true);
             $(this).parent().find(".add_pic").show().css('display', 'inline-block');
+            $(this).parent().find(".delete_pic").css('visibility', 'visible').css('display', 'inline-block');
+
            $(this).parent().find(".btn1").show();
            $(this).parent().find(".start").attr('disabled', false).css("background-color","#fff");
            $(this).parent().find(".end").attr('disabled', false).css("background-color","#fff");
@@ -929,16 +1036,24 @@
                     if (data.data.bType == 1 && data.data.bState == 0) {
                         //window.parent.shenhe();
                         $(".sub").hide();
-                        $(".shenhe").show();  
-                        $('.btn.edit_btn').css('display', 'none');
+                        $(".shenhe_btn").show();  
+
+                        $(".add1").hide();
+                        $('.edit_btn').css('display', 'none');
                         $('.sub').attr('disabled', true);
                         $('.quxiao_add').css('display', 'none');
                         $('.shou_pic').css('display', 'none');
 
                     } else if (data.data.bType == 1 && data.data.bState == 2) {  //已拒绝
-                        window.parent.jujue_teshu(data.data.refuseReason); 
-                        $(".shenhe").hide();
-                        $('.btn.edit_btn').css('display', 'block');
+                        
+                        if (data.data.bRefuse) {
+                            window.parent.jujue_weixian(data.data.bRefuse); 
+                        } else {
+                            window.parent.jujue_weixian('无'); 
+                        }
+
+                        $(".shenhe_btn").hide();
+                        $('.edit_btn').css('display', 'block');
                         $('.sub').attr('disabled', false);
                         $('.quxiao_add').css('display', 'block');
                         $('.shou_pic').css('display', 'block');
@@ -947,7 +1062,7 @@
                         $('.sub').attr('disabled', false);
                         $('.quxiao_add').css('display', 'block');
                         $('.shou_pic').css('display', 'block');
-                        $(".shenhe").hide();
+                        $(".shenhe_btn").hide();
                         $(".sub").show();
                     }
 
@@ -974,7 +1089,7 @@
         $(document).on('click', '.add_pic', function() {
             var pic = $(this).attr('data-pic');
 
-            var cla = $(this).prev().prev().find('input[type="file"]').attr('class');
+            var cla = $(this).prev().prev().prev().find('input[type="file"]').attr('class');
 
             // console.log(cla);
 
@@ -987,6 +1102,7 @@
                                 +'<i style=""></i>'
                                 +'<input type="file" class="input_blur preview '+(pic+ind)+'" id="uploade_preview'+(ind-1)+'">'
                                 +'<input type="hidden" class="hd'+(ind-1)+'" id="hidden">'
+                                +'<div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>'
                             +'</div>';
 
                 $(this).parent().find('.ts1').before(str); 
@@ -1034,15 +1150,17 @@
                                
                                 +'<input type="file" class="input_blur preview pic1" id="uploade_preview0">'
                                 +'<input type="hidden" class="hd0">'
+                                +'<div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>'
                             +'</div>'
                             +'<div class="ts1">至少添加一张图片</div>'
+                            +'<a href="##" class="delete_pic">删除</a>'
                             +'<a href="##" class="add_pic" data-pic="pic" style="float: left;font-size: 14px; position: absolute; bottom: 0px;">继续添加图片</a>'
                         +'</div>'
                     +'</li>'
                     +'<li style="overflow: visible;" class="clearfix">'
                         +'<div class="left1 Lf"><i class="red">*</i>许可经营范围:</div>'
                         +'<div class="right1 Lf">'
-                            +'<div name="" id="textarea'+i+'" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #999;"  contenteditable="false"></div>'
+                            +'<div name="" id="textarea'+i+'" class="textarea"  style="width: 359px;height: 88px; border: 1px solid #ebe9ea;"  contenteditable="false"></div>'
                         +'</div>'
                         +'<span class="ts2">许可经营不能为空</span>'
                         +'<div class="btn btn1 Lf" style="width: 82px;height: 30px;line-height: 30px;margin: 10px 0 0 12px;">添加</div>'
@@ -1072,7 +1190,7 @@
                         +'<span class="ts">有效期不能为空</span>'
                     +'</li>'
                 +'</ul>'
-                +'<i class="red" style="display: block;margin-top: 22px;font-size: 14px;margin-left: 155px;">请上传营业执照或者扫描件！ 照片大小 < 2MB</i>'
+                +'<i class="ts_color" style="display: block;margin-top: 22px;font-size: 14px;margin-left: 155px;">请上传营业执照或者扫描件！ 照片大小 < 2MB</i>'
             +'</div>';
 
         $('#center').append(str);
@@ -1081,7 +1199,8 @@
         $('.laydate-icon').css({
             'backgroundImage': 'url(../img/yh_rili.png)',
             'backgroundPosition': '137px',
-            'backgroundSize': '11%'
+            'backgroundSize': '11%',
+            'border': '1px solid #ebe9ea'
         });
 
         $.ajax({
@@ -1184,11 +1303,13 @@
 
     });
 
-    $(document).on('click', '.sousuo', function () {
+    // $(document).on('click', '.sousuo', function () {
+    $(document).on('input propertychange', '.input_width', function(){
 
-        var cont = $(this).prev().prev().val();
-
+        // var cont = $(this).prev().prev().val();
         var _this = $(this);
+
+        var cont = $(this).val();
         
         // if ($('.cousuo_cont').css('display') == 'block') {
         //     $('.cousuo_cont').css('display', 'none');
@@ -1210,20 +1331,76 @@
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                if (data.data.length == 0 ) {
-                    var str1 = '';
-                    str1 += '<li style="color: #999;">暂无数据</li>';
-                    _this.parent().next('.cousuo_cont').css('display','block');
-                    _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str1);
-                    // $('.sousuo_ul').html(str1);
-                } else {
-                    var str2 = ''
-                    for (var i = 0; i < data.data.length; i++) {
-                        str2 += '<li data-index= "'+data.data[i].chemicalId+'" >'+data.data[i].chemicalName+'</li>';
+                if (data.code == 1) {
+                    if (data.data.length == 0 ) {
+                        var str1 = '';
+                        str1 += '<li style="color: #999;">暂无数据</li>';
+                        _this.parent().next('.cousuo_cont').css('display','block');
+                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str1);
+                        // $('.sousuo_ul').html(str1);
+                    } else {
+                        var str2 = ''
+                        for (var i = 0; i < data.data.length; i++) {
+                            str2 += '<li data-index= "'+data.data[i].chemicalId+'" >'+data.data[i].chemicalName+'</li>';
+                        }
+                        // $('.sousuo_ul').html(str2);
+                        _this.parent().next('.cousuo_cont').css('display','block');
+                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str2);
                     }
-                    // $('.sousuo_ul').html(str2);
-                    _this.parent().next('.cousuo_cont').css('display','block');
-                    _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str2);
+                }
+            },
+            error: function (err) {
+                console.log();
+            }
+        })
+
+    });
+
+
+    $(document).on('click', '.sousuo', function () {
+
+        var cont = $(this).prev().prev().val();
+        var _this = $(this);
+
+        // var cont = $(this).val();
+
+        //应该不要了
+        // if ( _this.parent().next('.cousuo_cont').css('display') == 'block') {
+        //     _this.parent().next('.cousuo_cont').css('display', 'none');
+        // } else if($('.cousuo_cont').css('display') == 'none') {
+        //     _this.parent().next('.cousuo_cont').css('display', 'block');
+        // }
+
+        $.ajax({
+            url: pubIP + 'productApi/listChemicalLikeByName',
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                chemicalStr: cont
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.code == 1) {
+                    if (data.data.length == 0 ) {
+                        var str1 = '';
+                        str1 += '<li style="color: #999;">暂无数据</li>';
+                        _this.parent().next('.cousuo_cont').css('display','block');
+                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str1);
+                        // $('.sousuo_ul').html(str1);
+                    } else {
+                        var str2 = ''
+                        for (var i = 0; i < data.data.length; i++) {
+                            str2 += '<li data-index= "'+data.data[i].chemicalId+'" >'+data.data[i].chemicalName+'</li>';
+                        }
+                        // $('.sousuo_ul').html(str2);
+                        _this.parent().next('.cousuo_cont').css('display','block');
+                        _this.parent().next('.cousuo_cont').find('.sousuo_ul').empty().html(str2);
+                    }
                 }
             },
             error: function (err) {
@@ -1252,6 +1429,12 @@
             $(this).parents('li').prev().find('.textarea').append('<div data-ind="'+$(this).attr('data-index')+'">'+$(this).text()+'<span class="delete_info delete_div" style="cursor: pointer;">x</span></div>');
             $(this).parents('li').prev().find('.ts2').css('visibility', 'hidden');
         }
+    });
+    
+
+    $(document).on('mouseenter', '.sousuo_ul li', function () {
+        $('.sousuo_ul li').css('background', '');
+        $(this).css('background', '#F6F6F6').css('cursor', 'pointer');
     });
 
 

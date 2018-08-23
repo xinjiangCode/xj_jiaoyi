@@ -247,7 +247,7 @@ background-color: #ff8743;background-position:center ;}
 }
 #colseAlert{
 	position: absolute;
-	right: 8px;
+	right: 0px;
 	top: 0px;
 }
 .tsBox>p{

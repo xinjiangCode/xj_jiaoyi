@@ -25,6 +25,10 @@
         .main {
             width: 935px;
         }
+
+        textarea.remark {
+            border: 1px solid #e7e7e7;
+        }
     </style>
 </head>
 <script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
@@ -136,7 +140,7 @@
                             <p>
                                 <!-- "paymentMethod": 1,  支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限 -->
                                 <span>支付方式：<i class="yellow"><%=paymentMethodStr%></i></span>
-                                <span style="margin-left:125px;">总价：<b style="font-weight:bold;" class="yellow"><%=total%></b>元</span>
+                                <span style="margin-left:125px;">总价：<b style="font-weight:bold;" class="yellow zongjia"><%=total%></b>元</span>
                                 <!-- "deliveryType": 1,  交割方式 1：包到 2：自提 -->
                                 <span  style="margin-left:170px;">交割方式：<%=deliveryTypeStr%></span>
                                 <!-- <%if(deliveryType==1){%>
@@ -146,6 +150,7 @@
                                 <%}%> -->
                             </p>
                             <p>手机号码：<%=contactPhone%></p>
+                            <p>询盘供应商：<%=companyName%></p>
                         </div>
                     </div>
                     <div class="bottom">
@@ -163,7 +168,7 @@
                         <script type="text/html" id="rightBottomTpl">
                             <div>
                                 <label for="">* 成交总价:
-                                    <input id="totalmoney" type="text" class="input" readonly value="<%=dealTotal%>">
+                                    <input id="totalmoney" type="text" class="input" value="<%=total%>">
                                 </label>
                             </div>
                             <div>
@@ -173,11 +178,11 @@
                                     </label>
                                     <div class="xhje">
                                         <p>现汇金额为</p>
-                                        <p>￥<i style="font-weight:bold;" class="yellow" id="currenthui"><%=dealTotal%></i>元</p>
+                                        <p>￥<i style="font-weight:bold;" class="yellow" id="currenthui"><%=total%></i>元</p>
                                     </div>
                                 <%}else if(paymentMethod == 2){%>
                                     <label for="">* 承兑:
-                                        <input id="chengdui" type="text" class="input" readonly value="<%=dealTotal%>">
+                                        <input id="chengdui" type="text" class="input" value="<%=total%>" readonly>
                                     </label>
                                     <div class="xhje">
                                         <p>现汇金额为</p>
@@ -289,17 +294,30 @@
                             var rightBottomTpl = template('rightBottomTpl', res.data);
                             $('.infoHandleCont>.left').html(rightBottomTpl);
 
-                         $("#totalmoney").val(res.data.total)
+                            // // 询盘供应商：
+                            // $('.xunpan_gys').text(res.);
+
+                         //$("#totalmoney").val(res.data.total)
 
                             // 点击生成订单
                             // 现汇金额
                             var totalMoney=$('#totalmoney').val();
                             var acceptanceTotal=$('#chengdui').val();//承兑金额
-                            $('#currenthui').text((res.data.total-0)-(res.data.acceptanceTotal-0));
+                            $('#currenthui').text((res.data.total-0)-(acceptanceTotal-0));
                                 console.log(acceptanceTotal,totalMoney)
+
+
                             // 1、改变总金额--现汇金额变化
-                            $('#totalmoney').blur(function(){
-                                totalMoney = $('#totalmoney').val()
+                            $('#totalmoney').on('input porpertychange', function(){
+
+                                //totalMoney = $('#totalmoney').val()
+                                var totalMoney=$('#totalmoney').val();
+                                var acceptanceTotal=$('#chengdui').val();//承兑金额
+                                $('#currenthui').text((res.data.total-0)-(acceptanceTotal-0));
+                                console.log(acceptanceTotal,totalMoney)
+
+                                $('.zongjia').text($('#totalmoney').val());
+
                                 if(totalMoney.trim()){
                                     if(totalMoney-0 <= acceptanceTotal-0){
                                         $('#chengdui').val(totalMoney);
