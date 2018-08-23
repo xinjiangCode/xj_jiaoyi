@@ -64,7 +64,7 @@
 				overflow: hidden;
 			}
 			.wiBox p{
-				margin-bottom: 21px;
+				margin-bottom: 20px;
 				margin-top: 0px;
 			}
 			.webInfoTit{
@@ -440,6 +440,10 @@
 				float: right;
 			}
 
+		    .tsBox>div textarea {
+				font-size: 12px;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -538,9 +542,9 @@
 				<div class="wcObjBox">
 					<div class="wcleftBox xianhuo_ban" id="xianhuo_ban" style="height: 582px;">
 						<div class="wcleftBoxTit">
-							<img src="./img/wcTitImg.jpg"/>
+							<img src="./img/wcTitImg.png"/>
 							<p>热货现搜</p>
-							<img src="./img/wcTitImg.jpg"/>
+							<img src="./img/wcTitImg.png"/>
 						</div>
 						<div class="wcObjType">有机化学品</div>
 						<a href="./search/productNameSearch_precise.html">氨基酸</a>
@@ -1849,7 +1853,7 @@
 		        dataType: "json",
 		        async:false,
 		        success: function(json){
-		        	//console.log(json);
+		        	console.log(json);
 					var testRes = json.hasOwnProperty("data");//判断json中是否存在某属性
 					console.log(testRes);
 					if(testRes === false){
@@ -1857,7 +1861,7 @@
 					}
 		        	var str = '';
 		        	for (var i = 0; i < json.data.length; i++) {
-		        		str += '<p style="height: 44px; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 2;display: -webkit-box; -webkit-box-orient: vertical;" data-id = '+json.data[i].articleid+'><a href="industryInformation/industryInformationDeatils.html">【公告】<span>'+json.data[i].description+'</span></a></p>';
+		        		str += '<p style="height: 20px; overflow: hidden; text-overflow: ellipsis; -webkit-line-clamp: 1;display: -webkit-box; -webkit-box-orient: vertical;" data-id = '+json.data[i].articleid+'><a href="industryInformation/industryInformationDeatils.html">【公告】<span>'+json.data[i].description+'</span></a></p>';
 		        	}
 
 		        	$('.webInfoScroll .wiBox').html(str);
@@ -1874,16 +1878,16 @@
             });
 
 
-	       var msgTop = 65;
+	       var msgTop = 40;
 	       var msgTime = null;
 	       scrollInfo();
 	       function scrollInfo(){
 		       msgTime = setInterval(function(){
-		       		if(msgTop > $('.wiBox p').length*65-130){
+		       		if(msgTop > $('.wiBox p').length*40-112){
 		       			msgTop = 0;
 		       		}
 		       		$('.wiBox').animate({'marginTop':'-'+msgTop+'px'});
-		       		msgTop+=65;
+		       		msgTop+=40;
 		       },3000);
 	       }
 	       

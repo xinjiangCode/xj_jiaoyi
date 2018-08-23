@@ -424,8 +424,8 @@
 			.img_bg img {
 				width: 74px;
 				height: 67px;
-				margin-top: 30px;
-				margin-bottom: 13px;
+				margin-top: 20px;
+				margin-bottom: 10px;
 			}
 
 			.shangpin_cont {
@@ -593,6 +593,27 @@
 
 			.sellerRt>div {
 				margin-bottom: 20px;
+			}
+
+			/*后加*/
+			.addAddressBoxCont {
+			    height: 235px;
+			    overflow-y: auto;
+			    overflow-x: hidden;
+			}
+
+			#editShoupiaoAddress .cont>.main {
+				height: 355px;
+			}
+
+			.modelpop#editShoupiaoAddress .cont {
+				height: 400px;
+				margin-top: -200px;
+			}
+
+			#toXunpan .cont {
+				height: 557px;
+				margin-top: -278px;
 			}
 			
 		</style>
@@ -950,7 +971,7 @@
 						<span>我要询价</span>
 						<img src="../img/gsxq_del.png" height="48" alt="" class="close">
 					</div>
-					<div class="main" style="padding-bottom:43px;">
+					<div class="main" style="padding-bottom:10px;">
 						<ul>
 							<li>
 								<label for="xj_goodsNum">购买数量：</label>
@@ -1483,26 +1504,30 @@
 
 								if(response.data.chemical.chemicalDangerFlag != 1){
 									if(response.data.chemicalType && response.data.chemicalType != {}) {
-											var chemicalTypeTpl = ''
-											$('.shangpin').css('display', 'block')
-											chemicalTypeTpl += '<div class="shangpin_title">'+ response.data.chemicalType.typeName + '：</div>'
-											+'<div class="jinggao clearfix">'
-											+'<div class="fl img_bg">'
-											+'<img src="../img/hazardousArticle.png" />'
-											+'<p>' + response.data.chemicalType.msgTitle + '</p>'
-											+'</div>';
-											if (response.data.chemicalType != null && response.data.chemicalType != ''){
-												if (response.data.chemicalType.msgShow == 1 && (response.data.chemicalType.msgContent != ""||response.data.chemicalType.msgContent != null)) {
+											if (response.data.chemicalType.msgShow == 1) {
+												var chemicalTypeTpl = ''
+												$('.shangpin').css('display', 'block')
+												chemicalTypeTpl += '<div class="shangpin_title">'+ response.data.chemicalType.typeName + '：</div>'
+												+'<div class="jinggao clearfix">'
+												+'<div class="fl img_bg">'
+												+'<img src="../img/hazardousArticle.png" />'
+												+'<p>' + response.data.chemicalType.msgTitle + '</p>'
+												+'</div>';
+												if (response.data.chemicalType != null && response.data.chemicalType != ''){
+													if (response.data.chemicalType.msgShow == 1 && (response.data.chemicalType.msgContent != ""||response.data.chemicalType.msgContent != null)) {
 
-													chemicalTypeTpl += '<div class="shangpin_cont fl">'+ response.data.chemicalType.msgContent +'</div>';
-												}else {
-													$('.shangpin').css('display', 'none');
-													return false;
+														chemicalTypeTpl += '<div class="shangpin_cont fl">'+ response.data.chemicalType.msgContent +'</div>';
+													}else {
+														$('.shangpin').css('display', 'none');
+														return false;
+													}
 												}
-											}
-											chemicalTypeTpl+='</div>';
-						
-										$('.shangpin').html(chemicalTypeTpl);
+												chemicalTypeTpl+='</div>';
+							
+											$('.shangpin').html(chemicalTypeTpl);
+										} else {
+											$('.shangpin').css('display', 'none');
+										}
 									} else {
 										$('.shangpin').css('display', 'none');
 									}

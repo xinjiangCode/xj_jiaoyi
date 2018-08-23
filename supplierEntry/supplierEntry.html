@@ -7,7 +7,7 @@
 	    <meta http-equiv="Cache-Control" CONTENT="no-cache">
 	    <meta http-equiv="Pragma" content="no-cache">
 	    <meta name="format-detection" content="telephone=no" />
-		<title >新疆化学品经营服务平台</title>
+		<title adct1="1">新疆化学品经营服务平台</title>
 		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
@@ -77,7 +77,7 @@
 	        .img_div {
 	        	width: 450px;
 			    text-align: center;
-			    margin-top: 20px;
+			    padding-top: 20px;
 			    margin-bottom: 10px;
 			}
 
@@ -133,6 +133,80 @@
 	            background-repeat: no-repeat; 
 	            font-size: 18px;
 	        }
+
+	        /*清除浮动*/
+			.clearfix:before, .clearfix:after {
+			    content: "";
+			    display: table;
+			}
+
+			.clearfix:after {
+			    clear: both;
+			}
+
+			.clearfix {
+			    *zoom: 1; /*IE/7/6*/
+			}
+
+	        .modelcontent>div {
+				height: 37px;
+				overflow: visible;
+			}
+
+			.tsBox .modelcontent>div {
+				margin-bottom: 28px;
+			}
+
+			.modelcontent>div input, .tsBox>div textarea, .tsBox>div select {
+				border: 1px solid #e7e7e7;
+				height: 37px;
+			}
+
+			.modelcontent>div textarea {
+				height: 101px;
+			}
+
+			.modelcontent>div span {
+				text-align: left;
+			}
+
+			.selectPub ul {
+				overflow: hidden;
+				font-size: 14px;
+			}
+
+			.ts_tousu {
+			    line-height: 32px;
+			    color: #ff7854;
+			    font-size: 12px;
+			    margin-left: 95px;
+			}
+
+			.all_success_alert .modelcontent>div {
+				width: 100%;
+			}
+
+			.all_success_alert .modelcontent>div.info {
+				height: 120px;
+				text-align: center;
+			}
+
+			.selectPub span, .tsBox div span {
+				font-size: 14px;
+			}
+
+			.member_phone, .member {
+				color: #999;
+			}
+
+			.tsBox div input {
+				font-size: 12px;
+				color: #666666;
+			}
+
+			.tsBox>div textarea {
+				font-size: 12px;
+			}
 
 		</style>
 	</head>
@@ -193,29 +267,47 @@
 			<a href="##" id="tousu"><img src="../img/indedxBi.png"/> </a>
 			<a href="##" id="gotop"><img src="../img/indexDing.png"/> </a>
 		</div>
-		<div class="tsBg"></div>
+		<div class="tsBg" style="height: 100%;"></div>
 		<div class="tsBox">
-			<img src="../img/breadcrumbCloseIcon.png" id="colseAlert"/>
-			<p>投诉建议</p>
-			<div>
-				<span>资讯类别</span>
-				<select name="">
-					<option value="建议">建议</option>
-					<option value="投诉">投诉</option>
-				</select>
-			</div>
-			<div>
-				<span>联系人电话</span> <input type="text" placeholder="请输入手机号码"/>
-			</div>
-			<div>
-				<span>联系人 </span><input type="text" placeholder="请输入联系人"/>
-			</div>
-			<div style="height: auto;">
-				<span>问题描述 </span><textarea style="vertical-align: text-top;" placeholder="请输入您的问题"></textarea>
-			</div>
-			<div >
-				<button>立即提交</button>
-			</div>
+			<div class="modeltitle" style="width: 100%;">
+	            <span>投诉建议</span>
+	            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="" id="colseAlert">
+	        </div>
+			<!--<img src="img/breadcrumbCloseIcon.png" id="colseAlert"/>-->
+			<!--<p>投诉建议</p>-->
+			<div class="modelcontent" style="width: 100%;padding-top: 19px;">
+	            <div class="clearfix">
+					<span style="float: left;">资讯类别</span>
+					<!-- <select name="" style="font-size: 12px;color: #999;">
+						<option value="建议">建议</option>
+						<option value="投诉">投诉</option>
+					</select> -->
+					<div class="selectPub tousu_jianyi" data-selectedindex="1" style="width: 381px; border: 1px solid #e7e7e7; float: left;">
+                        <span style="width: 200px;">投诉</span>
+                        <img src="../img/prl-select.jpg" alt="">
+                        <ul>
+                            <li data-index="1">投诉</li>
+                            <li data-index="2">建议</li>
+                        </ul>
+                    </div>
+                    <div class="ts_tousu"></div>
+				</div>
+				<div>
+					<span>联系人电话</span> <input type="text" class="member_phone" placeholder="请输入手机号码"/>
+					<div class="ts_tousu"></div>
+				</div>
+				<div>
+					<span>联系人 </span><input type="text" class="member" placeholder="请输入联系人"/>
+					<div class="ts_tousu"></div>
+				</div>
+				<div style="height: auto;" class="clearfix">
+					<span>问题描述 </span><textarea style="color: #666666;" class="member_descript" style="vertical-align: text-top;" placeholder="请输入您的问题"></textarea>
+					<div class="ts_tousu"></div>
+				</div>
+	            <div class="modelBtnBox">
+	                <div style="background:#5690f6;width:130px;height:35px;line-height:35px;" class="modelbtn confirm liji_submit">立即提交</div>
+	            </div>
+	        </div>
 		</div>
 
 		<!-- 所有成功提示 -->
@@ -240,7 +332,7 @@
 		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" >      
-			$('.tsBg').height($(window).height());
+			// $('.tsBg').height($(window).height());
 			$('#colseAlert').click(function(){
 				$('.tsBg').hide();
 				$('.tsBox').hide();
@@ -252,6 +344,99 @@
 
 			$('.modelbtn, .close').click(function() {
 				$('.all_success_alert').hide();
+			});
+
+			$('.member_phone').blur(function() {
+				var reg = /^\d+$/;
+				if (reg.test($(this).val()) != true) {
+					$(this).parent().find('.ts_tousu').html('联系电话格式不正确');
+				} else {
+					$(this).parent().find('.ts_tousu').html('');
+				}
+			});
+
+
+			$('.member').blur(function() {
+				if ($(this).val() == '') {
+					$(this).parent().find('.ts_tousu').html('联系人不能为空');
+				} else {
+					$(this).parent().find('.ts_tousu').html('');
+				}
+			});
+
+			$('.member_descript').blur(function() {
+				
+				if ($(this).val() == '') {
+					$(this).parent().find('.ts_tousu').html('问题描述不能为空');
+				} else {
+					$(this).parent().find('.ts_tousu').text('');
+				}
+			});
+
+
+			$('.liji_submit').click(function() {
+
+				var tousu_jianyi = $('.tousu_jianyi').attr('data-selectedindex');
+
+				var member_phone = $('.member_phone');
+
+				var member = $('.member');
+
+				var member_descript = $('.member_descript');
+
+				var reg = /^\d+$/;
+
+				if (reg.test(member_phone.val()) != true) {
+					member_phone.parent().find('.ts_tousu').html('联系电话格式不正确');
+					return false;
+				}				
+
+				if (member.val() == '') {
+					member.parent().find('.ts_tousu').html('联系人不能为空');
+					return false;
+				}
+
+				if (member_descript.val() == '') {
+					member_descript.parent().find('.ts_tousu').html('问题描述不能为空');
+					return false;
+				}
+
+				$.ajax({
+					type:"post",
+			        url:pubIP+"complaintAdvise/addAdvise",//v1.0
+			        cache:false,
+			        dataType: "json",
+			        async:false,
+			        headers: {
+	                    Accept: "application/json; charset=utf-8",
+	                    token: token
+	                },
+	                data: {
+	                	type: tousu_jianyi,
+	                	contactName: member.val(),
+	                	contactPhone: member_phone.val(),
+	                	detail: member_descript.val()
+	                },
+			        success: function(data){
+			        	console.log(data);
+			        	if (data.code == 1) {
+			        		$('.tsBox').hide();
+			        		$('.tsBg').hide();
+			        		//cf_alert(1, '添加成功');
+			        		$('.all_success_alert .innerSuccmsg').text('添加成功');
+			        		$('.all_success_alert').show();
+			        	} else {
+			        		//cf_alert(2, '添加失败');
+			        		$('.all_success_alert .innerSuccmsg').text('添加失败');
+			        		$('.all_success_alert .img_div img').attr('src', 'img/cf_denger1.png');
+			        		$('.all_success_alert').show();
+			        	}
+			        },
+			        error: function(err) {
+			        	console.log(err);
+			        }
+				});
+
 			});
 
 			//isOld token

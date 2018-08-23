@@ -229,9 +229,15 @@ background-color: #ff8743;background-position:center ;}
     /*IE4-IE9*/  
     filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=70);  
     position: fixed;
-    z-index: 30;
+    /*z-index: 30;
     top: 0;
+    display: none;*/
+    top: 0;
+    bottom: 0;
     display: none;
+    left: 0;
+    right: 0;
+    height: 100%;
 }
 .tsBox{
 	background: #fff;

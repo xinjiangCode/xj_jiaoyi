@@ -91,3 +91,158 @@
 		bottom: 0;
 		margin-bottom: 27px;
 }
+
+
+/* 模态框 */
+/*投诉建议*/
+.modelBox, .all_success_alert, .all_error_alert{
+    z-index: 9999;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modelCont{
+    position: absolute;
+    width: 650px;
+    min-height: 275px;
+    left: 50%;
+    top: 50%;
+    margin-left: -225px;
+    margin-top: -200px;
+    font-family: 'microsoft yahei';
+    /* background-color: red; */
+}
+.modeltitle{
+    width: 650px;
+    height: 48px;
+    background-image: url(../img/gsxq.gif);
+    background-size: 100% 100%;
+    background-repeat: no-repeat; 
+    font-size: 16px;
+    color: #5690f6;
+    line-height: 50px;
+}
+.modeltitle span{
+    margin-left: 16px;
+}
+.modelcontent{
+    width: 650px;
+    min-height: 226px;
+    background-image: url('../img/gsxq_cont.gif');
+    background-size: 100% 100%;
+    background-repeat: no-repeat; 
+    font-size: 18px;
+}
+
+.modelBtnBox{
+    width: 302px;
+    height: 45px;
+    overflow: hidden;
+    margin: 0 auto;
+	padding-bottom: 30px;
+}
+.modelbtn{
+    width: 140px;
+    height: 45px;
+    border: 1px solid #5690f6;
+    font-size: 16px;
+    color: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.modelcontent>div {
+	height: 37px;
+	overflow: visible;
+}
+
+.modelcontent>div input, .tsBox>div textarea, .tsBox>div select {
+	border: 1px solid #e7e7e7;
+	height: 37px;
+}
+
+.modelcontent>div textarea {
+	height: 101px;
+}
+
+.modelcontent>div span {
+	text-align: left;
+}
+
+/*清除浮动*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1; /*IE/7/6*/
+}
+
+.modelcontent>div {
+	height: 37px;
+	overflow: visible;
+}
+
+.modelcontent>div input, .tsBox>div textarea, .tsBox>div select {
+	border: 1px solid #e7e7e7;
+	height: 37px;
+}
+
+.modelcontent>div textarea {
+	height: 101px;
+}
+
+.modelcontent>div span {
+	text-align: left;
+	font-size: 14px;
+}
+
+.selectPub ul {
+	overflow: hidden;
+	font-size: 14px;
+}
+
+.ts_tousu {
+    line-height: 32px;
+    color: #ff7854;
+    font-size: 12px;
+    margin-left: 95px;
+}
+
+.all_success_alert .modelcontent>div {
+	width: 100%;
+}
+
+.all_success_alert .modelcontent>div.info {
+	height: 120px;
+	text-align: center;
+}
+
+.selectPub span {
+	font-size: 14px;
+}
+
+.tsBox>div textarea {
+	font-size: 12px;
+}
+
+.member_phone, .member {
+	color: #666;
+}
+
+.modelcontent>div input {
+	font-size: 12px;
+}
