@@ -198,6 +198,7 @@
                             <div class="orderContItem orderViewdetail">
                                 <a style="display: block;width: 100%;height: 100%;" href="./myPurchase-orderDetail.html?userType=1&id=<%=list[i].transactionOrderIdStr%>">查看订单</a>
                             </div>
+                            
                             <div class="orderContItem publish_wuliu_xuqiu">
                                 <%if(list[i].publishLogisticsStatus == 0){%>
                                     <a target="_blank" href="javascript:;" data-type="1" data-productName="<%=list[i].productName%>" data-sum="<%=list[i].sum%>" data-orderId="<%=list[i].transactionOrderIdStr%>" data-chemicalName="<%=list[i].chemicalName%>" data-chemicalId="<%=list[i].chemicalId%>" style="display:block;width: 100%;height: 100%;">发布物流需求</a>
