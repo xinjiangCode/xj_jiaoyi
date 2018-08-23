@@ -18,7 +18,9 @@
 }
 .blue{
     color: #6EA3FF;
+    cursor: pointer;
 }
+.od_head img{cursor: pointer;}
 .bacFD{
     background-color: #FDFDFD;
 }

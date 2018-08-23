@@ -65,7 +65,7 @@ function missedLogin() {
     window.parent.$("#effect").css("display","block");
 }
 
-if (adct == '免费找货' || adct == '立即询盘') {
+if (adct == '免费找货' || adct == '立即询盘' || adct=='login') {
     $('.close').css('background', 'url("../img/gsxq_del.png") no-repeat');
 }
 
