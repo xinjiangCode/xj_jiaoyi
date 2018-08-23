@@ -1829,7 +1829,7 @@
                     <input checked type="radio" name="xuNi" value="虚拟账户" style="margin-left: 20px;cursor: pointer;">虚拟账户
                     <span style="margin-left: 54px;">可用余额：</span>
                     <span class="accountBalance">0.00</span>
-                    <span class="cf_btnA Rt" style="margin-right: 35px;color: #5690f6;font-weight: bold;">充值</span>
+                    <span class="cf_btnA Rt" style="margin-right: 35px;color: #5690f6;font-weight: bold;cursor:pointer;" onclick="goChongZhi(this)">充值</span>
                     <div style="border-top: 3px solid #ffffff;margin: 10px 0;margin-left: -47px;margin-right: -73px;"></div>
                     <span style="margin-left: 160px;color: #5690f6;">支付金额: </span>
                     <span style="width: 130px;height: 31px;line-height: 31px;color: #5690f6;" class="payBalance">10000</span>
@@ -3113,9 +3113,33 @@
         });
     })
 
-   
-   
+//跳到充值页面
+        function goChongZhi(that) {
+            $(that).parents(".modelCont").parent().hide();
+//            只保留虚拟账户参数
+            sessionStorage.setItem('flag', '1');
+            showNav("./moneyMange.html")
+        }
+        //展示左侧菜单栏
+        function showNav(src1) {
+            $(".manageItem").each(function (idx,item) {
+                $(this).removeClass("active1");
+                if($(this).attr("data-src")==src1){
+                    $(".manageList").css("display","none");
+//                    $(".cfnav").removeClass("on");
+                    $($(this).parent().parent().parent().parent().parent().attr("data-idx")).addClass("on");
+                    $($(this).parent().parent().parent().parent().parent().attr("data-idx")).css("display","block");
 
+                    $(this).parent().parent().parent().parent().parent().css("display","block");
+                    $(this).parent().parent().show();
+                    $(this).parent().parent().parent().find("img").eq(0).attr('src',"../img/cf_open.png");
+                    $(this).addClass("active1");
+                    $("#Iframe").attr("src",$(this).attr("data-src"));
+                    $("#Iframe").attr("height",$(this).attr("data-height"));
+                }
+
+            })
+        }
 
     //    关于pop的
     function close1(that) {
