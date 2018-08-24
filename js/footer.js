@@ -59,27 +59,31 @@ document.writeln("<footer>\n" +
     "    <div class=\"footerCen mianCont\">\n" +
     "        <div class=\"footerCen1 Lf\">\n" +
     "            <h3><div class=\"footerCenTitle\">新手上路</div></h3>\n" +
-    "            <div>新手注册</div>\n" +
-    "            <div>新手注册</div>\n" +
-    "            <div>新手注册</div>\n" +
+    "            <div><a data-open=\"zhuce\" href=\"##\">用户注册</a></div>\n" +
+    "            <div><a data-open=\"denglu\" href=\"##\">用户登录</a></div>\n" +
+    "            <div><a data-open=\"zhaohui\" href=\"##\">密码找回</a></div>\n" +
+    "            <div><a data-open=\"fenpei\" href=\"##\">子账户分配</a></div>\n" +
     "        </div>\n" +
     "        <div class=\"footerCen2 Lf\">\n" +
     "            <h3><div class=\"footerCenTitle\">用户中心</div></h3>\n" +
-    "            <div>如何发布产品</div>\n" +
-    "            <div>如何发布产品</div>\n" +
-    "            <div>如何发布产品</div>\n" +
+    "            <div><a data-open=\"chanpin1\" href=\"##\">如何发布产品</a></div>\n" +
+    "            <div><a data-open=\"xunpan\" href=\"##\">如何发布询盘</a></div>\n" +
+    "            <div><a data-open=\"baojia\" href=\"##\">如何回复报价</a></div>\n" +
+    "            <div><a data-open=\"xuqiu\" href=\"##\">如何发布需求</a></div>\n" +
     "        </div>\n" +
     "        <div class=\"footerCen3 Lf\">\n" +
-    "            <h3><div class=\"footerCenTitle\">交易入门</div></h3>\n" +
-    "            <div>如何购买现货</div>\n" +
-    "            <div>如何购买现货</div>\n" +
-    "            <div>如何购买现货</div>\n" +
+    "            <h3><div class=\"footerCenTitle\">现货商城</div></h3>\n" +
+    "            <div><a data-open=\"xianhuo1\" href=\"##\">如何查找现货</a></div>\n" +
+    "            <div><a data-open=\"xianhuo2\" href=\"##\">如何购买现货</a></div>\n" +
+    "            <div><a data-open=\"fahuo\" href=\"##\">如何发货</a></div>\n" +
+    "            <div><a data-open=\"zhifu\" href=\"##\">如何支付</a></div>\n" +
     "        </div>\n" +
     "        <div class=\"footerCen4 Lf\">\n" +
     "            <h3><div class=\"footerCenTitle\">供应链服务</div></h3>\n" +
-    "            <div>金融服务</div>\n" +
-    "            <div>金融服务</div>\n" +
-    "            <div>金融服务</div>\n" +
+    "            <div><a data-open=\"chanpin2\" href=\"##\">如何搜索产品</a></div>\n" +
+    "            <div><a data-open=\"jieshao\" href=\"##\">服务介绍</a></div>\n" +
+    "            <div><a data-open=\"leixing\" href=\"##\">服务类型</a></div>\n" +
+    "            <div><a data-open=\"shenqing\" href=\"##\">服务申请</a></div>\n" +
     "        </div>\n" +
     "        <div class=\"Lf\" style=\"width: 0;height: 105px;border-right: 1px solid #e8e8e8;margin-right: 100px;\"></div>\n" +
     "        <div class=\"footerCen5 Lf\" style=\"margin-top: -17px;\">\n" +
@@ -119,4 +123,18 @@ document.writeln("<footer>\n" +
         $('.about_us').attr('href', 'aboutUs.html');
         $('.connect_me').attr('href', 'connect.html');
         $('.legal_page').attr('href', 'legal.html');
+
+        $('.footerCen>div>div a').attr('href', 'help/helpCenter.html');
     }
+
+    if (adct == 'help') {
+        $('.footerCen>div>div a').attr('href', '##');  
+    }
+
+    $('.footerCen>div>div a').click (function () { 
+        sessionStorage.setItem('flag_help', $(this).attr('data-open'));
+        
+        window.location.href = '../help/helpCenter.html';        
+    });
+
+    
