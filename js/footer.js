@@ -88,15 +88,15 @@ document.writeln("<footer>\n" +
     "    </div>\n" +
     "    <div class=\"footerBot\">\n" +
     "        <ul>\n" +
-    "            <li><a href=\"../index.html\">首页</a></li>\n" +
+    "            <li><a class=\"index_page\" href=\"../index.html\">首页</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
     "            <li><a href=\"##\">合作伙伴</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
-    "            <li><a href=\"../aboutUs.html\">关于我们</a></li>\n" +
+    "            <li><a class=\"about_us\" href=\"../aboutUs.html\">关于我们</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
-    "            <li><a href=\"../connect.html\">联系我们</a></li>\n" +
+    "            <li><a class=\"connect_me\" href=\"../connect.html\">联系我们</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
-    "            <li><a href=\"../legal.html\">服务条款</a></li>\n" +
+    "            <li><a class=\"legal_page\" href=\"../legal.html\">服务条款</a></li>\n" +
     "            <li class=\"liline\"></li>\n" +
     "            <li><a href=\"##\">金融服务</a></li>\n" +
     "        </ul>\n" +
@@ -115,4 +115,8 @@ document.writeln("<footer>\n" +
 
     if (adct == '首页') {
         $('.shouye').css('background', 'url(img/footers_hzf.png) 0 0 no-repeat');
+        $('.index_page').attr('href', 'index.html');
+        $('.about_us').attr('href', 'aboutUs.html');
+        $('.connect_me').attr('href', 'connect.html');
+        $('.legal_page').attr('href', 'legal.html');
     }
