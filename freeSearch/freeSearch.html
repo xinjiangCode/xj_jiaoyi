@@ -875,6 +875,25 @@
 					$('#tuijiaTwoInfo1').html(str1);
 					$('#tuijiaTwoInfo2').html(str2);
 
+					if (data.data.one == null) {
+						var strOne = '';
+						strOne += '<div><img src="../img/zw_006.png" style="width: 225px;" alt=""></div>'
+					}
+                    $('#tuijiaTwoInfo0').html(strOne);
+
+                    if (data.data.two == null) {
+                        var strTwo = '';
+                        strTwo += '<div><img src="../img/zw_006.png" style="width: 225px;" alt=""></div>'
+                    }
+                    $('#tuijiaTwoInfo1').html(strTwo);
+
+                    if (data.data.three == null) {
+                        var strThree = '';
+                        strThree += '<div><img src="../img/zw_006.png" style="width: 225px;" alt=""></div>'
+                    }
+                    $('#tuijiaTwoInfo2').html(strThree);
+
+
                 	// var two = template('tuijiaTwoTpl', data.data.two);
                  //    $('#tuijiaTwoInfo').html(two);
 
@@ -1095,6 +1114,14 @@
 		                	}
 
 		                	$('#templateInfo').html(str);
+
+                            if (data.data.list.length < 8) {
+                                var str2 = '';
+                                for (var i = 0; i < 8 - data.data.list.length; i++) {
+                                    str2 += '<div class="fsObjItem"><img style="width: 238px; display: block; right: 0px;" src="../img/zw_002.png" alt=""></div>'
+                                }
+                                $('#templateInfo').append(str2);
+                            }
 
 		                	
 
