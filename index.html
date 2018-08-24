@@ -1181,6 +1181,7 @@
 					</div>
 				</div>
 		     <% } %>
+
 		</script>
 
 		<script type="text/html" id="hotSaleShopTpl">
@@ -1703,6 +1704,14 @@
 
 						$('#caigouResourceInfo').html(str);
 
+                        if (data.data.length < 4) {
+                            var str2 = '';
+                            for (var i = 0; i < 4 - data.data.length; i++) {
+                                str2 += '<div><img src="../img/zw_005.png" alt=""></div>'
+                            }
+                            $('#caigouResourceInfo').append(str2);
+                        }
+
 						for (var i = 0; i < data.data.length; i++) {
 
 							var time2 = new Date(data.data[i].validityData).Format("yyyy-MM-dd,hh:mm:ss");
@@ -1919,7 +1928,17 @@
 	            		return false;
 	            }
 	            var result =  template("objTj1",{list:json.data});
+
 	            $('.wcCtObjBox').html(result);
+
+                  if (json.data.length < 6) {
+                      var str2 = '';
+                      for (var i = 0; i < 6 - json.data.length; i++) {
+                          str2 += '<div><img src="img/zw_002.png"  style="width: 246px; height: 292px;" alt=""></div>'
+                      }
+                      $('.wcCtObjBox').append(str2);
+                  }
+
 	            $('.wcCtObjBox>div:nth-child(3n)').css('padding-right','0');
 	          },
 	          error:function(xhr,statues,error){
