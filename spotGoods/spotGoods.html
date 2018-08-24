@@ -858,7 +858,7 @@
 		</script>
 		<script type="text/html" id="objNice"> 
 			 <% for (i in list) { %>
-                	<div>
+                	<div class="obj_nice">
 						<%if( list[i].chemicalDangerFlag == 1){%>
 							<img src="../img/pu.png">
 						<%}else if(list[i].chemicalDangerFlag == 2){%>
@@ -880,7 +880,7 @@
 		</script>
 		<script type="text/html" id="objTj1"> 
 			 <% for (i in list) { %>
-                	<div objid="<%=list[i].supplyId%>" thisCmpId="<%=list[i].publishCompanyId%>">
+                	<div class="obj_nice" objid="<%=list[i].supplyId%>" thisCmpId="<%=list[i].publishCompanyId%>">
 					<div>
 						<%if( list[i].chemicalDangerFlag == 1){%>
 							<img style="position: absolute;" src="../img/pu.png">
@@ -909,7 +909,7 @@
 		</script>
 		<script type="text/html" id="objTj2"> 
 			 <% for (i in list) { %>
-                <div objid="<%=list[i].supplyId%>" thisCmpId="<%=list[i].publishCompanyId%>" style="border:1px solid #f5f5f5;">
+                <div class="obj_nice" objid="<%=list[i].supplyId%>" thisCmpId="<%=list[i].publishCompanyId%>" style="border:1px solid #f5f5f5;">
 					<%if( list[i].chemicalDangerFlag == 1){%>
 						<img src="../img/pu.png">
 					<%}else if(list[i].chemicalDangerFlag == 2){%>
@@ -1043,6 +1043,15 @@
 	            }
 	            var result =  template("objNice",{list:json.data});
 	            $('.yzhhBox').html(result);
+
+	            if (json.data.length < 6) {
+					var str = '';
+					for (var i = 0; i < 6 - json.data.length; i++) {
+                        str += '<div><img src="../img/zw_004.png" alt=""></div>'
+					}
+                    $('.yzhhBox').append(str);
+				}
+
 	            $('.yzhhBox>div:nth-child(3n)').css('margin-right','0');
 	          },
 	          error:function(xhr,statues,error){
@@ -1071,6 +1080,15 @@
 	            }
 	            var result =  template("objTj1",{list:json.data});
 	            $('.spotTj1').html(result);
+
+                  if (json.data.length < 10) {
+                      var str1 = '';
+                      for (var i = 0; i < 10 - json.data.length; i++) {
+                          str1 += '<div><img src="../img/zw_004.png" alt=""></div>'
+                      }
+                      $('.spotTj1').append(str1);
+                  }
+
 	          },
 	          error:function(xhr,statues,error){
 	              
@@ -1097,6 +1115,15 @@
 	            }
 	            var result =  template("objTj2",{list:json.data});
 	            $('.rsGoods').html(result);
+
+                  if (json.data.length < 6) {
+                      var str2 = '';
+                      for (var i = 0; i < 6 - json.data.length; i++) {
+                          str2 += '<div><img src="../img/zw_004.png" alt=""></div>'
+                      }
+                      $('.rsGoods').append(str2);
+                  }
+
 	            $('.rsGoods>div:nth-child(3n)').css('margin-right','0');
 	          },
 	          error:function(xhr,statues,error){
@@ -1212,7 +1239,7 @@
 		        }
 		    });
 			
-		    $(document).on('click','.xhSC .supplierBox div', function () {
+		    $(document).on('click','.xhSC .supplierBox div.obj_nice', function () {
 				window.localStorage.setItem('thisCompanyId', $(this).attr('data-companyid'));
 				window.location.href="../shopManage/storeIndex.html";
 			});

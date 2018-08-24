@@ -847,6 +847,7 @@ footer .ftText div{
 footer .footerCen{
 	height: 150px;
 	padding-top: 30px;
+	padding-bottom: 20px;
 }
 footer .footerCen1 div,.footerCen2 div,.footerCen3 div,.footerCen4 div{
 	font-size: 14px;
