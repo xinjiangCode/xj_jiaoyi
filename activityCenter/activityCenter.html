@@ -264,43 +264,51 @@
 	            success: function(json){
 					console.log(json);
 
-					
-					for (var i = 0; i < json.data.length; i++) {
-						json.data[i].applyStarttime = new Date(json.data[i].applyStarttime).Format("yyyy-MM-dd");
-						json.data[i].applyEndtime = new Date(json.data[i].applyEndtime).Format("yyyy-MM-dd");
-						json.data[i].endTime = new Date(json.data[i].endTime).Format("yyyy-MM-dd hh:mm:ss");
-						json.data[i].startTime = new Date(json.data[i].startTime).Format("yyyy-MM-dd hh:mm:ss");
-						
-					}
-					
-					var result = template("listTpl",{list:json.data});
-		            $('#listInfo').html(result);
-                    $('.pagination').parent().show();
-		            if(json.code == '0'){
+					if(json.code == '0'){
 	                    $('.pageJump').hide();
 	                    $('.shop_list_table tbody').html('');
 	                    $('.notMsg').show();
 	                    return false;
 	                }
 
-	                if (isFirst) {
-	                        
-	                    Page({
-	                        num: json.count,
-	                        elem: $('#page1'),
-	                        callback: function(n) {
-	                            console.log(n);
-	                            activityCenter(n, con, title, time);
-	                        }
-	                    });
-	                    
-	                    $('.total').text('共'+json.count+'页，');
+	                if (json.data.length != 0) {
+
+	                	for (var i = 0; i < json.data.length; i++) {
+							json.data[i].applyStarttime = new Date(json.data[i].applyStarttime).Format("yyyy-MM-dd");
+							json.data[i].applyEndtime = new Date(json.data[i].applyEndtime).Format("yyyy-MM-dd");
+							json.data[i].endTime = new Date(json.data[i].endTime).Format("yyyy-MM-dd hh:mm:ss");
+							json.data[i].startTime = new Date(json.data[i].startTime).Format("yyyy-MM-dd hh:mm:ss");
+							
+						}
+						
+						var result = template("listTpl",{list:json.data});
+			            $('#listInfo').html(result);
+	                    $('.pagination').parent().show();
+			            
+
+		                if (isFirst) {
+		                        
+		                    Page({
+		                        num: json.count,
+		                        elem: $('#page1'),
+		                        callback: function(n) {
+		                            console.log(n);
+		                            activityCenter(n, con, title, time);
+		                        }
+		                    });
+		                    
+		                    $('.total').text('共'+json.count+'页，');
 
 
-	                    isFirst = false;
-	               }
+		                    isFirst = false;
+		               }
 
-	               $('.allPageN').text(num+'/'+json.count);
+		               $('.allPageN').text(num+'/'+json.count);
+	                } else {
+	                	$('.pageCont').hide();
+	                }
+					
+					
 
 	            },
 	            error: function(err) {

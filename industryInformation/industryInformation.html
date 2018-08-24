@@ -364,53 +364,56 @@
                 },
                 dataType: 'json',
                 success: function (data) {
-                    /*console.log(data.data);
-                    console.log(category);
-                    console.log(num);*/
+                    console.log(data);
+                    /*console.log(category);
+                      console.log(num);*/
                     
-                    for (var i = 0; i < data.data.data.length; i++) {
-                        data.data.data[i].timestamp = new Date(data.data.data[i].timestamp).Format("yyyy.MM.dd");
-                    }
+                    if (data.data.data.length != 0) {
+                        for (var i = 0; i < data.data.data.length; i++) {
+                            data.data.data[i].timestamp = new Date(data.data.data[i].timestamp).Format("yyyy.MM.dd");
+                        }
 
 
 
-                    var result =  template("listTpl",{list:data.data.data});
-                    $('#listInfo').html(result);
+                        var result =  template("listTpl",{list:data.data.data});
+                        $('#listInfo').html(result);
 
-                    if(data.code == '0'){
-                        $('.pageJump').hide();
-                        $('.shop_list_table tbody').html('');
-                        $('.notMsg').show();
-                        return false;
-                    }
-                    
-                 if (isFirst) {
+                        if(data.code == '0'){
+                            $('.pageJump').hide();
+                            $('.shop_list_table tbody').html('');
+                            $('.notMsg').show();
+                            return false;
+                        }
                         
-                        Page({
-                            num: data.data.totalPage,
-                            elem: $('#page1'),
-                            callback: function(n) {
-                                /*console.log(n);
-                                console.log(category);*/
-                                zixun_list(category ,n-1);
-                            }
+                        if (isFirst) {
+                            
+                            Page({
+                                num: data.data.totalPage,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    /*console.log(n);
+                                    console.log(category);*/
+                                    zixun_list(category ,n-1);
+                                }
+                            });
+
+                          
+                            
+                            $('.total').text(data.data.totalPage);
+
+
+                            isFirst = false;
+                       }
+
+                        $('.allPageN').text(num+1+'/'+data.data.totalPage);
+
+                        $('.main_lists li').on('click', function () {
+                            window.localStorage.setItem('id',$(this).attr('data-id'));
                         });
-
-                        console.log(data.data);
-                        
-                        $('.total').text(data.data.totalPage);
-
-
-                        isFirst = false;
-                   }
-
-                    $('.allPageN').text(num+1+'/'+data.data.totalPage);
-
-                    $('.main_lists li').on('click', function () {
-                        window.localStorage.setItem('id',$(this).attr('data-id'));
-                    });
-                    
-                    
+                    } else {
+                        $('.pageJump').hide();
+                    }
+                
 
                 },
                 error: function (err) {

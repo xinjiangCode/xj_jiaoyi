@@ -513,7 +513,7 @@
 	                        return false;
 	                    } else if (data.code == '1') {
 
-	                    	if (data.data != null) {
+	                    	if (data.data.length != 0) {
 	                    		for (var i = 0; i < data.data.length; i++) {
 									data.data[i].endTime = new Date(data.data[i].endTime).Format("yyyy-MM-dd hh:mm:ss"); 
 									data.data[i].productPic = data.data[i].productPic.split(',')[0];

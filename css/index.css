@@ -988,3 +988,25 @@ input{
 input[type="text"]:disabled {
 	background-color: #fafafa;
 }
+
+
+.pageCont, .myPage, .mianCont, .pagination, .pageJump {
+	font-size: 12px !important;
+}
+
+input[type='text'].page_page {
+	height: 39px !important;
+	border-radius: 0px !important;
+}
+
+.allPageN {
+	height: 39px !important;
+	line-height: 39px !important;
+}
+
+.pageJump .button, .pageJump input {
+	height: 39px !important;
+	font-size: 12px !important;
+	line-height: 37px !important;
+	text-align: center !important;
+}

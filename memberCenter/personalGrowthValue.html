@@ -121,6 +121,38 @@
                 console.log(n);
             }
         });
+
+		personalGrowthValue('', 10, '', '', '');
+		// 
+		function personalGrowthValue(num, size, startTime, endTime, source) {
+			$.ajax({
+				type:"get",
+		        url:pubIP+"member/getUserGrowhtInfo",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	pageNum: num,
+	            	pageSize: size,
+	            	startTime: startTime,
+	            	endTime: endTime,
+	            	source: source
+	            },
+		        success: function(data){
+		        	console.log(data);
+		        	
+
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    }); 
+		} 
+
 	</script>
 </body>
 </html>
