@@ -276,11 +276,11 @@
 
     })
 
-    // function openWin(url) {
-    //     $('body').append($('<a href="' + url + '" target="_blank" id="openWin"></a>'))
-    //     document.getElementById("openWin").click();//点击事件
-    //     $('#openWin').remove();
-    // }
+    function openWin(url) {
+        $('body').append($('<a href="' + url + '" target="_blank" id="openWin"></a>'))
+        document.getElementById("openWin").click();//点击事件
+        $('#openWin').remove();
+    }
 
     var decToHex = function(str) {
         if (str == '') {
