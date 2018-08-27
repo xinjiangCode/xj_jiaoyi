@@ -2362,7 +2362,7 @@
                    return;
                }
 
-                if (!data.data.state && data.data.type != 1) {
+                if (!data.data.state && data.data.type != 1 && data.data.type != 2) {
                     $('#account_ziliao').attr('data-src', './identification1.html');
                     $('.yiRenZheng').show();
                     $('.weiRenZheng').hide();
@@ -3002,6 +3002,45 @@
 
             
         } 
+
+        $.ajax({
+                url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    token: token
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    
+                    if (data.data.type == 1 || data.data.type == 2) { //未提交
+                        $(".acconut_box").toggle();
+                        $(".manage").find('img').attr("src","../img/cf_close.png");
+                        $(".manageItem").removeClass("active1");
+                        $(".flag_qyrz").addClass("active1");
+                        $(".flag_qyrz").parent().parent().toggle();
+                        $(".flag_qyrz").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+                        $("#Iframe").attr("src","companyRenzheng/promptCompanyRenzheng.html");
+                    } else {
+
+                        $(".acconut_box").toggle();
+                        $(".manage").find('img').attr("src","../img/cf_close.png");
+                        $(".manageItem").removeClass("active1");
+                        $(".qiye_renzheng").addClass("active1");
+                        $(".qiye_renzheng").parent().parent().toggle();
+                        $(".qiye_renzheng").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+                        $("#Iframe").attr("src","./identification1.html");
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
 
         if (jump_flag == 'flag_wxrz') { //资质认证 -- 危险化学品
             
