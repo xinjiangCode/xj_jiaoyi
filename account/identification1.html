@@ -1371,7 +1371,12 @@
                             //         window.downloadFile(data);
                             //     }
                             // });
-                            openWin("../generic/web/viewer.html?thisUrl="+thisUrls);
+                            if (data.data.files.length != 0) {
+                                openWin("../generic/web/viewer.html?thisUrl="+thisUrls);
+                            } else {
+                                window.parent.cf_alert1(2, '无协议');
+                            }
+                            
                         });
 
 
