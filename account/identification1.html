@@ -1347,8 +1347,16 @@
                     if (data.code == 1) {
                         console.log(data);
                         //下载上传过的企业协议
+                        if (data.data.files.length != 0) {
+                            var thisUrls = data.data.files[0].fileUrl; 
+                            $('#file_look').attr('href', data.data.files[0].fileUrl);
+                            $('#file_look').attr('download', data.data.files[0].fileName);   
 
-                        var thisUrls = data.data.files[0].fileUrl;
+                            $('#wenjian_name').val(data.data.files[0].fileName);
+                            $('#wenjian_name').attr('data-wj', data.data.files[0].dbid);
+                            $('#wenjian_name').attr('data-url', data.data.files[0].fileUrl);
+                        }
+                        
                         $("#file_look").on("click",function () {
                             //window.downloadFile("http://zhongshunxinhe.oss-cn-beijing.aliyuncs.com/jy/adv/imgs/201808213/48a3f6672c51d6fc1dee7e0cdee082b3.pdf");
                             // $.ajax({
@@ -1380,9 +1388,7 @@
                         // $('#test2').val(data.data.company.operatingPeriodEndTime);
                         $('#test3').val(data.data.company.operatingPeriod);
 
-                        $('#wenjian_name').val(data.data.files[0].fileName);
-                        $('#wenjian_name').attr('data-wj', data.data.files[0].dbid);
-                        $('#wenjian_name').attr('data-url', data.data.files[0].fileUrl);
+                        
                         
                         $('#company_address').val(data.data.company.companyAddress2);
 
@@ -1404,8 +1410,7 @@
 
                         /*$('#file_look').attr('data-wj', data.data.files[0].fileUrl.split("/")[img_weizhi]);*/
 
-                        $('#file_look').attr('href', data.data.files[0].fileUrl);
-                        $('#file_look').attr('download', data.data.files[0].fileName);
+                        
 
                         $('#yingye_zhizhao_pic').parent().css({
                             'background': 'url('+data.data.picInfos[0].picUrl+') no-repeat',
