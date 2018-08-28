@@ -261,7 +261,7 @@
                 </li>
                 <li>
                     <div class="left1 Lf"><i class="red">*</i>身份证号:</div>
-                    <div class="right1 Lf"><input type="text" id="id_number"></div>
+                    <div class="right1 Lf"><input type="text" id="id_number" maxlength="18"></div>
                     <div class="ts">身份证号格式不正确</div>
                 </li>
                 <li style="padding-bottom: 0px;">
@@ -701,7 +701,7 @@ function xmTanUploadImg2(obj) {
                 return;
             } 
             //手机号
-            if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
+            if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
                 $('#yanzheng_phone').parent().next().css('display', 'block');
                 return;
             }
@@ -774,6 +774,9 @@ function xmTanUploadImg2(obj) {
                             // window.localStorage.removeItem('add-flag');
                             window.localStorage.setItem('add-flag', 'true');
 
+                            //提交完后页面一刷新，依旧是账户资料展开
+                            window.sessionStorage.setItem('hzf_showPage', 'flag_qyrz');
+
                             $('input[type=file]').attr('disabled',true);
                             $('input[type=text]').attr('disabled',true);
                             $('input[type=radio]').attr('disabled',true);
@@ -807,7 +810,7 @@ function xmTanUploadImg2(obj) {
                 return false;
             }
             
-            if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
+            if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
                 $('#yanzheng_phone').parent().next().css('display', 'block');
                 return;
             }
@@ -980,7 +983,7 @@ function xmTanUploadImg2(obj) {
         });
 
         $('#yanzheng_phone').on('blur', function () {
-            if (!(/^1(3|4|5|7|8)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
+            if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test($('#yanzheng_phone').val().trim()))) {
                 $('#yanzheng_phone').parent().next().html('手机号格式不正确');
                 $('#yanzheng_phone').parent().next().css('display', 'block');
                 return;

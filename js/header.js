@@ -16,12 +16,19 @@ document.writeln("<span id='denglu'>登录</span>");
 document.writeln("</div>");
 document.writeln(" <div class=\"Rt\">");
 document.writeln("<div>");
-if(adct == '首页' ){
-	document.writeln('<a onclick="sessionStorage.setItem(\'cf_showPage\',\'0\',\'hzf_showPage\',\'\');sessionStorage.setItem(\'hzf_showPage\',\'\')" href="account/account.html">');
-}else{
-	document.writeln('<a onclick="sessionStorage.setItem(\'cf_showPage\',\'0\',\'hzf_showPage\',\'\');sessionStorage.setItem(\'hzf_showPage\',\'\')" href="../account/account.html">');
-}
 
+
+// if(adct == '首页' ){
+// 	document.writeln('<a onclick="sessionStorage.setItem(\'cf_showPage\',\'0\',\'hzf_showPage\',\'\');sessionStorage.setItem(\'hzf_showPage\',\'\')" href="account/account.html">');
+// }else{
+// 	document.writeln('<a onclick="sessionStorage.setItem(\'cf_showPage\',\'0\',\'hzf_showPage\',\'\');sessionStorage.setItem(\'hzf_showPage\',\'\')" href="../account/account.html">');
+// }
+
+if(adct == '首页' ){
+	document.writeln('<a class="user_center" href="account/account.html">');
+}else{
+	document.writeln('<a class="user_center" href="../account/account.html">');
+}
 
 document.writeln("<div class=\"icon userIcon\"></div>");
 document.writeln("用户中心");
@@ -539,10 +546,10 @@ if(adct == '首页' ){
 		<a href="freeSearch/freeSearch.html"><span>免费找货</span></a>\
 		<a href="##"><span>金融服务</span></a>\
 		<a target="_blank" href="'+wuliuIP+'index.html" class="wuliu"><span>物流服务</span></a>\
-		<a href="flashSale/buying.html"><span>抢购</span></a>\
-		<a href="flashSale/flashSale.html"><span>抢货</span></a>\
+		<a href="##"><span>抢购</span></a>\
+		<a href="##"><span>抢货</span></a>\
 		<a href="industryInformation/industryInformation.html"><span>行业资讯</span></a>\
-		<a href="memberOfTheMall/memberOfTheMall.html" class="notPd"><span>会员商城</span></a>\
+		<a href="##" class="notPd"><span>会员商城</span></a>\
 	</div></div>';
 }else{
 	headLink +=	'<a href="../index.html" class="actTabLink"><span>首页</span></a>\
@@ -551,10 +558,10 @@ if(adct == '首页' ){
 		<a href="../freeSearch/freeSearch.html"><span>免费找货</span></a>\
 		<a href="##"><span>金融服务</span></a>\
 		<a target="_blank" href="'+wuliuIP+'index.html" class="wuliu"><span>物流服务</span></a>\
-		<a href="../flashSale/buying.html"><span>抢购</span></a>\
-		<a href="../flashSale/flashSale.html"><span>抢货</span></a>\
+		<a href="##"><span>抢购</span></a>\
+		<a href="##"><span>抢货</span></a>\
 		<a href="../industryInformation/industryInformation.html"><span>行业资讯</span></a>\
-		<a href="../memberOfTheMall/memberOfTheMall.html" class="notPd" ><span>会员商城</span></a>\
+		<a href="##" class="notPd" ><span>会员商城</span></a>\
 	</div></div>';
 }
 
@@ -628,6 +635,42 @@ window.onload = function(){
               
           }
        });
+
+
+       $.ajax({
+			type:"post",
+			url:pubIP+"companyCertification/getCompanyWriteStateByUserToken",//v1.0
+			cache:false,
+			dataType: "json",
+			headers: {
+			    Accept: "application/json; charset=utf-8",
+			    token: token
+			},
+			success: function(data){
+			    console.log(data);
+
+			    if (data.data.type == 1) { //未提交
+			  
+					sessionStorage.setItem('cf_showPage','0');
+					sessionStorage.setItem('hzf_showPage','');
+					
+			    } else if (data.data.type == 2) { //审核中
+					sessionStorage.setItem('cf_showPage','0');
+					sessionStorage.setItem('hzf_showPage','flag_qyrz');
+					 
+			    } else {
+			    	sessionStorage.setItem('cf_showPage','0');
+					sessionStorage.setItem('hzf_showPage','');
+			    }
+
+
+
+			    
+			},
+			error: function(err) {
+				console.log(err);
+			}
+			});
 
        
        $(document).on('click','.hotObj',function(){
