@@ -273,14 +273,15 @@ $(".tixian").click(function () {
             dataType: 'json',
             data: {},
             success: function (data) {
+                console.log(data);
                 if (data.code == 1) {
-                    window.parent.$(".modelBox35 .phone").val(data.data.mobile);
+                    window.parent.$(".modelBox35 .phone").val(data.financePhoneNumber);
                     window.parent.$(".modelBox35 .getSMSCode").unbind();
                     window.parent.$(".modelBox35 .getSMSCode").click(function () {
                         if($(this).attr("disabled")=="disabled"){
                             return;
                         }
-                        getSCode(data.data.mobile);
+                        getSCode(data.financePhoneNumber);
                     })
                 } else {
                     return;
