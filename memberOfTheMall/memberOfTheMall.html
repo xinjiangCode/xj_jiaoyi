@@ -49,14 +49,15 @@
 						<div class="member_info">
 							<div class="white_bg clearfix">
 								<div class="fl member_logo">
-									<img src="../img/member_logo.png" alt="">
+									<!-- <img src="../img/member_logo.png" alt=""> -->
+									<div class="logo_img"></div>
 									<div class="yellow_member">
 										<img src="../img/zuanshi.png" alt="">
 										<span>黄金会员</span>
 									</div>
 								</div>
 								<div class="fl member_info2" style="width: 227px;">
-									<p>Hi，<span>郑晓娜来兑换吧</span></p>
+									<p>Hi，<span><span class="login_name">郑晓娜</span>来兑换吧</span></p>
 									<p>企业积分：9999积分</p>
 									<p>个人积分：9999积分</p>
 									<p>成长值：<span class="progress_bg"><span></span></span></p>
@@ -94,7 +95,6 @@
 			</div>
 		</div>
 	</div>
-	
 
 	<div class="fa">
 		<div class="member_width">
@@ -317,6 +317,68 @@
 	        	console.log(err);
 	        }
 	    });  
+
+
+
+
+	    //商城列表
+	    $.ajax({
+			type:"get",
+	        url:pubIP+"memberShop/getMemberShopGoodsDataByFloor",//v1.0
+	        cache:false,
+	        dataType: "json",
+	        async:false,
+	        headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+	        success: function(data){
+	        	console.log(data);
+	        	
+				
+	        },
+	        error: function(err) {
+	        	console.log(err);
+	        }
+	    });
+
+
+	    // 左侧信息展示
+	    $.ajax({
+			type:"get",
+	        url:pubIP+"member/findUserGrowthInfo",//v1.0
+	        cache:false,
+	        dataType: "json",
+	        async:false,
+	        headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+	        success: function(data){
+	        	console.log(data);
+	        	
+	        	if (data.data) {
+	        		if (data.data.storeImage != null) {
+	        			// $('.member_logo>img').attr('src', data.data.storeImage);
+
+	        			// $('.member_logo .logo_img').css('background', 'url("../img/AD.png") center center no-repeat;');
+	        			$('.member_logo .logo_img').css('background-image', 'url("'+data.data.storeImage+'")');
+	        			$('.member_logo .logo_img').css('background-position', 'center center');
+	        			$('.member_logo .logo_img').css('background-repeat', 'no-repeat');
+	        		}
+
+	        		$('.login_name').text(data.data.name == null ? '' : data.data.name);
+
+	        		
+
+	        		
+	        	}
+
+	        },
+	        error: function(err) {
+	        	console.log(err);
+	        }
+	    }); 
 
 		
 

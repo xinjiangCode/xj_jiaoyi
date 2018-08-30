@@ -23,7 +23,14 @@
 	margin: 29px 36px 0 42px;
 	width: 96px;
 	height: 96px;
+	background: url('../../img/member_logo_bg.png');
 }
+
+/*.avatar_bg img {
+	border-radius: 50%;
+	width: 96px;
+	height: 96px;
+}*/
 
 .progress_width {
 	width: 243px;

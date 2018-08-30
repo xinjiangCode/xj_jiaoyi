@@ -32,7 +32,25 @@
     padding-left: 13px;
     box-sizing: border-box;
     text-align: center;
+	height: 100px;
+
 }
+
+.logo_img {
+	width: 140px;
+    margin-left: 10px;
+	height: 80px;
+    margin-bottom: 13px;
+    margin-top: 20px;
+	background: url('../../img/member_logo.png') center center no-repeat;
+}
+
+/*.member_logo>img {
+	width: 127px;
+	height: 80px;
+    margin-bottom: 13px;
+    margin-top: 20px;
+}*/
 
 .white_bg {
 	padding-top: 38px;
