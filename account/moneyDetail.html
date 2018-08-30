@@ -264,11 +264,11 @@
     
     function down_moban(){
         $.ajax({
-            url: pubIP + 'agreement/findAgreementInfo?agreementId=2',
+            url: pubIP + 'financialApi/getReceipts?orderId=2',
             type: 'get',
             dataType: 'json',
             success: function (data) {
-                //console.log(data);
+                console.log(data);
                 var thisUrl = data.data.fileUrl;
                 openWin("../generic/web/viewer.html?thisUrl="+thisUrl);
             },

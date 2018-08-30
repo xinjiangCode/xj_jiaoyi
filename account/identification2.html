@@ -737,24 +737,51 @@ $(function () {
                         $('#phone').val(data.data.company.operatorContact);
                         $('#email').val(data.data.company.operatorMail);
 
-                        $('#zhengjian_pic1').parent().css({
-                            'background': 'url('+data.data.picInfos[5].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#zhengjian_pic1').attr('data-picId6', data.data.picInfos[5].ids);
+                        if (data.data.picInfos.length != 0) {
+                            for (var i = 0; i < data.data.picInfos.length; i++) {
+                                if (data.data.picInfos[i].picDescription == 'upload_file6') {
+                                    $('#zhengjian_pic1').parent().css({
+                                        'background': 'url('+data.data.picInfos[i].picUrl+') no-repeat',
+                                        'background-position':'center',
+                                        'background-size':'contain',
+                                        'background-color':'#f6f6f6'
+                                    });
+                                    $('#zhengjian_pic1').attr('data-picId6', data.data.picInfos[i].ids);
+                                    $('#zhengjian_hidden1').val(data.data.picInfos[i].picUrl);
+                        
+                                }
 
-                        $('#zhengjian_pic2').parent().css({
-                            'background': 'url('+data.data.picInfos[6].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#zhengjian_pic2').attr('data-picId7', data.data.picInfos[6].ids);
+                                if (data.data.picInfos[i].picDescription == 'upload_file7') {
+                                    $('#zhengjian_pic2').parent().css({
+                                        'background': 'url('+data.data.picInfos[i].picUrl+') no-repeat',
+                                        'background-position':'center',
+                                        'background-size':'contain',
+                                        'background-color':'#f6f6f6'
+                                    });
+                                    $('#zhengjian_pic2').attr('data-picId7', data.data.picInfos[i].ids);
+                                    $('#zhengjian_hidden2').val(data.data.picInfos[i].picUrl);
+                                }
+                            }
+                        }
 
-                        $('#zhengjian_hidden1').val(data.data.picInfos[5].picUrl);
-                        $('#zhengjian_hidden2').val(data.data.picInfos[6].picUrl);
+                        // $('#zhengjian_pic1').parent().css({
+                        //     'background': 'url('+data.data.picInfos[5].picUrl+') no-repeat',
+                        //     'background-position':'center',
+                        //     'background-size':'contain',
+                        //     'background-color':'#f6f6f6'
+                        // });
+                        // $('#zhengjian_pic1').attr('data-picId6', data.data.picInfos[5].ids);
+
+                        // $('#zhengjian_pic2').parent().css({
+                        //     'background': 'url('+data.data.picInfos[6].picUrl+') no-repeat',
+                        //     'background-position':'center',
+                        //     'background-size':'contain',
+                        //     'background-color':'#f6f6f6'
+                        // });
+                        // $('#zhengjian_pic2').attr('data-picId7', data.data.picInfos[6].ids);
+
+                        // $('#zhengjian_hidden1').val(data.data.picInfos[5].picUrl);
+                        // $('#zhengjian_hidden2').val(data.data.picInfos[6].picUrl);
 
                     } else {
                         alert(data.msg);

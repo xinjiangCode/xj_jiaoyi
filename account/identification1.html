@@ -1417,51 +1417,117 @@
 
                         
 
-                        $('#yingye_zhizhao_pic').parent().css({
-                            'background': 'url('+data.data.picInfos[0].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#yingye_zhizhao_pic').attr('data-picId1', data.data.picInfos[0].ids);
+                        // $('#yingye_zhizhao_pic').parent().css({
+                        //     'background': 'url('+data.data.picInfos[0].picUrl+') no-repeat',
+                        //     'background-position':'center',
+                        //     'background-size':'contain',
+                        //     'background-color':'#f6f6f6'
+                        // });
+                        // $('#yingye_zhizhao_pic').attr('data-picId1', data.data.picInfos[0].ids);
+                        if (data.data.picInfos.length != 0) {
+                            for (var i = 0; i < data.data.picInfos.length; i++) {
+                                if (data.data.picInfos[i].picDescription == 'upload_file1') {
+                                    $('#yingye_zhizhao_pic').parent().css({
+                                        'background': 'url('+data.data.picInfos[i].picUrl+') no-repeat',
+                                        'background-position':'center',
+                                        'background-size':'contain',
+                                        'background-color':'#f6f6f6'
+                                    });
+                                    $('#yingye_zhizhao_pic').attr('data-picId1', data.data.picInfos[i].ids);
+                                    $('#yingye_zhizhao_hidden').val(data.data.picInfos[i].picUrl);
+                        
+                                }
 
-                        $('#saomiaojian_pic').parent().css({
-                            'background': 'url('+data.data.picInfos[1].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#saomiaojian_pic').attr('data-picId2', data.data.picInfos[1].ids);
+                                if (data.data.picInfos[i].picDescription == 'upload_file2') {
+                                    $('#saomiaojian_pic').parent().css({
+                                        'background': 'url('+data.data.picInfos[i].picUrl+') no-repeat',
+                                        'background-position':'center',
+                                        'background-size':'contain',
+                                        'background-color':'#f6f6f6'
+                                    });
+                                    $('#saomiaojian_pic').attr('data-picId2', data.data.picInfos[i].ids);
+                                    $('#saomiaojian_hidden').val(data.data.picInfos[i].picUrl);
+                        
+                                }
 
-                        $('#chajian_pic').parent().css({
-                            'background': 'url('+data.data.picInfos[2].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#chajian_pic').attr('data-picId3', data.data.picInfos[2].ids);
+                                if (data.data.picInfos[i].picDescription == 'upload_file3') {
+                                    $('#chajian_pic').parent().css({
+                                        'background': 'url('+data.data.picInfos[i].picUrl+') no-repeat',
+                                        'background-position':'center',
+                                        'background-size':'contain',
+                                        'background-color':'#f6f6f6'
+                                    });
+                                    $('#chajian_pic').attr('data-picId3', data.data.picInfos[i].ids);
+                                    $('#chajian_hidden').val(data.data.picInfos[i].picUrl);
+                        
+                                }
 
-                        $('#zhengjian_pic1').parent().css({
-                            'background': 'url('+data.data.picInfos[3].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#zhengjian_pic1').attr('data-picId4', data.data.picInfos[3].ids);
+                                if (data.data.picInfos[i].picDescription == 'upload_file4') {
+                                    $('#zhengjian_pic1').parent().css({
+                                        'background': 'url('+data.data.picInfos[i].picUrl+') no-repeat',
+                                        'background-position':'center',
+                                        'background-size':'contain',
+                                        'background-color':'#f6f6f6'
+                                    });
+                                    $('#zhengjian_pic1').attr('data-picId4', data.data.picInfos[i].ids);
+                                    $('#zhengjian_hidden1').val(data.data.picInfos[i].picUrl);
+                        
+                                }
 
-                        $('#zhengjian_pic2').parent().css({
-                            'background': 'url('+data.data.picInfos[4].picUrl+') no-repeat',
-                            'background-position':'center',
-                            'background-size':'contain',
-                            'background-color':'#f6f6f6'
-                        });
-                        $('#zhengjian_pic2').attr('data-picId5', data.data.picInfos[4].ids);
+                                if (data.data.picInfos[i].picDescription == 'upload_file5') {
+                                    $('#zhengjian_pic2').parent().css({
+                                        'background': 'url('+data.data.picInfos[i].picUrl+') no-repeat',
+                                        'background-position':'center',
+                                        'background-size':'contain',
+                                        'background-color':'#f6f6f6'
+                                    });
+                                    $('#zhengjian_pic2').attr('data-picId5', data.data.picInfos[i].ids);
+                                    $('#zhengjian_hidden2').val(data.data.picInfos[i].picUrl);
+                                }
 
-                        $('#yingye_zhizhao_hidden').val(data.data.picInfos[0].picUrl);
-                        $('#saomiaojian_hidden').val(data.data.picInfos[1].picUrl);
-                        $('#chajian_hidden').val(data.data.picInfos[2].picUrl);
-                        $('#zhengjian_hidden1').val(data.data.picInfos[3].picUrl);
-                        $('#zhengjian_hidden2').val(data.data.picInfos[4].picUrl);
+                            }
+                        }
+                        
+
+                        
+
+                        // $('#saomiaojian_pic').parent().css({
+                        //     'background': 'url('+data.data.picInfos[1].picUrl+') no-repeat',
+                        //     'background-position':'center',
+                        //     'background-size':'contain',
+                        //     'background-color':'#f6f6f6'
+                        // });
+                        // $('#saomiaojian_pic').attr('data-picId2', data.data.picInfos[1].ids);
+
+                        // $('#chajian_pic').parent().css({
+                        //     'background': 'url('+data.data.picInfos[2].picUrl+') no-repeat',
+                        //     'background-position':'center',
+                        //     'background-size':'contain',
+                        //     'background-color':'#f6f6f6'
+                        // });
+                        // $('#chajian_pic').attr('data-picId3', data.data.picInfos[2].ids);
+
+                        // $('#zhengjian_pic1').parent().css({
+                        //     'background': 'url('+data.data.picInfos[3].picUrl+') no-repeat',
+                        //     'background-position':'center',
+                        //     'background-size':'contain',
+                        //     'background-color':'#f6f6f6'
+                        // });
+                        // $('#zhengjian_pic1').attr('data-picId4', data.data.picInfos[3].ids);
+
+                        // $('#zhengjian_pic2').parent().css({
+                        //     'background': 'url('+data.data.picInfos[4].picUrl+') no-repeat',
+                        //     'background-position':'center',
+                        //     'background-size':'contain',
+                        //     'background-color':'#f6f6f6'
+                        // });
+                        // $('#zhengjian_pic2').attr('data-picId5', data.data.picInfos[4].ids);
+
+                        // $('#yingye_zhizhao_hidden').val(data.data.picInfos[0].picUrl);
+                        // $('#saomiaojian_hidden').val(data.data.picInfos[1].picUrl);
+                        // $('#chajian_hidden').val(data.data.picInfos[2].picUrl);
+                        // $('#zhengjian_hidden1').val(data.data.picInfos[3].picUrl);
+                        // $('#zhengjian_hidden2').val(data.data.picInfos[4].picUrl);
                         
                         
                         // $('#address').val(data.data.company.companyAddress2);
@@ -1651,8 +1717,7 @@
                             upload_file5: img_url5,
                             fileName: file_name,
                             dbid: dbid,
-                            fileUrl: file_url,
-                            sourceType: 1
+                            fileUrl: file_url
                         },
                         cache: false,
                         dataType: 'json',
@@ -1715,8 +1780,7 @@
                             upload_file5: img_url5,
                             fileName: file_name,
                             dbid: dbid,
-                            fileUrl: file_url,
-                            sourceType: 1
+                            fileUrl: file_url
                         },
                         cache: false,
                         dataType: 'json',

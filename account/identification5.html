@@ -1207,26 +1207,54 @@ function xmTanUploadImg2(obj) {
 
                             $('#yanzheng_phone').val(data.data.company.financePhoneNumber);
                             $('#yanzheng_phone').attr('disabled', 'disabled');
+
+
+                            if (data.data.picInfos.length != 0) {
+                                for (var i = 0; i < data.data.picInfos.length; i++) {
+                                    if (data.data.picInfos[i].picDescription == 'upload_file8') {
+                                        $('#id_card_pic1').parent().css({
+                                            'background': 'url('+data.data.picInfos[i].picUrl+') no-repeat',
+                                            'background-position':'center',
+                                            'background-size':'contain',
+                                            'background-color':'#f6f6f6'
+                                        });
+                                        $('#id_card_pic1').attr('data-picId8', data.data.picInfos[i].ids);
+                                        $('#id_card_hidden1').val(data.data.picInfos[i].picUrl);
+                            
+                                    }
+
+                                    if (data.data.picInfos[i].picDescription == 'upload_file9') {
+                                        $('#id_card_pic2').parent().css({
+                                            'background': 'url('+data.data.picInfos[i].picUrl+') no-repeat',
+                                            'background-position':'center',
+                                            'background-size':'contain',
+                                            'background-color':'#f6f6f6'
+                                        });
+                                        $('#id_card_pic2').attr('data-picId9', data.data.picInfos[i].ids);
+                                        $('#id_card_hidden2').val(data.data.picInfos[i].picUrl);
+                                    }
+                                }
+                            }
                             
                             
-                            $('#id_card_pic1').parent().css({
-                                'background': 'url('+data.data.picInfos[7].picUrl+') no-repeat',
-                                'background-position':'center',
-                                'background-size':'contain',
-                                'background-color':'#f6f6f6'
-                            });
-                            $('#id_card_pic1').attr('data-picId8', data.data.picInfos[7].ids);
+                            // $('#id_card_pic1').parent().css({
+                            //     'background': 'url('+data.data.picInfos[7].picUrl+') no-repeat',
+                            //     'background-position':'center',
+                            //     'background-size':'contain',
+                            //     'background-color':'#f6f6f6'
+                            // });
+                            // $('#id_card_pic1').attr('data-picId8', data.data.picInfos[7].ids);
 
-                            $('#id_card_pic2').parent().css({
-                                'background': 'url('+data.data.picInfos[8].picUrl+') no-repeat',
-                                'background-position':'center',
-                                'background-size':'contain',
-                                'background-color':'#f6f6f6'
-                            });
-                            $('#id_card_pic2').attr('data-picId9', data.data.picInfos[8].ids);
+                            // $('#id_card_pic2').parent().css({
+                            //     'background': 'url('+data.data.picInfos[8].picUrl+') no-repeat',
+                            //     'background-position':'center',
+                            //     'background-size':'contain',
+                            //     'background-color':'#f6f6f6'
+                            // });
+                            // $('#id_card_pic2').attr('data-picId9', data.data.picInfos[8].ids);
 
-                            $('#id_card_hidden1').val(data.data.picInfos[7].picUrl);
-                            $('#id_card_hidden2').val(data.data.picInfos[8].picUrl);
+                            // $('#id_card_hidden1').val(data.data.picInfos[7].picUrl);
+                            // $('#id_card_hidden2').val(data.data.picInfos[8].picUrl);
 
                            
                             
