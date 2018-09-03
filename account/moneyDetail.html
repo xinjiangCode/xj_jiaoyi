@@ -29,13 +29,13 @@
          .orderList>div{height: 15px;font-size: 14px;}
          .orderList>.row{width: 0;border-left: 2px solid #f1f1f1;margin: 2px 20px;}
           /*td,th{padding-left: 49px;}*/
-         table div,table td{text-align: center;}
-         table tr{border-bottom: 1px solid #f1f1f1;height: 60px;}
-         table tr td{overflow: hidden; vertical-align: middle;}
-         table tr td a{color: #007aff;margin-right:10px; }
+         .table div,.table td{text-align: center;}
+         .table tr{border-bottom: 1px solid #f1f1f1;height: 60px;}
+         .table tr td{overflow: hidden; vertical-align: middle;}
+         .table tr td a{color: #007aff;margin-right:10px; }
          a{color: #007aff;}
         .selec>div>input[type="radio"]{margin-left: 49px;}
-        table tr td a:last-child{margin-right: 5px;}
+        .table tr td a:last-child{margin-right: 5px;}
         
     </style>
 </head>
@@ -48,9 +48,9 @@
         <div class="selec" style="display: block;overflow: hidden">
             <div class="Lf" style="width: 426px;">
                 资&nbsp;金&nbsp;流&nbsp;向&nbsp;:
-                <input type="radio" name="flow" style="margin-left: 15px;">所有
-                <input type="radio" name="flow">收入
-                <input type="radio" name="flow">支付
+                <input type="radio" name="flow" value="" style="margin-left: 15px;">所有
+                <input type="radio" name="flow" value="D">收入
+                <input type="radio" name="flow" value="C">支付
             </div>
 
             <div class="Lf" style="width: 426px;margin-left: 45px;">
@@ -71,7 +71,7 @@
                 <input type="text" class="demo-input laydate-icon" placeholder="请选择日期" id="test2">
             </div>
         </div>
-        <div class="btn" style="margin-top: 30px;height: 42px; line-height: 42px;width: 240px;margin-left: 0;">搜索</div>
+        <div class="btn sousuo" style="margin-top: 30px;height: 42px; line-height: 42px;width: 240px;margin-left: 0;">搜索</div>
 
 
     </div>
@@ -81,7 +81,7 @@
     		<i style="color: #ff342e;">-0.00</i>元 <a href="##" class="Rt downWd" >下载账单</a></div>
 
 
-    <table border="1"  width="985px" align="center" style="font-size: 12px;color: #282828;">
+    <table class="table" border="1"  width="985px" align="center" style="font-size: 12px;color: #282828;">
         <thead>
             <tr style="height: 35px;line-height: 35px;background-color: #fdfdfd;">
                 <th>时间</th>
@@ -94,6 +94,9 @@
                 <th>回执单</th>
             </tr>
         </thead>
+      <!--  <tbody class="my_tbody">
+
+       </tbody> -->
        <tbody class="myTbody">
 
        </tbody>
@@ -111,6 +114,8 @@
         </div>
     </div>
 
+   <!--  <div id="Pagination" class="pagination"><!-- 这里显示分页 --></div> -->
+
 </div>
 
 
@@ -125,7 +130,14 @@
         elem: '#test1'
     })
     laydate({
-        elem: '#test2'
+        elem: '#test2',
+        choose: function(date){ //选择好日期的回调
+            // console.log(date);
+            if (date < $('#test1').val()) {
+                cf_alert1(2, '开始时间不能大于结束时间');
+                $('#test2').val('');
+            }
+        }
     })
     laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
 
@@ -149,9 +161,50 @@
         }   
     });
 
+    
+    //此demo通过Ajax加载分页元素
+    // var initPagination = function() {
+    //     var num_entries = $(".myTbody tr").length;
+    //     console.log(num_entries);
+    //     // 创建分页
+    //     $("#Pagination").pagination(num_entries, {
+    //         num_edge_entries: 1, //边缘页数
+    //         num_display_entries: 4, //主体页数
+    //         callback: pageselectCallback,
+    //         items_per_page: 10, //每页显示1项
+    //         prev_text: "前一页",
+    //         next_text: "后一页"
+
+    //     });
+    //  };
+     
+    // function pageselectCallback(page_index, jq){
+
+    //     console.log(page_index, jq);
+
+    //     var new_content = $(".myTbody tr:eq("+page_index+")").clone();
+    //     $(".my_tbody").empty().append(new_content); //装载对应分页的内容
+    //     return false;
+    // }
+
+    //搜索
+    $('.sousuo').click(function () {
+        var flow = $('input[name="flow"]:checked').val();
+
+        var leixing = $('input[name="leixing"]:checked').val();
+
+        var orderNum = $('.orderNum').val();
+
+        var startTime = $('#test1').val();
+        var endTime = $('#test2').val();
+
+        listPage(1, flow, leixing, orderNum, startTime, endTime);
+    });
+
     //账务明细接口－中信银行接口V1.0------暂无数据
-    listPage(1);
-    function listPage(currentPage){
+
+    listPage(1, '', '', '', '', '');
+    function listPage(currentPage, flow, leixing, orderNum, startTime, endTime){
         $.ajax({
             type:"get",
             headers: {
@@ -188,7 +241,7 @@
                     var str = '';
                     if(list.length==0){ $(".myTbody").html("");$(".pagination").parent().css("display","none"); return;}
                     $(".pagination").parent().css("display","block");
-                    if(currentPage===1 ){
+                    if(currentPage==1){
                         //修改底部分页
                         var pageNum=Math.ceil(list.length/10);
                         $(".allPageN").attr("pageTotal",pageNum);
@@ -203,12 +256,19 @@
                             }
                         });
                     }
-                    //修改底部页数
+                    // 修改底部页数
                     $(".allPageN").text((currentPage)+"/"+ $(".allPageN").attr("pageTotal"));
                     
                     $.each(list,function(idx,item){
                         //首次请求时 改变分页数据
                     
+                        if(idx<(currentPage-1)*10){
+                            return;
+                        } 
+                        
+                        if(idx>=currentPage*10){
+                            return;
+                        }  
 
                         str+='<tr>'
                         str+='<td>'
@@ -255,11 +315,14 @@
                     })
                     $(".myTbody").html(str);
 
-                  
+
+                    // initPagination();
                 }
             }
         });
     }
+      
+
 
     //下载回执单
     // $(document).on('click', '.upload_btn', function() {
