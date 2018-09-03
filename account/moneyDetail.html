@@ -239,18 +239,18 @@
                         if (item.TRANTYPE == 11 || item.TRANTYPE == 23) {
                             str+='<td><a style="color: #333; cursor:default; " href="##">查看</a></td>'
                         } else {
-<<<<<<< HEAD
-                            // str+='<td><a href="./mySale-orderDetailStatus.html?userType=0&id="'+item.orderId+'>查看</a></td>'
-                            str+='<td><a href="./mySale-orderDetailStatus.html">查看</a></td>'
-                        }
+
+                        //     // str+='<td><a href="./mySale-orderDetailStatus.html?userType=0&id="'+item.orderId+'>查看</a></td>'
+                        //     str+='<td><a href="./mySale-orderDetailStatus.html">查看</a></td>'
+                        // }
                         
-                        str+='<td><a class="upload_btn" href="##">下载</a></td>'
-=======
+                        // // str+='<td><a class="upload_btn" href="##">下载</a></td>'
+
                             str+='<td><a href="./mySale-orderDetailStatus.html?userType='+item.type+'&id='+item.HOSTSEQ+'">查看</a></td>'
                         }
                         
                         str+='<td><a class="upload_btn" data-orderId="'+item.HOSTSEQ+'" onclick="down_moban(this)" href="##">下载</a></td>'
->>>>>>> phase
+
                         str+='</tr>'
                     })
                     $(".myTbody").html(str);
@@ -270,28 +270,8 @@
     // });
 
     
-<<<<<<< HEAD
-    // function down_moban(){
-    //     $.ajax({
-    //         url: pubIP + 'financialApi/getReceipts?orderId=2',
-    //         type: 'get',
-    //         dataType: 'json',
-    //         success: function (data) {
-    //             console.log(data);
-    //             var thisUrl = data.data.fileUrl;
-    //             openWin("../generic/web/viewer.html?thisUrl="+thisUrl);
-    //         },
-    //         error: function (err) {
-    //             console.log(err);
-    //         }
-    //     })
-    // }
-    // function openWin(url) {
-    //     $('body').append($('<a href="' + url + '" target="_blank" id="openWin"></a>'))
-    //     document.getElementById("openWin").click();//点击事件
-    //     $('#openWin').remove();
-    // }
-=======
+
+ 
     function down_moban(that){
         console.log($(that).attr('data-orderId'));
         var orderId = $(that).attr('data-orderId')
@@ -318,7 +298,7 @@
         document.getElementById("openWin").click();//点击事件
         $('#openWin').remove();
     }
->>>>>>> phase
+
    
 </script>
 </body>
