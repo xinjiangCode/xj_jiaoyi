@@ -126,7 +126,7 @@
 
 	<script type="text/html" id="listTpl">
 		<%for(i in list){%>
-		<li data-dbid="<%=list[i].dbid%>">
+		<li data-dbid="<%=list[i].dbid%>" data-startTime="<%=list[i].startTime%>" data-endTime="<%=list[i].endTime%>">
 			<span class="qiang_buy">
 				<%if (list[i].type == 1) {%>
 				<span>抢购</span>
@@ -144,11 +144,11 @@
 			<%} else if(list[i].status == 2){%>   
 			<!-- 已报名，待添加商品< -->
 			<span class="status">已报名,待添加商品</span>
-			<span class="baoming blue yibaoming"><a href="activityList.html">添加活动商品</a></span>
+			<span class="baoming blue yibaoming add_activity_shop"><a href="##">添加活动商品</a></span>
 			<%} else if(list[i].status == 3) {%>
 			<!-- 已报名，待活动开始 -->
 			<span class="status">已报名，待活动开始</span>
-			<span class="baoming glay yibaoming"><a href="activityList.html">查看活动商品</a></span>
+			<span class="baoming glay yibaoming look_activity_shop"><a href="##">查看活动商品</a></span>
 			<%} else if(list[i].status == 4) {%>
 			<!-- 已报名，活动进行中 -->
 			<span class="status">正在进行中</span>
@@ -164,9 +164,24 @@
 	</script>
 	<script>
 
-		$(document).on('click', '.yibaoming', function() {
+		$(document).on('click', '.look_activity_shop', function() {
 
-			window.localStorage.setItem('activityId', $(this).parent().attr('data-dbid'));
+			window.sessionStorage.setItem('activityId', $(this).parent().attr('data-dbid'));
+
+			$(this).find('a').attr('href', 'activityList.html');
+
+		});
+
+		//点击添加活动商品
+		$(document).on('click', '.add_activity_shop', function() {
+
+			window.sessionStorage.setItem('activityId', $(this).parent().attr('data-dbid'));
+			window.sessionStorage.setItem('activityTitle', $(this).parent().find('.activity_title').text());
+			window.sessionStorage.setItem('startTime', $(this).parent().attr('data-startTime'));
+			window.sessionStorage.setItem('endTime', $(this).parent().attr('data-endTime'));
+
+
+			$(this).find('a').attr('href', 'activityList.html');
 
 		});
 

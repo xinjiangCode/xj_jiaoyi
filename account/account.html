@@ -50,7 +50,7 @@
         .pop>.cont>.popBottom>.popSure:hover{background-color: #026ee4;color: #ffffff;}
 
 
-         .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.modelBox31,.modelBox32,.modelBox33,.modelBox34,.modelBox35,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail, #no_del, .modelBox190, #yujing_edu, .add_member_alert, .all_warn_alert, .all_success_alert, .all_error_alert {
+         .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.modelBox31,.modelBox32,.modelBox33,.modelBox34,.modelBox35,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail, #no_del, .modelBox190, #yujing_edu, .add_member_alert, .all_warn_alert, .all_success_alert, .all_error_alert, .add_reduce_integral {
 
             z-index: 9999;
             display: none;
@@ -569,7 +569,8 @@
             line-height: 32px;
             color: #ff7854;
             font-size: 12px;
-            margin-left: 95px;
+            margin-left: 147px;
+            display: inline;
         } 
 
 /*
@@ -595,6 +596,27 @@
             bottom: 0px;
             margin: auto;
             background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /*增加积分*/
+        .add_reduce_integral .span {
+            font-size: 14px;
+            display: inline-block;
+            width: 90px;
+            text-align: right;
+        }
+
+        .add_reduce_integral .modelcontent {
+            padding: 0 0px 0 50px;
+            box-sizing: border-box;
+        }
+
+        .add_reduce_integral .modelcontent .clearfix {
+            line-height: 30px;
+        }
+
+        .total_integral_div {
+            padding-top: 20px;
         }
 
     </style>
@@ -627,7 +649,7 @@
                     <li><a href="javascript:;" class="manageItem qiye qiye_renzheng" data-src="./identification1.html" data-height="1600">企业认证</a></li>
                     <li><a href="javascript:;" class="manageItem zizhi_renzheng" data-src="./Special1.html" data-height="1600">资质认证</a></li>
                     <!-- 二期注释的内容   ===开始 -->
-                    <!-- <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/limitManage.html" data-height="1600">权限管理</a></li> -->
+                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/limitManage.html" data-height="1600">权限管理</a></li>
                     <!-- 二期注释的内容   ===结束 -->
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/cangkuAddressManage.html" data-height="1600">仓库地址管理</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">收货地址管理</a></li>
@@ -663,23 +685,23 @@
                 </ul>
             </li>
             <!-- 二期注释的内容   ===开始 -->
-            <!-- <li>
+            <li>
                 <a href="javascript:;" class="manage"><strong>活动中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
                 <ul class="common_mbx">
                     <li><a href="javascript:;" class="manageItem" data-src="../activityCenter/activityCenter.html">活动列表</a></li>
                     <li><a href="javascript:;" class="manageItem" data-height="1455" data-src="../activityCenter/marginReturnRecord.html">保证金退还记录</a></li>
                 </ul>
-            </li> -->
+            </li>
             <!-- 二期注释的内容   ===结束 -->
             <!-- 二期注释的内容   ===开始 -->
-            <!-- <li>
+            <li>
                 <a href="javascript:;" class="manage"><strong>会员中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
                 <ul class="common_mbx">
                     <li><a href="javascript:;" class="manageItem" data-src="../memberCenter/personalGrowthValue.html">个人成长值</a></li>
                     <li><a href="javascript:;" class="manageItem " data-src="../memberCenter/ConvertibilityRecord.html">积分兑换记录</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="../memberCenter/memberShopOrder.html">会员商品订单</a></li>
                 </ul>
-            </li> -->
+            </li>
             <!-- 二期注释的内容   ===结束 -->
             <li>
                 <a href="javascript:;" class="manage"><strong>我的钱包</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
@@ -2188,17 +2210,17 @@
         <div class="modelcontent">
             <div class="clearfix" style="padding-top: 40px;">
                <span class="span fl" style="color: #6c6d6e; width: 110px; margin-left: 35px; line-height: 34px;">手机号码：</span>
-               <input type="text" class="member_phone fl" style="width: 260px; height: 34px; font-size: 13px; text-indent: 10px;">
+               <input type="number" class="member_phone fl" style="width: 260px; height: 34px; font-size: 13px; text-indent: 10px;">
                <div class="ts_add_member"></div>
            </div>
-           <div class="clearfix" style="padding-top: 30px;">
+           <div class="clearfix" style="padding-top: 5px;">
                <span class="span fl" style="color: #6c6d6e; width: 110px; margin-left: 35px; line-height: 34px;">职能描述：</span>
-               <textarea style="color: #999; width: 260px;font-size: 13px;border: 1px solid #e7e7e7; text-indent: 10px; height: 100px; overflow: hidden;" class="member_descript" style="vertical-align: text-top;" placeholder="请输入职能描述"></textarea>
+               <textarea style="width: 260px;font-size: 13px;border: 1px solid #e7e7e7; text-indent: 10px; height: 100px; overflow: hidden;" class="member_descript" style="vertical-align: text-top;" placeholder="请输入职能描述"></textarea>
                <div class="ts_add_member"></div>
            </div>
-           <div class="modelBtnBox" style="margin-top: 30px;">
-                <div style="background:#5690f6; margin: 5px 0;" class="modelbtn confirm modelbtn2 add_member">确定</div>
-                <div style="border: 2px solid #5690f6; color: #5690f6; margin: 5px 0 5px 10px;" class="confirm modelbtn modelbtn2">取消</div>
+           <div class="modelBtnBox" style="margin-top: 5px; margin-left: 89px;">
+                <div style="background:#5690f6; margin: 5px 0;" class="modelbtn modelbtn2 add_member">确定</div>
+                <div style="border: 2px solid #5690f6; color: #5690f6; margin: 5px 0 5px 10px; line-height: 32px;" class="confirm modelbtn modelbtn2">取消</div>
             </div>
         </div>
     </div>
@@ -2262,6 +2284,45 @@
     </div>
 </div>
 
+<!-- 增加/减少积分 -->
+<div class="add_reduce_integral">
+    <div class="modelCont">
+        <div class="modeltitle">
+            <span class="add_reduce_integral_title">增加积分</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent">
+            <div class="total_integral_div clearfix">
+                <span class="span fl" style="color: #6c6d6e;">总积分：</span>
+                <span class="total_integral fl" style="font-size: 14px;">99分</span>
+            </div>
+            <div class="kefenpei_integral_div clearfix">
+                <span class="span fl" style="color: #6c6d6e;">可分配积分：</span>
+                <div class="fl kefenpei_integral" style="font-size: 14px;">88分</div>
+            </div>
+            <div class="yifenpei_integral_div clearfix">
+                <span class="span fl" style="color: #6c6d6e;">已分配积分：</span>
+                <span class="yifenpei_integral_div fl" style="font-size: 14px;">10积分</span>
+            </div>
+            <div class="fenpei_div clearfix">
+                <span class="span integral_span fl" style="color: #6c6d6e; line-height: 38px;">分配积分：</span>
+                <div class="fenpei fl">
+                    <input type="number" style="width: 260px; height: 34px; font-size: 14px; text-indent: 10px;">
+                </div>
+                <span class="ts"></span>
+            </div>
+
+            <div class="modelBtnBox" style="width: 321px;margin-top: 30px;">
+                <div style="border:1px solid #5690f6;color: #333;margin: 0; line-height: 32px;" class="modelbtn confirm" class="cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+
+                <div style="background:#5690f6;margin-top: 0px;margin-left: 30px; line-height: 34px;" class="modelbtn ok">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 图片放大 -->
 <div class="look_pic">
     <div class="pic_div">
         <img src="" alt="" class="bigpic">
@@ -2322,7 +2383,7 @@
     }
 
 
-// alert_show('.all_error_alert');
+// alert_show('.add_reduce_integral');
     function alert_show(ele) {
         $(ele).css('display', 'block');
     }

@@ -29,11 +29,11 @@
 			</div>
 		</div>
 		<div class="personal_info clearfix">
-			<div class="avatar_bg fl"></div>
+			<div class="avatar_bg fl"><img src="" alt=""></div>
 			<div class="fl mt32">
 				<p>
-					<span class="gongxian">贡献：<img src="../img/gongxian.png" alt=""><span class="gongxian_num">8000</span>分</span>
-					<span class="jifen">可用积分：<img src="../img/jifen.png" alt=""><span class="jifen_num">300</span>分</span>
+					<span class="gongxian">贡献：<img src="../img/gongxian.png" alt=""><span class="gongxian_num">0</span>分</span>
+					<span class="jifen">可用积分：<img src="../img/jifen.png" alt=""><span class="jifen_num">0</span>分</span>
 				</p>
 				<p>
 					<span>等级：</span>
@@ -152,6 +152,38 @@
 		        }
 		    }); 
 		} 
+
+		$.ajax({
+			type:"get",
+	        url:pubIP+"member/findUserGrowthInfo",//v1.0
+	        cache:false,
+	        dataType: "json",
+	        async:false,
+	        headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+	        success: function(data){
+	        	console.log(data);
+	        	
+	        	if (data.data) {
+	        		if (data.data.storeImage != null) {
+	        			// $('.avatar_bg img').attr('src', data.data.storeImage);
+	        			$('.avatar_bg').css('background', 'url("'+data.data.storeImage+'") center center no-repeat');
+	        		}
+
+	        		$('.gongxian_num').text(data.data.memberIntegralCurrent == null ? 0 : data.data.memberIntegralCurrent);
+
+	        		$('.jifen_num').text(data.data.memberIntegralUsable == null ? 0 : data.data.memberIntegralUsable);
+
+	        		
+	        	}
+
+	        },
+	        error: function(err) {
+	        	console.log(err);
+	        }
+	    }); 
 
 	</script>
 </body>

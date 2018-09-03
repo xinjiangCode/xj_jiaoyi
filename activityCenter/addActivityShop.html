@@ -13,6 +13,13 @@
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/activityCenter/addActivityShop.css">
 </head>
+<style>
+	.selectPub {
+		margin-left: 4px;
+		float: left;
+		line-height: 37px;
+	}
+</style>
 <body>
 
 	<!-- 活动列表-添加商品 -->
@@ -26,7 +33,7 @@
 					<span>活动名称：</span>
 				</div>
 				<div class="inline-block">
-					<span>jdjdjdododododojdjdsjdjsjss</span>
+					<span class="activityTitle"></span>
 				</div>
 			</div>
 			<div class="div_one">
@@ -34,7 +41,7 @@
 					<span>活动开始时间：</span>
 				</div>
 				<div class="inline-block">
-					<span>2018年4月1日 13:00:02</span>
+					<span class="activityStartTime">2018年4月1日 13:00:02</span>
 				</div>
 			</div>
 			<div class="div_one">
@@ -42,14 +49,14 @@
 					<span>活动结束时间：</span>
 				</div>
 				<div class="inline-block">
-					<span>2018年4月1日 13:00:02</span>
+					<span class="activityEndTime">2018年4月1日 13:00:02</span>
 				</div>
 			</div>
 			<div class="div_one select clearfix">
 				<div class="inline-block title fl">
 					<span style="line-height: 37px;">选择商品：</span>
 				</div>
-				<div class="selectPub fl inline-block" data-selectedindex="0">
+				<div class="selectPub select_shop fl inline-block" data-selectedindex="0">
 			        <span></span>
 			        <img src="../img/prl-select.jpg" alt="">
 			        <ul>
@@ -58,30 +65,34 @@
 			            <li data-index="3">30</li>
 			        </ul>
 			    </div>
+			    <span class="ts fl"></span>
 			</div>
 			<div class="div_one">
 				<div class="inline-block title">
 					<span>商品纯度：</span>
 				</div>
 				<div class="inline-block">
-					<span>自动带入</span>
+					<span class="purity"></span>
 				</div>
+				<span class="ts"></span>
 			</div>
 			<div class="div_one">
 				<div class="inline-block title">
 					<span>商品级别：</span>
 				</div>
 				<div class="inline-block">
-					<span>自动带入</span>
+					<span class="level"></span>
 				</div>
+				<span class="ts"></span>
 			</div>
 			<div class="div_one">
 				<div class="inline-block title">
 					<span>商品规格：</span>
 				</div>
 				<div class="inline-block">
-					<span>自动带入</span>
+					<span class="guige"></span>
 				</div>
+				<span class="ts"></span>
 			</div>
 			<div class="div_one">
 				<div class="inline-block title">
@@ -89,8 +100,9 @@
 					<span>活动商品名称：</span>
 				</div>
 				<div class="inline-block">
-					<input type="text" name="">
+					<input type="text" class="activity_shop_name" name="">
 				</div>
+				<span class="ts"></span>
 			</div>
 			<div class="div_one">
 				<div class="inline-block title">
@@ -98,9 +110,10 @@
 					<span>单价：</span>
 				</div>
 				<div class="inline-block">
-					<input type="number" name="">
+					<input type="number" class="unit" name="">
 					<span class="unit_money">元</span>
 				</div>
+				<span class="ts"></span>
 			</div>
 			<div class="div_one">
 				<div class="inline-block title">
@@ -108,8 +121,9 @@
 					<span>最小起订单量：</span>
 				</div>
 				<div class="inline-block">
-					<input type="text" name="">
+					<input type="number" class="order_num" name="">
 				</div>
+				<span class="ts"></span>
 			</div>
 			<div class="div_one">
 				<div class="inline-block title">
@@ -117,8 +131,9 @@
 					<span>最大购买量：</span>
 				</div>
 				<div class="inline-block">
-					<input type="text" name="">
+					<input type="number" class="buy_num" name="">
 				</div>
+				<span class="ts"></span>
 			</div>
 			<div class="div_one">
 				<div class="inline-block title">
@@ -126,8 +141,9 @@
 					<span>库存：</span>
 				</div>
 				<div class="inline-block">
-					<input type="text" name="">
+					<input type="number" class="kucun" name="">
 				</div>
+				<span class="ts"></span>
 			</div>
 			<div class="div_one">
 				<div class="inline-block title">
@@ -135,7 +151,7 @@
 					<span>支付方式：</span>
 				</div>
 				<div class="inline-block">
-					<input type="radio" name="pay_method">现汇
+					<input type="radio" name="pay_method" checked="">现汇
 					<input type="radio" name="pay_method">承兑
 					<input type="radio" name="pay_method">现汇+承兑
 				</div>
@@ -146,8 +162,9 @@
 					<span>联系人：</span>
 				</div>
 				<div class="inline-block">
-					<input type="text" name="">
+					<input type="text" class="concat_name" name="">
 				</div>
+				<span class="ts"></span>
 			</div>
 			<div class="div_one">
 				<div class="inline-block title">
@@ -155,8 +172,9 @@
 					<span>联系方式：</span>
 				</div>
 				<div class="inline-block">
-					<input type="text" name="">
+					<input type="text" class="concat_method" name="">
 				</div>
+				<span class="ts"></span>
 			</div>
 			<div class="div_one clearfix">
 				<div class="inline-block fl title">
@@ -197,8 +215,221 @@
 	</div>
 	<script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/common.js"></script>
-
+	<!-- <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+	<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+	 -->
     <script type="text/javascript">
+
+    	var activityId = window.sessionStorage.getItem('activityId');
+    	var activityTitle = window.sessionStorage.getItem('activityTitle');
+		var startTime = window.sessionStorage.getItem('startTime');
+		var endTime = window.sessionStorage.getItem('endTime');
+
+		startTime = startTime.replace('-', '年');
+		startTime = startTime.replace('-', '月');
+
+		endTime = endTime.replace('-', '年');
+		endTime = endTime.replace('-', '月');
+
+		$('.activityTitle').text(activityTitle);
+		$('.activityStartTime').text(startTime);
+		$('.activityEndTime').text(endTime);
+
+		shop_list('');
+
+		
+
+		function shop_list(cont) {
+			$.ajax({
+				type: "get",
+	            url: pubIP + "acticityApi/getStoreProduct",//v1.0
+	            headers: {
+	                token: token
+	            },
+	            cache: false,
+	            async:false,
+	            data: {
+	            	companyId: companyId,
+	            	cont: cont
+	            },
+	            dataType: "json",
+	            success: function(data){
+					console.log(data);
+
+					//所有商品
+					if (data.code == 1) {
+						if (cont == '') {
+							if (data.data.length != 0) {
+								var str = '';
+								for (var i = 0; i < data.data.length; i++) {
+									
+									str += '<li data-index="'+data.data[i].sProductId+'" data-purity="'+data.data[i].purity+'" data-productLevel="'+data.data[i].productLevel+'" data-spec="'+data.data[i].spec+'" data-productSpecUnitStr="'+data.data[i].productSpecUnitStr+'">'+data.data[i].productName+'</li>';
+										
+								}
+
+								$('.select_shop ul').html(str);
+
+								$('.select_shop ul li').click(function(){
+								    event.stopPropagation();
+								    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+								    $(this).parent().parent().find('span').text($(this).text());
+								    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+								    $(this).parent().css('display','none');
+
+								    $('.select_shop').next().text('');
+
+								    $('.purity').text($(this).attr('data-purity')+'%');
+								    console.log($(this).attr('data-productLevel') == 'null');
+								    $('.level').text($(this).attr('data-productLevel') == 'null' ? '' : $(this).attr('data-productLevel'));
+								    $('.guige').text($(this).attr('data-spec')+$(this).attr('data-productSpecUnitStr'));
+
+								});
+									
+							}
+							
+						}
+					}
+
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			});
+		}
+
+		//ele: 某个元素   word: 显示文字  
+		function ts_block(ele, word) {
+			
+			if (ele.attr('type') == 'text' || ele.attr('type') == 'number') {
+				ele.parent().parent().find('.ts').text(word);
+				ele.focus();
+			} else {
+				ele.parent().find('.ts').text(word);
+			}
+			ele.parent().find('.ts').show();
+		}
+
+
+
+		$('.submit_btn').unbind();
+		$('.submit_btn').click(function() {
+			var select_shop = $('.select_shop');
+			var activity_shop_name = $('.activity_shop_name');
+			var unit = $('.unit');
+			var order_num = $('.order_num');
+			var buy_num = $('.buy_num');
+			var kucun = $('.kucun');
+			var concat_name = $('.concat_name');
+			var concat_method = $('.concat_method');
+			
+			
+			if (select_shop.find('span').text() == '') {
+				ts_block(select_shop, '请选择商品');
+				return false;
+			}
+
+			if (activity_shop_name.val() == '') {
+				ts_block(activity_shop_name, '活动商品名称不能为空');
+				return false;
+			}
+
+			if (unit.val() == '') {
+				ts_block(unit, '单价不能为空');
+				return false;
+			}
+
+			if (order_num.val() == '') {
+				ts_block(order_num, '最小起订单量不能为空');
+				return false;
+			}
+
+			if (buy_num.val() == '') {
+				ts_block(buy_num, '最大购买量不能为空');
+				return false;
+			}
+
+			if (buy_num.val() < order_num.val()) {
+				ts_block(buy_num, '最大购买量不能小于最小起订单量');
+				return false;
+			}
+
+			if (kucun.val() == '') {
+				ts_block(kucun, '库存不能为空');
+				return false;
+			}
+
+			if (concat_name.val() == '') {
+				ts_block(concat_name, '联系人不能为空');
+				return false;
+			}
+
+			if (concat_method.val() == '') {
+				ts_block(concat_method, '联系方式不能为空');
+				return false;
+			}
+
+
+		});
+
+
+		$('.activity_shop_name').blur(function() {
+			if ($(this).val() == '') {
+				$(this).parent().parent().find('.ts').text('活动商品名称不能为空');
+			} else {
+				$(this).parent().parent().find('.ts').text('');
+			}
+		});
+
+		$('.unit').blur(function() {
+			if ($(this).val() == '') {
+				$(this).parent().parent().find('.ts').text('单价不能为空');
+			} else {
+				$(this).parent().parent().find('.ts').text('');
+			}
+		});
+
+		$('.order_num').blur(function() {
+			if ($(this).val() == '') {
+				$(this).parent().parent().find('.ts').text('最小起订单量不能为空');
+			} else {
+				$(this).parent().parent().find('.ts').text('');
+			}
+		});
+
+		$('.buy_num').blur(function() {
+			if ($(this).val() == '') {
+				$(this).parent().parent().find('.ts').text('最大购买量不能为空');
+			} if ($(this).val() < $('.order_num').val()) {
+				$(this).parent().parent().find('.ts').text('最大购买量不能小于最小起订单量');
+			} else {
+				$(this).parent().parent().find('.ts').text('');
+			}
+		});
+
+		$('.kucun').blur(function() {
+			if ($(this).val() == '') {
+				$(this).parent().parent().find('.ts').text('库存不能为空');
+			} else {
+				$(this).parent().parent().find('.ts').text('');
+			}
+		});
+
+		$('.concat_name').blur(function() {
+			if ($(this).val() == '') {
+				$(this).parent().parent().find('.ts').text('联系人不能为空');
+			} else {
+				$(this).parent().parent().find('.ts').text('');
+			}
+		});
+
+		$('.concat_method').blur(function() {
+			if ($(this).val() == '') {
+				$(this).parent().parent().find('.ts').text('联系方式不能为空');
+			} else {
+				$(this).parent().parent().find('.ts').text('');
+			}
+		});
+
     	
     	$(document).on('change','#file0,#file1,#file2,#file3,#file4,#file5,#file6',function(){
 			xmTanUploadImg1(this);
