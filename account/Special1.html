@@ -912,6 +912,10 @@
                         
                     });
 
+                    if (data.data.length == 0) {
+                        $('.c0').attr('empty_data', 0);
+                    }
+
                     stateAjax();
                 },
                 error: function (err) {
@@ -1041,12 +1045,24 @@
                         $('.shou_pic').css('display', 'block');
                     }else {
                         
-                        $('.edit_btn').css('display', 'block');
-                        $('.sub').attr('disabled', false);
-                        $('.quxiao_add').css('display', 'block');
-                        $('.shou_pic').css('display', 'block');
-                        $(".shenhe_btn").hide();
-                        $(".sub").show();
+                        if ($('.c0').attr('empty_data') == 0) {
+                            $('.edit_btn').css('display', 'none');
+                            $('.add_submit').show();
+                        } else {
+                            $('.edit_btn').css('display', 'block');
+                            $('.sub').attr('disabled', false);
+                            $('.quxiao_add').css('display', 'block');
+                            $('.shou_pic').css('display', 'block');
+                            $(".shenhe_btn").hide();
+                            $(".sub").show();
+                        }
+
+                        // $('.edit_btn').css('display', 'block');
+                        // $('.sub').attr('disabled', false);
+                        // $('.quxiao_add').css('display', 'block');
+                        // $('.shou_pic').css('display', 'block');
+                        // $(".shenhe_btn").hide();
+                        // $(".sub").show();
                     }
 
                 },

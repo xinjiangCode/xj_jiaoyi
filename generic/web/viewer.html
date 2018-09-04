@@ -59,7 +59,10 @@ http://sourceforge.net/adobe/cmap/wiki/License/
           fileUrl: thisUrl
       },
       success:function(data){  
+        
+        console.log(data);
         PDFData = data;  
+
       }  
   });  
   var rawLength = PDFData.length;  

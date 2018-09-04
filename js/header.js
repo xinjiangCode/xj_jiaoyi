@@ -1,7 +1,14 @@
 // 公共头
+var href = location.href; 
+if (href.indexOf('login.html') == -1 && href.indexOf('account') == -1) {
+	var token1 = localStorage.getItem(token);
 
-// var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
-var wuliuIP = 'http://www.hdlsuper.com/';
+	// var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
+	var wuliuIP = 'http://127.0.0.1:8020/allWuliu/index.html?token='+token1;
+	// var wuliuIP = 'http://www.hdlsuper.com/';
+
+}
+
 
 
 var adct = document.getElementsByTagName('title')[0].getAttribute('adct');
@@ -568,8 +575,8 @@ if(adct == '首页' ){
 
 document.writeln(headLink);
 // var headerip = 'http://api.xjv56.com/service/';
-// var headerip = 'http://192.168.1.80:7777/service/';
-var headerip = 'http://192.168.1.175:7777/service/';
+var headerip = 'http://192.168.1.80:7777/service/';
+// var headerip = 'http://192.168.1.185:7777/service/';
 
 // var headerip = 'http://127.0.0.1:7777/service/';
 

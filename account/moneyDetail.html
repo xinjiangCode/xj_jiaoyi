@@ -43,7 +43,7 @@
 
 
 <div class="container">
-    <div class="title">账务明细 <a style="margin-left: 490px;font-size: 14px;">日账单下载</a><a style="margin-left: 35px;font-size: 14px;">月账单下载</a> <span class="Rt" style="font-size: 14px;">可用金额：<i class="cashBalance" style="color: #ff7929;">56.00</i>元</span></div>
+    <div class="title">账务明细 <a href="##" style="margin-left: 490px;font-size: 14px;" class="day_excel" >日账单下载</a><a href="##" style="margin-left: 35px;font-size: 14px;" class="month_excel">月账单下载</a> <span class="Rt" style="font-size: 14px;">可用金额：<i class="cashBalance" style="color: #ff7929;">56.00</i>元</span></div>
     <div class="head">
         <div class="selec" style="display: block;overflow: hidden">
             <div class="Lf" style="width: 426px;">
@@ -98,7 +98,7 @@
 
        </tbody> -->
        <tbody class="myTbody">
-
+            
        </tbody>
        
     </table>
@@ -161,32 +161,6 @@
         }   
     });
 
-    
-    //此demo通过Ajax加载分页元素
-    // var initPagination = function() {
-    //     var num_entries = $(".myTbody tr").length;
-    //     console.log(num_entries);
-    //     // 创建分页
-    //     $("#Pagination").pagination(num_entries, {
-    //         num_edge_entries: 1, //边缘页数
-    //         num_display_entries: 4, //主体页数
-    //         callback: pageselectCallback,
-    //         items_per_page: 10, //每页显示1项
-    //         prev_text: "前一页",
-    //         next_text: "后一页"
-
-    //     });
-    //  };
-     
-    // function pageselectCallback(page_index, jq){
-
-    //     console.log(page_index, jq);
-
-    //     var new_content = $(".myTbody tr:eq("+page_index+")").clone();
-    //     $(".my_tbody").empty().append(new_content); //装载对应分页的内容
-    //     return false;
-    // }
-
     //搜索
     $('.sousuo').click(function () {
         var flow = $('input[name="flow"]:checked').val();
@@ -198,13 +172,15 @@
         var startTime = $('#test1').val();
         var endTime = $('#test2').val();
 
-        listPage(1, flow, leixing, orderNum, startTime, endTime);
+        var timeSlot = 4;
+
+        listPage(1, flow, leixing, orderNum, startTime, endTime, timeSlot);
     });
 
     //账务明细接口－中信银行接口V1.0------暂无数据
 
-    listPage(1, '', '', '', '', '');
-    function listPage(currentPage, flow, leixing, orderNum, startTime, endTime){
+    listPage(1, '', '', '', '', '', '');
+    function listPage(currentPage, flow, leixing, orderNum, startTime, endTime, timeSlot){
         $.ajax({
             type:"get",
             headers: {
@@ -214,12 +190,12 @@
             url: pubIP+"financialApi/getFinancialList",
             cache:false,
             data:{
-                moneyFlow: '',//资金流向 D收入； C 支出
-                tranType: 0,//交易类型 0 所有 ； 15 现金交易 ； 23 充值 ； 11 提现；
-                orderId: '',//订单编号
-                startTime:'',//开始时间，timeSlot＝4时必填
-                endTime: '',//结束时间 ，timeSlot＝4时必填
-                timeSlot: '',//起止时间类型 1当天，2最近一周 ，3 最近一个月 4 自选时间段
+                moneyFlow: flow,//资金流向 D收入； C 支出
+                tranType: leixing,//交易类型 0 所有 ； 15 现金交易 ； 23 充值 ； 11 提现；
+                orderId: orderNum,//订单编号
+                startTime: startTime,//开始时间，timeSlot＝4时必填
+                endTime: endTime,//结束时间 ，timeSlot＝4时必填
+                timeSlot: timeSlot,//起止时间类型 1当天，2最近一周 ，3 最近一个月 4 自选时间段
             },
             dataType: "json",
             success: function(response){
@@ -265,7 +241,7 @@
                         if(idx<(currentPage-1)*10){
                             return;
                         } 
-                        
+
                         if(idx>=currentPage*10){
                             return;
                         }  
@@ -315,26 +291,56 @@
                     })
                     $(".myTbody").html(str);
 
-
-                    // initPagination();
                 }
             }
         });
     }
-      
 
-
-    //下载回执单
-    // $(document).on('click', '.upload_btn', function() {
-
-    //     // window.sessionStorage.setItem('');
-    //     // window.location.href = 'huizhidan.html';
-    //     // $(this).attr('href', 'huizhidan.html');
-    // });
-
+    //月账单下载  
+    $(document).on('click', '.month_excel', function () {
+        $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=3")
+        $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=3");
+    });
     
+    //日账单下载  
+    $(document).on('click', '.day_excel', function () {
+        // excel(1);
+        $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=1")
+        $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=1");
+    });
 
- 
+    //下载账单
+    $(document).on('click', '.downWd', function () {
+        // excel('');
+        $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=")
+        $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=");
+
+    });
+
+    // function excel(timeSlot) {
+    //     $.ajax({
+    //         url: pubIP + 'financialApi/downExcel',
+    //         type: 'get',
+    //         dataType: 'json',
+    //         headers: {
+    //             // Accept: "application/json; charset=utf-8",
+    //             token: token
+    //         },
+    //         data: {
+    //             timeSlot: timeSlot
+    //         },
+    //         success: function (data) {
+    //             console.log(data);
+                
+    //         },
+    //         error: function (err) {
+    //             console.log(err);
+    //         }
+    //     });
+    // }
+
+
+    //下载回执单 
     function down_moban(that){
         console.log($(that).attr('data-orderId'));
         var orderId = $(that).attr('data-orderId')
@@ -348,7 +354,7 @@
             },
             success: function (data) {
                 console.log(data);
-                var thisUrl = data.data.fileUrl;
+                var thisUrl = data.dataN;
                 openWin("../generic/web/viewer.html?thisUrl="+thisUrl);
             },
             error: function (err) {

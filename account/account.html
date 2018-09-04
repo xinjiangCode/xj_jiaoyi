@@ -619,6 +619,28 @@
             padding-top: 20px;
         }
 
+
+        /*权限管理*/
+        .limit_manage_box {
+            z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .limit_manage_box iframe{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
     </style>
 
 </head>
@@ -2320,6 +2342,11 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- 权限管理 -->
+<div class="limit_manage_box">
+    <iframe id="limit_manage_iframe" src="##" frameborder="0" style="width: 1050px; height: 600px;"></iframe>
 </div>
 
 <!-- 图片放大 -->

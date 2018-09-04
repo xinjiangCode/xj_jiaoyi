@@ -113,9 +113,9 @@
             <td><%=list[i].integral%></td>
             <td><%=list[i].joinAt%></td>
             <td>
-                <a href="javascript:;" class="blue">权限管理</a>
+                <a href="javascript:;" class="blue limit_manage">权限管理</a>
                 <a href="javascript:;" class="blue edit">编辑</a>
-                <a href="javascript:;" class="blue">删除</a>    
+                <a href="javascript:;" class="blue delete">删除</a>    
             </td>
         </tr>
         <%}%>
@@ -199,6 +199,13 @@
                     console.log(err);
                 }
             });
+        });
+
+        //权限管理
+        $(document).off('click', '.limit_manage');
+        $(document).on('click', '.limit_manage', function() {
+            window.parent.$('.limit_manage_box iframe').attr('src', 'companyRenzheng/limitManageBox.html');
+            window.parent.alert_show('.limit_manage_box');
         });
 
         //添加成员
