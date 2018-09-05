@@ -9,6 +9,7 @@
     <meta name="format-detection" content="telephone=no" />
     <title>新疆化学品经营服务平台</title>
     <link rel="stylesheet" type="text/css" href="../../css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
 	<style>
 		.pop{display: none;}
         .pop{position: fixed;top: 0;left: 0;right:0;bottom: 0;width: 100%;height: 100%;z-index: 999;background-color: rgba(102,102,102,0.5);}
@@ -56,7 +57,7 @@
         }
 		.modelCont{
             position: absolute;
-            width: 450px;
+            width: 900px;
             min-height: 275px;
             left: 50%;
             top: 50%;
@@ -69,7 +70,7 @@
             /* background-color: red; */
         }
 		.modeltitle{
-            width: 450px;
+            width: 916px;
             height: 50px;
             background-image: url(../../img/gsxq.gif);
             background-size: 100% 100%;
@@ -77,13 +78,14 @@
             font-size: 16px;
             color: #5690f6;
             line-height: 50px;
+            position: fixed;
         }
         .modeltitle span{
             margin-left: 16px;
         }
 
         .modelcontent, .cont{
-            width: 450px;
+            width: 916px;
             min-height: 226px;
             background-image: url('../../img/gsxq_cont.gif');
             background-size: 100% 100%;
@@ -112,43 +114,591 @@
             cursor: pointer;
             margin: 18px auto 0 80px;
         }
+        
 
-		/*.modelCont{
-            position: fixed;
-            width: 450px;
-            
-        }*/
+        .first_title {
+            height: 50px;
+            line-height: 50px;
+            padding-left: 20px;
+            background: #F8F9FB;
+            color: #616161;
+            font-size: 16px;
+            border: 1px solid #e4e4e4;
+            border-bottom: none;
+        }
+
+        .second_title {
+            height: 50px;
+            line-height: 50px;
+            padding-left: 20px;
+            background: #F8F9FB;
+            color: #616161;
+            font-size: 15px;
+            border: 1px solid #e4e4e4;
+            border-bottom: none;
+        }
+
+        .content ul {
+            border: 1px solid #E4E4E4;
+        }
+
+        .content ul li {
+            width: 169px;
+            height: 50px;
+            line-height: 50px;
+            padding-left: 20px;
+            box-sizing: border-box;
+            font-size: 14px;
+            float: left;
+        }
+
+        .modelcontent {
+            padding: 24px;
+            box-sizing: border-box;
+            margin-top: 46px;
+            overflow-y: auto;
+            height: 504px;
+        }
+
+        .mb20 {
+            margin-bottom: 20px;
+        }
+
+        .modelCont {
+            height: 550px;
+            width: 916px;
+            overflow-x: hidden;
+        }
+
+        .second_title li {
+            float: left;
+            width: 165px;
+        }
+
+        .mb_none .content ul {
+            border-bottom: none;
+        }
+	    
 	</style>
 </head>
 <body>
 	<div class="limit">
 		<div class="modelCont">
 	        <div class="modeltitle">
-	            <span class="add_reduce_integral_title">增加积分</span>
+	            <span class="add_reduce_integral_title">权限管理</span>
 	            <img class="close" style="float: right;cursor: pointer;" height="50" src="../../img/gsxq_del.png" alt="">
 	        </div>
 	        <div class="modelcontent">
+                <div class="info">
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">首页</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">发布需求
+                                </li>
+                                <li>
+                                    <input type="checkbox">待报价
+                                </li>
+                                <li>
+                                    <input type="checkbox">已收到报价
+                                </li>
+                                <li>
+                                    <input type="checkbox">待处理报价
+                                </li>
+                                <li>
+                                    <input type="checkbox">立即报价
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">免费找货</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">立即发布需求
+                                </li>
+                                <li>
+                                    <input type="checkbox">立即报价
+                                </li>
+                                <li>
+                                    <input type="checkbox">我的询盘
+                                </li>
+                                <li>
+                                    <input type="checkbox">我的报价
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">商品详情页</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">关注店铺
+                                </li>
+                                <li>
+                                    <input type="checkbox">立即询盘
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">抢购详情页</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">我要抢购
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">抢货详情页</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">我要抢货
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">会员商城详情页</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">立即兑换
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">店铺首页</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">关注店铺
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">账户概览</div>
+                        <div class="second_title">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">企业认证
+                                </li>
+                                <li>
+                                    <input type="checkbox">资质认证
+                                </li>
+                                <li>
+                                    <input type="checkbox">实名认证
+                                </li>
+                                <li>
+                                    <input type="checkbox">我的询盘
+                                </li>
+                                <li>
+                                    <input type="checkbox">我的报价
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="second_title"><input type="checkbox">订单管理</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">销售订单
+                                </li>
+                                <li>
+                                    <input type="checkbox">采购订单
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="second_title" style="border-top: none;"><input type="checkbox">账户安全</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">登录安全修改
+                                </li>
+                                <li>
+                                    <input type="checkbox">手机验证修改
+                                </li>
+                                <li>
+                                    <input type="checkbox">交易密码修改
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">企业认证</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">修改
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">资质认证</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">添加
+                                </li>
+                                <li>
+                                    <input type="checkbox">编辑
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">权限管理</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">添加
+                                </li>
+                                <li>
+                                    <input type="checkbox">增加积分
+                                </li>
+                                <li>
+                                    <input type="checkbox">减少积分
+                                </li>
+                                <li>
+                                    <input type="checkbox">权限设置
+                                </li>
+                                <li>
+                                    <input type="checkbox">编辑
+                                </li>
+                                <li>
+                                    <input type="checkbox">删除
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">仓库地址管理</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">添加
+                                </li>
+                                <li>
+                                    <input type="checkbox">编辑
+                                </li>
+                                <li>
+                                    <input type="checkbox">删除
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">收货地址管理</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">添加
+                                </li>
+                                <li>
+                                    <input type="checkbox">编辑
+                                </li>
+                                <li>
+                                    <input type="checkbox">删除
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">我的收藏</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">取消关注
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">店铺管理</div>
+                        <div class="second_title"><input type="checkbox">店铺内容管理</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">修改
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="second_title"><input type="checkbox">商品管理</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">添加
+                                </li>
+                                <li>
+                                    <input type="checkbox">导出
+                                </li>
+                                <li>
+                                    <input type="checkbox">查询
+                                </li>
+                                <li>
+                                    <input type="checkbox">上架
+                                </li>
+                                <li>
+                                    <input type="checkbox">下架
+                                </li>
+                                <li>
+                                    <input type="checkbox">编辑
+                                </li>
+                                <li>
+                                    <input type="checkbox">删除
+                                </li>
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb_none">
+                        <div class="first_title"><input type="checkbox">销售管理</div>
+                        <div class="second_title"><input type="checkbox">我的报价</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">操作
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb_none">
+                        <div class="second_title"><input type="checkbox">收到的询盘</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">操作
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="second_title"><input type="checkbox">我的销售订单</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">操作
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb_none">
+                        <div class="first_title"><input type="checkbox">采购管理</div>
+                        <div class="second_title"><input type="checkbox">新增采购需求</div>
+                        <div class="second_title"><input type="checkbox">我的询盘</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">操作
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb_none">
+                        <div class="second_title"><input type="checkbox">我的采购需求</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">操作
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="second_title"><input type="checkbox">我的采购订单</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">操作
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb_none">
+                        <div class="first_title"><input type="checkbox">活动中心</div>
+                        <div class="second_title"><input type="checkbox">活动列表</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">操作
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="second_title"><input type="checkbox">保证金退还记录</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">会员中心</div>
+                        <div class="second_title"><input type="checkbox">会员商品订单</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">操作
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">消息中心</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb_none">
+                        <div class="first_title"><input type="checkbox">我的钱包</div>
+                        <div class="second_title"><input type="checkbox">资金账户概览</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">提现
+                                </li>
+                                <li>
+                                    <input type="checkbox">充值
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb_none">
+                        <div class="second_title"><input type="checkbox">账户管理</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb_none">
+                        <div class="second_title"><input type="checkbox">账户明细</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">下载
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb_none">
+                        <div class="second_title"><input type="checkbox">台账</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">操作
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb20">
+                        <div class="second_title"><input type="checkbox">兑账订单</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                                <li>
+                                    <input type="checkbox">操作
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb20">
+                        <div class="first_title"><input type="checkbox">操作日志</div>
+                        <div class="content">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">查看
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="modelBtnBox" style="width: 321px;padding-top: 30px;">
+                    <div style="border:1px solid #5690f6;color: #333;margin: 0; line-height: 32px;" class="modelbtn confirm" class="cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+
+                    <div style="background:#5690f6;margin-top: 0px;margin-left: 30px; line-height: 34px;" class="modelbtn ok">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+
+                </div>
 	        </div>
-
-	        <div class="modelBtnBox" style="width: 321px;margin-top: 30px;">
-                <div style="border:1px solid #5690f6;color: #333;margin: 0; line-height: 32px;" class="modelbtn confirm" class="cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
-
-                <div style="background:#5690f6;margin-top: 0px;margin-left: 30px; line-height: 34px;" class="modelbtn ok">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
-
-            </div>
 	    </div>
 	</div>
 	
 	<script src="../../js/jquery-3.2.1.min.js"></script>
 	<script>
 		$(document).on('click', '.confirm', function () {
-	        $(this).parent().parent().parent().parent().css('display', 'none');
+	        window.parent.$('.limit_manage_box').css('display', 'none');
 	    });
 
 
 	    $(document).on('click', '.close', function () {
-	        $(this).parent().parent().parent().css('display', 'none');
+	        window.parent.$('.limit_manage_box').css('display', 'none');
 	    });
 	</script>
 </body>

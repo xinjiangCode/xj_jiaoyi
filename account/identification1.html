@@ -986,6 +986,40 @@
                              $(".next_btn_update").css('display', 'block');
                              $(".next_btn").css('display', 'none');
                         }
+                    } else if (data.data.type == 8) {  //已拒绝
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+
+                        data.data.reasons = JSON.parse(data.data.reasons);
+                        // data.data.reasons.msg = $.parseJSON(data.data.reasons.msg);
+                        console.log(data.data.reasons);
+
+                        if (data.data.reasons.auditNum == '1') { //添加企业认证
+                            //企业认证的审核<span>未通过</span>，请重新修改提交
+                            $(window.parent.document).find('.jujue p').html('企业认证的审核<span>未通过</span>，请重新修改提交');
+                        } else if (data.data.reasons.auditNum == '2') {
+                            $(window.parent.document).find('.jujue p').html('企业基本信息的审核<span>未通过</span>，请重新修改提交');
+                        }
+
+                        if (data.data.reasons.reasons != '') {
+                            $(window.parent.document).find('.jujue_liyou span').html(data.data.reasons.reasons);
+                        } else {
+                            
+                            $(window.parent.document).find('.jujue_liyou span').html('无');
+                        }
+                        
+
+                        window.parent.tan5();
+
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        $('#province').attr('disabled', true);
+                        $('#city').attr('disabled', true);
+                        $('#area').attr('disabled', true);
+
                     }
 
                     

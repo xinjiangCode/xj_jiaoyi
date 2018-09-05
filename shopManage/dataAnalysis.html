@@ -156,7 +156,7 @@
 						</ul>
 						<div class="list_cont">
 							<ul>
-								<li>
+								<li class="all_user">
 									<span class="kehu_type">全部成交客户</span>
 									<span class="kehu_num">6（20%）<img src="../img/shangsheng.png" alt=""></span>
 									<span class="kehu_num_zhanbi">0%（19.98%）<img src="../img/shangsheng.png" alt=""></span>
@@ -164,7 +164,7 @@
 									<span class="fukuan_money">589.0（19.98%）<img src="../img/shangsheng.png" alt=""></span>
 									<span class="fukuan_zhuanhualv">98.2%（-6.97%）<img src="../img/xiajiang.png" alt=""></span>
 								</li>
-								<li>
+								<li class="new_user">
 									<span class="kehu_type">新成交客户</span>
 									<span class="kehu_num">6（20%）<img src="../img/shangsheng.png" alt=""></span>
 									<span class="kehu_num_zhanbi">0%（19.98%）<img src="../img/shangsheng.png" alt=""></span>
@@ -172,7 +172,7 @@
 									<span class="fukuan_money">589.0（19.98%）<img src="../img/shangsheng.png" alt=""></span>
 									<span class="fukuan_zhuanhualv">98.2%（-6.97%）<img src="../img/xiajiang.png" alt=""></span>
 								</li>
-								<li>
+								<li class="old_user">
 									<span class="kehu_type">老成交客户</span>
 									<span class="kehu_num">6（20%）<img src="../img/shangsheng.png" alt=""></span>
 									<span class="kehu_num_zhanbi">0%（19.98%）<img src="../img/shangsheng.png" alt=""></span>
@@ -418,6 +418,30 @@
 	        choose: function(dates){ //选择好日期的回调
 	            startTime = dates;
 	        }   
+	    });
+
+	    //商品交易分析
+	    $.ajax({
+	    	url: pubIP + 'clientStatistics/dealUserCount',
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.code == 1) {
+                    
+                    // $('.all_user .kehu_num').text(data.allUser.userNumber +'（20%）');
+                    
+                }
+                
+            },
+            error: function (err) {
+                console.log(err);
+            }
 	    });
 
     </script>

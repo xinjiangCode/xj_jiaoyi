@@ -4,8 +4,8 @@ if (href.indexOf('login.html') == -1 && href.indexOf('account') == -1) {
 	var token1 = localStorage.getItem(token);
 
 	// var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
-	var wuliuIP = 'http://127.0.0.1:8020/allWuliu/index.html?token='+token1;
-	// var wuliuIP = 'http://www.hdlsuper.com/';
+	// var wuliuIP = 'http://127.0.0.1:8020/allWuliu/index.html?token='+token1;
+	var wuliuIP = 'http://www.hdlsuper.com/?token='+token1;
 
 }
 
@@ -557,7 +557,7 @@ if(adct == '首页' ){
 		<a href="##"><span>抢购</span></a>\
 		<a href="##"><span>抢货</span></a>\
 		<a href="industryInformation/industryInformation.html"><span>行业资讯</span></a>\
-		<a href="memberOfTheMall/memberOfTheMall.html" class="notPd"><span>会员商城</span></a>\
+		<a href="##" class="notPd"><span>会员商城</span></a>\
 	</div></div>';
 }else{
 	headLink +=	'<a href="../index.html" class="actTabLink"><span>首页</span></a>\
@@ -569,7 +569,7 @@ if(adct == '首页' ){
 		<a href="##"><span>抢购</span></a>\
 		<a href="##"><span>抢货</span></a>\
 		<a href="../industryInformation/industryInformation.html"><span>行业资讯</span></a>\
-		<a href="../memberOfTheMall/memberOfTheMall.html" class="notPd" ><span>会员商城</span></a>\
+		<a href="##" class="notPd" ><span>会员商城</span></a>\
 	</div></div>';
 }
 
