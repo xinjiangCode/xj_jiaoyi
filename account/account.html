@@ -3495,6 +3495,7 @@
             $("#newPayPwd2").css('border-color','#D3D3D3');
         }
     });
+
     //修改支付密码  提交
     $("#updataPayPwdSub").click(function () {
         if($("#oldPayPwd").val()=="" || $("#oldPayPwd").val().length<6  ){
@@ -3516,6 +3517,7 @@
             $("#newPayPwd2").css('border-color','#D3D3D3');
         }
 
+
         $.ajax({
             url: pubIP + 'user/editPayPassword', /*v1.0*/
             type: 'post',
@@ -3528,7 +3530,8 @@
             dataType: 'json',
             data:{
                 newPayPassword:$("#newPayPwd1").val(),
-                oldPayPassword:$("#oldPayPwd").val()
+                oldPayPassword:$("#oldPayPwd").val(),
+                financePhoneNumber: financePhoneNumber
             },
             success: function (data) {
                 console.log(data)

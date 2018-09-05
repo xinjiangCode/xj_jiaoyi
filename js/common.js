@@ -21,6 +21,7 @@ var token=localStorage.getItem("token");
 var pageSize=1;//分页的每页个数
 
 var companyId = null, userId = null ;
+var financePhoneNumber = '';
 
 
 // 对Date的扩展，将 Date 转化为指定格式的String
@@ -216,6 +217,7 @@ if(token){
 		  	}
             companyId = json.data.companyId;
 			userId = json.data.id;
+            financePhoneNumber = json.financePhoneNumber;
 		  },
 		  error:function(xhr,statues,error){
 		      
