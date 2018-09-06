@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/shopManage/customerRelationship.css">
+
 </head>
 <body>
 
@@ -85,8 +86,199 @@
 	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
 	<script>
 		$(document).on('click', '.add_customer_relationship', function() {
+			window.parent.$('#addCustomerRelationship .qiye_name_input').val('');
+			window.parent.$('#addCustomerRelationship .qiye_name_kuang .ts_div').text('');
+			
 			window.parent.addCustomerRelationship();
+
 		});
+
+		window.parent.$('#addCustomerRelationship .qiye_name_input').blur(function() {
+			
+			if ($(this).val() == '') {
+				$(this).parent().find('.ts_div').text('企业名称不能为空').css('visibility', 'visible');
+			} else {
+				$(this).parent().find('.ts_div').text('').css('visibility', 'hidden');
+			}
+		});
+
+
+		//增加客户关系
+		window.parent.$('.customer_relation_ship_btn').unbind();
+		window.parent.$('.customer_relation_ship_btn').click(function() {
+
+			var input = window.parent.$('#addCustomerRelationship .qiye_name_input');
+			var qiye_type_input = window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectedindex');
+			var up_down_relationship_input = window.parent.$('#addCustomerRelationship .up_down_relationship_input').attr('data-selectedindex');
+
+			if (input.val() == '') {
+				window.parent.$('#addCustomerRelationship .qiye_name_kuang .ts_div').text('企业名称不能为空').css('visibility', 'visible');
+				return false;
+			}
+
+			console.log(input.val());
+			console.log(qiye_type_input);
+			console.log(up_down_relationship_input);
+
+			$.ajax({
+		    	url: pubIP + 'storeRelationship/addStoreRelationship',
+	            type: 'get',
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            cache: false,
+	            dataType: 'json',
+	            success: function (data) {
+	                console.log(data);
+	                if (data.code == 1) {                    
+
+	                } else {
+	                	window.parent.$('.all_error_alert .innerErrmsg').text(data.msg);
+	                	window.parent.$('.all_error_alert').show();
+	                }
+	                
+	            },
+	            error: function (err) {
+	                console.log(err);
+	            }
+		    });
+
+		});
+
+
+		// 客户关系网
+		$.ajax({
+	    	url: pubIP + 'storeRelationship/getStoreRelationshipList',
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            data: {
+            	pageSize: 100,
+            	pageNum: 1
+            },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.code == 1) {
+                    
+                    if (data.data.length != 0) {
+                    	
+                    }
+                    
+                }
+                
+            },
+            error: function (err) {
+                console.log(err);
+            }
+	    });
+
+		window.parent.$('#addCustomerRelationship .selectPub').unbind();
+	    window.parent.$('#addCustomerRelationship .selectPub').click(function(event){
+			console.log($(this).attr("disabled"))
+			if($(this).attr("disabled")=="disabled"){return;}//不可选
+			if(adct1==1){
+		        if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
+		            $(this).children('img').attr('src', '../img/prl-select.jpg')
+		        } else {
+		            $(this).children('img').attr('src', '../img/prl-selected.jpg')
+		        }
+
+		        event.stopPropagation();
+
+		        $(this).children('ul').toggle();
+		        var that = $(this);
+		        that.find('li').each(function(){
+		            $(this).mouseover(function(){
+		                $(this).addClass('hovered')
+		            });
+		            $(this).mouseleave(function(){
+		                $(this).removeClass('hovered')
+		            });
+		            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+		                $(this).css({'background': '#6ea3ff','color': '#fff'});
+		                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+		            }
+		        });
+			}else if(adct1==2){
+		        if($(this).children('img').attr('src') == '../../img/prl-selected.jpg'){
+		            $(this).children('img').attr('src', '../../img/prl-select.jpg')
+		        } else {
+		            $(this).children('img').attr('src', '../../img/prl-selected.jpg')
+		        }
+
+		        event.stopPropagation();
+
+		        $(this).children('ul').toggle();
+		        var that = $(this);
+		        that.find('li').each(function(){
+		            $(this).mouseover(function(){
+		                $(this).addClass('hovered')
+		            });
+		            $(this).mouseleave(function(){
+		                $(this).removeClass('hovered')
+		            });
+		            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+		                $(this).css({'background': '#6ea3ff','color': '#fff'});
+		                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+		            }
+		        });
+			}else if(adct1==0){
+		        if($(this).children('img').attr('src') == './img/prl-selected.jpg'){
+		            $(this).children('img').attr('src', './img/prl-select.jpg')
+		        } else {
+		            $(this).children('img').attr('src', './img/prl-selected.jpg')
+		        }
+
+		        event.stopPropagation();
+
+		        $(this).children('ul').toggle();
+		        var that = $(this);
+		        that.find('li').each(function(){
+		            $(this).mouseover(function(){
+		                $(this).addClass('hovered')
+		            });
+		            $(this).mouseleave(function(){
+		                $(this).removeClass('hovered')
+		            });
+		            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+		                $(this).css({'background': '#6ea3ff','color': '#fff'});
+		                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+		            }
+		        });
+			}
+
+
+		}).mouseleave(function (event) {
+		    if(adct1==0){
+		        $(this).children('img').attr('src', './img/prl-select.jpg');
+			}else if(adct1==1){
+		        $(this).children('img').attr('src', '../img/prl-select.jpg');
+			}else if(adct1==2){
+		        $(this).children('img').attr('src', '../../img/prl-select.jpg');
+		    }
+		    $(this).children('ul').hide();
+		});
+
+		$('.selectPub ul li').click(function(){
+		    event.stopPropagation();
+		    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+		    $(this).parent().parent().find('span').text($(this).text());
+		    if(adct1==0){
+		        $(this).parent().parent().children('img').attr('src', './img/prl-select.jpg')
+		    }else if(adct1==1){
+		        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+		    }else if(adct1==2){
+		        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+		    }
+
+		    $(this).parent().css('display','none');
+		});
+
 	</script>
 	<script type="text/javascript">
 		var dom = document.getElementById("container");

@@ -312,7 +312,7 @@
 
 
         var qiye_bank_account1 = $('#qiye_bank_account').val();
-        var qiye_bank_account_reg = /^\d{16}|\d{19}$/;
+        var qiye_bank_account_reg = /^\d+$/;
 
         if (qiye_bank_account_reg.test(qiye_bank_account1) != true) {
             $('#qiye_bank_account').parent().next().html('企业银行账号格式不正确');
@@ -402,8 +402,8 @@
 
     $('#qiye_bank_account').on('blur', function () {
         var qiye_bank_account = $(this).val();
-        var qiye_bank_account_reg = /^\d{16}|\d{19}$/;
-
+        var qiye_bank_account_reg = /^\d+$/;
+        
         if (qiye_bank_account_reg.test(qiye_bank_account) != true) {
             $(this).parent().next().html('企业银行账号格式不正确');
             return;
@@ -563,7 +563,7 @@
 
 
         var qiye_bank_account1 = $('#qiye_bank_account').val();
-        var qiye_bank_account_reg = /^\d{16}|\d{19}$/;
+        var qiye_bank_account_reg = /^\d+$/;
 
         if (qiye_bank_account_reg.test(qiye_bank_account1) != true) {
             $('#qiye_bank_account').parent().next().html('企业银行账号格式不正确');

@@ -641,6 +641,26 @@
             margin: auto;
         }
 
+
+        .selectPub {
+            font-size: 14px;
+        }
+
+        .ts_div {
+            /*line-height: 32px;*/
+            color: #ff7854;
+            margin-left: 127px;
+            font-size: 14px;
+            visibility: hidden;
+            display: inline-block;
+        }
+
+        .qiye_type_kuang {
+            /* margin: 25px 0; */
+            margin-bottom: 29px;
+            margin-top: 4px;
+        }
+
     </style>
 
 </head>
@@ -2070,34 +2090,34 @@
                <div class="qiye_name_kuang clearfix">
                    <span class="span fl" style="color: #6c6d6e;">企业名称：</span>
                    <input type="text" class="qiye_name_input fl" style="width: 387px; height: 34px; font-size: 13px;">
+                   <div class="ts_div"></div>
                </div>
                <div class="qiye_type_kuang clearfix">
                    <span class="span fl" style="color: #6c6d6e;">企业类型：</span>
-                   <div class="selectPub qiye_type_input fl" data-selectedindex="0" style="width: 390px;">
-                        <span></span>
+                   <div class="selectPub qiye_type_input fl" data-selectedindex="0" style="width: 390px; font-size: 14px;">
+                        <span>厂家</span>
                         <img src="../img/prl-select.jpg" alt="">
                         <ul>
-                            <li data-index="1">10</li>
-                            <li data-index="2">20</li>
-                            <li data-index="3">30</li>
+                            <li data-index="0">厂家</li>
+                            <li data-index="1">贸易商</li>
+                            <li data-index="2">终端</li>
                         </ul>
                     </div>
                </div>
                <div class="up_down_relationship clearfix">
                    <span class="span fl" style="color: #6c6d6e;">上下游关系：</span>
-                   <div class="selectPub up_down_relationship_input fl" data-selectedindex="0" style="width: 390px;">
-                        <span></span>
+                   <div class="selectPub up_down_relationship_input fl" data-selectedindex="1" style="width: 390px; font-size: 14px;">
+                        <span>上游</span>
                         <img src="../img/prl-select.jpg" alt="">
                         <ul>
-                            <li data-index="1">10</li>
-                            <li data-index="2">20</li>
-                            <li data-index="3">30</li>
+                            <li data-index="1">上游</li>
+                            <li data-index="2">下游</li>
                         </ul>
                     </div>
                </div>
             </div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6;width:130px;height:35px;line-height:35px;font-size:16px; margin: 50px auto 0 80px;" class="modelbtn confirm">确定</div>
+                <div style="background:#5690f6;width:130px;height:35px;line-height:35px;font-size:16px; margin: 50px auto 0 80px;" class="modelbtn customer_relation_ship_btn">确定</div>
             </div>
         </div>
     </div>
@@ -2399,8 +2419,7 @@
         // // var obj = new zoom('mask', 'bigimg', $("#Iframe").contents().find(".smallimg"));        
         
         // obj.init();
-        
-
+       
 
     // 调用删除弹框
     function warn_alert(aa, msg) {
@@ -2440,6 +2459,8 @@
         $('.modelBox').fadeIn();
 
     }
+
+
 
 
    
