@@ -421,20 +421,19 @@
 	        alert("已清空草稿箱")
 	    }
 
-	    $(document).on('click', '.export_btn', function() {
-	    	
-	    });
 
-
-	    
 
         $('#shop_attr').bind('input propertychange',function () {
             //console.log()
 			var text=$(this).eq(0).val();
 			if($('#shop_attr').val() == ''){
 				$('#prope').html('').hide();
+				$(this).attr('data-chemicalid', '');
+				$(this).attr('did', '');
 				return false;
 			}
+
+
             $.ajax({
                 url: pubIP + 'productApi/listChemicalLikeByName', /*v1.0*/
                 type: 'get',

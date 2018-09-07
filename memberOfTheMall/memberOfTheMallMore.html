@@ -13,6 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/memberOfTheMall/memberOfTheMall.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/memberOfTheMall/memberOfTheMallMore.css"/>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/common.js"></script>
 	<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
 	<style>
 		.allPageN, input[type='text'] {
@@ -27,6 +29,16 @@
 			height: 44px;
 		}
 
+
+		.sort_name {
+			padding: 0 12px;
+			width: auto;
+		}
+
+		.detail_sort li {
+			cursor: pointer;
+		}
+
 	</style>
 </head>
 <body>
@@ -35,7 +47,7 @@
 		<div class="detail_info">
 			<div class="detail_sort clearfix">
 				<span class="sort_title fl">分类：</span>
-				<ul class="clearfix fl">
+				<ul class="clearfix fl one_lei">
 					<li class="sort_name">广告宣传</li>
 					<li>综合服务</li>
 					<li>广告宣传</li>
@@ -45,7 +57,7 @@
 			</div>
 			<div class="detail_sort clearfix">
 				<span class="sort_title fl">二级：</span>
-				<ul class="clearfix fl">
+				<ul class="clearfix fl two_lei">
 					<li class="sort_name">广告宣传</li>
 					<li>综合服务</li>
 					<li>广告宣传</li>
@@ -265,8 +277,7 @@
 
 	
 
-	<script src="../js/jquery-3.2.1.min.js"></script>
-    <script src="../js/common.js"></script>
+	
     <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
     <!-- <script src="../../js/template.js"></script> -->
     <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
@@ -279,6 +290,88 @@
                 console.log(n);
             }
         });
+
+    	$.ajax({
+			type:"post",
+	        url:pubIP+"memberShop/getMemberShopClassGroy",//v1.0
+	        cache:false,
+	        dataType: "json",
+	        async:false,
+	        headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+	        success: function(data){
+	        	console.log(data);
+	        	if (data.code == 1) {
+	        		if (data.data.length != 0) {
+	        			var str = '';
+	        			for (var i = 0; i < data.data.length; i++) {
+	        				str += '<li class="" data-categoryId="'+data.data[i].categoryId+'">'+data.data[i].categoryName+'</li>';
+	        			}
+	        			$('.one_lei').html(str);
+
+	        			// sort_name
+	        			$('.one_lei li').eq(0).addClass('sort_name');
+
+						secondClass($('.one_lei li').eq(0).attr('data-categoryId'));
+
+						$(document).on('click', '.one_lei li', function() {
+							$('.one_lei li').removeClass('sort_name');
+							$(this).addClass('sort_name');
+							secondClass($(this).attr('data-categoryId'));
+						})	        			
+
+	        		}
+
+	        	}
+	        },
+	        error: function(err) {
+	        	console.log(err);
+	        }
+	    });
+
+
+	    //二级分类
+	    function secondClass(firstClass) {
+	    	$.ajax({
+				type:"post",
+		        url:pubIP+"memberShop/getMemberShopClassGroyByOneClass",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	oneClassId: firstClass
+	            },
+		        success: function(data){
+		        	console.log(data);
+		        	if (data.code == 1) {
+		        		if (data.data.length != 0) {
+		        			
+		        			var str = '';
+
+		        			for (var i = 0; i < data.data.length; i++) {
+		        				str += '<li>'+data.data[i].categoryName+'<li>';
+		        			}	  
+
+		        			$('.two_lei').html(str);   
+
+		        			$('.two_lei li').eq(0).addClass('sort_name'); 			
+
+		        		}
+
+		        	}
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    });
+	    }
+
     </script>
 </body>
 </html>

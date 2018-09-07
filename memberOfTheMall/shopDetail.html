@@ -8,9 +8,11 @@
 		<meta http-equiv="Cache-Control" CONTENT="no-cache">
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta name="format-detection" content="telephone=no" />
-		<title>新疆化学品经营服务平台</title>
+		<title adct1="1">新疆化学品经营服务平台</title>
 		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css" />
 		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="../css/objDetails.css"/>
 		<style>
@@ -353,6 +355,33 @@
 			.objDetailsImgList>div{
 				cursor: pointer;
 			}
+
+			.objDgg .selectPub {
+				width: 110px;
+				float: left;
+			}
+
+			/*清除浮动*/
+			.clearfix:before, .clearfix:after {
+			    content: "";
+			    display: table;
+			}
+
+			.clearfix:after {
+			    clear: both;
+			}
+
+			.clearfix {
+			    *zoom: 1; /*IE/7/6*/
+			}
+
+			.fl {
+				float: left;
+			}
+
+			.fr {
+				float: right;
+			}
 		</style>
 	</head>
 
@@ -385,13 +414,9 @@
 							<p><i style="font-size:16px;">价格：</i><span class="fs16">¥<span class="fs28">1440.00</span>/吨</span></p>
 							<p><i style="font-size:16px;">会员价格：</i><span class="fs16 mljf">¥<span class="fs28">188</span>积分 + <span class="fs28">1440.00</span>/包</span></p>
 						</div>
-						<p class="objDgg">
-							<!-- <span>纯度：erf</span>
-							<span>规格：fdfd</span>
-							<span>工业级别：df</span>
-							<span>形态：dfdf</span> -->
-							<span>配送至：</span>
-							<select name="province" id="province">
+						<div class="objDgg clearfix">
+							<span style="float: left; display: inline-block; height: 36px; line-height: 36px;">配送至：</span>
+							<!-- <select name="province" id="province">
 								<option value="">省</option>
 							</select>
 							<select name="city" id="city">
@@ -399,8 +424,29 @@
 							</select>
 							<select name="area" id="area">
 								<option value="">区（县）</option>
-							</select>
-						</p>
+							</select> -->
+							<div class="selectPub fl" style="margin-left: 17px;" id="province" data-selectedindex="0">
+		                        <span>请选择</span>
+		                        <img src="../img/prl-select.jpg" alt="">
+		                        <ul>
+		                            <li data-index="1">请选择</li>
+		                        </ul>
+		                    </div>
+		                    <div class="selectPub fl" id="city" data-selectedindex="0">
+		                        <span>请选择</span>
+		                        <img src="../img/prl-select.jpg" alt="">
+		                        <ul>
+		                            <li data-index="1">请选择</li>
+		                        </ul>
+		                    </div>
+		                    <div class="selectPub fl" style="width: 120px;" id="area" data-selectedindex="0">
+		                        <span>请选择</span>
+		                        <img src="../img/prl-select.jpg" alt="">
+		                        <ul>
+		                            <li data-index="1">请选择</li>
+		                        </ul>
+		                    </div>
+						</div>
 						<div class="objDIfInner">
 							<p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">运</span>费：<span style="letter-spacing: 1px;" class="mljl">免费/1,499.00</span></p>
 							<p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">颜</span>色：
@@ -581,10 +627,10 @@
 			</div>
 		</div>
 		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script> -->
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/imageZoom.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<!-- <script src="../js/common.js" type="text/javascript" charset="utf-8"></script> -->
 		<script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
 		<script>
 			$(function () {
@@ -601,6 +647,48 @@
 				CloudZoom.quickStart();
 
 			});
+
+
+
+			$('.selectPub').click(function(event){
+				console.log($(this).attr("disabled"))
+				if($(this).attr("disabled")=="disabled"){return;}//不可选
+		        if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
+		            $(this).children('img').attr('src', '../img/prl-select.jpg')
+		        } else {
+		            $(this).children('img').attr('src', '../img/prl-selected.jpg')
+		        }
+
+		        event.stopPropagation();
+
+		        $(this).children('ul').toggle();
+		        var that = $(this);
+		        that.find('li').each(function(){
+		            $(this).mouseover(function(){
+		                $(this).addClass('hovered')
+		            });
+		            $(this).mouseleave(function(){
+		                $(this).removeClass('hovered')
+		            });
+		            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+		                $(this).css({'background': '#6ea3ff','color': '#fff'});
+		                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+		            }
+		        });
+
+			}).mouseleave(function (event) {
+			    $(this).children('img').attr('src', '../img/prl-select.jpg');
+			    $(this).children('ul').hide();
+			});
+
+			$('.selectPub ul li').click(function(){
+			    event.stopPropagation();
+			    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+			    $(this).parent().parent().find('span').text($(this).text());
+			    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+			    $(this).parent().css('display','none');
+			});
+
 		</script>
 	</body>
 

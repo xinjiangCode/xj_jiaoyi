@@ -30,6 +30,12 @@
 	    margin-left: 3px;
 	    border-radius:0 ;
 	}
+
+	.duihuan_button {
+		width: 111px;
+		height: 34px;
+		display: inline-block;
+	}
 </style>
 <body>
 	<!-- 会员商城页面 -->
@@ -65,7 +71,7 @@
 								</div>
 							</div>
 							<div class="gay_bottom">
-								<ul >
+								<ul style="height: 139px;">
 									<li>
 										<span class="service_title">广告宣传</span>
 										<span>平台广告</span>
@@ -114,7 +120,7 @@
 						<img class="img_pic" src="../img/huafei_big_pic.png" alt="">
 						<p class="shop_name">商品名称</p>
 						<p class="integral_money">1888积分+6880元</p>
-						<span class="duihuan_button"><img src="../img/duihuan_button.png" alt=""></span>
+						<span class="duihuan_button"><a href="shopDetail.html"><img src="../img/duihuan_button.png" alt=""></a></span>
 					</li>
 					<li>
 						<img class="wei_icon" src="../img/wei.png" alt="">
@@ -284,6 +290,8 @@
 		<% } %>
    </script>
 	<script>
+
+
 		
 		//banner
 		$.ajax({
@@ -322,10 +330,11 @@
 
 
 
-	    //商城列表
+		
+	    //商城列表   分类gay_bottom
 	    $.ajax({
-			type:"get",
-	        url:pubIP+"memberShop/getMemberShopGoodsDataByFloor",//v1.0
+			type:"post",
+	        url:pubIP+"memberShop/getMemberShopClassGroy",//v1.0
 	        cache:false,
 	        dataType: "json",
 	        async:false,
@@ -336,6 +345,61 @@
 	        success: function(data){
 	        	console.log(data);
 	        	
+	        	if (data.code == 1) {
+	        		if (data.data.length != 0) {
+
+		        		// 分类
+		        		var str = '';
+		        		for (var i = 0; i < data.data.length; i++) {
+		        			if (i < 5) {
+		        				str += '<li>'
+			        				+'<span class="service_title" data-categoryId="'+data.data[i].categoryId+'">'+data.data[i].categoryName+'</span>'
+			        				for (var j = 0; j < data.data[i].categoryList.length; j++) {
+			        					if (j < 3) {
+			        						str += '<span data-categoryId="'+data.data[i].categoryList[j].categoryId+'">'+data.data[i].categoryList[j].categoryName+'</span>'
+			        					}
+			        					
+			        				}
+			        			str += '</li>'
+		        			}
+		        			
+		        		}
+
+		        		$('.gay_bottom ul').html(str);
+
+
+		        		//列表
+		        		var str1 = '';
+		        		for (var k = 0; k < data.data.length; k++) {
+
+		        			str1 += '<div class="member_width">'
+								+'<div class="member_list clearfix">'
+									+'<span class="member_title">'+data.data[k].categoryName+'</span>'
+									+'<ul class="clearfix" style="display: inline-block;">'
+										for (var y = 0; y < data.data[k].categoryList.length; y++) {
+											str1 += '<li class="current">'+data.data[k].categoryList[y].categoryName+'</li>'
+										}
+									str1 += '</ul>'
+								+'</div>'
+								+'<div class="member_content">'
+									+'<ul class="clearfix">'
+										+'<li>'
+											+'<img class="wei_icon" src="../img/wei.png" alt="">'
+											+'<img class="img_pic" src="../img/huafei_big_pic.png" alt="">'
+											+'<p class="shop_name">商品名称</p>'
+											+'<p class="integral_money">1888积分+6880元</p>'
+											+'<span class="duihuan_button"><img src="../img/duihuan_button.png" alt=""></span>'
+										+'</li>'
+									+'</ul>'
+								+'</div>'
+							+'</div>';
+
+							// $('.fa').html(str1);
+
+		        		}
+
+		        	}
+	        	}
 				
 	        },
 	        error: function(err) {
