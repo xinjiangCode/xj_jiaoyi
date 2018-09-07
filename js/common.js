@@ -1,6 +1,7 @@
 //api地址
 // var pubIP = 'http://api.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
+var pubIP = 'http://api.test.xjv56.com/service/';
+// var pubIP = 'http://192.168.1.80:7777/service/';
 // var pubIP = 'http://192.168.1.185:7777/service/';
 // 物流交易衔接的链接
 // var wuliuIP = 'http://wl.web.xjv56.com/';
@@ -13,7 +14,9 @@ var homeUrl = 'http://web.xjv56.com/';
 var downIP = 'http://file.xjv56.com/';
 //var downIP = 'http://192.168.1.80:8680/web-file/';
 //上传地址
-var uplodImgPath = 'http://file.xjv56.com/bfile/fileUpload.htm';
+// var uplodImgPath = 'http://file.xjv56.com/bfile/fileUpload.htm';
+var uplodImgPath = 'http://file.test.xjv56.com/bfile/fileUpload.htm';
+
 //var uplodImgPath = 'http://192.168.1.80:8680/bfile/fileUpload.htm';
 
 var token=localStorage.getItem("token");
