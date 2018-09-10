@@ -13,6 +13,21 @@
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/memberCenter/personalGrowthValue.css"/>
 </head>
+<style>
+	.gold_member {
+		width: auto;
+		padding: 0 3px;
+	}
+
+	.progress_width span {
+		vertical-align: top;
+		position: static;
+	}
+
+	.progress_width {
+	    vertical-align: middle;
+	}
+</style>
 <body>
 	
 	<!-- 个人成长值 -->
@@ -176,6 +191,23 @@
 
 	        		$('.jifen_num').text(data.data.memberIntegralUsable == null ? 0 : data.data.memberIntegralUsable);
 
+	        		$('.gold_member').text(data.data.propertiesName);
+
+	        		$('.cha_num').text(data.data.nextValue);
+
+	        		
+	        		if (data.data.ratio.indexOf('%') != -1) {
+	        			data.data.ratio = data.data.ratio.split('%').join('');	
+	        		}
+
+	        		if (data.data.ratio == '100') {
+
+	        			data.data.ratio = 0;
+	        		} else {
+	        			data.data.ratio = Number(100 - 20);
+	        		}
+
+	        		$('.progress_width span').css('width', data.data.ratio+'%');
 	        		
 	        	}
 

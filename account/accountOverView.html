@@ -204,8 +204,8 @@
     </div>
     <div class="header2">
         <div class="title">会员信息</div>
-        <div class="weiRenZhengID" style="padding: 20px 24px;overflow: hidden;"><img style="margin-top: -2px;"  src="../img/cf_weirenzheng.png" alt="">&nbsp;实名认证：<span style="color: #ff796e; cursor: pointer;" class="weiRenZheng_btn">未认证</span></div>
-        <div class="yiRenZhengID" style="padding: 20px 24px;overflow: hidden;font-size: 14px; display: none;">
+        <div class="weiRenZhengID wrz" style="padding: 20px 24px;overflow: hidden;"><img style="margin-top: -2px;"  src="../img/cf_weirenzheng.png" alt="">&nbsp;实名认证：<span style="color: #ff796e; cursor: pointer;" class="weiRenZheng_btn">未认证</span></div>
+        <div class="yiRenZhengID yrz" style="padding: 20px 24px;overflow: hidden;font-size: 14px; display: none;">
             <img  src="../img/cf_weirenzheng.png" alt=""> <span class="Lf">&nbsp;实名认证：</span>
             <span class="Lf" style="color: #8dc44d;">&nbsp;已认证&nbsp;</span>
             <img style="margin-top: 5px;" src="../img/cf_shimingok.png" alt="">
@@ -518,11 +518,11 @@
 					localStorage.setItem('mobile',json.data.mobile);
                     //身份认证
                     if(json.data.idCard==null){
-                        $(".yiRenZhengID").css("display","none");
-                        $(".weiRenZhengID").css("display","block");
+                        $(".yrz").css("display","none");
+                        $(".wrz").css("display","block");
                     }else{
-                        $(".weiRenZhengID").css("display","none");
-                        $(".yiRenZhengID").css("display","block");
+                        $(".wrz").css("display","none");
+                        $(".yrz").css("display","block");
                     }
                     //账户的安全等级
                     if(json.data.securityGrade==0){
@@ -586,8 +586,8 @@
 
                         $(".weiRenZheng").css("display","none");
                         $(".yiRenZheng").show();
-                        $(".weiRenZhengID").css("display","none");
-                        $(".yiRenZhengID").show();
+                        // $(".weiRenZhengID").css("display","none");
+                        // $(".yiRenZhengID").show();
                         sessionStorage.setItem("storeId",json.data.storeId);
                         $("#orgName").text(json.data.orgName == null ? " " : json.data.orgName);
                         //公司类型 企业类型  企业类型 0厂家（生产企业）； 1贸易商； 2终端； 3其它

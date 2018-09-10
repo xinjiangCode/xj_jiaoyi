@@ -690,7 +690,8 @@
 	    </div>
 	</div>
 	
-	<script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+	<script src="../../js/common.js"></script>
 	<script>
 		$(document).on('click', '.confirm', function () {
 	        window.parent.$('.limit_manage_box').css('display', 'none');
@@ -700,6 +701,37 @@
 	    $(document).on('click', '.close', function () {
 	        window.parent.$('.limit_manage_box').css('display', 'none');
 	    });
+
+        //查询某个用户已有权限
+        console.log(window.parent.$('#limit_manage_iframe').attr('data-id'));
+
+        $.ajax({
+            url: pubIP + 'userPermissions/addUserAffiliated',
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+                userId: window.parent.$('#limit_manage_iframe').attr('data-id')
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                if (json.code == 1) {
+
+                } else {
+                    cf_alert1(2, json.msg);
+                }
+                
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+
 	</script>
 </body>
 </html>

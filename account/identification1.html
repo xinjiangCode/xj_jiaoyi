@@ -493,6 +493,9 @@
             $(this).parent().find('.uploade').find('input[type="hidden"]').val('');
         });
 
+
+        var qiyeName = true;
+
         
         selectProvince('');
 
@@ -1041,6 +1044,11 @@
                 $('#qiye_name').parent().next().html('企业名称不能为空');
                 return;
             }
+
+            if (!qiyeName) {
+                $('#qiye_name').parent().next().html('企业名称不能重复');
+                return;   
+            }
             
             var zhuce_money_reg = $('#zhuce_money').val();
             var reg = /^\d+(\.\d+)?$/; 
@@ -1240,7 +1248,37 @@
                 $(this).parent().next().html('企业名称不能为空');
                 return false;
             } else {
-                $(this).parent().next().html('');
+                var that = $(this);
+                $.ajax({
+                    url: pubIP + 'companyCertification/checkCompanyName',
+                    type: 'post',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        token: token
+                    },
+                    data: {
+                        companyId: companyId,
+                        companyName: $(this).val()
+                    },
+                    cache: false,
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        if (data.code == 1) {
+                            qiyeName = true;
+                            that.parent().next().html('');
+                        } else {
+                            qiyeName = false;
+                            that.parent().next().html('企业名称不能重复');
+                        }
+                    },
+                    error: function() {
+
+                    }
+                });
+
+                // $(this).parent().next().html('');
+
             }
         });
 
@@ -1593,6 +1631,11 @@
             if ($('#qiye_name').val() == '') {
                 $('#qiye_name').parent().next().html('企业名称不能为空');
                 return;
+            }
+
+            if (!qiyeName) {
+                $('#qiye_name').parent().next().html('企业名称不能重复');
+                return;   
             }
             
             var zhuce_money_reg = $('#zhuce_money').val();

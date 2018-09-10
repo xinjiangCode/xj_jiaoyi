@@ -691,7 +691,7 @@
                     <li><a href="javascript:;" class="manageItem qiye qiye_renzheng" data-src="./identification1.html" data-height="1600">企业认证</a></li>
                     <li><a href="javascript:;" class="manageItem zizhi_renzheng" data-src="./Special1.html" data-height="1600">资质认证</a></li>
                     <!-- 二期注释的内容   ===开始 -->
-                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/limitManage.html" data-height="1600">权限管理</a></li>
+                    <!-- <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/limitManage.html" data-height="1600">权限管理</a></li> -->
                     <!-- 二期注释的内容   ===结束 -->
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/cangkuAddressManage.html" data-height="1600">仓库地址管理</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">收货地址管理</a></li>
@@ -2251,12 +2251,12 @@
         </div>
         <div class="modelcontent">
             <div class="clearfix" style="padding-top: 40px;">
-               <span class="span fl" style="color: #6c6d6e; width: 110px; margin-left: 35px; line-height: 34px;">手机号码：</span>
+               <span class="span fl" style="color: #6c6d6e; width: 80px; margin-left: 35px; line-height: 34px; font-size: 14px;">手机号码：</span>
                <input type="number" class="member_phone fl" style="width: 260px; height: 34px; font-size: 13px; text-indent: 10px;">
                <div class="ts_add_member"></div>
            </div>
            <div class="clearfix" style="padding-top: 5px;">
-               <span class="span fl" style="color: #6c6d6e; width: 110px; margin-left: 35px; line-height: 34px;">职能描述：</span>
+               <span class="span fl" style="font-size: 14px; color: #6c6d6e; width: 80px; margin-left: 35px; line-height: 34px;">职能描述：</span>
                <textarea style="width: 260px;font-size: 13px;border: 1px solid #e7e7e7; text-indent: 10px; height: 100px; overflow: hidden;" class="member_descript" style="vertical-align: text-top;" placeholder="请输入职能描述"></textarea>
                <div class="ts_add_member"></div>
            </div>
@@ -2657,7 +2657,8 @@
                         $('.modelBox23').css('display', 'block');
 
                         $('.upload_info').parent().parent().parent().parent().css('display', 'none');
-                        $("#Iframe").attr("src","account.html");
+                        window.location.reload();
+                        // $("#Iframe").attr("src","account.html");
                     }
                     
                 },

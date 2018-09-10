@@ -113,7 +113,7 @@
             <td><%=list[i].integral%></td>
             <td><%=list[i].joinAt%></td>
             <td>
-                <a href="javascript:;" class="blue limit_manage">权限管理</a>
+                <a href="javascript:;" class="blue limit_manage" data-id="<%=list[i].id%>">权限管理</a>
                 <a href="javascript:;" class="blue edit">编辑</a>
                 <a href="javascript:;" class="blue delete">删除</a>    
             </td>
@@ -205,11 +205,20 @@
         $(document).off('click', '.limit_manage');
         $(document).on('click', '.limit_manage', function() {
             window.parent.$('.limit_manage_box iframe').attr('src', 'companyRenzheng/limitManageBox.html');
+            window.parent.$('.limit_manage_box iframe').attr('data-id', $(this).attr('data-id'));
+
             window.parent.alert_show('.limit_manage_box');
         });
 
+
+        //编辑成员
+
+
+
         //添加成员
         $('.member_add').click(function() {
+            window.parent.$('.add_member_alert .modeltitle span').text('添加成员');
+
             window.parent.$('.member_descript').val('');
             window.parent.$('.member_phone').val('');
 

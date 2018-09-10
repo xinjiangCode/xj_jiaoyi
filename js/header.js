@@ -577,7 +577,7 @@ document.writeln(headLink);
 // var headerip = 'http://api.xjv56.com/service/';
 var headerip = 'http://api.test.xjv56.com/service/';
 // var headerip = 'http://192.168.1.80:7777/service/';
-// var headerip = 'http://192.168.1.185:7777/service/';
+// var headerip = 'http://192.168.1.9:7777/service/';
 
 // var headerip = 'http://127.0.0.1:7777/service/';
 
