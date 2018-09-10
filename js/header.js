@@ -553,7 +553,7 @@ if(adct == '首页' ){
 		<a href="spotGoods/reagentMall.html"><span>试剂商城</span></a>\
 		<a href="freeSearch/freeSearch.html"><span>免费找货</span></a>\
 		<a href="##"><span>金融服务</span></a>\
-		<a target="_blank" href="'+wuliuIP+'index.html" class="wuliu"><span>物流服务</span></a>\
+		<a target="_blank" href="'+wuliuIP+'" class="wuliu"><span>物流服务</span></a>\
 		<a href="##"><span>抢购</span></a>\
 		<a href="##"><span>抢货</span></a>\
 		<a href="industryInformation/industryInformation.html"><span>行业资讯</span></a>\
@@ -565,7 +565,7 @@ if(adct == '首页' ){
 		<a href="../spotGoods/reagentMall.html"><span>试剂商城</span></a>\
 		<a href="../freeSearch/freeSearch.html"><span>免费找货</span></a>\
 		<a href="##"><span>金融服务</span></a>\
-		<a target="_blank" href="'+wuliuIP+'index.html" class="wuliu"><span>物流服务</span></a>\
+		<a target="_blank" href="'+wuliuIP+'" class="wuliu"><span>物流服务</span></a>\
 		<a href="##"><span>抢购</span></a>\
 		<a href="##"><span>抢货</span></a>\
 		<a href="../industryInformation/industryInformation.html"><span>行业资讯</span></a>\
