@@ -1,7 +1,7 @@
 //api地址
-var pubIP = 'http://api.xjv56.com/service/';
+// var pubIP = 'http://api.xjv56.com/service/';
 // var pubIP = 'http://api.test.xjv56.com/service/';
-// var pubIP = 'http://192.168.1.80:7777/service/';
+var pubIP = 'http://192.168.1.80:7777/service/';
 // var pubIP = 'http://192.168.1.9:7777/service/';
 // 物流交易衔接的链接
 // var wuliuIP = 'http://wl.web.xjv56.com/';
