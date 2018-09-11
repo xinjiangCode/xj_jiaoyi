@@ -234,7 +234,7 @@
                         $('input[type=radio]').attr('disabled',true);
 
                         update_info();
-                    } else if (data.data.type == 4) {  //已拒绝
+                    } else if (data.data.type == 4 || data.data.type == 8) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
                         $('.next_btn_update').css('display', 'none');

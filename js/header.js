@@ -1,6 +1,6 @@
 // 公共头
 var href = location.href; 
-if (href.indexOf('index.html') != -1 || href.indexOf('freeSearch') != -1 || href.indexOf('buying') != -1 || href.indexOf('flashSale') != -1 || href.indexOf('industryInformation') != -1 || href.indexOf('memberOfTheMall') != -1 || href.indexOf('reagentMall') != -1 || href.indexOf('spotGoods') != -1 || href.indexOf('memberOfTheMall') != -1) {
+if (href.indexOf('index.html') != -1 || href.indexOf('freeSearch') != -1 || href.indexOf('buying') != -1 || href.indexOf('flashSale') != -1 || href.indexOf('industryInformation') != -1 || href.indexOf('memberOfTheMall') != -1 || href.indexOf('reagentMall') != -1 || href.indexOf('spotGoods') != -1 || href.indexOf('memberOfTheMall') != -1 || href.indexOf('obj') != -1) {
 	var token1 = localStorage.getItem('token');
 
 	// var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
@@ -558,7 +558,7 @@ if(adct == '首页' ){
 		<a href="##"><span>抢购</span></a>\
 		<a href="##"><span>抢货</span></a>\
 		<a href="industryInformation/industryInformation.html"><span>行业资讯</span></a>\
-		<a href="memberOfTheMall/memberOfTheMall.html" class="notPd"><span>会员商城</span></a>\
+		<a href="##" class="notPd"><span>会员商城</span></a>\
 	</div></div>';
 }else{
 	headLink +=	'<a href="../index.html" class="actTabLink"><span>首页</span></a>\
@@ -570,14 +570,15 @@ if(adct == '首页' ){
 		<a href="##"><span>抢购</span></a>\
 		<a href="##"><span>抢货</span></a>\
 		<a href="../industryInformation/industryInformation.html"><span>行业资讯</span></a>\
-		<a href="../memberOfTheMall/memberOfTheMall.html" class="notPd" ><span>会员商城</span></a>\
+		<a href="##" class="notPd" ><span>会员商城</span></a>\
 	</div></div>';
 }
 
 document.writeln(headLink);
-// var headerip = 'http://api.xjv56.com/service/';
+
+var headerip = 'http://api.xjv56.com/service/';
 // var headerip = 'http://api.test.xjv56.com/service/';
-var headerip = 'http://192.168.1.80:7777/service/';
+// var headerip = 'http://192.168.1.80:7777/service/';
 // var headerip = 'http://192.168.1.9:7777/service/';
 
 // var headerip = 'http://127.0.0.1:7777/service/';

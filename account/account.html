@@ -691,7 +691,7 @@
                     <li><a href="javascript:;" class="manageItem qiye qiye_renzheng" data-src="./identification1.html" data-height="1600">企业认证</a></li>
                     <li><a href="javascript:;" class="manageItem zizhi_renzheng" data-src="./Special1.html" data-height="1600">资质认证</a></li>
                     <!-- 二期注释的内容   ===开始 -->
-                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/limitManage.html" data-height="1600">权限管理</a></li>
+                    <!-- <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/limitManage.html" data-height="1600">权限管理</a></li> -->
                     <!-- 二期注释的内容   ===结束 -->
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/cangkuAddressManage.html" data-height="1600">仓库地址管理</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">收货地址管理</a></li>
@@ -704,8 +704,8 @@
                     <li><a href="javascript:;" class="manageItem" data-src="../shopManage/storeContentManage.html" data-height="1380">店铺内容管理</a></li>
                     <li><a href="javascript:;" class="manageItem hzf_spfb" data-src="../shopManage/shopManage.html" data-height="1380">商品管理</a></li>
                     <!-- 二期注释的内容   ===开始 -->
-                    <li><a href="javascript:;" class="manageItem" data-src="../shopManage/customerRelationship.html" >客户关系管理</a></li>
-                    <li><a href="javascript:;" class="manageItem" data-src="../shopManage/dataAnalysis.html">数据分析</a></li>
+                    <!-- <li><a href="javascript:;" class="manageItem" data-src="../shopManage/customerRelationship.html" >客户关系管理</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="../shopManage/dataAnalysis.html">数据分析</a></li> -->
                     <!-- 二期注释的内容   ===结束 -->
                 </ul>
             </li>
@@ -2482,7 +2482,7 @@
                    return;
                }
 
-                if (!data.data.state && data.data.type != 1 && data.data.type != 2) {
+                if (!data.data.state && data.data.type != 1 && data.data.type != 2 && data.data.type != 8) {
                     //$('#account_ziliao').attr('data-src', './identification1.html');
                     $('.yiRenZheng').show();
                     $('.weiRenZheng').hide();
@@ -3107,6 +3107,14 @@
                         $(".flag_qyrz").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
                         $("#Iframe").attr("src","companyRenzheng/promptCompanyRenzheng.html");
                     } else if (data.data.type == 2) { //审核中
+                        $(".acconut_box").toggle();
+                        $(".manage").find('img').attr("src","../img/cf_close.png");
+                        $(".manageItem").removeClass("active1");
+                        $(".flag_qyrz").addClass("active1");
+                        $(".flag_qyrz").parent().parent().toggle();
+                        $(".flag_qyrz").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+                        $("#Iframe").attr("src","./identification1.html");
+                    } else if (data.data.type == 8) {
                         $(".acconut_box").toggle();
                         $(".manage").find('img').attr("src","../img/cf_close.png");
                         $(".manageItem").removeClass("active1");

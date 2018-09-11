@@ -706,7 +706,7 @@
         console.log(window.parent.$('#limit_manage_iframe').attr('data-id'));
 
         $.ajax({
-            url: pubIP + 'userPermissions/addUserAffiliated',
+            url: pubIP + 'userPermissions/getRoleByUserId',
             type: 'get',
             headers: {
                 Accept: "application/json; charset=utf-8",

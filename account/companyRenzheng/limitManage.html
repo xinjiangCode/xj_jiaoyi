@@ -212,7 +212,20 @@
 
 
         //编辑成员
+        $(document).off('click', '.edit');
+        $(document).on('click', '.edit', function() {
+            window.parent.$('.add_member_alert .modeltitle span').text('编辑成员');
+            
+            // window.parent.$('.add_member_alert .add_member').attr('data-id', $(this).attr('data-id'));
+            
+            // window.parent.$('.member_descript').val('');
+            // window.parent.$('.member_phone').val('');
 
+            // window.parent.$('.member_descript').parent().find('.ts_add_member').text('');
+            // window.parent.$('.member_phone').parent().find('.ts_add_member').text('');
+
+            window.parent.alert_show('.add_member_alert');
+        });
 
 
         //添加成员

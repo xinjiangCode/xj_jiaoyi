@@ -493,6 +493,15 @@ function upload_file(obj) {
                             $('.next_btn_update').css('display', 'block');
                             update_info();
                         }
+                    } else if (data.data.type == 8) {
+                        $(".weiRenZheng").addClass('xiaoshi');
+                        $(".update_btn").css('display', 'block');
+                        $('.next_btn_update').css('display', 'none');
+                        $('input[type=file]').attr('disabled',true);
+                        $('input[type=text]').attr('disabled',true);
+                        $('input[type=radio]').attr('disabled',true);
+
+                        update_info();
                     }
                     
                 },

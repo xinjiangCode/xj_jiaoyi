@@ -78,7 +78,7 @@
 }
 
 .progress_bg span {
-	width: 84px;
+	width: 0px;
 	background: #5892f3;
 	display: inline-block;
 	vertical-align: text-top;
