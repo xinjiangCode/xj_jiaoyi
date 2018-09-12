@@ -38,13 +38,13 @@
             </div>
             <div class="fr user_list_btn">
                 <span class="member_add">添加</span>
-                <span class="add_integral">增加</span>
+                <span class="add_integral">增加积分</span>
                 <span class="reduce_integral">减少积分</span>
             </div>
         </div>
         <table class="shop_list_table">
             <thead>
-                <th><input type="radio" name="user"></th>
+                <th><input type="radio" name="user" disabled="true"></th>
                 <th>用户名称</th>
                 <th>手机号</th>
                 <th>姓名</th>
@@ -105,7 +105,7 @@
     <script type="text/html" id="listTpl">
         <%for (i in list) {%>
         <tr>
-            <td><input type="radio" name="user"></td>
+            <td><input type="radio" name="user" data-yifenpei="<%=list[i].integralAllocated%>" data-id="<%=list[i].id%>"></td>
             <td><%=list[i].loginName%></td>
             <td><%=list[i].regMobile%></td>
             <td><%=list[i].name%></td>
@@ -125,10 +125,20 @@
         //增加积分
         $('.add_integral').unbind();
         $('.add_integral').click(function() {
-            window.parent.$('.add_reduce_integral_title').text('增加积分');
-            window.parent.$('.integral_span').text('分配积分：');
-            window.parent.$('.add_reduce_integral .fenpei input').val('');
-            window.parent.alert_show('.add_reduce_integral');
+
+            if ($('input[name="user"]:checked').val() != null) {
+                window.parent.$('.add_reduce_integral_title').text('增加积分');
+                window.parent.$('.integral_span').text('分配积分：');
+                window.parent.$('.add_reduce_integral .fenpei input').val('');
+                
+                window.parent.$('.yifenpei_integral span').text($('input[name="user"]:checked').attr('data-yifenpei'));
+
+                window.parent.$('.add_reduce_integral .ok').attr('user_id', $('input[name="user"]:checked').attr('data-id'));
+                window.parent.alert_show('.add_reduce_integral');
+                
+            } else {
+                cf_alert1(2, '请选择用户');
+            }
 
         });
 
@@ -136,10 +146,16 @@
         // 减少积分
         $('.reduce_integral').unbind();
         $('.reduce_integral').click(function() {
-            window.parent.$('.add_reduce_integral_title').text('减少积分');
-            window.parent.$('.integral_span').text('减少积分数：');
-            window.parent.$('.add_reduce_integral .fenpei input').val('');
-            window.parent.alert_show('.add_reduce_integral');
+            if ($('input[name="user"]:checked').val() != null) {
+                window.parent.$('.add_reduce_integral_title').text('减少积分');
+                window.parent.$('.integral_span').text('减少积分数：');
+                window.parent.$('.add_reduce_integral .fenpei input').val('');
+                window.parent.$('.yifenpei_integral span').text($('input[name="user"]:checked').attr('data-yifenpei'));
+                window.parent.$('.add_reduce_integral .ok').attr('user_id', $('input[name="user"]:checked').attr('data-id'));
+                window.parent.alert_show('.add_reduce_integral');
+            } else {
+                cf_alert1(2, '请选择用户');
+            }
 
         });
 
@@ -179,7 +195,7 @@
                 },
                 data: {
                     integral: fenpei.val(),
-                    userId: userId,
+                    userId: $(this).attr('user_id'),
                     flag: flag
                 },
                 cache: false,
@@ -187,9 +203,9 @@
                 success: function (json) {
                     console.log(json);
                     if (json.code == 1) {
-
-                        window.parent.$('.all_success_alert .innerErrmsg').text(json.msg);
-                        window.parent.alert_show('.all_success_alert');
+                        cf_alert(1, json.msg);
+                        // window.parent.$('.all_success_alert .innerErrmsg').text(json.msg);
+                        // window.parent.alert_show('.all_success_alert');
                     } else {
                         window.parent.$('.all_error_alert .innerErrmsg').text(json.msg);
                         window.parent.alert_show('.all_error_alert');
@@ -331,6 +347,12 @@
                 dataType: 'json',
                 success: function (json) {
                     console.log(json);
+
+                    if (json.companyInfo) {
+                        window.parent.$('.add_reduce_integral .total_integral span').text(json.companyInfo.totalIntegral);
+                        window.parent.$('.add_reduce_integral .kefenpei_integral span').text(json.companyInfo.usableIntegral);
+
+                    }
                     
                     if (json.data.result.length != 0) {
                         

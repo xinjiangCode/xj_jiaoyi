@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/memberOfTheMall/memberOfTheMall.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/memberOfTheMall/memberOfTheMallMore.css"/>
+
 	<script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/common.js"></script>
 	<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
@@ -37,6 +38,20 @@
 
 		.detail_sort li {
 			cursor: pointer;
+		}
+
+		.member_list ul li {
+			width: auto;
+		}
+
+		.img_pic {
+			width: 140px;
+			height: 141px;
+		}
+
+		.filter_sort img {
+			width: 25px;
+			vertical-align: middle;
 		}
 
 	</style>
@@ -67,9 +82,9 @@
 			<div class="detail_filter clearfix">
 				<div class="sort_filter_bg fl">过滤条件</div>
 				<ul class='clearfix filter_sort fl'>
-					<li><span>销量<img src="../img/breadcrumbTopIcon.png" alt=""></span></li>
-					<li><span>积分价格<img src="../img/xiala.png" alt=""></span></li>
-					<li><span>现金价格</span></li>
+					<li><span>销量<img class="sale_num" data-flag="1" src="../img/sort_desc.png" alt=""></span></li>
+					<li><span>积分价格<img class="jifen_price" data-flag="" src="../img/sort_no_select.png" alt=""></span></li>
+					<li><span>现金价格</span><img class="cash_price" data-flag="" src="../img/sort_no_select.png" alt=""></li>
 				</ul>
 			</div>
 		</div>
@@ -77,7 +92,7 @@
 	<div class="member_width">
 		<div class="member_list clearfix">
 			<span class="member_title">广告宣传</span>
-			<ul class="clearfix" style="display: inline-block;">
+			<ul class="clearfix second_class" style="display: inline-block;">
 				<li class="current">平台广告</li>
 				<li>推广服务</li>
 				<li>设计服务</li>
@@ -85,7 +100,7 @@
 		</div>
 		<div class="member_content">
 			<ul class="clearfix">
-				<li>
+				<!-- <li>
 					<img class="wei_icon" src="../img/wei.png" alt="">
 					<img class="img_pic" src="../img/huafei_big_pic.png" alt="">
 					<p class="shop_name">商品名称</p>
@@ -259,15 +274,15 @@
 					<p class="shop_name">商品名称</p>
 					<p class="integral_money">1888积分+6880元</p>
 					<span class="duihuan_button"><a href="shopDetail.html"><img src="../img/duihuan_button.png" alt=""></a></span>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</div>
 	<div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 20px auto">
         <ul class="pagination" id="page1"></ul>
         <div class="pageJump">
-                    <span class="allPageN">1/200</span>
-                    <span class="total">共200页，</span>
+                    <span class="allPageN">0/0</span>
+                    <span class="total">共0页，</span>
             <span>到第</span>
             <input type="text" style="text-align: center; padding-left: 0px;"/>
             <span>页</span>
@@ -283,13 +298,195 @@
     <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
     <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
-    		Page({
-            num: 3,
-            elem: $('#page1'),
-            callback: function(n) {
-                console.log(n);
-            }
-        });
+    		
+    	var	isFirst = true;
+
+    	$('.filter_sort li .sale_num').click(function () {
+
+    		sort($(this), 1);
+
+    	});
+
+    	$('.filter_sort li .jifen_price').click(function () {
+
+    		sort($(this), 2);
+
+    	});
+
+    	$('.filter_sort li .cash_price').click(function () {
+
+    		sort($(this), 3);
+
+    	});
+
+
+    	function sort(that, sort_lei) {
+    		$('.filter_sort li img').attr('src', '../img/sort_no_select.png');
+    		
+    		if (sort_lei == 1) {
+    			var sortType = 1; //销量降序
+    		
+	    		if (that.attr('data-flag') != '') {
+	    			if (that.attr('data-flag') == 1) {
+		    			that.attr('data-flag', '2');
+		    			that.attr('src', '../img/sort_asc.png');
+		    			sortType = 2;
+		    		} else {
+		    			that.attr('data-flag', '1');
+		    			that.attr('src', '../img/sort_desc.png');
+		    			sortType = 1;
+		    		}	
+	    		} else {
+	    			that.attr('data-flag', '1');
+	    			that.attr('src', '../img/sort_desc.png');
+	    			sortType = 1;
+	    		}
+    		} else if (sort_lei == 2) {
+    			var sortType = 3; //积分降序
+    		
+	    		if (that.attr('data-flag') != '') {
+	    			if (that.attr('data-flag') == 1) {
+		    			that.attr('data-flag', '2');
+		    			that.attr('src', '../img/sort_asc.png');
+		    			sortType = 4;
+		    		} else {
+		    			that.attr('data-flag', '1');
+		    			that.attr('src', '../img/sort_desc.png');
+		    			sortType = 3;
+		    		}	
+	    		} else {
+	    			that.attr('data-flag', '1');
+	    			that.attr('src', '../img/sort_desc.png');
+	    			sortType = 3;
+	    		}
+    		} else if (sort_lei == 3) {
+    			var sortType = 5; //积分降序
+    		
+	    		if (that.attr('data-flag') != '') {
+	    			if (that.attr('data-flag') == 1) {
+		    			that.attr('data-flag', '2');
+		    			that.attr('src', '../img/sort_asc.png');
+		    			sortType = 6;
+		    		} else {
+		    			that.attr('data-flag', '1');
+		    			that.attr('src', '../img/sort_desc.png');
+		    			sortType = 5;
+		    		}	
+	    		} else {
+	    			that.attr('data-flag', '1');
+	    			that.attr('src', '../img/sort_desc.png');
+	    			sortType = 5;
+	    		}
+    		}
+    		
+    		
+
+    		var one_lei_id = 0;
+    		$('.one_lei li').each(function () {
+    			if ($(this).hasClass('sort_name')) {
+    				one_lei_id = $(this).attr('data-categoryId');
+    			}
+    		});
+
+    		var two_lei_id = 0;
+    		$('.two_lei li').each(function () {
+    			if ($(this).hasClass('sort_name')) {
+    				two_lei_id = $(this).attr('data-categoryId');
+    			}
+    		});
+
+    		moreAjax(1, 25, one_lei_id, two_lei_id, sortType);
+    	}
+
+
+    	function moreAjax(iDisplayStart, iDisplayLength, classOne, classTwo, sortType) {
+
+    		$.ajax({
+				type:"post",
+		        url:pubIP+"memberShop/getMemberShopGoodsData",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	sEcho: 0,
+	            	iDisplayStart: iDisplayStart, //起始行数
+	            	iDisplayLength: iDisplayLength, //每页大小
+	            	classOne: classOne, //一级分类
+	            	classTwo: classTwo, //二级分类
+	            	sortType: sortType	//排序条件: 1 销量降序 2 销量升序 3 积分价格 降序 4 积分价格 升序 5 现金价格 降序 6 现金价格升序 
+	            },
+		        success: function(data){
+		        	console.log(data);
+
+		        	if (data.aData.length != 0) {
+
+		        		var str1 = ''
+		        		for (var i = 0; i < data.aData.length; i++) {
+
+		        			if (data.aData[i].cash == null) {
+		        				data.aData[i].cash = 0;
+		        			}
+
+		        			if (data.aData[i].integral == null) {
+		        				data.aData[i].integral = 0;
+		        			}
+
+		        			if (data.aData[i].pic) {
+								if (data.aData[i].pic.indexOf(',') != -1) {
+									data.aData[i].pic = data.aData[i].pic.split(',');
+									data.aData[i].pic = data.aData[i].pic[0]
+								}
+							}
+
+		        			str1 += '<li>'
+									+'<img class="img_pic" src="'+data.aData[i].pic+'" alt="">'
+									+'<p class="shop_name">'+data.aData[i].goodsName+'</p>'
+									+'<p class="integral_money">'+data.aData[i].integral+'积分+'+data.aData[i].cash+'元</p>'
+									+'<span class="duihuan_button" data-productId="'+data.aData[i].ids+'"><a href="shopDetail.html"><img src="../img/duihuan_button.png" alt=""></a></span>'
+								+'</li>'
+		        		}
+
+		        		$('.member_content ul').html(str1);
+
+		        		if (isFirst) {
+
+		                    Page({
+	                            num: data.pages,
+	                            elem: $('#page1'),
+	                            callback: function(n) {
+	                            	iDisplayStart = n;
+	                            	console.log(n);
+
+	                                moreAjax(n, iDisplayLength, classOne, classTwo, sortType);
+	                            }
+	                        });
+
+	                     
+	                        
+	                        $('.total').text('共'+data.pages+'页，');
+
+	                        isFirst = false;
+	                    }
+
+	                    $('.allPageN').text(iDisplayStart+'/'+data.pages);
+		        		
+
+
+		        	} else {
+		        		$('.pageJump').hide();
+		        	}
+
+		        },
+		        error: function (err) {
+		        	console.log(err);
+		        }
+		    });
+    	}
+
 
     	$.ajax({
 			type:"post",
@@ -314,12 +511,30 @@
 	        			// sort_name
 	        			$('.one_lei li').eq(0).addClass('sort_name');
 
+	        			$('.member_list .member_title').text($('.one_lei li').eq(0).text());
+	        			$('.member_list .member_title').attr('data-categoryid', $('.one_lei li').eq(0).attr('data-categoryid'));
+
+	        			$('.one_lei li').eq(0).attr('flag', 1);
+
 						secondClass($('.one_lei li').eq(0).attr('data-categoryId'));
+
+
 
 						$(document).on('click', '.one_lei li', function() {
 							$('.one_lei li').removeClass('sort_name');
 							$(this).addClass('sort_name');
+							$('.one_lei li').eq(0).attr('flag', 2);
 							secondClass($(this).attr('data-categoryId'));
+							$('.member_list .member_title').text($(this).text());
+
+							$('.member_list .member_title').attr('data-categoryid', $(this).attr('data-categoryid'));
+
+							isFirst = true;
+
+							var oneId = $(this).attr('data-categoryid');
+    						moreAjax(1, 25, oneId, $('.two_lei li').eq(0).attr('data-categoryid'), 1);
+
+
 						})	        			
 
 	        		}
@@ -353,14 +568,62 @@
 		        		if (data.data.length != 0) {
 		        			
 		        			var str = '';
-
 		        			for (var i = 0; i < data.data.length; i++) {
-		        				str += '<li>'+data.data[i].categoryName+'<li>';
+		        				str += '<li data-categoryId="'+data.data[i].categoryId+'">'+data.data[i].categoryName+'<li>';
 		        			}	  
 
 		        			$('.two_lei').html(str);   
 
-		        			$('.two_lei li').eq(0).addClass('sort_name'); 			
+		        			$('.two_lei li').eq(0).addClass('sort_name'); 	
+
+		        			$('.member_list .second_class').html(str);	
+		        			$('.member_list .second_class li').eq(0).addClass('current');	
+
+		        			if ($('.one_lei li').eq(0).attr('flag') == 1) {
+		        				moreAjax(1, 25, $('.one_lei li').eq(0).attr('data-categoryId'), $('.two_lei li').eq(0).attr('data-categoryId'), 1);
+		        			}
+		        			
+
+		        			$(document).on('click', '.two_lei li', function () {
+		        				$('.two_lei li').removeClass('sort_name');
+		        				$(this).addClass('sort_name');
+					    		
+					    		var one_id = 0;
+					    		$('.one_lei li').each(function(item, i) {
+					    			if ($(this).hasClass('sort_name')) {
+					    				console.log($(this).attr('data-categoryid'));
+					    				one_id = $(this).attr('data-categoryid');
+					    			}
+					    		});
+					    		var that = $(this);
+					    		$('.second_class li').each(function(ele, i) {
+					    			if ($(this).attr('data-categoryId') == that.attr('data-categoryId')) {
+					    				$('.second_class li').removeClass('current');
+					    				$(this).addClass('current');
+					    			}
+					    		});
+
+					    		isFirst = true;
+
+					    		moreAjax(1, 25, one_id, $(this).attr('data-categoryid'), 1);
+					    	});
+
+					    	$(document).on('click', '.second_class li', function () {
+					    		$('.second_class li').removeClass('current');
+					    		$(this).addClass('current');
+					    		var that = $(this);
+					    		$('.two_lei li').each(function(ele, i) {
+					    			if ($(this).attr('data-categoryId') == that.attr('data-categoryId')) {
+					    				$('.two_lei li').removeClass('sort_name');
+					    				$(this).addClass('sort_name');
+					    			}
+					    		});
+
+					    		isFirst = true;
+
+					    		moreAjax(1, 25, $('.second_class').prev().attr('data-categoryId'), $(this).attr('data-categoryid'), 1);
+
+					    	});
 
 		        		}
 

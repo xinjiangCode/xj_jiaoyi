@@ -27,6 +27,15 @@
 	.progress_width {
 	    vertical-align: middle;
 	}
+
+	.qiandao {
+		width: auto;
+		padding: 0 4px;
+	}
+
+	.total {
+		margin-left: 0px;
+	}
 </style>
 <body>
 	
@@ -39,7 +48,7 @@
 					<input type="text" class="date-input laydate-icon fl" placeholder="请选择日期" id="test1"><span class="data_search search1 fl">搜索</span>
 				</span>
 				<span class="clearfix disblock">
-					<input type="text" class="search_input fl"><span class="data_search search fl">搜索</span>
+					<input type="text" placeholder="来源" class="search_input fl"><span class="data_search search fl">搜索</span>
 				</span>
 			</div>
 		</div>
@@ -70,7 +79,7 @@
 				</ul>
 			</div>
 			<div class="table_body">
-				<ul class="clearfix">
+				<!-- <ul class="clearfix">
 					<li><span class="sort">1</span></li>
 					<li>2018-01-02 10:02:30</li>
 					<li><span class="qiandao">签到</span></li>
@@ -99,13 +108,13 @@
 					<li>2018-01-02 10:02:30</li>
 					<li><span class="qiandao">签到</span></li>
 					<li><span class="jifen_list"><span style="color: #f66132;">100</span>分</span></li>
-				</ul>
+				</ul> -->
 			</div>
 			<div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 20px auto">
 		        <ul class="pagination" id="page1"></ul>
 		        <div class="pageJump">
-		                    <span class="allPageN">1/200</span>
-		                    <span class="total">共200页，</span>
+		                    <span class="allPageN">1/1</span>
+		                    <span>共<span class="total">1</span>页，</span>
 		            <span>到第</span>
 		            <input type="text" style="text-align: center; padding-left: 0px;"/>
 		            <span>页</span>
@@ -122,24 +131,36 @@
 	<script>
 		laydate({
 		    elem: '#test1',
-		    format: 'YYYY-MM-DD hh:mm:ss',
-		    istime: true,
+		    format: 'YYYY-MM-DD',
+		    istime: false,
 		    choose: function(dates){ //选择好日期的回调
 		        
 		    }   
 		});
 
-		Page({
-            num: 3,
-            elem: $('#page1'),
-            callback: function(n) {
-                console.log(n);
-            }
-        });
+		//日期搜索
+		$('.search').click(function() {
+			isFirst = true;
 
-		personalGrowthValue('', 10, '', '', '');
+			var test1 = $('#test1').val();
+			var source = $('.search_input').val();
+			personalGrowthValue(1, 2, test1, source);
+		});
+
+		//来源搜索
+		$('.search1').click(function() {
+			isFirst = true;
+
+			var test1 = $('#test1').val();
+			var source = $('.search_input').val();
+			personalGrowthValue(1, 2, test1, source);
+		});
+
+		var isFirst = true;
+
+		personalGrowthValue(1, 2, '', '');
 		// 
-		function personalGrowthValue(num, size, startTime, endTime, source) {
+		function personalGrowthValue(num, size, time, source) {
 			$.ajax({
 				type:"get",
 		        url:pubIP+"member/getUserGrowhtInfo",//v1.0
@@ -153,13 +174,58 @@
 	            data: {
 	            	pageNum: num,
 	            	pageSize: size,
-	            	startTime: startTime,
-	            	endTime: endTime,
+	            	time: time,
 	            	source: source
 	            },
 		        success: function(data){
 		        	console.log(data);
 		        	
+		        	if (data.code == 1) {
+		        		if (data.data.result.length != 0) {
+
+		        			$('#page1').show();
+		        			$('.pageJump').show();
+
+		        			var str = '';
+		        			for (var i = 0; i < data.data.result.length; i++) {
+		        				
+		        				data.data.result[i].time = new Date(data.data.result[i].time).Format("yyyy-MM-dd hh:mm");
+
+		        				str += '<ul class="clearfix">'
+									+'<li><span class="sort">'+(i+1)+'</span></li>'
+									+'<li>'+data.data.result[i].time+'</li>'
+									+'<li><span class="qiandao">'+data.data.result[i].source+'</span></li>'
+									+'<li><span class="jifen_list"><span style="color: #f66132;">'+data.data.result[i].score+'</span>分</span></li>'
+								+'</ul>'
+		        			}
+
+		        			$('.table_body').html(str);
+
+		        			if (isFirst) {
+                            
+	                            Page({
+	                                num: data.data.pages,
+	                                elem: $('#page1'),
+	                                callback: function(n) {
+	                                    personalGrowthValue(n, size, time, source);
+	                                }
+	                            });
+
+	                            $('.total').text(data.data.pages);
+
+
+	                            isFirst = false;
+	                       }
+
+	                        $('.allPageN').text(num+'/'+data.data.pages);
+		        			
+
+		        		} else {
+		        			$('.table_body').html('');
+		        			$('#page1').hide();
+		        			$('.pageJump').hide();
+		        		}
+		        	}
 
 		        },
 		        error: function(err) {

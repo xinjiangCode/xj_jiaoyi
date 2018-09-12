@@ -116,9 +116,6 @@
 				return false;
 			}
 
-			console.log(input.val());
-			console.log(qiye_type_input);
-			console.log(up_down_relationship_input);
 
 			$.ajax({
 		    	url: pubIP + 'storeRelationship/addStoreRelationship',
@@ -129,10 +126,15 @@
 	            },
 	            cache: false,
 	            dataType: 'json',
+	            data: {
+	            	companyName: input.val(),
+	            	storeType: qiye_type_input,
+	            	relationship: up_down_relationship_input
+	            },
 	            success: function (data) {
 	                console.log(data);
-	                if (data.code == 1) {                    
-	                	//添加有问题 ，有企业，资质通过了，添加不上
+	                if (data.code == 1) {
+	                	cf_alert1(1, '添加成功');            
 	                } else {
 	                	window.parent.$('.all_error_alert .innerErrmsg').text(data.msg);
 	                	window.parent.$('.all_error_alert').show();
