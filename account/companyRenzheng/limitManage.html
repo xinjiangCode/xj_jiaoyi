@@ -89,7 +89,7 @@
             <ul class="pagination" id="page1"></ul>
             <div class="pageJump">
                 <span class="allPageN">0/<span class="total">0</span></span>
-                共<span class="allPageSize"></span>页，
+                <span style="margin-left: 10px;">共<span class="allPageSize"></span>页，</span>
                 <span>到第</span>
                 <input class="page_page" type="text" style="padding-left: 0px; text-align: center;" />
                 <span>页</span>
@@ -107,15 +107,15 @@
         <tr>
             <td><input type="radio" name="user" data-yifenpei="<%=list[i].integralAllocated%>" data-id="<%=list[i].id%>"></td>
             <td><%=list[i].loginName%></td>
-            <td><%=list[i].regMobile%></td>
+            <td class="regMobile"><%=list[i].regMobile%></td>
             <td><%=list[i].name%></td>
-            <td><%=list[i].jobName%></td>
+            <td class="descript"><%=list[i].jobName%></td>
             <td><%=list[i].integral%></td>
             <td><%=list[i].joinAt%></td>
             <td>
                 <a href="javascript:;" class="blue limit_manage" data-id="<%=list[i].id%>">权限管理</a>
                 <a href="javascript:;" class="blue edit">编辑</a>
-                <a href="javascript:;" class="blue delete">删除</a>    
+                <a href="javascript:;" class="blue delete" data-id="<%=list[i].id%>">删除</a>    
             </td>
         </tr>
         <%}%>
@@ -204,7 +204,7 @@
                     console.log(json);
                     if (json.code == 1) {
                         cf_alert(1, json.msg);
-                        // window.parent.$('.all_success_alert .innerErrmsg').text(json.msg);
+                        // window.parent.$('.all_success_alert .innerSuccmsg').text(json.msg);
                         // window.parent.alert_show('.all_success_alert');
                     } else {
                         window.parent.$('.all_error_alert .innerErrmsg').text(json.msg);
@@ -231,14 +231,16 @@
         $(document).off('click', '.edit');
         $(document).on('click', '.edit', function() {
             window.parent.$('.add_member_alert .modeltitle span').text('编辑成员');
-            
-            // window.parent.$('.add_member_alert .add_member').attr('data-id', $(this).attr('data-id'));
-            
-            // window.parent.$('.member_descript').val('');
-            // window.parent.$('.member_phone').val('');
 
-            // window.parent.$('.member_descript').parent().find('.ts_add_member').text('');
-            // window.parent.$('.member_phone').parent().find('.ts_add_member').text('');
+            window.parent.$('.add_member_alert .add_member').attr('data-id', $(this).prev().attr('data-id'));
+
+            window.parent.$('.member_descript').val($(this).parent().parent().find('.descript').text());
+
+            window.parent.$('.member_phone').val($(this).parent().parent().find('.regMobile').text());
+            window.parent.$('.member_phone').attr('disabled', 'true');
+
+            window.parent.$('.member_descript').parent().find('.ts_add_member').text('');
+            window.parent.$('.member_phone').parent().find('.ts_add_member').text('');
 
             window.parent.alert_show('.add_member_alert');
         });
@@ -253,6 +255,10 @@
 
             window.parent.$('.member_descript').parent().find('.ts_add_member').text('');
             window.parent.$('.member_phone').parent().find('.ts_add_member').text('');
+
+            window.parent.$('.add_member_alert .add_member').attr('data-id', '');
+
+            window.parent.$('.member_phone').attr('disabled', false);
 
             window.parent.alert_show('.add_member_alert');
         });
@@ -296,25 +302,100 @@
                 return false;
             }
 
+            var that = $(this);
 
+            if ($(this).attr('data-id') == '') {
+                $.ajax({
+                    url: pubIP + 'userPermissions/addUserAffiliated',
+                    type: 'get',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        token: token
+                    },
+                    data: {
+                        phone: member_phone.val(),
+                        jobDec: member_descript.val()
+                    },
+                    cache: false,
+                    dataType: 'json',
+                    success: function (json) {
+                        console.log(json);
+                        if (json.code == 1) {
+                            window.parent.$('.all_success_alert .innerSuccmsg').text('添加成功');
+                            window.parent.alert_show('.all_success_alert');
+                            window.parent.$('.add_member_alert').hide();
+                            window.location.reload();
+                        } else {
+                            window.parent.$('.all_error_alert .innerErrmsg').text(json.msg);
+                            window.parent.alert_show('.all_error_alert');
+                        }
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+                });
+            } else {
+                $.ajax({
+                    url: pubIP + 'userPermissions/updateUserAffiliated',
+                    type: 'get',
+                    headers: {
+                        Accept: "application/json; charset=utf-8",
+                        token: token
+                    },
+                    data: {
+                        userId: that.attr('data-id'),
+                        jobDec: member_descript.val()
+                    },
+                    cache: false,
+                    dataType: 'json',
+                    success: function (json) {
+                        console.log(json);
+                        if (json.code == 1) {
+                            window.parent.$('.all_success_alert .innerSuccmsg').text('修改成功');
+                            window.parent.alert_show('.all_success_alert');
+                            window.parent.$('.add_member_alert').hide();
+                            window.location.reload();
+                        } else {
+                            window.parent.$('.all_error_alert .innerErrmsg').text(json.msg);
+                            window.parent.alert_show('.all_error_alert');
+                        }
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+                });
+            }
+            
+        });
+
+        // 删除人员
+        $(document).off('click', '.delete');
+        $(document).on('click', '.delete', function() {
+
+            window.parent.warn_alert($(this).attr('data-id'), '确定要删除吗？')
+
+        });
+
+        window.parent.$('.all_warn_alert .all_sure').unbind();
+        window.parent.$('.all_warn_alert .all_sure').click(function() {
             $.ajax({
-                url: pubIP + 'userPermissions/addUserAffiliated',
+                url: pubIP + 'userPermissions/deleteUserAffiliated',
                 type: 'get',
                 headers: {
                     Accept: "application/json; charset=utf-8",
                     token: token
                 },
                 data: {
-                    phone: member_phone.val(),
-                    jobDec: member_descript.val()
+                    userId: $(this).attr('data-this')
                 },
                 cache: false,
                 dataType: 'json',
                 success: function (json) {
                     console.log(json);
                     if (json.code == 1) {
-                        window.parent.$('.all_success_alert .innerErrmsg').text(json.msg);
+                        window.parent.$('.all_success_alert .innerSuccmsg').text('删除成功');
                         window.parent.alert_show('.all_success_alert');
+                        window.location.reload();
                     } else {
                         window.parent.$('.all_error_alert .innerErrmsg').text(json.msg);
                         window.parent.alert_show('.all_error_alert');
