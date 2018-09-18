@@ -282,8 +282,8 @@
     <!-- <script src="../js/common.js"></script> -->
     <script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
-    <!-- <script src="../../js/template.js"></script> -->
-    <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
+    <script src="../js/template.js"></script>
+    <!-- <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script> -->
 	<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 	<!-- banner -->
 	<script type="text/html" id="bannerTm"> 
@@ -296,7 +296,6 @@
 	<script>
 
 
-		
 		//banner
 		$.ajax({
 			type:"post",
@@ -470,7 +469,7 @@
 												+'<img class="img_pic" style="width: 140px; height: 141px;" src="'+data.data[0].categoryList[y].productList[m].pic+'" alt="">'
 												+'<p class="shop_name">'+data.data[0].categoryList[y].productList[m].goodsName+'</p>'
 												+'<p class="integral_money">'+data.data[0].categoryList[y].productList[m].integral+'积分+'+data.data[0].categoryList[y].productList[m].cash+'元</p>'
-												+'<span class="duihuan_button" data-productId="'+data.data[0].categoryList[y].productList[m].productId+'"><img src="../img/duihuan_button.png" alt=""></span>'
+												+'<span class="duihuan_button" data-productId="'+data.data[0].categoryList[y].productList[m].productId+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
 											+'</li>'
 										}
 										
@@ -521,7 +520,7 @@
 												+'<img class="img_pic" style="width: 140px; height: 141px;" src="'+data.data[0].categoryList[y1].productList[m].pic+'" alt="">'
 												+'<p class="shop_name">'+data.data[0].categoryList[y1].productList[m].goodsName+'</p>'
 												+'<p class="integral_money">'+data.data[0].categoryList[y1].productList[m].integral+'积分+'+data.data[0].categoryList[y1].productList[m].cash+'元</p>'
-												+'<span class="duihuan_button" data-productId="'+data.data[0].categoryList[y1].productList[m].productId+'"><img src="../img/duihuan_button.png" alt=""></span>'
+												+'<span class="duihuan_button" data-productId="'+data.data[0].categoryList[y1].productList[m].productId+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
 											+'</li>'
 										}
 										
@@ -564,6 +563,17 @@
 			b = 0;
 			listAjax();
 		});
+
+
+		//立即兑换
+    	$('.duihuan_button a').click(function() {
+
+    		sessionStorage.setItem('productId', $(this).parent().attr('data-productId'));
+
+    		$(this).attr('href', 'shopDetail.html');
+
+    	});
+		
 
 
 	    // 左侧信息展示

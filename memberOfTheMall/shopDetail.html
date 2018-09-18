@@ -235,9 +235,9 @@
 				color:#2a63bd;
 			}
 
-			.objDIfInner>div input {
+			/*.objDIfInner>div input {
 				padding-left: 12px;
-			}
+			}*/
 			.objDIfInner input {
 				cursor: pointer;
 			}
@@ -273,7 +273,7 @@
 			}
 
 			.objPrice {
-				height: 98px;
+				/*height: 98px;*/
 				line-height: normal;
 				padding-top: 12px;
 				margin-bottom: 11px;
@@ -395,24 +395,30 @@
 			<div class="objDetails objBorder">
 				<div class="objDetails" style="height:539px;">
 					<div class="headGoodsImgsBox">
-						<div class="objDetailsImg ">
-							<img src="../img/shop_detail_pic.png" class="zoom cloudzoom" data-cloudzoom="zoomSizeMode:'image',zoomImage: '../img/shop_detail_pic.png',startMagnification:2,easeTime:'0',variableMagnification:false"/>
-						</div>
-						<div class="objDetailsImgList swiper-container swiper-container-horizontal">
-							<div class="swiper-button-prev"><img src="../img/ltSwiper.png" /></div>
-							<div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
-								<div class="swiper-slide"><img class="cloudzoom-gallery actImg"  src="../img/cf_shop.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/cf_shop.png',zoomImage:'../img/cf_shop.png'"/></div>
-								<div class="swiper-slide"><img class="cloudzoom-gallery actImg"  src="../img/shop_detail_small_pic.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/shop_detail_small_pic.png',zoomImage:'../img/shop_detail_small_pic.png'"/></div>
-								<div class="swiper-slide"><img class="cloudzoom-gallery" src="../img/shop_detail_small_pic2.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/shop_detail_small_pic2.png',zoomImage:'../img/shop_detail_small_pic2.png'"/></div>
+						<script type="text/html" id="headGoodsImgsTpl">
+							<div class="objDetailsImg ">
+								<img src="<%=pic[0]%>" class="zoom cloudzoom" data-cloudzoom="zoomSizeMode:'image',zoomImage: '<%=pic[0]%>',startMagnification:2,easeTime:'0',variableMagnification:false"/>
 							</div>
-							<div class="swiper-button-next"><img src="../img/rtSwiper.png"/></div>
-						</div>
+							<div class="objDetailsImgList swiper-container swiper-container-horizontal">
+								<div class="swiper-button-prev"><img src="../img/ltSwiper.png" /></div>
+								<div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+									<!-- <div class="swiper-slide"><img class="cloudzoom-gallery actImg"  src="../img/cf_shop.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/cf_shop.png',zoomImage:'../img/cf_shop.png'"/></div>
+									<div class="swiper-slide"><img class="cloudzoom-gallery actImg"  src="../img/shop_detail_small_pic.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/shop_detail_small_pic.png',zoomImage:'../img/shop_detail_small_pic.png'"/></div>
+									<div class="swiper-slide"><img class="cloudzoom-gallery" src="../img/shop_detail_small_pic2.png" data-cloudzoom="useZoom:'.cloudzoom',image:'../img/shop_detail_small_pic2.png',zoomImage:'../img/shop_detail_small_pic2.png'"/></div> -->
+									<%for (i in pic) {%>
+										<div class="swiper-slide"><img class="cloudzoom-gallery actImg"  src="<%=pic[i]%>" data-cloudzoom="useZoom:'.cloudzoom',image:'<%=pic[i]%>',zoomImage:'<%=pic[i]%>'"/></div>
+									<%}%>
+								</div>
+								<div class="swiper-button-next"><img src="../img/rtSwiper.png"/></div>
+							</div>
+						</script>
 					</div>
 					<div class="objDInfo">
 						<h1>优质 液氨 价格电议【工业级I】</h1>
 						<div class="objPrice">
-							<p><i style="font-size:16px;">价格：</i><span class="fs16">¥<span class="fs28">1440.00</span>/吨</span></p>
-							<p><i style="font-size:16px;">会员价格：</i><span class="fs16 mljf">¥<span class="fs28">188</span>积分 + <span class="fs28">1440.00</span>/包</span></p>
+							<!-- <p><i style="font-size:16px;">价格：</i><span class="fs16">¥<span class="fs28">1440.00</span>/吨</span></p> -->
+							<!-- <p><i style="font-size:16px;">会员价格：</i><span class="fs16 mljf">¥<span class="fs28">188</span>积分 + <span class="fs28">1440.00</span>/包</span></p> -->
+							<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">188</span>积分 + <span class="fs28">1440.00</span>/包</span></p>
 						</div>
 						<div class="objDgg clearfix">
 							<span style="float: left; display: inline-block; height: 36px; line-height: 36px;">配送至：</span>
@@ -426,24 +432,24 @@
 								<option value="">区（县）</option>
 							</select> -->
 							<div class="selectPub fl" style="margin-left: 17px;" id="province" data-selectedindex="0">
-		                        <span>请选择</span>
+		                        <span>请选择省</span>
 		                        <img src="../img/prl-select.jpg" alt="">
 		                        <ul>
-		                            <li data-index="1">请选择</li>
+		                            <li data-index="0">请选择省</li>
 		                        </ul>
 		                    </div>
 		                    <div class="selectPub fl" id="city" data-selectedindex="0">
-		                        <span>请选择</span>
+		                        <span>请选择市</span>
 		                        <img src="../img/prl-select.jpg" alt="">
 		                        <ul>
-		                            <li data-index="1">请选择</li>
+		                            <li data-index="0">请选择市</li>
 		                        </ul>
 		                    </div>
 		                    <div class="selectPub fl" style="width: 120px;" id="area" data-selectedindex="0">
-		                        <span>请选择</span>
+		                        <span>请选择区</span>
 		                        <img src="../img/prl-select.jpg" alt="">
 		                        <ul>
-		                            <li data-index="1">请选择</li>
+		                            <li data-index="0">请选择区</li>
 		                        </ul>
 		                    </div>
 						</div>
@@ -476,7 +482,7 @@
 							</div>
 							<p>商品总价：<span class="cOr goodsTotalMoney">￥1440.00元</span></p>
 							<p>购买资格：<span style="margin-top: 20px; display: inline-block; margin-left: 10px">黄金会员 信用5级 （每个账号限兑换5个）</span></p>
-							<a class="toXunpanBtn" href="javascript:;">立即兑换</a>
+							<a class="toXunpanBtn exchange" href="javascript:;">立即兑换</a>
 							
 						</div>
 					</div>
@@ -504,7 +510,10 @@
 					<div class="sellerRtTit">
 						 大家都在买
 					</div>
-					<div class="evBdBuyItem">
+					<div class="buy_list">
+						
+					</div>
+					<!-- <div class="evBdBuyItem">
 						<div class="evbgImg"></div>
 						<p>[汉姆]非离子表面活性</p>
 						<span>￥1440.00/吨</span>
@@ -523,7 +532,7 @@
 						<div class="evbgImg"></div>
 						<p>[汉姆]非离子表面活性</p>
 						<span>￥1440.00/吨</span>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<!-- 弹窗 -->
@@ -630,24 +639,281 @@
 		<!-- <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script> -->
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/imageZoom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
 		<!-- <script src="../js/common.js" type="text/javascript" charset="utf-8"></script> -->
-		<script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
+		<!-- <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script> -->
 		<script>
-			$(function () {
 
-				var swiper = new Swiper('.swiper-container', {
-					slidesPerView: 4,
+
+			//商品id
+			var productId = sessionStorage.getItem('productId');
+
+			//获取商品详情
+			$.ajax({
+				type:"post",
+		        url:pubIP+"memberShop/getMemberShopGoodsInfoData",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	goodsId: productId
+	            },
+		        success: function(data){
+		        	console.log(data);
+
+		        	if (data.code == 1) {
+
+		        		data.data.pic = data.data.pic.split(',');
+
+		        		var headGoodsImgsTpl = template('headGoodsImgsTpl', data.data);
+						$('.headGoodsImgsBox').html(headGoodsImgsTpl);
+
+		        		var swiper = new Swiper('.swiper-container', {
+							slidesPerView: 4,
+						});
+						$('.swiper-button-prev').click(function(){
+							swiper.swipePrev(); 
+						})
+						$('.swiper-button-next').click(function(){
+							swiper.swipeNext(); 
+						})
+						CloudZoom.quickStart();
+
+						//详情
+						$('.objDInfo h1').text(data.data.goodsName);
+
+
+
+		        	}
+
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    });
+
+
+			//购买数量 减
+			$('.addOrSubGoodsNum .subBtn').click(function() {
+				var num = $('.addOrSubGoodsNum input').val();
+				if (num > 0) {
+					num--;
+				}
+				$('.addOrSubGoodsNum input').val(num);
+			});
+
+			//购买数量 加
+			$('.addOrSubGoodsNum .addBtn').click(function() {
+				var num = $('.addOrSubGoodsNum input').val();
+				if (num > 0) { //有问题-----------------------------------------------
+					num++;
+				}
+				$('.addOrSubGoodsNum input').val(num);
+			});
+
+			//立即兑换
+			$('.exchange').click(function() {
+				window.location.href = "checkOrderInformation.html";
+			});
+
+
+		    /*查询所有省份*/
+			getAllProvinces();
+			function getAllProvinces(){
+				$.ajax({
+					url: pubIP + 'address/listProvince', /*v1.0*/
+					type: 'post',
+					headers: {
+						Accept: "application/json; charset=utf-8",
+						token: token
+					},
+					cache: false,
+					ansyc: false,
+					dataType: 'json',
+					success: function (data) {
+						
+						var str = '<li data-index="0">请选择省</li>';
+						for (var i = 0; i < data.data.length; i++) {
+							str += '<li data-index="'+data.data[i].provinceid+'">'+data.data[i].province+'</li>';
+						}
+						$('#province ul').html(str);
+
+						$('#province ul li').click(function(){
+				
+						    event.stopPropagation();
+						    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+						    $(this).parent().parent().find('span').text($(this).text());
+						    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+						    $(this).parent().css('display','none');
+
+						    selectCity($(this).attr('data-index'));
+
+						    $('#city').attr('data-selectedindex', '0');
+							$('#city span').text('请选择市');
+
+							$('#area').attr('data-selectedindex', '0');
+							$('#area span').text('请选择区');
+
+						});
+
+						
+					},
+					error: function(err){
+						console.log(err);
+					}
 				});
-				$('.swiper-button-prev').click(function(){
-					swiper.swipePrev(); 
-				})
-				$('.swiper-button-next').click(function(){
-					swiper.swipeNext(); 
-				})
-				CloudZoom.quickStart();
+			}
+
+
+			/*查询所有城市*/
+			function selectCity(provinceID) {
+				
+				// var provinceID = $("#province").attr('data-index');
+				
+				if (!provinceID) {
+					alert('no provinceID');
+					return;
+				}
+				$.ajax({
+	                url: pubIP + 'address/listCityByProvinceId', /*v1.0*/
+	                type: 'post',
+	                headers: {
+	                    Accept: "application/json; charset=utf-8",
+	                    token: token
+	                },
+	                cache: false,
+	                ansyc: true,
+	                data: {provinceID: provinceID},
+	                dataType: 'json',
+	                success: function (data) {
+	                    console.log(data.data);
+						
+	                    var str = '<li data-index="0">请选择市</li>';
+	                    for (var i = 0; i < data.data.length; i++) {
+	                        str += '<li data-index="'+data.data[i].cityid+'" data-city="'+data.data[i].city+'">'+data.data[i].city+'</li>';
+	                    }
+
+						$('#city ul').html(str);
+
+						$('#city ul li').click(function(){
+				
+						    event.stopPropagation();
+						    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+						    $(this).parent().parent().find('span').text($(this).text());
+						    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+						    $(this).parent().css('display','none');
+
+						    selectArea($(this).attr('data-index'));
+
+
+						    $('#area').attr('data-selectedindex', '');
+							$('#area span').text('请选择区');
+
+						});
+
+						
+	                        
+	                },
+	                error: function(err){
+	                    console.log(err);
+	                }
+	            });
+	        }
+		
+	
+	        // 查询所有区域
+	        function selectArea(cityID) {
+	            // var cityID = $("#city").attr('data-index');
+				
+				if(!cityID){
+					alert('no cityid');
+					return;
+				}
+	
+				$.ajax({
+	                url: pubIP + 'address/listAreaByCityID', /*v1.0*/
+	                type: 'post',
+	                headers: {
+	                    Accept: "application/json; charset=utf-8",
+	                    token: token
+	                },
+	                cache: false,
+	                data: {cityID: cityID},
+	                dataType: 'json',
+	                success: function (data) {
+	                    console.log(data);
+	                    var str = '<li data-index="0">请选择区</li>';
+	                    for (var i = 0; i < data.data.length; i++) {
+	                        str += '<li data-index="'+data.data[i].areaid+'" data-area="'+data.data[i].area+'">'+data.data[i].area+'</li>';
+	                    }
+	
+	                    $('#area ul').html(str);
+
+	                    $('#area ul li').click(function(){
+				
+						    event.stopPropagation();
+						    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+						    $(this).parent().parent().find('span').text($(this).text());
+						    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+						    $(this).parent().css('display','none');
+						});
+	
+	                },
+	                error: function(err){
+	                    console.log(err);
+	                }
+	            });
+			}
+			
+
+
+
+		    //大家都在买
+			$.ajax({
+				type:"get",
+		        url:pubIP+"productApi/getProductListByQuality",//v1.0
+		        cache:false,
+		        async:false,
+		        dataType: "json",
+				headers: {
+				  	token: token
+				},
+		        data:{
+		        	size: 4,
+		        	productCate: 1
+		        },
+		        success: function(data){
+		        	console.log(data);
+
+		        	var str = '';
+		        	for (var i = 0; i < data.data.length; i++) {
+
+						str += 	'<div class="bg">'
+									+'<div class="evBdBuyItem" data-supplyid="'+data.data[i].supplyId+'">'
+									+'<div class="evbgImg" style="background: url('+data.data[i].productPicList[0]+') no-repeat center center; background-size: cover;"></div>'
+									+'<p title="'+data.data[i].productName+'">'+data.data[i].productName+'</p>'
+									+'<span>￥'+data.data[i].unitPrice+'/吨</span>'
+								+'</div>'
+							+'</div>';
+		        	}
+
+		        	$('.buy_list').html(str);
+
+		        },
+		        error: function (err) {
+		        	console.log(err);
+		        }
 
 			});
 
+			$(document).on('click', '.evBdBuyItem', function () {
+				window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
+				window.location.href="./objDetails.html";
+			});
 
 
 			$('.selectPub').click(function(event){
@@ -681,13 +947,7 @@
 			    $(this).children('ul').hide();
 			});
 
-			$('.selectPub ul li').click(function(){
-			    event.stopPropagation();
-			    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
-			    $(this).parent().parent().find('span').text($(this).text());
-			    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
-			    $(this).parent().css('display','none');
-			});
+			
 
 		</script>
 	</body>

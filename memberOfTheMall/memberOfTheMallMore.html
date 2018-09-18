@@ -446,7 +446,7 @@
 									+'<img class="img_pic" src="'+data.aData[i].pic+'" alt="">'
 									+'<p class="shop_name">'+data.aData[i].goodsName+'</p>'
 									+'<p class="integral_money">'+data.aData[i].integral+'积分+'+data.aData[i].cash+'元</p>'
-									+'<span class="duihuan_button" data-productId="'+data.aData[i].ids+'"><a href="shopDetail.html"><img src="../img/duihuan_button.png" alt=""></a></span>'
+									+'<span class="duihuan_button" data-productId="'+data.aData[i].ids+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
 								+'</li>'
 		        		}
 
@@ -486,6 +486,18 @@
 		        }
 		    });
     	}
+
+    	//立即兑换
+    	$('.duihuan_button a').click(function() {
+    		// shopDetail.html
+
+    		sessionStorage.setItem('productId', $(this).parent().attr('data-productId'));
+
+    		$(this).attr('href', 'shopDetail.html');
+
+
+    	});
+
 
 
     	$.ajax({

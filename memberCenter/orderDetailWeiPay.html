@@ -30,6 +30,27 @@
 		padding: 40px 100px 0;
 	}
 
+	.step-bar {
+	    width: 78%;
+	    /* width: 100%; */
+	    background: url(../img/bar-bg1.png);
+	    position: relative;
+	    border-radius: 12px;
+	    /* z-index: -1; */
+	    top: 17px;
+	    left: 112px;
+	}
+
+	.mian_center1 {
+		box-sizing: border-box;
+	    border-bottom: 1px solid #f7f6f6;
+	    height: 164px;
+	    background: #fdfdfd;
+	    text-align: center;
+	    font-size: 17px;
+	    line-height: 164px;
+	}
+
 </style>
 <body>
 	
@@ -58,13 +79,23 @@
 							<ul>
 								<li>
 									<p>提交订单</p>
-									<div>2017-07-28 15:09:05</div>
-
+									<div class="submit_time"></div>
 								</li>
-								<li><p>支付成功</p></li>
-								<li><p>待发货</p></li>
-								<li><p>待确认收货</p></li>
-								<li><p>完成</p></li>
+								<li>
+									<p>支付成功</p>
+									<div class="pay_time"></div>
+								</li>
+								<li>
+									<p>待发货</p>
+									<!-- <div class=""></div> -->
+								</li>
+								<li>
+									<p>待确认收货</p>
+								</li>
+								<li>
+									<p>完成</p>
+									<div class="over_time"></div>
+								</li>
 							</ul>
 						</div>
 						<div class="step-content">
@@ -101,9 +132,9 @@
 				<div class="shop_pic fl clearfix">
 					<div class="pic fl"></div>
 					<div class="fl pic_info">
-						<p>XXXXXXXXXXXXXXXXXXXXXXXXXXX商品</p>
-						<p>红色</p>
-						<p><span>X1</span></p>
+						<p class="shop_name">XXXXXXXXXXXXXXXXXXXXXXXXXXX商品</p>
+						<p class="shop_spec">红色</p>
+						<p><span>X <span class="shop_num">1</span></span></p>
 					</div>
 				</div>
 				<div class="fr no_shop">
@@ -146,9 +177,9 @@
 						<img src="../img/shouhuoren_info.png" alt="">
 						<span>收货人信息</span>
 					</div>
-					<p>收 货 人：罗霞</p>
-					<p><span style="letter-spacing: 23px;">地</span>址：新疆乌鲁木齐经济开发区阳澄湖路39号</p>
-					<p>手 机 号：130 1234 1234</p>
+					<p>收 货 人：<span class="name"></span></p>
+					<p><span style="letter-spacing: 23px;">地</span>址：<span class="address_str"></span></p>
+					<p>手 机 号：<span class="phone"></span></p>
 				</div>
 				<div class="peisong_info fl">
 					<div class="shr_info">
@@ -156,15 +187,15 @@
 						<span>配送信息</span>
 					</div>
 					<p>配送方式：普通快递</p>
-					<p><span style="letter-spacing: 28px;">运</span>费：<span style="color: #F66132; font-weight: 600;">100</span>元</p>
+					<p><span style="letter-spacing: 28px;">运</span>费：<span class="carriage_cash" style="color: #F66132; font-weight: 600;">100</span>元</p>
 				</div>
 				<div class="fukuan_info fl">
 					<div class="shr_info">
 						<img src="../img/fukuan_info.png" alt="">
 						<span>付款信息</span>
 					</div>
-					<p>付款方式：在线支付</p>
-					<p>商品总额：<span style="color: #F66132; font-weight: 600;">￥100.00 <span style="margin-left: 30px;">100</span></span>积分</p>
+					<p>付款方式：<span class="pay_method"></span></p>
+					<p>商品总额：<span style="color: #F66132; font-weight: 600;">￥<span class="shop_total_money">0.00</span> <span style="margin-left: 30px;" class="integral">100</span></span>积分</p>
 				</div>
 			</div>
 	    </div>
@@ -174,22 +205,206 @@
 	<script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/common.js"></script>
     <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
-	<script src="../js/jquery.step.js"></script>
+	<script src="../js/jquery2.step.js"></script>
 	<script>
 		
+		var orderId = sessionStorage.getItem('orderId');
+        var status = sessionStorage.getItem('status');
+        console.log(status);
+
+        if (status == 1) { //待发货
+        	status = 2;
+        } else if (status == 2) {
+        	status = 1; //待支付
+        } else if (status == 3) {
+        	status = 3; //待确认收货
+        } else if (status == 4) {
+        	status = 5; //完成
+        } else if (status == -1) {
+        	$('.mian_center').addClass('mian_center1');
+        	$('#myStep').hide();
+        	$('.mian_center').html('<p>订单状态：已取消	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;取消时间：<span class="cancel_time"></span></p>');
+        }
+
 		var step= $("#myStep");
 
 		step.step({
 			animate:true,
-            initStep:1,
+            initStep:status,
             speed:1000
 		});
 
+
         $(document).on('click', '.pay', function() {
         	// window.location.href = "orderDetailWeiPay2.html";
-        	step.nextStep();
-        	step.nextStep();
+        	window.location.href = "../memberOfTheMall/unpaid.html";
+
+        	// step.nextStep();
+        	// step.goStep(2);
         });
+
+
+	    $('.num').text(orderId);
+
+        $.ajax({
+			type:"get",
+	        url:pubIP+"memberOrder/orderInfo",//v1.0
+	        cache:false,
+	        dataType: "json",
+	        async:false,
+	        headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+            	orderId: orderId
+            },
+	        success: function(data){
+	        	console.log(data);
+
+	        	if (data.code == 1) {
+	        		if (data.data.orderTime) {
+		        		data.data.orderTime = JSON.parse(data.data.orderTime);
+		        	}
+
+		        	if (data.data.orderTime.submitTime) {
+		        		data.data.orderTime.submitTime = new Date(data.data.orderTime.submitTime).Format("yyyy-MM-dd hh:mm:ss");
+
+		        		$('.submit_time').text(data.data.orderTime.submitTime);
+		        	}
+
+		        	if (data.data.status == 1) { //待发货
+
+		        	}
+
+		        	if (data.data.status != 2) { //待支付
+
+		        		if (data.data.orderTime.payTime) {
+			        		data.data.orderTime.payTime = new Date(data.data.orderTime.submitTime).Format("yyyy-MM-dd hh:mm:ss");
+
+			        		$('.pay_time').text(data.data.orderTime.payTime);
+			        	} 
+
+		        	} 
+		        	
+		        	if (data.data.status == 3) { //待确认收货
+
+		        	} 
+
+		        	if (data.data.status == 4) { //已完成
+
+		        		if (data.data.orderTime.overTime) {
+			        		data.data.orderTime.overTime = new Date(data.data.orderTime.overTime).Format("yyyy-MM-dd hh:mm:ss");
+
+			        		$('.over_time').text(data.data.orderTime.overTime);
+			        	}
+
+		        	} 
+
+		        	if (data.data.status == -1) { //已取消
+
+		        		if (data.data.orderTime.cancelTime) {
+			        		data.data.orderTime.cancelTime = new Date(data.data.orderTime.cancelTime).Format("yyyy-MM-dd hh:mm:ss");
+
+			        		$('.cancel_time').text(data.data.orderTime.cancelTime);
+			        	}
+
+		        	}
+
+
+		        	// 商品信息
+		        	if (data.data.pic) {
+		        		data.data.pic = data.data.pic.split(',');
+		        	}
+		        	$('.shop_pic .pic').css('background', 'url('+data.data.pic[0]+') no-repeat center');
+		        	$('.shop_name').text(data.data.goodsName);
+		        	$('.shop_num').text(data.data.goodsNum);
+		        	$('.shop_spec').text(data.data.spec == null ? '' : data.data.spec);
+
+		        	$('.name').text(data.data.name);
+		        	$('.address_str').text(data.data.addressStr);
+		        	$('.phone').text(data.data.mobile);
+
+		        	$('.carriage_cash').text(data.data.carriageCash == null ? 0 : data.data.carriageCash);
+
+		        	if (data.data.payMethod == 1) {
+		        		$('.pay_method').text('微信');
+		        	} else if (data.data.payMethod == 2) {
+		        		$('.pay_method').text('虚拟账户+积分');
+		        	} else if (data.data.payMethod == 3) {
+		        		$('.pay_method').text('银联在线支付');
+		        	} else if (data.data.payMethod == 4) {
+		        		$('.pay_method').text('积分');
+		        	}
+		        	
+
+		        	$('.shop_total_money').text(data.data.cash);
+	        	}
+	        	
+
+	        },
+	        error: function(err) {
+	        	console.log(err);
+	        }
+	    });
+
+	    //确认收货
+	    $('.ok_shou').click(function() {
+	    	$.ajax({
+				type:"get",
+		        url:pubIP+"memberOrder/orderReceive",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	orderId: orderId
+	            },
+		        success: function(data){
+		        	console.log(data);
+		        	if (data.code == 1) {
+		        		status = sessionStorage.setItem('status', '5');
+		        		window.location.reload();
+		        	}
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    });
+	    });
+
+
+        //取消订单
+	    $('.cancel_pay').click(function() {
+	    	$.ajax({
+				type:"get",
+		        url:pubIP+"memberOrder/orderCancel",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	orderId: orderId
+	            },
+		        success: function(data){
+		        	console.log(data);
+
+		        	if (data.code == 1) {
+		        		status = sessionStorage.setItem('status', '-1');
+		        		window.location.reload();
+		        	}
+
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    });
+	    });
+
 	</script>
 
 </body>

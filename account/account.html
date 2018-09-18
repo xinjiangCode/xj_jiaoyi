@@ -661,6 +661,11 @@
             margin-top: 4px;
         }
 
+
+        input[type="number"]:disabled {
+            background-color: #fafafa;
+        }
+
     </style>
 
 </head>
@@ -691,7 +696,7 @@
                     <li><a href="javascript:;" class="manageItem qiye qiye_renzheng" data-src="./identification1.html" data-height="1600">企业认证</a></li>
                     <li><a href="javascript:;" class="manageItem zizhi_renzheng" data-src="./Special1.html" data-height="1600">资质认证</a></li>
                     <!-- 二期注释的内容   ===开始 -->
-                    <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/limitManage.html" data-height="1600">权限管理</a></li>
+                    <!-- <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/limitManage.html" data-height="1600">权限管理</a></li> -->
                     <!-- 二期注释的内容   ===结束 -->
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/cangkuAddressManage.html" data-height="1600">仓库地址管理</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="./companyRenzheng/accountManage.html" data-height="1600">收货地址管理</a></li>
@@ -704,8 +709,8 @@
                     <li><a href="javascript:;" class="manageItem" data-src="../shopManage/storeContentManage.html" data-height="1380">店铺内容管理</a></li>
                     <li><a href="javascript:;" class="manageItem hzf_spfb" data-src="../shopManage/shopManage.html" data-height="1380">商品管理</a></li>
                     <!-- 二期注释的内容   ===开始 -->
-                    <li><a href="javascript:;" class="manageItem" data-src="../shopManage/customerRelationship.html" >客户关系管理</a></li>
-                    <li><a href="javascript:;" class="manageItem" data-src="../shopManage/dataAnalysis.html">数据分析</a></li>
+                    <!-- <li><a href="javascript:;" class="manageItem" data-src="../shopManage/customerRelationship.html" >客户关系管理</a></li>
+                    <li><a href="javascript:;" class="manageItem" data-src="../shopManage/dataAnalysis.html" data-height="1370">数据分析</a></li> -->
                     <!-- 二期注释的内容   ===结束 -->
                 </ul>
             </li>
@@ -736,14 +741,14 @@
             </li> -->
             <!-- 二期注释的内容   ===结束 -->
             <!-- 二期注释的内容   ===开始 -->
-            <li>
+            <!-- <li>
                 <a href="javascript:;" class="manage"><strong>会员中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
                 <ul class="common_mbx">
                     <li><a href="javascript:;" class="manageItem" data-src="../memberCenter/personalGrowthValue.html">个人成长值</a></li>
                     <li><a href="javascript:;" class="manageItem " data-src="../memberCenter/ConvertibilityRecord.html">积分兑换记录</a></li>
                     <li><a href="javascript:;" class="manageItem" data-src="../memberCenter/memberShopOrder.html">会员商品订单</a></li>
                 </ul>
-            </li>
+            </li> -->
             <!-- 二期注释的内容   ===结束 -->
             <li>
                 <a href="javascript:;" class="manage"><strong>我的钱包</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
@@ -2094,7 +2099,7 @@
                </div>
                <div class="qiye_type_kuang clearfix">
                    <span class="span fl" style="color: #6c6d6e;">企业类型：</span>
-                   <div class="selectPub qiye_type_input fl" data-selectedindex="0" style="width: 390px; font-size: 14px;">
+                   <!-- <div class="selectPub qiye_type_input fl" data-selectedindex="0" style="width: 390px; font-size: 14px;">
                         <span>厂家</span>
                         <img src="../img/prl-select.jpg" alt="">
                         <ul>
@@ -2102,7 +2107,8 @@
                             <li data-index="1">贸易商</li>
                             <li data-index="2">终端</li>
                         </ul>
-                    </div>
+                    </div> -->
+                    <input type="text" class="qiye_type_input fl" style="width: 387px; height: 34px; font-size: 13px; text-indent: 10px;">
                </div>
                <div class="up_down_relationship clearfix">
                    <span class="span fl" style="color: #6c6d6e;">上下游关系：</span>
@@ -2380,10 +2386,11 @@
 
 <script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
     
 <!-- <script src="../js/zoom.js" type="text/javascript" charset="utf-8"></script> -->
 
-<script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
+<!-- <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script> -->
 <script src="./laydate/laydate.js"></script> <!-- 改成你的路径 -->
 <script type="text/javascript" >
 

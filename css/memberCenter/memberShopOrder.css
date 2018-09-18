@@ -44,12 +44,12 @@
 	width: 145px;
 }
 
-.shop_order ul li.current_order span {
+/*.shop_order ul li.current_order span {
 	color: #5b93f6;
 	border-bottom: 3px solid #5b93f6;
 	display: inline-block;
 	height: 49px;
-}
+}*/
 
 .order_title {
 	padding-left: 81px;

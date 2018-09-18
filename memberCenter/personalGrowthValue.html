@@ -36,6 +36,14 @@
 	.total {
 		margin-left: 0px;
 	}
+
+	.table {
+	    height: 888px;
+	}
+
+	.table_body {
+		height: 750px;
+	}
 </style>
 <body>
 	
@@ -110,7 +118,7 @@
 					<li><span class="jifen_list"><span style="color: #f66132;">100</span>分</span></li>
 				</ul> -->
 			</div>
-			<div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 20px auto">
+			<div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;">
 		        <ul class="pagination" id="page1"></ul>
 		        <div class="pageJump">
 		                    <span class="allPageN">1/1</span>
@@ -144,7 +152,7 @@
 
 			var test1 = $('#test1').val();
 			var source = $('.search_input').val();
-			personalGrowthValue(1, 2, test1, source);
+			personalGrowthValue(1, 15, test1, source);
 		});
 
 		//来源搜索
@@ -153,12 +161,12 @@
 
 			var test1 = $('#test1').val();
 			var source = $('.search_input').val();
-			personalGrowthValue(1, 2, test1, source);
+			personalGrowthValue(1, 15, test1, source);
 		});
 
 		var isFirst = true;
 
-		personalGrowthValue(1, 2, '', '');
+		personalGrowthValue(1, 15, '', '');
 		// 
 		function personalGrowthValue(num, size, time, source) {
 			$.ajax({
@@ -175,7 +183,9 @@
 	            	pageNum: num,
 	            	pageSize: size,
 	            	time: time,
-	            	source: source
+	            	source: source,
+	            	type: 0,
+	            	integralType: ''
 	            },
 		        success: function(data){
 		        	console.log(data);

@@ -18,7 +18,7 @@
             background-color: #ffffff;
         }
         .container{
-            height: 1477px;
+            height: 1200px;
             border: 1px solid #ebe9ea;
             width: 986px;
         }
@@ -31,7 +31,7 @@
         .containerTopLeImg{margin-left: 57px;margin-right: 10px;width: 59px;height: 59px;}
         .containerTopLeImg img{width: 100%;height: 100%;}
         .containerTopRi{width: 307px;height: 95px;overflow: hidden;padding: 28px 12px 31px 19px;background-color: #fdfdfd;border-left: 1px solid #ebe9ea;}
-        .jifenjilu{height: 1128px;}
+        .jifenjilu{height: 851px;}
         .jifenjilu table{width: 100%;}
         .jifenjilu table thead{background-color: #fdfdfd;height: 44px; line-height: 44px;border-bottom:1px solid #ebe9ea;border-top:1px solid #ebe9ea; }
         .jifenjilu table thead tr td {text-align: center;}
@@ -89,13 +89,17 @@
 		}
 
 		.duihuanjilu table tbody tr {
-			height: 50px;
+			height: 53px;
 			border-bottom: 1px solid #ebe9ea;
 		}
 
 		.duihuanjilu tbody tr td {
 			vertical-align: middle;
 		}		
+
+		.duihuanjilu {
+			height: 851px;
+		}
 
 		
 </style>
@@ -114,7 +118,7 @@
 	                    <img src="../img/record1.png" alt="">
 	                </div>
 	                <div class="Lf">
-	                    <div style="font-size: 30px;color: #F66132;">8000</div>
+	                    <div style="font-size: 30px;color: #F66132;" class="totalIntegral">0</div>
 	                    <div style="font-size: 14px;">总积分</div>
 	                </div>
 	            </div>
@@ -123,7 +127,7 @@
 	                    <img src="../img/record2.png" alt="">
 	                </div>
 	                <div class="Lf">
-	                    <div style="font-size: 30px;color: #7CBA3F;">3600</div>
+	                    <div style="font-size: 30px;color: #7CBA3F;" class="usableIntegral">0</div>
 	                    <div style="font-size: 14px;">可用积分</div>
 	                </div>
 	            </div>
@@ -132,7 +136,7 @@
 	                    <img src="../img/record3.png" alt="">
 	                </div>
 	                <div class="Lf">
-	                    <div style="font-size: 30px;color: #6EA3FF;">600</div>
+	                    <div style="font-size: 30px;color: #6EA3FF;" class="consumeIntegral">0</div>
 	                    <div style="font-size: 14px;">已分配积分</div>
 	                </div>
 	            </div>
@@ -165,8 +169,8 @@
 				                    <td>操作用户</td>
 				                </tr>
 				            </thead>
-				            <tbody >
-				                <tr>
+				            <tbody class="tbody">
+				                <!-- <tr>
 				                    <td style="width: 260px;">2018-01-02 10:02:30</td>
 				                    <td style="width: 350px;"><i class="jifenSta green">完成任务</i>成功注册账户，获得积分：<i style="color: #f97646;">1</i></td>
 				                    <td class="jifenNum"><span>+1</span></td>
@@ -183,7 +187,7 @@
 				                    <td style="width: 350px;"><i class="jifenSta green">完成任务</i>成功注册账户，获得积分：<i style="color: #f97646;">1</i></td>
 				                    <td class="jifenNum"><span>+1</span></td>
 				                    <td style="width: 200px;"><img class="person_img" src="../img/personal_pic.png" alt="">张三</td>
-				                </tr>
+				                </tr> -->
 				            </tbody>
 				        </table>
 				    </div>
@@ -212,8 +216,8 @@
 				                    <td style="width: 160px;">兑换账号</td>
 				                </tr>
 				            </thead>
-				            <tbody >
-				                <tr>
+				            <tbody class="tbody2">
+				                <!-- <tr>
 				                    <td class="duihuan_name">3个月的广告位</td>
 				                    <td class="xiaohao">1</td>
 				                    <td class="xiaohao">-500</td>
@@ -236,11 +240,23 @@
 				                    <td>2018-01-02 10:02:30</td>
 				                    <td class="duihuan_success"><img src="../img/duihuan_success.png" alt=""><span>兑换成功</span></td>
 				                    <td style=""><img class="person_img" src="../img/personal_pic.png" alt="">张三</td>
-				                </tr>
+				                </tr> -->
 				            </tbody>
 				        </table>
 				    </div>
 		    	</div>
+		    </div>
+
+		    <div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 20px auto">
+		        <ul class="pagination" id="page1"></ul>
+		        <div class="pageJump">
+		                    <span class="allPageN">1/1</span>
+		                    <span>共<span class="total">1</span>页，</span>
+		            <span>到第</span>
+		            <input type="text" style="text-align: center; padding-left: 0px;"/>
+		            <span>页</span>
+		            <button type="button" class="button">GO</button>
+		        </div>
 		    </div>
 	    </div>    	
 	</div>
@@ -258,16 +274,125 @@
 			     var index=$(this).index();  //获取当前div标签的个数  
 			     $(this).parent().next().find(".box").hide().eq(index).show(); //返回上一层，在下面查找css名为box隐藏，然后选中的显示  
 			     $(this).addClass("on").siblings().removeClass("on"); //a标签显示，同辈元素隐藏  
+
+			     console.log($(this).text());
+
+			     if ($(this).text() == '兑换记录') {
+			     	isFirst = true;
+					personalGrowthValue(1, 15, '', '', 1, 2);
+			     } else {
+			     	isFirst = true;
+			     	personalGrowthValue(1, 15, '', '', 1, '');
+			     }
+
 			})  
 		}) 
 
-		Page({
-            num: 3,
-            elem: $('#page1'),
-            callback: function(n) {
-                console.log(n);
-            }
-        });
+        var isFirst = true;
+
+		personalGrowthValue(1, 15, '', '', 1, '');
+		// 
+		function personalGrowthValue(num, size, time, source, type, integralType) {
+			$.ajax({
+				type:"get",
+		        url:pubIP+"member/getUserGrowhtInfo",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	pageNum: num,
+	            	pageSize: size,
+	            	time: time,
+	            	source: source,
+	            	type: type,
+	            	integralType: integralType
+	            },
+		        success: function(data){
+		        	console.log(data);
+		        	
+		        	if (data.code == 1) {
+
+		        		if (data.companyInfo) {
+		        			$('.consumeIntegral').text(data.companyInfo.consumeIntegral == null ? 0 : data.companyInfo.consumeIntegral);
+		        			$('.totalIntegral').text(data.companyInfo.totalIntegral == null ? 0 : data.companyInfo.totalIntegral);
+		        			$('.usableIntegral').text(data.companyInfo.usableIntegral == null ? 0 : data.companyInfo.usableIntegral);
+		        			
+		        		}
+
+		        		if (data.data.result.length != 0) {
+
+		        			$('#page1').show();
+		        			$('.pageJump').show();
+
+		        			var str = '';
+		        			for (var i = 0; i < data.data.result.length; i++) {
+		        				
+		        				data.data.result[i].time = new Date(data.data.result[i].time).Format("yyyy-MM-dd hh:mm");
+
+		        				if (integralType == '') { //积分记录
+			        				str += '<tr>'
+					                    +'<td style="width: 260px;">'+data.data.result[i].time+'</td>'
+					                    +'<td style="width: 350px;"><i class="jifenSta green">完成任务</i>'+data.data.result[i].source+'，获得积分：<i style="color: #f97646;">'+data.data.result[i].score+'</i></td>'
+					                    +'<td class="jifenNum"><span>+'+data.data.result[i].score+'</span></td>'
+					                    +'<td style="width: 200px;"><img class="person_img" src="../img/personal_pic.png" alt="">'+data.data.result[i].userName+'</td>'
+					                +'</tr>'
+			        			} else if (integralType == 2) { //兑换记录
+			        				str += '<tr>'
+					                    +'<td class="duihuan_name">'+data.data.result[i].source+'</td>'
+					                    +'<td class="xiaohao">1</td>'
+					                    +'<td class="xiaohao">-'+data.data.result[i].score+'</td>'
+					                    +'<td>'+data.data.result[i].time+'</td>'
+					                    +'<td class="duihuan_success"><img src="../img/duihuan_success.png" alt=""><span>兑换成功</span></td>'
+					                    +'<td style=""><img class="person_img" src="../img/personal_pic.png" alt="">'+data.data.result[i].userName+'</td>'
+					                +'</tr>'
+			        			}
+		        				
+		        			}
+
+		        			if (integralType == '') { //积分记录
+
+		        				$('.tbody').html(str);
+
+		        			} else if (integralType == 2) {
+								$('.tbody2').html(str);
+		        			}
+
+		        			if (isFirst) {
+                            
+	                            Page({
+	                                num: data.data.pages,
+	                                elem: $('#page1'),
+	                                callback: function(n) {
+	                                    personalGrowthValue(n, size, time, source);
+	                                }
+	                            });
+
+	                            $('.total').text(data.data.pages);
+
+
+	                            isFirst = false;
+	                       }
+
+	                        $('.allPageN').text(num+'/'+data.data.pages);
+		        			
+
+		        		} else {
+		        			$('.tbody').html('');
+		        			$('#page1').hide();
+		        			$('.pageJump').hide();
+		        		}
+		        	}
+
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    }); 
+		} 
 	</script>
 
 </body>

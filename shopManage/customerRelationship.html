@@ -12,7 +12,15 @@
 	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/shopManage/customerRelationship.css">
+	<style>
+		.person_relation_wang_title div {
+		    width: 340px;
+		}
 
+		.person_relation_wang_title div input[type="text"] {
+			width: 250px;
+		}
+	</style>
 </head>
 <body>
 
@@ -29,11 +37,15 @@
 			<div class="person_relation_wang_title clearfix">
 				<span>人工关系网</span>
 				<div class="fr clearfix">
-					<input type="text" class="" placeholder="企业名称/企业类型/授信额度/业务员">
-					<span style="cursor:pointer;">搜索</span>
+					<input type="text" class="" placeholder="企业名称/企业类型/业务员">
+					<span style="cursor:pointer;" class="search2">搜索</span>
+				</div>
+				<div class="fr clearfix" style="margin-right: 20px; width: 290px;">
+					<input type="text" class="" style="width: 200px;" placeholder="企业类型">
+					<span style="cursor:pointer;" class="search1">搜索</span>
 				</div>
 			</div>
-			<div class="person_relation_list">
+			<div class="person_relation_list clearfix">
 				<ul class="clearfix">
 					<li class="person_relation_li1">排序</li>
 					<li class="person_relation_li2">企业名称</li>
@@ -43,7 +55,7 @@
 					<li class="person_relation_li6">操作</li>
 				</ul>
 				<ul class="cont_list">
-					<li>
+					<!-- <li>
 						<span class="person_num"><span>1</span></span>
 						<span class="qiye_name">中泰化工</span>
 						<span class="qiye_type">化工</span>
@@ -75,19 +87,54 @@
 							<a href="##" class="edit_btn">编辑</a>
 							<a href="##" class="del_btn">删除</a>
 						</span>
-					</li>
+					</li> -->
 				</ul>
 			</div>
+			<div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 20px auto">
+		        <ul class="pagination" id="page1"></ul>
+		        <div class="pageJump">
+		                    <span class="allPageN">1/1</span>
+		                    <span>共<span class="total">1</span>页，</span>
+		            <span>到第</span>
+		            <input type="text" style="text-align: center; padding-left: 0px;"/>
+		            <span>页</span>
+		            <button type="button" class="button">GO</button>
+		        </div>
+		    </div>
 		</div>
 	</div>
 
 	<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+
 	<script>
+
 		$(document).on('click', '.add_customer_relationship', function() {
+
+			window.parent.$('#addCustomerRelationship .customer_relation_ship_btn').attr('data-customerId', '');
+
+			window.parent.$('#addCustomerRelationship .modeltitle span').text('添加客户关系');
+
 			window.parent.$('#addCustomerRelationship .qiye_name_input').val('');
 			window.parent.$('#addCustomerRelationship .qiye_name_kuang .ts_div').text('');
+
+			window.parent.$('#addCustomerRelationship .qiye_name_input').attr('disabled', false);
+
+			//企业类型
+			// window.parent.$('#addCustomerRelationship .qiye_type_input span').text('厂家');
+
+			// window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectedindex', '0');
+
+			window.parent.$('#addCustomerRelationship .qiye_type_input').attr('disabled', true);
+
+			window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectIndex', '');
+
+			//上下游
+			window.parent.$('#addCustomerRelationship .up_down_relationship_input span').text('上游');
+
+			window.parent.$('#addCustomerRelationship .up_down_relationship_input').attr('data-selectedindex', '1');
 			
 			window.parent.addCustomerRelationship();
 
@@ -97,8 +144,42 @@
 			
 			if ($(this).val() == '') {
 				$(this).parent().find('.ts_div').text('企业名称不能为空').css('visibility', 'visible');
+
+
 			} else {
-				$(this).parent().find('.ts_div').text('').css('visibility', 'hidden');
+				var that = $(this).val();
+				console.log(that);
+
+				$.ajax({
+			    	url: pubIP + 'storeRelationship/getCompanyType',
+		            type: 'get',
+		            headers: {
+		                Accept: "application/json; charset=utf-8",
+		                token: token
+		            },
+		            cache: false,
+		            dataType: 'json',
+		            data: {
+		            	companyName: that
+		            },
+		            success: function (data) {
+		                console.log(data);
+		                if (data.code == 1) {
+		                	//---------------有问题------------------
+		                	// window.parent.$('#addCustomerRelationship .qiye_type_input').val();         
+		                	// window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectIndex', '');         
+		                } else {
+		                	window.parent.$('.all_error_alert .innerErrmsg').text(data.msg);
+		                	window.parent.$('.all_error_alert').show();
+		                	window.parent.$('#addCustomerRelationship .qiye_name_input').val('');
+		                }
+		                
+		            },
+		            error: function (err) {
+		                console.log(err);
+		            }
+			    });
+				// $(this).parent().find('.ts_div').text('').css('visibility', 'hidden');
 			}
 		});
 
@@ -111,14 +192,90 @@
 			var qiye_type_input = window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectedindex');
 			var up_down_relationship_input = window.parent.$('#addCustomerRelationship .up_down_relationship_input').attr('data-selectedindex');
 
+
 			if (input.val() == '') {
 				window.parent.$('#addCustomerRelationship .qiye_name_kuang .ts_div').text('企业名称不能为空').css('visibility', 'visible');
 				return false;
 			}
 
+			if ($(this).attr('data-customerId') == '') {
 
-			$.ajax({
-		    	url: pubIP + 'storeRelationship/addStoreRelationship',
+				$.ajax({
+			    	url: pubIP + 'storeRelationship/addStoreRelationship',
+		            type: 'get',
+		            headers: {
+		                Accept: "application/json; charset=utf-8",
+		                token: token
+		            },
+		            cache: false,
+		            dataType: 'json',
+		            data: {
+		            	companyName: input.val(),
+		            	storeType: qiye_type_input,
+		            	relationship: up_down_relationship_input
+		            },
+		            success: function (data) {
+		                console.log(data);
+		                if (data.code == 1) {
+		                	cf_alert1(1, '添加成功');            
+		                } else {
+		                	window.parent.$('.all_error_alert .innerErrmsg').text(data.msg);
+		                	window.parent.$('.all_error_alert').show();
+		                }
+		                
+		            },
+		            error: function (err) {
+		                console.log(err);
+		            }
+			    });
+			} else {
+
+				$.ajax({
+			    	url: pubIP + 'storeRelationship/updateStoreRelationship',
+		            type: 'get',
+		            headers: {
+		                Accept: "application/json; charset=utf-8",
+		                token: token
+		            },
+		            cache: false,
+		            dataType: 'json',
+		            data: {
+		            	targetStoreId: $(this).attr('data-customerId'),
+		            	storeType: qiye_type_input,
+		            	relationship: up_down_relationship_input
+		            },
+		            success: function (data) {
+		                console.log(data);
+		                if (data.code == 1) {
+		                	cf_alert(1, '修改成功');            
+		                } else {
+		                	window.parent.$('.all_error_alert .innerErrmsg').text(data.msg);
+		                	window.parent.$('.all_error_alert').show();
+		                }
+		                
+		            },
+		            error: function (err) {
+		                console.log(err);
+		            }
+			    });
+			}
+			
+
+		});
+
+		//删除客户关系
+		$(document).on('click', '.del_btn', function() {
+
+			window.parent.warn_alert($(this).attr('data-customerid'), '确定要删除吗？')
+			
+		});
+
+		window.parent.$('.all_warn_alert .all_sure').unbind();
+        window.parent.$('.all_warn_alert .all_sure').click(function() {
+        	console.log($(this).attr('data-this'));
+        	var that = $(this).attr('data-this');
+        	$.ajax({
+		    	url: pubIP + 'storeRelationship/deleteStoreRelationship',
 	            type: 'get',
 	            headers: {
 	                Accept: "application/json; charset=utf-8",
@@ -127,14 +284,14 @@
 	            cache: false,
 	            dataType: 'json',
 	            data: {
-	            	companyName: input.val(),
-	            	storeType: qiye_type_input,
-	            	relationship: up_down_relationship_input
+	            	targetStoreId: that
 	            },
 	            success: function (data) {
 	                console.log(data);
 	                if (data.code == 1) {
-	                	cf_alert1(1, '添加成功');            
+	                	window.parent.$('.all_success_alert .innerSuccmsg').text('删除成功');
+                        window.parent.alert_show('.all_success_alert');
+                        window.location.reload();          
 	                } else {
 	                	window.parent.$('.all_error_alert .innerErrmsg').text(data.msg);
 	                	window.parent.$('.all_error_alert').show();
@@ -146,38 +303,160 @@
 	            }
 		    });
 
+        });
+
+        //企业类型搜索
+		$('.search1').click(function() {
+
 		});
 
+		$('.search2').click(function() {
+			
+		});
 
-		// 客户关系网
-		$.ajax({
-	    	url: pubIP + 'storeRelationship/getStoreRelationshipList',
-            type: 'get',
-            headers: {
-                Accept: "application/json; charset=utf-8",
-                token: token
-            },
-            cache: false,
-            data: {
-            	pageSize: 100,
-            	pageNum: 1
-            },
-            dataType: 'json',
-            success: function (data) {
-                console.log(data);
-                if (data.code == 1) {
-                    
-                    if (data.data.result.length != 0) {
-                    	
-                    }
-                    
-                }
-                
-            },
-            error: function (err) {
-                console.log(err);
-            }
-	    });
+		var isFirst = true;
+
+		customerList(1, 9);
+
+		// 客户关系列表
+		function customerList(num, size) {
+			$.ajax({
+		    	url: pubIP + 'storeRelationship/getStoreRelationshipList',
+	            type: 'get',
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            cache: false,
+	            data: {
+	            	pageSize: size, //每页显示条数
+	            	pageNum: num
+	            },
+	            dataType: 'json',
+	            success: function (data) {
+	                console.log(data);
+	                if (data.code == 1) {
+	                    
+	                    if (data.data.result.length != 0) {
+
+	                    	$('#page1').show();
+		        			$('.pageJump').show();
+
+		        			var str = '';
+		        			for (var i = 0; i < data.data.result.length; i++) {
+		        				
+		        				data.data.result[i].addTime = new Date(data.data.result[i].addTime).Format("yyyy-MM-dd");
+
+		        				if (data.data.result[i].storeType == 0) {
+		        					data.data.result[i].storeType = '厂家';
+		        				} else if (data.data.result[i].storeType == 1) {
+		        					data.data.result[i].storeType = '贸易商';
+		        				} else if (data.data.result[i].storeType == 2) {
+		        					data.data.result[i].storeType = '终端';
+		        				}
+
+		        				str += '<li>'
+									+'<span class="person_num"><span>'+(i+1)+'</span></span>'
+									+'<span class="qiye_name">'+data.data.result[i].companyName+'</span>'
+									+'<span class="qiye_type">'+data.data.result[i].storeType+'</span>'
+									+'<span class="yewuyuan">'+data.data.result[i].userName+'</span>'
+									+'<span class="add_time">'+data.data.result[i].addTime+'</span>'
+									+'<span class="operate">'
+										+'<a href="##" class="edit_btn" data-customerId="'+data.data.result[i].targetStoreId+'" data-relationship="'+data.data.result[i].relationship+'">编辑</a>'
+										+'<a href="##" class="del_btn" data-customerId="'+data.data.result[i].targetStoreId+'">删除</a>'
+									+'</span>'
+								+'</li>'
+		        			}
+
+		        			$('.cont_list').html(str);
+
+		        			if (isFirst) {
+                            
+	                            Page({
+	                                num: data.data.pages,
+	                                elem: $('#page1'),
+	                                callback: function(n) {
+	                                    customerList(n, size);
+	                                }
+	                            });
+
+	                            $('.total').text(data.data.pages);
+
+
+	                            isFirst = false;
+	                       }
+
+	                        $('.allPageN').text(num+'/'+data.data.pages);
+	                    	
+	                    } else {
+		        			$('.cont_list').html('');
+		        			$('#page1').hide();
+		        			$('.pageJump').hide();
+		        		}
+	                    
+	                }
+	                
+	            },
+	            error: function (err) {
+	                console.log(err);
+	            }
+		    });
+		}
+
+
+		//编辑客户关系
+		$(document).on('click', '.edit_btn', function() {
+
+
+
+			window.parent.$('#addCustomerRelationship .customer_relation_ship_btn').attr('data-customerId', $(this).attr('data-customerId'));
+			
+			window.parent.$('#addCustomerRelationship .modeltitle span').text('编辑客户关系');
+
+
+			window.parent.$('#addCustomerRelationship .qiye_name_input').val($(this).parent().parent().find('.qiye_name').text());
+
+			window.parent.$('#addCustomerRelationship .qiye_name_input').attr('disabled', true);
+
+			window.parent.$('#addCustomerRelationship .qiye_name_kuang .ts_div').text('');
+
+			//企业类型
+			// window.parent.$('#addCustomerRelationship .qiye_type_input span').text($(this).parent().parent().find('.qiye_type').text());
+
+			window.parent.$('#addCustomerRelationship .qiye_type_input').val($(this).parent().parent().find('.qiye_type').text());
+
+			window.parent.$('#addCustomerRelationship .qiye_type_input').attr('disabled', true);
+
+			var select_index = 0;
+
+			if ($(this).parent().parent().find('.qiye_type').text() == '厂家') {
+				select_index = 0;
+			} else if ($(this).parent().parent().find('.qiye_type').text() == '贸易商') {
+				select_index = 1;
+			} else if ($(this).parent().parent().find('.qiye_type').text() == '终端') {
+				select_index = 2;
+			}
+
+			window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectIndex', select_index);
+
+			//上下游关系
+			
+
+			var relationship = '上游';
+
+			if ($(this).attr('data-relationship') == 2) {
+				relationship = '下游';
+			} 
+
+			window.parent.$('#addCustomerRelationship .up_down_relationship_input span').text(relationship);
+
+			window.parent.$('#addCustomerRelationship .up_down_relationship_input').attr('data-selectedindex', $(this).attr('data-relationship'));
+			
+			window.parent.addCustomerRelationship();
+
+		});
+
+		
 
 		window.parent.$('#addCustomerRelationship .selectPub').unbind();
 	    window.parent.$('#addCustomerRelationship .selectPub').click(function(event){
@@ -283,166 +562,342 @@
 
 	</script>
 	<script type="text/javascript">
+
 		var dom = document.getElementById("container");
 		var myChart = echarts.init(dom);
-		var app = {};
-		option = null;
-		option = {
-		    tooltip: {
-		    	trigger: 'item',
-		    	backgroundColor: 'transparent',
-                formatter:function(params){
-                    if(params.data.flow){
-                    	var str = '';
-                    	str += '<div class="relationship_div" style="position:absolute;left:0px;top:-95px;">'
-							+'<div class="padding_div">'
-								+'<div class="qiye_name_bg">'+params.data.flow.name+'</div>'
-								+'<div class="qiye_info">'
-									+'<div class="qiye_leixing">企业类型：'+params.data.flow.type+'</div>'
-									+'<div class="yujingzhi">预警值：'+params.data.flow.yujingzhi+'</div>'
-									+'<div class="yingshoukuan">应收账款：<span>￥'+params.data.flow.yingshou+'</span></div>'
-									+'<div class="yingfukuan">应付账款：<span>￥'+params.data.flow.yingfu+'</span></div>'
+		echartFun(myChart);
+		// echartAjax(myChart);
+
+		// function echartAjax(myChart) {
+		// 	$.ajax({
+		//     	url: pubIP + 'storeRelationship/getStoreRelationshipList',
+	 //            type: 'get',
+	 //            headers: {
+	 //                Accept: "application/json; charset=utf-8",
+	 //                token: token
+	 //            },
+	 //            cache: false,
+	 //            data: {
+	 //            	pageSize: 1000, //每页显示条数
+	 //            	pageNum: 1
+	 //            },
+	 //            dataType: 'json',
+	 //            success: function (data) {
+	 //                console.log(data);
+	 //                if (data.code == 1) {
+
+	 //                	//创建一个数组，用来装对象传给series.data，因为series.data里面不能直接鞋for循环
+  //               		var servicedata=[];
+	                    
+	 //                    if (data.data.result.length != 0) {
+
+	 //                    	for(var i = 0; i < data.data.result.length; i++){
+	 //                    		if (data.data.result[i].relationship == 1) {
+	 //                    			data.data.result[i].relationship = '上游'
+	 //                    		} else {
+	 //                    			data.data.result[i].relationship = '下游'
+	 //                    		}
+		// 	                    var obj = new Object();
+		// 	                    var obj2 = {};
+		// 	                    var obj3 = {};
+		// 	                    // obj.source = data.data.result[i].; 
+		// 	                    obj.target = data.data.result[i].companyName;
+		// 	                    obj.label = obj2;
+		// 	                    obj2.normal = obj3;
+		// 	                    obj3.show = true;
+		// 	                    obj3.formatter = data.data.result[i].relationship;
+		// 	                    obj3.fontSize = '12';
+		// 	                    obj3.color = '#666';
+		// 	                    servicedata[i]=obj;
+		// 	                }
+
+		// 	                console.log(servicedata);
+
+		// 	                // myChart.setOption({            
+		// 	                //     links:servicedata
+		// 	                // });
+
+	 //                    }
+	 //                }
+	 //            }
+	 //        });
+		// }
+
+		function echartFun(myChart) {
+			var servicedata=[];
+	        var data_data = [];          	
+			$.ajax({
+		    	url: pubIP + 'storeRelationship/getStoreRelationshipList',
+	            type: 'get',
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            cache: false,
+	            async:false, 
+	            data: {
+	            	pageSize: 1000, //每页显示条数
+	            	pageNum: 1
+	            },
+	            dataType: 'json',
+	            success: function (data) {
+	                console.log(data);
+	                if (data.code == 1) {
+
+	                	//创建一个数组，用来装对象传给series.data，因为series.data里面不能直接鞋for循环
+                		
+	                    if (data.data.result.length != 0) {
+
+	                    	for(var i = 0; i < data.data.result.length; i++){
+	                    		if (data.data.result[i].relationship == 1) {
+	                    			data.data.result[i].relationship = '上游'
+	                    		} else {
+	                    			data.data.result[i].relationship = '下游'
+	                    		}
+
+	                    		if (data.data.result[i].storeType == 0) {
+		        					data.data.result[i].storeType = '厂家';
+		        				} else if (data.data.result[i].storeType == 1) {
+		        					data.data.result[i].storeType = '贸易商';
+		        				} else if (data.data.result[i].storeType == 2) {
+		        					data.data.result[i].storeType = '终端';
+		        				}
+
+			                    var obj = new Object();
+			                    var obj2 = {};
+			                    var obj3 = {};
+			                    // obj.source = data.data.result[i].; 
+			                    obj.target = data.data.result[i].companyName;
+			                    obj.label = obj2;
+			                    obj2.normal = obj3;
+			                    obj3.show = true;
+			                    obj3.formatter = data.data.result[i].relationship;
+			                    obj3.fontSize = '12';
+			                    obj3.color = '#666';
+			                    servicedata[i]=obj;
+
+			                    var dataObj = {};
+			                    var dataObj1 = {};
+
+
+			                	dataObj.name = data.data.result[i].companyName;
+			                	
+
+
+			                	if (data.data.result[i].relationship == 1) {
+			                		dataObj.x = 30+i;
+			                		dataObj.y = 50+i;
+			                	} else {               //需修改
+			                		dataObj.x = 70+i;
+			                		dataObj.y = 80+i;
+			                	}
+			                	
+			                	dataObj.symbol = 'image://../img/qiye_pic.png';
+			                	dataObj.symbolSize = [81,81];
+			                	dataObj.flow = dataObj1;
+			                	dataObj1.name = data.data.result[i].companyName;
+			                	dataObj1.type = data.data.result[i].storeType;
+			                	//缺少字段
+			                	// dataObj1.yujingzhi = data.data.result[i].companyName;
+			                	// dataObj1.yingshou = data.data.result[i].companyName;
+			                	// dataObj1.yingfu = data.data.result[i].companyName;
+			                	// dataObj1.yingName = data.data.result[i].companyName;
+
+			                	dataObj1.yujingzhi = '20';
+			                	dataObj1.yingshou = '26236566.00';
+			                	dataObj1.yingfu = '26236566.00';
+			                	dataObj1.yingName = 'Website construction';
+			                	data_data[i] = dataObj;
+			                }
+
+			                console.log(servicedata);
+
+			                
+
+			             //    {
+				            //     name: '中泰化工',
+				            //     x: 30,
+				            //     y: 50,
+				            //     symbol:'image://../img/qiye_pic.png',
+				            //     symbolSize: [81,81],
+
+				            //     flow: {name:'中泰化工', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'1234.00', yingName: 'Website construction'}
+				            // }
+
+	                    }
+	                }
+	            }
+	        });
+
+			// var dom = document.getElementById("container");
+			// var myChart = echarts.init(dom);
+			var app = {};
+			option = null;
+			option = {
+			    tooltip: {
+			    	trigger: 'item',
+			    	backgroundColor: 'transparent',
+	                formatter:function(params){
+	                    if(params.data.flow){
+	                    	var str = '';
+	                    	str += '<div class="relationship_div" style="position:absolute;left:0px;top:-95px;">'
+								+'<div class="padding_div">'
+									+'<div class="qiye_name_bg">'+params.data.flow.name+'</div>'
+									+'<div class="qiye_info">'
+										+'<div class="qiye_leixing">企业类型：'+params.data.flow.type+'</div>'
+										+'<div class="yujingzhi">预警值：'+params.data.flow.yujingzhi+'</div>'
+										+'<div class="yingshoukuan">应收账款：<span>￥'+params.data.flow.yingshou+'</span></div>'
+										+'<div class="yingfukuan">应付账款：<span>￥'+params.data.flow.yingfu+'</span></div>'
+									+'</div>'
 								+'</div>'
-							+'</div>'
-						+'</div>';
-                        // return params.data.name + '到' + params.data.target + '的流量为'+ params.data.flow;
-                        return str;
-                    }
-                    else{
-                        return params.name;
-                    }
-                }
-		    },
-		    // emphasis: {
-		    // 	color:
-		    // },
-		    animationDurationUpdate: 1500,
-		    animationEasingUpdate: 'quinticInOut',
-		    series : [
-		        {
-		            type: 'graph',
-		            layout: 'none',
-		            symbolSize: 50,
-		            roam: true,
-		            label: {
-		                normal: {
-		                    show: true,
-		                    position: 'bottom',
-		                    color: '#666',
-		                    fontSize: 12,
-		                    formatter: function(data) {
-                               	var result = "";
-                                result += data.name + '\n' + data.data.flow.yingName;
-                                return result;
-                            },
-		                },
-		            },
-		            edgeSymbol: ['circle', 'arrow'],
-		            edgeSymbolSize: [4, 10],
-		            edgeLabel: {
-		                normal: {
-		                    textStyle: {
-		                        fontSize: 20
-		                    }
-		                },
+							+'</div>';
+	                        // return params.data.name + '到' + params.data.target + '的流量为'+ params.data.flow;
+	                        return str;
+	                    }
+	                    else{
+	                        return params.name;
+	                    }
+	                }
+			    },
+			    // emphasis: {
+			    // 	color:
+			    // },
+			    animationDurationUpdate: 1500,
+			    animationEasingUpdate: 'quinticInOut',
+			    series : [
+			        {
+			            type: 'graph',
+			            layout: 'none',
+			            symbolSize: 50,
+			            roam: true,
+			            label: {
+			                normal: {
+			                    show: true,
+			                    position: 'bottom',
+			                    color: '#666',
+			                    fontSize: 12,
+			                    formatter: function(data) {
+	                               	var result = "";
+	                                result += data.name + '\n' + data.data.flow.yingName;
+	                                return result;
+	                            },
+			                },
+			            },
+			            edgeSymbol: ['circle', 'arrow'],
+			            edgeSymbolSize: [4, 10],
+			            edgeLabel: {
+			                normal: {
+			                    textStyle: {
+			                        fontSize: 20
+			                    }
+			                },
 
-		            },
-		            data: [{
-		                name: '中泰化工',
-		                x: 30,
-		                y: 50,
-		                symbol:'image://../img/qiye_pic.png',
-		                symbolSize: [81,81],
+			            },
+			            data: data_data,
+			            // data: [{
+			            //     name: '中泰化工',
+			            //     x: 30,
+			            //     y: 50,
+			            //     symbol:'image://../img/qiye_pic.png',
+			            //     symbolSize: [81,81],
 
-		                flow: {name:'中泰化工', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'1234.00', yingName: 'Website construction'}
-		            }, {
-		                name: '中泰化工111',
-		                x: 10,
-		                y: 10,
-		                symbol:'image://../img/qiye_pic.png',
-		                symbolSize: [81,81],
-		                flow: {name:'中泰化工111', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
-		            }, {
-		                name: '节点3',
-		                x: 30,
-		                y: 10,
-		                symbol:'image://../img/qiye_pic.png',
-		                symbolSize: [81,81],
-		                flow: {name:'中泰化工222', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
-		            }, {
-		                name: '节点4',
-		                x: 50,
-		                y: 10,
-		                symbol:'image://../img/qiye_pic.png',
-		                symbolSize: [81,81],
-		                flow: {name:'中泰化工', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
-		            }, {
-		                name: '节点5',
-		                x: 70,
-		                y: 80,
-		                symbol:'image://../img/qiye_pic.png',
-		                symbolSize: [81,81],
-		                flow: {name:'中泰化工', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
-		            }],
-		            // links: [],
-		            links: [{
-		                source: '中泰化工',
-		                target: '节点3',
-		                label: {
-		                	normal: {
-		                		show:true,
-		                		formatter: '上游',
-		                		fontSize: '12',
-		                		color: '#666'
-		                	}
-		                }
-		            }, {
-		                source: '中泰化工',
-		                target: '中泰化工111',
-		                label: {
-		                	normal: {
-		                		show:true,
-		                		formatter: '上游',
-		                		fontSize: '12',
-		                		color: '#666'
-		                	}
-		                }
-		            }, {
-		                source: '中泰化工',
-		                target: '节点4',
-		                label: {
-		                	normal: {
-		                		show:true,
-		                		formatter: '上游',
-		                		fontSize: '12',
-		                		color: '#666'
-		                	}
-		                }
-		            }, {
-		                source: '中泰化工',
-		                target: '节点5',
-		                label: {
-		                	normal: {
-		                		show:true,
-		                		formatter: '下游',
-		                		fontSize: '12',
-		                		color: '#666'
-		                	}
-		                }
-		            }],
-		            lineStyle: {
-		                normal: {
-		                    opacity: 0.9,
-		                    width: 2,
-		                    curveness: 0
-		                }
-		            }
-		        }
-		    ]
-		};;
-		if (option && typeof option === "object") {
-		    myChart.setOption(option, true);
+			            //     flow: {name:'中泰化工', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'1234.00', yingName: 'Website construction'}
+			            // }, {
+			            //     name: '中泰化工111',
+			            //     x: 10,
+			            //     y: 10,
+			            //     symbol:'image://../img/qiye_pic.png',
+			            //     symbolSize: [81,81],
+			            //     flow: {name:'中泰化工111', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
+			            // }, {
+			            //     name: '节点3',
+			            //     x: 30,
+			            //     y: 10,
+			            //     symbol:'image://../img/qiye_pic.png',
+			            //     symbolSize: [81,81],
+			            //     flow: {name:'中泰化工222', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
+			            // }, {
+			            //     name: '节点4',
+			            //     x: 50,
+			            //     y: 10,
+			            //     symbol:'image://../img/qiye_pic.png',
+			            //     symbolSize: [81,81],
+			            //     flow: {name:'中泰化工', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
+			            // }, {
+			            //     name: '节点5',
+			            //     x: 70,
+			            //     y: 80,
+			            //     symbol:'image://../img/qiye_pic.png',
+			            //     symbolSize: [81,81],
+			            //     flow: {name:'中泰化工', type: '终端企业', yujingzhi: '20万元', yingshou: '26236566.00', yingfu:'26236566.00', yingName: 'Website construction'}
+			            // }],
+			            links: servicedata,
+			            // links: [{
+			            //     source: '中泰化工',
+			            //     target: '节点3',
+			            //     label: {
+			            //     	normal: {
+			            //     		show:true,
+			            //     		formatter: '上游',
+			            //     		fontSize: '12',
+			            //     		color: '#666'
+			            //     	}
+			            //     }
+			            // }, {
+			            //     source: '中泰化工',
+			            //     target: '中泰化工111',
+			            //     label: {
+			            //     	normal: {
+			            //     		show:true,
+			            //     		formatter: '上游',
+			            //     		fontSize: '12',
+			            //     		color: '#666'
+			            //     	}
+			            //     }
+			            // }, {
+			            //     source: '中泰化工',
+			            //     target: '节点4',
+			            //     label: {
+			            //     	normal: {
+			            //     		show:true,
+			            //     		formatter: '上游',
+			            //     		fontSize: '12',
+			            //     		color: '#666'
+			            //     	}
+			            //     }
+			            // }, {
+			            //     source: '中泰化工',
+			            //     target: '节点5',
+			            //     label: {
+			            //     	normal: {
+			            //     		show:true,
+			            //     		formatter: '下游',
+			            //     		fontSize: '12',
+			            //     		color: '#666'
+			            //     	}
+			            //     }
+			            // }],
+			            lineStyle: {
+			                normal: {
+			                    opacity: 0.9,
+			                    width: 2,
+			                    curveness: 0
+			                }
+			            }
+			        }
+			    ]
+			};;
+
+
+
+			
+			if (option && typeof option === "object") {
+			    myChart.setOption(option, true);
+			}
+
+
 		}
+		
     </script>
 </body>
 </html>

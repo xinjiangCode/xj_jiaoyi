@@ -14,6 +14,162 @@
 	<link rel="stylesheet" type="text/css" href="../css/memberOfTheMall/checkOrderInformation.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/memberOfTheMall/unpaid.css"/>
 	<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		
+		.modelBox{
+            z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+		.modelCont{
+            position: absolute;
+            width: 450px;
+            min-height: 275px;
+            left: 50%;
+            top: 50%;
+            /*margin-left: -225px;
+            margin-top: -200px;*/
+           margin-left: 0 !important;
+           margin-top: 0 !important;
+            transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);
+            font-family: 'microsoft yahei';
+            /* background-color: red; */
+        }
+		.modeltitle{
+            width: 450px;
+            height: 50px;
+            background-image: url(../img/gsxq.gif);
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 16px;
+            color: #5690f6;
+            line-height: 50px;
+        }
+        .modeltitle span{
+            margin-left: 16px;
+        }
+
+        .modelcontent, .cont{
+            width: 450px;
+            min-height: 226px;
+            background-image: url('../img/gsxq_cont.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 18px;
+        }
+        
+		.modelBtnBox{
+            width: 302px;
+            height: 45px;
+            overflow: hidden;
+            margin: 0 auto;
+			padding-bottom: 30px;
+        }
+        .modelbtn{
+            float: left;
+            width: 130px;
+            height: 35px;
+            border: 1px solid #5690f6;
+            font-size: 16px;
+            color: #fff;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 35px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 5px auto 0 172px;
+        }
+
+
+		#xuni_account_pay_alert, #jifen_pay_alert {
+			z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+		}
+
+		.modelcontent>div .span, .modelcontent>div span  {
+			width: 155px;
+			text-align: left;
+		}
+
+		.modelcontent>div input {
+			width: 225px;
+			padding-left: 0px;
+		}
+
+		.modelcontent>div span.huoqu_code {
+			width: auto;
+		}
+
+		#xuni_account_pay_alert .info .span, #jifen_pay_alert .info .span {
+            width: 110px;
+            text-align: right;
+        }
+
+         #xuni_account_pay_alert .modelCont {
+            height: 385px;
+        }
+
+        #xuni_account_pay_alert .modelCont, #xuni_account_pay_alert .modeltitle, #xuni_account_pay_alert .modelcontent, #jifen_pay_alert .modelCont, #jifen_pay_alert .modeltitle, #jifen_pay_alert .modelcontent {
+            width: 500px;
+        }
+
+        #xuni_account_pay_alert .modelcontent {
+            height: 335px;
+        }
+
+        #xuni_account_pay_alert .modelBtnBox {
+            height: auto;
+        }
+
+        input.pay_pass_input, .phone_num, .code_input {
+            height: 32px;
+            width: 235px;
+            text-indent: 10px;
+        }
+
+        .phone_num_kuang {
+            margin: 20px auto;
+        }
+
+        .huoqu_code {
+            color: #5590F6;
+            font-size: 14px;
+            line-height: 36px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        div#xuni_account_pay_alert .info {
+            padding-top: 15px;
+            height: 220px;
+        }
+
+        div#jifen_pay_alert .info {
+            padding-top: 15px;
+            height: 170px;
+        }
+
+        .baozhnegjin_kuang {
+            margin-bottom: 10px;
+        }
+
+        #jifen_pay_alert .modelCont {
+        	height: 328px;
+        }
+
+
+	</style>
 </head>
 <body>
 	<!-- 待支付页面 -->
@@ -36,16 +192,16 @@
 			<img src="../img/cf_success.png" alt="">
 			<span>订单提交成功，在线付款咯～</span>
 		</div>
-		<div class="time_out">请在 <span class="minute_second"><span class="time_num">24</span>分<span class="time_num">56</span> 秒 </span>内完成支付，超时后将取消订单</div>
+		<div class="time_out" id="time_out">请在 <span class="minute_second"><span class="time_num">00</span>分<span class="time_num">00</span> 秒 </span>内完成支付，超时后将取消订单</div>
 		<div class="sh_info">
-			<span class="sh_name">收货信息：斯琴高娃</span>
+			<span class="sh_name">收货信息：<span class="sh_name_name">斯琴高娃</span></span>
 			<span class="sh_phone">185****0919</span>
 			<span class="sh_addr">海南省 海口市 美兰区 海府街道 海航大厦12层</span>
 		</div>
-		<div class="order_num">订单号：20180131111959001</div>
+		<div class="order_num">订单号：<span class="order_num_num">20180131111959001</span></div>
 		<div class="shop_name clearfix">
-			<span class="fl">商品名称：氧化锌  氧化铁绿</span>
-			<span class="fr">应付金额：<span class="jifen_money"><span class="num">299.97</span>积分+<span class="num">309.97</span>元</span></span>
+			<span class="fl">商品名称：<span class="shop_name_name">氧化锌  氧化铁绿</span></span>
+			<span class="fr">应付金额：<span class="jifen_money"><span class="num num1">299.97</span>积分+<span class="num num2">309.97</span>元</span></span>
 		</div>
 	</div>
 	<div class="select_pay_title">
@@ -56,17 +212,215 @@
 		<div style="color: #333333; font-size: 16px; margin-bottom: 40px;">支付平台</div>
 		<ul class="clearfix ul_pay">
 			<li class="pay_current"><img src="../img/wx_pay.png" alt=""></li>
-			<li><img src="../img/xuni_account_pay.png" alt=""></li>
+			<li class="pay2"><img src="../img/xuni_account_pay.png" alt=""></li>
 			<li><img src="../img/yinlian_pay.png" alt=""></li>
-			<li><img src="../img/jifen_pay.png" alt=""></li>
+			<li class="pay4"><img src="../img/jifen_pay.png" alt=""></li>
 		</ul>
 	</div>
 	<div class="line1"></div>
+	
+	<!-- 模拟弹框 -->
+	<!-- 虚拟账户（现金+积分） -->
+	<div id="xuni_account_pay_alert">
+	    <div class="modelCont">
+	        <div class="modeltitle">
+	            <span>支付</span>
+	            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+	        </div>
+	        <div class="modelcontent">
+	            <div class="info">
+	               <div class="pay_method_kuang clearfix">
+	                   <span class="span fl">支付方式：</span>
+	                   <span class="pay_method_method" style="font-size: 14px;">积分+现金</span>
+	               </div>
+	               <div class="pay_money_kuang clearfix">
+	                   <span class="span fl">支付金额：</span>
+	                   <span class="jifen_cash" style="font-size: 14px;">100积分+1200现金</span>
+	               </div>
+	               <div class="pay_pass_kuang clearfix" style="margin-top: 5px;">
+	                   <span class="span fl">支付密码：</span>
+	                   <input type="password" style="height: 32px; font-size: 12px;" class="pay_pass_input fl">
+	               </div>
+	               <div class="phone_num_kuang clearfix">
+	                   <span class="span fl">手机号：</span>
+	                   <input type="number" style="height: 32px; font-size: 12px;" class="phone_num fl">
+	                   <span class="huoqu_code" style="font-size: 14px;">获取验证码</span>
+	               </div>
+	               <div class="code_kuang clearfix">
+	                   <span class="span fl">短信验证码：</span>
+	                   <input type="text" style="height: 32px; font-size: 12px;" class="code_input fl">
+	               </div>
+	            </div>
+	            <div class="modelBtnBox">
+	                <div style="background:#5690f6;" class="modelbtn confirm">确认支付</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	<!-- 积分支付 -->
+	<div id="jifen_pay_alert">
+	    <div class="modelCont">
+	        <div class="modeltitle">
+	            <span>支付</span>
+	            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+	        </div>
+	        <div class="modelcontent">
+	            <div class="info">
+	               <div class="pay_method_kuang clearfix">
+	                   <span class="span fl">支付方式：</span>
+	                   <span class="pay_method_method" style="font-size: 14px;">积分</span>
+	               </div>
+	               <div class="pay_money_kuang clearfix">
+	                   <span class="span fl">支付金额：</span>
+	                   <span class="jifen_cash" style="font-size: 14px;">100积分</span>
+	               </div>
+	               <div class="phone_num_kuang clearfix" style="margin-top: 10px;">
+	                   <span class="span fl">手机号：</span>
+	                   <input type="number" style="height: 32px; font-size: 12px;" class="phone_num fl">
+	                   <span class="huoqu_code" style="font-size: 14px;">获取验证码</span>
+	               </div>
+	               <div class="code_kuang clearfix">
+	                   <span class="span fl">短信验证码：</span>
+	                   <input type="text" style="height: 32px; font-size: 12px;" class="code_input fl">
+	               </div>
+	            </div>
+	            <div class="modelBtnBox">
+	                <div style="background:#5690f6;" class="modelbtn confirm">确认支付</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
 	<script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/common.js"></script>
     <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
     
+	<script>
 
+		var timer1;
+
+		$(document).on('click', '.close', function () {
+	        $(this).parent().parent().parent().css('display', 'none');
+	    });
+
+		var orderId = sessionStorage.getItem('orderId');
+
+  		$.ajax({
+			type:"get",
+	        url:pubIP+"memberOrder/orderInfo",//v1.0
+	        cache:false,
+	        dataType: "json",
+	        async:false,
+	        headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            data: {
+            	orderId: orderId
+            },
+	        success: function(data){
+	        	console.log(data);
+	        	if (data.code == 1) {
+
+	        		$('.sh_name_name').text(data.data.name);
+
+	        		data.data.mobile = data.data.mobile.substr(0,3)+"****"+data.data.mobile.substr(7);
+
+	        		$('.sh_phone').text(data.data.mobile);
+	        		$('.sh_addr').text(data.data.addressStr);
+
+	        		$('.order_num_num').text(data.data.orderId);
+	        		$('.shop_name_name').text(data.data.goodsName);
+
+	        		$('.jifen_money .num1').text(data.data.integral);
+	        		$('.jifen_money .num2').text(data.data.cash);
+
+	        		if (data.data.orderTime) {
+		        		data.data.orderTime = JSON.parse(data.data.orderTime);
+		        	}
+
+		        	if (data.data.orderTime.submitTime) {
+		        		var time = 0;
+		        		time = data.data.orderTime.submitTime + 30 * 60 * 1000;
+
+		        		data.data.orderTime.submitTime = new Date(data.data.orderTime.submitTime).Format("yyyy-MM-dd hh:mm:ss");
+
+		        		time = new Date(time).Format("yyyy-MM-dd hh:mm:ss");
+
+		        		distanceTime('time_out', time);
+
+		        	}
+
+	        	}
+	        },
+	        error: function(err) {
+	        	console.log(err);
+	        }
+	    });
+
+  		
+
+  		//支付
+  		$('.ul_pay li').click(function() {
+  			$('.ul_pay li').removeClass('pay_current');
+  			$(this).addClass('pay_current');
+
+  			if ($(this).hasClass('pay2')) {
+  				$('#xuni_account_pay_alert').show();
+  			}
+
+  			if ($(this).hasClass('pay4')) {
+  				$('#jifen_pay_alert').show();
+  			}
+
+  		});
+
+
+  		//判断推荐报价时间
+		function distanceTime(id, deadtime) {  
+            var endtime1 = new Date(deadtime); //结束时间  
+            var nowtime1 = new Date(); //当前时间  
+            var lefttime1 = parseInt(((endtime1.getTime() - nowtime1.getTime()) / 1000));  
+            //parseInt可以只取整数部分，返回一个整数  
+            var d1 = parseInt(lefttime1 / (24 * 60 * 60));  
+            var h1 = parseInt(lefttime1 / (60 * 60) % 24);  
+            var m1 = parseInt((lefttime1 / 60) % 60);  
+            var s1 = lefttime1 % 60; 
+            if (d1 < 10) {
+            	d1 = '0' + d1;
+            }
+
+            if (h1 < 10) {
+            	h1 = '0' + h1;
+            }
+
+            if (m1 < 10) {
+            	m1 = '0' + m1;
+            }
+
+            if (s1 < 10) {
+            	s1 = '0' + s1;
+            }
+
+            if (document.getElementById(id) == null) {
+            	return false;
+            }
+
+            document.getElementById(id).innerHTML = '请在 <span class="minute_second"><span class="time_num">'+m1+'</span>分<span class="time_num">'+s1+'</span> 秒 </span>内完成支付，超时后将取消订单'
+            	// d + '天' + h + '时' + m + '分' + s + '秒';  
+            if(lefttime1 <= 0) {  
+				//debugger
+                document.getElementById(id).innerHTML = '请在 <span class="minute_second"><span class="time_num">00</span>分<span class="time_num">00</span> 秒 </span>内完成支付，超时后将取消订单';  
+					//$("#"+id).parents(".fsObjItem").hide();
+                clearTimeout(timer1);  
+				return;
+            }  
+            timer1 = setTimeout("distanceTime('" + id + "','" + deadtime + "')", 1000); //timer为全局变量  
+
+        }
+
+
+	</script>
 </body>
 </html>
