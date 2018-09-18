@@ -7,12 +7,216 @@
     <meta http-equiv="Cache-Control" CONTENT="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
     <meta name="format-detection" content="telephone=no" />
-	<title>新疆化学品经营服务平台</title>
+	<title adct1="1">新疆化学品经营服务平台</title>
 	<link rel="stylesheet" type="text/css" href="../css/index.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/memberOfTheMall/checkOrderInformation.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 	<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		.page_guide_container {
+		    width: 100%;
+		    cursor: e-resize;
+		    overflow: hidden;
+		}
+
+		.page_guide_items {
+			height: 166px;
+			overflow: hidden;
+		}
+
+		.page_guide_item {
+			margin: 0px;
+		    padding: 0px;
+		    border: none;
+		    border-radius: 0;
+		}
+
+/*		.page_guide_item_text {
+
+		    width: 310px;
+		    padding: 0px;
+		    float: left;
+		}*/
+
+		.page_guide_item_text {
+		    /* width: 277px; */
+		    width: 310px;
+		    padding: 0px;
+		    padding-left: 20px;
+		    padding-right: 30px;
+		    float: left;
+		    box-sizing: border-box;
+		}
+
+		.info_ul li, .info_ul li.li_current {
+			padding: 0px;
+		}
+
+
+
+
+		#add_address_alert, .all_success_alert{
+            z-index: 9999;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #add_address_alert .modelCont, #add_address_alert .modeltitle, #add_address_alert .modelcontent, #add_address_alert .cont {
+			width: 550px;
+        }
+
+        .all_success_alert .modelcontent>div {
+        	margin-bottom: 0px;
+			width: 450px;
+        }
+
+        .all_success_alert .modelcontent>div.info {
+        	height: 140px;
+        }
+		
+		.all_success_alert .img_div {
+			text-align: center;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+		.all_success_alert .modelbtn {
+			margin: 5px auto 0 160px
+		}
+
+		.modelCont{
+            position: absolute;
+            width: 450px;
+            min-height: 275px;
+            left: 50%;
+            top: 50%;
+            /*margin-left: -225px;
+            margin-top: -200px;*/
+           margin-left: 0 !important;
+           margin-top: 0 !important;
+            transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);
+            font-family: 'microsoft yahei';
+            /* background-color: red; */
+        }
+		.modeltitle{
+            width: 450px;
+            height: 50px;
+            background-image: url(../img/gsxq.gif);
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 16px;
+            color: #5690f6;
+            line-height: 50px;
+        }
+        .modeltitle span{
+            margin-left: 16px;
+        }
+
+        .modelcontent, .cont{
+            width: 450px;
+            min-height: 226px;
+            background-image: url('../img/gsxq_cont.gif');
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 18px;
+        }
+        
+		.modelBtnBox{
+            width: 302px;
+            height: 45px;
+            overflow: hidden;
+            margin: 0 auto;
+			padding-bottom: 30px;
+        }
+        .modelbtn{
+            float: left;
+            width: 130px;
+            height: 35px;
+            border: 1px solid #5690f6;
+            font-size: 16px;
+            color: #fff;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 35px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin: 5px auto 0 95px;
+        }
+
+        .modelcontent>div input[type="text"], .modelcontent>div input[type="number"] {
+        	width: 344px;
+        	border: 1px solid #e7e7e7;
+        	color: #666;
+        }
+
+        #add_address_alert .modelcontent>div.info {
+			height: 273px;
+        }
+
+        .modelbtn.modelbtn2.ml10 {
+            margin-left: 10px;
+        }
+
+        .modelcontent>div input.moren {
+        	width: auto;
+        }
+
+        .mb20 {
+        	margin-bottom: 20px;
+        }
+
+
+        .modelcontent>div .selectPub span {
+        	text-align: left;
+        	font-size: 14px;
+        }
+
+        .modelcontent>div .selectPub {
+        	font-size: 14px;
+        }
+
+        .modelcontent>div .selectPub ul {
+        	overflow-x: hidden;
+        }
+
+		.ts {
+			position: absolute;
+			visibility: visible;
+			line-height: 20px;
+			margin-left: 95px;
+		}
+
+		.relative {
+			position: relative;
+		}
+
+		.info_ul li {
+			height: 166px;
+		}
+
+		.inner .div2 span.sh_name {
+			margin-left: 0px;
+		}
+
+		span.sh_addr {
+		    display: inline-block;
+		    width: 352px;
+		    color: #666;
+		}
+
+		p.innerSuccmsg {
+		    text-align: center;
+		}
+
+	</style>
+
 </head>
 
 <body>
@@ -34,33 +238,70 @@
 	<div class="mianCont">
 		<div class="checkOrderInformationTitle"><span></span>填写核对订单信息</div>
 		<div class="info_title">收货地址</div>
-		<div class="page_guide_container" onMouseDown="pageGuideMousedown(this,event)" onMouseMove="pageGuideMousemove(this,event)" onMouseUp="pageGuideMouseup(this,event)" onMouseOut="pageGuideMouseout(this,event)" ontouchstart="pageGuideTouchstart(this,event)" ontouchmove="pageGuideTouchmove(this,event)" ontouchend="pageGuideTouchend(this,event)">
-			<ul class="clearfix info_ul page_guide_items">
-				<li class="li_current page_guide_item page_guide_item_text" id="3_1">
-					<div class="page_guide_item_image">
-						<div class="shouhuo_name">斯琴高娃</div>
-						<p class='shouhuo_phone'>电话：185****0919</p>
-						<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">海南省 海口市 美兰区 海府街道 海航大厦12层</span></p>
+		<div class="page_guide_slider">
+			<div class="page_guide_balloon" style="display: none;">
+				<div class="page_guide_title">
+					<div class="page_guide_title_text">主题名称</div>
+				</div>
+				<div class="page_guide_pointer">
+					<div class="page_guide_point"></div>
+				</div>
+				<div class="page_guide_bar">
+					<div class="page_guide_progress">
+						<div></div>
+						<div></div>
+						<div></div>
 					</div>
-				</li>
-				<li class="page_guide_item page_guide_item_text" id="3_2">
-					<div class="page_guide_item_image">
-						<div class="shouhuo_name">斯琴高娃</div>
-						<p class='shouhuo_phone'>电话：185****0919</p>
-						<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">海南省 海口市 美兰区 海府街道 海航大厦12层</span></p>
-					</div>
-				</li>
-				<li class="page_guide_item page_guide_item_text" id="3_3">
-					<div class="page_guide_item_image">
-						<div class="shouhuo_name">斯琴高娃</div>
-						<p class='shouhuo_phone'>电话：185****0919</p>
-						<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">海南省 海口市 美兰区 海府街道 海航大厦12层</span></p>
-					</div>
-				</li>
-				<li class="add_new_address page_guide_item page_guide_item_text" id="3_4"></li>
-			</ul>
+				</div>
+			</div>
+			<div class="page_guide_container" onMouseDown="pageGuideMousedown(this,event)" onMouseMove="pageGuideMousemove(this,event)" onMouseUp="pageGuideMouseup(this,event)" onMouseOut="pageGuideMouseout(this,event)" ontouchstart="pageGuideTouchstart(this,event)" ontouchmove="pageGuideTouchmove(this,event)" ontouchend="pageGuideTouchend(this,event)">
+				<ul class="clearfix info_ul page_guide_items">
+					<!-- <li class="li_current page_guide_item">
+						<div class="page_guide_item_text">
+							<div class="shouhuo_name">斯琴高娃</div>
+							<p class='shouhuo_phone'>电话：185****0919</p>
+							<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">海南省 海口市 美兰区 海府街道 海航大厦12层</span></p>
+						</div>
+					</li>
+					<li class="page_guide_item">
+						<div class="page_guide_item_text">
+							<div class="shouhuo_name">斯琴高娃</div>
+							<p class='shouhuo_phone'>电话：185****0919</p>
+							<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">海南省 海口市 美兰区 海府街道 海航大厦12层</span></p>
+						</div>
+					</li>
+					<li class="page_guide_item">
+						<div class="page_guide_item_text">
+							<div class="shouhuo_name">斯琴高娃</div>
+							<p class='shouhuo_phone'>电话：185****0919</p>
+							<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">海南省 海口市 美兰区 海府街道 海航大厦12层</span></p>
+						</div>
+					</li>
+					<li class="page_guide_item">
+						<div class="page_guide_item_text">
+							<div class="shouhuo_name">斯琴高娃</div>
+							<p class='shouhuo_phone'>电话：185****0919</p>
+							<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">海南省 海口市 美兰区 海府街道 海航大厦12层</span></p>
+						</div>
+					</li>
+					<li class="page_guide_item">
+						<div class="page_guide_item_text">
+							<div class="shouhuo_name">斯琴高娃</div>
+							<p class='shouhuo_phone'>电话：185****0919</p>
+							<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">海南省 海口市 美兰区 海府街道 海航大厦12层</span></p>
+						</div>
+					</li> -->
+					<!-- <li class="add_new_address page_guide_item">
+						<div class="page_guide_item_text"></div>
+					</li> -->
+					<li class="add_new_address page_guide_item">
+						<div class="page_guide_item_text"></div>
+					</li>
+				</ul>
+			</div>
 		</div>
-		<div class="info_title" style="margin-top: 5px;">发票信息</div>
+		
+		<div class="info_title" style="margin-top: 10px;">发票信息</div>
 		<div class="hot_line">若有发票信息，请拨打平台客服热线：<span>400012556</span></div>
 		<div class="info_title" style="margin-top: 10px;">运送方式</div>
 		<div class="convey">普通配送：<span style="color: #ff4949;">快递 ￥<span>10.00</span>元</span></div>
@@ -93,8 +334,8 @@
 		<div class="send_addr clearfix">
 			<div class="send_addr_bg fr">
 				<div class="inner">
-					<div class="div1"><span>寄送至：海南省 海口市 美兰区 海府街道 海航大厦12层</span></div>
-					<div class="div2">收货人：斯琴高娃<span>电话：185****0919</span></div>
+					<div class="div1"><span class="div1_span clearfix"><span class="fl">寄送至：</span><span class="sh_addr fl">海南省 海口市 美兰区 海府街道 海航大厦12层</span></span></div>
+					<div class="div2">收货人：<span class="sh_name">斯琴高娃</span><span class="sh_phone">电话：185****0919</span></div>
 				</div>
 			</div>
 		</div>
@@ -103,7 +344,85 @@
 		</div>
 	</div>
 	<div class="line1"></div>
-	
+	<!-- 添加收货地址 -->
+	<div id="add_address_alert">
+	    <div class="modelCont">
+	        <div class="modeltitle">
+	            <span>添加收货地址</span>
+	            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+	        </div>
+	        <div class="modelcontent">
+	            <div class="info">
+	               <div class="pay_method_kuang relative clearfix mb20" style="margin-top: 30px;">
+	                   <div class="clearfix">
+		                   	<span class="span fl">收货人：</span>
+		                   <input type="text" placeholder="请输入收货人姓名" style="height: 37px; font-size: 12px;" class="phone_num fl" id="name">
+	                   </div>
+	                   <div class="ts"></div>
+	               </div>
+	               <div class="pay_money_kuang relative clearfix mb20">
+	                   <div class="clearfix">
+	                   		<span class="span fl">所在地区：</span>
+		                   	<div class="selectPub provice" id="province" data-selectedindex="-1" style="float: left;width: 169px;">
+	                            <span style="display: inline-block;max-width: 70px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择省</span>
+	                            <img src="../img/prl-select.jpg" alt="">
+	                            <ul>
+
+	                            </ul>
+	                        </div>
+	                        <div class="selectPub city" id="city" data-selectedindex="-1" style="float: left;width: 169px;">
+	                            <span style="display: inline-block;max-width: 85px;overflow: hidden;  white-space: nowrap;text-overflow: ellipsis;">请选择市区</span>
+	                            <img src="../img/prl-select.jpg" alt="">
+	                            <ul>
+
+	                            </ul>
+	                        </div>
+	                   </div>
+                        <div class="ts"></div>
+	               </div>
+	               <div class="phone_num_kuang relative clearfix mb20">
+	                   <div class="clearfix">
+	                   		<span class="span fl">详细地址：</span>
+	                   		<input type="text" placeholder="请输入详细地址" style="height: 37px; font-size: 12px;" class="phone_num fl" id="detail_address">
+	                   </div>
+	                   <div class="ts"></div>
+	               </div>
+	               <div class="phone_num_kuang relative clearfix">
+	               		<div class="clearfix">
+		                   	<span class="span fl">手机号码：</span>
+		                   	<input type="number" placeholder="请输入手机号码" maxlength="11" style="height: 37px; font-size: 12px;" class="phone_num fl" id="phone">
+		                </div>
+	                   	<div class="ts"></div>
+	               </div>
+	               <div class="mb20" style="margin-left: 95px; font-size: 14px; margin-top: 10px;">
+	               		<input type="checkbox" name="" class="moren" id="moren_address" value="" />设置为默认的收货地址
+	               </div>
+	            </div>
+	            <div class="modelBtnBox">
+	                <div style="background:#5690f6;" class="modelbtn confirm add_address_btn">添加该地址</div>
+	                <div style="border: 2px solid #5690f6; color: #5690f6;width:130px;height:35px;font-size:16px;line-height:32px;" class="modelbtn modelbtn2 ml10 backShopList del_back confirm">返回</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="all_success_alert" style="z-index: 99999;">
+	    <div class="modelCont">
+	        <div class="modeltitle">
+	            <span>消息提示</span>
+	            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+	        </div>
+	        <div class="modelcontent">
+	            <div class="info">
+	                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+	                <p class="innerSuccmsg"></p>
+	            </div>
+	            <div class="modelBtnBox">
+	                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
 	<script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/common.js"></script>
@@ -114,5 +433,610 @@
 		$('.info_ul .li_current').prev('li').css('width', '300px');
 		$('.info_ul .li_current').next('li').css('width', '305px');
 	</script> -->
+	
+
+	<script>
+
+		//点击关闭
+		$('.confirm, .close').click(function() {
+			$('#add_address_alert').hide();
+			$('.all_success_alert').hide();
+		});
+		
+		//收货列表
+		$.ajax({
+            url: pubIP + 'address/listAddressByShopUserId', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                
+                if (data.code == 1) {
+                	if (data.data.length != 0) {
+                		var str = '';
+                		for (var i = 0; i < data.data.length; i++) {
+
+                			data.data[i].phone = data.data[i].phone.substr(0,3)+"****"+data.data[i].phone.substr(7);
+
+                			str += '<li class="page_guide_item item" data-defaultStr="'+data.data[i].defaultStr+'">'
+									+'<div class="page_guide_item_text">'
+										+'<div class="shouhuo_name">'+data.data[i].receiver+'</div>'
+										+'<p class="shouhuo_phone">电话：<span>'+data.data[i].phone+'</span></p>'
+										+'<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">'+data.data[i].detailedAddress+'</span></p>'
+									+'</div>'
+								+'</li>'
+                		}
+
+                		$('.info_ul').prepend(str);
+
+						setGuideWidth();
+
+                		// $('.info_ul li').eq(0).addClass('li_current');
+                		$('.info_ul li').each(function() {
+                			if ($(this).attr('data-defaultStr') == 1) {
+                				$(this).addClass('li_current');
+                				$('.info_ul').prepend($(this));
+                			}
+                		});
+
+                		
+                		$('.send_addr_bg .sh_addr').text($('.page_guide_item.li_current .addr').text());
+                		$('.send_addr_bg .sh_name').text($('.page_guide_item.li_current .shouhuo_name').text());
+                		$('.send_addr_bg .sh_phone').text($('.page_guide_item.li_current .shouhuo_phone span').text());
+
+                		$('.info_ul .item').click(function () {
+                			$('.info_ul .page_guide_item').removeClass('li_current');
+                			$(this).addClass('li_current');
+
+                			$('.send_addr_bg .sh_addr').text($('.page_guide_item.li_current .addr').text());
+	                		$('.send_addr_bg .sh_name').text($('.page_guide_item.li_current .shouhuo_name').text());
+	                		$('.send_addr_bg .sh_phone').text($('.page_guide_item.li_current .shouhuo_phone span').text());
+
+                		});
+                		
+
+                	}
+                }
+                
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+
+
+
+
+
+		//添加新地址弹框显示
+		$(document).on('click', '.add_new_address', function() {
+			$("#name").val('');
+            $("#province").attr('data-selectedindex', '0');
+            $("#province span").text('请选择省');
+            $("#city").attr('data-selectedindex', '0');
+            $("#city span").text('请选择市区');
+            $("#detail_address").val('');
+            $("#phone").val('');
+            $('#moren_address')[0].checked = false;
+
+
+			$('#add_address_alert').show();
+			
+
+		});
+
+
+        /*新增收货地址*/
+        $('.add_address_btn').on('click', function () {
+
+
+            var name = $("#name").val();
+            var province = $("#province").val();
+            var city = $("#city").val();
+            var detail_address = $("#detail_address").val();
+            var phone = $("#phone").val();
+            var moren_address = $('#moren_address')[0].checked;
+
+
+            province = $("#province").attr('data-proviceid');
+            city = $("#city").attr('data-cityid');
+
+            if (moren_address == false) {
+                moren_address = 0;
+            }else {
+                moren_address = 1;
+            }
+
+
+            if ($('#name').val() == null || $('#name').val() == '') {
+                $('#name').parent().next().html('收货人不能为空');
+                return;
+            }
+
+
+            if ($('#province span').text() == '请选择省') {
+                $('#province').parent().parent().find(".ts").html('请选择省');
+                return;
+            }else if($('#city span').text() == '请选择市区'){
+                $('#province').parent().parent().find(".ts").html('请选择市区');
+                return;
+            } else {
+                $('#province').parent().parent().find(".ts").html('');
+            }
+
+
+            if ($('#detail_address').val() == null || $('#detail_address').val() == '') {
+                $('#detail_address').parent().next().html('详细地址不能为空');
+                return;
+            }
+
+            
+            if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test($('#phone').val()))) {
+                $('#phone').parent().next().html('手机号码格式不正确');
+                return;
+            }
+
+            var dbid = $(this).attr('data-dbid');
+
+
+            var that=this;
+            if($(that).attr("cf_norepeat")=="1"){
+                $(that).attr("cf_norepeat","2")
+            }else if($(that).attr("cf_norepeat")=="2"){
+                return;
+            }else{
+                $(that).attr("cf_norepeat","2")
+            }
+
+            /*v1.0*/
+            
+            $.ajax({
+                url: pubIP + 'address/addHarvestAddress', 
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                data:{
+                    	receiver: name,
+                    	provenceId: province, 
+                    	cityId: city, 
+                    	detailedAddress:detail_address,
+                    	phone: phone,
+                    	defaultStr: moren_address, 
+                    	companyId: companyId
+                },
+                dataType: 'json',
+                success: function (data) {
+                    
+                    console.log(data);
+                    if (data.code == 1) {
+                    	$('.all_success_alert .img_div').attr('src', '../img/gsxq_success.gif');
+                    	$('.all_success_alert .innerSuccmsg').text('添加成功');
+                        $('.all_success_alert').show();
+                        window.location.reload();
+                    }else {
+                        
+                        $('.all_success_alert .img_div').attr('src', '../img/cf_denger1.png');
+                        $('.all_success_alert .innerSuccmsg').text('添加失败');
+                        $('.all_success_alert').show();
+                        window.location.reload();
+                    }
+
+                    
+
+                },
+                error: function(err){
+                    
+                    console.log(err);
+                }
+            });
+            
+        });
+        
+       
+
+        // 取消按钮
+        $('.cancel').on('click', function () {
+            $(".add_address_btn").removeAttr('data-dbid')
+            $('#name').val('');
+            $('#province span').text('请选择省');
+            $("#province").attr("data-selectedindex","");
+            $('#city span').text('请选择市区');
+            $("#city").attr("data-selectedindex","");
+
+            $('#detail_address').val('');
+            $('#detail_address').val('');
+            $('#phone').val('');
+
+            $('#moren_address')[0].checked = false;
+
+            $('#name').parent().next().html('');
+            $('#province').parent().next().html('');
+            $('#city').parent().next().html('');
+            $('#detail_address').parent().next().html('');
+            $('#phone').parent().next().html('');
+        });
+
+
+
+        $('#name').on('blur', function () {
+            if ($('#name').val() == null || $('#name').val() == '') {
+                $('#name').parent().next().html('收货人不能为空');
+            } else {
+                $('#name').parent().next().html('');
+
+            }
+        });
+
+        $('#province').on('blur', function () {
+            if ($('#province option:selected').text() == '请选择省') {
+                $('#province').parent().next().html('请选择省');
+            } else {
+                $('#province').parent().next().html('');
+            }
+        });
+
+        $('#city').on('blur', function () {
+            if ($('#province option:selected').text() != '请选择省' && $('#city option:selected').text() == '请选择市区') {
+                $('#city').parent().next().html('请选择市区');
+            } else {
+                $('#city').parent().next().html('');
+            }
+        });
+
+        
+
+        $('#detail_address').on('blur' ,function (){
+            if ($('#detail_address').val() == null || $('#detail_address').val() == '') {
+                $('#detail_address').parent().next().html('详细地址不能为空');
+            } else {
+                $('#detail_address').parent().next().html('');
+            }
+        });
+
+        $('#phone').on('blur', function () {
+            if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test($('#phone').val()))) {
+                $('#phone').parent().next().html('手机号码格式不正确');
+            } else {
+                $('#phone').parent().next().html('');
+            }
+        });
+
+
+		/*查询所有省份*/
+        $.ajax({
+            url: pubIP + 'address/listProvince', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            ansyc: false,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data.data)
+                var str = '';
+                for (var i = 0; i < data.data.length; i++) {
+                    str += '<li  data-index="'+i+'" value="'+i+'" data-proviceId="'+data.data[i].provinceid+'" data-province="'+data.data[i].province+'">'+data.data[i].province+'</li>';
+                }
+
+                $('#province ul').html(str);
+
+                $('#province ul li').click(function(){
+                    event.stopPropagation();
+                    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                    $(this).parent().parent().attr('data-proviceid', $(this).attr('data-proviceid'));
+                    $(this).parent().parent().find('span').text($(this).text());
+                    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                    $(this).parent().css('display','none');
+
+                    $('#province').parent().next().html('');
+                    
+                    var provinceID =$("#province").attr('data-proviceid');
+                    $('#city span').text('请选择市区');
+                    
+                    selectCity(provinceID,null);
+
+                });
+
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+
+
+        
+        /*查询所有城市*/ 
+        function selectCity(provinceID,$this) {
+            $.ajax({
+                url: pubIP + 'address/listCityByProvinceId', /*v1.0*/
+                type: 'post',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                ansyc: true,
+                data: {provinceID: provinceID},
+                dataType: 'json',
+                success: function (data) {
+                    // console.log(data.data);
+                    var str = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        str += '<li data-index="'+i+'"  value="'+i+'" data-cityId="'+data.data[i].cityid+'" data-city="'+data.data[i].city+'">'+data.data[i].city+'</li>';
+                    }
+
+                    $('#city ul').html(str);
+
+                    $('#city ul li').click(function(){
+                        event.stopPropagation();
+                        $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+                        $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
+                        $(this).parent().parent().find('span').text($(this).text());
+                        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+                        $(this).parent().css('display','none');
+
+                        $('#city').parent().next().html('');
+
+                        var cityID =$("#city").attr('data-cityid');
+                        $('#city').removeClass('id_id1');
+                    });
+
+                        
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+
+
+
+        var global = this;
+
+function begin() {
+	setGuideWidth()
+}
+// window.onload = function() {
+// 	setGuideWidth()
+// };
+
+function rollDelay(j, c, g, h) {
+	clearInterval(global[h]);
+	var i = 0;
+	global[h] = setInterval(function() {
+		var a = Math.exp(-g * i) * c;
+		j.scrollLeft += a;
+		moveBalloon(j);
+		if (Math.abs(a) < 10) {
+			setImgSrc(j);
+			if (Math.abs(a) <= 1) {
+				clearInterval(global[h])
+			}
+		}
+		i++
+	}, 16)
+}
+
+function calcWidth(m) {
+	console.log(m);
+	var i = [];
+	var l = m.getElementsByClassName("page_guide_item_text");
+	console.log(l.length);
+	for (var o = 0; o < l.length; o++) {
+		// i[o] = l[o].clientWidth * 1.11;
+		// i[o] = l[o].offsetWidth;
+		i[o] = 307;
+		// var j = l[o].parentElement.getElementsByTagName("img");
+		// for (var p = 0; p < j.length; p++) {
+		// 	i[o] += j[p].clientWidth + 12
+		// }
+	}
+	console.log(i);
+	var n = 0;
+	for (var o = 0; o < i.length; o++) {
+		n += i[o]
+	}
+	var k = m.parentElement.parentElement.id;
+	global[k + "_cw"] = n;
+	global[k + "_aw"] = i;
+	if (n < document.body.clientWidth) {
+		n = document.body.clientWidth
+	}
+	m.getElementsByClassName("page_guide_items")[0].style.width = n + "px"
+}
+
+function setGuideWidth() {
+	var d = document.getElementsByClassName("page_guide_container");
+	for (var c = 0; c < d.length; c++) {
+		calcWidth(d[c]);
+		setProgress(d[c]);
+		setImgSrc(d[c])
+	}
+}
+
+function setProgress(l) {
+	var h = l.parentElement.getElementsByClassName("page_guide_progress")[0];
+	var j = l.parentElement.parentElement.id;
+	var i = global[j + "_aw"];
+	var m = global[j + "_cw"];
+	h.innerHTML = "";
+	for (var n = 0; n < i.length; n++) {
+		var k = document.createElement("div");
+		k.style.width = i[n] / m * 100 + "%";
+		if (n % 2 == 0) {
+			k.style.backgroundColor = "#83A0A5"
+		}
+		h.appendChild(k)
+	}
+}
+
+function moveBalloon(w) {
+	var r = w.parentElement.getElementsByClassName("page_guide_title_text")[0];
+	var D = w.parentElement.getElementsByClassName("page_guide_point")[0];
+	var t = w.parentElement.getElementsByClassName("page_guide_progress")[0];
+	var B = w.parentElement.parentElement.id;
+	var u = global[B + "_aw"];
+	var A = global[B + "_cw"];
+	var s = w.scrollLeft / (A - document.body.clientWidth);
+	D.style.left = s * (D.parentElement.clientWidth - D.offsetWidth) + "px";
+	r.style.left = s * (r.parentElement.clientWidth - r.offsetWidth) + "px";
+	t.style.left = s * (t.parentElement.clientWidth - t.offsetWidth * 100 / 96) + "px";
+	var z = s * A;
+	for (var x = 0; x < u.length; x++) {
+		z -= u[x];
+		if (z < 0) {
+			if (global[B + "_ti"] != x) {
+				global[B + "_ti"] = x;
+				var q = w.getElementsByClassName("page_guide_item")[x];
+				// r.innerHTML = q.getElementsByClassName("page_guide_item_title")[0].innerHTML;
+				r.className = r.className.replace(/playing|canplay/g, "").replace(/(^\s)|(\s$)/g, "");
+				var i = w.parentElement.getElementsByClassName("page_guide_balloon")[0];
+			}
+			break
+		}
+	}
+}
+
+function setImgSrc(l) {
+	var i = l.getElementsByTagName("img");
+	var j = l.parentElement.parentElement.id;
+	for (var g = 0; g < i.length; g++) {
+		var h = i[g];
+		if (h.src == "") {
+			var k = h.offsetLeft - l.scrollLeft;
+			if (k > -h.clientWidth && k < document.body.clientWidth) {
+				h.src = h.getAttribute("img_src");
+				h.onload = function() {
+					this.style.backgroundImage = "url()";
+					guideImgLoad(this)
+				}
+			}
+		}
+	}
+}
+
+function pageGuideMousedown(d, e) {
+	if (!e) {
+		e = (window || global).event;
+		if (!e) {
+			return
+		}
+	}
+	e.preventDefault();
+	var f = d.parentElement.parentElement.id;
+	global[f + "st"] = e.pageX;
+	global[f + "fg"] = 1;
+	clearInterval(global[f + "int"])
+}
+
+function pageGuideMousemove(d, e) {
+	var f = d.parentElement.parentElement.id;
+	if (!global[f + "fg"]) {
+		return
+	}
+	if (!e) {
+		e = (window || global).event;
+		if (!e) {
+			return
+		}
+	}
+	e.preventDefault();
+	d.scrollLeft += global[f + "st"] - e.pageX;
+	moveBalloon(d);
+	global[f + "_sp"] = global[f + "st"] - e.pageX;
+	if (global[f + "_sp"] < 5) {
+		setImgSrc(d)
+	}
+	global[f + "st"] = e.pageX
+}
+
+function pageGuideMouseup(d, e) {
+	if (!e) {
+		e = (window || global).event;
+		if (!e) {
+			return
+		}
+	}
+	e.preventDefault();
+	var f = d.parentElement.parentElement.id;
+	global[f + "fg"] = 0;
+	rollDelay(d, global[f + "_sp"], 0.03, f + "int")
+}
+
+function pageGuideMouseout(d, e) {
+	if (!e) {
+		e = (window || global).event;
+		if (!e) {
+			return
+		}
+	}
+	e.preventDefault();
+	var f = d.parentElement.parentElement.id;
+	global[f + "fg"] = 0
+}
+
+function pageGuideTouchstart(d, e) {
+	if (!e) {
+		e = (window || global).event;
+		if (!e) {
+			return
+		}
+	}
+	var f = d.parentElement.parentElement.id;
+	global[f + "st"] = e.touches[0].pageX;
+	clearInterval(global[f + "int"])
+}
+
+function pageGuideTouchmove(d, e) {
+	if (!e) {
+		e = (window || global).event;
+		if (!e) {
+			return
+		}
+	}
+	var f = d.parentElement.parentElement.id;
+	global[f + "_sp"] = global[f + "st"] - e.touches[0].pageX;
+	if (Math.abs(global[f + "_sp"]) >= 5) {
+		e.preventDefault()
+	}
+	if (Math.abs(global[f + "_sp"]) < 10) {
+		setImgSrc(d)
+	}
+	d.scrollLeft += global[f + "_sp"];
+	moveBalloon(d);
+	global[f + "st"] = e.touches[0].pageX
+}
+
+function pageGuideTouchend(d, e) {
+	if (!e) {
+		e = (window || global).event;
+		if (!e) {
+			return
+		}
+	}
+	var f = d.parentElement.parentElement.id;
+	rollDelay(d, global[f + "_sp"], 0.06, f + "int")
+}
+
+function guideImgLoad(b) {
+	b = b.parentElement.parentElement.parentElement.parentElement;
+
+	calcWidth(b);
+	setProgress(b)
+}
+
+	</script>
+
 </body>
 </html>

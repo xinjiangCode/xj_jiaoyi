@@ -347,6 +347,7 @@
 
 			.objEditorDtls .infoBox {
 				padding-left: 0px;
+				padding: 0 20px;
 			}
 
 			.infoBox img {
@@ -382,6 +383,109 @@
 			.fr {
 				float: right;
 			}
+	
+			.all_success_alert, .all_error_alert{
+	            z-index: 9999;
+	            display: none;
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            right: 0;
+	            bottom: 0;
+	            background-color: rgba(0, 0, 0, 0.5);
+	        }
+
+
+	        .all_success_alert .modelcontent>div, .all_error_alert .modelcontent>div {
+	        	margin-bottom: 0px;
+				width: 450px;
+	        }
+
+	        .all_success_alert .modelcontent>div.info, .all_error_alert .modelcontent>div.info {
+	        	height: 140px;
+	        }
+			
+			.all_success_alert .img_div, .all_error_alert .img_div {
+				text-align: center;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+
+			.all_success_alert .modelbtn, .all_error_alert .modelbtn {
+				margin: 5px auto 0 160px
+			}
+
+			
+
+			.modelCont{
+	            position: absolute;
+	            width: 450px;
+	            min-height: 275px;
+	            left: 50%;
+	            top: 50%;
+	            /*margin-left: -225px;
+	            margin-top: -200px;*/
+	           margin-left: 0 !important;
+	           margin-top: 0 !important;
+	            transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);
+	            font-family: 'microsoft yahei';
+	            /* background-color: red; */
+	        }
+			.modeltitle{
+	            width: 450px;
+	            height: 50px;
+	            background-image: url(../img/gsxq.gif);
+	            background-size: 100% 100%;
+	            background-repeat: no-repeat; 
+	            font-size: 16px;
+	            color: #5690f6;
+	            line-height: 50px;
+	        }
+	        .modeltitle span{
+	            margin-left: 16px;
+	        }
+
+	        .modelcontent, .cont{
+	            width: 450px;
+	            min-height: 226px;
+	            background-image: url('../img/gsxq_cont.gif');
+	            background-size: 100% 100%;
+	            background-repeat: no-repeat; 
+	            font-size: 18px;
+	        }
+	        
+			.modelBtnBox{
+	            width: 302px;
+	            height: 45px;
+	            overflow: hidden;
+	            margin: 0 auto;
+				padding-bottom: 30px;
+	        }
+	        .modelbtn{
+	            float: left;
+	            width: 130px;
+	            height: 35px;
+	            border: 1px solid #5690f6;
+	            font-size: 16px;
+	            color: #fff;
+	            box-sizing: border-box;
+	            text-align: center;
+	            line-height: 35px;
+	            border-radius: 3px;
+	            cursor: pointer;
+	            margin: 5px auto 0 95px;
+	        }
+
+	        .modelcontent>div input[type="text"], .modelcontent>div input[type="number"] {
+	        	width: 344px;
+	        	border: 1px solid #e7e7e7;
+	        	color: #666;
+	        }
+
+	        .all_error_alert p, .all_success_alert p {
+				text-align: center;
+	        }
+
 		</style>
 	</head>
 
@@ -478,30 +582,31 @@
 									<input type="number" min="1" step="1" style="text-align: center;"/>
 									<span class="spanBtn addBtn" style="cursor: pointer; font-size: 22px;">+</span>
 								</div>
-								盒/袋/瓶
+								<!-- 盒/袋/瓶 -->
 							</div>
 							<p>商品总价：<span class="cOr goodsTotalMoney">￥1440.00元</span></p>
-							<p>购买资格：<span style="margin-top: 20px; display: inline-block; margin-left: 10px">黄金会员 信用5级 （每个账号限兑换5个）</span></p>
+							<!-- <p>购买资格：<span style="margin-top: 20px; display: inline-block; margin-left: 10px">黄金会员 信用5级 （每个账号限兑换5个）</span></p> -->
+							<p>购买资格：<span style="margin-top: 20px; display: inline-block; margin-left: 10px"><span class="member_level">黄金会员</span> （每个账号限兑换<span class="max_num">5</span>个）</span></p>
 							<a class="toXunpanBtn exchange" href="javascript:;">立即兑换</a>
 							
 						</div>
 					</div>
 				</div>
 				<div class="objEditorDtls objDetails">
-					<div class="objDtsTit">商品详情</div>
+					<!-- <div class="objDtsTit">商品详情</div>
 					<div class="infoBox">
 						<ul class="clearfix">
-							<li style="width: 250px;">商品名称：<span class="color_bg">丘比恋</span></li>
+							<li style="width: 250px;">商品名称：<span class="color_bg shop_name">丘比恋</span></li>
 							<li style="width: 205px;"><span style="letter-spacing: 5px;">材</span>质：银</li>
 							<li>颜色分类：商务款01 英伦款02 精英款03</li>
 						</ul>
-					</div>
+					</div> -->
 					<div class="objDtsTit1">商品详细信息</div>
-					<div class="infoBox" style="border-bottom: 0; margin-bottom: 0px; padding-bottom: 19px; text-align: center;">
+					<div class="infoBox" style="border-bottom: 0; margin-bottom: 0px; padding-bottom: 19px; text-align: left; padding-top: 30px;">
 						<!-- <div class="img_title">新绿天章70克A4复印纸 5包/箱</div> -->
-						<img src="../img/shop_detail_img1.png"  />
+						<!-- <img src="../img/shop_detail_img1.png"  />
 						<img src="../img/shop_detail_img2.png"  />
-						<img style="margin-top: -45px;" src="../img/shop_detail_img3.png"  />
+						<img style="margin-top: -45px;" src="../img/shop_detail_img3.png"  /> -->
 					</div>
 				</div>
 			</div>
@@ -536,104 +641,42 @@
 				</div>
 			</div>
 			<!-- 弹窗 -->
-			<div class="modelpop" id="toXunpan">
-				<div class="cont">
-					<div class="title">
-						<span>我要询价</span>
-						<img src="../img/gsxq_del.png" height="48" alt="" class="close">
-					</div>
-					<div class="main">
-						<ul>
-							<li>
-								<label for="xj_goodsNum">购买数量</label>
-								<span id="xj_goodsNum">0</span>
-							</li>
-							<li>
-								<label for="xj_sumMoney">总价</label>
-								<span id="xj_sumMoney" style="color: #E50B19;">0元</span>
-							</li>
-							<li>
-								<label for="xj_payType">支付方式</label>
-								<span id="xj_payType">现汇</span>
-							</li>
-							<li>
-								<label for="xj_fapiaoType">发票类型</label>
-								<input class="xj_fapiaoType" name="xj_fapiaoType" value="1" type="radio"><span style="margin-right:40px;">普通发票</span>
-								<input class="xj_fapiaoType" name="xj_fapiaoType" value="2" type="radio"><span>专用发票</span>
-							</li>
-							<li class="i">
-								<label for="xj_shoupiaoAddress">收票地址</label>
-								<span class="xj_shoupiaoAddress" style="width: 235px;float:left;">北京</span>
-								<span class="editAddress" style="color: #5690f6;float:left;margin-left:30px;cursor:pointer;">修改收票地址</span>
-							</li>
-							<li class="i">
-								<label for="xj_concatMan">联系人</label>
-								<input class="input" placeholder="请输入联系人" name="xj_concatMan" type="text" id="xj_concatMan">
-							</li>
-							<li class="i">
-								<label for="xj_tel">联系电话</label>
-								<input class="input" placeholder="请输入手机号" name="xj_tel" type="tel" id="xj_tel">
-							</li>
-							<li class="i">
-								<label for="xj_bei">备注</label>
-								<textarea style="width:385px;height: 101px;" class="input" placeholder="请输入您的问题" name="xj_bei" id="xj_bei"></textarea>
-							</li>
-							<li class="i">
-								<div class="commitBtn">提交</div>
-							</li>
-						</ul>
-					</div>
-				</div>
+			<div class="all_success_alert" style="z-index: 99999;">
+			    <div class="modelCont">
+			        <div class="modeltitle">
+			            <span>消息提示</span>
+			            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+			        </div>
+			        <div class="modelcontent">
+			            <div class="info">
+			                <div class="img_div"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+			                <p class="innerSuccmsg"></p>
+			            </div>
+			            <div class="modelBtnBox">
+			                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+			            </div>
+			        </div>
+			    </div>
 			</div>
-			<div class="modelpop" id="editShoupiaoAddress">
-				<div class="cont">
-					<div class="title">
-						<span>地址管理</span>
-						<img src="../img/gsxq_del.png" height="45" alt="" class="close">
-					</div>
-					<div class="main">
-						<div class="addAddressBox"><span class="addAddress">添加地址</span></div>
-						<div class="addAddressBoxCont">
-							<script type="text/html" id="editAddressTpl">
-								<%for (i in list) {%>
-									<div class="item" data-id="<%=list[i].dbid%>">
-										<div class="left">
-											<input type="radio" name="address" value="1">
-										</div>
-										<div class="right">
-											<p><%=list[i].addressStr +'&nbsp;&nbsp;'+ list[i].detailedAddress%></p>
-											<p><%=list[i].receiver+'&nbsp;&nbsp;'+list[i].phone%></p>
-										</div>
-									</div>
-								<%}%>
-							</script>
-						</div>
-						<div class="btnbox">
-							<div class="tosure btn" style="margin-right: 10px;">确&nbsp;&nbsp;定</div>
-							<div class="goback btn">返&nbsp;&nbsp;回</div>
-						</div>
-					</div>
-				</div>
+			
+			<div class="all_error_alert" style="z-index: 99999;">
+			    <div class="modelCont">
+			        <div class="modeltitle">
+			            <span>消息提示</span>
+			            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+			        </div>
+			        <div class="modelcontent">
+			            <div class="info">
+			                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+			                <p class="innerErrmsg"></p>
+			            </div>
+			            <div class="modelBtnBox">
+			                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+			            </div>
+			        </div>
+			    </div>
 			</div>
-			<div class="modelpop" id="enquirySuccess">
-				<div class="cont">
-					<div class="title">
-						<span>消息提示</span>
-						<img src="../img/gsxq_del.png" height="45" alt="" class="close">
-					</div>
-					<div class="main">
-						<div class="successImg"></div>
-						<div class="successMsg">
-							<div class="successMsgInfo">
-								<img src="../img/gsxq_success.gif" alt="">
-								<span style="margin-left: 9px;">提交成功</span>
-							</div>
-							<p>您发起的询价<span>已成功提交</span>，请耐心等待商家反馈！</p>
-							<div class="tosurebtn">确认</div>
-						</div>
-					</div>
-				</div>
-			</div>
+
 		</div>
 		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
 		<!-- <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script> -->
@@ -644,6 +687,11 @@
 		<!-- <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script> -->
 		<script>
 
+			$('.close, .confirm').click(function() {
+
+				$(this).parent().parent().parent().parent().hide();
+
+			});
 
 			//商品id
 			var productId = sessionStorage.getItem('productId');
@@ -686,8 +734,39 @@
 						//详情
 						$('.objDInfo h1').text(data.data.goodsName);
 
+						if (data.data.cash == null) {
+							data.data.cash = 0;
+						}
 
+						if (data.data.integral == null) {
+							data.data.integral = 0;
+						}
 
+						if (data.data.payMethod == 1) { // 现金
+
+							$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs28">'+data.data.cash+'元</span></p>');
+
+						} else if (data.data.payMethod == 2) { //积分
+
+							$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分</span></p>');
+
+						} else if (data.data.payMethod == 3) { //现金+积分
+
+							$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分 + <span class="fs28">'+data.data.cash+'</span>元</span></p>');
+
+							
+						}
+
+						$('.member_level').text(data.data.memberLevelStr == null ? '' : data.data.memberLevelStr);
+
+						$('.max_num').text(data.data.maxCount == null ? 0 : data.data.maxCount);
+
+						$('.infoBox').html(data.data.description);
+
+						$('.shop_name').text(data.data.goodsName);
+
+						$('.addOrSubGoodsNum input').val(data.data.minCount == null ? 0 : data.data.minCount);
+						
 		        	}
 
 		        },
@@ -709,14 +788,52 @@
 			//购买数量 加
 			$('.addOrSubGoodsNum .addBtn').click(function() {
 				var num = $('.addOrSubGoodsNum input').val();
-				if (num > 0) { //有问题-----------------------------------------------
+				if (num >= 0) { //有问题-----------------------------------------------
 					num++;
 				}
 				$('.addOrSubGoodsNum input').val(num);
 			});
 
+			//购买数量不能超过剩余数量
+			$('.addOrSubGoodsNum input').blur(function() {
+				// if ($(this).val() > 5) { //有问题-------------
+				// 	$('.all_error_alert .innerErrmsg').text('购买数量不能超过库存剩余数量');
+
+				// 	$('.all_error_alert').show();
+
+				// }
+			});
+
 			//立即兑换
 			$('.exchange').click(function() {
+
+				if ($('#province').attr('data-selectedindex') == '0') {
+
+					$('.all_error_alert .innerErrmsg').text('请选择省');
+
+					$('.all_error_alert').show();
+
+					return false;
+				}
+
+				if ($('#city').attr('data-selectedindex') == '0') {
+
+					$('.all_error_alert .innerErrmsg').text('请选择市');
+
+					$('.all_error_alert').show();
+
+					return false;
+				}
+
+				if ($('#area').attr('data-selectedindex') == '0') {
+
+					$('.all_error_alert .innerErrmsg').text('请选择区');
+
+					$('.all_error_alert').show();
+
+					return false;
+				}
+
 				window.location.href = "checkOrderInformation.html";
 			});
 
@@ -810,7 +927,7 @@
 						    selectArea($(this).attr('data-index'));
 
 
-						    $('#area').attr('data-selectedindex', '');
+						    $('#area').attr('data-selectedindex', '0');
 							$('#area span').text('请选择区');
 
 						});

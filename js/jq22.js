@@ -25,15 +25,19 @@ function rollDelay(j, c, g, h) {
 }
 
 function calcWidth(m) {
+	console.log(m);
 	var i = [];
 	var l = m.getElementsByClassName("page_guide_item_text");
+	console.log(l.length);
 	for (var o = 0; o < l.length; o++) {
-		i[o] = l[o].clientWidth * 1.11;
-		var j = l[o].parentElement.getElementsByTagName("img");
-		for (var p = 0; p < j.length; p++) {
-			i[o] += j[p].clientWidth + 12
-		}
+		// i[o] = l[o].clientWidth * 1.11;
+		i[o] = l[o].offsetWidth;
+		// var j = l[o].parentElement.getElementsByTagName("img");
+		// for (var p = 0; p < j.length; p++) {
+		// 	i[o] += j[p].clientWidth + 12
+		// }
 	}
+	console.log(i);
 	var n = 0;
 	for (var o = 0; o < i.length; o++) {
 		n += i[o]
@@ -51,8 +55,8 @@ function setGuideWidth() {
 	var d = document.getElementsByClassName("page_guide_container");
 	for (var c = 0; c < d.length; c++) {
 		calcWidth(d[c]);
-		// setProgress(d[c]);
-		// setImgSrc(d[c])
+		setProgress(d[c]);
+		setImgSrc(d[c])
 	}
 }
 
@@ -90,7 +94,7 @@ function moveBalloon(w) {
 			if (global[B + "_ti"] != x) {
 				global[B + "_ti"] = x;
 				var q = w.getElementsByClassName("page_guide_item")[x];
-				r.innerHTML = q.getElementsByClassName("page_guide_item_title")[0].innerHTML;
+				// r.innerHTML = q.getElementsByClassName("page_guide_item_title")[0].innerHTML;
 				r.className = r.className.replace(/playing|canplay/g, "").replace(/(^\s)|(\s$)/g, "");
 				var i = w.parentElement.getElementsByClassName("page_guide_balloon")[0];
 			}
@@ -222,6 +226,7 @@ function pageGuideTouchend(d, e) {
 
 function guideImgLoad(b) {
 	b = b.parentElement.parentElement.parentElement.parentElement;
+
 	calcWidth(b);
 	setProgress(b)
 }

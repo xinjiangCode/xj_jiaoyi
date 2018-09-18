@@ -264,6 +264,7 @@
 
 .inner {
 	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .inner .div1 {
@@ -273,7 +274,7 @@
     margin-top: 12px;
 }
 
-.inner .div1 span {
+.inner .div1 span.div1_span {
 	display: table-cell;
 	vertical-align: middle;
 	color: #666666;
