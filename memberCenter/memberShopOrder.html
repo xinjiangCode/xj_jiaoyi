@@ -59,6 +59,10 @@
 		.selectPub {
 			width: 145px;
 		}
+
+		.fs {
+			padding-bottom: 0px;
+		}
 	</style>
 </head>
 <body>
@@ -154,7 +158,7 @@
 				</li> -->
 			</ul>
 		</div>
-		<div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 0px auto 40px;">
+		<div class="mianCont pageCont" style="width:980px;text-align:center;overflow: hidden;height: auto;margin: 20px auto 20px;">
 	        <ul class="pagination" id="page1"></ul>
 	        <div class="pageJump">
 	                    <span class="allPageN">1/1</span>
@@ -175,7 +179,7 @@
 
 		$('.my_select_hzf li').click(function() {
 			isFirst = true;
-			memberShopOrder(1, 2, '', $('.shop_order li.current_order span').attr('data-state'), $(this).attr('data-index'));
+			memberShopOrder(1, 10, '', $('.shop_order li.current_order span').attr('data-state'), $(this).attr('data-index'));
 
 		});
 
@@ -185,7 +189,7 @@
 			var state= $(this).attr('data-state');
 
 			isFirst = true;
-			memberShopOrder(1, 2, '', state, $('.selectPub_hzf1').attr('data-selectedindex'));
+			memberShopOrder(1, 10, '', state, $('.selectPub_hzf1').attr('data-selectedindex'));
 
 		});
 
@@ -195,12 +199,12 @@
 
 			var input = $('.search_input').val();
 			isFirst = true;
-			memberShopOrder(1, 2, input, '', 1);
+			memberShopOrder(1, 10, input, '', 1);
 		});
 
 		var isFirst = true;
 
-		memberShopOrder(1, 2, '', '', 1);
+		memberShopOrder(1, 10, '', '', 1);
 		// 
 		function memberShopOrder(num, size, searchName, state, timeLimit) {
 			$.ajax({

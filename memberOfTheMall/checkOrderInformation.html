@@ -215,6 +215,18 @@
 		    text-align: center;
 		}
 
+		.info_width p span.span {
+			width: auto;
+		}
+
+		.buy_shop_guige {
+			width: 380px;
+			margin-left: 20px;
+		}
+	
+		.buy_shop_money {
+			width: auto;
+		}
 	</style>
 
 </head>
@@ -304,7 +316,7 @@
 		<div class="info_title" style="margin-top: 10px;">发票信息</div>
 		<div class="hot_line">若有发票信息，请拨打平台客服热线：<span>400012556</span></div>
 		<div class="info_title" style="margin-top: 10px;">运送方式</div>
-		<div class="convey">普通配送：<span style="color: #ff4949;">快递 ￥<span>10.00</span>元</span></div>
+		<div class="convey">普通配送：<span style="color: #ff4949;" class="delivery">快递 ￥<span>10.00</span>元</span></div>
 		<div class="info_title" style="margin-top: 10px;">商品信息</div>
 		<div class="buy_shop_info">
 			<ul>
@@ -312,22 +324,22 @@
 					<div class="buy_shop_pic fl">
 						<!-- <img src="../img/buy_shop_pic.png" alt=""> -->
 					</div>
-					<div class="buy_shop_name fl">金属领带扣</div>
+					<div class="buy_shop_name fl"></div>
 					<div class="buy_shop_money fl">
-						<span style="font-size: 14px;">￥</span> <span class="money_span">99.99元</span> X1
+						<span style="font-size: 14px;">￥</span> <span class="money_span">99.99元</span> X<span class="goodsNum">1</span>	
 					</div>
-					<div class="fl buy_shop_guige">规格：红色</div>
-					<div class="fl buy_shop_total">￥ <span style="font-size: 24px;">99.99</span><span style="font-size: 16px;">元</span></div>
+					<div class="fl buy_shop_guige">规格：<span class="">红色</span></div>
+					<div class="fl buy_shop_total">￥ <span class="total_money"><span style="font-size: 24px;" class="money_num">99.99</span><span style="font-size: 16px;" class="total_unit">元</span></span></div>
 				</li>
 			</ul>
 		</div>
 		<div class="preson_info_bg">
 			<div class="preson_info clearfix">
 				<div class="fr info_width">
-					<p><span style="letter-spacing: 7px;">积</span>分：<span class="span">299.97</span> 积分（可用积分：186积分）</p>
-					<p><span style="letter-spacing: 7px;">现</span>金：<span class="span">299.97</span>元</p>
-					<p><span style="letter-spacing: 7px;">运</span>费：<span class="span">10</span>元</p>
-					<div>应付总额：<span class="span" style="display: inline-block; width: 68px; text-align: right; ">299.97</span> 积分 + <span class="span">309.97</span> 元</div>
+					<p class="jifen"><span style="letter-spacing: 7px;">积</span>分：<span class="span">299.97</span> 积分（可用积分：<span class="usable_jifen">0</span>积分）</p>
+					<p class="cash"><span style="letter-spacing: 7px;">现</span>金：<span class="span">299.97</span>元</p>
+					<p><span style="letter-spacing: 7px;">运</span>费：<span class="delivery"><span class="span">10</span>元</span></p>
+					<div class="yingfu_money">应付总额：<span class="yingfu_jifen"><span class="span jifen_span" style="display: inline-block; text-align: left; ">299.97</span> 积分</span> <span class="yingfu_cash"><span class="add_fuhao"> + </span><span class="span cash_span">309.97</span> 元</span></div>
 				</div>
 			</div>
 		</div>
@@ -340,7 +352,7 @@
 			</div>
 		</div>
 		<div style="text-align: right; margin-top: 20px; padding-right: 12px;padding-bottom: 21px;">
-			<a href="unpaid.html"><img src="../img/submit_order.png" alt=""></a>
+			<a href="##" class="submit_order" style="display: inline-block; width: 17%; height: 100%;"><img src="../img/submit_order.png" alt=""></a>
 		</div>
 	</div>
 	<div class="line1"></div>
@@ -442,6 +454,17 @@
 			$('#add_address_alert').hide();
 			$('.all_success_alert').hide();
 		});
+
+		var spec = sessionStorage.getItem('spec');
+		var goodsNum = sessionStorage.getItem('goodsNum');
+		// var provinceId = sessionStorage.getItem('provinceId');
+		// var cityId = sessionStorage.getItem('cityId');
+		// var areaId = sessionStorage.getItem('areaId');
+		var productId = sessionStorage.getItem('productId');
+
+		var cityId = '';
+		var areaId = '';
+		var provinceId = '';
 		
 		//收货列表
 		$.ajax({
@@ -464,11 +487,11 @@
 
                 			data.data[i].phone = data.data[i].phone.substr(0,3)+"****"+data.data[i].phone.substr(7);
 
-                			str += '<li class="page_guide_item item" data-defaultStr="'+data.data[i].defaultStr+'">'
+                			str += '<li class="page_guide_item item" data-defaultStr="'+data.data[i].defaultStr+'" data-provenceId="'+data.data[i].provenceId+'" data-cityId="'+data.data[i].cityId+'" data-addressId="'+data.data[i].dbid+'">'
 									+'<div class="page_guide_item_text">'
 										+'<div class="shouhuo_name">'+data.data[i].receiver+'</div>'
 										+'<p class="shouhuo_phone">电话：<span>'+data.data[i].phone+'</span></p>'
-										+'<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">'+data.data[i].detailedAddress+'</span></p>'
+										+'<p class="shouhuo_address clearfix"><span class="fl">地址：</span><span class="fl addr">'+ data.data[i].addressStr + data.data[i].detailedAddress+'</span></p>'
 									+'</div>'
 								+'</li>'
                 		}
@@ -490,6 +513,8 @@
                 		$('.send_addr_bg .sh_name').text($('.page_guide_item.li_current .shouhuo_name').text());
                 		$('.send_addr_bg .sh_phone').text($('.page_guide_item.li_current .shouhuo_phone span').text());
 
+                		$('.send_addr_bg').attr('data-addressId', $('.page_guide_item.li_current').attr('data-addressId'));
+
                 		$('.info_ul .item').click(function () {
                 			$('.info_ul .page_guide_item').removeClass('li_current');
                 			$(this).addClass('li_current');
@@ -498,10 +523,30 @@
 	                		$('.send_addr_bg .sh_name').text($('.page_guide_item.li_current .shouhuo_name').text());
 	                		$('.send_addr_bg .sh_phone').text($('.page_guide_item.li_current .shouhuo_phone span').text());
 
+	                		$('.send_addr_bg').attr('data-addressId', $('.page_guide_item.li_current').attr('data-addressId'));
+
                 		});
+
+                		if ($('.page_guide_item.item.li_current').attr('data-defaultstr') == '1') {
+                			cityId = $('.page_guide_item.item.li_current').attr('data-cityId'); 
+                			//------------------有问题---------------------
+							areaId = '1';
+							provinceId = $('.page_guide_item.item.li_current').attr('data-provenceId');
+
+							shop_info(spec, goodsNum, provinceId, cityId, areaId);
+                			
+                		}
                 		
+						
+						
 
                 	}
+                } else {
+                	cityId = sessionStorage.getItem('cityId');
+					areaId = sessionStorage.getItem('areaId');
+					provinceId = sessionStorage.getItem('provinceId');
+
+					shop_info(spec, goodsNum, provinceId, cityId, areaId);
                 }
                 
             },
@@ -510,9 +555,189 @@
             }
         });
 
+		
+
+		//获取商品信息
+		function shop_info(spec, goodsNum, provinceId, cityId, areaId) {
+			$.ajax({
+				url: pubIP + 'memberOrder/getPayGoodsInfo', /*v1.0*/
+				type: 'post',
+				headers: {
+					Accept: "application/json; charset=utf-8",
+					token: token
+				},
+				cache: false,
+				data: {
+					spec: spec,
+					goodsId: productId,
+					goodsNum: goodsNum,
+					provinceId: provinceId,
+					cityId: cityId,
+					areaId: areaId
+				},
+				traditional: true,
+				dataType: 'json',
+				success: function (data) {
+					
+					console.log(data);
+					
+					if (data.code == 1) {
+						if (data.data.yunfei == 0) {
+							$('.delivery').text('免运费');
+							$('.delivery').attr('data-delivery', 0);
+						} else {
+							$('.delivery span').text(data.data.yunfei);
+							$('.delivery').attr('data-delivery', data.data.yunfei);
+						}
+
+						if (data.data.goodsInfo.pic) {
+							data.data.goodsInfo.pic = data.data.goodsInfo.pic.split(',')[0];
+						}
+
+						$('.buy_shop_pic').css('background', 'url("'+data.data.goodsInfo.pic+'") center center no-repeat');
+
+						$('.goodsNum').text(data.data.goodsNum);
+
+						$('.buy_shop_guige span').text(data.data.specStr);
+
+						$('.buy_shop_name').text(data.data.goodsInfo.goodsName);
+
+						if (data.data.goodsInfo.payMethod == 1) { //现金
+
+							$('.money_span').text(data.data.cash + '元');
+
+							$('.buy_shop_total .total_money .money_num').text(data.data.cash);
+
+							$('.jifen').hide();
+
+							$('.cash .span').text(data.data.cash);
+
+							$('.yingfu_money .yingfu_cash .cash_span').text(data.data.cash);
+
+							$('.yingfu_jifen').hide();
+							$('.add_fuhao').hide();
+
+						} else if (data.data.goodsInfo.payMethod == 2) { //积分
+
+							$('.money_span').text(data.data.integral + '积分');
+
+							$('.buy_shop_total .total_money .money_num').text(data.data.integral);
+							$('.buy_shop_total .total_money .total_unit').text('积分');
+							
+							$('.cash').hide();
+
+							$('.jifen .span').text(data.data.integral);
+
+							$('.yingfu_money .yingfu_jifen .jifen_span').text(data.data.integral);
+
+							$('.yingfu_cash').hide();
+
+						} else if (data.data.goodsInfo.payMethod == 3) { //现金+积分
+
+							$('.money_span').text(data.data.integral + '积分 + ' + data.data.cash + '元');
+
+							var jf = data.data.integral * data.data.goodsNum;
+							// if (data.data.cash == '0.00') {
+							// 	data.data.cash = 0;
+							// }
+							var xj = data.data.cash * data.data.goodsNum;
+
+
+							$('.buy_shop_total .total_money').html('<span style="font-size: 24px;">'+jf+'</span><span style="font-size: 16px;">积分</span>'+' + '+'<span style="font-size: 24px;">'+xj+'</span><span style="font-size: 16px;">元</span>');
+
+							// $('.jifen .span').text(data.data.integral);
+							// $('.cash .span').text(data.data.cash);
+
+							$('.jifen .span').text(jf);
+							$('.cash .span').text(xj);
+
+							$('.jifen .usable_jifen').text(data.data.userIntegral);
+
+							$('.yingfu_money .jifen_span').text(jf);
+							$('.yingfu_money .cash_span').text(xj);
+
+						} 
+
+						$('.submit_order').attr('data-payMethod', data.data.goodsInfo.payMethod);
+						
+					}
+
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			});
+		}
+		
+		$('.submit_order').click(function() {
+
+			var addressId = $('.send_addr_bg').attr('data-addressId');
+
+			var addressStr = $('.send_addr_bg .sh_addr').text();
+
+			var delivery = $('.delivery').attr('data-delivery');
+
+			var goodsNum = $('.buy_shop_money .goodsNum').text();
+
+			if ($(this).attr('data-payMethod') == 1) { //现金
+
+				var cash = $('.yingfu_cash .cash_span').text();
+
+				var integral = 0;
+
+			} else if ($(this).attr('data-payMethod') == 2) { //积分
+
+				var cash = 0;
+
+				var integral = $('.yingfu_jifen .jifen_span').text();
+
+			} else if ($(this).attr('data-payMethod') == 3) { //现金+积分
+				var cash = $('.yingfu_cash .cash_span').text();
+
+				var integral = $('.yingfu_jifen .jifen_span').text();
+			}
 
 
 
+			$.ajax({
+				url: pubIP + 'memberOrder/addOrder', /*v1.0*/
+				type: 'post',
+				headers: {
+					Accept: "application/json; charset=utf-8",
+					token: token
+				},
+				cache: false,
+				data: {
+					addressId: addressId,
+					addressStr: addressStr,
+					carriageCash: delivery,
+					goodsId: productId,
+					goodsNum: goodsNum,
+					cash: cash,
+					integral: integral,
+					spec: spec
+				},
+				traditional: true,
+				dataType: 'json',
+				success: function (data) {
+					
+					console.log(data);
+					if (data.code == 1) {
+
+						sessionStorage.setItem('orderId', data.data);
+
+						window.location.href = "unpaid.html";
+
+					}
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			});
+
+
+		});
+		
 
 		//添加新地址弹框显示
 		$(document).on('click', '.add_new_address', function() {

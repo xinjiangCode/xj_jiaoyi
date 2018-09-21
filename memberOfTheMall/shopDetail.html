@@ -493,7 +493,7 @@
 		<!--商品详情页<-->
 		<div class="mianCont breadcrumb">
 			<a href="memberOfTheMall.html">会员商城</a>>
-			<a href="##">晨光A4纸张</a>
+			<a href="##">商品详情页</a>
 		</div>
 		<div class="mianCont objDetailsBox">
 			<div class="objDetails objBorder">
@@ -522,7 +522,7 @@
 						<div class="objPrice">
 							<!-- <p><i style="font-size:16px;">价格：</i><span class="fs16">¥<span class="fs28">1440.00</span>/吨</span></p> -->
 							<!-- <p><i style="font-size:16px;">会员价格：</i><span class="fs16 mljf">¥<span class="fs28">188</span>积分 + <span class="fs28">1440.00</span>/包</span></p> -->
-							<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">188</span>积分 + <span class="fs28">1440.00</span>/包</span></p>
+							<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">0</span>积分 + <span class="fs28">0</span></span></p>
 						</div>
 						<div class="objDgg clearfix">
 							<span style="float: left; display: inline-block; height: 36px; line-height: 36px;">配送至：</span>
@@ -558,23 +558,25 @@
 		                    </div>
 						</div>
 						<div class="objDIfInner">
-							<p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">运</span>费：<span style="letter-spacing: 1px;" class="mljl">免费/1,499.00</span></p>
-							<p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">颜</span>色：
-								<input type="radio" name="colorSort" class="mljl" id="red" value="红" checked="" />
-								<lable for="red" style="margin-right: 13px;">红</lable>
-								<input type="radio" name="colorSort" id="yellow" value="黄" />
-								<lable for="yellow" style="margin-right: 15px;">黄</lable>
-								<input type="radio" name="colorSort" id="blue" value="蓝" />
-								<lable for="blue">蓝</lable>
-							</p>
-							<p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">尺</span>寸：
-								<input type="radio" name="cmSort" class="mljl" id="3cm" value="3cm" checked="" />
-								<lable for="3cm">3cm</lable>
-								<input type="radio" name="cmSort" id="5cm" value="5cm" />
-								<lable for="5cm">5cm</lable>
-								<input type="radio" name="cmSort" id="10cm" value="10cm" />
-								<lable for="10cm">10cm</lable>
-							</p>
+							<p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">运</span>费：<span style="letter-spacing: 1px;" class="mljl yunfei_num">免运费</span></p>
+							<span class="sku">
+								<!-- <p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">颜</span>色：
+									<input type="radio" name="colorSort" class="mljl" id="red" value="红" checked="" />
+									<lable for="red" style="margin-right: 13px;">红</lable>
+									<input type="radio" name="colorSort" id="yellow" value="黄" />
+									<lable for="yellow" style="margin-right: 15px;">黄</lable>
+									<input type="radio" name="colorSort" id="blue" value="蓝" />
+									<lable for="blue">蓝</lable>
+								</p>
+								<p style="margin-bottom: 21px;"><span style="letter-spacing: 10px;">尺</span>寸：
+									<input type="radio" name="cmSort" class="mljl" id="3cm" value="3cm" checked="" />
+									<lable for="3cm">3cm</lable>
+									<input type="radio" name="cmSort" id="5cm" value="5cm" />
+									<lable for="5cm">5cm</lable>
+									<input type="radio" name="cmSort" id="10cm" value="10cm" />
+									<lable for="10cm">10cm</lable>
+								</p> -->
+							</span>
 							<div>
 								购买数量：
 								<div class="addOrSubGoodsNum">
@@ -584,7 +586,7 @@
 								</div>
 								<!-- 盒/袋/瓶 -->
 							</div>
-							<p>商品总价：<span class="cOr goodsTotalMoney">￥1440.00元</span></p>
+							<p>商品总价：<span class="cOr goodsTotalMoney">￥0.00元</span></p>
 							<!-- <p>购买资格：<span style="margin-top: 20px; display: inline-block; margin-left: 10px">黄金会员 信用5级 （每个账号限兑换5个）</span></p> -->
 							<p>购买资格：<span style="margin-top: 20px; display: inline-block; margin-left: 10px"><span class="member_level">黄金会员</span> （每个账号限兑换<span class="max_num">5</span>个）</span></p>
 							<a class="toXunpanBtn exchange" href="javascript:;">立即兑换</a>
@@ -696,6 +698,8 @@
 			//商品id
 			var productId = sessionStorage.getItem('productId');
 
+			var arr = [];
+
 			//获取商品详情
 			$.ajax({
 				type:"post",
@@ -746,15 +750,93 @@
 
 							$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs28">'+data.data.cash+'元</span></p>');
 
+							$('.objPrice').attr('data-payMethod', 1);
+							
 						} else if (data.data.payMethod == 2) { //积分
 
 							$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分</span></p>');
+
+							$('.objPrice').attr('data-payMethod', 2);
+
 
 						} else if (data.data.payMethod == 3) { //现金+积分
 
 							$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分 + <span class="fs28">'+data.data.cash+'</span>元</span></p>');
 
+							$('.objPrice').attr('data-payMethod', 3);
+
 							
+						}
+
+						// sku
+						if (data.data.sku.length != 0) {
+
+							var str = ''; 
+							for (var i = 0; i < data.data.sku.length; i++) {
+
+								var name = '';
+								var name2 = '';
+								if (data.data.sku[i].cateSpecName) {
+									name = data.data.sku[i].cateSpecName.slice(0,1);
+									name2 = data.data.sku[i].cateSpecName.slice(1);
+
+									str += '<p style="margin-bottom: 21px;" data-skuSpecId="'+data.data.sku[i].skuSpecId+'"><span class="cateSpecName" style="letter-spacing: 10px;">'+name+'</span>'+name2+'：'
+
+										if (data.data.sku[i].list.length != 0) {
+											for (var j = 0; j < data.data.sku[i].list.length; j++) {
+												// cateSpecEnumName
+												str += '<input type="radio" name="colorSort'+i+'" class="mljl" id="sku'+i+j+'" value="'+data.data.sku[i].list[j].skuSpecEnumId+'"/>'
+													+'<lable for="sku'+i+j+'" style="margin-right: 13px;">'+data.data.sku[i].list[j].cateSpecEnumName+'</lable>'
+											}
+										}
+										
+									+'</p>'
+								}
+								
+							}
+
+							$('.sku').html(str);
+
+							var sku = $('.sku p');
+							for (var x = 0; x < sku.length; x++) {
+								
+								$(sku[x]).find('input').eq(0).attr('checked', true);
+
+								var obj = {
+									'specId': $(sku[x]).attr('data-skuspecid'),
+									'specEnumId': $(sku[x]).find('input[name="colorSort'+x+'"]:checked').val()
+								};
+
+								arr.push(obj);
+
+
+							}
+
+							arr = JSON.stringify(arr);
+
+							kucun(arr, $('.objPrice').attr('data-payMethod'));
+
+							console.log(arr);
+
+							//单选框点击
+							$('input[name="colorSort1"]').click(function() {
+
+								changeSpec($(this));
+
+							});
+
+							$('input[name="colorSort0"]').click(function() {
+
+								changeSpec($(this));
+
+							});
+
+							$('input[name="colorSort2"]').click(function() {
+
+								changeSpec($(this));
+
+							});
+
 						}
 
 						$('.member_level').text(data.data.memberLevelStr == null ? '' : data.data.memberLevelStr);
@@ -766,6 +848,8 @@
 						$('.shop_name').text(data.data.goodsName);
 
 						$('.addOrSubGoodsNum input').val(data.data.minCount == null ? 0 : data.data.minCount);
+
+
 						
 		        	}
 
@@ -775,34 +859,276 @@
 		        }
 		    });
 
+			function changeSpec(that) {
+				arr = JSON.parse(arr);
+				// var that = $(this);
+				
+				console.log(arr);
+				arr.forEach(function(ele, i) {
+					// console.log(ele.specId);
+					if (ele.specId == that.parent().attr('data-skuspecid')) {
+						ele.specEnumId = that.val();
+					}
+				});
+				
+				arr = JSON.stringify(arr);
+
+				kucun(arr, $('.objPrice').attr('data-payMethod'));
+
+			}
+
+			// 查询剩余库存
+			function kucun(spec2, payMethod) {
+				$.ajax({
+					url: pubIP + 'memberOrder/findGoodsSkuInfo', /*v1.0*/
+					type: 'post',
+					headers: {
+						Accept: "application/json; charset=utf-8",
+						token: token
+					},
+					cache: false,
+					data: {
+						spec: spec2,
+						goodsId: productId
+					},
+					traditional: true,
+					dataType: 'json',
+					success: function (data) {
+						console.log(payMethod);
+						
+						console.log(data);
+
+						if (data.code == 1) {
+							if (data.data.cash == null) {
+								data.data.cash = 0;
+							}
+
+							if (data.data.integral == null) {
+								data.data.integral = 0;
+							}
+
+							if (payMethod == 1) { //现金
+								$('.goodsTotalMoney').text('￥' + $('.addOrSubGoodsNum input').val() * data.data.cash + '元');
+
+								$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs28">'+data.data.cash+'元</span></p>');
+
+							}
+
+							if (payMethod == 2) { //积分
+								$('.goodsTotalMoney').text($('.addOrSubGoodsNum input').val() * data.data.integral + '积分');
+
+								$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分</span></p>');
+
+							}
+
+							if (payMethod == 3) { //现金+积分
+								$('.goodsTotalMoney').text('￥'+ $('.addOrSubGoodsNum input').val() * data.data.integral+ '积分 + ' + $('.addOrSubGoodsNum input').val() * data.data.cash + '元');
+
+								$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分 + <span class="fs28">'+data.data.cash+'</span>元</span></p>');
+
+							}
+
+							if (data.data.repertoryCount == null) {
+								data.data.repertoryCount = 0;
+							}
+
+
+							$('.addOrSubGoodsNum .addBtn').attr('data-kucun', data.data.repertoryCount);
+
+						}
+
+					},
+					error: function(err){
+						console.log(err);
+					}
+				});
+			}
+
 
 			//购买数量 减
 			$('.addOrSubGoodsNum .subBtn').click(function() {
-				var num = $('.addOrSubGoodsNum input').val();
+
+				var num = Number($('.addOrSubGoodsNum input').val());
 				if (num > 0) {
 					num--;
+				} else {
+					return false;
 				}
-				$('.addOrSubGoodsNum input').val(num);
+				
+
+				if ($('#province').attr('data-selectedindex') != 0 && $('#city').attr('data-selectedindex') != 0 && $('#area').attr('data-selectedindex') != 0) {
+					
+					yunfei($('.addOrSubGoodsNum input').val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area').attr('data-selectedindex'));
+
+					$('.addOrSubGoodsNum input').val(num);
+
+
+					kucun(arr, $('.objPrice').attr('data-payMethod'));
+
+				} else {
+
+					if ($('#province').attr('data-selectedindex') == '0') {
+
+						$('.all_error_alert .innerErrmsg').text('请选择省');
+
+						$('.all_error_alert').show();
+
+						return false;
+					}
+
+					if ($('#city').attr('data-selectedindex') == '0') {
+
+						$('.all_error_alert .innerErrmsg').text('请选择市');
+
+						$('.all_error_alert').show();
+
+						return false;
+					}
+
+					if ($('#area').attr('data-selectedindex') == '0') {
+
+						$('.all_error_alert .innerErrmsg').text('请选择区');
+
+						$('.all_error_alert').show();
+
+						return false;
+					}
+					
+				}	
+				
+
 			});
 
 			//购买数量 加
 			$('.addOrSubGoodsNum .addBtn').click(function() {
-				var num = $('.addOrSubGoodsNum input').val();
-				if (num >= 0) { //有问题-----------------------------------------------
-					num++;
+				
+				var num = Number($('.addOrSubGoodsNum input').val());
+				if ($(this).attr('data-kucun') != 0) {
+					if (num <= $(this).attr('data-kucun')) { //有问题-----------------------------------------------
+						num++;
+					} else {
+						$('.all_error_alert .innerErrmsg').text('购买数量不能超过库存剩余数量');
+
+						$('.all_error_alert').show();
+
+						$('.addOrSubGoodsNum input').val($(this).attr('data-kucun'));
+
+						return false;
+					}
+				} else {
+					$('.all_error_alert .innerErrmsg').text('购买数量不能超过库存剩余数量');
+
+					$('.all_error_alert').show();
+
+					$('.addOrSubGoodsNum input').val($(this).attr('data-kucun'));
+
+					return false;
 				}
-				$('.addOrSubGoodsNum input').val(num);
+				
+
+				
+
+				if ($('#province').attr('data-selectedindex') != 0 && $('#city').attr('data-selectedindex') != 0 && $('#area').attr('data-selectedindex') != 0) {
+
+
+					yunfei($('.addOrSubGoodsNum input').val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area').attr('data-selectedindex'));
+
+					$('.addOrSubGoodsNum input').val(num);
+
+					kucun(arr, $('.objPrice').attr('data-payMethod'));
+
+				} else {
+
+					if ($('#province').attr('data-selectedindex') == '0') {
+
+						$('.all_error_alert .innerErrmsg').text('请选择省');
+
+						$('.all_error_alert').show();
+
+						return false;
+					}
+
+					if ($('#city').attr('data-selectedindex') == '0') {
+
+						$('.all_error_alert .innerErrmsg').text('请选择市');
+
+						$('.all_error_alert').show();
+
+						return false;
+					}
+
+					if ($('#area').attr('data-selectedindex') == '0') {
+
+						$('.all_error_alert .innerErrmsg').text('请选择区');
+
+						$('.all_error_alert').show();
+
+						return false;
+					}
+					
+				}
+
 			});
 
 			//购买数量不能超过剩余数量
 			$('.addOrSubGoodsNum input').blur(function() {
-				// if ($(this).val() > 5) { //有问题-------------
-				// 	$('.all_error_alert .innerErrmsg').text('购买数量不能超过库存剩余数量');
 
-				// 	$('.all_error_alert').show();
+				if (Number($(this).val()) > $(this).next().attr('data-kucun')) { 
+					$('.all_error_alert .innerErrmsg').text('购买数量不能超过库存剩余数量');
 
-				// }
+					$('.all_error_alert').show();
+
+					$(this).val($(this).next().attr('data-kucun'));
+
+					return false;
+
+				}
+
+				if ($('#province').attr('data-selectedindex') != 0 && $('#city').attr('data-selectedindex') != 0 && $('#area').attr('data-selectedindex') != 0) {
+
+					yunfei($(this).val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area'
+						).attr('data-selectedindex'));
+
+
+					kucun(arr, $('.objPrice').attr('data-payMethod'));
+
+				} else {
+
+					$(this).val('0');
+
+					if ($('#province').attr('data-selectedindex') == '0') {
+
+						$('.all_error_alert .innerErrmsg').text('请选择省');
+
+						$('.all_error_alert').show();
+
+						return false;
+					}
+
+					if ($('#city').attr('data-selectedindex') == '0') {
+
+						$('.all_error_alert .innerErrmsg').text('请选择市');
+
+						$('.all_error_alert').show();
+
+						return false;
+					}
+
+					if ($('#area').attr('data-selectedindex') == '0') {
+
+						$('.all_error_alert .innerErrmsg').text('请选择区');
+
+						$('.all_error_alert').show();
+
+						return false;
+					}
+
+				}	
+				
+
 			});
+
+
 
 			//立即兑换
 			$('.exchange').click(function() {
@@ -834,7 +1160,25 @@
 					return false;
 				}
 
+				if ($('.addOrSubGoodsNum input').val() == 0) {
+					$('.all_error_alert .innerErrmsg').text('请选择购买数量');
+
+					$('.all_error_alert').show();
+
+					return false;
+				}
+
+
+				sessionStorage.setItem('spec', arr);
+				sessionStorage.setItem('goodsNum', $('.addOrSubGoodsNum input').val());
+				sessionStorage.setItem('provinceId', $('#province').attr('data-selectedindex'));
+				sessionStorage.setItem('cityId', $('#city').attr('data-selectedindex'));
+				sessionStorage.setItem('areaId', $('#area').attr('data-selectedindex'));
+
+				
 				window.location.href = "checkOrderInformation.html";
+						
+				
 			});
 
 
@@ -977,6 +1321,14 @@
 						    $(this).parent().parent().find('span').text($(this).text());
 						    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
 						    $(this).parent().css('display','none');
+
+
+						    //查询运费
+		    				if ($('#area').attr('data-selectedindex') != 0) {
+
+		    					yunfei($('.addOrSubGoodsNum input').val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area').attr('data-selectedindex'));
+		    				}
+
 						});
 	
 	                },
@@ -986,7 +1338,42 @@
 	            });
 			}
 			
+			function yunfei(goodsNum, provinceId, cityId, areaId) {
 
+				$.ajax({
+					type:"POST",
+			        url:pubIP+"memberOrder/getGoodsYunFeiPrice",//v1.0
+			        cache:false,
+			        async:false,
+			        dataType: "json",
+					headers: {
+					  	token: token
+					},
+			        data:{
+			        	goodsId: productId,
+			        	goodsNum: goodsNum,
+			        	provinceId: provinceId,
+			        	cityId: cityId,
+			        	areaId: areaId
+			        },
+			        success: function(data){
+			        	console.log(data);
+
+			        	if (data.code == 1) {
+			        		if (data.data == 0) {
+			        			$('.yunfei_num').text('免运费');
+			        		} else {
+			        			$('.yunfei_num').text(data.data + '元');
+			        		}
+			        	}
+
+			        },
+			        error: function (err) {
+			        	console.log(err);
+			        }
+
+				});
+			}
 
 
 		    //大家都在买

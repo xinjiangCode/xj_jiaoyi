@@ -16,7 +16,7 @@
 	<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
 	<style>
 		
-		.modelBox{
+		.modelBox, .all_error_alert{
             z-index: 9999;
             display: none;
             position: fixed;
@@ -168,6 +168,81 @@
         	height: 328px;
         }
 
+        #jifen_pay_alert .modelcontent, #jifen_pay_alert .modelcontent>div.info, #jifen_pay_alert .modelCont, #jifen_pay_alert .modeltitle {
+        	width: 800px;
+        }
+
+		.all_error_alert p {
+			text-align: center;
+        }
+
+        .all_error_alert .modelcontent>div {
+        	margin-bottom: 0px;
+			width: 450px;
+        }
+
+        .all_error_alert .modelcontent>div.info {
+        	height: 140px;
+        }
+
+        .all_error_alert .img_div {
+			text-align: center;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+		.all_error_alert .modelbtn {
+			margin: 5px auto 0 160px
+		}
+
+
+		.pop>.cont>div>.lineHeight {
+            line-height: 38px;
+        }
+
+        .pop>.cont>div>.popInput.infoCont {
+            width: 337px;
+            height: auto;
+            max-height: 195px;
+            overflow: auto;
+        }
+
+        .pop>.cont>.cancel{
+            width: 100%;
+            height: 50px;
+            background-image: url(../img/gsxq.gif);
+            background-size: 100% 100%;
+            background-repeat: no-repeat; 
+            font-size: 16px;
+            color: #5690f6;
+            line-height: 50px;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+
+        .pop{display: none;}
+        .pop{position: fixed;top: 0;left: 0;right:0;bottom: 0;width: 100%;height: 100%;z-index: 9999;background-color: rgba(102,102,102,0.5);}
+        .pop>.cont{position: fixed;top: 50%;left: 50%;width: 628px;height: 363px;background-color: #ffffff;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);}
+        /*.pop>.cont>.cancel{text-align: right;color: #9E9E9E;margin-bottom: 37px;margin-top: 18px;margin-right: 18px;}*/
+        /*.pop .close{background: }*/
+        .pop>.cont>.cance2{margin: 0;padding-left:20px;height: 50px;line-height: 50px;background: url("../img/cf_popbackgr.png") no-repeat ; margin-bottom: 27px;background-size: contain;}
+        .pop>.cont>.cance2>.popTitle{color:#5992f3;font-size: 16px;}
+        .pop>.cont>div{overflow: hidden;padding: 0;}
+        .pop>.cont>div>.leftTitle{margin-left:53px;width: 120px;text-align: right;margin-right: 18px;height:36px;line-height: 36px;}
+        .pop>.cont>div>.popInput{width: 337px;height:38px;}
+        .pop>.cont>div>.popInput>input{width: 100%;height:28px;line-height: 28px;margin-top: 1px;border: 1px solid #e7e7e7;text-indent: 10px;}
+        .pop>.cont>.forget2{text-align: right;margin-right: 100px;margin-top: 10px;}
+        .pop>.cont>.forget2>a{color: #007aff;}
+        .pop>.cont>.popBottom{margin-left: 90px;margin-top: 35px;}
+        .pop>.cont>.popBottom>.btn{opacity: 1; margin-left: 58px;width: 137px;height: 39px;line-height: 39px;background-color: #007aff;border: 1px solid #007aff;color: white;text-align: center;border-radius: 5px;}
+
+        .pop>.cont>.popBottom>.popReset{color:#ff7524;border: 1px solid #ff7524;background-color: white;}
+        .pop>.cont>.popBottom>.popReset:hover{color:#ffffff;border: 1px solid #ff7524;background-color: #ff7524;}
+        .pop>.cont>.popBottom>.popCancel{background-color: white;border: 1px solid #007aff;color: #007aff;}
+        .pop>.cont>.popBottom>.popCancel:hover{background-color: #007aff;color: #ffffff;}
+        .pop>.cont>.popBottom>.popSure:hover{background-color: #026ee4;color: #ffffff;}
+
 
 	</style>
 </head>
@@ -201,7 +276,7 @@
 		<div class="order_num">订单号：<span class="order_num_num">20180131111959001</span></div>
 		<div class="shop_name clearfix">
 			<span class="fl">商品名称：<span class="shop_name_name">氧化锌  氧化铁绿</span></span>
-			<span class="fr">应付金额：<span class="jifen_money"><span class="num num1">299.97</span>积分+<span class="num num2">309.97</span>元</span></span>
+			<span class="fr">应付金额：<span class="jifen_money"><span class="jf_span"><span class="num num1">299.97</span>积分</span><span class="yuan_span"><span class="add_btn">+</span><span class="num num2">309.97</span>元</span></span></span>
 		</div>
 	</div>
 	<div class="select_pay_title">
@@ -266,27 +341,140 @@
 	            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
 	        </div>
 	        <div class="modelcontent">
-	            <div class="info">
-	               <div class="pay_method_kuang clearfix">
-	                   <span class="span fl">支付方式：</span>
-	                   <span class="pay_method_method" style="font-size: 14px;">积分</span>
-	               </div>
-	               <div class="pay_money_kuang clearfix">
-	                   <span class="span fl">支付金额：</span>
-	                   <span class="jifen_cash" style="font-size: 14px;">100积分</span>
-	               </div>
-	               <div class="phone_num_kuang clearfix" style="margin-top: 10px;">
-	                   <span class="span fl">手机号：</span>
-	                   <input type="number" style="height: 32px; font-size: 12px;" class="phone_num fl">
-	                   <span class="huoqu_code" style="font-size: 14px;">获取验证码</span>
-	               </div>
-	               <div class="code_kuang clearfix">
-	                   <span class="span fl">短信验证码：</span>
-	                   <input type="text" style="height: 32px; font-size: 12px;" class="code_input fl">
-	               </div>
+	            <div class="info clearfix">
+	            	<div class="fl" style="margin-left: 50px;">
+	            		<div class="pay_method_kuang clearfix">
+		                   <span class="span fl">支付方式：</span>
+		                   <span class="pay_method_method" style="font-size: 14px;">积分</span>
+		               	</div>
+		               	<div class="pay_money_kuang clearfix">
+		                   <span class="span fl">支付金额：</span>
+		                   <span class="jifen_cash" style="font-size: 14px;">100积分</span>
+		               	</div>
+		               	<div class="phone_num_kuang clearfix" style="margin-top: 10px;">
+		                   <span class="span fl">手机号：</span>
+		                   <input type="number" style="height: 32px; font-size: 12px;" class="phone_num fl">
+		                   <span class="huoqu_code" style="font-size: 14px;">获取验证码</span>
+		               	</div>
+		               	<div class="code_kuang clearfix">
+		                   <span class="span fl">短信验证码：</span>
+		                   <input type="text" style="height: 32px; font-size: 12px;" class="code_input fl">
+		               	</div>
+	            	</div>
+	               	<div class="fr" style="width: 200px; margin-right: 50px; color: #999; margin-top: 50px;">
+	               		<span style="font-size: 14px; display: inline-block; height: 65px; line-height: 20px;">若您更换手机号，请及时将新手机进行替换，可以使用新手机进行积分兑换</span>
+	               		<div style="background:#5690f6; margin: 10px auto 0px 12px;" class="modelbtn change_phone">更换手机号</div>
+	               	</div>
 	            </div>
 	            <div class="modelBtnBox">
-	                <div style="background:#5690f6;" class="modelbtn confirm">确认支付</div>
+	                <div style="background:#5690f6;" class="modelbtn sure_pay">确认支付</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<!--修改手机号弹框-->
+	<div class="pop" id="updataPhone">
+	    <div class="cont" style="width: 650px;">
+	        <div class="cance2">
+	            <span class="popTitle Lf">获取验证码</span>
+	            <span class="close Rt" onclick="close1(this)"><img src="../img/gsxq_del.png" alt=""></span>
+	        </div>
+	        <div style="width: 650px; height: 35px;line-height: 35px;color: #fb6047;background-color: #fff7e9;font-size: 14px;margin: auto;text-align: center;margin-bottom: 20px;">提示：若手机丢失或者损坏，则不能直接更换手机，请联系客服400-0012-556（10:00～19:00）</div>
+	        <div>
+	            <div class="leftTitle Lf"> <!--<i class="red">*</i>-->
+	                <span style="font-size: 14px;">您当前手机号</span>
+	            </div>
+	            <div class="popInput Lf">
+	                <input type="text" id="oldPhone" maxlength="11" placeholder="" onkeyup="this.value=chaneseCheck(this.value)" disabled="disabled">
+	                
+	            </div>
+	        </div>
+	        <div>
+	            <div class="leftTitle Lf"> <!--<i class="red">*</i>-->
+	                <span style="font-size: 14px;">手机验证码</span>
+	            </div>
+	            <div class="popInput Lf">
+	                <input id="newPhone" type="text"  maxlength="20" placeholder="" onkeyup="this.value=chaneseCheck(this.value)" style="width: 50%;">
+	                <button style="outline:none;border:none;padding: 6px 15px;background-color: #00ABEB;color: #fff;border-radius: 15px;font-size: 14px;cursor: pointer;margin-left: 5px;min-width: 142px;" the-id='getCode'>获取手机验证码</button>
+	            </div>
+	        </div>
+	        <!--<div>
+	            <div class="leftTitle Lf"> <i class="red">*</i>
+	                <span>确认密码</span>
+	            </div>
+	            <div class="popInput Lf">
+	                <input id="newPwd2" type="text" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)">
+	            </div>
+	        </div>-->
+
+	        <!--<div class="forget2"><a href="##">忘记密码?</a></div>-->
+	        <div class="popBottom">
+	            <div class="btn Lf popCancel theNext" onclick="show1('#updataNewPhone')" style="width:130px;height:35px;font-size:16px;line-height:35px;margin-left: 103px;">下一步</div>
+	            <!--<div class="btn Lf popReset" onclick="reset(this)">重置</div>
+	            <div class="btn Lf popSure" id="updataPhoneSub">确定</div>-->
+	        </div>
+	    </div>
+	</div>
+
+	<!--修改新手机号弹框-->
+	<div class="pop" id="updataNewPhone">
+	    <div class="cont" style="width: 650px;">
+	        <div class="cance2">
+	            <span class="popTitle Lf">新手机号更换</span>
+	            <span class="close Rt" onclick="close1(this)"><img src="../img/gsxq_del.png" alt=""></span>
+	        </div>
+	        <div style="width: 650px; height: 35px;line-height: 35px;color: #fb6047;background-color: #fff7e9;font-size: 14px;margin: auto;text-align: center;margin-bottom: 20px;">提示：若手机丢失或者损坏，则不能直接更换手机，请联系客服400-0012-556（10:00～19:00）</div>
+	        <div>
+	            <div class="leftTitle Lf"> <!--<i class="red">*</i>-->
+	                <span>新手机号</span>
+	            </div>
+	            <div class="popInput Lf">
+	                <input type="text" id="oldNewPwd" maxlength="11" placeholder="" onkeyup="this.value=chaneseCheck(this.value)">
+	                
+	            </div>
+	        </div>
+	        <div>
+	            <div class="leftTitle Lf"> <!--<i class="red">*</i>-->
+	                <span>手机验证码</span>
+	            </div>
+	            <div class="popInput Lf">
+	                <input id="newNewPwd1" type="text"  maxlength="20" placeholder="" onkeyup="this.value=chaneseCheck(this.value)" style="width: 50%;">
+	                <button style="outline:none;border:none; width:142px; height: 33px; background-color: #00ABEB;color: #fff;border-radius: 15px;font-size: 16px;cursor: pointer;" the-id='getNewCode'>获取手机验证码</button>
+	            </div>
+	        </div>
+	        <!--<div>
+	            <div class="leftTitle Lf"> <i class="red">*</i>
+	                <span>确认密码</span>
+	            </div>
+	            <div class="popInput Lf">
+	                <input id="newPwd2" type="text" maxlength="20" placeholder="必须和设置的密码一致" onkeyup="this.value=chaneseCheck(this.value)">
+	            </div>
+	        </div>-->
+
+	        <!--<div class="forget2"><a href="##">忘记密码?</a></div>-->
+	        <div class="popBottom">
+	        	<div class="btn Lf popSure" id="updataPhoneSub" style="width:130px;height:35px;font-size:16px;line-height:35px;">提交</div>
+	            <div class="btn Lf popCancel close" style="width:130px;height:35px;font-size:16px;line-height:35px;">取消</div>
+	            <!--<div class="btn Lf popReset" onclick="reset(this)">重置</div>-->
+	            
+	        </div>
+	    </div>
+	</div>
+
+	<div class="all_error_alert" style="z-index: 99999;">
+	    <div class="modelCont">
+	        <div class="modeltitle">
+	            <span>消息提示</span>
+	            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+	        </div>
+	        <div class="modelcontent">
+	            <div class="info">
+	                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+	                <p class="innerErrmsg"></p>
+	            </div>
+	            <div class="modelBtnBox">
+	                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
 	            </div>
 	        </div>
 	    </div>
@@ -297,6 +485,16 @@
     <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
     
 	<script>
+
+		$('.close').click(function() {
+
+			$(this).parent().parent().parent().hide();
+
+		});
+
+		$('.confirm').click(function() {
+			$(this).parent().parent().parent().parent().hide();
+		});
 
 		var timer1;
 
@@ -323,6 +521,16 @@
 	        	console.log(data);
 	        	if (data.code == 1) {
 
+	        		if (data.data.payMethod == 2) { //积分
+	        			$('.ul_pay li').removeClass('pay_current');
+	        			$('.pay4').addClass('pay_current');
+	        			// $('.pay2').unbind();
+	        		} else if (data.data.payMethod == 3 || data.data.payMethod == 1) { //现金+积分
+	        			// $('.pay4').unbind();
+	        		}
+
+	        		$('.ul_pay').attr('data-payMethod', data.data.payMethod);
+
 	        		$('.sh_name_name').text(data.data.name);
 
 	        		data.data.mobile = data.data.mobile.substr(0,3)+"****"+data.data.mobile.substr(7);
@@ -333,24 +541,41 @@
 	        		$('.order_num_num').text(data.data.orderId);
 	        		$('.shop_name_name').text(data.data.goodsName);
 
-	        		$('.jifen_money .num1').text(data.data.integral);
-	        		$('.jifen_money .num2').text(data.data.cash);
+
+	        		if (data.data.payMethod == 2) { //积分
+	        			$('.yuan_span').hide();
+	        			$('.jf_span .num1').text(data.data.integral);
+	        		} else if (data.data.payMethod == 3) { //现金+积分
+	        			$('.jifen_money .num1').text(data.data.integral);
+	        			$('.jifen_money .num2').text(data.data.cash);
+	        		} else if (data.data.payMethod == 1) {
+	        			$('.jf_span').hide();
+	        			$('.add_btn').hide();
+	        			$('.yuan_span .num2').text(data.data.cash);
+	        		}
+
 
 	        		if (data.data.orderTime) {
 		        		data.data.orderTime = JSON.parse(data.data.orderTime);
 		        	}
 
 		        	if (data.data.orderTime.submitTime) {
+		        		// debugger
 		        		var time = 0;
 		        		time = data.data.orderTime.submitTime + 30 * 60 * 1000;
 
 		        		data.data.orderTime.submitTime = new Date(data.data.orderTime.submitTime).Format("yyyy-MM-dd hh:mm:ss");
 
 		        		time = new Date(time).Format("yyyy-MM-dd hh:mm:ss");
+		        		console.log(time);
+		        		console.log(data.data.orderTime.submitTime);
 
 		        		distanceTime('time_out', time);
+		        		// distanceTime('time_out', '2018-09-21 17:22:00');
 
 		        	}
+
+
 
 	        	}
 	        },
@@ -359,19 +584,283 @@
 	        }
 	    });
 
-  		
+  		//积分支付
+  		$('.sure_pay').click(function() {
+
+  			$.ajax({
+				type:"post",
+		        url:pubIP+"memberOrder/orderPay",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	orderId: orderId,
+	            	payMethod: 2
+	            },
+		        success: function(data){
+		        	console.log(data);
+		        	if (data.code == 1) {
+
+		        		sessionStorage.getItem('orderId', orderId);
+		        		sessionStorage.setItem('status', 1);
+
+		        		window.location.href = '../memberCenter/orderDetailWeiPay.html'
+		        	}
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    });
+  		});
+
+  		$('.code_kuang .code_input').blur(function() {
+  			var smsRandomCode = $(this).val();
+
+  			var phone_num = $('#jifen_pay_alert .phone_num').val();
+
+  			$.ajax({
+				type:"post",
+		        url:pubIP+"memberOrder/validSmsCode",//v1.0
+		        cache:false,
+		        dataType: "json",
+		        async:false,
+		        headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	mobile: phone_num,
+	            	smsRandomCode: smsRandomCode
+	            },
+		        success: function(data){
+		        	console.log(data);
+		        	if (data.code == 1) {
+
+		        	} else {
+		        		$('.all_error_alert .innerErrmsg').text(data.msg);
+
+						$('.all_error_alert').show();
+
+		        	}
+		        },
+		        error: function(err) {
+		        	console.log(err);
+		        }
+		    });
+
+  		});
+
+	    //积分支付获取验证码
+	    $('#jifen_pay_alert .huoqu_code').click(function() {
+	   	 	var count1 = 60;
+
+	    	var mobile = $('#jifen_pay_alert .phone_num').val();
+	    	var _this = $(this);
+			_this.attr('disabled',true);
+			if(mobile==''){
+				$('.all_error_alert .innerErrmsg').text('请输入手机号');
+
+				$('.all_error_alert').show();
+
+				return false;
+			}
+			var timer = setInterval(function(){
+				_this.text(count1--);
+				if(count1<-1){
+					_this.text('获取验证码');
+					clearInterval(timer);
+					_this.attr('disabled',false);
+				}
+				
+			},1000);
+			
+			// if (_this.attr('disabled') != 'disabled') {
+				$.ajax({
+					url: pubIP + 'memberOrder/getPayPhoneCode', /*v1.0*/
+		            type: 'post',
+		            headers: {
+		                Accept: "application/json; charset=utf-8",
+		                token: token
+		            },
+					data:{mobile:mobile},
+					success:function(data){
+						console.log(data);
+
+					}
+				})
+			// }
+			
+	    });
+
+
+	    //更换手机号
+	    $('.change_phone').click(function() {
+	    	// $('#updataPhone').css("display","block");
+	        var mobile = $('#jifen_pay_alert .phone_num').val();
+	     	$('#oldPhone').val(mobile);
+
+	     	$('#updataPhone').show();
+	    });
+
+
+	    var count = 60;
+		$("[the-id=getCode]").on('click',function(){
+			var _this = $(this);
+			_this.attr('disabled',true);
+			var mobile = $('#oldPhone').val();
+			if(mobile==''){
+				$('.all_error_alert .innerErrmsg').text('请输入手机号');
+
+				$('.all_error_alert').show();
+
+				return false;
+			}
+			var timer = setInterval(function(){
+				_this.text(count--);
+				if(count<-1){
+					_this.text('获取手机验证码');
+					clearInterval(timer);
+					_this.attr('disabled',false);
+				}
+				
+			},1000);
+			$.ajax({
+				url: pubIP + 'user/getMessageCode', /*v1.0*/
+	            type: 'post',
+				data:{mobile:mobile},
+				success:function(msg){
+					console.log(msg)
+				}
+			})
+		})
+
+	    var newCount = 60;
+		$("[the-id=getNewCode]").on('click',function(){
+			
+			var _this = $(this);
+			_this.attr('disabled',true);
+			var mobile = $('#oldNewPwd').val();
+			var newcode =  $('#newNewPwd1').val();
+			if(mobile==''){
+				$('.all_error_alert .innerErrmsg').text('请输入新的手机号');
+
+				$('.all_error_alert').show();
+
+				return false;
+	        }
+	       
+			var timer = setInterval(function(){
+				_this.text(newCount--);
+				if(newCount<-1){
+					_this.text('获取手机验证码');
+					clearInterval(timer);
+					_this.attr('disabled',false);
+				}
+				
+			},1000);
+			$.ajax({
+				url: pubIP + 'user/getMessageCode', /*v1.0*/
+	            type: 'post',
+				data:{mobile:mobile},
+				success:function(msg){
+					console.log(msg)
+				}
+			})
+		})
+
+	    //禁止输入中文
+	    function chaneseCheck(str){
+	        var temp=""
+	        for(var i=0;i<str.length;i++)
+	            if(str.charCodeAt(i)>0&&str.charCodeAt(i)<255)
+	                temp+=str.charAt(i)
+	        return temp
+	    }
+
+	    //    关于pop的
+	    function close1(that) {
+	        var ipt=$(that).parent().parent().find("input")
+	        for(var i=0;i<ipt.length;i++){
+	            ipt[i].value="";
+	        }
+	        $(".pop").css("display","none");
+	    }
+
+
+	    function show1(ids) {
+	     	var newPhone = $('#newPhone').val();
+	     	if(newPhone==''){
+	     		alert('请输入验证码')
+	     		return false;
+	     	}
+	        $(ids).css("display","block");
+	    }
+
+	    //修改手机号提交
+	    $(document).on('click','#updataPhoneSub',function(){
+	        var mobile = $('#oldNewPwd').val();
+			var newcode =  $('#newNewPwd1').val();
+			if(mobile==''){
+				alert('请输入新手机号');
+				return false;
+	        }
+			if(newcode==''){
+				alert('请先获取验证码');
+				return false;
+	        }
+			$.ajax({
+				url: pubIP + 'user/editMobile', /*v1.0*/
+	            type: 'post',
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+				data:{mobile:mobile},
+				success:function(msg){
+	                if(msg.code==1){
+	                    $('#updataNewPhone').hide();
+	                    $('#updataPhone').hide();
+	                }
+				}
+	        })
+	        $("#updataPhone").hide();
+
+	        // $("#Iframe").attr("src","accountOverView.html");
+	    })
+
 
   		//支付
   		$('.ul_pay li').click(function() {
-  			$('.ul_pay li').removeClass('pay_current');
-  			$(this).addClass('pay_current');
+  			
 
   			if ($(this).hasClass('pay2')) {
   				$('#xuni_account_pay_alert').show();
   			}
 
   			if ($(this).hasClass('pay4')) {
-  				$('#jifen_pay_alert').show();
+  				if ($('.ul_pay').attr('data-payMethod') == 2) {
+
+  					$('.ul_pay li').removeClass('pay_current');
+  					$(this).addClass('pay_current');
+
+  					$('.jifen_cash').text($('.jf_span .num1').text()+'积分');
+
+  					$('#jifen_pay_alert').show();
+  				} else {
+  					$('.all_error_alert .innerErrmsg').text('不能进行积分支付');
+
+					$('.all_error_alert').show();
+
+					return false;
+  				}
+  				
+  			} else {
+  				$('.ul_pay li').removeClass('pay_current');
+  				$(this).addClass('pay_current');
   			}
 
   		});
@@ -381,6 +870,7 @@
 		function distanceTime(id, deadtime) {  
             var endtime1 = new Date(deadtime); //结束时间  
             var nowtime1 = new Date(); //当前时间  
+
             var lefttime1 = parseInt(((endtime1.getTime() - nowtime1.getTime()) / 1000));  
             //parseInt可以只取整数部分，返回一个整数  
             var d1 = parseInt(lefttime1 / (24 * 60 * 60));  

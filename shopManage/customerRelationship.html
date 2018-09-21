@@ -20,6 +20,16 @@
 		.person_relation_wang_title div input[type="text"] {
 			width: 250px;
 		}
+		
+		.person_relation_wang_title div.selectPub {
+			width: 200px;
+		}
+
+		.person_relation_wang_title div.selectPub>ul {
+			top: 35px;
+			font-size: 14px;
+
+		}
 	</style>
 </head>
 <body>
@@ -37,13 +47,23 @@
 			<div class="person_relation_wang_title clearfix">
 				<span>人工关系网</span>
 				<div class="fr clearfix">
-					<input type="text" class="" placeholder="企业名称/企业类型/业务员">
+					<input type="text" class="str_up" placeholder="企业名称/企业类型/业务员">
 					<span style="cursor:pointer;" class="search2">搜索</span>
 				</div>
-				<div class="fr clearfix" style="margin-right: 20px; width: 290px;">
-					<input type="text" class="" style="width: 200px;" placeholder="企业类型">
+				<!-- <div class="fr clearfix" style="margin-right: 20px; width: 290px;">
+					<input type="text" class="store_type" style="width: 200px;" placeholder="企业类型">
 					<span style="cursor:pointer;" class="search1">搜索</span>
-				</div>
+				</div> -->
+				<div class="selectPub store_type fr" style="background: #fff;" data-selectedindex="">
+                    <span style="color: #666; font-size: 14px; text-align: left;">企业类型</span>
+                    <img src="../img/prl-select.jpg" alt="">
+                    <ul>
+                    	<li data-index="">全部</li>
+                        <li data-index="0">厂家</li>
+                        <li data-index="1">贸易商</li>
+                        <li data-index="2">终端</li>
+                    </ul>
+                </div>
 			</div>
 			<div class="person_relation_list clearfix">
 				<ul class="clearfix">
@@ -123,13 +143,12 @@
 			window.parent.$('#addCustomerRelationship .qiye_name_input').attr('disabled', false);
 
 			//企业类型
-			// window.parent.$('#addCustomerRelationship .qiye_type_input span').text('厂家');
+			window.parent.$('#addCustomerRelationship .qiye_type_input').val('');
 
-			// window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectedindex', '0');
+			window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectIndex', '');
 
 			window.parent.$('#addCustomerRelationship .qiye_type_input').attr('disabled', true);
 
-			window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectIndex', '');
 
 			//上下游
 			window.parent.$('#addCustomerRelationship .up_down_relationship_input span').text('上游');
@@ -165,13 +184,22 @@
 		            success: function (data) {
 		                console.log(data);
 		                if (data.code == 1) {
-		                	//---------------有问题------------------
-		                	// window.parent.$('#addCustomerRelationship .qiye_type_input').val();         
-		                	// window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectIndex', '');         
+		                	if (data.data.companyType == 0) {
+		                		window.parent.$('#addCustomerRelationship .qiye_type_input').val('厂家');  
+		                	} else if (data.data.companyType == 1) {
+		                		window.parent.$('#addCustomerRelationship .qiye_type_input').val('贸易商');
+		                	} else if (data.data.companyType == 2) {
+		                		window.parent.$('#addCustomerRelationship .qiye_type_input').val('终端');
+		                	}
+		                	       
+		                	window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectIndex', data.data.companyType); 
+
+		                	window.parent.$('#addCustomerRelationship .qiye_name_input').parent().find('.ts_div').text('').css('visibility', 'hidden');
 		                } else {
 		                	window.parent.$('.all_error_alert .innerErrmsg').text(data.msg);
 		                	window.parent.$('.all_error_alert').show();
 		                	window.parent.$('#addCustomerRelationship .qiye_name_input').val('');
+		                	
 		                }
 		                
 		            },
@@ -189,7 +217,7 @@
 		window.parent.$('.customer_relation_ship_btn').click(function() {
 
 			var input = window.parent.$('#addCustomerRelationship .qiye_name_input');
-			var qiye_type_input = window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectedindex');
+			var qiye_type_input = window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectIndex');
 			var up_down_relationship_input = window.parent.$('#addCustomerRelationship .up_down_relationship_input').attr('data-selectedindex');
 
 
@@ -217,7 +245,7 @@
 		            success: function (data) {
 		                console.log(data);
 		                if (data.code == 1) {
-		                	cf_alert1(1, '添加成功');            
+		                	cf_alert(1, '添加成功');          
 		                } else {
 		                	window.parent.$('.all_error_alert .innerErrmsg').text(data.msg);
 		                	window.parent.$('.all_error_alert').show();
@@ -305,21 +333,46 @@
 
         });
 
-        //企业类型搜索
-		$('.search1').click(function() {
-
-		});
 
 		$('.search2').click(function() {
-			
+			isFirst = true;
+
+			var strUp = $('.str_up').val();
+			// var storeType = $('.store_type').val();
+			var storeType = $('.store_type').attr('data-selectIndex');
+
+			customerList(1, 9, strUp, storeType);
+		});
+
+		$('.selectPub ul li').click(function(){
+		    event.stopPropagation();
+		    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+		    $(this).parent().parent().find('span').text($(this).text());
+		    if(adct1==0){
+		        $(this).parent().parent().children('img').attr('src', './img/prl-select.jpg')
+		    }else if(adct1==1){
+		        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+		    }else if(adct1==2){
+		        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+		    }
+
+		    $(this).parent().css('display','none');
+
+		    isFirst = true;
+
+			var strUp = $('.str_up').val();
+			var storeType = $(this).attr('data-index');
+
+			customerList(1, 9, strUp, storeType);
+
 		});
 
 		var isFirst = true;
 
-		customerList(1, 9);
+		customerList(1, 9, '', '');
 
 		// 客户关系列表
-		function customerList(num, size) {
+		function customerList(num, size, strUp, storeType) {
 			$.ajax({
 		    	url: pubIP + 'storeRelationship/getStoreRelationshipList',
 	            type: 'get',
@@ -330,7 +383,9 @@
 	            cache: false,
 	            data: {
 	            	pageSize: size, //每页显示条数
-	            	pageNum: num
+	            	pageNum: num,
+	            	strUp: strUp, //模糊搜索字段
+	            	storeType: storeType //企业类型
 	            },
 	            dataType: 'json',
 	            success: function (data) {
@@ -348,17 +403,17 @@
 		        				data.data.result[i].addTime = new Date(data.data.result[i].addTime).Format("yyyy-MM-dd");
 
 		        				if (data.data.result[i].storeType == 0) {
-		        					data.data.result[i].storeType = '厂家';
+		        					var storeType2 = '厂家';
 		        				} else if (data.data.result[i].storeType == 1) {
-		        					data.data.result[i].storeType = '贸易商';
+		        					var storeType2 = '贸易商';
 		        				} else if (data.data.result[i].storeType == 2) {
-		        					data.data.result[i].storeType = '终端';
+		        					var storeType2 = '终端';
 		        				}
 
 		        				str += '<li>'
 									+'<span class="person_num"><span>'+(i+1)+'</span></span>'
 									+'<span class="qiye_name">'+data.data.result[i].companyName+'</span>'
-									+'<span class="qiye_type">'+data.data.result[i].storeType+'</span>'
+									+'<span class="qiye_type" data-storeType="'+data.data.result[i].storeType+'">'+storeType2+'</span>'
 									+'<span class="yewuyuan">'+data.data.result[i].userName+'</span>'
 									+'<span class="add_time">'+data.data.result[i].addTime+'</span>'
 									+'<span class="operate">'
@@ -376,7 +431,7 @@
 	                                num: data.data.pages,
 	                                elem: $('#page1'),
 	                                callback: function(n) {
-	                                    customerList(n, size);
+	                                    customerList(n, size, strUp, storeType);
 	                                }
 	                            });
 
@@ -424,6 +479,7 @@
 			// window.parent.$('#addCustomerRelationship .qiye_type_input span').text($(this).parent().parent().find('.qiye_type').text());
 
 			window.parent.$('#addCustomerRelationship .qiye_type_input').val($(this).parent().parent().find('.qiye_type').text());
+			window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectIndex', $(this).parent().parent().find('.qiye_type').attr('data-storeType'));
 
 			window.parent.$('#addCustomerRelationship .qiye_type_input').attr('disabled', true);
 
@@ -545,20 +601,7 @@
 		    $(this).children('ul').hide();
 		});
 
-		$('.selectPub ul li').click(function(){
-		    event.stopPropagation();
-		    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
-		    $(this).parent().parent().find('span').text($(this).text());
-		    if(adct1==0){
-		        $(this).parent().parent().children('img').attr('src', './img/prl-select.jpg')
-		    }else if(adct1==1){
-		        $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
-		    }else if(adct1==2){
-		        $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
-		    }
-
-		    $(this).parent().css('display','none');
-		});
+		
 
 	</script>
 	<script type="text/javascript">
@@ -666,6 +709,9 @@
 			                    var obj = new Object();
 			                    var obj2 = {};
 			                    var obj3 = {};
+
+			                    
+
 			                    // obj.source = data.data.result[i].; 
 			                    obj.target = data.data.result[i].companyName;
 			                    obj.label = obj2;
@@ -676,8 +722,9 @@
 			                    obj3.color = '#666';
 			                    servicedata[i]=obj;
 
+			                    
 			                    var dataObj = {};
-			                    var dataObj1 = {};
+					            var dataObj1 = {};
 
 
 			                	dataObj.name = data.data.result[i].companyName;
@@ -691,22 +738,26 @@
 			                		dataObj.x = 70+i;
 			                		dataObj.y = 80+i;
 			                	}
+
+			                	if (data.data.result[i].store_image) {
+			                		dataObj.symbol = 'image://' + data.data.result[i].store_image;
+			                	} else {
+			                		dataObj.symbol = 'image://../img/qiye_pic.png';
+			                	}
 			                	
-			                	dataObj.symbol = 'image://../img/qiye_pic.png';
 			                	dataObj.symbolSize = [81,81];
 			                	dataObj.flow = dataObj1;
 			                	dataObj1.name = data.data.result[i].companyName;
 			                	dataObj1.type = data.data.result[i].storeType;
 			                	//缺少字段
-			                	// dataObj1.yujingzhi = data.data.result[i].companyName;
-			                	// dataObj1.yingshou = data.data.result[i].companyName;
-			                	// dataObj1.yingfu = data.data.result[i].companyName;
+			                	dataObj1.yujingzhi = data.data.result[i].warning_value;
+			                	dataObj1.yingshou = data.data.result[i].shou;
+			                	dataObj1.yingfu = data.data.result[i].fu;
 			                	// dataObj1.yingName = data.data.result[i].companyName;
 
-			                	dataObj1.yujingzhi = '20';
-			                	dataObj1.yingshou = '26236566.00';
-			                	dataObj1.yingfu = '26236566.00';
-			                	dataObj1.yingName = 'Website construction';
+			                	// dataObj1.yingshou = '26236566.00';
+			                	// dataObj1.yingfu = '26236566.00';
+			                	// dataObj1.yingName = 'Website construction';
 			                	data_data[i] = dataObj;
 			                }
 
@@ -725,6 +776,79 @@
 				            // }
 
 	                    }
+
+	                    if (data.date1) {
+	                    	if (data.date1.storeType == 0) {
+	        					data.date1.storeType = '厂家';
+	        				} else if (data.date1.storeType == 1) {
+	        					data.date1.storeType = '贸易商';
+	        				} else if (data.date1.storeType == 2) {
+	        					data.date1.storeType = '终端';
+	        				}
+
+	        				var oneself = {};
+	        				var oneself2 = {};
+	        				var oneself3 = {};
+
+							oneself.target = data.date1.companyName;
+		                    oneself.label = oneself2;
+		                    oneself2.normal = oneself3;
+		                    oneself3.show = true;
+		                    // oneself3.formatter = data.date1.relationship;
+		                    oneself3.fontSize = '12';
+		                    oneself3.color = '#666';
+		                    // servicedata[data.data.result.length]=obj;	
+		                    console.log(oneself);
+		                    servicedata.push(oneself);
+		                    console.log(servicedata);
+
+
+		                    var oneselfObj = {};
+				            var oneselfObj1 = {};
+				            var oneselfObj2 = {};
+				            var oneselfObj3 = {};
+
+		                	oneselfObj.name = data.date1.companyName;
+		                	
+
+
+		                	if (data.date1.relationship == 1) {
+		                		oneselfObj.x = 30+i;
+		                		oneselfObj.y = 50+i;
+		                	} else {               //需修改
+		                		oneselfObj.x = 70+i;
+		                		oneselfObj.y = 80+i;
+		                	}
+
+		                	if (data.date1.store_image) {
+		                		oneselfObj.symbol = 'image://' + data.date1.store_image;
+		                	} else {
+		                		oneselfObj.symbol = 'image://../img/qiye_pic.png';
+		                	}
+		                	
+		                	oneselfObj.symbolSize = [81,81];
+		                	oneselfObj.itemStyle = oneselfObj2;
+		                	oneselfObj2.normal  = oneselfObj3;
+		                	oneselfObj3.radius = '50%';
+		                	// oneselfObj3.opacity= '0.5';
+		                	oneselfObj.flow = oneselfObj1;
+		                	oneselfObj1.name = data.date1.companyName;
+		                	oneselfObj1.type = data.date1.storeType;
+		                	//缺少字段
+		                	oneselfObj1.flag = "1";
+		                	oneselfObj1.yujingzhi = data.date1.warning_value;
+		                	// oneselfObj1.yingshou = data.date1.companyName;
+		                	// oneselfObj1.yingfu = data.date1.companyName;
+		                	// oneselfObj1.yingName = data.date1.companyName;
+
+		                	oneselfObj1.yingshou = '26236566.00';
+		                	oneselfObj1.yingfu = '26236566.00';
+		                	// oneselfObj1.yingName = 'Website construction';
+		                	data_data.push(oneselfObj);
+		                	console.log(oneselfObj);
+
+	                    }
+
 	                }
 	            }
 	        });
@@ -740,17 +864,32 @@
 	                formatter:function(params){
 	                    if(params.data.flow){
 	                    	var str = '';
-	                    	str += '<div class="relationship_div" style="position:absolute;left:0px;top:-95px;">'
-								+'<div class="padding_div">'
-									+'<div class="qiye_name_bg">'+params.data.flow.name+'</div>'
-									+'<div class="qiye_info">'
-										+'<div class="qiye_leixing">企业类型：'+params.data.flow.type+'</div>'
-										+'<div class="yujingzhi">预警值：'+params.data.flow.yujingzhi+'</div>'
-										+'<div class="yingshoukuan">应收账款：<span>￥'+params.data.flow.yingshou+'</span></div>'
-										+'<div class="yingfukuan">应付账款：<span>￥'+params.data.flow.yingfu+'</span></div>'
+	                    	if (params.data.flow.flag) {
+	                    		str += '<div class="relationship_div" style="position:absolute;left:0px;top:-95px;">'
+									+'<div class="padding_div">'
+										+'<div class="qiye_name_bg">'+params.data.flow.name+'</div>'
+										+'<div class="qiye_info">'
+											+'<div class="qiye_leixing">企业类型：'+params.data.flow.type+'</div>'
+											// +'<div class="yujingzhi">预警值：'+params.data.flow.yujingzhi+'</div>'
+											// +'<div class="yingshoukuan">应收账款：<span>￥'+params.data.flow.yingshou+'</span></div>'
+											// +'<div class="yingfukuan">应付账款：<span>￥'+params.data.flow.yingfu+'</span></div>'
+										+'</div>'
 									+'</div>'
-								+'</div>'
-							+'</div>';
+								+'</div>';
+	                    	} else {
+	                    		str += '<div class="relationship_div" style="position:absolute;left:0px;top:-95px;">'
+									+'<div class="padding_div">'
+										+'<div class="qiye_name_bg">'+params.data.flow.name+'</div>'
+										+'<div class="qiye_info">'
+											+'<div class="qiye_leixing">企业类型：'+params.data.flow.type+'</div>'
+											+'<div class="yujingzhi">预警值：'+params.data.flow.yujingzhi+'</div>'
+											+'<div class="yingshoukuan">应收账款：<span>￥'+params.data.flow.yingshou+'</span></div>'
+											+'<div class="yingfukuan">应付账款：<span>￥'+params.data.flow.yingfu+'</span></div>'
+										+'</div>'
+									+'</div>'
+								+'</div>';
+	                    	}
+	                    	
 	                        // return params.data.name + '到' + params.data.target + '的流量为'+ params.data.flow;
 	                        return str;
 	                    }
@@ -778,7 +917,8 @@
 			                    fontSize: 12,
 			                    formatter: function(data) {
 	                               	var result = "";
-	                                result += data.name + '\n' + data.data.flow.yingName;
+	                                // result += data.name + '\n' + data.data.flow.yingName;
+	                                result += data.name;
 	                                return result;
 	                            },
 			                },
