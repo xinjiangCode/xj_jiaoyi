@@ -54,6 +54,20 @@
 			vertical-align: middle;
 		}
 
+
+		.duihuan_button {
+		    cursor: pointer;
+		    display: inline-block;
+		    width: 111px;
+		    height: 34px;
+		}
+
+
+		span.duihuan_button a {
+		    width: 100%;
+		    display: inline-block;
+		}
+
 	</style>
 </head>
 <body>
@@ -474,7 +488,14 @@
 
 	                    $('.allPageN').text(iDisplayStart+'/'+data.pages);
 		        		
+	                    //立即兑换
+				    	$('.duihuan_button a').click(function() {
 
+				    		sessionStorage.setItem('productId', $(this).parent().attr('data-productId'));
+
+				    		window.location.href = "shopDetail.html";
+
+				    	});
 
 		        	} else {
 		        		$('.pageJump').hide();
@@ -487,16 +508,7 @@
 		    });
     	}
 
-    	//立即兑换
-    	$('.duihuan_button a').click(function() {
-    		// shopDetail.html
-
-    		sessionStorage.setItem('productId', $(this).parent().attr('data-productId'));
-
-    		$(this).attr('href', 'shopDetail.html');
-
-
-    	});
+    	
 
 
 
@@ -572,7 +584,7 @@
 	                token: token
 	            },
 	            data: {
-	            	oneClassId: firstClass
+	            	OneClassId: firstClass
 	            },
 		        success: function(data){
 		        	console.log(data);
