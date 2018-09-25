@@ -491,6 +491,29 @@
 			        }
 		     	});
 
+
+		        $.ajax({
+		            type:"get",
+		            headers: {
+		                Accept: "application/json; charset=utf-8",
+		                token: token
+		            },
+		            url: pubIP+"clientStatistics/updateGroupAddressNum",//v1.0
+		            cache:false,
+		            data:{
+		                type: 2,
+		                price: ''
+		            },
+		            success: function(res){
+		                console.log(res);
+		                
+		            },
+		            error: function(err){
+		                console.log(err);
+		            }
+		        });
+			    
+
 			  $(".tablea").find(".box:first").show();    //为每个BOX的第一个元素显示        
 			  $("#oranger li").on("click",function(){ //给a标签添加事件  
 			     var index=$(this).index();  //获取当前a标签的个数  

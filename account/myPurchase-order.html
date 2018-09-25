@@ -260,7 +260,7 @@
                 success: function(json){
                     console.log(json);
                     if(json.code == 1){
-                        window.parent.$("#Ifream").attr("src","./mySale-order.html");
+                        window.parent.$("#Iframe").attr("src","./mySale-order.html");
                         //$(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
                         openWin( wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName));
                     }

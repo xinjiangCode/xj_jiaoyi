@@ -533,15 +533,34 @@
 	        			$('.one_lei').html(str);
 
 	        			// sort_name
-	        			$('.one_lei li').eq(0).addClass('sort_name');
+	        			if (sessionStorage.getItem('look_more') == '') { //查看更多进来的
+	        				$('.one_lei li').eq(0).addClass('sort_name');
+	        				secondClass($('.one_lei li').eq(0).attr('data-categoryId'));
+
+	        				$('.one_lei li').eq(0).attr('flag', 1);
+
+
+	        			} else {
+
+	        				$('.one_lei li').each(function() {
+
+	        					if ($(this).attr('data-categoryid') == sessionStorage.getItem('one_lei')) {
+	        						$(this).addClass('sort_name');
+
+	        						$('.one_lei li').eq(0).attr('flag', 1);
+
+	        						secondClass(sessionStorage.getItem('one_lei'));
+	        					}
+	        				});
+
+
+	        			}
 
 	        			$('.member_list .member_title').text($('.one_lei li').eq(0).text());
 	        			$('.member_list .member_title').attr('data-categoryid', $('.one_lei li').eq(0).attr('data-categoryid'));
 
-	        			$('.one_lei li').eq(0).attr('flag', 1);
-
-						secondClass($('.one_lei li').eq(0).attr('data-categoryId'));
-
+	        			
+						
 
 
 						$(document).on('click', '.one_lei li', function() {
@@ -598,13 +617,52 @@
 
 		        			$('.two_lei').html(str);   
 
-		        			$('.two_lei li').eq(0).addClass('sort_name'); 	
-
+		        			
 		        			$('.member_list .second_class').html(str);	
-		        			$('.member_list .second_class li').eq(0).addClass('current');	
-
 		        			if ($('.one_lei li').eq(0).attr('flag') == 1) {
-		        				moreAjax(1, 25, $('.one_lei li').eq(0).attr('data-categoryId'), $('.two_lei li').eq(0).attr('data-categoryId'), 1);
+
+		        				if (sessionStorage.getItem('look_more') == '') { //查看更多点进来的
+		        					$('.member_list .second_class li').eq(0).addClass('current');	
+
+		        					$('.two_lei li').eq(0).addClass('sort_name'); 	
+
+
+		        					moreAjax(1, 25, $('.one_lei li').eq(0).attr('data-categoryId'), $('.two_lei li').eq(0).attr('data-categoryId'), 1);
+		        				} else {
+
+		        					if (sessionStorage.getItem('two_lei') == '') { //点击的一级分类
+		        						
+		        						$('.member_list .second_class li').eq(0).addClass('current');	
+
+		        						$('.two_lei li').eq(0).addClass('sort_name');
+
+		        						moreAjax(1, 25, sessionStorage.getItem('one_lei'), $('.two_lei li').eq(0).attr('data-categoryId'), 1);
+
+		        					} else {
+		        						
+		        						$('.member_list .second_class li').each(function() {
+
+			        						if ($(this).attr('data-categoryid') == sessionStorage.getItem('two_lei')) {
+			        							$(this).addClass('current');
+
+			        						}
+			        					});
+
+			        					$('.two_lei li').each(function() {
+			        						if ($(this).attr('data-categoryid') == sessionStorage.getItem('two_lei')) {
+			        							$(this).addClass('sort_name');
+
+			        						}
+			        					});
+
+			        					moreAjax(1, 25, sessionStorage.getItem('one_lei'), sessionStorage.getItem('two_lei'), 1);
+			        					
+		        					}
+		        					
+
+		        					
+		        				}
+
 		        			}
 		        			
 

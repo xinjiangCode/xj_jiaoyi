@@ -1215,6 +1215,8 @@
                         });
 
                     })
+
+                    
 //                    弹框立即支付
                     window.parent.$(".goPay1").unbind();
                     window.parent.$(".goPay1").click(function () {
@@ -1259,7 +1261,9 @@
                             },
                             success: function(res){
                                 if(res.code == 1){
+
                                     window.parent.$(".modelBox34").hide();//支付成功
+                                    payAnalysis(window.parent.$(".modelBox33 .accountBalance").text());
                                     alert(res.msg);
                                 }else{
                                     alert(res.msg);
@@ -1278,6 +1282,32 @@
             }
         });
     }
+
+    //付款统计
+    function payAnalysis(price) {
+        
+        $.ajax({
+            type:"get",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            url: pubIP+"clientStatistics/updateGroupAddressNum",//v1.0
+            cache:false,
+            data:{
+                type: 1,
+                price: price
+            },
+            success: function(res){
+                console.log(res);
+                
+            },
+            error: function(err){
+                console.log(err);
+            }
+        });
+    }
+
      // 订单取消
     function toCancelOrder(id){
         $.ajax({

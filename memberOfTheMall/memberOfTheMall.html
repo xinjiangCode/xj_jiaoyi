@@ -98,7 +98,7 @@
 										<span>办公用品</span>
 									</li>
 								</ul>
-								<div class="more_info"><a href="memberOfTheMallMore.html">查看更多<img src="../img/more_icon.png" alt=""></a></div>
+								<div class="more_info"><a href="##">查看更多<img src="../img/more_icon.png" alt=""></a></div>
 							</div>
 						</div>
 					</div>
@@ -374,6 +374,22 @@
 
 		        		$('.gay_bottom ul').html(str);
 
+		        		//分类点击进入分类页面
+		        		$('.gay_bottom ul li span').click(function() {
+		        			if ($(this).hasClass('service_title')) {
+		        				sessionStorage.setItem('one_lei', $(this).attr('data-categoryId'));
+		        				sessionStorage.setItem('two_lei', '');
+		        			} else {
+		        				sessionStorage.setItem('one_lei', $(this).parent().find('.service_title').attr('data-categoryId'));
+		        				sessionStorage.setItem('two_lei', $(this).attr('data-categoryId'));
+		        			}
+
+		        			sessionStorage.setItem('look_more', '1');
+
+		        			window.location.href = 'memberOfTheMallMore.html';
+
+		        		});
+
 
 		        		//列表
 		        		var str1 = '';
@@ -413,6 +429,11 @@
 	        error: function(err) {
 	        	console.log(err);
 	        }
+	    });
+
+	    $('.more_info a').click(function() {
+	    	sessionStorage.setItem('look_more', '');
+	    	window.location.href = "memberOfTheMallMore.html";
 	    });
 
 		function listAjax() {

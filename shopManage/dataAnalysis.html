@@ -31,6 +31,18 @@
 			width: 135px;
 		}
 
+		.fukuan_renshu {
+			width: 107px;
+		}
+
+		.fangke_shu {
+		    width: 80px;
+		}
+		
+		.fw_fk_zhuanhualv {
+		    width: 132px;
+		}
+		
 	</style>
 </head>
 <body>
@@ -335,7 +347,7 @@
 								<li class="list_li5">访问-付款转化率</li>
 							</ul>
 							<ul class="list_content">
-								<li>
+								<!-- <li>
 									<span class="top_province">北京</span>
 									<span class="fukuan_jine">10802.42</span>
 									<span class="fukuan_renshu">83</span>
@@ -404,7 +416,7 @@
 									<span class="fukuan_renshu">83</span>
 									<span class="fangke_shu">1567</span>
 									<span class="fw_fk_zhuanhualv">5.3%</span>
-								</li>
+								</li> -->
 							</ul>
 						</div>
 					</div>
@@ -800,7 +812,7 @@
 									+'<span class="liang_num">'+data.date[i].countNumber+'</span>'
 									+'<span class="progress_span"><span class="progress_span_current" style="width:'+number+'"></span></span>'
 									+'<span class="zhuanhualv">'+data.date[i].percentage+'%</span>'
-								+'</li>'     //有问题-----------------------------------------------
+								+'</li>'    
                     	}
 
                     	$('.customer_ul').html(str);
@@ -1042,17 +1054,32 @@
                 	if (data.data.length != 0) {
                 		var mapObj = {};
 
-	                	for (var i = 0; i < data.data.length; i++) {
-	                		mapObj.name = data.data[i].name;
-	                		mapObj.value = data.data[i].value;
+	                	for (var i = 0; i < data.data2.length; i++) {
+	                		mapObj.name = data.data2[i].name;
+	                		mapObj.value = data.data2[i].value;
 
 	                		mapArr[i] = mapObj;
 	                	}
 
 
+	                	var str = '';
+	                	for (var j = 0; j < data.data.length; j++) {
+	                		str += '<li>'
+									+'<span class="top_province">'+data.data[j].address+'</span>'
+									+'<span class="fukuan_jine">'+data.data[j].allprice+'</span>'
+									+'<span class="fukuan_renshu">'+data.data[j].peoplenum+'</span>'
+									+'<span class="fangke_shu">'+data.data[j].visitnum+'</span>'
+									+'<span class="fw_fk_zhuanhualv">'+data.data[j].reserved2+'%</span>'
+								+'</li>'
+	                	}
+
+	                	$('.list_content').html(str);
+
                 	}
                 	
                 }
+
+
             },
             error: function(err) {
             	console.log(err);

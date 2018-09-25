@@ -190,6 +190,11 @@
 		                		window.parent.$('#addCustomerRelationship .qiye_type_input').val('贸易商');
 		                	} else if (data.data.companyType == 2) {
 		                		window.parent.$('#addCustomerRelationship .qiye_type_input').val('终端');
+		                	} else if (data.data.companyType == 4) {
+		                		window.parent.$('.all_error_alert .innerErrmsg').text('不能添加企业类型为承运商的企业');
+			                	window.parent.$('.all_error_alert').show();
+			                	window.parent.$('#addCustomerRelationship .qiye_name_input').val('');
+			                	return false;
 		                	}
 		                	       
 		                	window.parent.$('#addCustomerRelationship .qiye_type_input').attr('data-selectIndex', data.data.companyType); 
@@ -666,6 +671,8 @@
 	 //        });
 		// }
 
+		
+
 		function echartFun(myChart) {
 			var servicedata=[];
 	        var data_data = [];          	
@@ -691,6 +698,9 @@
                 		
 	                    if (data.data.result.length != 0) {
 
+	                    	var a = 1;
+							var b = 1;
+	                    	
 	                    	for(var i = 0; i < data.data.result.length; i++){
 	                    		if (data.data.result[i].relationship == 1) {
 	                    			data.data.result[i].relationship = '上游'
@@ -714,6 +724,7 @@
 
 			                    // obj.source = data.data.result[i].; 
 			                    obj.target = data.data.result[i].companyName;
+			                    obj.source = data.date1.companyName;
 			                    obj.label = obj2;
 			                    obj2.normal = obj3;
 			                    obj3.show = true;
@@ -729,15 +740,19 @@
 
 			                	dataObj.name = data.data.result[i].companyName;
 			                	
+			                	
 
-
-			                	if (data.data.result[i].relationship == 1) {
-			                		dataObj.x = 30+i;
-			                		dataObj.y = 50+i;
+			                	if (data.data.result[i].relationship == '上游') {
+			                		dataObj.x = 20+10*a;
+			                		dataObj.y = 50;
+			                		a++;
 			                	} else {               //需修改
-			                		dataObj.x = 70+i;
-			                		dataObj.y = 80+i;
+			                		dataObj.x = 20+10*b;
+			                		dataObj.y = 110;
+			                		b++;
 			                	}
+
+
 
 			                	if (data.data.result[i].store_image) {
 			                		dataObj.symbol = 'image://' + data.data.result[i].store_image;
@@ -761,7 +776,7 @@
 			                	data_data[i] = dataObj;
 			                }
 
-			                console.log(servicedata);
+			                console.log(data_data);
 
 			                
 
@@ -812,13 +827,17 @@
 		                	
 
 
-		                	if (data.date1.relationship == 1) {
-		                		oneselfObj.x = 30+i;
-		                		oneselfObj.y = 50+i;
-		                	} else {               //需修改
-		                		oneselfObj.x = 70+i;
-		                		oneselfObj.y = 80+i;
-		                	}
+		                	// if (data.date1.relationship == 1) {
+		                	// 	oneselfObj.x = 30+i;
+		                	// 	oneselfObj.y = 50+i;
+		                	// } else {               //需修改
+		                	// 	oneselfObj.x = 70+i;
+		                	// 	oneselfObj.y = 80+i;
+		                	// }
+
+	                		oneselfObj.x = 40;
+	                		oneselfObj.y = 80;
+		                	
 
 		                	if (data.date1.store_image) {
 		                		oneselfObj.symbol = 'image://' + data.date1.store_image;
