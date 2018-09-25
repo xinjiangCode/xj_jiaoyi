@@ -9,6 +9,7 @@
     <meta name="format-detection" content="telephone=no" />
     <title adct="行业资讯">新疆化学品经营服务平台</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/header.js"></script><!-- 公共头 -->
     <link rel="stylesheet" href="../css/industryInformation.css">
     <style type="text/css">
@@ -100,7 +101,13 @@
     </div>
     <div class="top_ban">
         <div>
-            <div class="lft_ban" id="detailInfo">
+            <div class="lft_ban">
+                <div id="detailInfo">
+                  
+                </div>
+                <div class="content">
+                  
+                </div>
             		<!-- <h1 class="newsTit">新疆化学交易品经营平台  看看你所不知道的化学品</h1>
             		<div class="imSm">
             			<span class="time">2018.04.19</span>
@@ -166,11 +173,11 @@
         </div>
     </div>
     <script src="../js/footer.js"></script><!-- 公共底 -->
-    <script src="./../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    
     <script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
-    <!-- <script src="../../js/template.js"></script> -->
-    <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script>
+    <script src="../js/template.js"></script>
+    <!-- <script src="http://www.sjmoban.com/study/artTemplate/static/js/template.js"></script> -->
 
     <script type="text/html" id="detailTpl">
       <h1 class="newsTit"><%=title%></h1>
@@ -182,7 +189,7 @@
           分享
         </span>-->
       </div>
-      <div><%=content%></div>
+      <!-- <div><%=content%></div> -->
     </script>
   
     <script type="text/html" id="tuijianTpl">
@@ -235,6 +242,8 @@
             if (data.code == 1) {
 
               data.data.timestamp = new Date(data.data.timestamp).Format("yyyy.MM.dd");
+
+              $('.content').html(data.data.content);
 
               var result =  template("detailTpl",data.data);
               $('#detailInfo').html(result);
