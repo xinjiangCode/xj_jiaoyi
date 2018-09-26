@@ -51,6 +51,25 @@
 	    line-height: 164px;
 	}
 
+	.no_shop {
+		overflow: hidden;
+		overflow-y: auto;
+	}
+
+
+	.no_shop ul {
+		overflow-y: auto;
+		padding: 25px 50px 25px 20px;
+	}
+
+	.no_shop ul li .wl_info_span {
+		width: 480px;
+	}
+
+	img.wl_info_pic {
+	    margin-right: 2px;
+	}
+
 </style>
 <body>
 	
@@ -286,6 +305,23 @@
 
 			        		$('.pay_time').text(data.data.orderTime.payTime);
 			        	} 
+
+			        	var logistics = JSON.parse(data.data.logistics);
+		        		console.log(logistics);
+		        		var str = '';
+		        		for (var i = logistics.Traces.length - 1; i >= 0; i--) {
+		        			str += '<li class="clearfix">'
+								+'<div class="fl">'
+									+'<img class="wl_info_pic" src="../img/wl_info_pic.png">'
+									+'<span class="wl_info_time">'+logistics.Traces[i].AcceptTime+'</span>'
+								+'</div>'
+								+'<span class="wl_info_span fl">'+logistics.Traces[i].AcceptStation+'</span>'
+							+'</li>'
+		        		}
+
+		        		$('.no_shop ul').html(str);
+		        		
+
 
 		        	} 
 		        	

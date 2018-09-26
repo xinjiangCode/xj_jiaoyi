@@ -526,46 +526,47 @@
 								} else if (two = 3) {
 									y1 = 2;
 								}
-								for (var m = 0; m < data.data[0].categoryList[y1].productList.length; m++) {
+								
+								for (var m = 0; m < data.data[1].categoryList[y1].productList.length; m++) {
 									
 									//只显示10个
 									if (b < 10) {
-										if (data.data[0].categoryList[y1].productList) {
-											if (data.data[0].categoryList[y1].productList[m].cash == null) {
-												data.data[0].categoryList[y1].productList[m].cash = 0;
+										if (data.data[1].categoryList[y1].productList) {
+											if (data.data[1].categoryList[y1].productList[m].cash == null) {
+												data.data[1].categoryList[y1].productList[m].cash = 0;
 											}
 
-											if (data.data[0].categoryList[y1].productList[m].integral == null) {
-												data.data[0].categoryList[y1].productList[m].integral = 0;
+											if (data.data[1].categoryList[y1].productList[m].integral == null) {
+												data.data[1].categoryList[y1].productList[m].integral = 0;
 											}
 
-											// console.log(data.data[0].categoryList[y1].productList[m].pic);
-											if (data.data[0].categoryList[y1].productList[m].pic) {
-												if (data.data[0].categoryList[y1].productList[m].pic.indexOf(',') != -1) {
-													data.data[0].categoryList[y1].productList[m].pic = data.data[0].categoryList[y1].productList[m].pic.split(',');
-													data.data[0].categoryList[y1].productList[m].pic = data.data[0].categoryList[y1].productList[m].pic[0]
+											// console.log(data.data[1].categoryList[y1].productList[m].pic);
+											if (data.data[1].categoryList[y1].productList[m].pic) {
+												if (data.data[1].categoryList[y1].productList[m].pic.indexOf(',') != -1) {
+													data.data[1].categoryList[y1].productList[m].pic = data.data[1].categoryList[y1].productList[m].pic.split(',');
+													data.data[1].categoryList[y1].productList[m].pic = data.data[1].categoryList[y1].productList[m].pic[0]
 												}
 											}
 											
 											
 											str4 += '<li>'
 												// +'<img class="wei_icon" src="../img/wei.png" alt="">'
-												+'<img class="img_pic" style="width: 140px; height: 141px;" src="'+data.data[0].categoryList[y1].productList[m].pic+'" alt="">'
-												+'<p class="shop_name">'+data.data[0].categoryList[y1].productList[m].goodsName+'</p>'
-												if (data.data[0].categoryList[y1].productList[m].payMethod == 1) {
-													str4 += '<p class="integral_money">'+data.data[0].categoryList[y1].productList[m].cash+'元</p>'
+												+'<img class="img_pic" style="width: 140px; height: 141px;" src="'+data.data[1].categoryList[y1].productList[m].pic+'" alt="">'
+												+'<p class="shop_name">'+data.data[1].categoryList[y1].productList[m].goodsName+'</p>'
+												if (data.data[1].categoryList[y1].productList[m].payMethod == 1) {
+													str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].cash+'元</p>'
 												}
 
-												if (data.data[0].categoryList[y1].productList[m].payMethod == 2) {
-													str4 += '<p class="integral_money">'+data.data[0].categoryList[y1].productList[m].integral+'积分</p>'
+												if (data.data[1].categoryList[y1].productList[m].payMethod == 2) {
+													str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].integral+'积分</p>'
 												}
 
-												if (data.data[0].categoryList[y1].productList[m].payMethod == 3) {
-													str4 += '<p class="integral_money">'+data.data[0].categoryList[y1].productList[m].integral+'积分+'+data.data[0].categoryList[y1].productList[m].cash+'元</p>'
+												if (data.data[1].categoryList[y1].productList[m].payMethod == 3) {
+													str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].integral+'积分+'+data.data[1].categoryList[y1].productList[m].cash+'元</p>'
 												}
 
 												
-												str4 += '<span class="duihuan_button" data-productId="'+data.data[0].categoryList[y1].productList[m].productId+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
+												str4 += '<span class="duihuan_button" data-productId="'+data.data[1].categoryList[y1].productList[m].productId+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
 											+'</li>'
 										}
 										
