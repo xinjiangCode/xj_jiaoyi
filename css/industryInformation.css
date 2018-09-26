@@ -174,7 +174,7 @@ body {
 .list_rgt>span:hover{
 	color: #8ab5ff;
 }
-.list_rgt>p{
+.list_rgt .content_p{
     display: block;
     font-size: 16px;
     color: #666666;

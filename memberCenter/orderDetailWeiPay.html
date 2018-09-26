@@ -216,6 +216,8 @@
         	status = 2;
         } else if (status == 2) {
         	status = 1; //待支付
+        	$('.no_shop .no_shop_pic').show();
+        	$('.no_shop ul').hide();
         } else if (status == 3) {
         	status = 3; //待确认收货
         } else if (status == 4) {
@@ -311,12 +313,13 @@
 
 		        	}
 
-
 		        	// 商品信息
 		        	if (data.data.pic) {
 		        		data.data.pic = data.data.pic.split(',');
+		        		$('.shop_pic .pic').css('background', 'url('+data.data.pic[0]+') no-repeat center');
 		        	}
-		        	$('.shop_pic .pic').css('background', 'url('+data.data.pic[0]+') no-repeat center');
+
+		        	
 		        	$('.shop_name').text(data.data.goodsName);
 		        	$('.shop_num').text(data.data.goodsNum);
 		        	$('.shop_spec').text(data.data.spec == null ? '' : data.data.spec);

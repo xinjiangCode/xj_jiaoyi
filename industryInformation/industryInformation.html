@@ -19,7 +19,7 @@
             text-align: center;
         }
 
-        .list_rgt>p {
+        .list_rgt .content_p {
             height: 36px;
             font-size: 14px;
         }
@@ -195,7 +195,7 @@
                     <%}%>
                     <div class="list_rgt">
                         <span><%=list[i].title%></span>
-                        <p><%=list[i].content%></p>
+                        <div class="content_p"><%=#list[i].content%></div>
                         <div class="list_btm">
                             <span><%=list[i].source%></span>
                             <p>      
@@ -379,6 +379,11 @@
 
                         var result =  template("listTpl",{list:data.data.data});
                         $('#listInfo').html(result);
+
+                        // for (var i = 0; i < data.data.data.length; i++) {
+                        //     $('.content_p').html(data.data.data[i].content);
+                        // } 
+                            // 
 
                         if(data.code == '0'){
                             $('.pageJump').hide();
