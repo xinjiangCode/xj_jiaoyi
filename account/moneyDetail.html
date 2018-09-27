@@ -253,7 +253,10 @@
                         str+='</td>'
                         str+='<td>'
                         str+='<div>流水号：'+item.HOSTFLW+'</div>'
-                        str+='<div>订单号：'+item.HOSTSEQ+'</div>'
+                        if (item.HOSTSEQ != null) {
+                            str+='<div>订单号：'+item.HOSTSEQ+'</div>'
+                        }
+                        
                         str+='</td>'
                         if(item.TRANTYPE==11){
                             str+='<td style="margin-top: 27px;">普通转账,提现</td>'
@@ -273,13 +276,18 @@
                         }
                         str+='<td>'+item.ACCBAL+'</td>'
                         if (item.TRANTYPE == 11 || item.TRANTYPE == 23) {
-                            str+='<td><a style="color: #333; cursor:default; " href="##">查看</a></td>'
+                            str+='<td><a style="color: #333; cursor:default;" href="##">查看</a></td>'
                         } else {
 
                             str+='<td><a href="./mySale-orderDetailStatus.html?userType='+item.type+'&id='+item.HOSTSEQ+'">查看</a></td>'
                         }
                         
-                        str+='<td><a class="upload_btn" data-orderId="'+item.HOSTSEQ+'" onclick="down_moban(this)" href="##">下载</a></td>'
+                        if (item.HOSTSEQ != null) {
+                            str+='<td><a class="upload_btn" data-orderId="'+item.HOSTSEQ+'" onclick="down_moban(this)" href="##">下载</a></td>'
+                        } else {
+                            str+='<td><a class="upload_btn" href="##" style="color: #333; cursor:default;">下载</a></td>'
+                        }
+                        
 
                         str+='</tr>'
                     })
