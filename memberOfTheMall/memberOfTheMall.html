@@ -40,6 +40,11 @@
 	.member_list ul li {
 		width: auto;
 	}
+
+	.duihuan_button a {
+		width: 100%;
+		display: inline-block;
+	}
 </style>
 <body>
 	<!-- 会员商城页面 -->
@@ -590,6 +595,15 @@
 		        }
 		    });
 		}
+
+		//立即兑换
+    	$(document).on('click', '.duihuan_button a', function() {
+
+    		sessionStorage.setItem('productId', $(this).parent().attr('data-productId'));
+
+    		window.location.href = "shopDetail.html";
+
+    	});
 
 		listAjax();
 

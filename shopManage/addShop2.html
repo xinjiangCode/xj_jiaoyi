@@ -673,6 +673,7 @@
 		
 		// 点击下一步
         $('.nextSub2').click(function(){
+        	debugger;
 			if(!can){
 				return false;
 			}
@@ -745,6 +746,7 @@
 
 		// 新增商品-发布供应信息
 		function toAddShopInfo(infoObj, checkstr,that){
+			debugger
 			console.log(checkstr);
             if($(that).attr("cf_norepeat")=="1"){
                 $(that).attr("cf_norepeat","2")

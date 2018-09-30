@@ -132,7 +132,8 @@
 								
 							</div>
 							<div class="step-list">
-								<div class="order_info">该订单会为您保留<span>24.0</span>小时(从下单之日算起)，<span>24.0</span>小时之后如果还未付款，系统将自动取消该订单。</div>
+								<!-- <div class="order_info">该订单会为您保留<span>24.0</span>小时(从下单之日算起)，<span>24.0</span>小时之后如果还未付款，系统将自动取消该订单。</div> -->
+								<div class="order_info"></div>
 								<!-- <div class="nextbtn" id="nextBtn">下一步</div> -->
 								<div style="position: relative; height: 40px; padding-bottom: 30px; border-bottom: 1px solid #ebe9ea;">
 									<div class="pay_btn clearfix">
@@ -306,18 +307,27 @@
 			        		$('.pay_time').text(data.data.orderTime.payTime);
 			        	} 
 
-			        	var logistics = JSON.parse(data.data.logistics);
-		        		console.log(logistics);
-		        		var str = '';
-		        		for (var i = logistics.Traces.length - 1; i >= 0; i--) {
-		        			str += '<li class="clearfix">'
-								+'<div class="fl">'
-									+'<img class="wl_info_pic" src="../img/wl_info_pic.png">'
-									+'<span class="wl_info_time">'+logistics.Traces[i].AcceptTime+'</span>'
-								+'</div>'
-								+'<span class="wl_info_span fl">'+logistics.Traces[i].AcceptStation+'</span>'
-							+'</li>'
-		        		}
+			        	if (data.data.logistics) {
+			        		var logistics = JSON.parse(data.data.logistics);
+		        			console.log(logistics);
+
+		        			if (logistics.Traces.length != 0) {
+			        			var str = '';
+				        		for (var i = logistics.Traces.length - 1; i >= 0; i--) {
+				        			str += '<li class="clearfix">'
+										+'<div class="fl">'
+											+'<img class="wl_info_pic" src="../img/wl_info_pic.png">'
+											+'<span class="wl_info_time">'+logistics.Traces[i].AcceptTime+'</span>'
+										+'</div>'
+										+'<span class="wl_info_span fl">'+logistics.Traces[i].AcceptStation+'</span>'
+									+'</li>'
+				        		}
+			        		}
+			        	}
+
+			        	
+		        		
+		        		
 
 		        		$('.no_shop ul').html(str);
 		        		

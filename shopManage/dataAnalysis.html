@@ -43,6 +43,14 @@
 		    width: 132px;
 		}
 
+		.export_btn {
+			cursor: pointer;
+		}
+
+		.map_china .btn {
+			z-index: 10;
+		}
+
 	</style>
 </head>
 <body>
@@ -234,7 +242,7 @@
 						<div class="fr time_shaixuan clearfix">
 							<!-- <span class="fl">时间筛选：</span>
 							<input type="text" class="date-input laydate-icon fl" id="test1"> -->
-							<div class="fl">高级导出</div>
+							<div class="fl gj_export">高级导出</div>
 						</div>
 					</div>
 					<div class="jiaoyi_gaikuang_title">
@@ -826,7 +834,58 @@
             }
 	    });
 
+	    //地域列表导出
+	    $('.export_btn').click(function() {
 
+	    	$.ajax({
+		    	url: dcIP + 'countup/getExcelMapList.htm',
+	            type: 'get',
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	companyId: companyId
+	            },
+	            cache: false,
+	            dataType: 'json',
+	            success: function (data) {
+	                console.log(data);
+
+	    		},
+	    		error: function() {
+
+	    		}
+	    	});
+
+	    });
+
+
+	    //高级导出
+	    $('.gj_export').click(function() {
+
+	    	$.ajax({
+		    	url: dcIP + 'countup/getExcelMapList.htm',
+	            type: 'get',
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+	            data: {
+	            	companyId: companyId
+	            },
+	            cache: false,
+	            dataType: 'json',
+	            success: function (data) {
+	                console.log(data);
+
+	    		},
+	    		error: function() {
+
+	    		}
+	    	});
+	    	
+	    });
 	    
 
     </script>

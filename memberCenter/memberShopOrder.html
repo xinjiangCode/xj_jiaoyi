@@ -265,11 +265,23 @@
 											+'<li style="width: 50px;"><span class="order_num">'+(i+1)+'</span></li>'
 											+'<li style="font-size: 16px; width: 153px;" title="'+data.pageInfo.list[i].goodsName+'">'+data.pageInfo.list[i].goodsName+'</li>'
 											+'<li style="width: 115px;">'+data.pageInfo.list[i].spec+'</li>'
-											+'<li style="width: 110px; padding-right: 20px;"><span class="dun_num">'+data.pageInfo.list[i].goodsNum+'</span>吨</li>'
+											+'<li style="width: 110px; padding-right: 20px;"><span class="dun_num">'+data.pageInfo.list[i].goodsNum+'</span></li>'
 											+'<li style="width: 163px; padding-left: 49px;">'
-												+'<p>积分：<span class="dun_num">'+data.pageInfo.list[i].integral+'</span></p>'
-												+'<p>现金：<span class="xinjin_num">￥'+data.pageInfo.list[i].cash+'</span></p>'
-											+'</li>'
+											if (data.pageInfo.list[i].goodsPayMethod == 1) { //现金
+												
+												str += '<p>现金：<span class="xinjin_num">￥'+data.pageInfo.list[i].cash+'</span></p>'
+												
+											} else if (data.pageInfo.list[i].goodsPayMethod == 2) { //积分
+												
+												str += '<p>积分：<span class="dun_num">'+data.pageInfo.list[i].integral+'</span></p>'
+												
+											} else if (data.pageInfo.list[i].goodsPayMethod == 3) {
+												
+												str += '<p>积分：<span class="dun_num">'+data.pageInfo.list[i].integral+'</span></p>'
+													+'<p>现金：<span class="xinjin_num">￥'+data.pageInfo.list[i].cash+'</span></p>'
+											}
+											
+											str += '</li>'
 											+'<li style="width: 110px; padding-right: 20px;">'+status+'</li>'
 											+'<li style="padding-right: 13px;">'
 												+'<span class="look_order"><a href="##" data-status="'+data.pageInfo.list[i].status+'" data-orderId="'+data.pageInfo.list[i].orderId+'">查看订单</a></span>'

@@ -243,7 +243,38 @@
         .pop>.cont>.popBottom>.popCancel:hover{background-color: #007aff;color: #ffffff;}
         .pop>.cont>.popBottom>.popSure:hover{background-color: #026ee4;color: #ffffff;}
 
+		.ewm_div {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.5);
+			display: none;
+		}
 
+		.ewm_box {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			width: 220px;
+			height: 220px;
+			background: #fff;
+		}
+
+		.ewm_div img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			width: 200px;
+			height: 200px;
+		}
 	</style>
 </head>
 <body>
@@ -276,7 +307,7 @@
 		<div class="order_num">订单号：<span class="order_num_num">20180131111959001</span></div>
 		<div class="shop_name clearfix">
 			<span class="fl">商品名称：<span class="shop_name_name">氧化锌  氧化铁绿</span></span>
-			<span class="fr">应付金额：<span class="jifen_money"><span class="jf_span"><span class="num num1">299.97</span>积分</span><span class="yuan_span"><span class="add_btn">+</span><span class="num num2">309.97</span>元</span></span></span>
+			<span class="fr">应付金额：<span class="jifen_money"><span class="jf_span"><span class="num num1">0.00</span>积分</span><span class="yuan_span"><span class="add_btn">+</span><span class="num num2">0.00</span>元</span></span></span>
 		</div>
 	</div>
 	<div class="select_pay_title">
@@ -286,9 +317,9 @@
 	<div class="mianCont2 padd23">
 		<div style="color: #333333; font-size: 16px; margin-bottom: 40px;">支付平台</div>
 		<ul class="clearfix ul_pay">
-			<li class="pay_current"><img src="../img/wx_pay.png" alt=""></li>
+			<li class="pay_current wx"><img src="../img/wx_pay.png" alt=""></li>
 			<li class="pay2"><img src="../img/xuni_account_pay.png" alt=""></li>
-			<li><img src="../img/yinlian_pay.png" alt=""></li>
+			<li class="yl"><img src="../img/yinlian_pay.png" alt=""></li>
 			<li class="pay4"><img src="../img/jifen_pay.png" alt=""></li>
 		</ul>
 	</div>
@@ -480,6 +511,14 @@
 	    </div>
 	</div>
 
+	<!-- 微信二维码弹框 -->
+	<div class="ewm_div">
+		<div class="ewm_box">
+			<img src="../img/333.gif" alt="">
+		</div>
+		
+	</div>
+
 	<script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/common.js"></script>
     <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
@@ -521,15 +560,16 @@
 	        	console.log(data);
 	        	if (data.code == 1) {
 
-	        		if (data.data.payMethod == 2) { //积分
+	        		if (data.data.goodsPayMethod == 2) { //积分
 	        			$('.ul_pay li').removeClass('pay_current');
 	        			$('.pay4').addClass('pay_current');
 	        			// $('.pay2').unbind();
-	        		} else if (data.data.payMethod == 3 || data.data.payMethod == 1) { //现金+积分
+	        		} else if (data.data.goodsPayMethod == 3 || data.data.goodsPayMethod == 1) { //现金+积分
 	        			// $('.pay4').unbind();
 	        		}
 
-	        		$('.ul_pay').attr('data-payMethod', data.data.payMethod);
+
+	        		$('.ul_pay').attr('data-payMethod', data.data.goodsPayMethod);
 
 	        		$('.sh_name_name').text(data.data.name);
 
@@ -542,13 +582,13 @@
 	        		$('.shop_name_name').text(data.data.goodsName);
 
 
-	        		if (data.data.payMethod == 2) { //积分
+	        		if (data.data.goodsPayMethod == 2) { //积分
 	        			$('.yuan_span').hide();
 	        			$('.jf_span .num1').text(data.data.integral);
-	        		} else if (data.data.payMethod == 3) { //现金+积分
+	        		} else if (data.data.goodsPayMethod == 3) { //现金+积分
 	        			$('.jifen_money .num1').text(data.data.integral);
 	        			$('.jifen_money .num2').text(data.data.cash);
-	        		} else if (data.data.payMethod == 1) {
+	        		} else if (data.data.goodsPayMethod == 1) {
 	        			$('.jf_span').hide();
 	        			$('.add_btn').hide();
 	        			$('.yuan_span .num2').text(data.data.cash);
@@ -581,6 +621,154 @@
 	        },
 	        error: function(err) {
 	        	console.log(err);
+	        }
+	    });
+
+
+	    //微信支付
+	    $('.ul_pay .wx').click(function() {
+	    	var pay = $('.ul_pay').attr('data-payMethod');
+
+	    	if (pay == 3) { //现金+积分
+	    		$.ajax({
+					type:"post",
+			        url:pubIP+"memberOrder/orderPay",//v1.0
+			        cache:false,
+			        dataType: "json",
+			        async:false,
+			        headers: {
+		                Accept: "application/json; charset=utf-8",
+		                token: token
+		            },
+		            data: {
+		            	orderId: orderId,
+		            	payMethod: 3
+		            },
+			        success: function(data){
+			        	console.log(data);
+			        	if (data.code == 1) {
+
+			        		// sessionStorage.getItem('orderId', orderId);
+			        		// sessionStorage.setItem('status', 1);
+
+			        		// window.location.href = '../memberCenter/orderDetailWeiPay.html'
+
+			        		wxPayImage();
+
+			        	} else {
+			        		$('.all_error_alert .innerErrmsg').text('不好意思，积分不足！');
+
+							$('.all_error_alert').show();
+			        	}
+			        },
+			        error: function(err) {
+			        	console.log(err);
+			        }
+			    });
+	    	} else if (pay == 1) { //现金
+	    		wxPayImage();
+	    	}
+
+	    	
+	    });
+
+	    function wxPayImage() {
+	   //  	$.ajax({
+				// type:"get",
+		  //       url:pubIP+"memberOrder/wxPayImage",//v1.0
+		  //       cache:false,
+		  //       headers: {
+		  //       	Accept: "application/json; charset=utf-8",
+	   //              token: token
+	   //          },
+	   //          contentType: "image/*",
+	   //          data: {
+	   //          	orderId: orderId
+	   //          },
+	   //          responseType: 'blob',
+		  //       success: function(data){
+
+		  //       	var binaryData = [];
+				// 	binaryData.push(data);
+
+					
+		        	    
+        			// var bString = "";      
+        			// for(var i = 0, len = data.length; i < len; ++i){            
+        			// 	bString+= String.fromCharCode(data[i]);      
+        			// }      
+        			// var aaa = btoa(bString);  
+        			// console.log(aaa);
+		        	// console.log(this);
+
+
+		        	// define([],function(){    
+		        	// 	var base = function(){}
+		        	// 	base.encode = function(base64Str){    
+		        	// 		var bString = atob(base64Str);    
+		        	// 		var len = bString.length;    
+		        	// 		var arr = new Uint8Array(len);     
+		        	// 		while(len--){         
+		        	// 			arr[len] = bString.charCodeAt(len);     
+		        	// 		}    
+		        	// 		return arr;  
+		        	// 	}  
+		        	// 	base.decode = function(bytes){      
+		        	// 		var bString = "";      
+		        	// 		for(var i = 0, len = bytes.length; i < len; ++i){            
+		        	// 			bString+= String.fromCharCode(bytes[i]);      
+		        	// 		}      
+		        	// 		return btoa(bString);  
+		        	// 	}})
+
+
+
+					// $(".ewm_div img").attr("src",window.URL.createObjectURL(new Blob(binaryData, {type: "application/image"})));
+
+		        	
+		    //     },
+		    //     error: function(err) {
+		    //     	console.log(err);
+		    //     }
+		    // });
+
+
+		  	var url = pubIP + 'memberOrder/wxPayImage?orderId='+orderId;
+		    var xhr = new XMLHttpRequest();
+		    xhr.open('GET', url, true);
+		    xhr.responseType = "blob";
+		    // xhr.setRequestHeader("client_type", "DESKTOP_WEB");
+		    // xhr.setRequestHeader("desktop_web_access_key", _desktop_web_access_key);
+		    xhr.setRequestHeader("token", token);
+		    xhr.onload = function() {
+		        if (this.status == 200) {
+		            var blob = this.response;
+		            var img = document.createElement("img");
+		            img.onload = function(e) {
+		                window.URL.revokeObjectURL(img.src);
+		            };
+		            img.src = window.URL.createObjectURL(blob);
+		            $(".ewm_box").html(img);
+		            $(".ewm_div").show();
+		        }
+		    }
+		    xhr.send();
+		  	
+	    }
+
+	    $('.ewm_div').click(function() {
+	    	$(this).hide();
+	    });
+
+	    //没用上
+	    $(document).on('click', '.ewm_div img', function(e) {
+
+	    	if ( e && e.stopPropagation ) { 
+	            //因此它支持W3C的stopPropagation()方法 
+	            e.stopPropagation(); 
+	        } else {
+	            //否则，我们需要使用IE的方式来取消事件冒泡 
+	            window.event.cancelBubble = true; 
 	        }
 	    });
 
@@ -836,9 +1024,40 @@
   		//支付
   		$('.ul_pay li').click(function() {
   			
+  			if ($(this).hasClass('wx')) { 
+  				if ($('.ul_pay').attr('data-payMethod') == 2) {
+  					$('.all_error_alert .innerErrmsg').text('只能进行积分支付');
+
+					$('.all_error_alert').show();
+
+					return false;
+  				}
+
+  			}
 
   			if ($(this).hasClass('pay2')) {
-  				$('#xuni_account_pay_alert').show();
+  				
+  				if ($('.ul_pay').attr('data-payMethod') == 2) {
+  					$('.all_error_alert .innerErrmsg').text('只能进行积分支付');
+
+					$('.all_error_alert').show();
+
+					return false;
+  				} else {
+  					$('#xuni_account_pay_alert').show();
+  				}
+  			}
+
+  			if ($(this).hasClass('yl')) {
+  				if ($('.ul_pay').attr('data-payMethod') == 2) {
+  					$('.all_error_alert .innerErrmsg').text('只能进行积分支付');
+
+					$('.all_error_alert').show();
+
+					return false;
+  				} else {
+  					
+  				}
   			}
 
   			if ($(this).hasClass('pay4')) {
@@ -859,6 +1078,7 @@
   				}
   				
   			} else {
+
   				$('.ul_pay li').removeClass('pay_current');
   				$(this).addClass('pay_current');
   			}
