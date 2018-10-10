@@ -1584,7 +1584,7 @@
 			//首页全部广告位
 			$.ajax({
 				type:"post",
-		        url:pubIP+"advertisement/findAdvertisementByPosition",//v1.0
+		        url:pubIP+"pYisements/findByPositiones",//v1.0
 		        cache:false,
 		        dataType: "json",
 		        async:false,
@@ -1596,6 +1596,7 @@
                 	position: "A"
                 },
 		        success: function(data){
+
 		        	console.log("++++++++++++++++");
 		        	console.log(data);
 		        	var advertise1 = '';
