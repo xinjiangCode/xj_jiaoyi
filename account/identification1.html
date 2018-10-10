@@ -195,6 +195,12 @@
             bottom: 0px;
             margin: auto;
         }*/
+
+        .bigPic, .delete_btn, .delete_btn1 {
+            display: none;
+        }
+
+        
     </style>
 </head>
 <body>
@@ -320,7 +326,7 @@
                     <i class="ts_color" style="display: block;margin-top: 22px;font-size: 14px;">请上传营业执照或者扫描件！ 照片大小 < 2MB 图片格式为jpg、jpeg、png</i>
                 </div>
                 <span class="ts yingye"></span>
-                <div class="look_bigpic" ><img src="../img/big_pic.png" alt=""></div>
+                <div class="look_bigpic bigPic" ><img src="../img/big_pic.png" alt=""></div>
             </li>
             <li>
                 <div class="left1 Lf">开户许可证扫描件:</div>
@@ -333,7 +339,7 @@
                     </div>
                 </div>
                 <span></span>
-                <div class="look_bigpic1" ><img src="../img/big_pic.png" alt=""></div>
+                <div class="look_bigpic1 bigPic" ><img src="../img/big_pic.png" alt=""></div>
                 <span class="delete_btn">删除</span>
             </li>
             <li>
@@ -347,7 +353,7 @@
                     </div>
                 </div>
                 <span></span>
-                <div class="look_bigpic1"><img src="../img/big_pic.png" alt=""></div>
+                <div class="look_bigpic1 bigPic"><img src="../img/big_pic.png" alt=""></div>
                 <span class="delete_btn1">删除</span>
             </li>
             <!-- <li>
@@ -405,8 +411,8 @@
                             <input type="hidden" name="" value="" class="smallimg" id="zhengjian_hidden2">
                         </div>
                         <span class="ts"></span>
-                        <div class="look_bigpic2"><img src="../img/big_pic.png" alt=""></div>
-                        <div class="look_bigpic3"><img src="../img/big_pic.png" alt=""></div>
+                        <div class="look_bigpic2 bigPic"><img src="../img/big_pic.png" alt=""></div>
+                        <div class="look_bigpic3 bigPic"><img src="../img/big_pic.png" alt=""></div>
                     </div>
                 </li>
                 <li style="margin-top: 10px;">
@@ -491,6 +497,8 @@
         $('.delete_btn1, .delete_btn').click(function() {
             $(this).parent().find('.uploade').css('background', 'url("") rgb(246, 246, 246)');
             $(this).parent().find('.uploade').find('input[type="hidden"]').val('');
+            $(this).parent().find('.look_bigpic1').css('display', 'none');
+            $(this).hide();
         });
 
 
@@ -714,6 +722,7 @@
         });
         
         function xmTanUploadImg11(obj) {
+            
             var file = obj.files[0];
             if (file.size >= 2097152) {
                 alert('上传的图片超过了2MB');
@@ -742,6 +751,23 @@
                     });
                     $(obj).parent().find('input[type="hidden"]').val(data.url);
                     $(obj).parent().parent().next().css('display', 'none');
+                    console.log($(obj).context.id);
+                    if ($(obj).context.id == 'zhengjian_pic1') {
+                        $(obj).parent().parent().find('.look_bigpic2').css('display', 'block');
+                    } else if ($(obj).context.id == 'zhengjian_pic2') {
+                        $(obj).parent().parent().find('.look_bigpic3').css('display', 'block');
+                    } else {
+                        $(obj).parent().parent().parent().find('.bigPic').css('display', 'block');
+                    }
+
+                    if ($(obj).context.id == 'saomiaojian_pic') {
+                        $('.delete_btn').show();
+                    }
+
+                    if ($(obj).context.id == 'chajian_pic') {
+                        $('.delete_btn1').show();
+                    }
+                    
                 },
                 error: function (err) {
                     console.log(err);
@@ -988,7 +1014,10 @@
                         if (companyId) {
                              $(".next_btn_update").css('display', 'block');
                              $(".next_btn").css('display', 'none');
+                             $('.delete_btn').show();
+                             $('.delete_btn1').show();
                         }
+
                     } else if (data.data.type == 8) {  //已拒绝
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
@@ -1356,8 +1385,11 @@
         $('#yingye_zhizhao_pic').on('blur', function () {
             if ($('#yingye_zhizhao_hidden').val() == '') {
                 $('#yingye_zhizhao_hidden').parent().parent().next().html('营业执照不能为空');
+                $('.look_bigpic').css('display', 'none');
+                
             } else {
                 $('#yingye_zhizhao_hidden').parent().parent().next().html('');
+                $('.look_bigpic').css('display', 'block');
             }
         });
 
@@ -1507,7 +1539,12 @@
                                     });
                                     $('#yingye_zhizhao_pic').attr('data-picId1', data.data.picInfos[i].ids);
                                     $('#yingye_zhizhao_hidden').val(data.data.picInfos[i].picUrl);
-                        
+                                    
+                                    if ($('#yingye_zhizhao_hidden').val() != '') {
+                                        $('.look_bigpic').css('display', 'block');
+                                    } else {
+                                        $('.look_bigpic').css('display', 'none');
+                                    }
                                 }
 
                                 if (data.data.picInfos[i].picDescription == 'upload_file2') {
@@ -1519,7 +1556,12 @@
                                     });
                                     $('#saomiaojian_pic').attr('data-picId2', data.data.picInfos[i].ids);
                                     $('#saomiaojian_hidden').val(data.data.picInfos[i].picUrl);
-                        
+                                    
+                                    if ($('#saomiaojian_hidden').val() != '') {
+                                        $('#saomiaojian_hidden').parent().parent().parent().find('.look_bigpic1').css('display', 'block');
+                                    } else {
+                                        $('#saomiaojian_hidden').parent().parent().parent().find('.look_bigpic1').css('display', 'none');
+                                    }
                                 }
 
                                 if (data.data.picInfos[i].picDescription == 'upload_file3') {
@@ -1531,7 +1573,12 @@
                                     });
                                     $('#chajian_pic').attr('data-picId3', data.data.picInfos[i].ids);
                                     $('#chajian_hidden').val(data.data.picInfos[i].picUrl);
-                        
+                                    
+                                    if ($('#chajian_hidden').val() != '') {
+                                        $('#chajian_hidden').parent().parent().parent().find('.look_bigpic1').css('display', 'block');
+                                    } else {
+                                        $('#chajian_hidden').parent().parent().parent().find('.look_bigpic1').css('display', 'none');
+                                    }
                                 }
 
                                 if (data.data.picInfos[i].picDescription == 'upload_file4') {
@@ -1543,7 +1590,11 @@
                                     });
                                     $('#zhengjian_pic1').attr('data-picId4', data.data.picInfos[i].ids);
                                     $('#zhengjian_hidden1').val(data.data.picInfos[i].picUrl);
-                        
+                                    if ($('#zhengjian_hidden1').val() != '') {
+                                        $('#zhengjian_hidden1').parent().parent().find('.look_bigpic2').css('display', 'block');
+                                    } else {
+                                        $('#zhengjian_hidden1').parent().parent().find('.look_bigpic2').css('display', 'none');
+                                    }
                                 }
 
                                 if (data.data.picInfos[i].picDescription == 'upload_file5') {
@@ -1555,6 +1606,12 @@
                                     });
                                     $('#zhengjian_pic2').attr('data-picId5', data.data.picInfos[i].ids);
                                     $('#zhengjian_hidden2').val(data.data.picInfos[i].picUrl);
+
+                                    if ($('#zhengjian_hidden2').val() != '') {
+                                        $('#zhengjian_hidden2').parent().parent().find('.look_bigpic3').css('display', 'block');
+                                    } else {
+                                        $('#zhengjian_hidden2').parent().parent().find('.look_bigpic3').css('display', 'none');
+                                    }
                                 }
 
                             }

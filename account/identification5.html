@@ -198,6 +198,10 @@
         .look_bigpic2 img, .look_bigpic3 img{
             width: 25px;
         }
+
+        .bigPic {
+            display: none;
+        }
     
     </style>
 </head>
@@ -281,8 +285,8 @@
                         </div>
                     </div>
                     <div class="ts">身份证上传不能为空</div>
-                    <div class="look_bigpic2"><img src="../img/big_pic.png" alt=""></div>
-                    <div class="look_bigpic3"><img src="../img/big_pic.png" alt=""></div>
+                    <div class="look_bigpic2 bigPic"><img src="../img/big_pic.png" alt=""></div>
+                    <div class="look_bigpic3 bigPic"><img src="../img/big_pic.png" alt=""></div>
                 </li>
                 <li style="margin-top: 10px;">
                     <div class="right">
@@ -421,6 +425,12 @@
                     });
                     $(obj).parent().find('input[type="hidden"]').val(data.url);
                     $(obj).parent().parent().next().css('display', 'none');
+                    
+                    if ($(obj).context.id == 'id_card_pic1') {
+                        $(obj).parent().parent().parent().find('.look_bigpic2').css('display', 'block');    
+                    } else if ($(obj).context.id == 'id_card_pic2') {
+                        $(obj).parent().parent().parent().find('.look_bigpic3').css('display', 'block');    
+                    }
                 },
                 error: function (err) {
                     console.log(err);
@@ -1221,6 +1231,12 @@ function xmTanUploadImg2(obj) {
                                         });
                                         $('#id_card_pic1').attr('data-picId8', data.data.picInfos[i].ids);
                                         $('#id_card_hidden1').val(data.data.picInfos[i].picUrl);
+
+                                        if ($('#id_card_hidden1').val() != 0) {
+                                            $('#id_card_hidden1').parent().parent().parent().find('.look_bigpic2').css('display', 'block');
+                                        } else {
+                                            $('#id_card_hidden1').parent().parent().parent().find('.look_bigpic2').css('display', 'none');
+                                        }
                             
                                     }
 
@@ -1233,6 +1249,12 @@ function xmTanUploadImg2(obj) {
                                         });
                                         $('#id_card_pic2').attr('data-picId9', data.data.picInfos[i].ids);
                                         $('#id_card_hidden2').val(data.data.picInfos[i].picUrl);
+
+                                        if ($('#id_card_hidden2').val() != 0) {
+                                            $('#id_card_hidden2').parent().parent().parent().find('.look_bigpic3').css('display', 'block');
+                                        } else {
+                                            $('#id_card_hidden2').parent().parent().parent().find('.look_bigpic3').css('display', 'none');
+                                        }
                                     }
                                 }
                             }

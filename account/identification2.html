@@ -114,6 +114,10 @@
             width: 25px;
         }
 
+        .bigPic {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
@@ -204,8 +208,8 @@
                             <input type="hidden" name="" value="" class="smallimg" id="zhengjian_hidden2">
                         </div>
                         <span class="ts"></span>
-                        <div class="look_bigpic2"><img src="../img/big_pic.png" alt=""></div>
-                        <div class="look_bigpic3"><img src="../img/big_pic.png" alt=""></div>
+                        <div class="look_bigpic2 bigPic"><img src="../img/big_pic.png" alt=""></div>
+                        <div class="look_bigpic3 bigPic"><img src="../img/big_pic.png" alt=""></div>
                     </div>
                 </li>
                 <li style="margin-top: 10px;">
@@ -287,6 +291,14 @@
                     });
                     $(obj).parent().find('input[type="hidden"]').val(data.url);
                     $(obj).parent().parent().find('.ts').css('display', 'none');
+                    if ($(obj).context.id == 'zhengjian_pic1') {
+                        $(obj).parent().parent().find('.look_bigpic2').css('display', 'block');
+                    }
+
+                    if ($(obj).context.id == 'zhengjian_pic2') {
+                        $(obj).parent().parent().find('.look_bigpic3').css('display', 'block');
+                    }
+                    
                 },
                 error: function (err) {
                     console.log(err);
@@ -750,6 +762,12 @@ $(function () {
                                     });
                                     $('#zhengjian_pic1').attr('data-picId6', data.data.picInfos[i].ids);
                                     $('#zhengjian_hidden1').val(data.data.picInfos[i].picUrl);
+
+                                    if ($('#zhengjian_hidden1').val() != '') {
+                                        $('#zhengjian_hidden1').parent().parent().find('.look_bigpic2').css('display', 'block');
+                                    } else {
+                                        $('#zhengjian_hidden1').parent().parent().find('.look_bigpic2').css('display', 'none');
+                                    }
                         
                                 }
 
@@ -762,6 +780,12 @@ $(function () {
                                     });
                                     $('#zhengjian_pic2').attr('data-picId7', data.data.picInfos[i].ids);
                                     $('#zhengjian_hidden2').val(data.data.picInfos[i].picUrl);
+
+                                    if ($('#zhengjian_hidden2').val() != '') {
+                                        $('#zhengjian_hidden2').parent().parent().find('.look_bigpic3').css('display', 'block');
+                                    } else {
+                                        $('#zhengjian_hidden2').parent().parent().find('.look_bigpic3').css('display', 'none');
+                                    }
                                 }
                             }
                         }
