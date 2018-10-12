@@ -1376,7 +1376,9 @@
             data: {},
             success: function (data) {
                 if (data.code == 1) {
-                    window.parent.$(".modelBox34 .phone").val(data.data.financePhoneNumber);
+                    window.parent.$(".modelBox34 .phone").val(data.data.financePhoneNumber).css('text-indent', '7px');
+                    window.parent.$('.modelBox34 .SMScode').css('text-indent', '7px');
+                    
                     window.parent.$(".modelBox34 .getSMSCode").unbind();
                     window.parent.$(".modelBox34 .getSMSCode").click(function () {
                         if($(this).attr("disabled")=="disabled"){

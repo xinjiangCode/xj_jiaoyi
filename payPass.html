@@ -134,12 +134,12 @@
 						<div class="phone1 second">
 							<span class="required">*</span>
 							<span class="span">新密码：</span>
-							<input type="text" id="newPwd1" class="phone_input" maxlength="20" onkeyup="this.value=chaneseCheck(this.value)"  placeholder="6-20个字母、数字、特殊符号组成">
+							<input type="password" id="newPwd1" class="phone_input" maxlength="20" onkeyup="this.value=chaneseCheck(this.value)"  placeholder="6-20个字母、数字、特殊符号组成">
 						</div>
 						<div class="code code1">
 							<span class="required">*</span>
 							<span class="span">确认密码：</span>
-							<input type="text"  id="newPwd2" class="phone_input" maxlength="20" onkeyup="this.value=chaneseCheck(this.value)" placeholder="必须和设置的密码一致">
+							<input type="password"  id="newPwd2" class="phone_input" maxlength="20" onkeyup="this.value=chaneseCheck(this.value)" placeholder="必须和设置的密码一致">
 						</div>
 						<div class="text-center mt">
 							<div class="clearfix inline-block">
@@ -190,7 +190,7 @@
         }
         var step= $("#myStep").step({
             animate:true,
-            initStep:1,
+            initStep:2,
             speed:1000
         });
         $(function() {

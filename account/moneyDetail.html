@@ -167,12 +167,17 @@
 
         var leixing = $('input[name="leixing"]:checked').val();
 
-        var orderNum = $('.orderNum').val();
+        var orderNum = $('.orderNum input').val();
 
         var startTime = $('#test1').val();
         var endTime = $('#test2').val();
 
-        var timeSlot = 4;
+        
+        if (startTime == '' || endTime == '') {
+            var timeSlot = '';
+        } else {
+            var timeSlot = 4;
+        }
 
         listPage(1, flow, leixing, orderNum, startTime, endTime, timeSlot);
     });

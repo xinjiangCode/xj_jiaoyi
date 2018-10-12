@@ -242,7 +242,7 @@
 						<div class="fr time_shaixuan clearfix">
 							<!-- <span class="fl">时间筛选：</span>
 							<input type="text" class="date-input laydate-icon fl" id="test1"> -->
-							<div class="fl gj_export">高级导出</div>
+							<div class="fl gj_export"><a href="##" download="">高级导出</a></div>
 						</div>
 					</div>
 					<div class="jiaoyi_gaikuang_title">
@@ -343,7 +343,7 @@
 					<div class="map_china clearfix">
 						<div class="btn">
 							<span>地域分布</span>
-							<span class="export_btn">高级导出</span>
+							<span class="export_btn"><a href="##" download="">高级导出</a></span>
 						</div>
 						<div id="container3" style="height: 435px; width: 410px; float: left;"></div>
 						<div class="fr map_list">
@@ -834,58 +834,73 @@
             }
 	    });
 
+
 	    //地域列表导出
-	    $('.export_btn').click(function() {
+	    $('.export_btn a').attr('href', pubIP + 'service/clientStatistics/downExcel?companyId='+companyId+'&token='+token);
 
-	    	$.ajax({
-		    	url: dcIP + 'countup/getExcelMapList.htm',
-	            type: 'get',
-	            headers: {
-	                Accept: "application/json; charset=utf-8",
-	                token: token
-	            },
-	            data: {
-	            	companyId: companyId
-	            },
-	            cache: false,
-	            dataType: 'json',
-	            success: function (data) {
-	                console.log(data);
+	    $('.export_btn a').attr('download', pubIP + 'service/clientStatistics/downExcel?companyId='+companyId+'&token='+token);
 
-	    		},
-	    		error: function() {
-
-	    		}
-	    	});
-
-	    });
 
 
 	    //高级导出
-	    $('.gj_export').click(function() {
+	    $('.gj_export a').attr('href', pubIP + 'service/clientStatistics/validMobile?companyId='+companyId+'&token='+token);
 
-	    	$.ajax({
-		    	url: dcIP + 'countup/getExcelMapList.htm',
-	            type: 'get',
-	            headers: {
-	                Accept: "application/json; charset=utf-8",
-	                token: token
-	            },
-	            data: {
-	            	companyId: companyId
-	            },
-	            cache: false,
-	            dataType: 'json',
-	            success: function (data) {
-	                console.log(data);
+	    $('.gj_export a').attr('download', pubIP + 'service/clientStatistics/validMobile?companyId='+companyId+'&token='+token);
 
-	    		},
-	    		error: function() {
 
-	    		}
-	    	});
+
+	    //地域列表导出
+	    // $('.export_btn a').click(function() {
+
+	    // 	$.ajax({
+		   //  	url: dcIP + 'service/clientStatistics/exportMapList',
+	    //         type: 'get',
+	    //         headers: {
+	    //             Accept: "application/json; charset=utf-8",
+	    //             token: token
+	    //         },
+	    //         data: {
+	    //         	companyId: companyId
+	    //         },
+	    //         // cache: false,
+	    //         // dataType: 'json',
+	    //         success: function (data) {
+	    //             console.log(data);
+
+	    // 		},
+	    // 		error: function() {
+
+	    // 		}
+	    // 	});
+
+	    // });
+
+
+	    //高级导出
+	    // $('.gj_export').click(function() {
+
+	    // 	$.ajax({
+		   //  	url: dcIP + 'countup/getExcelMapList.htm',
+	    //         type: 'get',
+	    //         headers: {
+	    //             Accept: "application/json; charset=utf-8",
+	    //             token: token
+	    //         },
+	    //         data: {
+	    //         	companyId: companyId
+	    //         },
+	    //         cache: false,
+	    //         dataType: 'json',
+	    //         success: function (data) {
+	    //             console.log(data);
+
+	    // 		},
+	    // 		error: function() {
+
+	    // 		}
+	    // 	});
 	    	
-	    });
+	    // });
 	    
 
     </script>

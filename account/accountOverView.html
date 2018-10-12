@@ -720,7 +720,9 @@
     }
 
     $(document).on('click', '.jiyi_pass_edit', function () {
-       
+        window.parent.$('#oldPayPwd').val('');
+        window.parent.$('#newPayPwd1').val('');
+        window.parent.$('#newPayPwd2').val('');
         window.parent.updataPayPwd();
     });
     

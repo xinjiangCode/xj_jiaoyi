@@ -1606,53 +1606,74 @@
 		        	var advertise5 = '';
 		        	var advertise6 = '';
 		        	var advertise7 = '';
-					if (data&& data.A1.length > 0) {
-						var result =  template("bannerTm",{list:data.A1});
-						$('.swiper-wrapper').append(result);
-						var mySwiper = new Swiper ('.swiper-container', {
-							loop: true,
-							autoplay : 5000,
-							pagination: '.swiper-pagination',
-							paginationClickable: true
-						})
+		        	if (data&& data.A1) {
+		        		if (data&& data.A1.length > 0) {
+							var result =  template("bannerTm",{list:data.A1});
+							$('.swiper-wrapper').append(result);
+							var mySwiper = new Swiper ('.swiper-container', {
+								loop: true,
+								autoplay : 5000,
+								pagination: '.swiper-pagination',
+								paginationClickable: true
+							})
+			        	}
 		        	}
-		        	if (data&& data.A2.length > 0) {
-		        		for (var i = 0; i < data.A2.length; i++) {
-		        			advertise2 += '<div data-companyId="'+data.A2[i].companyId+'">'
-									+'<a href="javascript:;"><div class="supplierLogo" style="background: url('+data.A2[i].url+') no-repeat; background-position: center;background-size:contain ;"></div></a>'
-								+'</div>';
-		        		}
-		        		$('.supplierBox').html(advertise2);
+					
+					if (data&& data.A2) {
+			        	if (data&& data.A2.length > 0) {
+			        		for (var i = 0; i < data.A2.length; i++) {
+			        			advertise2 += '<div data-companyId="'+data.A2[i].companyId+'">'
+										+'<a href="javascript:;"><div class="supplierLogo" style="background: url('+data.A2[i].url+') no-repeat; background-position: center;background-size:contain ;"></div></a>'
+									+'</div>';
+			        		}
+			        		$('.supplierBox').html(advertise2);
+			        	}
+			        }
+
+			        if (data&& data.A3) {
+			        	if (data&& data.A3.length > 0) {
+			        		$('.adImg').attr("src",data.A3[0].url);
+			        	}
+			        }
+
+			        if (data&& data.A4) {
+			        	if (data&& data.A4.length > 0) {
+			        		for (var i = 0; i < data.A4.length; i++) {
+			        			$("#xianhuo_ban").css({
+														background:"url("+data.A4[0].url+") 0 0 no-repeat",
+														backgroundSize: "100% 100%",
+													});
+			        		}
+			        	}
+			        }
+		        	
+		        	if (data&& data.A5) {
+		        		if (data&& data.A5.length > 0) {
+			        		for (var i = 0; i < data.A5.length; i++) {
+			        			$(".purchaseLeft").css({
+														background:"url("+data.A5[0].url+") 0 0 no-repeat",
+														backgroundSize: "100% 100%",
+													});
+			        		}
+			        	}
 		        	}
-		        	if (data&& data.A3.length > 0) {
-		        		$('.adImg').attr("src",data.A3[0].url);
+		        	
+		        	if (data&& data.A6) {
+		        		if (data&& data.A6.length > 0) {
+			        		for (var i = 0; i < data.A6.length; i++) {
+								$(".financeLeft").find("img").attr("src",data.A6[0].url);
+			        		}
+			        	}
 		        	}
-		        	if (data&& data.A4.length > 0) {
-		        		for (var i = 0; i < data.A4.length; i++) {
-		        			$("#xianhuo_ban").css({
-													background:"url("+data.A4[0].url+") 0 0 no-repeat",
-													backgroundSize: "100% 100%",
-												});
-		        		}
+
+		        	if (data&& data.A7) {
+		        		if (data&& data.A7.length > 0) {
+			        		for (var i = 0; i < data.A7.length; i++) {
+								$(".wlShiSchImg").find("img").attr("src",data.A7[0].url);
+			        		}
+			        	}
 		        	}
-		        	if (data&& data.A5.length > 0) {
-		        		for (var i = 0; i < data.A5.length; i++) {
-		        			$(".purchaseLeft").css({
-													background:"url("+data.A5[0].url+") 0 0 no-repeat",
-													backgroundSize: "100% 100%",
-												});
-		        		}
-		        	}
-		        	if (data&& data.A6.length > 0) {
-		        		for (var i = 0; i < data.A6.length; i++) {
-							$(".financeLeft").find("img").attr("src",data.A6[0].url);
-		        		}
-		        	}
-		        	if (data&& data.A7.length > 0) {
-		        		for (var i = 0; i < data.A7.length; i++) {
-							$(".wlShiSchImg").find("img").attr("src",data.A7[0].url);
-		        		}
-		        	}
+		        	
 		        },
 		        error: function(err) {
 		        	console.log(err);

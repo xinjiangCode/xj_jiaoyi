@@ -6,9 +6,9 @@ if (href.indexOf('index.html') != -1 || href.indexOf('freeSearch') != -1 || href
 	// var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
 	// var wuliuIP = 'http://127.0.0.1:8020/allWuliu/index.html?token='+token1;
 	// var wuliuIP = 'http://web.test.hdlsuper.com/?token='+token1;
-	var wuliuIP = 'http://www.test.hdlsuper.com/?token='+token1;
+	// var wuliuIP = 'http://www.test.hdlsuper.com/?token='+token1;
 	// var wuliuIP = 'http://web.hdlsuper.com/?token='+token1;
-	// var wuliuIP = 'http://www.hdlsuper.com/?token='+token1;
+	var wuliuIP = 'http://www.hdlsuper.com/?token='+token1;
 
 }
 
@@ -579,8 +579,8 @@ if(adct == '首页' ){
 document.writeln(headLink);
 
 // var headerip = 'http://api.xjv56.com/service/';
-var headerip = 'http://api.test.xjv56.com/service/';
-// var headerip = 'http://192.168.1.80:7777/service/';
+// var headerip = 'http://api.test.xjv56.com/service/';
+var headerip = 'http://192.168.1.80:7777/service/';
 // var headerip = 'http://192.168.1.105:7777/service/';
 
 // var headerip = 'http://127.0.0.1:7777/service/';
@@ -663,19 +663,22 @@ window.onload = function(){
 			success: function(data){
 			    console.log(data);
 
-			    if (data.data.type == 1) { //未提交
+			    if (data.data) {
+			    	if (data.data.type == 1) { //未提交
 			  
-					sessionStorage.setItem('cf_showPage','0');
-					sessionStorage.setItem('hzf_showPage','');
-					
-			    } else if (data.data.type == 2) { //审核中
-					sessionStorage.setItem('cf_showPage','0');
-					sessionStorage.setItem('hzf_showPage','flag_qyrz');
-					 
-			    } else {
-			    	sessionStorage.setItem('cf_showPage','0');
-					sessionStorage.setItem('hzf_showPage','');
+						sessionStorage.setItem('cf_showPage','0');
+						sessionStorage.setItem('hzf_showPage','');
+						
+				    } else if (data.data.type == 2) { //审核中
+						sessionStorage.setItem('cf_showPage','0');
+						sessionStorage.setItem('hzf_showPage','flag_qyrz');
+						 
+				    } else {
+				    	sessionStorage.setItem('cf_showPage','0');
+						sessionStorage.setItem('hzf_showPage','');
+				    }
 			    }
+			    
 
 
 
