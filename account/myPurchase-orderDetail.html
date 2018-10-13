@@ -1407,7 +1407,10 @@
             cache: false,
             ansyc: true,
             dataType: 'json',
-            data: {mobile: phone},
+            data: {
+                mobile: phone,
+                type: 4 //订单支付成功后发送给卖家
+            },
             success: function (data) {
                 if (data.code == 1) {
                     //alert("发送验证码成功");

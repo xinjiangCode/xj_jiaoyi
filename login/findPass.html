@@ -535,8 +535,9 @@
 		          cache:false,
 		          data:{
 		          	'mobile':$('#onlySwPhone').text(),
+		          	 type: 2 //找回登录密码验证码
 		          },
-		          dataType: "json",
+		          dataType: "json", 
 		          success: function(json){
 		            	console.log(json);
 		            	if(json.code==1){

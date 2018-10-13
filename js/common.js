@@ -1,8 +1,8 @@
 //api地址
 // var pubIP = 'http://api.xjv56.com/service/';
-// var pubIP = 'http://api.test.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
-// var pubIP = 'http://192.168.1.105:7777/service/';
+var pubIP = 'http://api.test.xjv56.com/service/';
+// var pubIP = 'http://192.168.1.80:7777/service/';
+// var pubIP = 'http://192.168.1.72:7777/service/';
 
 //导出
 // var dcIP = 'http://192.168.1.80:7777/';
@@ -13,21 +13,19 @@ var pubIP = 'http://192.168.1.80:7777/service/';
 // 物流交易衔接的链接
 // var wuliuIP = 'http://wl.web.xjv56.com/';
 // var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
-// var wuliuIP = 'http://web.test.hdlsuper.com/';
-// var wuliuIP = 'http://www.test.hdlsuper.com/';
-// var wuliuIP = 'http://web.hdlsuper.com/';
-var wuliuIP = 'http://www.hdlsuper.com/';
+var wuliuIP = 'http://www.test.hdlsuper.com/';
+// var wuliuIP = 'http://www.hdlsuper.com/';
 //跳回登录页
 //var homeUrl = 'http://192.168.1.80:8180/';
-// var homeUrl = 'http://web.test.xjv56.com/';
-var homeUrl = 'http://web.xjv56.com/';
+var homeUrl = 'http://web.test.xjv56.com/';
+// var homeUrl = 'http://web.xjv56.com/';
 //下载地址
-// var downIP = 'http://file.test.xjv56.com/';
-var downIP = 'http://file.xjv56.com/';
+var downIP = 'http://file.test.xjv56.com/';
+// var downIP = 'http://file.xjv56.com/';
 //var downIP = 'http://192.168.1.80:8680/web-file/';
 //上传地址
-var uplodImgPath = 'http://file.xjv56.com/bfile/fileUpload.htm';
-// var uplodImgPath = 'http://file.test.xjv56.com/bfile/fileUpload.htm';
+// var uplodImgPath = 'http://file.xjv56.com/bfile/fileUpload.htm';
+var uplodImgPath = 'http://file.test.xjv56.com/bfile/fileUpload.htm';
 
 //var uplodImgPath = 'http://192.168.1.80:8680/bfile/fileUpload.htm';
 

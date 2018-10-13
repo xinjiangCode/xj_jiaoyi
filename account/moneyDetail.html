@@ -137,6 +137,13 @@
                 cf_alert1(2, '开始时间不能大于结束时间');
                 $('#test2').val('');
             }
+
+            var time1 = new Date().Format("yyyy-MM-dd");
+
+            if (date > time1) {
+                cf_alert1(2, '结束时间不能超过今天时间');
+                $('#test2').val(time1);
+            }
         }
     })
     laydate.skin('yahui');  //加载皮肤，参数lib为皮肤名
