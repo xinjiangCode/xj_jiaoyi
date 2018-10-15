@@ -939,68 +939,7 @@
 						}
 
 						
-
-						// if (response.data.productDetail.productCate == 2) {  //试剂
-
-							$('.objDgg').css('paddingLeft','17px').css('color', '#999');
-							$('#shengyu_num').css('display','inline-block');
-
-							$('.danwei').css('display','inline-block');
-							$('.shiji').css('display', 'inline-block');
-							$('.dazong').css('display','none');
 							
-							$('.zhuanhuan').css('display','inline-block');
-							$('.jisuanqi').css('display','inline-block');
-							$('.objDIfInner a.toXunpanBtn').css('color','#FF6458').css('borderColor', '#FF6458').html('我要询价');
-
-							$('.hazardousArticle').css('display','none');
-							$('.shangpin').css('display', 'block');
-
-							$('.objEditorDtls').css('paddingTop', '0px').css('paddingLeft', '0px');
-							$('.objDtsTit').css('marginBottom', '18px').css('color', '#333').css('height', '50px').css('background', 'url(../img/detail_bg.png)').css('width', '939px').css('lineHeight', '50px').css('paddingLeft', '17px');
-							$('.objBorder .objEditorDtls.objDetails').css('border', 'none');
-
-							$('.shangpin_div').css('border', '1px solid #EBE9EA').css('marginBottom', '16px');
-							$('.shangpin_div .infoBox').css('border', 'none').css('marginBottom', '0px');
-						// }
-						// 化学品危险提示
-						
-							if (response.data.productDetail.productCate == 1) {
-								if(response.data.chemicalType && response.data.chemicalType != {}) {
-									var chemicalTypeTpl = ''
-									$('.hazardousArticle').css('display', 'block')
-									chemicalTypeTpl += '<div class="haIcon">' +
-										'<img src="../img/hazardousArticle.png"  />' +
-										'<p>' + response.data.chemicalType.typeName + '：' + response.data.chemicalType.msgTitle + '</p>' +
-										'</div>';
-									if(response.data.chemicalType.msgShow == 1) {
-										chemicalTypeTpl += '<div style="line-height:24px;margin-top: 2px;">' + response.data.chemicalType.msgContent + '</div>';
-									}
-
-									$('.hazardousArticle').html(chemicalTypeTpl);
-								} else {
-									$('.hazardousArticle').css('display', '')
-								}
-							} else if (response.data.productDetail.productCate == 2) {
-								if(response.data.chemicalType && response.data.chemicalType != {}) {
-									var chemicalTypeTpl = ''
-									$('.shangpin').css('display', 'block')
-									chemicalTypeTpl += '<div class="shangpin_title">'+ response.data.chemicalType.typeName + '：</div>'
-											+'<div class="jinggao clearfix">'
-												+'<div class="fl img_bg">'
-													+'<img src="../img/hazardousArticle.png" />'
-													+'<p>' + response.data.chemicalType.msgTitle + '</p>'
-												+'</div>';
-												if (response.data.chemicalType.msgShow == 1) {
-													chemicalTypeTpl += '<div class="shangpin_cont fl">'+ response.data.chemicalType.msgContent +'</div>';
-												}
-									chemicalTypeTpl+='</div>';
-									
-									$('.shangpin').html(chemicalTypeTpl);
-								} else {
-									$('.shangpin').css('display', '');
-								}
-							}
 						
 						// 商品详情
 						var goodsDetailInfoTpl = template('goodsDetailInfoTpl', productDetail);

@@ -151,9 +151,9 @@
 					<span>支付方式：</span>
 				</div>
 				<div class="inline-block">
-					<input type="radio" name="pay_method" checked="">现汇
-					<input type="radio" name="pay_method">承兑
-					<input type="radio" name="pay_method">现汇+承兑
+					<input type="radio" name="pay_method" checked="" value='1'>现汇
+					<input type="radio" name="pay_method" value='2'>承兑
+					<input type="radio" name="pay_method" value='3'>现汇+承兑
 				</div>
 			</div>
 			<div class="div_one">
@@ -186,10 +186,11 @@
 						<input type="hidden"  value="" />
 					</div>
 				</div>
+				<span class="ts" style="margin-top: 85px; line-height: 16px; display: inline-block;"></span>
 			</div>
 			<div class="div_one clearfix">
 				<div class="inline-block fl title">
-					<span>商品活动主图：</span>
+					<span>商品图片：</span>
 				</div>
 				<div class="inline-block fl img1">
 					<div class="fl">
@@ -227,9 +228,11 @@
 
 		startTime = startTime.replace('-', '年');
 		startTime = startTime.replace('-', '月');
+		startTime = startTime.replace(' ', '日 ');
 
 		endTime = endTime.replace('-', '年');
 		endTime = endTime.replace('-', '月');
+		endTime = endTime.replace(' ', '日 ');
 
 		$('.activityTitle').text(activityTitle);
 		$('.activityStartTime').text(startTime);
@@ -309,10 +312,12 @@
 			ele.parent().find('.ts').show();
 		}
 
-
+		var ind = 0;
 
 		$('.submit_btn').unbind();
 		$('.submit_btn').click(function() {
+				
+
 			var select_shop = $('.select_shop');
 			var activity_shop_name = $('.activity_shop_name');
 			var unit = $('.unit');
@@ -366,8 +371,72 @@
 			if (concat_method.val() == '') {
 				ts_block(concat_method, '联系方式不能为空');
 				return false;
+			} else if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(concat_method.val()))) {
+				ts_block(concat_method, '联系方式格式不正确');
+				return false;
 			}
 
+			var sProductId = select_shop.attr('data-selectedindex');
+			var productName = select_shop.find('span').text();
+
+			var paymentMethod = $('input[name="pay_method"]:checked').val();
+
+			
+			var pics = '';
+			
+			$('input[type="hidden"]').each(function() {
+
+				if ($(this).attr('value') != '') {
+					ind++;
+					pics += $(this).val() + ',';
+				}
+				
+			});	
+
+			if (ind < 6) {
+				$('#file0').parent().parent().next().text('图片不能少于6张').show();
+				return false;
+			} else {
+				$('#file0').parent().parent().next().text('').hide();
+			}
+
+
+			$.ajax({
+				type: "post",
+	            url: pubIP + "acticityApi/addActivityProduct",//v1.0
+	            headers: {
+	                token: token
+	            },
+	            cache: false,
+	            data: {
+	            	activityId: activityId,
+	            	sProductId: sProductId,
+	            	companyId: companyId,
+	            	productName: productName,
+	            	unitPrice: unit.val(), //单价
+	            	minAmount: order_num.val(), //最小购买量
+	            	maxAmount: buy_num.val(),//最大购买量
+	            	repertory: kucun.val(), //库存
+	            	paymentMethod: paymentMethod,
+	            	contactName: concat_name.val(),
+	            	contactPhone: concat_method.val(),
+	            	pics: pics
+	            },
+	            dataType: "json",
+	            success: function(data){
+					console.log(data);
+					if (data.code == 1) {
+						cf_alert1(1, '添加成功');
+						window.location.reload();
+					} else {
+						cf_alert1(2, '添加失败');
+					}
+				},
+				error: function(err) {
+					console.log(err);
+				}
+
+			});
 
 		});
 
@@ -425,6 +494,8 @@
 		$('.concat_method').blur(function() {
 			if ($(this).val() == '') {
 				$(this).parent().parent().find('.ts').text('联系方式不能为空');
+			} else if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test($(this).val()))) {
+				$(this).parent().parent().find('.ts').text('联系方式格式不正确');
 			} else {
 				$(this).parent().parent().find('.ts').text('');
 			}
@@ -435,6 +506,8 @@
 			xmTanUploadImg1(this);
 		})
 		
+    	var ind_pic = 0;
+
 		function xmTanUploadImg1(obj) {
 	        var file = obj.files[0];
 	        if (file.size >= 2097152) {
@@ -463,6 +536,15 @@
 	                		'background-color':'#f6f6f6'
 	                });
 	                $(obj).parent().find('input[type="hidden"]').val(data.url);
+	 
+					ind_pic++;
+
+	                if (ind_pic < 6) {
+						$('#file0').parent().parent().next().text('图片不能少于6张').show();
+					} else {
+						$('#file0').parent().parent().next().text('').hide();
+					}	
+
 	            },
 	            error: function (err) {
 	                console.log(err);

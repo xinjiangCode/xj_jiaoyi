@@ -114,7 +114,7 @@
         </div>
     </div>
 
-   <!--  <div id="Pagination" class="pagination"><!-- 这里显示分页 --></div> -->
+   <!--  <div id="Pagination" class="pagination"><!-- 这里显示分页</div> -->
 
 </div>
 
@@ -270,11 +270,11 @@
                         }
                         
                         str+='</td>'
-                        if(item.TRANTYPE==11){
-                            str+='<td style="margin-top: 27px;">提现</td>'
-                        }else if(item.TRANTYPE==15){
+                        if(item.TRANTYPE==15){
                             str+='<td style="margin-top: 27px;">现汇交易</td>'
-                        }else if(item.TRANTYPE==23){
+                        }else if(item.TRANTYPE==23 && item.CDFG=="D"){
+                            str+='<td style="margin-top: 27px;">提现</td>'
+                        } else if(item.TRANTYPE==11 && item.CDFG=="C"){
                             str+='<td style="margin-top: 27px;">充值</td>'
                         }
                         str+='<td class="user">'

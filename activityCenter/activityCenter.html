@@ -12,6 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/activityCenter/activityCenter.css">
+	<style>
+		.activityCenter {
+			height: 910px;
+		}
+	</style>
 </head>
 <body>
 
@@ -221,9 +226,25 @@
 
 		});
 
-
+		//立即报名
         $(document).on('click', '.liji_baoming', function() {
+        	window.parent.$('#lijiBaoming .pay_pass_input').val('');
+        	window.parent.$('#lijiBaoming .phone_num').val('');
+        	window.parent.$('#lijiBaoming .code_input').val('');
         	window.parent.lijiBaoming();
+        });
+
+        window.parent.$('#lijiBaoming .modelbtn').unbind();
+        window.parent.$('#lijiBaoming .modelbtn').click(function() {
+
+        	var pay_pass = window.parent.$('#lijiBaoming .pay_pass_input');
+        	var phone_num = window.parent.$('#lijiBaoming .phone_num');
+        	var code_input = window.parent.$('#lijiBaoming .code_input');
+
+        	// if (pay_pass.val() == '') {
+        		
+        	// }
+
         });
 
         var isFirst = true;

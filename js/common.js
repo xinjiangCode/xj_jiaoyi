@@ -1,7 +1,7 @@
 //api地址
 // var pubIP = 'http://api.xjv56.com/service/';
-// var pubIP = 'http://api.test.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
+var pubIP = 'http://api.test.xjv56.com/service/';
+// var pubIP = 'http://192.168.1.80:7777/service/';
 // var pubIP = 'http://192.168.1.72:7777/service/';
 
 //导出
