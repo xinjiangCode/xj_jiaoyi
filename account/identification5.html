@@ -719,7 +719,6 @@ function xmTanUploadImg2(obj) {
             //判断手机号是否加入过企业
             // var thisPhone = $('#yanzheng_phone').val();
             // sendAjax(thisPhone, $(this));
-
             console.log(phoneIshas);
 
             if(!phoneIshas){ //---------------------------
@@ -773,10 +772,17 @@ function xmTanUploadImg2(obj) {
                     success: function (data) {
                         console.log(data);
                         if(data.code == -406){
-                            $('#code').parent().next().css('验证码错误');
+                            $('#code').parent().next().text('验证码错误');
                             $('#code').parent().next().css('display', 'block');
                             return false;
                         }
+
+                        if(data.code == -1001){
+                            $('#code').parent().next().text('验证码错误');
+                            $('#code').parent().next().css('display', 'block');
+                            return false;
+                        }
+
                        /* code_num.val(data.data);*/
                         if(data.code == 1){
                             window.parent.add_tan();
@@ -791,7 +797,9 @@ function xmTanUploadImg2(obj) {
                             $('input[type=text]').attr('disabled',true);
                             $('input[type=radio]').attr('disabled',true);
                         }else {
-                            alert(data.msg);
+                            $('#code').parent().next().text(data.msg);
+                            $('#code').parent().next().css('display', 'block');
+                            return false;
                         }
 
                        
@@ -1098,7 +1106,7 @@ function xmTanUploadImg2(obj) {
             }
         });
 
-
+        var payPassTrue = true;
 
         $('#pay_pass2').on('blur', function () {
             if ($('#pay_pass2').val().trim() == '') {
@@ -1127,7 +1135,10 @@ function xmTanUploadImg2(obj) {
                 success: function (data) {
                     console.log(data);
                     if (data.data == 'false') {
+                        payPassTrue = false;
                         $('#pay_pass2').parent().next().css('display', 'block');
+                    } else {
+                        payPassTrue = true;
                     }
                 },
                 error: function (err) {
@@ -1339,9 +1350,9 @@ function xmTanUploadImg2(obj) {
                 if ($('#pay_pass2').val().trim() == '') {
                     $('#pay_pass2').parent().next().css('display', 'block');
                 }
-
-                if ($('#pay_pass2').parent().next().css('display') == 'block') {
-                    return;
+                
+                if (!payPassTrue) {
+                    return false;
                 }
                 
             }
@@ -1399,11 +1410,22 @@ function xmTanUploadImg2(obj) {
                     $(that).attr("cf_norepeat","1")
                     console.log(data);
                    if(data.code == -406){
-                        $('#new_code').parent().next().css('验证码错误');
+                        $('#new_code').parent().next().text('验证码错误');
                         $('#new_code').parent().next().css('display', 'block');
                         return false;
                    }
-                    window.parent.update_runcaiwu();
+
+                   if(data.code == -1001){
+                        $('#new_code').parent().next().text('验证码错误');
+                        $('#new_code').parent().next().css('display', 'block');
+                        return false;
+                   }
+
+
+                   if (data.code == 1) {
+                     window.parent.update_runcaiwu();
+                   }
+                   
                 },
                 error: function (err) {
                     $(that).attr("cf_norepeat","1")
