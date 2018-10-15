@@ -502,6 +502,10 @@
 											data.data[i].ounitPrice = '0'
 										}
 
+										if (data.data[i].unitPrice == null) {
+											data.data[i].unitPrice = '0'
+										}
+
 										str += '<div class="buyIngSt"></div>'
 												+'<div class="objHeadImg  fl" style="background: url('+data.data[i].productPic+') no-repeat; background-size: 100% 100%;"></div>'
 												+'<div class="fl">'

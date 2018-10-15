@@ -157,6 +157,9 @@
 			<!-- 已报名，活动已结束 -->
 			<span class="status">已结束</span>
 			<span class="baoming"></span>
+			<%} else {%>
+			<span class="status"></span>
+			<span class="baoming"></span>
 			<%}%>
 			<span class="activity_detail"><a href="##">查看活动详情</a></span>
 		</li>
@@ -227,7 +230,7 @@
 
         $('.activity_state span').text('已报名');
 
-        activityCenter(1, 2, '', '');
+        activityCenter(1, '', '', '');
 
         $('.activity_state ul li').click(function(){
 		    $('.activity_name').val('');

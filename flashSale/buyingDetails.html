@@ -11,6 +11,7 @@
 		<title>新疆化学品经营服务平台</title>
 		<link rel="stylesheet" type="text/css" href="../css/swiper.min.css" />
 		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="../css/objDetails.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/buyIngStyle.css"/>
@@ -149,7 +150,7 @@
 			<img src="../img/didian.png" style="vertical-align: middle;" alt="">
 			<a href="##">当前位置：</a>
 			<a href="../index.html">首页</a>>
-			<a href="##">抢购</a>>
+			<a href="buying.html">抢购</a>>
 			<a href="##">商品详情页</a>
 		</div>
 		<div class="mianCont objDetailsBox">
@@ -183,7 +184,7 @@
 								价格：
 								<span class="shiji">¥ <%=unitPrice%>/<%=productSpecStr%></span>
 							</div>
-							<p class="objDgg">
+							<p class="objDgg" style="margin-left: 17px;">
 								<span>纯度：<%=productPurity%>%</span>
 								<span>规格：<%=productSpecUnitStr%></span>
 								<span>工业级别：<%=levelName%></span>
@@ -573,7 +574,7 @@
 			</div> -->
 		</div>
 		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/imageZoom.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
@@ -1354,45 +1355,48 @@
 						if(response.code == 1) {
 							// 店铺id
 							//debugger;
-							storeId = response.data.storeId;
-							var careFlag = false;
-							var msgObj = response.data;
-							var shopInfoHtml = template('shopInfoTpl', msgObj);
-							$('.shopinfoBox').html(shopInfoHtml);
-							$('.sellerRtLogo').attr('cmpid', companyId_this);
-							// 获取店铺关注信息
-							$.ajax({
-								type: "post",
-								url: pubIP + "store/getStoreCollectStateByTwoId", //v1.0
-								cache: false,
-								dataType: "json",
-								headers: {
-									Accept: "application/json; charset=utf-8",
-									token: token
-								},
-								data: {
-									companyId: companyId_this,
-									storeId: storeId
-								},
-								success: function(res) {
-									console.log('关注', res);
-									if(res.code == 1) {
-										careFlag = res.data;
-										msgObj.shopcareFlag = careFlag;
-										if(careFlag=="true"){
-											$('#addGz span').text('已关注');
-											$('#addGz img').attr("src","../img/yiguanzhu.png");
-										}else{
-											$('#addGz span').text('关注');
-											$('#addGz img').attr("src","../img/guanzhu.png");
+							if (response.data) {
+								storeId = response.data.storeId;
+								var careFlag = false;
+								var msgObj = response.data;
+								var shopInfoHtml = template('shopInfoTpl', msgObj);
+								$('.shopinfoBox').html(shopInfoHtml);
+								$('.sellerRtLogo').attr('cmpid', companyId_this);
+								// 获取店铺关注信息
+								$.ajax({
+									type: "post",
+									url: pubIP + "store/getStoreCollectStateByTwoId", //v1.0
+									cache: false,
+									dataType: "json",
+									headers: {
+										Accept: "application/json; charset=utf-8",
+										token: token
+									},
+									data: {
+										companyId: companyId_this,
+										storeId: storeId
+									},
+									success: function(res) {
+										console.log('关注', res);
+										if(res.code == 1) {
+											careFlag = res.data;
+											msgObj.shopcareFlag = careFlag;
+											if(careFlag=="true"){
+												$('#addGz span').text('已关注');
+												$('#addGz img').attr("src","../img/yiguanzhu.png");
+											}else{
+												$('#addGz span').text('关注');
+												$('#addGz img').attr("src","../img/guanzhu.png");
+											}
+											
 										}
-										
+									},
+									error: function(res) {
+										console.log(res);
 									}
-								},
-								error: function(res) {
-									console.log(res);
-								}
-							})
+								})
+							}
+							
 						}
 					},
 					error: function(xhr, statues, error) {
@@ -1493,36 +1497,41 @@
 			})
 
 			//拦截链接
-			$(document).on('click', 'a', function(e) {
-				e.preventDefault();
-				var isOld = localStorage.getItem('isOld');
-				if(isOld != '2') {
-					var ttxt = $.trim($(this).text());
-					console.log(ttxt);
-					if(ttxt == '用户中心' || ttxt == '立即询盘' || ttxt == '联系客服') {
-						if(isOld == '1') {
-							$('#effect .contTitle span').text('您尚未登录');
-							missedLogin();
-						} else if(isOld == '0') {
-							missedLogin();
-						} else if(isOld == '-1') {
-							$('#effect .contTitle span').text('您尚未认证');
-							$('#effect .contTitle i').text('认证');
-							$('#popLogin').text('认证');
-							missedLogin();
-						} else if(isOld == '-2') {
-							$('#effect .contTitle span').text('您的认证正在审核中');
-							$('#effect .contTitle i').text('等待审核通过').css('color', '#000');
-							$('#popLogin').hide();
-							missedLogin();
-						}
-					} else {
-						window.location.href = this.href;
-					}
-				} else {
-					window.location.href = this.href;
-				}
-			})
+	        $(document).on('click','a',function(e){
+	        	if ($(this).find('span').text() != '物流服务') {
+		       		e.preventDefault();
+		       		var isOld = localStorage.getItem('isOld');
+		       		if(isOld != '2'){
+		       			var ttxt = $.trim($(this).text());
+		       			console.log(ttxt);
+		       			if(ttxt == '用户中心' || ttxt == '发布商品' || ttxt == '发布采购' || ttxt == '立即报价' || ttxt == '路线查询' || ttxt == '立即申请'){
+		       				if(isOld == '1'){
+		       					$('#effect .contTitle span').text('您尚未登录');
+								missedLogin() ;
+		       				}else if(isOld == '0'){
+		       					missedLogin() ;
+		       				}else if(isOld == '-1'){
+		       					$('#effect .contTitle span').text('您尚未认证');
+		       					$('#effect .contTitle i').text('认证');
+		       					$('#popLogin').text('认证');
+		       					$('#popLogin').addClass('qyrz_class');
+								missedLogin() ;
+		       				}else if(isOld == '-2'){
+		      //  					$('#effect .contTitle span').text('您的认证正在审核中');
+		      //  					$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+		      //  					$('#popLogin').hide();
+								// missedLogin() ;
+
+								window.location.href = this.href;
+		       				}
+		       			}else{
+		       				window.location.href = this.href;
+		       			}
+		       		}else{
+		       			window.location.href = this.href;
+		       		}
+		       	}
+	        })
 		</script>
 	</body>
 
