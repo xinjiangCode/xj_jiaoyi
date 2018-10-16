@@ -3685,7 +3685,10 @@
 		$.ajax({
 			url: pubIP + 'user/getMessageCode', /*v1.0*/
             type: 'post',
-			data:{mobile:mobile},
+			data:{
+                mobile:mobile,
+                type: 3 //3是错误的，以后需要修改--------------
+            },
 			success:function(msg){
 				console.log(msg)
 			}
@@ -3715,7 +3718,10 @@
 		$.ajax({
 			url: pubIP + 'user/getMessageCode', /*v1.0*/
             type: 'post',
-			data:{mobile:mobile},
+			data:{
+                mobile:mobile,
+                type: 3 //3是错误的，以后需要修改--------------
+            },
 			success:function(msg){
 				console.log(msg)
 			}
