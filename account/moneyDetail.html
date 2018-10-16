@@ -274,8 +274,12 @@
                             str+='<td style="margin-top: 27px;">现汇交易</td>'
                         }else if(item.TRANTYPE==23 && item.CDFG=="D"){
                             str+='<td style="margin-top: 27px;">提现</td>'
+                        } else if(item.TRANTYPE==23 && item.CDFG=="C"){
+                            str+='<td style="margin-top: 27px;">充值</td>'
                         } else if(item.TRANTYPE==11 && item.CDFG=="C"){
                             str+='<td style="margin-top: 27px;">充值</td>'
+                        }else {
+                            str+='<td style="margin-top: 27px;"></td>'
                         }
                         str+='<td class="user">'
                         str+='<div>账户名：'+item.OPPACCNAME+'</div>'
