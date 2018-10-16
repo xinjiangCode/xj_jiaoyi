@@ -557,8 +557,8 @@ if(adct == '首页' ){
 		<a href="freeSearch/freeSearch.html"><span>免费找货</span></a>\
 		<a href="##"><span>金融服务</span></a>\
 		<a target="_blank" href="'+wuliuIP+'" class="wuliu"><span>物流服务</span></a>\
-		<a href="##"><span>抢购</span></a>\
-		<a href="##"><span>抢货</span></a>\
+		<a href="flashSale/buying.html"><span>抢购</span></a>\
+		<a href="flashSale/flashSale.html"><span>抢货</span></a>\
 		<a href="industryInformation/industryInformation.html"><span>行业资讯</span></a>\
 		<a href="##" class="notPd"><span>会员商城</span></a>\
 	</div></div>';
@@ -569,8 +569,8 @@ if(adct == '首页' ){
 		<a href="../freeSearch/freeSearch.html"><span>免费找货</span></a>\
 		<a href="##"><span>金融服务</span></a>\
 		<a target="_blank" href="'+wuliuIP+'" class="wuliu"><span>物流服务</span></a>\
-		<a href="##"><span>抢购</span></a>\
-		<a href="##"><span>抢货</span></a>\
+		<a href="../flashSale/buying.html"><span>抢购</span></a>\
+		<a href="../flashSale/flashSale.html"><span>抢货</span></a>\
 		<a href="../industryInformation/industryInformation.html"><span>行业资讯</span></a>\
 		<a href="##" class="notPd" ><span>会员商城</span></a>\
 	</div></div>';
@@ -578,10 +578,10 @@ if(adct == '首页' ){
 
 document.writeln(headLink);
 
-var headerip = 'http://api.xjv56.com/service/';
+// var headerip = 'http://api.xjv56.com/service/';
 // var headerip = 'http://api.test.xjv56.com/service/';
-// var headerip = 'http://192.168.1.80:7777/service/';
-// var headerip = 'http://192.168.1.72:7777/service/';
+var headerip = 'http://192.168.1.80:7777/service/';
+// var headerip = 'http://192.168.1.194:7777/service/';
 
 // var headerip = 'http://127.0.0.1:7777/service/';
 

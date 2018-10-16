@@ -141,6 +141,204 @@
 				cursor: pointer;
 			}
 
+
+
+			.modelBox {
+				z-index: 10000;
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+			
+			.modelCont {
+				position: absolute;
+				width: 450px;
+				min-height: 275px;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				-webkit-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				font-family: 'microsoft yahei';
+			}
+			
+			.modeltitle {
+				width: 450px;
+				height: 50px;
+				background-image: url(../img/gsxq.gif);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				font-size: 16px;
+				color: #5690f6;
+				line-height: 50px;
+			}
+			
+			.modeltitle>span {
+				margin-left: 16px;
+			}
+			
+			.modelcontent {
+				width: 450px;
+				min-height: 226px;
+				background-image: url(../img/gsxq_cont.gif);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				font-size: 16px;
+			}
+			
+			.modelcontent li {
+				margin-bottom: 12px;
+			}
+			
+			.modelcontent label {
+				margin-left: 20px;
+				display: inline-block;
+				width: 86px;
+			}
+			
+			.modelcontent select {
+				width: 151px;
+				height: 40px;
+				border: 1px solid #e7e7e7;
+				line-height: 40px;
+				border-radius: 3px;
+				background: #fff;
+				margin-right: 3px;
+			}
+			
+			.modelcontent .input {
+				width: 309px;
+				border: 1px solid #e7e7e7;
+				line-height: 40px;
+				border-radius: 3px;
+				background: #fff;
+				padding-left: 3px;
+				box-sizing: border-box;
+			}
+			
+			.modelBtnBox {
+				width: 302px;
+				height: 45px;
+				overflow: hidden;
+				margin: 0 auto;
+				padding: 10px 0 30px;
+			}
+			
+			.modelbtn {
+				float: left;
+				width: 130px;
+				height: 35px;
+				border: 1px solid #5690f6;
+				font-size: 18px;
+				color: #fff;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: 35px;
+				border-radius: 3px;
+				cursor: pointer;
+			}
+
+
+
+			.all_success_alert, .all_error_alert{
+	            z-index: 9999;
+	            display: none;
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            right: 0;
+	            bottom: 0;
+	            background-color: rgba(0, 0, 0, 0.5);
+	        }
+
+
+	        .all_success_alert .modelcontent>div, .all_error_alert .modelcontent>div {
+	        	margin-bottom: 0px;
+				width: 450px;
+	        }
+
+	        .all_success_alert .modelcontent>div.info, .all_error_alert .modelcontent>div.info {
+	        	height: 140px;
+	        }
+			
+			.all_success_alert .img_div, .all_error_alert .img_div {
+				text-align: center;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+
+			.all_success_alert .modelbtn, .all_error_alert .modelbtn {
+				margin: 5px auto 0 160px
+			}
+
+			.all_error_alert p, .all_success_alert p {
+				text-align: center;
+	        }
+
+
+	        .modelpop .cont>.main label, .modelpop .cont>.main, .modelpop .cont>.main .input, .modelpop .cont>.main li {
+	        	font-size: 14px;
+	        	color: #6c6d6e;
+	        }
+
+	        input[type="radio" i] {
+	        	margin: 3px 3px 0px 0px; 
+	        }
+
+
+	        .commitBtn {
+			    width: 130px;
+			    height: 35px;
+			    background-color: #5690f6;
+			    font-size: 16px;
+			    color: #fff;
+			    line-height: 35px;
+			    text-align: center;
+			    border-radius: 3px;
+			    margin: 0 auto;
+			    cursor: pointer;
+			    margin-top: 14px;
+			}
+
+			#editShoupiaoAddress .cont>.main {
+				height: 355px;
+				overflow-y: hidden;
+			}
+
+			.modelpop#editShoupiaoAddress .cont {
+				height: 400px;
+			}
+
+			.addAddressBoxCont {
+			    height: 235px;
+			    overflow-y: auto;
+			    overflow-x: hidden;
+			}
+			
+			#editShoupiaoAddress .btn {
+				width: 130px;
+				height: 35px;
+				line-height: 35px;
+			}
+
+			#editShoupiaoAddress .btnbox {
+				width: 280px;
+			}
+
+			#toXunpan.modelpop .cont {
+				margin-top: -275px;
+			}
+
+			#editShoupiaoAddress .cont {
+			    margin-top: -200px;
+			}
+
 		</style>
 	</head>
 
@@ -207,7 +405,7 @@
 										<span class="spanBtn addBtn" style="cursor: pointer;">+</span>
 									</div>
 									<span class="danwei" style="display: none;"><%=productSpecStr%></span>
-									<span style="margin-left: 19px;" class="dazong">最小起订量 <%=minAmount%> 吨</span>
+									<!-- <span style="margin-left: 19px;" class="dazong">最小起订量 <%=minAmount%> 吨</span> -->
 									<span style="margin-left: 19px;" class="shiji">最小起订量 <%=minAmount%> <%=productSpecStr%></span>
 									
 								</div>
@@ -418,54 +616,56 @@
 				</div>
 			</div>
 			<!-- 弹窗 -->
-			<!-- <div class="modelBox" >
-				<div class="modelCont">
-					<div class="modeltitle">
+			<div class="modelBox" id="tk">
+				<div class="modelCont" style="width: 620px;">
+					<div class="modeltitle" style="width: 620px;">
 						<span>新增收货地址</span>
 						<img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
 					</div>
-					<div class="modelcontent">
+					<div class="modelcontent" style="width: 620px;">
 						<div class="modelTxt">
 							<ul>
 								<li class="clearfix" style="padding-top: 20px;">
-									<div class="fl">
-										<label for="">收&nbsp;&nbsp;货&nbsp;&nbsp;人：</label>
-										<input type="text" class="input" id="receiver" placeholder="请输入收货人姓名">
+									<div class="fl" style="margin-left: 80px;">
+										<label for="" style="color: #6c6d6e; font-size: 14px;">收&nbsp;&nbsp;货&nbsp;&nbsp;人：</label>
+										<input type="text" style="font-size: 13px;" class="input" id="receiver" placeholder="请输入收货人姓名">
 									</div>
 									<span class="tishi fl"></span>
 								</li>
 								<li class="clearfix" >
-									<div class="fl">
-										<label for="">所在地区：</label>
-										<select style="margin-left:0;" name="province" id="province" class="provice">
+									<div class="fl" style="margin-left: 80px;">
+										<label for="" style="color: #6c6d6e; font-size: 14px;">所在地区：</label>
+										<select style="margin-left:0; font-size: 13px;" name="province" id="province" class="provice">
+											<!--<option value="">请选择省</option>-->
 										</select>
-										<select name="city" id="city" class="city">
+										<select name="city" id="city" class="city" style=" font-size: 13px;">
+											<!--<option>请选择市</option>-->
 										</select>
 									</div>
 									<span class="tishi1 fl"></span>
 								</li>
 								<li class="clearfix">
-									<div class="fl">
-										<label for="">详细地址：</label>
-										<input type="text" class="input" id="detail_address" placeholder="请输入详细地址">
+									<div class="fl" style="margin-left: 80px;">
+										<label for="" style="color: #6c6d6e; font-size: 14px;">详细地址：</label>
+										<input type="text" class="input" id="detail_address" style=" font-size: 13px;" placeholder="请输入详细地址">
 									</div>
 									<span class="tishi fl"></span>
 								</li>
 								<li class="clearfix">
-									<div class="fl">
-										<label for="">手机号码：</label>
-										<input  type="text" class="input" id="cangkuName" placeholder="请输入手机号码">
+									<div class="fl" style="margin-left: 80px;">
+										<label for="" style="color: #6c6d6e; font-size: 14px;">手机号码：</label>
+										<input  type="text" class="input" id="cangkuName" maxlength="11" style="font-size: 13px;" placeholder="请输入手机号码">
 									</div>
 									<span class="tishi fl"></span>
 								</li>
 								<li class="clearfix">
-									<div class="fl"><label for=""></label><input type="checkbox" value="1" name="isdefault"><span>设为默认仓库地址</span></div>
+									<div class="fl" style="margin-left: 81px;"><label for=""></label><input type="checkbox" value="1" name="isdefault"><span>设为默认仓库地址</span></div>
 								</li>
 							</ul>
 						</div>
-						<div class="modelBtnBox">
-							<div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
-							<div style="color:#5690f6;margin-left: 12px;" class="modelbtn cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
+						<div class="modelBtnBox" style="margin-left: 192px;">
+							<div style="background:#5690f6; font-size: 15px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+							<div style="color:#5690f6;margin-left: 12px; font-size: 15px;" class="modelbtn cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
 						</div>
 					</div>
 				</div>
@@ -473,43 +673,43 @@
 			<div class="modelpop" id="toXunpan">
 				<div class="cont">
 					<div class="title">
-						<span>我要询价</span>
+						<span>立即抢购</span>
 						<img src="../img/gsxq_del.png" height="48" alt="" class="close">
 					</div>
 					<div class="main">
 						<ul>
 							<li>
-								<label for="xj_goodsNum">购买数量</label>
+								<label for="xj_goodsNum">购买数量：</label>
 								<span id="xj_goodsNum">0</span>
 							</li>
 							<li>
-								<label for="xj_sumMoney">总价</label>
+								<label for="xj_sumMoney">总价：</label>
 								<span id="xj_sumMoney" style="color: #E50B19;">0元</span>
 							</li>
 							<li>
-								<label for="xj_payType">支付方式</label>
+								<label for="xj_payType">支付方式：</label>
 								<span id="xj_payType">现汇</span>
 							</li>
 							<li>
-								<label for="">发票类型</label>
+								<label for="">发票类型：</label>
 								<input class="xj_fapiaoType" name="xj_fapiaoType" value="1" type="radio"><span style="margin-right:40px;">普通发票</span>
 								<input class="xj_fapiaoType" name="xj_fapiaoType" value="2" type="radio"><span>专用发票</span>
 							</li>
 							<li class="i">
-								<label for="">收票地址</label>
-								<span class="xj_shoupiaoAddress" style="width: 235px;float:left;"></span>
+								<label for="">收票地址：</label>
+								<span class="xj_shoupiaoAddress" style="width: 250px;float:left;"></span>
 								<span class="editAddress" style="color: #5690f6;float:left;margin-left:30px;cursor:pointer;">修改收票地址</span>
 							</li>
 							<li class="i">
-								<label for="xj_concatMan">联系人</label>
+								<label for="xj_concatMan">联系人：</label>
 								<input class="input" placeholder="请输入联系人" name="xj_concatMan" type="text" id="xj_concatMan">
 							</li>
 							<li class="i">
-								<label for="xj_tel">联系电话</label>
+								<label for="xj_tel">联系电话：</label>
 								<input class="input" placeholder="请输入手机号" name="xj_tel" type="tel" id="xj_tel">
 							</li>
 							<li class="i">
-								<label for="xj_bei">备注</label>
+								<label for="xj_bei">备注：</label>
 								<textarea style="width:385px;height: 101px;" class="input" placeholder="请输入您的问题" name="xj_bei" id="xj_bei"></textarea>
 							</li>
 							<li class="i">
@@ -571,8 +771,27 @@
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 		</div>
+		
+		<div class="all_error_alert" style="z-index: 99999;">
+		    <div class="modelCont">
+		        <div class="modeltitle">
+		            <span>消息提示</span>
+		            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+		        </div>
+		        <div class="modelcontent">
+		            <div class="info">
+		                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+		                <p class="innerErrmsg"></p>
+		            </div>
+		            <div class="modelBtnBox">
+		                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
 		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
 		
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
@@ -628,14 +847,18 @@
 			var isHasAddress=1;
 			//添加收货地址
 			
-			$('.cancel,.close').click(function() {
+			$('.all_error_alert .cancel, .all_error_alert .close, .all_error_alert .confirm').click(function() {
+				$('.all_error_alert').hide();
+			});
+
+			$('#tk .cancel, #tk .close').click(function() {
 				$('.modelBox').hide();
 			})
 			$('.addAddress').click(function() {
 				$('.modelBox').show();
 			})
 			/*添加仓库地址*/ 
-			$('.confirm').click(function(){
+			$('#tk .confirm').click(function(){
 //			   debugger
 //                $('#province option:selected').val()
 				var province = $(".modelBox #province").val(),
@@ -647,23 +870,28 @@
 					var defaultFlag = $('.modelBox input[name="isdefault"]:checked').val();
 					defaultFlag=defaultFlag?defaultFlag:0;
 				if(!receiver){
-					alert('请填写收货人');
+					$('.all_error_alert p').text('请填写收货人');
+					$('.all_error_alert').show();
 					return false;
 				}
 				if(!province){
-					alert('请选择省份');
+					$('.all_error_alert p').text('请选择省份');
+					$('.all_error_alert').show();
 					return false;
 				}
 				if(!city){
-					alert('请选择城市');
+					$('.all_error_alert p').text('请选择城市');
+					$('.all_error_alert').show();
 					return false;
 				}
 				if(!detail_address){
-					alert('请输入详细地址');
+					$('.all_error_alert p').text('请输入详细地址');
+					$('.all_error_alert').show();
 					return false;
 				}
 				if(!warehouseName){
-					alert('请输入手机号码');
+					$('.all_error_alert p').text('请输入手机号码');
+					$('.all_error_alert').show();
 					return false;
 				}
 				//console.log(warehouseType);
@@ -777,7 +1005,9 @@
 				var provinceID = $("#province option:selected").attr('data-proviceId');
 				
 				if (!provinceID) {
-					alert('no provinceID');
+					$('.all_error_alert p').text('no provinceID');
+					$('.all_error_alert').show();
+					// alert('no provinceID');
 					return;
 				}
 				$.ajax({
@@ -813,7 +1043,9 @@
 	            var cityID = $(".modelBox #city option:selected").attr('data-cityId');
 				
 				if(!cityID){
-					alert('no cityid');
+					$('.all_error_alert p').text('no cityid');
+					$('.all_error_alert').show();
+					// alert('no cityid');
 					return;
 				}
 	
@@ -845,23 +1077,26 @@
 			});
 			
 
-			$(function() {
+			// $(function() {
 				// 获取商品供应id
 				//				var objid = window.location.search.substring(1).split('=')[1];
 				var objid = localStorage.getItem('objid');
 				var activityId = localStorage.getItem('activityId');
 				var rate = localStorage.getItem('rate');
 				var iStatus = localStorage.getItem('iStatus');
+
+				var qiang_gou_huo = sessionStorage.getItem('qiang_gou_huo');
 				//console.log(objid);
 				// 获取商品详情的数据
 				//alert(objid);
 				getGoodsDetail(objid, activityId, rate, iStatus);
 				// 获取店铺信息
 				//				getshopInfo(companyId);
-			});
+			// });
 			var companyId_this = localStorage.getItem('thisCompanyId');
 			// 获取商品详情的数据
 			function getGoodsDetail(objid, activityId, rate, iStatus) {
+				console.log(activityId);
 				$.ajax({
 					type: "post",
 					headers: {
@@ -939,7 +1174,6 @@
 						}
 
 						
-							
 						
 						// 商品详情
 						var goodsDetailInfoTpl = template('goodsDetailInfoTpl', productDetail);
@@ -948,7 +1182,7 @@
 						var goodsSpecialInfoTpl = template('goodsSpecialInfoTpl', chemical);
 						$('.infoBox:eq(1)').html(goodsSpecialInfoTpl);
 						// 产品用途
-						$('.infoBox:eq(2)').children('p').text(chemical.chemicalPurpose);
+						// $('.infoBox:eq(2)').children('p').text(chemical.chemicalPurpose);
 
 						// 点击添加商品数量
 						var numInput = $('.addOrSubGoodsNum input');
@@ -1025,22 +1259,53 @@
 						})
 						$('.toXunpanBtn').click(function() {
 
-							if(thisCompanyId==companyId){
-								alert("您不能询价本公司商品！");
+							var isOld = localStorage.getItem('isOld');
+							if(isOld != '2'){
+								if(isOld == '1'){
+									$('#effect .contTitle span').text('您尚未登录');
+									missedLogin() ;
+								}else if(isOld == '0'){
+									missedLogin() ;
+								}else if(isOld == '-1'){
+									$('#effect .contTitle span').text('您尚未认证');
+									$('#effect .contTitle i').text('认证');
+									$('#popLogin').text('认证');
+									missedLogin() ;
+								}else if(isOld == '-2'){
+									$('#effect .contTitle span').text('您的认证正在审核中');
+									$('#effect .contTitle i').text('等待审核通过').css('color','#000');
+									$('#popLogin').hide();
+									missedLogin() ;
+								}
 								return;
 							}
+						
+							if(thisCompanyId==companyId){
+								$('.all_error_alert p').text('您不能抢购本公司商品！');
+								$('.all_error_alert').show();
+								// alert("您不能抢购本公司商品！");
+								return;
+							}
+
 							var isOld = localStorage.getItem('isOld');
 							if(isOld != '2') {
 								return;
 							}
 							if(totalNum <= 0) {
-								alert('您未购买商品');
+								$('.all_error_alert p').text('您未购买商品');
+								$('.all_error_alert').show();
+								// alert('您未购买商品');
 								return;
 							} else {
 								if(!payTypeVal) {
-									alert('您未购选择支付方式');
+									$('.all_error_alert p').text('您未购选择支付方式');
+									$('.all_error_alert').show();
+									// alert('您未购选择支付方式');
 									return;
 								} else {
+									$('#xj_concatMan').val('');
+									$('#xj_tel').val('');
+									$('#xj_bei').val('');
 									var fapiaoType = '',
 										shoupiaoAddress = '';
 									var addressId;
@@ -1100,7 +1365,9 @@
 
 									// 修改收货地址
 									$('.editAddress').click(function() {
+										
 										$('#editShoupiaoAddress').css('display', 'block');
+
 									});
 									// 点击X 关闭修改收货地址界面
 									$('#editShoupiaoAddress .close').click(function() {
@@ -1173,7 +1440,7 @@
 									$('#toXunpan .close').click(function() {
 										$('#toXunpan').css('display', 'none');
 									});
-									$('#xj_goodsNum').text(totalNum + '吨');
+									$('#xj_goodsNum').text(totalNum + productDetail.productSpecStr);
 									$('#xj_sumMoney').text(totalMoney + "元");
 									$('#xj_payType').text(payTypeVal);
 									$('.xj_fapiaoType').on('change', function() {
@@ -1182,12 +1449,17 @@
 
 									$('#xj_tel').on('blur', function() {
 										if(!isPoneAvailable($('#xj_tel'))) {
-											alert('请输入正确的手机号');
+											$('.all_error_alert p').text('请输入正确的手机号');
+											$('.all_error_alert').show();
+											// alert('请输入正确的手机号');
 											return;
 										}
 									});
 									// 点击提交
 									$('#toXunpan').find('.commitBtn').click(function() {
+
+
+
 										// 支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限
 										var paymentMethod;
 										if(payTypeVal == '现汇') {
@@ -1201,29 +1473,37 @@
 										}
 										//发票类型不能为空
 										if(!fapiaoType) {
-											alert('发票类型不能为空');
+											$('.all_error_alert p').text('发票类型不能为空');
+											$('.all_error_alert').show();
+											// alert('发票类型不能为空');
 											return;
 										}
 										//收票地址
                                         if($(".xj_shoupiaoAddress").text()==""){
-                                            alert('收票地址不能为空');
+                                        	// $('.all_error_alert p').text('请输入正确的手机号');
+											$('.all_error_alert').show();
+                                            // alert('收票地址不能为空');
                                             return;
                                         }
 										// 联系人不能为空
 										var concatMan = $('#xj_concatMan').val();
 										if(!$('#xj_concatMan').val() || $('#xj_concatMan').val() == ' ') {
-											alert('联系人不能为空');
+											$('.all_error_alert p').text('联系人不能为空');
+											$('.all_error_alert').show();
+											// alert('联系人不能为空');
 											return;
 										}
 
 										var tel = $('#xj_tel').val();
 										if(!isPoneAvailable($('#xj_tel'))) {
-											alert('请输入正确的手机号');
+											$('.all_error_alert p').text('请输入正确的手机号');
+											$('.all_error_alert').show();
+											// alert('请输入正确的手机号');
 											return;
 										}
 										var beizhu = $('#xj_bei').val();
 
-										// 添加询盘
+										// 我要抢购
 										$.ajax({
 											type: "post",
 											headers: {
@@ -1232,12 +1512,14 @@
 											},
 											async: false,
 											// url: 'http://192.168.1.179:7777/service/' + "inquiries/addInquiries",//v1.0
-											url: pubIP + "inquiries/addInquiries", //v1.0
+											url: pubIP + "acticityApi/buyer", //v1.0
 											cache: false,
 											data: {
+												activityId: activityId,
+												activityType: sessionStorage.getItem('qiang_gou_huo'), //抢购
 												productId: productDetail.productId,
 												sum: totalNum,
-												unit: '吨',
+												unit: productDetail.productSpecStr,
 												paymentMethod: paymentMethod,
 												contactName: concatMan,
 												contactPhone: tel,
@@ -1246,8 +1528,8 @@
 												invoiceId: addressId,
 												invoiceAddr: shoupiaoAddress.addressStr + '  ' + shoupiaoAddress.detailedAddress,
 												invoicePeople: shoupiaoAddress.receiver,
-												invoicePhone: shoupiaoAddress.phone,
-												datas: JSON.stringify(goodsinfoObj)
+												invoicePhone: shoupiaoAddress.phone
+												// datas: JSON.stringify(goodsinfoObj)
 											},
 											success: function(res2) {
 												console.log(res2);

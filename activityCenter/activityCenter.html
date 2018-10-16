@@ -231,8 +231,11 @@
         	window.parent.$('#lijiBaoming .pay_pass_input').val('');
         	window.parent.$('#lijiBaoming .phone_num').val('');
         	window.parent.$('#lijiBaoming .code_input').val('');
+        	window.parent.$('#lijiBaoming .ts2').text('').css('visibility','hidden');
         	window.parent.lijiBaoming();
         });
+
+        var payPassTrue = true;
 
         window.parent.$('#lijiBaoming .modelbtn').unbind();
         window.parent.$('#lijiBaoming .modelbtn').click(function() {
@@ -241,12 +244,184 @@
         	var phone_num = window.parent.$('#lijiBaoming .phone_num');
         	var code_input = window.parent.$('#lijiBaoming .code_input');
 
-        	// if (pay_pass.val() == '') {
+        	if (pay_pass.val() == '') {
+        		window.parent.$('#lijiBaoming .pay_pass_kuang .ts2').text('支付密码不能为空').css('visibility', 'visible');
+        		return false;
+        	} else {
         		
-        	// }
+        		if (!payPassTrue) {
+        			return false;
+        		}
+        		
+        	}
+
+        	//支付密码错误
+        	if (!payPassTrue) {
+        		return false;
+        	}
+
+        	if (phone_num.val() == '') {
+        		window.parent.$('#lijiBaoming .phone_num_kuang .ts2').text('手机号不能为空').css('visibility', 'visible');
+        		
+        		return false;
+
+        	} else if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(phone_num.val().trim()))) {
+        		window.parent.$('#lijiBaoming .phone_num_kuang .ts2').text('手机号格式不正确').css('visibility', 'visible');
+
+        		return false;
+        		
+        	} else {
+        		window.parent.$('#lijiBaoming .phone_num_kuang .ts2').text('').css('visibility', 'hidden');
+        	}
+
+
+        	if (code_input.val() == '') {
+        		window.parent.$('#lijiBaoming .code_kuang .ts2').text('验证码不能为空').css('visibility', 'visible');
+
+        		return false;
+        		
+        	} else {
+        		window.parent.$('#lijiBaoming .code_kuang .ts2').text('').css('visibility', 'hidden');
+        	}
+
+        	// $.ajax({
+         //        url: pubIP + 'acticityApi/joinActivity',
+         //        type: 'post',
+         //        headers: {
+         //            Accept: "application/json; charset=utf-8",
+         //            token: token
+         //        },
+         //        data: {
+         //            activityId: ,
+         //            companyId: companyId,
+         //            cash: ,
+         //            orderId: 
+         //        },
+         //        cache: false,
+         //        dataType: 'json',
+         //        success: function (data) {
+         //         	console.log(data);
+
+         //        },
+         //        error: function (err) {
+         //            console.log(err);
+         //        }
+         //    });
+
+        });
+		
+        var clickFlgCode = true;
+
+		// 立即报名-获取验证码
+        window.parent.$('#lijiBaoming .huoqu_code').unbind();
+        window.parent.$('#lijiBaoming .huoqu_code').click(function(){
+
+        	var mobile = window.parent.$('#lijiBaoming .phone_num').val();
+
+        	if (!clickFlgCode) {
+        		return false;
+        	}
+
+        	if (mobile == '') {
+
+        		window.parent.$('#lijiBaoming .phone_num_kuang .ts2').text('手机号不能为空').css('visibility', 'visible');
+
+        		return false;
+        		
+        	} else if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(mobile))) {
+
+        		window.parent.$('#lijiBaoming .phone_num_kuang .ts2').text('手机号格式不正确').css('visibility', 'visible');
+
+        		return false;
+
+        	} else {
+
+        		window.parent.$('#lijiBaoming .phone_num_kuang .ts2').text('').css('visibility', 'hidden');
+
+        		//v1.0
+	            $.ajax({
+	                url: pubIP + 'user/getMessageCode',
+	                type: 'post',
+	                headers: {
+	                    Accept: "application/json; charset=utf-8",
+	                    token: token
+	                },
+	                data: {
+	                    mobile: mobile,
+	                    type: 3 //3是错误的，后面需修改成正确的
+	                },
+	                cache: false,
+	                dataType: 'json',
+	                success: function (data) {
+	                 console.log(data);
+					    if(data.code == 1){
+	                    	   
+	                    	clickFlgCode = false;
+	                    	
+	                    	var time = 60;
+		                    
+		                    var timer=setInterval(function () {
+			                      time--;
+			                      window.parent.$('#lijiBaoming .huoqu_code').text(""+time+"s");
+			                      window.parent.$('#lijiBaoming .huoqu_code').css('color','#ccc');
+			                      if(time==0){
+			                          clearInterval(timer);
+			                          window.parent.$('#lijiBaoming .huoqu_code').css("color","#80acf8");
+			                          window.parent.$('#lijiBaoming .huoqu_code').text("获取验证码");
+			                          clickFlgCode = true;
+			                      }
+			                },1000);
+	                    }
+	                },
+	                error: function (err) {
+	                    console.log(err);
+	                }
+	            });
+        	}
 
         });
 
+        //支付密码验证
+        window.parent.$('#lijiBaoming .pay_pass_input').blur(function() {
+        	if ($(this).val() == '') {
+        		window.parent.$('#lijiBaoming .pay_pass_kuang .ts2').text('支付密码不能为空').css('visibility', 'visible');
+        	} else {
+
+        		var _that = $(this).val();
+
+        		//v1.0
+	            $.ajax({
+	                url: pubIP + 'companyCertification/getCompanyFinanceStateByFinancePassword',
+	                type: 'post',
+	                headers: {
+	                    Accept: "application/json; charset=utf-8",
+	                    token: token
+	                },
+	                data: {
+	                    companyId: companyId,
+	                    financePassword: _that
+	                },
+	                cache: false,
+	                dataType: 'json',
+	                success: function (data) {
+	                    console.log(data);
+	                    if (data.data == 'false') {
+	                        payPassTrue = false;
+	                        window.parent.$('#lijiBaoming .pay_pass_kuang .ts2').text('支付密码不正确').css('visibility', 'visible');
+	                    } else {
+	                        payPassTrue = true;
+	                        window.parent.$('#lijiBaoming .pay_pass_kuang .ts2').text('').css('visibility', 'hidden');
+	                    }
+	                },
+	                error: function (err) {
+	                    console.log(err);
+	                }
+	            });
+        	}
+
+        });
+        
+ 
         var isFirst = true;
 
         $('.activity_state span').text('已报名');

@@ -666,6 +666,26 @@
             background-color: #fafafa;
         }
 
+        .ts2 {
+            display: block;
+            visibility: hidden;
+            position: absolute;
+            left: 126px;
+            line-height: 25px;
+        }
+
+        .pay_pass_kuang, .phone_num_kuang, .code_kuang {
+            position: relative;
+        }
+
+        div#lijiBaoming .sure {
+            margin-top: 25px;
+        }
+
+        .phone_num_kuang {
+            margin: 25px auto;
+        }
+
     </style>
 
 </head>
@@ -732,13 +752,13 @@
                 </ul>
             </li>
             <!-- 二期注释的内容   ===开始 -->
-            <!-- <li>
+            <li>
                 <a href="javascript:;" class="manage"><strong>活动中心</strong> <div style="float: right;vertical-align: middle;margin-right: 15px;"><img  src="../img/cf_open.png" alt=""></div></a>
                 <ul class="common_mbx">
                     <li><a href="javascript:;" class="manageItem" data-src="../activityCenter/activityCenter.html">活动列表</a></li>
                     <li><a href="javascript:;" class="manageItem" data-height="1455" data-src="../activityCenter/marginReturnRecord.html">保证金退还记录</a></li>
                 </ul>
-            </li> -->
+            </li>
             <!-- 二期注释的内容   ===结束 -->
             <!-- 二期注释的内容   ===开始 -->
             <!-- <li>
@@ -2143,17 +2163,26 @@
                    <span class="money_num">1000元</span>
                </div>
                <div class="pay_pass_kuang clearfix">
-                   <span class="span fl">输入支付密码：</span>
-                   <input type="text" style="height: 32px;" class="pay_pass_input fl">
+                    <div class="clearfix">
+                        <span class="span fl">输入支付密码：</span>
+                        <input type="password" style="height: 32px;" class="pay_pass_input fl">
+                    </div>
+                   <span class="ts ts2">dsada</span>
                </div>
                <div class="phone_num_kuang clearfix">
-                   <span class="span fl">手机号：</span>
-                   <input type="text" style="height: 32px;" class="phone_num fl">
-                   <span class="huoqu_code">获取验证码</span>
+                    <div class="clearfix">
+                        <span class="span fl">手机号：</span>
+                        <input type="text" style="height: 32px;" class="phone_num fl">
+                        <span class="huoqu_code">获取验证码</span>
+                    </div>
+                    <span class="ts ts2">sadsda</span>
                </div>
                <div class="code_kuang clearfix">
-                   <span class="span fl">输入验证码：</span>
-                   <input type="text" style="height: 32px;" class="code_input fl">
+                    <div class="clearfix">
+                        <span class="span fl">输入验证码：</span>
+                        <input type="text" style="height: 32px;" class="code_input fl">
+                    </div>
+                    <span class="ts ts2">dadasddsa</span>
                </div>
             </div>
             <div class="modelBtnBox">
