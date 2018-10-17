@@ -16,9 +16,56 @@
 		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/header.js" type="text/javascript" charset="utf-8"></script>
 		<link rel="stylesheet" type="text/css" href="../css/buying.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 	</head>
 	<style>
 		
+		.page_guide_container {
+		    width: 100%;
+		    cursor: e-resize;
+		    overflow: hidden;
+		}
+
+		.page_guide_items {
+			/*height: 166px;*/
+			height: 63px;
+			overflow: hidden;
+		}
+
+		.page_guide_item {
+			/*margin: 0px;*/
+		    padding: 0px;
+		    border: none;
+		    border-radius: 0;
+		    margin: 0 15px;
+		}
+
+		.buyTab>span>span {
+		    text-align: center;
+		    padding-left: 0px;
+		    padding-right: 0px;
+		    width: 100%;
+		    margin-left: 0px;
+		    display: inline-block;
+		    margin-right: 0px;
+		    font-size: 18px;
+		}
+
+		.page_guide_item_text {
+		    /* width: 277px; */
+		    width: auto;
+		    padding: 0px;
+		    padding-left: 20px;
+		    padding-right: 30px;
+		    float: left;
+		    box-sizing: border-box;
+		}
+
+		.page_guide_slider {
+		    width: 1200px;
+		    overflow: auto;
+		    margin: 0 auto;
+		}
 
 	</style>
 	<body>
@@ -37,10 +84,34 @@
 				
 			</div>
 		</div>
-		
-		<div class="buyTab" id="qianggou_title">
+
+		<div class="page_guide_slider">
+			<div class="page_guide_balloon" style="display: none;">
+				<div class="page_guide_title">
+					<div class="page_guide_title_text">主题名称</div>
+				</div>
+				<div class="page_guide_pointer">
+					<div class="page_guide_point"></div>
+				</div>
+				<div class="page_guide_bar">
+					<div class="page_guide_progress">
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+			</div>
 			
+			<div class="page_guide_container" onMouseDown="pageGuideMousedown(this,event)" onMouseMove="pageGuideMousemove(this,event)" onMouseUp="pageGuideMouseup(this,event)" onMouseOut="pageGuideMouseout(this,event)" ontouchstart="pageGuideTouchstart(this,event)" ontouchmove="pageGuideTouchmove(this,event)" ontouchend="pageGuideTouchend(this,event)">
+				
+				<div class="buyTab page_guide_items" id="qianggou_title">
+					
+				</div>
+	
+			</div>
+
 		</div>
+		
 		<div class="buyIngObj">
 			<!-- <div class="now">
 				<div class="buyIngSt"></div>
@@ -226,6 +297,9 @@
 		<!-- <script src="../js/common.js" type="text/javascript" charset="utf-8"></script> -->
 		<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="../js/jq221.js" type="text/javascript" charset="utf-8"></script>
+
 		<!-- banner -->
 		<script type="text/html" id="bannerTm"> 
 			<% for (i in list) { %>
@@ -402,17 +476,17 @@
 		            success: function(data){
 						console.log(data);
 						if (data.data != null) {
-							var str1 = '<span data-activityid="">全  部</span>';
+							var str1 = '<span class="page_guide_item item" data-activityid=""><span>全  部</span></span>';
 
 							for (var j = 0; j < data.activityList.length; j++) {
 
-								str1 += '<span data-activityid="'+data.activityList[j].dbid+'">'+data.activityList[j].title+'</span>'
+								str1 += '<span class="page_guide_item item" data-activityid="'+data.activityList[j].dbid+'"><span class="page_guide_item_text">'+data.activityList[j].title+'</span></span>'
 
 							}
 
 							$('#qianggou_title').html(str1);
 
-							$('#qianggou_title span').eq(0).addClass('act');
+							$('#qianggou_title>span>span').eq(0).addClass('act');
 						}
 					},
 					error: function (err) {
@@ -437,7 +511,7 @@
 		            data: {
 		            	type: 1,
 		            	pageNum: num,
-		            	pageSize: 1,
+		            	pageSize: 5,
 		            	activityId: activityId
 		            },
 		            dataType: "json",
@@ -448,12 +522,15 @@
 						// 分页
 		                	if(data.code == '0'){
 		                        $('.pageJump').hide();
-		                        $('.shop_list_table tbody').html('');
+		                        $('.buyIngObj>div').html('');
 		                        $('.notMsg').show();
 		                        return false;
 		                    } else if (data.code == '1') {
 
 		                    	if (data.data.length != 0) {
+
+		                    		$('.pageJump').css('display', 'inline-block');
+		                    		$('.pagination').show();
 		                    		if (isFirst) {
 
 					                    Page({
@@ -531,7 +608,7 @@
 													+'</div>'
 													+'<div class="fr buyIngBox">'
 														+'<span>已抢购 <span>'+data.data[i].sales+'</span>吨</span>'
-														+'<button><span class="buying_a" data-supplyId="'+data.data[i].supplyId+'" data-activityid="'+data.data[i].activityId+'" data-createCompany="'+data.data[i].createCompany+'" data-rate="'+data.data[i].rate+'" data-iStatus="'+data.data[i].iStatus+'">立即抢购</span></button>'
+														+'<button><span class="buying_a" data-companyid="'+data.data[i].companyId+'" data-supplyId="'+data.data[i].supplyId+'" data-activityid="'+data.data[i].activityId+'" data-createCompany="'+data.data[i].createCompany+'" data-rate="'+data.data[i].rate+'" data-iStatus="'+data.data[i].iStatus+'">立即抢购</span></button>'
 													+'</div>'
 												+'</div>'
 											+'</div>';
@@ -547,6 +624,8 @@
 										distanceTime3("distanceTime"+activityId+(num+1)+i+"", time2, arr['timer'+i]);
 									}
 		                    	} else {
+		                    		$('.buyIngObj').html('');
+		                    		$('.pagination').hide();
 		                    		$('.pageJump').css('display', 'none');
 		                    	}
 
@@ -571,6 +650,7 @@
 				window.localStorage.setItem('rate', $(this).attr('data-rate'));
 				window.localStorage.setItem('iStatus', $(this).attr('data-iStatus'));
 				window.sessionStorage.setItem('qiang_gou_huo', 1);
+				window.localStorage.setItem('thisCompanyId', $(this).attr('data-companyid'));
 
 				window.location.href="buyingDetails.html";
 			});
@@ -578,11 +658,11 @@
 
 
 			// 点击分类
-			$(document).on('click', '#qianggou_title span', function() {
-				$('#qianggou_title span').removeClass('act');
+			$(document).on('click', '#qianggou_title>span>span', function() {
+				$('#qianggou_title>span>span').removeClass('act');
 				$(this).addClass('act');
 				isFirst = true;
-				qianggouList(1, $(this).attr('data-activityid'));
+				qianggouList(1, $(this).parent().attr('data-activityid'));
 				
 				
 			});

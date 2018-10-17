@@ -131,7 +131,7 @@
 
 	<script type="text/html" id="listTpl">
 		<%for(i in list){%>
-		<li data-dbid="<%=list[i].dbid%>" data-startTime="<%=list[i].startTime%>" data-endTime="<%=list[i].endTime%>">
+		<li data-dbid="<%=list[i].dbid%>" data-startTime="<%=list[i].startTime%>" data-endTime="<%=list[i].endTime%>" data-bzj="<%=list[i].sellCashDeposit%>">
 			<span class="qiang_buy">
 				<%if (list[i].type == 1) {%>
 				<span>抢购</span>
@@ -232,6 +232,17 @@
         	window.parent.$('#lijiBaoming .phone_num').val('');
         	window.parent.$('#lijiBaoming .code_input').val('');
         	window.parent.$('#lijiBaoming .ts2').text('').css('visibility','hidden');
+        	window.parent.$('#lijiBaoming .modelbtn').attr('data-activityid', $(this).parent().attr('data-dbid'));
+
+        	window.parent.$('#lijiBaoming .modelbtn').attr('data-bzj', $(this).parent().attr('data-bzj'));
+
+        	window.parent.$('#lijiBaoming .money_num').text($(this).parent().attr('data-bzj')+'元');
+
+        	clearInterval(timer);
+          	window.parent.$('#lijiBaoming .huoqu_code').css("color","#80acf8");
+          	window.parent.$('#lijiBaoming .huoqu_code').text("获取验证码");
+          	clickFlgCode = true;
+
         	window.parent.lijiBaoming();
         });
 
@@ -244,15 +255,15 @@
         	var phone_num = window.parent.$('#lijiBaoming .phone_num');
         	var code_input = window.parent.$('#lijiBaoming .code_input');
 
+        	var activity_id = $(this).attr('data-activityid');
+
+        	//保证金
+        	var bzj = $(this).attr('data-bzj'); 
+
+
         	if (pay_pass.val() == '') {
         		window.parent.$('#lijiBaoming .pay_pass_kuang .ts2').text('支付密码不能为空').css('visibility', 'visible');
         		return false;
-        	} else {
-        		
-        		if (!payPassTrue) {
-        			return false;
-        		}
-        		
         	}
 
         	//支付密码错误
@@ -280,37 +291,47 @@
 
         		return false;
         		
-        	} else {
-        		window.parent.$('#lijiBaoming .code_kuang .ts2').text('').css('visibility', 'hidden');
         	}
 
-        	// $.ajax({
-         //        url: pubIP + 'acticityApi/joinActivity',
-         //        type: 'post',
-         //        headers: {
-         //            Accept: "application/json; charset=utf-8",
-         //            token: token
-         //        },
-         //        data: {
-         //            activityId: ,
-         //            companyId: companyId,
-         //            cash: ,
-         //            orderId: 
-         //        },
-         //        cache: false,
-         //        dataType: 'json',
-         //        success: function (data) {
-         //         	console.log(data);
+        	if (!codeFlag) {
 
-         //        },
-         //        error: function (err) {
-         //            console.log(err);
-         //        }
-         //    });
+    			return false;
+
+    		}
+
+
+
+        	$.ajax({
+                url: pubIP + 'acticityApi/joinActivity',
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    activityId: activity_id,
+                    companyId: companyId,
+                    cash: bzj,
+                    orderId: ''
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                 	console.log(data);
+                 	if (data.code == 1) {
+                 		cf_alert(1, '报名成功');
+                 	}
+                },	
+                error: function (err) {
+                    console.log(err);
+                }
+            });
 
         });
 		
         var clickFlgCode = true;
+
+        var timer;
 
 		// 立即报名-获取验证码
         window.parent.$('#lijiBaoming .huoqu_code').unbind();
@@ -360,7 +381,7 @@
 	                    	
 	                    	var time = 60;
 		                    
-		                    var timer=setInterval(function () {
+		                    timer=setInterval(function () {
 			                      time--;
 			                      window.parent.$('#lijiBaoming .huoqu_code').text(""+time+"s");
 			                      window.parent.$('#lijiBaoming .huoqu_code').css('color','#ccc');
@@ -417,6 +438,86 @@
 	                    console.log(err);
 	                }
 	            });
+        	}
+
+        });
+
+        var codeFlag = true;
+
+        //校验验证码是否正确
+        window.parent.$('#lijiBaoming .code_input').blur(function() {
+        	
+        	var phone = window.parent.$('.phone_num');
+
+        	if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(phone.val()))) {
+
+        		window.parent.$('#lijiBaoming .phone_num_kuang .ts2').text('手机号格式不正确').css('visibility', 'visible');
+
+        		return false;
+
+        	}
+
+        	if ($(this).val() == '') {
+        		window.parent.$('#lijiBaoming .code_kuang .ts2').text('验证码不能为空').css('visibility', 'visible');
+        	} else {
+        		
+        		var _th = $(this).val();
+
+        		$.ajax({
+	                url: pubIP + 'user/validSmsCode',
+	                type: 'post',
+	                headers: {
+	                    Accept: "application/json; charset=utf-8",
+	                    token: token
+	                },
+	                data: {
+	                    mobile: phone.val(),
+	                    smsRandomCode: _th
+	                },
+	                cache: false,
+	                dataType: 'json',
+	                success: function (data) {
+	                    console.log(data);
+
+	                    if (data.code == 1) {
+                            codeFlag = true;
+                            window.parent.$('#lijiBaoming .code_kuang .ts2').text('').css('visibility', 'hidden');
+                        } else if (data.code == -1002) {
+                            codeFlag = false;
+                            window.parent.$('#lijiBaoming .code_kuang .ts2').text('请先点击获取验证码').css('visibility', 'visible');
+                        } else {
+                            codeFlag = false;
+                            window.parent.$('#lijiBaoming .code_kuang .ts2').text('验证码不正确').css('visibility', 'visible');
+                        }
+
+	                },
+	                error: function (err) {
+	                    console.log(err);
+	                }
+	            });
+
+        	}
+
+
+        });
+
+        window.parent.$('#lijiBaoming .phone_num').blur(function() {
+        	var p_num = window.parent.$('.phone_num');
+
+        	if (p_num == '') {
+
+        		window.parent.$('#lijiBaoming .phone_num_kuang .ts2').text('手机号不能为空').css('visibility', 'visible');
+
+        		return false;
+        		
+        	}else if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(p_num.val()))) {
+
+        		window.parent.$('#lijiBaoming .phone_num_kuang .ts2').text('手机号格式不正确').css('visibility', 'visible');
+
+        		return false;
+
+        	} else {
+        		window.parent.$('#lijiBaoming .phone_num_kuang .ts2').text('').css('visibility', 'hidden');
         	}
 
         });
@@ -479,13 +580,15 @@
 					console.log(json);
 
 					if(json.code == '0'){
-	                    $('.pageJump').hide();
-	                    $('.shop_list_table tbody').html('');
+	                    $('.pageCont').hide();
+	                    $('.activity_center').html('');
 	                    $('.notMsg').show();
 	                    return false;
 	                }
 
 	                if (json.data.length != 0) {
+
+	                	$('.pageCont').show();
 
 	                	for (var i = 0; i < json.data.length; i++) {
 							json.data[i].applyStarttime = new Date(json.data[i].applyStarttime).Format("yyyy-MM-dd");
@@ -520,6 +623,8 @@
 		               $('.allPageN').text(num+'/'+json.count);
 	                } else {
 	                	$('.pageCont').hide();
+	                	$('.activity_center').html('');
+
 	                }
 					
 					

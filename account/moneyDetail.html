@@ -291,14 +291,14 @@
                             str+='<td>+'+item.TRANAMT+'</td>'
                         }
                         str+='<td>'+item.ACCBAL+'</td>'
-                        if (item.TRANTYPE == 11 || item.TRANTYPE == 23) {
-                            str+='<td><a style="color: #333; cursor:default;" href="##">查看</a></td>'
-                        } else {
+                        if (item.TRANTYPE == 15 && item.HOSTSEQ != '') {
 
                             str+='<td><a href="./mySale-orderDetailStatus.html?userType='+item.type+'&id='+item.HOSTSEQ+'">查看</a></td>'
+                        } else {
+                            str+='<td><a style="color: #333; cursor:default;" href="##">查看</a></td>'
                         }
                         
-                        if (item.HOSTSEQ != null) {
+                        if (item.TRANTYPE == 15 && item.HOSTSEQ != '') {
                             str+='<td><a class="upload_btn" data-orderId="'+item.HOSTSEQ+'" onclick="down_moban(this)" href="##">下载</a></td>'
                         } else {
                             str+='<td><a class="upload_btn" href="##" style="color: #333; cursor:default;">下载</a></td>'
