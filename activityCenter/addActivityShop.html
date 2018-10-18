@@ -314,9 +314,11 @@
 
 		var ind = 0;
 
+
 		$('.submit_btn').unbind();
 		$('.submit_btn').click(function() {
-				
+			
+			$(this).attr('data-submitFlag', '1');
 
 			var select_shop = $('.select_shop');
 			var activity_shop_name = $('.activity_shop_name');
@@ -537,13 +539,18 @@
 	                });
 	                $(obj).parent().find('input[type="hidden"]').val(data.url);
 	 
+
 					ind_pic++;
 
-	                if (ind_pic < 6) {
-						$('#file0').parent().parent().next().text('图片不能少于6张').show();
-					} else {
-						$('#file0').parent().parent().next().text('').hide();
-					}	
+					if ($('.submit_btn').attr('data-submitFlag') == '1') {
+	                	if (ind_pic < 6) {
+							$('#file0').parent().parent().next().text('图片不能少于6张').show();
+						} else {
+							$('#file0').parent().parent().next().text('').hide();
+						}	
+	                }
+
+	                
 
 	            },
 	            error: function (err) {

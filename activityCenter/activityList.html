@@ -148,7 +148,7 @@
 	<script src="../js/template.js"></script>
 	<script type="text/html" id="listTpl">
 		<%for (i in list) {%>
-		<li>
+		<li data-productId="<%=list[i].productId%>">
 			<span class="radio_input"><input type="radio" name="activitylist"></span>
 			<span class="activity_shop_num"><%=i-0+1%></span>
 			<span class="activity_shop_name"><%=list[i].productName%></span>
@@ -193,17 +193,17 @@
 			<span class="activity_shop_operate">
 				<span class="blue">查看</span>
 				<%if (list[i].status == 0){%>
-				<span class="operate_btn">取消</span>
+				<span class="operate_btn"><a href="##">取消</a></span>
 				<%} else if(list[i].status == 2) {%>
-				<span class="operate_btn">编辑</span>
+				<span class="operate_btn edit"><a href="##">编辑</a></span>
 				<%} else if(list[i].status == 3) {%>
-				<span class="operate_btn">编辑</span>
+				<span class="operate_btn edit"><a href="##">编辑</a></span>
 				<%} else if (list[i].status == 4) {%>
-				<span class="operate_btn">编辑</span>
+				<span class="operate_btn edit"><a href="##">编辑</a></span>
 				<%} else if(list[i].status == 5) {%>
-				<span class="operate_btn">查看订单</span>
+				<span class="operate_btn"><a href="##">查看订单</a></span>
 				<%} else if (list[i].status == 6) {%>
-				<span class="operate_btn">查看订单</span>
+				<span class="operate_btn"><a href="##">查看订单</a></span>
 				<%}%>
 				
 			</span>
@@ -217,6 +217,11 @@
         var isFirst = true;
 
         activityList(1);
+
+        //编辑
+        $('.edit').click(function() {
+
+        });
 
 
         // 活动商品列表
