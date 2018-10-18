@@ -318,7 +318,7 @@
 					<p>活动价：<span>￥<%=list[i].unitPrice%>元/吨</span></p>
 				</div>
 				<p class="saleTime"><img src="../img/saleTime.png"/>活动结束时间：<span><%=list[i].endTime%></span></p>
-				<button><span class="buying_a" data-supplyId="<%=list[i].supplyId%>" data-createCompany="<%=list[i].createCompany%>" data-activityid="<%=list[i].activityId%>" data-rate="<%=list[i].rate%>" data-iStatus="<%list[i].iStatus%>">立即抢货</span></button>
+				<button><span class="buying_a" data-supplyId="<%=list[i].supplyId%>" data-createCompany="<%=list[i].createCompany%>" data-activityid="<%=list[i].activityId%>" data-rate="<%=list[i].rate%>" data-iStatus="<%=list[i].iStatus%>" data-companyid="<%=list[i].companyId%>">立即抢货</span></button>
 			</div>
 			<%}%>
 		</script>
@@ -481,6 +481,9 @@
 				window.localStorage.setItem('rate', $(this).attr('data-rate'));
 				window.localStorage.setItem('iStatus', $(this).attr('data-iStatus'));
 
+				window.sessionStorage.setItem('qiang_gou_huo', 2);
+				window.localStorage.setItem('thisCompanyId', $(this).attr('data-companyid'));
+
 				window.location.href="buyingDetails.html";
 
 			});
@@ -501,7 +504,7 @@
 		            data: {
 		            	type: 2,
 		            	pageNum: num,
-		            	pageSize: 2
+		            	pageSize: 3
 		            },
 		            dataType: "json",
 		            success: function(data){

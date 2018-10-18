@@ -438,6 +438,8 @@
 
 		        	if (data.aData.length != 0) {
 
+		        		$('.pageCont').show();
+
 		        		var str1 = ''
 		        		for (var i = 0; i < data.aData.length; i++) {
 
@@ -498,7 +500,8 @@
 				    	});
 
 		        	} else {
-		        		$('.pageJump').hide();
+		        		$('.pageCont').hide();
+		        		$('.member_content ul').html('');
 		        	}
 
 		        },

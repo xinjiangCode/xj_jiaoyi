@@ -352,7 +352,7 @@
 			<img src="../img/didian.png" style="vertical-align: middle;" alt="">
 			<a href="##">当前位置：</a>
 			<a href="../index.html">首页</a>>
-			<a href="buying.html">抢购</a>>
+			<a class="qiang_g_h" href="##">抢购</a>>
 			<a href="##">商品详情页</a>
 		</div>
 		<div class="mianCont objDetailsBox">
@@ -806,6 +806,7 @@
 		<script type="text/javascript">
 
 
+
 			//大家都在买
 			$.ajax({
 				type:"get",
@@ -1090,6 +1091,23 @@
 				var iStatus = localStorage.getItem('iStatus');
 
 				var qiang_gou_huo = sessionStorage.getItem('qiang_gou_huo');
+
+				
+				if (qiang_gou_huo == 1) {
+
+					//面包屑导航
+					$('.qiang_g_h').text('抢购');
+					$('.qiang_g_h').attr('href', 'buying.html');					
+
+				} else if (qiang_gou_huo == 2) {
+
+					//面包屑导航
+					$('.qiang_g_h').text('抢货');
+					$('.qiang_g_h').attr('href', 'flashSale.html');
+
+				}	
+				
+
 				//console.log(objid);
 				// 获取商品详情的数据
 				//alert(objid);
@@ -1158,6 +1176,14 @@
 						var objDescriptTpl = template('objDescriptTpl', productDetail);
 						$('.objDInfo').html(objDescriptTpl);
 
+						if (qiang_gou_huo == 1) {
+
+							$('.toXunpanBtn').text('我要抢购');
+
+						} else if (qiang_gou_huo == 2) {
+
+							$('.toXunpanBtn').text('我要抢货');
+						}	
 
 						$('#Progress').css('width', rate);
 
@@ -1168,9 +1194,6 @@
 							$('.objDIfInner a').css('border', '1px solid #FF6458').css('color', '#FF6458');
 						}
 
-						// if (iStatus == 2) { //即将开始
-
-						// } 
 
 						if ($('.toXunpanBtn').attr('disabled') == 'disabled') {
 							$('.objDIfInner a').css('border', '1px solid #BDBDBD').css('color', '#999');
@@ -1187,6 +1210,8 @@
 						$('.infoBox:eq(1)').html(goodsSpecialInfoTpl);
 						// 产品用途
 						// $('.infoBox:eq(2)').children('p').text(chemical.chemicalPurpose);
+
+
 
 						// 点击添加商品数量
 						var numInput = $('.addOrSubGoodsNum input');
@@ -1284,12 +1309,12 @@
 								return;
 							}
 						
-							if(thisCompanyId==companyId){
-								$('.all_error_alert p').text('您不能抢购本公司商品！');
-								$('.all_error_alert').show();
-								// alert("您不能抢购本公司商品！");
-								return;
-							}
+							// if(thisCompanyId==companyId){
+							// 	$('.all_error_alert p').text('您不能抢购本公司商品！');
+							// 	$('.all_error_alert').show();
+							// 	// alert("您不能抢购本公司商品！");
+							// 	return;
+							// }
 
 							var isOld = localStorage.getItem('isOld');
 							if(isOld != '2') {

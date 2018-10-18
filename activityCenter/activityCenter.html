@@ -189,9 +189,23 @@
 			window.sessionStorage.setItem('endTime', $(this).parent().attr('data-endTime'));
 
 
+			$(this).find('a').attr('href', 'addActivityShop.html');
+
+		});
+
+		$(document).on('click', '.look_activity_shop', function() {
+
+			window.sessionStorage.setItem('activityId', $(this).parent().attr('data-dbid'));
+			window.sessionStorage.setItem('activityTitle', $(this).parent().find('.activity_title').text());
+			window.sessionStorage.setItem('startTime', $(this).parent().attr('data-startTime'));
+			window.sessionStorage.setItem('endTime', $(this).parent().attr('data-endTime'));
+
+
 			$(this).find('a').attr('href', 'activityList.html');
 
 		});
+
+		 
 
 		// 查看活动详情
 		$(document).on('click', '.activity_detail', function() {
@@ -369,7 +383,7 @@
 	                },
 	                data: {
 	                    mobile: mobile,
-	                    type: 3 //3是错误的，后面需修改成正确的
+	                    type: 16 //抢购支付保证金后给卖家
 	                },
 	                cache: false,
 	                dataType: 'json',

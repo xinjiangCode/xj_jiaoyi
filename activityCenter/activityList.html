@@ -20,7 +20,7 @@
 		<div class="activityListTitle">
 			<span>活动商品列表</span>
 			<div class="fr mp">
-				<span class="add_shop"><a href="addActivityShop.html">添加商品</a></span>
+				<span class="add_shop"><a href="##">添加商品</a></span>
 			</div>
 		</div>
 		<div class="activityCenter">
@@ -195,11 +195,11 @@
 				<%if (list[i].status == 0){%>
 				<span class="operate_btn"><a href="##">取消</a></span>
 				<%} else if(list[i].status == 2) {%>
-				<span class="operate_btn edit"><a href="##">编辑</a></span>
+				<span class="operate_btn edit"><a href="##" data-productId="<%=list[i].productId%>">编辑</a></span>
 				<%} else if(list[i].status == 3) {%>
-				<span class="operate_btn edit"><a href="##">编辑</a></span>
+				<span class="operate_btn edit"><a href="##" data-productId="<%=list[i].productId%>">编辑</a></span>
 				<%} else if (list[i].status == 4) {%>
-				<span class="operate_btn edit"><a href="##">编辑</a></span>
+				<span class="operate_btn edit"><a href="##" data-productId="<%=list[i].productId%>">编辑</a></span>
 				<%} else if(list[i].status == 5) {%>
 				<span class="operate_btn"><a href="##">查看订单</a></span>
 				<%} else if (list[i].status == 6) {%>
@@ -219,8 +219,15 @@
         activityList(1);
 
         //编辑
-        $('.edit').click(function() {
+        $('.edit a').click(function() {
+        	window.sessionStorage.setItem('productId', $(this).attr('data-productId'));
+        	window.location.href = 'addActivityShop.html';
+        });
 
+        // 添加商品
+        $('.add_shop a').click(function() {
+        	window.sessionStorage.setItem('productId', '');
+        	window.location.href = 'addActivityShop.html';
         });
 
 
@@ -249,13 +256,14 @@
 			        $('#listInfo').html(result);
 
 			        if(data.data.code == '0'){
-		                    $('.pageJump').hide();
-		                    $('.shop_list_table tbody').html('');
-		                    $('.notMsg').show();
-		                    return false;
-		                }
+	                    $('.pageCont').hide();
+	                    $('.center_list').html('');
+	                    $('.notMsg').show();
+	                    return false;
+	                }
 
-		                if (isFirst) {
+		            if (data.data.result.length != 0) {
+		            	if (isFirst) {
 		                        
 		                    Page({
 		                        num: data.data.pages,
@@ -273,6 +281,10 @@
 		               }
 
 		               $('.allPageN').text(num+'/'+data.data.pages);
+		           	} else {
+		           		$('.pageCont').hide();
+		           		$('.center_list').html('');
+		           	}
 
 	            },
 	            error: function(err) {
