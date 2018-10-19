@@ -131,7 +131,7 @@
 
 	<script type="text/html" id="listTpl">
 		<%for(i in list){%>
-		<li data-dbid="<%=list[i].dbid%>" data-startTime="<%=list[i].startTime%>" data-endTime="<%=list[i].endTime%>" data-bzj="<%=list[i].sellCashDeposit%>">
+		<li data-dbid="<%=list[i].dbid%>" data-startTime="<%=list[i].startTime%>" data-endTime="<%=list[i].endTime%>" data-bzj="<%=list[i].sellCashDeposit%>" data-type="<%=list[i].type%>">
 			<span class="qiang_buy">
 				<%if (list[i].type == 1) {%>
 				<span>抢购</span>
@@ -188,8 +188,9 @@
 			window.sessionStorage.setItem('startTime', $(this).parent().attr('data-startTime'));
 			window.sessionStorage.setItem('endTime', $(this).parent().attr('data-endTime'));
 
+			window.sessionStorage.setItem('qiang_gou_huo', $(this).parent().attr('data-type'));
 
-			$(this).find('a').attr('href', 'addActivityShop.html');
+			$(this).find('a').attr('href', 'activityList.html');
 
 		});
 
@@ -200,6 +201,7 @@
 			window.sessionStorage.setItem('startTime', $(this).parent().attr('data-startTime'));
 			window.sessionStorage.setItem('endTime', $(this).parent().attr('data-endTime'));
 
+			window.sessionStorage.setItem('qiang_gou_huo', $(this).parent().attr('data-type'));
 
 			$(this).find('a').attr('href', 'activityList.html');
 
@@ -313,7 +315,39 @@
 
     		}
 
+    		$.ajax({
+                url: pubIP + 'acticityApi/companyApplyCheck',
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    activityId: activity_id,
+                    companyId: companyId
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                 	console.log(data);
+                 	if (data.code == 1) {
+                 		ljbm(activity_id, bzj);
+                 	} else if (data.code == -101) {
+                 		cf_alert1(2, '不符合报名条件');
+                 	}
+                },	
+                error: function (err) {
+                    console.log(err);
+                }
+            });
 
+        	
+
+        });
+
+        function ljbm(activity_id, bzj) {
+
+        	console.log(activity_id, bzj);
 
         	$.ajax({
                 url: pubIP + 'acticityApi/joinActivity',
@@ -340,8 +374,7 @@
                     console.log(err);
                 }
             });
-
-        });
+        }
 		
         var clickFlgCode = true;
 

@@ -191,9 +191,9 @@
 			<%}%>
 			</span>
 			<span class="activity_shop_operate">
-				<span class="blue">查看</span>
+				<span class="blue look" data-productId="<%=list[i].productId%>" data-rate="<%=list[i].rate%>" data-activityId="<%=list[i].activityId%>" data-status="<%=list[i].status%>" data-supplyId="<%=list[i].supplyId%>" data-companyid="<%=list[i].company%>">查看</span>
 				<%if (list[i].status == 0){%>
-				<span class="operate_btn"><a href="##">取消</a></span>
+				<span class="operate_btn cancel"><a href="##" data-productId="<%=list[i].productId%>">取消</a></span>
 				<%} else if(list[i].status == 2) {%>
 				<span class="operate_btn edit"><a href="##" data-productId="<%=list[i].productId%>">编辑</a></span>
 				<%} else if(list[i].status == 3) {%>
@@ -230,6 +230,58 @@
         	window.location.href = 'addActivityShop.html';
         });
 
+        //查看
+        $('.look').click(function() {
+        	window.localStorage.setItem('objid', $(this).attr('data-supplyId'));
+        	window.localStorage.setItem('activityId', $(this).attr('data-activityId'));
+			window.localStorage.setItem('rate', $(this).attr('data-rate'));
+			window.localStorage.setItem('status', $(this).attr('data-status'));
+
+			window.localStorage.setItem('thisCompanyId', $(this).attr('data-companyid'));
+
+			window.parent.location.href = '../flashSale/buyingDetails.html';
+        });
+
+        //取消
+        $('.cancel a').click(function() {
+
+        	window.parent.warn_alert($(this).attr('data-productId'), '确认要取消此商品吗？');
+ 
+        });
+
+
+        window.parent.$('.all_warn_alert .all_sure').unbind();
+        window.parent.$('.all_warn_alert .all_sure').click(function() {
+        	
+        	var p_id = $(this).attr('data-this');
+
+        	$.ajax({
+	        	type: "get",
+	            url: pubIP + "acticityApi/updateActivityProductById",//v1.0
+	            headers: {
+	                token: token
+	            },
+	            cache: false,
+	            async:false,
+	            data: {
+	            	companyId: companyId,
+	            	activityId: activityId,
+	            	productId: p_id
+	            },
+	            dataType: "json",
+	            success: function(data){
+					console.log(data);
+
+					if (data.code == 1) {
+						window.location.reload();
+					}
+
+				},
+	            error: function(err) {
+	            	console.log(err);
+	            }
+	        });
+        });
 
         // 活动商品列表
         function activityList(num){
