@@ -1288,6 +1288,10 @@
 						})
 						$('.toXunpanBtn').click(function() {
 
+							window.location.href = 'buyingOrder.html';
+
+							return false;
+
 							var isOld = localStorage.getItem('isOld');
 							if(isOld != '2'){
 								if(isOld == '1'){
@@ -1296,7 +1300,7 @@
 								}else if(isOld == '0'){
 									missedLogin() ;
 								}else if(isOld == '-1'){
-									$('#effect .contTitle span').text('您尚未认证');
+									$('#effect .contTitle span').text('您尚未进行企业认证');
 									$('#effect .contTitle i').text('认证');
 									$('#popLogin').text('认证');
 									missedLogin() ;

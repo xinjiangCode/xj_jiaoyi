@@ -104,6 +104,145 @@
 			.sendCode {
 				margin-right: 9px;
 			}
+
+			.modelBox {
+				z-index: 10000;
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(0, 0, 0, 0.5);
+			}
+			
+			.modelCont {
+				position: absolute;
+				width: 450px;
+				min-height: 275px;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				-webkit-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				font-family: 'microsoft yahei';
+			}
+			
+			.modeltitle {
+				width: 450px;
+				height: 50px;
+				background-image: url(../img/gsxq.gif);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				font-size: 16px;
+				color: #5690f6;
+				line-height: 50px;
+			}
+			
+			.modeltitle>span {
+				margin-left: 16px;
+			}
+			
+			.modelcontent {
+				width: 450px;
+				min-height: 226px;
+				background-image: url(../img/gsxq_cont.gif);
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+				font-size: 16px;
+			}
+			
+			.modelcontent li {
+				margin-bottom: 12px;
+			}
+			
+			.modelcontent label {
+				margin-left: 20px;
+				display: inline-block;
+				width: 86px;
+			}
+			
+			.modelcontent select {
+				width: 151px;
+				height: 40px;
+				border: 1px solid #e7e7e7;
+				line-height: 40px;
+				border-radius: 3px;
+				background: #fff;
+				margin-right: 3px;
+			}
+			
+			.modelcontent .input {
+				width: 309px;
+				border: 1px solid #e7e7e7;
+				line-height: 40px;
+				border-radius: 3px;
+				background: #fff;
+				padding-left: 3px;
+				box-sizing: border-box;
+			}
+			
+			.modelBtnBox {
+				width: 302px;
+				height: 45px;
+				overflow: hidden;
+				margin: 0 auto;
+				padding: 10px 0 30px;
+			}
+			
+			.modelbtn {
+				float: left;
+				width: 130px;
+				height: 35px;
+				border: 1px solid #5690f6;
+				font-size: 18px;
+				color: #fff;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: 35px;
+				border-radius: 3px;
+				cursor: pointer;
+			}
+
+
+
+			.all_success_alert, .all_error_alert{
+	            z-index: 9999;
+	            display: none;
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            right: 0;
+	            bottom: 0;
+	            background-color: rgba(0, 0, 0, 0.5);
+	        }
+
+
+	        .all_success_alert .modelcontent>div, .all_error_alert .modelcontent>div {
+	        	margin-bottom: 0px;
+				width: 450px;
+	        }
+
+	        .all_success_alert .modelcontent>div.info, .all_error_alert .modelcontent>div.info {
+	        	height: 140px;
+	        }
+			
+			.all_success_alert .img_div, .all_error_alert .img_div {
+				text-align: center;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+
+			.all_success_alert .modelbtn, .all_error_alert .modelbtn {
+				margin: 5px auto 0 160px
+			}
+
+			.all_error_alert p, .all_success_alert p {
+				text-align: center;
+	        }
+
 		</style>
 	</head>
 	<body>
@@ -205,12 +344,35 @@
             <div> </div>
         </div>
 
+        <div class="all_error_alert" style="z-index: 99999;">
+		    <div class="modelCont">
+		        <div class="modeltitle">
+		            <span>消息提示</span>
+		            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+		        </div>
+		        <div class="modelcontent">
+		            <div class="info">
+		                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+		                <p class="innerErrmsg"></p>
+		            </div>
+		            <div class="modelBtnBox">
+		                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
 		<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/register.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript" >
+
+        	$('.all_error_alert .confirm, .close').click(function(){
+        		$('.all_error_alert').hide();
+        	});
+
              //下载协议模板
             function down_moban(){
                 $.ajax({
@@ -645,7 +807,8 @@
                           },1000);
 
                       } else {
-                          alert(data.msg);
+                          $('all_error_alert p').text(data.msg);
+                          $('all_error_alert').show();
                           return;
                       }
                   },
@@ -682,7 +845,9 @@
               }else if(errorlist!=""){
                   return;
               }else if(!$(".box").eq(0).hasClass("active")){
-                  alert("您还未同意服务协议");
+                  
+                  $('.all_error_alert p').text("请先阅读并同意用户服务协议再行提交");
+                  $('.all_error_alert').show();
                   //后期改为弹窗
                   return;
               }

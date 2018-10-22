@@ -667,7 +667,7 @@
 	        			data.data.memberGrowCurrent = 0;
 	        		}
 
-	        		$('.progress_bg span').css('width', data.data.memberGrowCurrent +'%');
+	        		$('.progress_bg span').css('width', data.data.ratio);
 	        		
 	        		$('.yellow_member span').text(data.data.propertiesName);
 
@@ -701,7 +701,7 @@
 	       				}else if(isOld == '0'){
 	       					missedLogin() ;
 	       				}else if(isOld == '-1'){
-	       					$('#effect .contTitle span').text('您尚未认证');
+	       					$('#effect .contTitle span').text('您尚未进行企业认证');
 	       					$('#effect .contTitle i').text('认证');
 	       					$('#popLogin').text('认证');
 	       					$('#popLogin').addClass('qyrz_class');

@@ -802,6 +802,8 @@
 	                	window.location.href = "./addShop2.html?productId="+ json.data;	
 	                } else if (json.code == '-1003') {
 	                	window.parent.renzheng1();
+	                } else {
+	                	alert(json.msg);
 	                }
 	            }
 	        });
