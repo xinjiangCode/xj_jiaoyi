@@ -3566,6 +3566,9 @@
 
     //修改支付密码  提交
     $("#updataPayPwdSub").click(function () {
+
+        var financePhoneNumber1 = $("#updataPayPwdSub").attr('data-yanzheng');
+
         if($("#oldPayPwd").val()=="" || $("#oldPayPwd").val().length<6  ){
             $("#oldPayPwd").css('border-color','red');
             return;
@@ -3599,16 +3602,18 @@
             data:{
                 newPayPassword:$("#newPayPwd1").val(),
                 oldPayPassword:$("#oldPayPwd").val(),
-                financePhoneNumber: financePhoneNumber
+                financePhoneNumber: financePhoneNumber1
             },
             success: function (data) {
                 console.log(data)
                 if(data.code==1){
                     $("#updataPayPwd").hide();
                     $("#Iframe").attr("src","accountOverView.html");
-                    alert("修改成功");
+                    $('.all_success_alert').show();
+                    $('.all_success_alert p').text("修改成功");
                 }else{
-                    alert(data.msg)
+                    $('.all_error_alert').show();
+                    $('.all_error_alert p').text(data.msg);
                 }
             },
             error: function(err){

@@ -267,6 +267,7 @@ if(token){
 		  	}
             companyId = json.data.companyId;
 			userId = json.data.id;
+            
             financePhoneNumber = json.financePhoneNumber;
             userPhone = json.data.mobile;
 

@@ -323,13 +323,21 @@
 									+'</li>'
 				        		}
 			        		}
+
+			        		$('.no_shop_pic').hide();
+			        		$('.no_shop ul').show();
+			        		$('.no_shop ul').html(str);
+		        		
+
+			        	} else {
+			        		if (status == 2) { //待发货
+			        			$('.no_shop_pic').hide();
+			        			$('.no_shop ul').hide();
+			        		}
+
 			        	}
 
-			        	
-		        		
-		        		
 
-		        		$('.no_shop ul').html(str);
 		        		
 
 
@@ -388,6 +396,8 @@
 		        	
 
 		        	$('.shop_total_money').text(data.data.cash);
+
+		        	$('.integral').text(data.data.integral);
 	        	}
 	        	
 

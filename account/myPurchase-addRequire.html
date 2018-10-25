@@ -470,6 +470,12 @@
 
                     $('#address ul').html(str);
 
+                    $('#address span').text($('#address ul li').eq(0).text());
+
+                    $('#address').attr('data-addressId', $('#address ul li').eq(0).attr('data-addressId'));                  
+                    
+                    $('#address').attr('data-selectedindex', $('#address ul li').eq(0).val());  
+
                     $('#address ul li').click(function(){
                         event.stopPropagation();
                         $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
@@ -573,13 +579,13 @@
                 $("#addressRequire").parent().find(".err").text("");
             }
             //备注
-            if($("#remark").val()==""){
-                $("#remark").parent().find(".err").text("请填写备注");
-                $("#remark").focus();
-                return;
-            }else{
-                $("#remark").parent().find(".err").text("");
-            }
+            // if($("#remark").val()==""){
+            //     $("#remark").parent().find(".err").text("请填写备注");
+            //     $("#remark").focus();
+            //     return;
+            // }else{
+            //     $("#remark").parent().find(".err").text("");
+            // }
             //联系人
             if( $("#concatPerson").val()==""){
                 $("#concatPerson").parent().find(".err").text("请填写联系人");
@@ -745,14 +751,14 @@
 
         
         //备注
-        $('#remark').blur(function() {
-            if($(this).val()==""){
-                $(this).parent().find(".err").text("请填写备注");
-                return;
-            }else{
-                $(this).parent().find(".err").text("");
-            }
-        });
+        // $('#remark').blur(function() {
+        //     if($(this).val()==""){
+        //         $(this).parent().find(".err").text("请填写备注");
+        //         return;
+        //     }else{
+        //         $(this).parent().find(".err").text("");
+        //     }
+        // });
 
 
         //联系人

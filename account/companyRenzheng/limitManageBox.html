@@ -723,7 +723,7 @@
                         str += ' <div class="mb20">'
                             +'<div class="first_title" data-first="'+json.permission[i].dbid+'"><input type="checkbox">'+json.permission[i].name+'</div>'
                             +'<div class="content">'
-                                +'<ul class="clearfix">'
+                                +'<ul class="clearfix two_title">'
                                     for (var j = 0; j < json.permission[i].menuList.length; j++) {
                                         str += '<li data-second="'+json.permission[i].menuList[j].dbid+'">'
                                                 +'<input type="checkbox">'+json.permission[i].menuList[j].name
@@ -737,6 +737,8 @@
 
                     $('.info').html(str);
 
+                    yi_limit();
+
                 } else {
                     cf_alert1(2, json.msg);
                 }
@@ -745,38 +747,143 @@
             error: function(err) {
                 console.log(err);
             }
+        });
+
+        //编辑权限
+        $('.ok').click(function() {
+
+            var menuStr = ''; //一级id
+            var input = $('.first_title input');
+            
+            for (var i = 0; i < input.length; i++) {
+                
+                if ($(input[i])[0].checked == true) {
+                    
+                    menuStr += $(input[i]).parent().attr('data-first') + ',';
+                }
+
+            }
+            
+
+            // console.log(menuStr);
+
+            var permissionStr = ''; //一级id
+            var two_input = $('.two_title li input');
+            
+            for (var i = 0; i < two_input.length; i++) {
+                
+                if ($(two_input[i])[0].checked == true) {
+                    
+                    permissionStr += $(two_input[i]).parent().attr('data-second') + ',';
+                }
+
+            }
+            
+
+            // console.log(permissionStr);
+
+
+            $.ajax({
+                url: pubIP + 'userPermissions/updateUserRole',
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                cache: false,
+                dataType: 'json',
+                data: {
+                    userId: window.parent.$('#limit_manage_iframe').attr('data-id'),
+                    menu: menuStr,
+                    permission: permissionStr
+                },
+                success: function (json) {
+                    console.log(json);
+                    if (json.code == 1) {
+                        window.parent.$('.all_success_alert p').text('编辑成功');
+                        window.parent.$('.all_success_alert').show();
+                    } else {
+                        window.parent.$('.all_error_alert p').text('编辑失败');
+                        window.parent.$('.all_error_alert').show();
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+
+        });
+
+
+        window.parent.$('.all_success_alert .modelbtn').click(function() {
+            window.parent.$('#limit_manage_iframe').hide();
+            window.location.reload();
         });
 
 
         //查询某个用户已有权限
         // console.log(window.parent.$('#limit_manage_iframe').attr('data-id'));
+        function yi_limit() {
+            $.ajax({
+                url: pubIP + 'userPermissions/getRoleByUserId',
+                type: 'get',
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    userId: window.parent.$('#limit_manage_iframe').attr('data-id')
+                },
+                cache: false,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
 
-        $.ajax({
-            url: pubIP + 'userPermissions/getRoleByUserId',
-            type: 'get',
-            headers: {
-                Accept: "application/json; charset=utf-8",
-                token: token
-            },
-            data: {
-                userId: window.parent.$('#limit_manage_iframe').attr('data-id')
-            },
-            cache: false,
-            dataType: 'json',
-            success: function (json) {
-                console.log(json);
+                    if (json.code == 1) {
 
-                if (json.code == 1) {
+                        if (json.menu.length != 0) {
+                            
+                            for (var m = 0; m < json.menu.length; m++) {
+
+                                for (var n = 0; n < $('.first_title').length; n++) {
+                                    // console.log()
+                                    if ($($('.first_title')[n]).attr('data-first') == json.menu[m].id) {
+                                        // console.log($($('.first_title')[n]).find('input')[0].checked = true);
+                                        $($('.first_title')[n]).find('input')[0].checked = true;
+                                    }
+                                }
+
+                            }   
+                            
+                        }
+
+                        if (json.permission.length != 0) {
+
+                            for (var x = 0; x < json.permission.length; x++) {
+
+                                for (var y = 0; y < $('.two_title li').length; y++) {
+                                    
+                                    if ($($('.two_title li')[y]).attr('data-second') == json.permission[x].dbid) {
+                                        
+                                        $($('.two_title li')[y]).find('input')[0].checked = true;
+                                    }
+                                }
+
+                            }
+
+                        }
+                        
+                    } else {
+                        cf_alert1(2, json.msg);
+                    }
                     
-                } else {
-                    cf_alert1(2, json.msg);
+                },
+                error: function(err) {
+                    console.log(err);
                 }
-                
-            },
-            error: function(err) {
-                console.log(err);
-            }
-        });
+            });
+        }
+        
 
 
         
