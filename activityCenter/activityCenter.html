@@ -131,7 +131,7 @@
 
 	<script type="text/html" id="listTpl">
 		<%for(i in list){%>
-		<li data-dbid="<%=list[i].dbid%>" data-startTime="<%=list[i].startTime%>" data-endTime="<%=list[i].endTime%>" data-bzj="<%=list[i].sellCashDeposit%>" data-type="<%=list[i].type%>">
+		<li data-dbid="<%=list[i].dbid%>" data-startTime="<%=list[i].startTime%>" data-endTime="<%=list[i].endTime%>" data-bzj="<%=list[i].sellCashDeposit%>" data-type="<%=list[i].type%>" data-status="<%=list[i].status%>">
 			<span class="qiang_buy">
 				<%if (list[i].type == 1) {%>
 				<span>抢购</span>
@@ -176,6 +176,8 @@
 
 			window.sessionStorage.setItem('activityId', $(this).parent().attr('data-dbid'));
 
+			window.localStorage.setItem('iStatus', $(this).parent().attr('data-status'));
+
 			$(this).find('a').attr('href', 'activityList.html');
 
 		});
@@ -187,6 +189,8 @@
 			window.sessionStorage.setItem('activityTitle', $(this).parent().find('.activity_title').text());
 			window.sessionStorage.setItem('startTime', $(this).parent().attr('data-startTime'));
 			window.sessionStorage.setItem('endTime', $(this).parent().attr('data-endTime'));
+
+			window.localStorage.setItem('iStatus', $(this).parent().attr('data-status'));
 
 			window.sessionStorage.setItem('qiang_gou_huo', $(this).parent().attr('data-type'));
 

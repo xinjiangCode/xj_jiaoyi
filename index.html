@@ -444,6 +444,25 @@
 				font-size: 12px;
 			}
 
+			.kefu_a {
+				position: relative;
+			}
+
+			#unreadNum {
+				width: 24px;
+			    height: 24px;
+			    position: absolute;
+			    border-radius: 15px;
+			    background-color: #ff3b30;
+			    left: -11px;
+			    top: -11px;
+			    display: none;
+			    text-align: center;
+			    line-height: 24px;
+			    color: #fff;
+			    font-size: 14px;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -1056,7 +1075,7 @@
 		</div>
 		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
 		<div class="fxd">
-			<a href="##"><img src="img/indexKefu.png" style="margin-top: 9px;"/> </a>
+			<a href="javascript:void(0)" onclick="_MEIQIA('showPanel')" class="kefu_a"><img src="img/indexKefu.png" style="margin-top: 9px;"/> <span id="unreadNum"></span> </a>
 			<a href="##" id="showCd">
 				<img src="img/indexEcode.png"/> 
 				<div class="showCode">
@@ -1190,8 +1209,152 @@
 			<%}%>
 			
 		</script>
+	
+		<script>
+		    /**
+		     * [处理未读消息]
+		     * @param  {[string, object]} msg [string: 'hasBeenRead',
+		 object: 未读消息数据]
+		     */
+		    function yourFunction(msg) {
+		        var text = '',
+		            num = 0;
+		        if (msg === 'hasBeenRead') { // 消息已被阅读
+		            num = 0;
+		            $('#unreadNum').hide();
+		        } else if (typeof(msg) === 'object') {
+		            var unreadNum = document.getElementById('unreadNum').innerHTML,
+		                lastMsg = msg[msg.length - 1];
+		            num = isNaN(+unreadNum) ? msg.length : +unreadNum + msg.length;
+		            // content_type 是消息的类型：
+		            // text（文字）、photo（图片）、file（文件）
+		            // content 是消息的内容
+		            if (lastMsg.content_type === 'text') {
+		                // 文字消息中可能会存在表情图片，由于路径问题
+		                // 将文字消息中的图片处理为文字'[表情]'
+		                text = lastMsg.content.replace(
+		                    /<img [^>]*src=['"]([^'"]+)[^>]*>/gi, '[表情]'
+		                );
+		            } else if (lastMsg.content_type === 'photo') {
+		                text = '[图片]';
+		            } else if (lastMsg.content_type === 'file') {
+		                text = '[文件]';
+		            } else {
+		                text = '[新消息]';
+		            }
+
+		            $('#unreadNum').show();
+
+		        }
+		        // 未读消息数量
+		        document.getElementById('unreadNum').innerHTML = num;
+		        // 最后一条消息的内容
+		        // document.getElementById('unreadMsg').innerHTML = text;
+		    }
+
+		</script>
+
+		<script type='text/javascript'>
+		    (function(m, ei, q, i, a, j, s) {
+		        m[i] = m[i] || function() {
+		            (m[i].a = m[i].a || []).push(arguments)
+		        };
+		        j = ei.createElement(q),
+		            s = ei.getElementsByTagName(q)[0];
+		        j.async = true;
+		        j.charset = 'UTF-8';
+		        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+		        s.parentNode.insertBefore(j, s);
+		    })(window, document, 'script', '_MEIQIA');
+		    _MEIQIA('entId', '127367');
+
+		    //无按钮
+		    _MEIQIA('withoutBtn');
+
+		     // 获取未读消息
+		    _MEIQIA('getUnreadMsg', yourFunction);
+		</script>
+
+
+		<!-- <script>
+
+
+		/**
+		     * [处理未读消息]
+		     * @param  {[string, object]} msg [string: 'hasBeenRead',
+		 object: 未读消息数据]
+		     */
+		    function yourFunction(msg) {
+		    	console.log(msg);
+		        var text = '',
+		            num = 0;
+		        if (msg === 'hasBeenRead') { // 消息已被阅读
+		            num = 0;
+		            // $("#unreadNum").hide();
+		        } else if (typeof(msg) === 'object') {
+		            var unreadNum = document.getElementById('unreadNum').innerHTML,
+		                lastMsg = msg[msg.length - 1];
+		            num = isNaN(+unreadNum) ? msg.length : +unreadNum + msg.length;
+		            // content_type 是消息的类型：
+		            // text（文字）、photo（图片）、file（文件）
+		            // content 是消息的内容
+		            if (lastMsg.content_type === 'text') {
+		                // 文字消息中可能会存在表情图片，由于路径问题
+		                // 将文字消息中的图片处理为文字'[表情]'
+		                text = lastMsg.content.replace(
+		                    /<img [^>]*src=['"]([^'"]+)[^>]*>/gi, '[表情]'
+		                );
+		            } else if (lastMsg.content_type === 'photo') {
+		                text = '[图片]';
+		            } else if (lastMsg.content_type === 'file') {
+		                text = '[文件]';
+		            } else {
+		                text = '[新消息]';
+		            }
+		             // $("#unreadNum").show();
+
+		        }
+		        // 未读消息数量
+		        document.getElementById('unreadNum').innerHTML = num;
+		       
+		        // 最后一条消息的内容
+		        document.getElementById('unreadMsg').innerHTML = text;//127367
+		    }
+		</script>
+		
+	    <script type='text/javascript'>
+	    // 美洽 widget
+		    (function(m, ei, q, i, a, j, s) {
+		        m[i] = m[i] || function() {
+		            (m[i].a = m[i].a || []).push(arguments)
+		        };
+		        j = ei.createElement(q),
+		            s = ei.getElementsByTagName(q)[0];
+		        j.async = true;
+		        j.charset = 'UTF-8';
+		        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+		        s.parentNode.insertBefore(j, s);
+		    })(window, document, 'script', '_MEIQIA');
+		    _MEIQIA('entId', '127367');
+		    //初始化成功回调
+		    //_MEIQIA('allSet', aa);
+		    //无按钮
+		    // _MEIQIA('withoutBtn');
+		    //_MEIQIA('hidePanel');
+		    // 获取未读消息
+		    _MEIQIA('getUnreadMsg', yourFunction);
+		    //初始化
+		    // _MEIQIA('init');
+		    //_MEIQIA('showPanel');
+		</script>		
+		 -->
+
+		
+
 
 		<script type="text/javascript" >  
+
+
 
 			$('.all_success_alert .modelbtn, .all_success_alert .close').click(function() {
 				$(this).parents('.all_success_alert').hide();

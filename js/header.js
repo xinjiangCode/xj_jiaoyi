@@ -579,16 +579,79 @@ if(adct == '首页' ){
 document.writeln(headLink);
 
 // var headerip = 'http://api.xjv56.com/service/';
-// var headerip = 'http://api.test.xjv56.com/service/';
-var headerip = 'http://192.168.1.80:7777/service/';
-// var headerip = 'http://192.168.1.164:7777/service/';
-// var headerip = 'http://192.168.1.168:7777/service/';
+var headerip = 'http://api.test.xjv56.com/service/';
+// var headerip = 'http://192.168.1.80:7777/service/';
+// var headerip = 'http://192.168.1.165:7777/service/';
+// var headerip = 'http://192.168.1.57:7777/service/';
 
 // var headerip = 'http://127.0.0.1:7777/service/';
 
 
 //var headerip = 'http://192.168.1.223:7777/service/';
+	
+
+// 美洽 widget
+	    // (function(m, ei, q, i, a, j, s) {
+	    //     m[i] = m[i] || function() {
+	    //         (m[i].a = m[i].a || []).push(arguments)
+	    //     };
+	    //     j = ei.createElement(q),
+	    //         s = ei.getElementsByTagName(q)[0];
+	    //     j.async = true;
+	    //     j.charset = 'UTF-8';
+	    //     j.src = 'https://static.meiqia.com/dist/meiqia.js';
+	    //     s.parentNode.insertBefore(j, s);
+	    // })(window, document, 'script', '_MEIQIA');
+	    
+	    // _MEIQIA('entId', 127367);
+	    
+	    // 指定客服组
+	 //    _MEIQIA('assign', {
+	 //        groupToken: '082794e738b9709d10ef2dcdbfe32a02'
+	 //    });
+	    
+	 //    _MEIQIA('manualInit');
+	 //    _MEIQIA('withoutBtn');
+
+	 //    // 传递顾客信息
+	 //    _MEIQIA('metadata', {
+	 //        name: '智子', // 美洽默认字段
+	 //        address: '半人马座阿尔法星', // 美洽默认字段
+	 //        aaa: 'bla bla bla', // 自定义字段
+	 //        xyz: 'lalala' // 自定义字段,
+	 //    });
+
+	 //    // 获取未读消息
+  //   	_MEIQIA('getUnreadMsg', yourFunction);
+
+  //   	// 设置 fallback
+  //   	//设置当指定客服不可服务时如何处理
+  //   	// 1 不转接（进入留言也面）
+		// // 2 转接到客服所属于的组
+		// // 3 转接到全企业（这是美洽默认的处理方式）
+  //   	_MEIQIA('fallback', 1);
+
+
+  //   	// 设置 clientId
+  //   	//同步顾客身份
+  //   	_MEIQIA('clientId', '顾客的唯一标识');
+
+
+  //   	_MEIQIA('convClickCallback', clickCallback);
+		// function clickCallback(type, convId) {
+		//  	console.log(type);
+		//  	if (type === 'conv') {
+		//    		console.log(convId);
+		//  	}
+		// }
+
+		
+// end
+
+
 //header ip
+
+
 window.onload = function(){
 	   //全部分类
        $.ajax({ 

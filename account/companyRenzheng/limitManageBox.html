@@ -190,7 +190,7 @@
 	        </div>
 	        <div class="modelcontent">
                 <div class="info">
-                    <div class="mb20">
+                    <!-- <div class="mb20">
                         <div class="first_title"><input type="checkbox">首页</div>
                         <div class="content">
                             <ul class="clearfix">
@@ -676,7 +676,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
                 
@@ -702,8 +702,54 @@
 	        window.parent.$('.limit_manage_box').css('display', 'none');
 	    });
 
+        //所有权限列表
+        $.ajax({
+            url: pubIP + 'userPermissions/getRoleALl',
+            type: 'get',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                token: token
+            },
+            cache: false,
+            dataType: 'json',
+            success: function (json) {
+                console.log(json);
+
+                if (json.code == 1) {
+                    
+                    var str = '';
+
+                    for (var i = 0; i < json.permission.length; i++) {
+                        str += ' <div class="mb20">'
+                            +'<div class="first_title" data-first="'+json.permission[i].dbid+'"><input type="checkbox">'+json.permission[i].name+'</div>'
+                            +'<div class="content">'
+                                +'<ul class="clearfix">'
+                                    for (var j = 0; j < json.permission[i].menuList.length; j++) {
+                                        str += '<li data-second="'+json.permission[i].menuList[j].dbid+'">'
+                                                +'<input type="checkbox">'+json.permission[i].menuList[j].name
+                                            +'</li>'
+                                    }
+                                    
+                                str += '</ul>'
+                            +'</div>'
+                        +'</div>';
+                    }
+
+                    $('.info').html(str);
+
+                } else {
+                    cf_alert1(2, json.msg);
+                }
+                
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+
+
         //查询某个用户已有权限
-        console.log(window.parent.$('#limit_manage_iframe').attr('data-id'));
+        // console.log(window.parent.$('#limit_manage_iframe').attr('data-id'));
 
         $.ajax({
             url: pubIP + 'userPermissions/getRoleByUserId',
@@ -731,6 +777,9 @@
                 console.log(err);
             }
         });
+
+
+        
 
 	</script>
 </body>

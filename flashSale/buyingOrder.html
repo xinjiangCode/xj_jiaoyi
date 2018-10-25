@@ -53,6 +53,157 @@
                 width: 1230px;
             }
 
+
+            .modelBox33, .modelBox34, .modelBox30 {
+
+                z-index: 9999;
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .modelBox33 p, .modelBox34 p, .modelBox30 p {
+                text-align: center;
+            }
+
+            .modelBox34 .item, .modelBox35 .item {
+                margin-bottom: 20px;
+            }
+
+            .modelBox30 .img_div {
+                text-align: center;
+                padding-top: 40px;
+            }
+
+            
+
+            .modelBox34 .itemLeftTitle,.modelBox35 .itemLeftTitle{width: 190px;height: 37px;line-height: 37px;text-align: right;font-size: 16px;color: #333333;}
+
+            .cf_btn{width: 120px;height: 40px;line-height: 40px;text-align: center;border-radius: 3px; cursor: pointer;background-color: #6ba1ff;color: white;}
+            .cf_btn:hover{background-color: #5388ff;color: white;}
+            .cf_btn.cancel{width: 120px;height: 40px;line-height: 40px;text-align: center;border-radius: 3px;background-color: white;color: #ffb387;border: 1px solid #ffb387;}
+            .cf_btn.cancel:hover{background-color: #ffb387;color: white;}
+
+            /* 模态框 */
+            .modelBox{
+                z-index: 9999;
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            .modelCont{
+                position: absolute;
+                width: 450px;
+                min-height: 275px;
+                left: 50%;
+                top: 50%;
+                /*margin-left: -225px;
+                margin-top: -200px;*/
+               margin-left: 0 !important;
+               margin-top: 0 !important;
+                transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);-ms-transform: translate(-50%,-50%);-moz-transform: translate(-50%,-50%);-o-transform: translate(-50%,-50%);
+                font-family: 'microsoft yahei';
+                /* background-color: red; */
+            }
+            .modeltitle{
+                width: 450px;
+                height: 50px;
+                background-image: url(../img/gsxq.gif);
+                background-size: 100% 100%;
+                background-repeat: no-repeat; 
+                font-size: 16px;
+                color: #5690f6;
+                line-height: 50px;
+            }
+            .modeltitle span{
+                margin-left: 16px;
+            }
+
+            .modelcontent, .cont{
+                width: 450px;
+                min-height: 226px;
+                background-image: url('../img/gsxq_cont.gif');
+                background-size: 100% 100%;
+                background-repeat: no-repeat; 
+                font-size: 18px;
+            }
+            
+            .modelBtnBox{
+                width: 302px;
+                height: 45px;
+                overflow: hidden;
+                margin: 0 auto;
+                padding-bottom: 30px;
+            }
+            .modelbtn{
+                float: left;
+                width: 130px;
+                height: 35px;
+                border: 1px solid #5690f6;
+                font-size: 16px;
+                color: #fff;
+                box-sizing: border-box;
+                text-align: center;
+                line-height: 35px;
+                border-radius: 3px;
+                cursor: pointer;
+                margin: 18px auto 0 80px;
+            }
+
+
+            .all_success_alert, .all_error_alert{
+                z-index: 9999;
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+
+            .all_success_alert .modelcontent>div, .all_error_alert .modelcontent>div {
+                margin-bottom: 0px;
+                width: 450px;
+            }
+
+            .all_success_alert .modelcontent>div.info, .all_error_alert .modelcontent>div.info {
+                height: 140px;
+            }
+            
+            .all_success_alert .img_div, .all_error_alert .img_div {
+                text-align: center;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .all_success_alert .modelbtn, .all_error_alert .modelbtn {
+                margin: 5px auto 0 160px
+            }
+
+            .all_error_alert p, .all_success_alert p {
+                text-align: center;
+            }
+
+            .modelBox30 .modelbtn {
+                margin: 30px auto 0 18px;
+            }
+
+            .q_g_h .hetong_muban a {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+
     </style>
 </head>
 <body style="background: #fff;">
@@ -860,10 +1011,10 @@
                 <%if(state==1 || state==2){%>
                     <%if(logisticsOrderState==1){%><!-- 待发货，待付款 -->
                         <p>订单状态：订单已经提交成功，等待买家付款。剩余支付时间：<span class="yellow time_djs">29天8时45分25秒</span>，您可以：</p>
-                        <div class="btnBox clearfix">
+                        <div class="btnBox clearfix q_g_h" >
                             <div class="payBtn btn btnActive">立即支付</div>
                             <div class="receiveBtn btn toCancelOrderbtn">取消订单</div>
-                            <!--<div class="hetong_muban">合同模板下载</div>-->
+                            <div class="hetong_muban"><a href="##">合同模板下载</a></div>
                         </div>
                     <%}else if(logisticsOrderState==2){%><!-- 已发货，待付款 -->
                         <p>订单状态：卖家已发货，等待买家完成付款、确认收货。剩余支付时间：<span class="yellow time_djs">29天8时45分25秒</span>，您可以：</p>
@@ -1049,11 +1200,155 @@
             </div>
         </div>
     </div>
+
+    <!--订单支付-->
+    <div class="modelBox33" style="font-size: 16px;">
+        <div class="modelCont" style="width: 630px;height: 470px;">
+            <div class="modeltitle" style="width: 100%;">
+                <span>订单支付</span>
+                <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+            </div>
+            <div class="modelcontent" style="width: 100%;height: 420px;font-size: 16px;">
+                <div class="cf_title" style="padding-top: 30px;margin-left: 70px; color: #333333;">支付方式：现汇+承兑</div>
+                <div style="margin-top: 14px;margin-left: 70px;padding-bottom: 8px; color: #333333;">总额：<span class="totalMoney">20.00</span>元</div>
+                <div style="margin-top: 14px;margin-left: 70px; color: #333333;">现汇方式：</div>
+                <div class="clearFloat clearfix" style="margin-top: 10px;font-size: 16px;background-color: #f9f9f9;padding: 10px 73px 10px 0;">
+                    <div style="margin-left: 47px;line-height: 31px; color: #666666;">
+                        <input checked type="radio" name="xuNi" value="虚拟账户" style="margin-left: 20px;cursor: pointer;">虚拟账户
+                        <span style="margin-left: 54px;">可用余额：</span>
+                        <span class="accountBalance">0.00</span>
+                        <span class="cf_btnA Rt" style="margin-right: 35px;color: #5690f6;font-weight: bold;cursor:pointer;" onclick="goChongZhi(this)">充值</span>
+                        <div style="border-top: 3px solid #ffffff;margin: 10px 0;margin-left: -47px;margin-right: -73px;"></div>
+                        <span style="margin-left: 160px;color: #5690f6;">支付金额: </span>
+                        <span style="width: 130px;height: 31px;line-height: 31px;color: #5690f6;" class="payBalance">10000</span>
+                        <div class="cf_btn Rt goPay goPay1"  style="width:130px;height:35px;line-height:35px;font-size:16px;">立即支付</div>
+                    </div>
+                </div>
+                <div style="margin-left: 70px; color: #333333;margin-top: 8px;">承兑方式：</div>
+                <div class="clearFloat clearfix" style="margin-top: 10px;font-size: 16px; color: #666666;background-color: #f9f9f9;padding: 10px 73px 10px 0;">
+                    <div style="margin-left: 47px;">
+                        <input checked type="radio" name="chengDui" value="中信银行" style="margin-left: 25px;cursor: pointer;">中信银行
+                        <input type="radio" name="chengDui" value="库尔勒银行" style="margin-left: 30px;cursor: pointer;">库尔勒银行
+                        <input type="radio" name="chengDui" value="招商银行" style="margin-left: 30px;cursor: pointer;">招商银行
+                    </div>
+                    <div style=" border-top: 2px solid #ffffff;margin: 15px -73px 10px 0;"></div>
+                    <div class="clearFloat clearfix">
+                        <div class="cf_btn Rt goPay goPay2"   style="width:130px;height:35px;line-height:35px;font-size:16px;margin-left: 35px;">立即支付</div>
+                        <div class="Rt" style="font-size: 16px;line-height: 40px;">
+                            <input type="radio" name="beishu" style="vertical-align: sub;cursor: pointer;"> 背书
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--订单支付-->
+    <div class="modelBox34" style="font-size: 14px;">
+        <div class="modelCont" style="width: 633px;height: 470px;">
+            <div class="modeltitle" style="width: 100%;">
+                <span>支付</span>
+                <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+            </div>
+            <div class="modelcontent" style="width: 100%;height: 380px;font-size: 16px;padding-top: 40px;">
+                <div class="item clearfix">
+                    <div class="itemLeftTitle Lf">支付方式：</div>
+                    <div class="itemRight pay_method Lf" style="line-height: 37px;height: 37px;">现汇</div>
+                </div>
+                <div class="item clearfix">
+                    <div class="itemLeftTitle Lf">支付金额：</div>
+                    <div class="itemRight Lf" style="line-height: 37px;height: 37px;">￥<span class="paymoney"></span></div>
+                </div>
+                <div class="item clearfix">
+                    <div class="itemLeftTitle Lf">支付密码：</div>
+                    <div class="itemRight Lf">
+                        <input class="pay_pass_input" type="password" style="width: 200px;height: 32px;line-height: 32px; text-indent: 8px;">
+                        <a href="../login/findPass.html" style="font-size: 16px;color: #5690f6;margin-left: 20px;">忘记密码？</a>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <div class="itemLeftTitle Lf">手机号：</div>
+                    <div class="itemRight Lf">
+                        <input type="text" class="phone" style="width: 200px;height: 32px;line-height: 32px;" disabled="disabled">
+                        <span class="cf_btn getSMSCode" style="width: 130px;display: inline-block;height: 35px;line-height: 35px;">获取验证码</span>
+                    </div>
+                </div>
+                <div class="item clearfix">
+                    <div class="itemLeftTitle Lf">输入验证码：</div>
+                    <div class="itemRight Lf"><input type="text" class="SMScode"  style="width: 336px;height: 32px;line-height: 32px;"></div>
+                </div>
+
+                <div class="cf_btn " id="surePay" style="margin: 0 auto;width: 130px;height: 35px;line-height: 35px;font-size: 16px;background-color: #c2ccd1;" data-isok="0" data-isok1="0" data-isok2="0">确认支付</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 确认收货 -->
+    <div class="modelBox30">
+        <div class="modelCont">
+            <div class="modeltitle">
+                <span>消息提示</span>
+                <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+            </div>
+            <div class="modelcontent">
+                <div class="info">
+                    <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/cf_denger1.png" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
+                    margin-left: 10px; display: inline-block;">您要确认收货吗？</span></span></div>
+                    <p></p>
+                </div>
+                <div class="modelBtnBox">
+                    <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px; margin-left: 12px;" class="modelbtn modelbtn2 sure_shou addShop_too  confirm suershouhuo">确定</div>
+                    <div style="border: 2px solid #5690f6; color: #5690f6;width:130px;height:35px;font-size:16px;line-height:32px;" class="modelbtn modelbtn2 ml10 backShopList  confirm backSureJiaoyi">返回</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="all_error_alert" style="z-index: 99999;">
+        <div class="modelCont">
+            <div class="modeltitle">
+                <span>消息提示</span>
+                <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+            </div>
+            <div class="modelcontent">
+                <div class="info">
+                    <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+                    <p class="innerErrmsg"></p>
+                </div>
+                <div class="modelBtnBox">
+                    <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 <script src="./../js/common.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/template.js"></script>
 <script>
+
+    $('.all_error_alert .cancel, .all_error_alert .close, .all_error_alert .confirm').click(function() {
+        $('.all_error_alert').hide();
+    });
+
+    $('.modelBox30 .backSureJiaoyi').click(function() {
+        $('.modelBox30').hide();
+    });
+
+    $('.modelBox33 .close').click(function() {
+       $('.modelBox33').hide(); 
+    });
+
+    $('.modelBox34 .close').click(function() {
+       $('.modelBox34').hide(); 
+    });
+
+
     $(function(){
         var params = window.location.search.substring(1).split('&');
         for(var i = 0; i<params.length;i++){
@@ -1075,6 +1370,9 @@
         getOrderInfo(userType, id);
                
     });
+
+    var qiang_gou_huo = window.sessionStorage.getItem('qiang_gou_huo');
+
 
     var timer1;
 
@@ -1153,6 +1451,14 @@
                     var statusDescriptpl = template('statusDescTpl', res.data);
                     $('.orderStatus_order').html(statusDescriptpl);
 
+                    if (qiang_gou_huo == 3) { //抢货
+                        $('.q_g_h .hetong_muban').show();
+                    } else if (qiang_gou_huo == 4) { //抢购
+                        $('.q_g_h .hetong_muban').hide();
+                    }
+
+                    //合同下载
+                    hetong();
                     
                     res.data.deptTime = new Date(res.data.deptTime).Format("yyyy-MM-dd hh:mm:ss");
 
@@ -1176,18 +1482,18 @@
 
                     // 确认收货
                     $('.suregoods').click(function(){
-                        window.parent.sureshouhuo();
+                        $('.modelBox30').css('display', 'block');
                        // toCancelOrder(id);
                     });
 
-                    window.parent.$('.modelBox30 .suershouhuo').unbind();
-                    window.parent.$('.modelBox30 .sure_shou').unbind();
-                    window.parent.$('.modelBox30 .sure_shou').click(function() {
+                    $('.modelBox30 .suershouhuo').unbind();
+                    $('.modelBox30 .sure_shou').unbind();
+                    $('.modelBox30 .sure_shou').click(function() {
                         suregoods(id);
                     });
 
                     $('.shouhuoBtn').click(function() {
-                        window.parent.sureshouhuo();
+                       $('.modelBox30').css('display', 'block');
                     });
 
 
@@ -1195,25 +1501,25 @@
                     $(".payBtn").unbind();
                     $(".payBtn").click(function () {
                         if(res.data.paymentMethod==3){
-                            window.parent.$(".modelBox33 .cf_title").text("支付方式：现汇+承兑");
-                            window.parent.$(".modelBox33 .goPay1").attr("data-isok","1")
-                            window.parent.$(".modelBox33 .goPay2").attr("data-isok","1")
+                            $(".modelBox33 .cf_title").text("支付方式：现汇+承兑");
+                            $(".modelBox33 .goPay1").attr("data-isok","1")
+                            $(".modelBox33 .goPay2").attr("data-isok","1")
                         }else if(res.data.paymentMethod==1){
-                            window.parent.$(".modelBox33 .cf_title").text("支付方式：现汇");
-                            window.parent.$(".modelBox33 .goPay1").css("backgroundColor","#6ba1ff")
-                            window.parent.$(".modelBox33 .goPay2").css("backgroundColor","#999")
-                            window.parent.$(".modelBox33 .goPay1").attr("data-isok","1")
-                            window.parent.$(".modelBox33 .goPay2").attr("data-isok","0")
+                            $(".modelBox33 .cf_title").text("支付方式：现汇");
+                            $(".modelBox33 .goPay1").css("backgroundColor","#6ba1ff")
+                            $(".modelBox33 .goPay2").css("backgroundColor","#999")
+                            $(".modelBox33 .goPay1").attr("data-isok","1")
+                            $(".modelBox33 .goPay2").attr("data-isok","0")
                         }else if(res.data.paymentMethod==2){
-                            window.parent.$(".modelBox33 .cf_title").text("支付方式：承兑");
-                            window.parent.$(".modelBox33 .goPay1").css("backgroundColor","#999")
-                            window.parent.$(".modelBox33 .goPay2").css("backgroundColor","#6ba1ff")
-                            window.parent.$(".modelBox33 .goPay1").attr("data-isok","0")
-                            window.parent.$(".modelBox33 .goPay2").attr("data-isok","1")
+                            $(".modelBox33 .cf_title").text("支付方式：承兑");
+                            $(".modelBox33 .goPay1").css("backgroundColor","#999")
+                            $(".modelBox33 .goPay2").css("backgroundColor","#6ba1ff")
+                            $(".modelBox33 .goPay1").attr("data-isok","0")
+                            $(".modelBox33 .goPay2").attr("data-isok","1")
                         }
-                        window.parent.$(".modelBox33").show()
-                        window.parent.$(".modelBox33 .totalMoney").text(res.data.total);
-                        window.parent.$(".modelBox33 .payBalance").text(res.data.cash);
+                        $(".modelBox33").show()
+                        $(".modelBox33 .totalMoney").text(res.data.total);
+                        $(".modelBox33 .payBalance").text(res.data.cash);
                         $.ajax({
                             type:"post",
                             headers: {
@@ -1227,7 +1533,7 @@
                             success: function(res){
                                 console.log(res);
                                 if(res.code == 1){
-                                    window.parent.$(".modelBox33 .accountBalance").text(res.data);
+                                    $(".modelBox33 .accountBalance").text(res.data);
                                 }
                             },
                             error: function(err){
@@ -1239,30 +1545,34 @@
 
                     
 //                    弹框立即支付
-                    window.parent.$(".goPay1").unbind();
-                    window.parent.$(".goPay1").click(function () {
-                        if(window.parent.$(".modelBox33 .goPay1").attr("data-isok")!=1){
-                            return;
-                        }
-                        if(Number(window.parent.$(".modelBox33 .accountBalance").text())<Number(window.parent.$(".modelBox33 .payBalance").text())){
-                            alert("可用余额不足，请充值")
+                    $(".goPay1").unbind();
+                    $(".goPay1").click(function () {
+                        if($(".modelBox33 .goPay1").attr("data-isok")!=1){
                             return;
                         }
 
-                        window.parent.$(".modelBox34 .pay_pass_input").val("");
-                        window.parent.$(".modelBox34 .SMScode").val("");
-                        window.parent.$("#surePay").attr("data-isok","0");
-                        window.parent.$("#surePay").attr("data-isok1","0");
-                        window.parent.$("#surePay").attr("data-isok2","0");
-                        window.parent. $("#surePay").css("backgroundColor","#c2ccd1");
+                        if(Number($(".modelBox33 .accountBalance").text())<Number($(".modelBox33 .payBalance").text())){
 
-                        window.parent.$(".modelBox34").show()
-                        window.parent.$(".modelBox34 .paymoney").text(res.data.cash);
+                            $('.all_error_alert p').text('可用余额不足，请充值');
+                            $('.all_error_alert').show();
+                            return;
+                        }
+
+                        $(".modelBox34 .pay_pass_input").val("");
+                        $(".modelBox34 .SMScode").val("");
+                        $("#surePay").attr("data-isok","0");
+                        $("#surePay").attr("data-isok1","0");
+                        $("#surePay").attr("data-isok2","0");
+                         $("#surePay").css("backgroundColor","#c2ccd1");
+
+                        $(".modelBox34").show()
+                        $(".modelBox34 .paymoney").text(res.data.cash);
+                        $('.pay_method').text(res.data.paymentMethodStr);
                         getPhone();
                     })
                     //确认支付
-                    window.parent.$("#surePay").unbind();
-                    window.parent.$("#surePay").click(function () {
+                    $("#surePay").unbind();
+                    $("#surePay").click(function () {
                         if($(this).attr("data-isok")==0){
                             return;
                         }
@@ -1278,16 +1588,22 @@
                                 orderId: id,
                                 orderType:res.data.transactionType,
                                 amount:res.data.cash,
-                                payPassword:window.parent.$(".modelBox34 .pay_pass_input").val()
+                                payPassword:$(".modelBox34 .pay_pass_input").val()
                             },
                             success: function(res){
                                 if(res.code == 1){
 
-                                    window.parent.$(".modelBox34").hide();//支付成功
-                                    payAnalysis(window.parent.$(".modelBox33 .accountBalance").text());
-                                    alert(res.msg);
+                                    $(".modelBox34").hide();//支付成功
+                                    $(".modelBox33").hide();//支付成功
+                                    $(".modelBox30").hide();//支付成功
+                                    payAnalysis($(".modelBox33 .accountBalance").text());
+                                    window.location.reload();
+                                    // $('.all_error_alert p').text('支付成功');
+                                    // $('.all_error_alert').show();
+                                    // alert(res.msg);
                                 }else{
-                                    alert(res.msg);
+                                    $('.all_error_alert p').text(res.msg);
+                                    $('.all_error_alert').show();
                                 }
                             },
                             error: function(err){
@@ -1329,6 +1645,34 @@
         });
     }
 
+
+    
+        function hetong() {
+            $.ajax({
+                type:"get",
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                url: pubIP+"acticityApi/getContract",//v1.0
+                data:{
+                    orderId: '9001810251451070004'
+                },
+                success: function(res){
+                    console.log(res);
+                    if (res.code == 1) {
+
+                        $('.q_g_h .hetong_muban a').attr('href', res.data);
+                        $('.q_g_h .hetong_muban a').attr('download', res.data);
+                        // $('.q_g_h .hetong_muban a').click();
+                    }
+                },
+                error: function(err){
+                    console.log(err);
+                }
+            });
+        }
+        
      // 订单取消
     function toCancelOrder(id){
         $.ajax({
@@ -1397,11 +1741,11 @@
             data: {},
             success: function (data) {
                 if (data.code == 1) {
-                    window.parent.$(".modelBox34 .phone").val(data.data.financePhoneNumber).css('text-indent', '7px');
-                    window.parent.$('.modelBox34 .SMScode').css('text-indent', '7px');
+                    $(".modelBox34 .phone").val(data.data.financePhoneNumber).css('text-indent', '7px');
+                    $('.modelBox34 .SMScode').css('text-indent', '7px');
                     
-                    window.parent.$(".modelBox34 .getSMSCode").unbind();
-                    window.parent.$(".modelBox34 .getSMSCode").click(function () {
+                    $(".modelBox34 .getSMSCode").unbind();
+                    $(".modelBox34 .getSMSCode").click(function () {
                         if($(this).attr("disabled")=="disabled"){
                             return;
                         }
@@ -1437,21 +1781,22 @@
                     //alert("发送验证码成功");
 //                    $(".modelBox34 .SMScode").removeAttr("disabled");
                     var time=60;
-                    window.parent.$(".modelBox34 .getSMSCode").attr("disabled","disabled");
-                    window.parent.$(".modelBox34 .getSMSCode").css("background-color","#ddd");
+                    $(".modelBox34 .getSMSCode").attr("disabled","disabled");
+                    $(".modelBox34 .getSMSCode").css("background-color","#ddd");
                     var timer=setInterval(function () {
                         time--;
-                        window.parent.$(".modelBox34 .getSMSCode").text(""+time+"秒")
+                        $(".modelBox34 .getSMSCode").text(""+time+"秒")
                         if(time==0){
                             clearInterval(timer);
-                            window.parent.$(".modelBox34 .getSMSCode").removeAttr("disabled");
-                            window.parent.$(".modelBox34 .getSMSCode").css("background-color","#3582F8");
-                            window.parent.$(".modelBox34 .getSMSCode").text("获取验证码")
+                            $(".modelBox34 .getSMSCode").removeAttr("disabled");
+                            $(".modelBox34 .getSMSCode").css("background-color","#3582F8");
+                            $(".modelBox34 .getSMSCode").text("获取验证码")
                         }
                     },1000);
 
                 } else {
-                    alert(data.msg);
+                    $('.all_error_alert p').text(res.msg);
+                    $('.all_error_alert').show();
                     return;
                 }
             },
@@ -1460,5 +1805,168 @@
             }
         })
     }
+
+
+    //校验短信码
+    $('.modelBox34 .SMScode').bind('input propertychange',function () {
+        var that = this;
+        var text = $(this).val();
+        // $("#SMScode").attr("disabled", "disabled");
+        $.ajax({
+            url: pubIP + 'user/validSmsCode', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                //token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data: {
+                mobile: $(".modelBox34 .phone").val(),
+                smsRandomCode: text
+            },
+            success: function (data) {
+                if (data.code == 1) {
+                   $(that).css('border-color', '#c2ccd1');
+                    $("#surePay").attr("data-isok2","1");
+                } else {
+                    $(that).css('border-color', 'red');
+                    $("#surePay").attr("data-isok2","0");
+                }
+
+                if($("#surePay").attr("data-isok1")+$("#surePay").attr("data-isok2")=="11"){
+                    $("#surePay").css("backgroundColor","#6ba1ff");
+                    $("#surePay").attr("data-isok","1");
+                }else{
+                    $("#surePay").css("backgroundColor","#c2ccd1");
+                    $("#surePay").attr("data-isok","0");
+                }
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    })
+    $('.modelBox34 .pay_pass_input').bind('input propertychange',function () {
+       if($(this).val()==""){
+           $("#surePay").attr("data-isok1","0");
+           $(this).css('border-color', 'red');
+       }else{
+           $(this).css('border-color', '#c2ccd1');
+           $("#surePay").attr("data-isok1","1");
+       }
+
+       if($("#surePay").attr("data-isok1")+$("#surePay").attr("data-isok2")=="11"){
+           $("#surePay").css("backgroundColor","#6ba1ff");
+           $("#surePay").attr("data-isok","1");
+       }else{
+           $("#surePay").css("backgroundColor","#c2ccd1");
+           $("#surePay").attr("data-isok","0");
+       }
+
+    })
+
+    //校验短信码
+    $('.modelBox35 .SMScode').bind('input propertychange',function () {
+        var that = this;
+        var text = $(this).val();
+        // $("#SMScode").attr("disabled", "disabled");
+        $.ajax({
+            url: pubIP + 'user/validSmsCode', /*v1.0*/
+            type: 'post',
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                //token: token
+            },
+            cache: false,
+            ansyc: true,
+            dataType: 'json',
+            data: {
+                mobile: $(".modelBox35 .phone").val(),
+                smsRandomCode: text
+            },
+            success: function (data) {
+                if (data.code == 1) {
+                    $(that).css('border-color', '#c2ccd1');
+                    $("#sureTiXian").attr("data-isok2","1");
+                } else {
+                    $(that).css('border-color', 'red');
+                    $("#sureTiXian").attr("data-isok2","0");
+                }
+
+
+                if($("#sureTiXian").attr("data-isok1")+$("#sureTiXian").attr("data-isok2")=="11"){
+                    $("#sureTiXian").css("backgroundColor","#6ba1ff");
+                    $("#sureTiXian").attr("data-isok","1");
+                }else{
+                    $("#sureTiXian").css("backgroundColor","#c2ccd1");
+                    $("#sureTiXian").attr("data-isok","0");
+                }
+
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    })
+    $('.modelBox35 .payPassWord').bind('input propertychange',function () {
+        if($(".tiXianMoney").val()==''){
+            $("#sureTiXian").attr("data-isok1","0");
+//            $('.modelBox35 .tiXianMoney').css('border-color', 'red');
+        }else if(Number($(".tiXianMoney").val())>Number($(".moneyYuE").text())){
+            $("#sureTiXian").attr("data-isok1","0");
+//            $('.modelBox35 .tiXianMoney').css('border-color', 'red');
+        }else if($('.modelBox35 .payPassWord').val()==""){
+            $("#sureTiXian").attr("data-isok1","0");
+            $('.modelBox35 .payPassWord').css('border-color', 'red');
+//            $('.modelBox35 .tiXianMoney').css('border-color', '#c2ccd1');
+        }else{
+            $('.modelBox35 .payPassWord').css('border-color', '#c2ccd1');
+//            $('.modelBox35 .tiXianMoney').css('border-color', '#c2ccd1');
+            $('#sureTiXian').attr("data-isok1","1");
+        }
+
+        if($("#sureTiXian").attr("data-isok1")+$("#sureTiXian").attr("data-isok2")=="11"){
+            $("#sureTiXian").css("backgroundColor","#6ba1ff");
+            $("#sureTiXian").attr("data-isok","1");
+        }else{
+            $("#sureTiXian").css("backgroundColor","#c2ccd1");
+            $("#sureTiXian").attr("data-isok","0");
+        }
+
+    })
+
+    $('.modelBox35 .tiXianMoney').bind('input propertychange',function () {
+        if($(".tiXianMoney").val()==''){
+            $("#sureTiXian").attr("data-isok1","0");
+            $('.modelBox35 .tiXianMoney').css('border-color', 'red');
+        }else if(Number($(".tiXianMoney").val())>Number($(".moneyYuE").text())){
+            $("#sureTiXian").attr("data-isok1","0");
+            $('.modelBox35 .tiXianMoney').css('border-color', 'red');
+        }else if($('.modelBox35 .payPassWord').val()==""){
+            $("#sureTiXian").attr("data-isok1","0");
+//            $('.modelBox35 .payPassWord').css('border-color', 'red');
+            $('.modelBox35 .tiXianMoney').css('border-color', '#c2ccd1');
+        }else{
+//            $('.modelBox35 .payPassWord').css('border-color', '#c2ccd1');
+            $('.modelBox35 .tiXianMoney').css('border-color', '#c2ccd1');
+            $('#sureTiXian').attr("data-isok1","1");
+        }
+
+        if($("#sureTiXian").attr("data-isok1")+$("#sureTiXian").attr("data-isok2")=="11"){
+            $("#sureTiXian").css("backgroundColor","#6ba1ff");
+            $("#sureTiXian").attr("data-isok","1");
+        }else{
+            $("#sureTiXian").css("backgroundColor","#c2ccd1");
+            $("#sureTiXian").attr("data-isok","0");
+        }
+
+    })
+    $(".modelBox35 .cancel").click(function () {
+        $(this).parents(".modelCont").parent().hide();
+    })
+
 </script>
 </html>

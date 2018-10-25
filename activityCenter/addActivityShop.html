@@ -54,6 +54,7 @@
 			</div>
 			<div class="div_one select clearfix">
 				<div class="inline-block title fl">
+					<span class="red">*</span>
 					<span style="line-height: 37px;">选择商品：</span>
 				</div>
 				<div class="selectPub select_shop fl inline-block" data-selectedindex="0">
@@ -151,9 +152,12 @@
 					<span>支付方式：</span>
 				</div>
 				<div class="inline-block">
-					<input type="radio" name="pay_method" checked="" value='1'>现汇
+					<!-- <input type="radio" name="pay_method" checked="" value='1'>现汇
 					<input type="radio" name="pay_method" value='2'>承兑
-					<input type="radio" name="pay_method" value='3'>现汇+承兑
+					<input type="radio" name="pay_method" value='3'>现汇+承兑 -->
+					<input type="checkbox" name="pay_method" value="1" style="cursor: pointer;" /><label for="xianhui" style="margin-right: 40px;">现汇</label>
+					<input type="checkbox" name="pay_method" value="2" style="cursor: pointer;"/><label for="chengdui" style="margin-right: 40px;">承兑</label>
+					<input type="checkbox" name="pay_method" value="3" style="cursor: pointer;"/><label for="xjiac">现汇+承兑</label>
 				</div>
 			</div>
 			<div class="div_one">
@@ -178,6 +182,7 @@
 			</div>
 			<div class="div_one clearfix">
 				<div class="inline-block fl title">
+					<span class="red">*</span>
 					<span>商品活动主图：</span>
 				</div>
 				<div class="inline-block fl">
@@ -190,6 +195,7 @@
 			</div>
 			<div class="div_one clearfix">
 				<div class="inline-block fl title">
+					<span class="red">*</span>
 					<span>商品图片：</span>
 				</div>
 				<div class="inline-block fl img1">
@@ -340,7 +346,12 @@
 					$('.buy_num').val(data.data[0].maxAmount);  
 					$('.kucun').val(data.data[0].repertory);  
 
-					$('input[name="pay_method"][value="'+data.data[0].paymentMethod+'"]').attr('checked',true);
+					// $('input[name="pay_method"][value="'+data.data[0].paymentMethod+'"]').attr('checked',true);
+
+					var methodArr = String(data.data[0].paymentMethod).split('');
+	                for (i in methodArr) {
+	                	$('input[name="pay_method"][value="'+methodArr[i]+'"]').attr('checked','true');
+	                }
 
 					$('.concat_name').val(data.data[0].contactName);  
 					$('.concat_method').val(data.data[0].contactPhone);  
@@ -396,6 +407,7 @@
 			var kucun = $('.kucun');
 			var concat_name = $('.concat_name');
 			var concat_method = $('.concat_method');
+
 			
 			
 			if (select_shop.find('span').text() == '') {
@@ -449,9 +461,20 @@
 			var sProductId = select_shop.attr('data-selectedindex');
 			var productName = select_shop.find('span').text();
 
-			var paymentMethod = $('input[name="pay_method"]:checked').val();
+			// var paymentMethod = $('input[name="pay_method"]:checked').val();
 
+			var obj = $('input[type="checkbox"]');
+        	var check_val = [];
+        	for (i in obj) {
+        		if (obj[i].checked) {
+        			check_val.push(obj[i].value);
+        		}
+        	}
+        	var checkstr = check_val.join('');
+        	// console.log(checkstr);
 			
+
+
 			var pics = '';
 			
 			$('input[type="hidden"]').each(function() {
@@ -487,7 +510,7 @@
 		            	minAmount: order_num.val(), //最小购买量
 		            	maxAmount: buy_num.val(),//最大购买量
 		            	repertory: kucun.val(), //库存
-		            	paymentMethod: paymentMethod,
+		            	paymentMethod: checkstr,
 		            	contactName: concat_name.val(),
 		            	contactPhone: concat_method.val(),
 		            	pics: pics
@@ -529,7 +552,7 @@
 		            	minAmount: order_num.val(), //最小购买量
 		            	maxAmount: buy_num.val(),//最大购买量
 		            	repertory: kucun.val(), //库存
-		            	paymentMethod: paymentMethod,
+		            	paymentMethod: checkstr,
 		            	contactName: concat_name.val(),
 		            	contactPhone: concat_method.val(),
 		            	pics: pics

@@ -58,6 +58,15 @@
     .err{color: red;line-height: 38px;}
     .item::after{content: "";display: block;clear: both;}
     .selectPub span{overflow: hidden;display: inline-block;width: 80%;white-space: nowrap;text-overflow: ellipsis;}
+
+    span.err.dz {
+        margin-left: 100px;
+    }
+
+    span.err.dz1 {
+        margin-left: 10px;
+    }
+
 </style>
 <body>
     <div class="contBox">
@@ -126,8 +135,8 @@
                             <!--<select class="input" name="address" id="address">-->
                                 <!--<option value="address1">甘泉堡仓库</option>-->
                             <!--</select>-->
-                            <span class="blue btn" style="position: absolute;left: 460px;top: 11px;" onclick="cangkuAddressEdit()"><i class="mi">+</i>新增收仓库</span>
-                            <span class="err"></span>
+                            <span class="blue btn" style="position: absolute;left: 460px;top: 9px;" onclick="cangkuAddressEdit()"><i class="mi">+</i>新增收仓库</span>
+                            <span class="err dz"></span>
                         </div>
                       
                         <div class="payWay item">
@@ -203,7 +212,7 @@
                                 <!--<input class="input" id="namePhone" name="name_tel" type="text" value="张三 130 1234 1234">-->
                                 <!--<input class="input" id="addre" name="add" type="text" value="新疆乌鲁木齐高新区 xxxx">-->
                             <span class="blue fl btn ml" style="margin-top: 8px;" onclick="shouhuoAddressEdit()"><i class="mi"></i>修改收票地址</span>
-                            <span class="err"></span>
+                            <span class="err dz1"></span>
                             </div>
 
                         </div>
@@ -320,6 +329,9 @@
                         $(this).parent().parent().find('span').text($(this).text());
                         $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                         $(this).parent().css('display','none');
+
+                        $(this).parents('.requireLevel').find('.err').hide();
+
                     });
                 }
             }
@@ -329,10 +341,13 @@
         var addressId="-1";
         $('#shop_attr').bind('input propertychange',function () {
             //console.log()
+
             var text=$(this).eq(0).val();
             if($('#shop_attr').val() == ''){
                 $('#prope').html('').hide();
                 return false;
+            } else {
+                $('#shop_attr').parent().find('.err').text('');
             }
             $.ajax({
                 url: pubIP + 'productApi/listChemicalLikeByName', /*v1.0*/
@@ -404,6 +419,14 @@
 
                     $('#shoupiaoAddre ul').html(str);
 
+                    $('#shoupiaoAddre span').text($('#shoupiaoAddre ul li').eq(0).text());
+
+                    $('#shoupiaoAddre').attr('data-addressId', $('#shoupiaoAddre ul li').eq(0).attr('data-addressId'));                  
+                    
+                    $('#shoupiaoAddre').attr('data-selectedindex', $('#shoupiaoAddre ul li').eq(0).val());                  
+
+                    
+
                     $('#shoupiaoAddre ul li').click(function(){
                         event.stopPropagation();
                         $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
@@ -411,7 +434,7 @@
                         $(this).parent().parent().find('span').text($(this).text());
                         $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                         $(this).parent().css('display','none');
-
+                        $(this).parents('.invoiceAddress').find('.err').hide();
 
                     });
 //                    $("#namePhone").val(data.data[0].receiver+" "+data.data[0].phone)
@@ -454,6 +477,7 @@
                         $(this).parent().parent().find('span').text($(this).text());
                         $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                         $(this).parent().css('display','none');
+                        $(this).parents('.address').find('.err').hide();
                     });
                 },
                 error: function(err){
@@ -473,9 +497,11 @@
            //品名判断
             if($("#shop_attr").val()=="" || $("#shop_attr").val()=="undefined" ||  $("#shop_attr").val()==undefined){
                 $("#shop_attr").parent().find(".err").text("品名不能为空");
+                $("#shop_attr").focus();
                 return;
              }else if($("#shop_attr").attr("data-text")!=$("#shop_attr").val()){
                 $("#shop_attr").parent().find(".err").text("品名不存在");
+                $("#shop_attr").focus();
                 return;
             } else{
                 $("#shop_attr").parent().find(".err").text("");
@@ -484,6 +510,8 @@
 
             if($("#chemistryPur").val()<=0 || $("#chemistryPur").val()>100 || $("#chemistryPur").val()==""){
                 $("#chemistryPur").parent().find(".err").text("请输入1-100内的数字");
+                $("#chemistryPur").focus();
+                return false; 
             }else{
                 $("#chemistryPur").parent().find(".err").text("");
             }
@@ -491,6 +519,7 @@
 
             if($("#chemistryNum").val()=="" || $("#chemistryNum").val()<=0){
                 $("#chemistryNum").parent().find(".err").text("请输入正确的数字");
+                $("#chemistryNum").focus();
                 return;
             }else{
                 $("#chemistryNum").parent().find(".err").text("");
@@ -500,12 +529,14 @@
 
             if($("#chemistryMinNum").val()=="" || $("#chemistryMinNum").val()<=0){
                 $("#chemistryMinNum").parent().find(".err").text("请输入正确的数字");
+                $("#chemistryMinNum").focus();
                 return;
             }else{
                 $("#chemistryMinNum").parent().find(".err").text("");
             }
             if(($("#chemistryMinNum").val()-0)>($("#chemistryNum").val()-0)){
                 $("#chemistryMinNum").parent().find(".err").text("最小数量应小于采购数量");
+                $("#chemistryMinNum").focus();
                 return;
             }else{
                 $("#chemistryMinNum").parent().find(".err").text("");
@@ -513,6 +544,7 @@
             //收货地
            if( $("#address").attr("data-selectedindex")==-1){
                $("#address").parent().find(".err").text("请选择收货地址");
+               $("#address").focus();
                return;
            }else{
                $("#address").parent().find(".err").text("");
@@ -520,6 +552,7 @@
             //收票地
             if( $("#shoupiaoAddre").attr("data-selectedindex")==-1){
                 $("#shoupiaoAddre").parent().find(".err").text("请选择收票地址");
+                $("#shoupiaoAddre").focus();
                 return;
             }else{
                 $("#shoupiaoAddre").parent().find(".err").text("");
@@ -534,6 +567,7 @@
             //产地要求
             if( $("#addressRequire").val()==""){
                 $("#addressRequire").parent().find(".err").text("请填写产地要求");
+                $("#addressRequire").focus();
                 return;
             }else{
                 $("#addressRequire").parent().find(".err").text("");
@@ -541,6 +575,7 @@
             //备注
             if($("#remark").val()==""){
                 $("#remark").parent().find(".err").text("请填写备注");
+                $("#remark").focus();
                 return;
             }else{
                 $("#remark").parent().find(".err").text("");
@@ -548,6 +583,7 @@
             //联系人
             if( $("#concatPerson").val()==""){
                 $("#concatPerson").parent().find(".err").text("请填写联系人");
+                $("#concatPerson").focus();
                 return;
             }else{
                 $("#concatPerson").parent().find(".err").text("");
@@ -555,6 +591,7 @@
             //电话
             if( $("#concatPhone").val()==""){
                 $("#concatPhone").parent().find(".err").text("请填写联系电话");
+                $("#concatPhone").focus();
                 return;
             }else{
                 $("#concatPhone").parent().find(".err").text("");
@@ -562,6 +599,7 @@
                 var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
                 if (!myreg.test($("#concatPhone").val())) {
                     $("#concatPhone").parent().find(".err").text("联系电话格式不正确");
+                    $("#concatPhone").focus();
                     return;
                 } else {
                     $("#concatPhone").parent().find(".err").text("");
@@ -637,6 +675,107 @@
                 }
             });
         }
+
+        $('#chemistryPur').blur(function() {
+            if($(this).val()<=0 || $(this).val()>100 || $(this).val()==""){
+                $(this).parent().find(".err").text("请输入1-100内的数字");
+                return false; 
+            }else{
+                $(this).parent().find(".err").text("");
+            }
+        });
+
+        $('#chemistryNum').blur(function() {
+            if($(this).val()=="" || $(this).val()<=0){
+                $(this).parent().find(".err").text("请输入正确的数字");
+                return;
+            }else{
+                $(this).parent().find(".err").text("");
+
+            }
+        });
+
+        $('#chemistryMinNum').blur(function() {
+            if($(this).val()=="" || $(this).val()<=0){
+                $(this).parent().find(".err").text("请输入正确的数字");
+                return;
+            }else{
+                $(this).parent().find(".err").text("");
+            }
+            if(($(this).val()-0)>($("#chemistryNum").val()-0)){
+                $(this).parent().find(".err").text("最小数量应小于采购数量");
+                return;
+            }else{
+                $(this).parent().find(".err").text("");
+            }
+        });
+
+        
+
+        //收票地
+        $('#shoupiaoAddre').blur(function() {
+            if( $(this).attr("data-selectedindex")==-1){
+                $(this).parent().find(".err").text("请选择收票地址");
+                return;
+            }else{
+                $(this).parent().find(".err").text("");
+            }
+        });
+
+
+        //规格要求
+        $('#specsRequire').blur(function() {
+            if( $(this).val()==""){
+                $(this).parent().find(".err").text("请填写规格要求");
+                return;
+            }else{
+                $(this).parent().find(".err").text("");
+            }
+        });
+
+        //产地要求
+        $('#addressRequire').blur(function() {
+            if( $(this).val()==""){
+                $(this).parent().find(".err").text("请填写产地要求");
+                return;
+            }else{
+                $(this).parent().find(".err").text("");
+            }
+        });
+
+        
+        //备注
+        $('#remark').blur(function() {
+            if($(this).val()==""){
+                $(this).parent().find(".err").text("请填写备注");
+                return;
+            }else{
+                $(this).parent().find(".err").text("");
+            }
+        });
+
+
+        //联系人
+        $('#concatPerson').blur(function() {
+            if( $(this).val()==""){
+                $(this).parent().find(".err").text("请填写联系人");
+                return;
+            }else{
+                $(this).parent().find(".err").text("");
+            }
+        });
+
+        
+        //电话
+        $('#concatPhone').blur(function() {
+            if( $(this).val()==""){
+                $(this).parent().find(".err").text("请填写联系电话");
+                return;
+            }else{
+                $(this).parent().find(".err").text("");
+            }
+        });
+    
     </script>
 </body>
 </html>

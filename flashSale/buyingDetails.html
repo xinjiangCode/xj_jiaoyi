@@ -343,6 +343,11 @@
 				padding-left: 20px;
 			}
 
+			.payType {
+				display: none;
+				margin-right: 20px;
+			}
+
 		</style>
 	</head>
 
@@ -413,10 +418,10 @@
 									<span style="margin-left: 19px;" class="shiji">最小起订量 <%=minAmount%> <%=productSpecStr%></span>
 									
 								</div>
-								<p style="margin-bottom: 25px;">
+								<p style="margin-bottom: 25px;" class="paymentMethod">
 									支付方式：
 									<!--  支付方式 1：现汇 2：承兑汇票 3：现汇+承兑 0：不限 -->
-									<%if(paymentMethod == 0) {%>
+									<!-- <%if(paymentMethod == 0) {%>
 									<input type="radio" name="payType" style="margin-left: 0px;" id="xianhui" value="现汇" />
 									<lable for="xianhui">现汇</lable>
 									<input type="radio" name="payType" id="xhcd" value="现汇+承兑" />
@@ -432,7 +437,19 @@
 									<%}else if(paymentMethod == 3) {%>
 									<input type="radio"  style="margin-left: 0px;" name="payType" id="chengdui" value="现汇+承兑" />
 									<lable for="chengdui">现汇+承兑</lable>
-									<%}%>
+									<%}%> -->
+									<span class="payType">
+										<input type="radio" name="payType" id="xianhui" value="1" />
+										<lable for="xianhui">现汇</lable>
+									</span>
+									<span class="payType">
+										<input type="radio" name="payType" id="xhcd" value="3"  />
+										<lable for="xhcd">现汇+承兑</lable>
+									</span>
+									<span class="payType">
+										<input type="radio" name="payType" id="chengdui" value="2"  />
+										<lable for="chengdui">承兑</lable>
+									</span>
 								</p>
 								<p style="margin-bottom: 25px;">合计总量：<span class="cOr goodsTotalNum"> 0</span><span class="shiji"><%=productSpecStr%></span>
 								
@@ -562,13 +579,13 @@
 						</div>
 					</div>
 					<div class="shangpin_div">
-						<div class="objDtsTit">商品详细信息</div>
+						<div class="objDtsTit shop_details_hzf">商品详细信息</div>
 						<div class="infoBox" style="border-bottom: 0;">
+							<!-- <img src="../img/demoImg.png" />
 							<img src="../img/demoImg.png" />
 							<img src="../img/demoImg.png" />
 							<img src="../img/demoImg.png" />
-							<img src="../img/demoImg.png" />
-							<img src="../img/demoImg.png" />
+							<img src="../img/demoImg.png" /> -->
 						</div>
 					</div>
 				</div>
@@ -1093,13 +1110,13 @@
 				var qiang_gou_huo = sessionStorage.getItem('qiang_gou_huo');
 
 				
-				if (qiang_gou_huo == 1) {
+				if (qiang_gou_huo == 4) {
 
 					//面包屑导航
 					$('.qiang_g_h').text('抢购');
 					$('.qiang_g_h').attr('href', 'buying.html');					
 
-				} else if (qiang_gou_huo == 2) {
+				} else if (qiang_gou_huo == 3) {
 
 					//面包屑导航
 					$('.qiang_g_h').text('抢货');
@@ -1151,6 +1168,11 @@
 						var payTypeVal = ''; //支付方式
 						// 头部商品图片
 
+
+						//productDescribe商品详细信息
+						var productDescribe = productDetail.productDescribe;
+						$(".shop_details_hzf").next().html(productDescribe);
+
 						//response.productDetail = response.productDetail.productPic
 						
 						// var arr = response.data.productDetail.productPic.split(','); 
@@ -1176,11 +1198,19 @@
 						var objDescriptTpl = template('objDescriptTpl', productDetail);
 						$('.objDInfo').html(objDescriptTpl);
 
-						if (qiang_gou_huo == 1) {
+						var methodArr = String(response.data.productDetail.paymentMethod).split('');
+						console.log(methodArr);
+		                for (i in methodArr) {
+		                	$('.paymentMethod input[name="payType"][value="'+methodArr[i]+'"]').parent().css('display','inline-block');
+		                }
+
+		                // $('.paymentMethod input[name="payType"][value="'+methodArr[0]+'"]').attr('checked', true);
+
+						if (qiang_gou_huo == 4) {
 
 							$('.toXunpanBtn').text('我要抢购');
 
-						} else if (qiang_gou_huo == 2) {
+						} else if (qiang_gou_huo == 3) {
 
 							$('.toXunpanBtn').text('我要抢货');
 						}	
@@ -1209,7 +1239,7 @@
 						var goodsSpecialInfoTpl = template('goodsSpecialInfoTpl', chemical);
 						$('.infoBox:eq(1)').html(goodsSpecialInfoTpl);
 						// 产品用途
-						// $('.infoBox:eq(2)').children('p').text(chemical.chemicalPurpose);
+						$('.infoBox:eq(2)').children('p').text(chemical.chemicalPurpose);
 
 
 
@@ -1284,13 +1314,11 @@
 						});
 
 						$(document).on('change', 'input:radio[name="payType"]', function() {
-							payTypeVal = $(this).val()
+							payTypeVal = $(this).val();
+							// console.log(payTypeVal);
 						})
 						$('.toXunpanBtn').click(function() {
 
-							window.location.href = 'buyingOrder.html';
-
-							return false;
 
 							var isOld = localStorage.getItem('isOld');
 							if(isOld != '2'){
@@ -1339,6 +1367,7 @@
 									$('#xj_concatMan').val('');
 									$('#xj_tel').val('');
 									$('#xj_bei').val('');
+									$('input[name="xj_fapiaoType"]:checked').val('');
 									var fapiaoType = '',
 										shoupiaoAddress = '';
 									var addressId;
@@ -1475,6 +1504,15 @@
 									});
 									$('#xj_goodsNum').text(totalNum + productDetail.productSpecStr);
 									$('#xj_sumMoney').text(totalMoney + "元");
+
+									if (payTypeVal == 1) {
+										payTypeVal = '现汇';
+									} else if (payTypeVal == 2) {
+										payTypeVal = '承兑';
+									} else if (payTypeVal == 3) {
+										payTypeVal = '现汇+承兑';
+									}
+
 									$('#xj_payType').text(payTypeVal);
 									$('.xj_fapiaoType').on('change', function() {
 										fapiaoType = $(this).val();
@@ -1513,7 +1551,7 @@
 										}
 										//收票地址
                                         if($(".xj_shoupiaoAddress").text()==""){
-                                        	// $('.all_error_alert p').text('请输入正确的手机号');
+                                        	$('.all_error_alert p').text('收票地址不能为空');
 											$('.all_error_alert').show();
                                             // alert('收票地址不能为空');
                                             return;
@@ -1573,8 +1611,10 @@
 													});
 													$('#toXunpan').css('display', 'none');
 													$('#enquirySuccess .tosurebtn').click(function() {
-														$('#enquirySuccess').css('display', 'none');
+														// $('#enquirySuccess').css('display', 'none');
+														window.location.href = 'buyingOrder.html?userType=0&id='+res2.msg;
 													});
+
 												}
 											}
 										})

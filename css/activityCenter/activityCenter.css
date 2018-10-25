@@ -100,29 +100,34 @@
 	width: 96px;
     margin-left: 0px;
     text-align: center;
+    font-size: 14px;
 }
 
 .activity_ul li.two {
 	/*width: 145px;*/
 	width: 150px;
 	text-align: center;
+	font-size: 14px;
 }
 
 .activity_ul li.three {
 	/*width: 170px;*/
 	width: 185px;
 	text-align: center;
+	font-size: 14px;
 }
 
 .activity_ul li.four {
 	/*width: 175px;*/
 	width: 120px;
 	text-align: center;
+	font-size: 14px;
 }
 
 .activity_ul li.five {
 	width: 180px;
     text-align: center;
+    font-size: 14px;
 }
 
 .activity_detail a {
@@ -141,6 +146,7 @@
 	/*display: inline-block;*/
 	display: table-cell;
 	vertical-align: middle;
+	font-size: 14px;
 }
 
 .qiang_buy {
