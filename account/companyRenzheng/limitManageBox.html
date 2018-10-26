@@ -739,6 +739,22 @@
 
                     yi_limit();
 
+                    //点击一级菜单二级全部选中
+                    $('.first_title input').click(function() {
+                        
+                        var li =  $(this).parent().parent().find('.two_title li');
+                                                
+                        for (var i = 0; i < li.length; i++) {
+                            if ($(this)[0].checked == true) {
+                                $(li).find('input')[i].checked = true;
+                            } else {
+                                $(li).find('input')[i].checked = false;
+                            }
+                            
+                        }
+
+                    });
+
                 } else {
                     cf_alert1(2, json.msg);
                 }

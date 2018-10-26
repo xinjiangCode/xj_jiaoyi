@@ -232,6 +232,7 @@
 		var startTime = window.sessionStorage.getItem('startTime');
 		var endTime = window.sessionStorage.getItem('endTime');
 
+		var type = sessionStorage.getItem('qiang_gou_huo');
 
 		var productId = window.sessionStorage.getItem('productId');
 
@@ -504,6 +505,7 @@
 		            data: {
 		            	activityId: activityId,
 		            	sProductId: sProductId,
+		            	type: type,
 		            	companyId: companyId,
 		            	productName: productName,
 		            	unitPrice: unit.val(), //单价
@@ -546,6 +548,7 @@
 		            data: {
 		            	activityId: activityId,
 		            	sProductId: sProductId,
+		            	type: type,
 		            	companyId: companyId,
 		            	productName: productName,
 		            	unitPrice: unit.val(), //单价

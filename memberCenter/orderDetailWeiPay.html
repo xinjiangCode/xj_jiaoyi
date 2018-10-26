@@ -70,6 +70,12 @@
 	    margin-right: 2px;
 	}
 
+	.dai_fahuo_pic {
+		display: none;
+		text-align: center;
+    	margin-top: 37px;
+	}
+
 </style>
 <body>
 	
@@ -159,8 +165,9 @@
 				</div>
 				<div class="fr no_shop">
 					<div class="no_shop_pic"><img src="../img/no_shop.png" alt=""></div>
+					<div class="dai_fahuo_pic"><img src="../img/dai_fahuo.png" alt=""></div>
 					<ul>
-						<li class="clearfix">
+						<!-- <li class="clearfix">
 							<div class="fl">
 								<img class="wl_info_pic" src="../img/wl_info_pic.png">
 								<span class="wl_info_time">2018-03-12 09:36:12</span>
@@ -187,7 +194,7 @@
 								<span class="wl_info_time">2018-03-12 09:36:12</span>
 							</div>
 							<span class="wl_info_span fl">江苏_南京运转中心 离开 [江苏_南京运转中心] 发往 [江苏_南京市内厅_苜蓿园营业厅]</span>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -309,7 +316,7 @@
 
 			        	if (data.data.logistics) {
 			        		var logistics = JSON.parse(data.data.logistics);
-		        			console.log(logistics);
+		        			// console.log(logistics);
 
 		        			if (logistics.Traces.length != 0) {
 			        			var str = '';
@@ -326,6 +333,7 @@
 
 			        		$('.no_shop_pic').hide();
 			        		$('.no_shop ul').show();
+			        		$('.dai_fahuo_pic').hide();
 			        		$('.no_shop ul').html(str);
 		        		
 
@@ -333,6 +341,7 @@
 			        		if (status == 2) { //待发货
 			        			$('.no_shop_pic').hide();
 			        			$('.no_shop ul').hide();
+			        			$('.dai_fahuo_pic').show();
 			        		}
 
 			        	}
@@ -385,13 +394,15 @@
 		        	$('.carriage_cash').text(data.data.carriageCash == null ? 0 : data.data.carriageCash);
 
 		        	if (data.data.payMethod == 1) {
-		        		$('.pay_method').text('微信');
-		        	} else if (data.data.payMethod == 2) {
-		        		$('.pay_method').text('虚拟账户+积分');
-		        	} else if (data.data.payMethod == 3) {
-		        		$('.pay_method').text('银联在线支付');
-		        	} else if (data.data.payMethod == 4) {
 		        		$('.pay_method').text('积分');
+		        	} else if (data.data.payMethod == 2) {
+		        		$('.pay_method').text('虚拟账户');
+		        	} else if (data.data.payMethod == 3) {
+		        		$('.pay_method').text('虚拟账户+积分');
+		        	} else if (data.data.payMethod == 4) {
+		        		$('.pay_method').text('微信');
+		        	} else if (data.data.payMethod == 5) {
+		        		$('.pay_method').text('微信+积分');
 		        	}
 		        	
 

@@ -303,10 +303,97 @@
 	            success: function(data){
 					console.log(data);
 
-					
-					var result = template("listTpl",{list:data.data.result});
-			        $('#listInfo').html(result);
+					if (data.data.result.length != 0) {
 
+		            	var payMethodStr = '';
+		            	var str = '';
+		            	for (var i = 0; i < data.data.result.length; i++) {
+		            		payMethodStr = String(data.data.result[i].paymentMethod).split('');
+		            		console.log(payMethodStr);
+
+		            		var payStr = '';
+
+		            		for (j in payMethodStr) {
+
+			        		
+				        		if (payMethodStr[j] == '1') {
+									payStr += '现汇 '
+				        		}
+
+				        		if (payMethodStr[j] == '2') {
+									payStr += '承兑 '
+				        		}
+
+				        		if (payMethodStr[j] == '3') {
+									payStr += '现汇+承兑'
+				        		}
+				        		
+				        	}
+
+
+				        	str += '<li data-productId="'+data.data.result[i].productId+'">'
+								+'<span class="radio_input"><input type="radio" name="activitylist"></span>'
+								+'<span class="activity_shop_num">'+(i+1)+'</span>'
+								+'<span class="activity_shop_name">'+data.data.result[i].productName+'</span>'
+								+'<span class="activity_shop_price">'
+								if (data.data.result[i].productSpecUnit == 1) {
+									str += data.data.result[i].unitPrice+'克/桶'
+								} else if (data.data.result[i].productSpecUnit == 2) {
+									str += data.data.result[i].unitPrice+'千克/袋'
+								} else if (data.data.result[i].productSpecUnit == 3) {
+									str += data.data.result[i].unitPrice+'千克/件'
+								}
+								
+								str += '</span>'
+								+'<span class="pay_method orange">'+payStr+'</span>'
+								+'<span class="activity_shop_chundu">'+data.data.result[i].productPurity+'%</span>'
+								+'<span class="activity_shop_kucun">'+data.data.result[i].remain+'吨</span>'
+								+'<span class="activity_shop_xiaoliang">100吨</span>'
+								+'<span class="orange activity_shop_status">'
+
+								if (data.data.result[i].status == 0){
+									str += '待审核'
+								} else if(data.data.result[i].status == 2) {
+									str += '已拒绝'
+								} else if(data.data.result[i].status == 3) {
+									str += '已取消'
+								} else if (data.data.result[i].status == 4) {
+									str += '待开始'
+								} else if(data.data.result[i].status == 5) {
+									str += '进行中'
+								} else if (data.data.result[i].status == 6) {
+									str += '已结束'
+								}
+								str += '</span>'
+								+'<span class="activity_shop_operate">'
+									+'<span class="blue look" data-productId="'+data.data.result[i].productId+'" data-rate="'+data.data.result[i].rate+'" data-activityId="'+data.data.result[i].activityId+'" data-status="'+data.data.result[i].status+'" data-supplyId="'+data.data.result[i].supplyId+'" data-companyid="'+data.data.result[i].company+'">查看</span>'
+
+									if (data.data.result[i].status == 0){
+										str += '<span class="operate_btn cancel"><a href="##" data-productId="'+data.data.result[i].productId+'">取消</a></span>'
+									} else if(data.data.result[i].status == 2) {
+										str += '<span class="operate_btn edit"><a href="##" data-productId="'+data.data.result[i].productId+'">编辑</a></span>'
+									} else if(data.data.result[i].status == 3) {
+										str += '<span class="operate_btn edit"><a href="##" data-productId="'+data.data.result[i].productId+'">编辑</a></span>'
+									} else if (data.data.result[i].status == 4) {
+										str += '<span class="operate_btn edit"><a href="##" data-productId="'+data.data.result[i].productId+'">编辑</a></span>'
+									} else if(data.data.result[i].status == 5) {
+										str += '<span class="operate_btn blue"><a href="../account/myPurchase-order.html">查看订单</a></span>'
+									} else if (data.data.result[i].status == 6) {
+										str += '<span class="operate_btn blue"><a href="../account/myPurchase-order.html">查看订单</a></span>'
+									}
+									
+								str += '</span>'
+							+'</li>'
+
+				        }
+			        	
+			        }
+
+					
+					// var result = template("listTpl",{list:data.data.result});
+			  //       $('#listInfo').html(result);
+
+			        $('#listInfo').html(str);
 
 			        if(data.data.code == '0'){
 	                    $('.pageCont').hide();
@@ -316,6 +403,7 @@
 	                }
 
 		            if (data.data.result.length != 0) {
+
 		            	if (isFirst) {
 		                        
 		                    Page({
