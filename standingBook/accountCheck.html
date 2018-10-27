@@ -48,7 +48,7 @@
 			<li class="account_check_list_li7">已取消</li>
 		</ul>
 		<ul class="clearfix ul_title">
-			<li class="ul_title_li1"><input type="radio" name=""></li>
+			<!-- <li class="ul_title_li1"><input type="radio" name=""></li> -->
 			<li class="ul_title_li2">兑账订单号</li>
 			<li class="ul_title_li3">对账企业名称</li>
 			<li class="ul_title_li4">订单金额</li>
@@ -58,58 +58,15 @@
 			<li class="ul_title_li8">操作</li>
 		</ul>
 		<ul class="list_center">
-			<li>
-				<span class="radio_width"><input type="radio" name="account_check_name"></span>
-				<span class="num_content">1321231231231231232</span>
-				<span class="qiye_name">氢氧化钠</span>
-				<span class="order_money">
-					<span class="span">
-						<div><span>应收：</span><span class="orange">10万</span></div>
-						<div><span>应付：</span><span class="orange">12万</span></div>
-						<div><span>付款：</span><span class="hong">10万</span></div>
-					</span>
-				</span>
-				<span class="pay_method">现汇+承兑</span>
-				<span class="order_num">5笔订单</span>
-				<span class="status">待确定</span>
-				<span class="operate"><a href="accountCheckOrderStatus.html" class="blue">查看详情</a></span>
-			</li>
-			<li>
-				<span class="radio_width"><input type="radio" name="account_check_name"></span>
-				<span class="num_content">1321231231231231232</span>
-				<span class="qiye_name">氢氧化钠</span>
-				<span class="order_money">
-					<span class="span">
-						<div><span>应收：</span><span class="orange">10万</span></div>
-						<div><span>应付：</span><span class="orange">12万</span></div>
-						<div><span>付款：</span><span class="hong">10万</span></div>
-					</span>
-				</span>
-				<span class="pay_method">现汇+承兑</span>
-				<span class="order_num">5笔订单</span>
-				<span class="status">待确定</span>
-				<span class="operate"><a href="accountCheckOrderStatus.html" class="blue">查看详情</a></span>
-			</li>
-			<li>
-				<span class="radio_width"><input type="radio" name="account_check_name"></span>
-				<span class="num_content">1321231231231231232</span>
-				<span class="qiye_name">氢氧化钠</span>
-				<span class="order_money">
-					<span class="span">
-						<div><span>应收：</span><span class="orange">10万</span></div>
-						<div><span>应付：</span><span class="orange">12万</span></div>
-						<div><span>付款：</span><span class="hong">10万</span></div>
-					</span>
-				</span>
-				<span class="pay_method">现汇+承兑</span>
-				<span class="order_num">5笔订单</span>
-				<span class="status">待确定</span>
-				<span class="operate"><a href="accountCheckOrderStatus.html" class="blue">查看详情</a></span>
-			</li>
+			
+			
 		</ul>
 	</div>
 
 	<script src="../account/laydate/laydate.js"></script> <!-- 改成你的路径 -->
+	<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/pager.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		laydate({
 		    elem: '#test1',
@@ -128,6 +85,67 @@
 		        
 		    } 
 		});
+		//兑账列表
+		dz_list(1,'');
+		function dz_list(num,status){
+			$.ajax({ 
+				type: "get",
+				url: pubIP + "accountChecking/getAccountCheckingOrderList",//v1.0
+				cache: false,
+				dataType: "json",
+				headers: {
+					token: token
+				},
+				data:{
+					pageNum: num,
+					pageSize: 10,
+					orderId: $(".account_check_num").val(),
+					companyName: $(".account_check_qiye").val(),
+					startTime: $("#test1").val(),
+					endTime: $("#test2").val(),
+					status: status,
+				},
+				success: function(json){
+					console.log(json);
+					
+					if(json.code==1&&json.data.result!=''&&json.data.result!=null){
+						var data = json.data.result;
+						var str = '';
+						$.each(data,function(idx,item){
+							str += '<li>'
+							str += '<span class="num_content">'+item.accountCheckingId+'</span>'
+							str += '<span class="qiye_name">'+item.companyName+'</span>'
+							str += '<span class="order_money">'
+							str += '<span class="span">'
+							str += '<div><span>应收：</span><span class="orange">'+item.receivableAmount+'元</span></div>'
+							str += '<div><span>应付：</span><span class="orange">'+item.copeWithAmount+'元</span></div>'
+							str += '<div><span>付款：</span><span class="hong">'+item.total+'元</span></div>'
+							str += '</span>'
+							str += '</span>'
+							str += '<span class="pay_method">'+item.paymentMethodStr+'</span>'
+							str += '<span class="order_num">'+item.countTradingOrder+'</span>'
+							if(item.status == 1){
+								str += '<span class="status">待确定</span>'
+							}else if(item.status == 2){
+								str += '<span class="status">待支付</span>'
+							}else if(item.status == 3 || item.status == 4){
+								str += '<span class="status">已取消</span>'
+							}else if(item.status == 5){
+								str += '<span class="status">已完成</span>'
+							}
+							str += '<span class="operate"><a href="accountCheckOrderStatus.html?orderId='+item.accountCheckingId+'" class="blue exist_qx" data-exist="77">查看详情</a></span>'
+							str += '</li>'
+						})
+						$(".list_center").opend(str);
+					}
+				},
+				error:function(xhr,statues,error){
+					console.log(error);
+				}
+			});
+		}
+		
+		
 	</script>
 </body>
 </html>
