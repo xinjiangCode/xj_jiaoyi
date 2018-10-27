@@ -374,7 +374,7 @@
 				<p><span></span>给您带来最好的交易</p>
 				<p><span></span>为您提供更好的服务</p>
 				<!-- <a href="../account/myPurchase-addRequire.html"><button>立即发布需求</button></a> -->
-				<button class="go_account">立即发布需求</button>
+				<button class="go_account exist_qx" data-exist="6">立即发布需求</button>
 			</div>
 			<div class="fsObjBox  swiper-container">
 				<div class="swiper-wrapper">
@@ -432,8 +432,8 @@
 			<div class="userBox">
 				<div class="cpImgLogo"></div>
 				<p>欢迎，您还未登陆</p>
-				<button class="go_account_xp">我的询盘</button>
-				<button class="go_account_bj">我的报价</button>
+				<button class="go_account_xp exist_qx" data-exist="8">我的询盘</button>
+				<button class="go_account_bj exist_qx" data-exist="9">我的报价</button>
 			</div>
 		</div>
 		<div class="mianCont" style="margin-bottom: 26px;">
@@ -825,9 +825,9 @@
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
 						+'<p id="distanceTime0"></p>';
 							if(data.data.one.remain==0 || data.data.one.state!=2){
-                                str0+='<a href="javascript:;" data-mycompanyId="'+data.data.one.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.one.buyingId+'" style="background-color: #666666;"><button>立即报价</button></a>';
+                                str0+='<a href="javascript:;" data-mycompanyId="'+data.data.one.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.one.buyingId+'" style="background-color: #666666;"><button class="exist_qx" data-exist="7">立即报价</button></a>';
 							}else{
-                                str0+='<a href="javascript:;" data-mycompanyId="'+data.data.one.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.one.buyingId+'"><button>立即报价</button></a>';
+                                str0+='<a href="javascript:;" data-mycompanyId="'+data.data.one.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.one.buyingId+'"><button class="exist_qx" data-exist="7">立即报价</button></a>';
 							}
 						str0+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.one.allQuoteNumber+' </span>家报价</p>';
 
@@ -843,9 +843,9 @@
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
 						+'<p id="distanceTime1"></p>';
 							if(data.data.two.remain==0 || data.data.two.state!=2){
-                                str1+='<a href="javascript:;" data-mycompanyId="'+data.data.two.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'" style="background-color: #ccc;"><button>立即报价</button></a>';
+                                str1+='<a href="javascript:;" data-mycompanyId="'+data.data.two.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'" style="background-color: #ccc;"><button class="exist_qx" data-exist="7">立即报价</button></a>';
 							}else{
-                                str1+='<a href="javascript:;" data-mycompanyId="'+data.data.two.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'"><button>立即报价</button></a>';
+                                str1+='<a href="javascript:;" data-mycompanyId="'+data.data.two.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.two.buyingId+'"><button class="exist_qx" data-exist="7">立即报价</button></a>';
 							}
 						str1+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.two.allQuoteNumber+' </span>家报价</p>';
 
@@ -860,9 +860,9 @@
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
 						+'<p id="distanceTime2"></p>';
 							if(data.data.three.remain==0 || data.data.three.state!=2){
-                                str2+='<a href="javascript:;" data-mycompanyId="'+data.data.three.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.three.buyingId+'" style="background-color: #ccc;"><button>立即报价</button></a>';
+                                str2+='<a href="javascript:;" data-mycompanyId="'+data.data.three.companyId+'" lass="liji_baojia" data-baojiaid_id="'+data.data.three.buyingId+'" style="background-color: #ccc;"><button class="exist_qx" data-exist="7">立即报价</button></a>';
 							}else{
-                                str2+='<a href="javascript:;" data-mycompanyId="'+data.data.three.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.three.buyingId+'"><button>立即报价</button></a>';
+                                str2+='<a href="javascript:;" data-mycompanyId="'+data.data.three.companyId+'" class="liji_baojia" data-baojiaid_id="'+data.data.three.buyingId+'"><button class="exist_qx" data-exist="7">立即报价</button></a>';
 							}
 						str2+='<p class="smBm" style="position: absolute;bottom: 13px;text-align: center;padding-left: 0px;width: 100%;">已有 <span>'+data.data.three.allQuoteNumber+' </span>家报价</p>';
 
@@ -1104,7 +1104,7 @@
 				        			+'<p class="p_span" id="distanceTime'+(num+1)+i+'"></p>';
                                 if(data.data.list[i].remain!=0 && data.data.list[i].state==2){
 									str+='<a href="javascript:;" class="button liji_baojia" data-mycompanyId="'+data.data.list[i].warehouse.ownedCompanyId+'" data-baojiaid_id="'+data.data.list[i].buyingId+'">'
-										+'<button>立即报价</button>'//1：已提交 2：已发布 3：已完成 4：已关闭  5已失效',
+										+'<button class="exist_qx" data-exist="7">立即报价</button>'//1：已提交 2：已发布 3：已完成 4：已关闭  5已失效',
 										+'</a>';
 								// }else{
 								// 		str+='<a href="javascript:;" class="button "  ><button style="background-color: #999999;border: #999999;outline: none;">立即报价</button></a>';								

@@ -455,7 +455,7 @@
 								
 								<!-- <p style="margin-bottom: 29px;">合计总量: <span  class="cOr">1  </span>盒 ,<span>90ml</span></p> -->
 								<p>商品总价：<span style="margin-left: 2px;" class="cOr goodsTotalMoney">￥0元</span></p>
-								<a class="toXunpanBtn" href="javascript:;" style="margin-bottom: 15px;">我要抢购</a>
+								<a class="toXunpanBtn exist_qx" href="javascript:;" style="margin-bottom: 15px;">我要抢购</a>
 
 							</div>
 							<div class="objInvoice">
@@ -1209,10 +1209,14 @@
 						if (qiang_gou_huo == 4) {
 
 							$('.toXunpanBtn').text('我要抢购');
+							
+							$('.toXunpanBtn').attr('data-exist', 12);
 
 						} else if (qiang_gou_huo == 3) {
 
 							$('.toXunpanBtn').text('我要抢货');
+
+							$('.toXunpanBtn').attr('data-exist', 13);
 						}	
 
 						$('#Progress').css('width', rate);

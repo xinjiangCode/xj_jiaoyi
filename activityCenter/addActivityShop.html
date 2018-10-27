@@ -436,7 +436,7 @@
 				return false;
 			}
 
-			if (buy_num.val() < order_num.val()) {
+			if (Number(buy_num.val()) < Number(order_num.val())) {
 				ts_block(buy_num, '最大购买量不能小于最小起订单量');
 				return false;
 			}
@@ -615,7 +615,9 @@
 		$('.buy_num').blur(function() {
 			if ($(this).val() == '') {
 				$(this).parent().parent().find('.ts').text('最大购买量不能为空');
-			} if ($(this).val() < $('.order_num').val()) {
+			} else if (Number($(this).val()) < Number($('.order_num').val())) {
+				console.log($(this).val());
+				console.log($('.order_num').val());
 				$(this).parent().parent().find('.ts').text('最大购买量不能小于最小起订单量');
 			} else {
 				$(this).parent().parent().find('.ts').text('');

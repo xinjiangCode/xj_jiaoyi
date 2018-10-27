@@ -1421,10 +1421,10 @@
 	                    console.log(data);
 
 
-	                    str += '<button class="go_fbxq">发布采购</button>'
-								+'<div class="go_dbj">待报价<span>('+data.data.waitOfferCount+')</span></div>'
-								+'<div class="go_sdbj">已收到的报价<span>('+data.data.getOfferCount+')</span></div>'
-								+'<div class="go_dcl">待处理的订单<span>('+data.data.treatedOrderCount+')</span></div>';
+	                    str += '<button class="go_fbxq exist_qx" data-exist="1">发布采购</button>'
+								+'<div class="go_dbj exist_qx" data-exist="2">待报价<span>('+data.data.waitOfferCount+')</span></div>'
+								+'<div class="go_sdbj exist_qx" data-exist="3">已收到的报价<span>('+data.data.getOfferCount+')</span></div>'
+								+'<div class="go_dcl exist_qx" data-exist="4">待处理的订单<span>('+data.data.treatedOrderCount+')</span></div>';
 
 						$('#baojia_caigou_info').html(str);
 
@@ -1435,10 +1435,10 @@
 				});
 			} else {
 
-				str += '<button class="go_fbxq">发布采购</button>'
-						+'<div class="go_dbj">待报价<span>(0)</span></div>'
-						+'<div class="go_sdbj">已收到的报价<span>(0)</span></div>'
-						+'<div class="go_dcl">待处理的订单<span>(0)</span></div>';
+				str += '<button class="go_fbxq exist_qx" data-exist="1">发布采购</button>'
+						+'<div class="go_dbj exist_qx" data-exist="2">待报价<span>(0)</span></div>'
+						+'<div class="go_sdbj exist_qx" data-exist="3">已收到的报价<span>(0)</span></div>'
+						+'<div class="go_dcl exist_qx" data-exist="4">待处理的订单<span>(0)</span></div>';
 
 				$('#baojia_caigou_info').html(str);
 			}
@@ -1877,9 +1877,9 @@
 									+'<p>数量 : <span class="mr24">'+data.data[i].remain+' 吨</span>交货地 : '+data.data[i].deliveryJson.warehouseProvince+' <span class="bjNum">已有<span>'+data.data[i].allQuoteNumber+'</span>家报价</span></p>'
 									+'<div>'
 										if(data.data[i].remain==0 || data.data[i].state!=2){
-											str+='<a href="javascript:;" lass="liji_baojia" data-mycompanyId="'+data.data[i].companyId+'" data-baojiaid_id="'+data.data[i].buyingId+'"><button style="background-color: #ccc;">立即报价</button></a>'
+											str+='<a href="javascript:;" lass="liji_baojia" data-mycompanyId="'+data.data[i].companyId+'" data-baojiaid_id="'+data.data[i].buyingId+'"><button style="background-color: #ccc;" class="exist_qx" data-exist="5">立即报价</button></a>'
 										}else{
-											str+='<a href="javascript:;" class="liji_baojia" data-mycompanyId="'+data.data[i].companyId+'" data-baojiaid_id="'+data.data[i].buyingId+'"><button>立即报价</button></a>'
+											str+='<a href="javascript:;" class="liji_baojia" data-mycompanyId="'+data.data[i].companyId+'" data-baojiaid_id="'+data.data[i].buyingId+'"><button class="exist_qx" data-exist="5">立即报价</button></a>'
 										}
 									str+='<p class="lastTimetxt">剩余时间 ：</p>'
 										+'<p class="lasrTimeNum" id="distanceTime'+i+'"></p>'

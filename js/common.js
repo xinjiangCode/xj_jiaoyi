@@ -1,9 +1,10 @@
 //api地址
 // var pubIP = 'http://api.xjv56.com/service/';
-var pubIP = 'http://api.test.xjv56.com/service/';
-// var pubIP = 'http://192.168.1.80:7777/service/';
+// var pubIP = 'http://api.test.xjv56.com/service/';
+var pubIP = 'http://192.168.1.80:7777/service/';
 // var pubIP = 'http://192.168.1.165:7777/service/';
 // var pubIP = 'http://192.168.1.57:7777/service/';
+// var pubIP = 'http://192.168.1.105:7777/service/';
 
 //导出
 // var dcIP = 'http://192.168.1.80:7777/';
@@ -136,6 +137,9 @@ function cf_popEffectClose1(that) {
 	$(that).parent().parent().parent().css("display","none");
 }
 
+
+
+
 if(token){
 	//底部信息ajax
 	$.ajax({ 
@@ -267,9 +271,11 @@ if(token){
 		  	}
             companyId = json.data.companyId;
 			userId = json.data.id;
-            
+
             financePhoneNumber = json.financePhoneNumber;
             userPhone = json.data.mobile;
+
+            yiyou_quanxian(userId);
 
 		  },
 		  error:function(xhr,statues,error){
@@ -293,6 +299,71 @@ if(token){
 //		}
 //	}
 //}
+
+function yiyou_quanxian(userId) {
+    //查询某个用户已有权限
+    $.ajax({
+        url: pubIP + 'userPermissions/getRoleByUserId',
+        type: 'get',
+        headers: {
+            Accept: "application/json; charset=utf-8",
+            token: token
+        },
+        data: {
+            userId: userId
+        },
+        cache: false,
+        dataType: 'json',
+        success: function (json) {
+            console.log(json);
+
+            if (json.code == 1) {
+
+                
+
+                // if (json.menu.length != 0) {
+                    
+                //     for (var m = 0; m < json.menu.length; m++) {
+
+                //         for (var n = 0; n < $('.first_title').length; n++) {
+                //             // console.log()
+                //             if ($($('.first_title')[n]).attr('data-first') == json.menu[m].id) {
+                //                 // console.log($($('.first_title')[n]).find('input')[0].checked = true);
+                //                 $($('.first_title')[n]).find('input')[0].checked = true;
+                //             }
+                //         }
+
+                //     }   
+                    
+                // }
+
+                // if (json.permission.length != 0) {
+
+                //     for (var x = 0; x < json.permission.length; x++) {
+
+                //         for (var y = 0; y < $('.two_title li').length; y++) {
+                            
+                //             if ($($('.two_title li')[y]).attr('data-second') == json.permission[x].dbid) {
+                                
+                //                 $($('.two_title li')[y]).find('input')[0].checked = true;
+                //             }
+                //         }
+
+                //     }
+
+                // }
+                
+            } else {
+                cf_alert1(2, json.msg);
+            }
+            
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
+}
+
 // 模拟下拉框
 
 var adct1 = document.getElementsByTagName('title')[0].getAttribute('adct1');

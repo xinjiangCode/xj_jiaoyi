@@ -753,7 +753,26 @@
                             
                         }
 
+                        //点击订单管理，销售订单和采购订单默认选中
+                        // if ($(this).parent().attr('data-first') == '10') {
+                        //     for (var j = 0; j < $('.first_title').length; j++) {
+                        //         if ($($('.first_title')[j]).attr('data-first') == '23' || $($('.first_title')[j]).attr('data-first') == '29') {
+                        //             $($('.first_title')[j]).find('input')[0].checked = true;
+
+                        //             for (var x = 0; x < $($('.first_title')[j]).next().find('.two_title li').length; x++) {
+                        //                 $($($('.first_title')[j]).next().find('.two_title li')[x]).find('input')[0].checked = true;
+                                        
+                        //             }
+                                    
+                        //         }
+                        //     }
+                            
+                        // }
+
                     });
+
+                    
+                    
 
                 } else {
                     cf_alert1(2, json.msg);
@@ -764,6 +783,9 @@
                 console.log(err);
             }
         });
+
+
+
 
         //编辑权限
         $('.ok').click(function() {
@@ -832,7 +854,7 @@
 
 
         window.parent.$('.all_success_alert .modelbtn').click(function() {
-            window.parent.$('#limit_manage_iframe').hide();
+            window.parent.$('.limit_manage_box').hide();
             window.location.reload();
         });
 
