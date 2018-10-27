@@ -56,8 +56,8 @@
             <span>商品列表页</span>
         </div>
         <div class="shop_list_operate clearfix">
-            <a href="../shopManage/addShop.html"><div class="inline-block btn fl">添加</div></a>
-            <div class="inline-block btn fl ml7 export">导出</div>
+            <a href="../shopManage/addShop.html"><div class="inline-block btn fl exist_qx" data-exist="43">添加</div></a>
+            <div class="inline-block btn fl ml7 export exist_qx" data-exist="44">导出</div>
             <div class="inline-block fl clearfix">
                 <input type="text" class="select_shop fl" id="searchText" placeholder="按订单编号/商品名称查询">
                 <!-- <span class="shangjia fl">
@@ -72,9 +72,9 @@
                     <option value="2">下架</option>
                 </select>
             </div>
-            <div class="inline-block btn fl ml15 mr51" onclick="search()">查询</div>
-            <div class="inline-block btn fl" id="putAway" onclick="putAway(1)">上架</div>
-            <div class="inline-block btn fl ml7" id="out" onclick="putAway(2)">下架</div>
+            <div class="inline-block btn fl ml15 mr51 exist_qx" data-exist="45" onclick="search()">查询</div>
+            <div class="inline-block btn fl exist_qx" id="putAway" data-exist="46" onclick="putAway(1)">上架</div>
+            <div class="inline-block btn fl ml7 exist_qx" id="out" data-exist="47" onclick="putAway(2)">下架</div>
         </div>
         
         <table class="shop_list_table">
@@ -228,12 +228,12 @@
                             if(list[i].productState==1){
                                 str+='    <td><a href="##" class="blue state" >上架中</a></td>';
                                 str+='    <td>';
-                                str+='        <a href="##" class="blue" onclick="edit(\''+list[i].productIds+'\')">编辑</a>';
-                                str+='        <a href="##" class="detele" style="color: #999;" onclick="no_del()">删除</a>';
+                                str+='        <a href="##" class="blue exist_qx" data-exist="48" onclick="edit(\''+list[i].productIds+'\')">编辑</a>';
+                                str+='        <a href="##" class="detele exist_qx" data-exist="49" style="color: #999;" onclick="no_del()">删除</a>';
                                 if(list[i].supplyId==null){
-                                    str+='        <a href="##" class="look" style="color: #999;">查看</a>';
+                                    str+='        <a href="##" class="look exist_qx" data-exist="50" style="color: #999;">查看</a>';
                                 }else{
-                                    str+='        <a href="##" class="look" onclick="look(\''+list[i].supplyId+'\')">查看</a>';
+                                    str+='        <a href="##" class="look exist_qx" data-exist="50" onclick="look(\''+list[i].supplyId+'\')">查看</a>';
                                 }
                                 
                             }else{
@@ -252,6 +252,9 @@
                         }
                         $(".shop_list_table tbody").html(str);
                         $('.pagination').parent().show();
+
+                        yiyou_quanxian(userId);
+
                     }else if(json.code==0){
 
                         $(".shop_list_table tbody").html("");

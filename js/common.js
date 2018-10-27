@@ -1,8 +1,8 @@
 //api地址
 // var pubIP = 'http://api.xjv56.com/service/';
 // var pubIP = 'http://api.test.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
-// var pubIP = 'http://192.168.1.165:7777/service/';
+// var pubIP = 'http://192.168.1.80:7777/service/';
+var pubIP = 'http://192.168.1.166:7777/service/';
 // var pubIP = 'http://192.168.1.57:7777/service/';
 // var pubIP = 'http://192.168.1.105:7777/service/';
 
@@ -319,6 +319,31 @@ function yiyou_quanxian(userId) {
 
             if (json.code == 1) {
 
+                for (var i = 0; i < json.permission.length; i++) {
+                    //循环操作项
+                    for (var j = 0; j < $('.exist_qx').length; j++) {
+                        // debugger
+                        // console.log(json.permission[i].dbid);
+                        // console.log($($('.exist_qx')[j]).attr('data-exist'));
+                        if (json.permission[i].dbid == $($('.exist_qx')[j]).attr('data-exist')) {
+
+                            $($('.exist_qx')[j]).css('visibility','hidden');
+                        }
+                    }        
+                }
+
+                // for (var i = 0; i < json.permission.length; i++) {
+                //     //循环操作项
+                //     for (var j = 0; j < $('.exist_qx').length; j++) {
+                //         // debugger
+                //         // console.log(json.permission[i].dbid);
+                //         // console.log($($('.exist_qx')[j]).attr('data-exist'));
+                //         if (json.permission[i].dbid == $($('.exist_qx')[j]).attr('data-exist')) {
+
+                //             $($('.exist_qx')[j]).css('visibility','hidden');
+                //         }
+                //     }        
+                // }
                 
 
                 // if (json.menu.length != 0) {

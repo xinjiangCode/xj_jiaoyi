@@ -43,7 +43,7 @@
 
 
 <div class="container">
-    <div class="title">账务明细 <a href="##" style="margin-left: 490px;font-size: 14px;" class="day_excel" >日账单下载</a><a href="##" style="margin-left: 35px;font-size: 14px;" class="month_excel">月账单下载</a> <span class="Rt" style="font-size: 14px;">可用金额：<i class="cashBalance" style="color: #ff7929;">56.00</i>元</span></div>
+    <div class="title">账务明细 <a href="##" style="margin-left: 490px;font-size: 14px;" class="day_excel exist_qx" data-exist="74" >日账单下载</a><a href="##" style="margin-left: 35px;font-size: 14px;" class="month_excel exist_qx" data-exist="74">月账单下载</a> <span class="Rt" style="font-size: 14px;">可用金额：<i class="cashBalance" style="color: #ff7929;">56.00</i>元</span></div>
     <div class="head">
         <div class="selec" style="display: block;overflow: hidden">
             <div class="Lf" style="width: 426px;">
@@ -78,7 +78,7 @@
     <div class="fast">收入(0)：
     		<i style="color: #3ebc28;">0.00</i>元
     		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支出(0)：
-    		<i style="color: #ff342e;">-0.00</i>元 <a href="##" class="Rt downWd" >下载账单</a></div>
+    		<i style="color: #ff342e;">-0.00</i>元 <a href="##" class="Rt downWd exist_qx"  data-exist="74">下载账单</a></div>
 
 
     <table class="table" border="1"  width="985px" align="center" style="font-size: 12px;color: #282828;">
@@ -223,7 +223,7 @@
                     var expendNum = response.data.countData.expendNum;
                     $('.fast').html('收入('+ incomeNum +')：<i style="color: #3ebc28;">'+ income +'</i>元'+
                                 '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支出('+ expendNum +')：<i style="color: #ff342e;">-'+ expend +'</i>元'+
-                                '<a href="##" class="Rt downWd">下载账单</a>');
+                                '<a href="##" class="Rt downWd exist_qx" data-exist="74">下载账单</a>');
                     //TODO-----------
                     var list = response.data.pageData;
                     var str = '';
@@ -293,13 +293,13 @@
                         str+='<td>'+item.ACCBAL+'</td>'
                         if (item.TRANTYPE == 15 && item.HOSTSEQ != '') {
 
-                            str+='<td><a href="./mySale-orderDetailStatus.html?userType='+item.type+'&id='+item.HOSTSEQ+'">查看</a></td>'
+                            str+='<td><a class="exist_qx" data-exist="73" href="./mySale-orderDetailStatus.html?userType='+item.type+'&id='+item.HOSTSEQ+'">查看</a></td>'
                         } else {
                             str+='<td><a style="color: #333; cursor:default;" href="##">查看</a></td>'
                         }
                         
                         if (item.TRANTYPE == 15 && item.HOSTSEQ != '') {
-                            str+='<td><a class="upload_btn" data-orderId="'+item.HOSTSEQ+'" onclick="down_moban(this)" href="##">下载</a></td>'
+                            str+='<td><a class="upload_btn exist_qx" data-exist="74" data-orderId="'+item.HOSTSEQ+'" onclick="down_moban(this)" href="##">下载</a></td>'
                         } else {
                             str+='<td><a class="upload_btn" href="##" style="color: #333; cursor:default;">下载</a></td>'
                         }
@@ -308,6 +308,8 @@
                         str+='</tr>'
                     })
                     $(".myTbody").html(str);
+
+                    yiyou_quanxian(userId);
 
                 }
             }

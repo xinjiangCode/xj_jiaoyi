@@ -107,11 +107,14 @@
 			            <td>'+t.companyType+'</td>\
 			            <td>'+t.companyAddress2+'</td>\
 			            <td>'+new Date(t.addTime).Format("yyyy-MM-dd hh:mm:ss")+'</td>\
-			            <td><span class="cancel_guanzhu" dataid="'+t.storeId+'" cmpid="'+t.companyId+'">取消关注</span></td>\
+			            <td><span class="cancel_guanzhu exist_qx" data-exist="41" dataid="'+t.storeId+'" cmpid="'+t.companyId+'">取消关注</span></td>\
 				       </tr>';
    			})
    			$('.shouhuo_person_list tbody').html(str) ;
             $('.pagination').parent().show();
+
+            yiyou_quanxian(userId);
+
    		}
    		getData(1);
    		

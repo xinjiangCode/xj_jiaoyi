@@ -341,6 +341,7 @@
 
 			.sellerRt p {
 				padding-left: 20px;
+				width: 215px;
 			}
 
 			.payType {
@@ -594,7 +595,7 @@
 				<div class="shopinfoBox">
 					<script type="text/html" id="shopInfoTpl">
 						<div class="sellerRtLogo" style="background: url(<%=storeImage%>) no-repeat;background-size: contain;background-position: center;"></div>
-						<p id="addGz" style="text-align: right;margin-top: 7px;margin-bottom: 8px;padding-right: 12px;font-size: 16px;color: #666;"><img src="../img/guanzhu.png" style="margin-right: 8px;" /><span>关注</span></p>
+						<p id="addGz" class="exist_qx" data-exist="10" style="text-align: right;margin-top: 7px;margin-bottom: 8px;padding-right: 12px;font-size: 16px;color: #666;"><img src="../img/guanzhu.png" style="margin-right: 8px;" /><span>关注</span></p>
 						<p style="margin-bottom: 10px;padding-right:17px ;color: #666;line-height: 24px;">企业名称：
 							<%=companyName%>
 						</p>
@@ -1245,7 +1246,8 @@
 						// 产品用途
 						$('.infoBox:eq(2)').children('p').text(chemical.chemicalPurpose);
 
-
+						//权限
+						yiyou_quanxian(userId);
 
 						// 点击添加商品数量
 						var numInput = $('.addOrSubGoodsNum input');
@@ -1658,6 +1660,7 @@
 								var careFlag = false;
 								var msgObj = response.data;
 								var shopInfoHtml = template('shopInfoTpl', msgObj);
+
 								$('.shopinfoBox').html(shopInfoHtml);
 								$('.sellerRtLogo').attr('cmpid', companyId_this);
 								// 获取店铺关注信息
@@ -1686,6 +1689,9 @@
 												$('#addGz span').text('关注');
 												$('#addGz img').attr("src","../img/guanzhu.png");
 											}
+
+											//权限
+											yiyou_quanxian(userId);
 											
 										}
 									},

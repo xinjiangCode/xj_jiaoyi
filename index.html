@@ -1428,6 +1428,8 @@
 
 						$('#baojia_caigou_info').html(str);
 
+						yiyou_quanxian(userId);
+
 	                },
 	                error: function(err) {
 	                	console.log(err);
@@ -1441,6 +1443,9 @@
 						+'<div class="go_dcl exist_qx" data-exist="4">待处理的订单<span>(0)</span></div>';
 
 				$('#baojia_caigou_info').html(str);
+
+				// yiyou_quanxian(userId);
+
 			}
 			
 
@@ -1904,6 +1909,7 @@
 							distanceTime2("distanceTime"+i+"", time2);
 						}
 
+						// yiyou_quanxian(userId);
 
 						// var result1 = template('caigouResourceTpl', {list: data.data});
 			//          $('#caigouResourceInfo').html(result1);

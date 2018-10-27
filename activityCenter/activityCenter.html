@@ -145,15 +145,15 @@
 			<%if (list[i].status == 1) {%> 
 			<!-- 报名中 -->
 			<span class="status">报名中</span>
-			<span class="baoming liji_baoming orange"><a href="##">立即报名</a></span>
+			<span class="baoming liji_baoming orange exist_qx" data-exist="64"><a href="##">立即报名</a></span>
 			<%} else if(list[i].status == 2){%>   
 			<!-- 已报名，待添加商品< -->
 			<span class="status">已报名,待添加商品</span>
-			<span class="baoming blue yibaoming add_activity_shop"><a href="##">添加活动商品</a></span>
+			<span class="baoming blue yibaoming add_activity_shop exist_qx" data-exist="64"><a href="##">添加活动商品</a></span>
 			<%} else if(list[i].status == 3) {%>
 			<!-- 已报名，待活动开始 -->
 			<span class="status">已报名，待活动开始</span>
-			<span class="baoming glay yibaoming look_activity_shop"><a href="##">查看活动商品</a></span>
+			<span class="baoming glay yibaoming look_activity_shop exist_qx" data-exist="64"><a href="##">查看活动商品</a></span>
 			<%} else if(list[i].status == 4) {%>
 			<!-- 已报名，活动进行中 -->
 			<span class="status">正在进行中</span>
@@ -166,7 +166,7 @@
 			<span class="status"></span>
 			<span class="baoming"></span>
 			<%}%>
-			<span class="activity_detail"><a href="##">查看活动详情</a></span>
+			<span class="activity_detail exist_qx" data-exist="63"><a href="##">查看活动详情</a></span>
 		</li>
 		<%}%>
 	</script>

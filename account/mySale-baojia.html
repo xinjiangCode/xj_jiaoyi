@@ -88,7 +88,7 @@
             <div class="Lf">我的报价</div>
             <div class="Rt">
                 <input type="text Lf" class="search_input_info" placeholder="按需求编号/商品名称查询">
-                <span class="search Rt search_input_info_btn" style="width: 42px;height:30px;margin:0;cursor:pointer;"></span>
+                <span class="search Rt search_input_info_btn exist_qx" data-exist="52" style="width: 42px;height:30px;margin:0;cursor:pointer;"></span>
             </div>
         </div>
         <div class="myPurchase-tab">
@@ -238,7 +238,7 @@
             <div class="orderItemCont clearfix">
                 <div class="orderContItem orderNum"><span><%=i-0+1%></span></div>
                 <div class="orderContItem orderN"><%=list[i].productName%></div>
-                <div class="orderContItem orderViewdetail tiao_btn" data-interestid="<%=list[i].interestId%>" data-state1="<%=list[i].state%>" data-caigou1="<%=list[i].buyingId%>"><a href="javascript:;" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
+                <div class="orderContItem orderViewdetail tiao_btn exist_qx" data-exist="51" data-interestid="<%=list[i].interestId%>" data-state1="<%=list[i].state%>" data-caigou1="<%=list[i].buyingId%>"><a href="javascript:;" style="display: block;width: 100%;height: 100%;">查看详情</a></div>
                 <%if (list[i].state == 1) {%>
                 <div class="orderContItem orderStatus" style="color: #FF7E28;">待确认</div>
                 <%} else if (list[i].state == 2) {%>
@@ -353,6 +353,8 @@
                         enquiryListTpl = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';
                         $('#listInfo').html(enquiryListTpl);
                     }
+
+                    yiyou_quanxian(userId);
 
                 },
                 error: function (err) {

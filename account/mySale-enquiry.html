@@ -44,7 +44,7 @@
             <div>
                 <label>企业名称:<input type="text"></label>
                 <label>产品名称:<input type="text"></label>
-                <span class="search btn">查询</span>
+                <span class="search btn exist_qx" data-exist="54">查询</span>
             </div>
             <div>
                 <label>询盘编号:<input type="text"></label>
@@ -113,9 +113,9 @@
                                 <div class="orderContItem toSure quxiao" style="color: #666;">已失效</div>
                             <%}%>
                             <%if (list[i].state == 1) {%><!-- 待确认 -->
-                                <div class="orderContItem orderViewdetail" onclick="waitiao('./mySale-baojiaHandle.html?interestId=<%=list[i].interestId%>&from=mysale')">查看询盘</div>
+                                <div class="orderContItem orderViewdetail exist_qx" data-exist="53" onclick="waitiao('./mySale-baojiaHandle.html?interestId=<%=list[i].interestId%>&from=mysale')">查看询盘</div>
                             <%}else{%>
-                                <div class="orderContItem orderViewdetail" onclick="waitiao('./myPurchase-enquiryDetaill.html?interestId=<%=list[i].interestId%>&from=mysale')">查看询盘</div>
+                                <div class="orderContItem orderViewdetail exist_qx" data-exist="53" onclick="waitiao('./myPurchase-enquiryDetaill.html?interestId=<%=list[i].interestId%>&from=mysale')">查看询盘</div>
                             <%}%>
                         </div>
                     </div>

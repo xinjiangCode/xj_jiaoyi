@@ -37,9 +37,9 @@
                 <span>用户列表</span>
             </div>
             <div class="fr user_list_btn">
-                <span class="member_add">添加</span>
-                <span class="add_integral">增加积分</span>
-                <span class="reduce_integral">减少积分</span>
+                <span class="member_add exist_qx" data-exist="29">添加</span>
+                <span class="add_integral exist_qx" data-exist="30">增加积分</span>
+                <span class="reduce_integral exist_qx" data-exist="31">减少积分</span>
             </div>
         </div>
         <table class="shop_list_table">
@@ -113,9 +113,9 @@
             <td><%=list[i].integral%></td>
             <td><%=list[i].joinAt%></td>
             <td>
-                <a href="javascript:;" class="blue limit_manage" data-id="<%=list[i].id%>">权限管理</a>
-                <a href="javascript:;" class="blue edit">编辑</a>
-                <a href="javascript:;" class="blue delete" data-id="<%=list[i].id%>">删除</a>    
+                <a href="javascript:;" class="blue limit_manage exist_qx " data-exist="32" data-id="<%=list[i].id%>">权限管理</a>
+                <a href="javascript:;" class="blue edit exist_qx" data-exist="33">编辑</a>
+                <a href="javascript:;" class="blue delete exist_qx" data-exist="34" data-id="<%=list[i].id%>">删除</a>    
             </td>
         </tr>
         <%}%>
@@ -454,6 +454,8 @@
 
                         var result =  template("listTpl",{list:json.data.result});
                         $('.listInfo').html(result);
+
+
                         
                         if (isFirst) {
                             
@@ -474,7 +476,8 @@
 
                         $('.allPageN').text(num+'/'+json.data.pages);
 
-                        
+                         yiyou_quanxian(userId);
+
                     } else {
                         $('.pageJump').hide();
                     }

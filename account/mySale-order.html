@@ -98,7 +98,7 @@
             <div class="Lf">我的销售订单</div>
             <div class="Rt">
                 <input type="text Lf" placeholder="按订单编号/商品名称查询">
-                <span class="search Rt" style="width: 42px;height:30px;margin:0;cursor:pointer;"></span>
+                <span class="search Rt exist_qx" data-exist="56" style="width: 42px;height:30px;margin:0;cursor:pointer;"></span>
             </div>
         </div>
         <div class="myPurchase-tab">
@@ -216,11 +216,11 @@
                     <%}else if(list[i].state==12 || list[i].state==13){%>
                         <div class="orderContItem orderStatus green">关闭订单</div>
                     <%}%> -->
-                    <div class="orderContItem orderViewdetail">
+                    <div class="orderContItem orderViewdetail exist_qx" data-exist="55">
                         <a href="./mySale-orderDetailStatus.html?userType=0&id=<%=list[i].transactionOrderIdStr%>" style="display:block;width: 100%;height: 100%;">查看订单</a>
                     </div>
                     <%if(list[i].deliveryType == 1 || list[i].deliveryType == 0){%> <!-- 包到 -->
-                        <div class="orderContItem publish_wuliu_xuqiu">
+                        <div class="orderContItem publish_wuliu_xuqiu exist_qx" data-exist="56">
                             <%if(list[i].publishLogisticsStatus == 0){%>
                                 <a target="_blank" href="javascript:;" data-type="1" data-productName="<%=list[i].productName%>" data-sum="<%=list[i].sum%>" data-orderId="<%=list[i].transactionOrderIdStr%>" data-chemicalName="<%=list[i].chemicalName%>" data-chemicalId="<%=list[i].chemicalId%>" style="display:block;width: 100%;height: 100%;">发布物流需求</a>
                             <%} else{%>
@@ -373,6 +373,9 @@
                         ordersListHTML = template('ordersListTpl', {list: json.data.result});
                         $('#myPurchase-orders').html(ordersListHTML);
                         $('.pagination').parent().show();
+
+                        yiyou_quanxian(userId);
+
                     } else{
                         ordersListHTML = '<h5 style="font-size:30px;line-height:100px;text-align:center;">暂无数据<h5>';
                         $('#myPurchase-orders').html(ordersListHTML);

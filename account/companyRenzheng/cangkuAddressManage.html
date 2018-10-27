@@ -144,7 +144,7 @@
                     <input type="checkbox" name="" class="moren" id="moren_address" value="设置为默认的收货地址"  />设置为默认的收货地址
                 </li>
                 <li class="clearfix">
-                    <span class="add_address_btn">添加该地址</span>
+                    <span class="add_address_btn exist_qx" data-exist="35">添加该地址</span>
                     <span class="cancel">取消</span>
                 </li>
             </ul>
@@ -184,8 +184,8 @@
                     </td>
                     <td data-province=<%=list[i].warehouseProvince%> data-city=<%=list[i].warehouseCity%> data-area=<%=list[i].warehouseArea%> data-detailAddress=<%=list[i].warehouseAddr%> ><%=list[i].warehouseProvince%> <%=list[i].warehouseCity%> <%=list[i].warehouseArea%> <%=list[i].warehouseAddr%></td>
                     <td>
-                        <a href="javascript:;" class="edit">修改</a>
-                        <a href="javascript:;" class="del">删除</a>
+                        <a href="javascript:;" class="edit exist_qx" data-exist="36">修改</a>
+                        <a href="javascript:;" class="del exist_qx" data-exist="37">删除</a>
                     </td>
                     <td>
                         <%if (list[i].defaultFlag == '1') { %>

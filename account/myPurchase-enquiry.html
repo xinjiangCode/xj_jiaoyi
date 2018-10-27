@@ -24,7 +24,7 @@
             <div>
                 <label>企业名称:<input class="companyNameInput" type="text"></label>
                 <label>产品名称:<input class="productNameInput" type="text"></label>
-                <span class="search btn">查询</span>
+                <span class="search btn exist_qx" data-exist="58">查询</span>
             </div>
             <div>
                 <label>询盘编号:<input class="xunpanNoInput" type="text"></label>
@@ -88,7 +88,7 @@
                                 <div class="orderContItem toSure quxiao red">已失效</div>
                             <%}%>
 
-                            <div class="orderContItem orderViewdetail" onclick="waitiao('./myPurchase-enquiryDetaill.html?interestId=<%=list[i].interestId%>&from=mypurchase')">查看询盘</div>
+                            <div class="orderContItem orderViewdetail exist_qx" data-exist="57" onclick="waitiao('./myPurchase-enquiryDetaill.html?interestId=<%=list[i].interestId%>&from=mypurchase')">查看询盘</div>
                         </div>
                     </div>
                 <%}%>
@@ -227,6 +227,9 @@
                         enquiryListTpl = template('enquiryListTpl', {list: res.aData});
                         $('.myPurchase-orders').html(enquiryListTpl);
                         $('.pagination').parent().show();
+
+                        yiyou_quanxian(userId);
+
                     } else {
                         enquiryListTpl = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';
                         $('.myPurchase-orders').html(enquiryListTpl);
