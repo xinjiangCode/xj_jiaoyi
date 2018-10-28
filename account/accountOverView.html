@@ -204,7 +204,7 @@
     </div>
     <div class="header2">
         <div class="title">会员信息</div>
-        <div class="weiRenZhengID wrz" style="padding: 20px 24px;overflow: hidden;"><img style="margin-top: -2px;"  src="../img/cf_weirenzheng.png" alt="">&nbsp;实名认证：<span style="color: #ff796e; cursor: pointer;" class="weiRenZheng_btn">未认证</span></div>
+        <div class="weiRenZhengID wrz exist_qx" data-exist="18" style="padding: 20px 24px;overflow: hidden;"><img style="margin-top: -2px;"  src="../img/cf_weirenzheng.png" alt="">&nbsp;实名认证：<span style="color: #ff796e; cursor: pointer;" class="weiRenZheng_btn">未认证</span></div>
         <div class="yiRenZhengID yrz exist_qx" data-exist="18" style="padding: 20px 24px;overflow: hidden;font-size: 14px; display: none;">
             <img  src="../img/cf_weirenzheng.png" alt=""> <span class="Lf">&nbsp;实名认证：</span>
             <span class="Lf" style="color: #8dc44d;">&nbsp;已认证&nbsp;</span>
@@ -351,7 +351,7 @@
             <div style="font-size: 14px;margin-top: 10px;">建议您定期更改密码以保护账户安全</div>
         </div>
 
-        <div class="edit Rt exist_qx" data-exist="23" onclick="show1('#updataPwd')">修改</div>
+        <div class="edit Rt exist_qx update_login" data-exist="23" onclick="show1('#updataPwd')">修改</div>
         <div class="isSet Rt">已设置</div>
     </div>
     <div class="loginSafe" >
@@ -360,7 +360,7 @@
             <div class="title">手机验证</div>
             <div style="font-size: 14px;margin-top: 10px;">验证后，手机号可用于登陆，找回密码等功能</div>
         </div>
-        <div class="edit Rt exist_qx" data-exist="24" onclick="show2('#updataPhone')">修改</div>
+        <div class="edit Rt exist_qx update_phone" data-exist="24" onclick="show2('#updataPhone')">修改</div>
         <div class="isSet Rt">已设置</div>
     </div>
     <div class="loginSafe yiRenZheng" style="border-top: 1px solid #e3e3e3;">
@@ -385,6 +385,13 @@
 
     // 销售订单
     $('.sale_order1, .sale_order2, .sale_order3, .sale_order4').click(function() {
+        if ($(this).parent().hasClass('quanxian')) {
+            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+            window.parent.$('.all_error_alert').show();
+            
+            return false;
+        }
+
         window.location.href = "mySale-order.html";
         
         window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
@@ -397,6 +404,14 @@
 
     // 采购订单
     $('.purchase1, .purchase2, .purchase3, .purchase4').click(function() {
+
+        if ($(this).parent().hasClass('quanxian')) {
+            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+            window.parent.$('.all_error_alert').show();
+
+            return false;
+        }
+
         window.location.href = "./myPurchase-order.html";
         
         window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
@@ -409,6 +424,14 @@
 
     // 我的询盘
     $('.my_xunpan').click(function() {
+
+        if ($(this).hasClass('quanxian')) {
+            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+            window.parent.$('.all_error_alert').show();
+            return false;
+        }
+
+
         window.location.href = "./myPurchase-enquiry.html";
         
         window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
@@ -421,6 +444,14 @@
 
     // 我的报价
     $('.my_baojia').click(function() {
+
+        if ($(this).hasClass('quanxian')) {
+            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+            window.parent.$('.all_error_alert').show();
+            return false;
+        }
+
+
         window.location.href = "./mySale-baojia.html";
         
         window.parent.$(".manage").find('img').attr("src","../img/cf_close.png");
@@ -632,6 +663,11 @@
 
                     //去资质认证
                     $('.go_zizhi').click(function() {
+                        if ($(this).hasClass('quanxian')) {
+                            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                            window.parent.$('.all_error_alert').show();
+                            return false;
+                        }
                         if(json.data.state ==1 || json.data.state == 3) {
                             window.parent.$('.zizhi_renzheng').click();
                         }    
@@ -639,6 +675,13 @@
 
                     //去企业认证
                     $('.go_qiye').click(function() {
+
+                        if ($(this).hasClass('quanxian')) {
+                            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                            window.parent.$('.all_error_alert').show();
+                            return false;
+                        }
+
                         if (json.data.state == null) {
                             window.parent.$('#account_ziliao').click();
                         } else if (json.data.state == -1) {
@@ -711,15 +754,34 @@
     }
     //展示外部弹框
     function show1(ids) {
+        if ($('.update_login').hasClass('quanxian')) {
+            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+            window.parent.$('.all_error_alert').show();
+            return false;
+        }
         window.parent.$(ids).css("display","block");
     }
 	function show2(ids) {
+
+        if ($('.update_phone').hasClass('quanxian')) {
+            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+            window.parent.$('.all_error_alert').show();
+            return false;
+        }
+
         window.parent.$(ids).css("display","block");
         var mobile = localStorage.getItem('mobile');
         window.parent.$('#oldPhone').val(mobile);
     }
 
     $(document).on('click', '.jiyi_pass_edit', function () {
+
+        if ($(this).hasClass('quanxian')) {
+            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+            window.parent.$('.all_error_alert').show();
+            return false;
+        }
+
         window.parent.$('#oldPayPwd').val('');
         window.parent.$('#newPayPwd1').val('');
         window.parent.$('#newPayPwd2').val('');
@@ -731,6 +793,12 @@
 
     //实名认证
     $(document).on('click', '.weiRenZheng_btn', function () {
+        if ($(this).parent().hasClass('quanxian')) {
+            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+            window.parent.$('.all_error_alert').show();
+            return false;
+
+        }
         window.parent.renzheng();
     });
 

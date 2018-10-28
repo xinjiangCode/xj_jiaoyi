@@ -326,21 +326,67 @@ function yiyou_quanxian(userId) {
                         // console.log(json.permission[i].dbid);
                         // console.log($($('.exist_qx')[j]).attr('data-exist'));
                         if (json.permission[i].dbid == $($('.exist_qx')[j]).attr('data-exist')) {
+                            
+                            $($('.exist_qx')[j]).addClass('quanxian');
 
-                            $($('.exist_qx')[j]).css('visibility','hidden');
+
+                            if ($($('.exist_qx')[j]).attr('data-exist') == '19') {
+                                
+                            } else if( $($('.exist_qx')[j]).attr('data-exist') == '20') {
+
+                            } else if( $($('.exist_qx')[j]).attr('data-exist') == '16') { //账户概览-企业认证
+
+                            } else if( $($('.exist_qx')[j]).attr('data-exist') == '17') { //账户概览-资质认证
+
+                            } else if( $($('.exist_qx')[j]).attr('data-exist') == '18') { //账户概览-实名认证
+                                
+                            } else if( $($('.exist_qx')[j]).attr('data-exist') == '23') { //账户概览-登录安全
+                                
+                            } else if( $($('.exist_qx')[j]).attr('data-exist') == '24') { //账户概览-手机验证
+                                
+                            } else if( $($('.exist_qx')[j]).attr('data-exist') == '25') { //账户概览-交易密码
+                                
+                            } else {
+                                $($('.exist_qx')[j]).css('visibility','hidden');   
+                            }
+
+                                                    
+
+                        } else {
+                            // $($('.exist_qx')[j]).removeClass('quanxian');
+
+                            $($('.exist_qx')[j]).css('visibility','visibile');                                                       
                         }
                     }        
                 }
 
-                for (var i = 0; i < json.permission.length; i++) {
+                for (var i = 0; i < json.menu.length; i++) {
                     //循环操作项
-                    for (var j = 0; j < $('.exist_qx').length; j++) {
+                    for (var j = 0; j < $('.exist_one_qx').length; j++) {
                         // debugger
                         // console.log(json.permission[i].dbid);
                         // console.log($($('.exist_qx')[j]).attr('data-exist'));
-                        if (json.permission[i].dbid == $($('.exist_qx')[j]).attr('data-exist')) {
+                        if (json.menu[i].id == $($('.exist_one_qx')[j]).attr('data-oneExist')) {
 
-                            $($('.exist_qx')[j]).css('visibility','hidden');
+                           
+
+                            if ( $($('.exist_one_qx')[j]).attr('data-oneExist') == '23') { //我的销售订单
+
+                                $($('.exist_one_qx')[j]).addClass('quanxian');
+
+                                $('.hzf_wdxsdd').hide();
+
+                            } else if( $($('.exist_one_qx')[j]).attr('data-oneExist') == '29') {
+                                
+                                $($('.exist_one_qx')[j]).addClass('quanxian');
+
+                                $('.hzf_wdcgdd').hide();
+
+                            } else {
+                                $($('.exist_one_qx')[j]).css('display','none');
+                            }
+
+                            
                         }
                     }        
                 }
