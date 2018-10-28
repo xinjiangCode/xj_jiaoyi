@@ -1,8 +1,8 @@
 //api地址
 // var pubIP = 'http://api.xjv56.com/service/';
 // var pubIP = 'http://api.test.xjv56.com/service/';
-// var pubIP = 'http://192.168.1.80:7777/service/';
-var pubIP = 'http://192.168.1.166:7777/service/';
+var pubIP = 'http://192.168.1.80:7777/service/';
+// var pubIP = 'http://192.168.1.166:7777/service/';
 // var pubIP = 'http://192.168.1.57:7777/service/';
 // var pubIP = 'http://192.168.1.105:7777/service/';
 
@@ -392,6 +392,7 @@ function yiyou_quanxian(userId) {
 // 模拟下拉框
 
 var adct1 = document.getElementsByTagName('title')[0].getAttribute('adct1');
+$('.selectPub').unbind();
 $('.selectPub').click(function(event){
 	console.log($(this).attr("disabled"))
 	if($(this).attr("disabled")=="disabled"){return;}//不可选
