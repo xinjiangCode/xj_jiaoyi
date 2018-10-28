@@ -332,18 +332,18 @@ function yiyou_quanxian(userId) {
                     }        
                 }
 
-                // for (var i = 0; i < json.permission.length; i++) {
-                //     //循环操作项
-                //     for (var j = 0; j < $('.exist_qx').length; j++) {
-                //         // debugger
-                //         // console.log(json.permission[i].dbid);
-                //         // console.log($($('.exist_qx')[j]).attr('data-exist'));
-                //         if (json.permission[i].dbid == $($('.exist_qx')[j]).attr('data-exist')) {
+                for (var i = 0; i < json.permission.length; i++) {
+                    //循环操作项
+                    for (var j = 0; j < $('.exist_qx').length; j++) {
+                        // debugger
+                        // console.log(json.permission[i].dbid);
+                        // console.log($($('.exist_qx')[j]).attr('data-exist'));
+                        if (json.permission[i].dbid == $($('.exist_qx')[j]).attr('data-exist')) {
 
-                //             $($('.exist_qx')[j]).css('visibility','hidden');
-                //         }
-                //     }        
-                // }
+                            $($('.exist_qx')[j]).css('visibility','hidden');
+                        }
+                    }        
+                }
                 
 
                 // if (json.menu.length != 0) {
