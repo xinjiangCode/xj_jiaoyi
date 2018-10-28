@@ -576,7 +576,7 @@
  
         var isFirst = true;
 
-        $('.activity_state span').text('已报名');
+        $('.activity_state span').text('');
 
         activityCenter(1, '', '', '');
 
@@ -604,7 +604,12 @@
 	        }   
 	    });
 
-
+		$('#test1').blur(function() {
+			if ($(this).val() == '') {
+				activityCenter(1, '', '', '');
+			}
+		});
+		
 
 		// 活动列表
         function activityCenter(num, con, title, time) {
