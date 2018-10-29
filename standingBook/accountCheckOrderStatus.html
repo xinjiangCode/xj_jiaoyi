@@ -12,6 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/standingBook/accountCheckOrderStatus.css">
+	<style>
+		.qwer{
+			display: none;
+		}
+	</style>
 </head>
 <body>
 
@@ -25,11 +30,11 @@
 			</div>
 		</div>
 		<!-- 待我方确定 -->
-		<div class="order_status wfqr">
+		<div class="order_status wfqr qwer">
 			<img src="../img/account_check_order_status.png">
 			<span>待商家确定</span>
 		</div>
-		<div class="shengyu_time wfqr">
+		<div class="shengyu_time wfqr qwer">
 			<p>剩余时间：<span class="time_time">29天8时45分25秒</span>，您可以：</p>
 			<div class="operate_btn">
 				<span class="span_btn">
@@ -40,11 +45,11 @@
 		</div>
 
 		<!-- 待对方确认 -->
-		<div class="order_status dfqr">
+		<div class="order_status dfqr qwer">
 			<img src="../img/account_check_order_status.png">
 			<span>待商家确定</span>
 		</div>
-		<div class="shengyu_time dfqr">
+		<div class="shengyu_time dfqr qwer">
 			<p>剩余时间：<span class="time_time">29天8时45分25秒</span>，您可以：</p>
 			<div class="operate_btn">
 				<span class="cancel_accountCheck_btn">取消兑账</span>
@@ -52,31 +57,44 @@
 		</div>
 
 		<!-- 等待对方支付 -->
-		<div class="order_status dfzf">
+		<div class="order_status dfzf  qwer">
 			<img src="../img/account_check_order_status.png">
 			<span>等待对方支付</span>
 		</div>
-		<div class="shengyu_time1 dfzf">
+		<div class="shengyu_time1 dfzf qwer">
 			<p>剩余时间：<span class="time_time">29天8时45分25秒</span></p>
 		</div>
 
 		<!-- 等待我方支付 -->
-		<div class="order_status wfzf">
+		<div class="order_status wfzf qwer">
 			<img src="../img/account_check_order_status.png">
 			<span>等待我方支付</span>
 		</div>
-		<div class="shengyu_time wfzf">
+		<div class="shengyu_time wfzf qwer">
 			<p>剩余时间：<span class="time_time">29天8时45分25秒</span>，您可以：</p>
 			<div class="operate_btn">
 				<span class="liji_pay_btn">立即支付</span>
 			</div>
 		</div>
 
-		<!-- 已完成 -->
-		<div class="order_status1 jujue">
+		<!-- 拒绝 -->
+		<div class="order_status1 jujue qwer">
 			<img src="../img/cha_icon2.png">
 			<span class="span_span">已拒绝</span>
-			<p>拒绝时间：<span>23时 45分 25秒</span></p>
+			<p>拒绝时间：<span class="time">23时 45分 25秒</span></p>
+		</div>
+		<!--!&#45;&#45; 取消&ndash;&gt;-->
+		<div class="order_status1 quxiao qwer">
+			<img src="../img/cha_icon2.png">
+			<span class="span_span">已取消</span>
+			<p>取消时间：<span class="time">23时 45分 25秒</span></p>
+		</div>
+
+		<!-- 完成 -->
+		<div class="order_status1 wancheng qwer">
+			<!--<img src="../img/cha_icon2.png">-->
+			<span class="span_span">已完成</span>
+			<p>完成时间：<span class="time">23时 45分 25秒</span></p>
 		</div>
 
 		<div class="order_info">
@@ -128,8 +146,10 @@
 			success: function(json){
 				console.log(json);
 				if(json.code == 1){
-					var data = json.data;
-					$.each(data,function(idx,item){
+                    var data = json.data;
+					var item = json.data;
+//					var item=
+//					$.each(data,function(idx,item){
 						if(item.status == 1){//待确认（双方）
 							if(item.submitType == 1){//本公司是提交公司
 								$(".dfqr").show();
@@ -142,10 +162,17 @@
 							}else if(item.payCompanyType == 2){//等待对方支付
 								$(".dfzf").show();
 							}
-						}else if(item.status == 3){//已取消
+						}else if(item.status == 3){//拒绝
 							$(".jujue").show();
-						}
-					})
+						}else if(item.status == 4){//已取消
+                            $(".quxiao").show();
+                        }else if(item.status == 5){//已完成
+                            $(".wancheng").show();
+                        }
+//                        timestamp()
+
+						$(".time").text(timestampToTime1(item.updateTime))
+//					})
 					//订单详情
 					$(".order_num").html("订单编号："+data.accountCheckingId);//订单号
 					$(".dzqy").html(data.companyName);//对方名称
@@ -158,6 +185,112 @@
 				console.log(error);
 			}
 		});
+
+//		确认
+        $(".ok_order").unbind();
+		$(".ok_order").click(function () {
+            $.ajax({
+                type: "get",
+                url: pubIP + "accountChecking/updateConfirmAccountCheckingOrder",//v1.0
+                cache: false,
+                dataType: "json",
+                headers: {
+                    token: token
+                },
+                data:{
+                    orderId: orderId
+                },
+                success: function(json){
+                    if(json.code == 1){
+                        cf_alert(1,"确认成功")
+                    }else{
+                        cf_alert1(2,json.msg)
+                    }
+                },
+                error:function(xhr,statues,error){
+                    console.log(error);
+                }
+            });
+        })
+
+
+        //		拒绝
+        $(".jujue_order").unbind();
+        $(".jujue_order").click(function () {
+            $.ajax({
+                type: "get",
+                url: pubIP + "accountChecking/updateCancelAccountCheckingOrder",//v1.0
+                cache: false,
+                dataType: "json",
+                headers: {
+                    token: token
+                },
+                data:{
+                    orderId: orderId
+                },
+                success: function(json){
+                    if(json.code == 1){
+                        cf_alert(1,"拒绝成功")
+                    }else{
+                        cf_alert1(2,json.msg)
+                    }
+                },
+                error:function(xhr,statues,error){
+                    console.log(error);
+                }
+            });
+        })
+        //		取消
+        $(".cancel_accountCheck_btn").unbind();
+        $(".cancel_accountCheck_btn").click(function () {
+            $.ajax({
+                type: "get",
+                url: pubIP + "accountChecking/updateCancelAccountCheckingOrder",//v1.0
+                cache: false,
+                dataType: "json",
+                headers: {
+                    token: token
+                },
+                data:{
+                    orderId: orderId
+                },
+                success: function(json){
+                    if(json.code == 1){
+                        cf_alert(1,"取消成功")
+                    }else{
+                        cf_alert1(2,json.msg)
+					}
+                },
+                error:function(xhr,statues,error){
+                    console.log(error);
+                }
+            });
+        })
+
+
+        //时间戳转时间
+        function timestampToTime1(timestamp) {
+            if(timestamp==0 || timestamp=="" || timestamp==null){
+                return "";
+            }
+            if(timestamp/100000000000<0){
+                var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+            }else{
+                var date = new Date(timestamp );//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+            }
+
+            Y = date.getFullYear() + '-';
+            M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+            D = date.getDate();
+            h = date.getHours();
+            m = date.getMinutes();
+            s = date.getSeconds();
+            D=D<10?'0'+D:D;
+            h=h<10?'0'+h:h;
+            m=m<10?'0'+m:m;
+            s=s<10?'0'+s:s;
+            return Y+M+D+" "+h+":"+m+":"+s;
+        }
 	</script>
 </body>
 </html>

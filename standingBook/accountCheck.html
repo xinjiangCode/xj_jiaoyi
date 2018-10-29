@@ -12,6 +12,14 @@
 	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/standingBook/accountCheck.css">
+	<style>
+		.active{
+			background-color: #00ABEB;
+		}
+		.account_check_list_ul li{
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
 
@@ -39,13 +47,13 @@
 			</ul>
 		</div>
 		<ul class="clearfix account_check_list_ul">
-			<li class="account_check_list_li1">全部</li>
-			<li class="account_check_list_li2">待确定</li>
-			<li class="account_check_list_li3">待支付</li>
-			<li class="account_check_list_li4">已完成</li>
-			<li class="account_check_list_li5">已拒绝</li>
-			<li class="account_check_list_li6">已失效</li>
-			<li class="account_check_list_li7">已取消</li>
+			<li class="account_check_list_li1 active" data-value="">全部</li>
+			<li class="account_check_list_li2" data-value="1">待确定</li>
+			<li class="account_check_list_li3" data-value="2">待支付</li>
+			<li class="account_check_list_li4" data-value="3">已完成</li>
+			<li class="account_check_list_li5" data-value="4">已拒绝</li>
+			<li class="account_check_list_li6" data-value="5">已失效</li>
+			<li class="account_check_list_li7" data-value="6" style="width: 120px;">已取消</li>
 		</ul>
 		<ul class="clearfix ul_title">
 			<!-- <li class="ul_title_li1"><input type="radio" name=""></li> -->
@@ -62,7 +70,17 @@
 			
 		</ul>
 	</div>
-
+	<div class="mianCont" style="text-align: center;width: 975px; padding-top: 20px; box-sizing: border-box;">
+		<ul class="pagination" id="page1"></ul>
+		<div class="pageJump">
+			<span class="allPageN" >1/200</span>
+			<span style="margin-left: 10px;">共<span class="total">200</span>页，</span>
+			<span>到第</span>
+			<input class="page_page" type="text" style="text-align: center; text-indent: 0px; padding-left: 0px;" />
+			<span>页</span>
+			<button type="button" class="button goPage">GO</button>
+		</div>
+	</div>
 	<script src="../account/laydate/laydate.js"></script> <!-- 改成你的路径 -->
 	<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
@@ -73,7 +91,13 @@
 		    format: 'YYYY-MM-DD',
 		    istime: false,
 		    choose: function(dates){ //选择好日期的回调
-
+				if($("#test2").val() && $("#test1").val()>$("#test2").val()){
+                    $("#test1").val("")
+				    return;
+				}
+                if($("#test1").val() && $("#test2").val()){
+                    dz_list(1);
+				}
 		    }   
 		});
 
@@ -82,11 +106,17 @@
 		    format: 'YYYY-MM-DD',
 		    istime: false,
 		    choose: function(dates){ //选择好日期的回调
-		        
+                if($("#test2").val() && $("#test1").val()>$("#test2").val()){
+                    $("#test2").val("")
+                    return;
+                }
+                if($("#test1").val() && $("#test2").val()){
+                    dz_list(1);
+                }
 		    } 
 		});
 		//兑账列表
-		dz_list(1,'');
+		dz_list(1);
 		function dz_list(num,status){
 			$.ajax({ 
 				type: "get",
@@ -103,12 +133,14 @@
 					companyName: $(".account_check_qiye").val(),
 					startTime: $("#test1").val(),
 					endTime: $("#test2").val(),
-					status: status,
+					status: $(".account_check_list_ul .active").attr("data-value"),
 				},
 				success: function(json){
 					console.log(json);
-					
+                    $(".list_center").html("");
+                    $(".mianCont").hide();
 					if(json.code==1&&json.data.result!=''&&json.data.result!=null){
+                        $(".mianCont").show();
 						var data = json.data.result;
 						var str = '';
 						$.each(data,function(idx,item){
@@ -136,16 +168,41 @@
 							str += '<span class="operate"><a href="accountCheckOrderStatus.html?orderId='+item.accountCheckingId+'" class="blue exist_qx" data-exist="77">查看详情</a></span>'
 							str += '</li>'
 						})
-						$(".list_center").opend(str);
-					}
+						$(".list_center").html(str);
+//                        if (num==1) {
+                            Page({
+                                num: Math.ceil(json.data.total/10),
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    dz_list(n);
+                                }
+                            });
+                            $('.total').text(Math.ceil(json.data.total/10));
+//                        }
+                        $('.allPageN').text(num+'/'+Math.ceil(json.data.total/10));
+					}else{
+//                        $('.pageJump').css('display', 'none');
+                    }
 				},
 				error:function(xhr,statues,error){
 					console.log(error);
 				}
 			});
 		}
-		
-		
+
+        $(".account_check_list_ul  li").unbind();
+		$(".account_check_list_ul  li").click(function () {
+            $(".account_check_list_ul  li").removeClass("active");
+            $(this).addClass("active");
+            dz_list(1);
+        })
+		$(".account_check_num").blur(function () {
+            dz_list(1);
+        })
+        $(".account_check_qiye").blur(function () {
+            dz_list(1);
+        })
+
 	</script>
 </body>
 </html>

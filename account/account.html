@@ -50,7 +50,7 @@
         .pop>.cont>.popBottom>.popSure:hover{background-color: #026ee4;color: #ffffff;}
 
 
-         .modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.modelBox31,.modelBox32,.modelBox33,.modelBox34,.modelBox35,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail, #no_del, .modelBox190, #yujing_edu, .add_member_alert, .all_warn_alert, .all_success_alert, .all_error_alert, .add_reduce_integral {
+        .reconciliation,.modelBox0, .modelBox1, .modelBox2, .modelBox3, .modelBox4, .modelBox5, .modelBox6, .modelBox7, .modelBox8, .modelBox9, .modelBox10, .modelBox11, .modelBox12, .modelBox13, .modelBox14, .modelBox15, .modelBox16, .modelBox17, .modelBox18, .modelBox19, .modelBox20, .modelBox21, .modelBox22, .modelBox23, .modelBox24, .modelBox25, .modelBox26, .modelBox27, .modelBox28,.modelBox29,.modelBox30,.modelBox31,.modelBox32,.modelBox33,.modelBox34,.modelBox35,.closeRequirement, .okClose, #renzheng1, #addCustomerRelationship, #lijiBaoming, #activityDetail, #no_del, .modelBox190, #yujing_edu, .add_member_alert, .all_warn_alert, .all_success_alert, .all_error_alert, .add_reduce_integral {
 
             z-index: 9999;
             display: none;
@@ -62,9 +62,9 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
 
-        
 
-        .modelBox3 .modelcontent p, .modelBox4 .modelcontent p, .modelBox5 .modelcontent p, .modelBox6 .modelcontent p, .modelBox7 .modelcontent p, .modelBox10 .modelcontent p, .modelBox14 .modelcontent p, .modelBox15 .modelcontent p, .modelBox16 .modelcontent p, .modelBox18 .modelcontent p, .modelBox19 .modelcontent p, .modelBox20 .modelcontent p, .modelBox21 .modelcontent p,  .modelBox23 .modelcontent p, .modelBox24 .modelcontent p, .modelBox25 .modelcontent p, .modelBox26 .modelcontent p, .modelBox27 .modelcontent p,.modelBox28 .modelcontent p,.modelBox29 .modelcontent p,.modelBox30 .modelcontent p, .okClose p, #renzheng1 p, #no_del p, .modelBox190, .all_warn_alert p, .all_success_alert p, .all_error_alert p {
+
+        .reconciliation p,.modelBox3 .modelcontent p, .modelBox4 .modelcontent p, .modelBox5 .modelcontent p, .modelBox6 .modelcontent p, .modelBox7 .modelcontent p, .modelBox10 .modelcontent p, .modelBox14 .modelcontent p, .modelBox15 .modelcontent p, .modelBox16 .modelcontent p, .modelBox18 .modelcontent p, .modelBox19 .modelcontent p, .modelBox20 .modelcontent p, .modelBox21 .modelcontent p,  .modelBox23 .modelcontent p, .modelBox24 .modelcontent p, .modelBox25 .modelcontent p, .modelBox26 .modelcontent p, .modelBox27 .modelcontent p,.modelBox28 .modelcontent p,.modelBox29 .modelcontent p,.modelBox30 .modelcontent p, .okClose p, #renzheng1 p, #no_del p, .modelBox190, .all_warn_alert p, .all_success_alert p, .all_error_alert p {
             text-align: center;
         }
 
@@ -2361,6 +2361,52 @@
         </div>
     </div>
 </div>
+
+<!-- 兑账确定窗口 -->
+<div id="" class="reconciliation" >
+    <div class="modelCont">
+        <div class="modeltitle" style="width: 620px;">
+            <span>兑账</span>
+            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+        </div>
+        <div class="modelcontent" style="width: 620px; height: 352px;">
+            <div class="info" style="padding-top: 50px;">
+                <div class="qiye_name_kuang clearfix">
+                    <span class="span fl" style="color: #6c6d6e;">应收金额：</span>
+                    <span style="display: inline-block;padding-right: 10px;box-sizing: border-box;line-height: 36px;" class="ysAmount"></span>
+                    <div class="ts_div"></div>
+                </div>
+                <div class="qiye_name_kuang clearfix">
+                    <span class="span fl" style="color: #6c6d6e;">应付金额：</span>
+                    <span style="display: inline-block;padding-right: 10px;box-sizing: border-box;line-height: 36px;" class="yfAmount"></span>
+                    <div class="ts_div"></div>
+                </div>
+                <div class="qiye_type_kuang clearfix">
+                    <span class="span fl" style="color: #6c6d6e;">支付金额：</span>
+                    <span style="display: inline-block;padding-right: 10px;box-sizing: border-box;line-height: 36px;" class="total"></span>
+                </div>
+                <div class="pay_type clearfix">
+                    <span class="span fl" style="color: #6c6d6e;">支付方式：</span>
+                    <div class="selectPub  fl payType" data-selectedindex="1" style="width: 390px; font-size: 14px;">
+                        <span>现汇</span>
+                        <img src="../img/prl-select.jpg" alt="">
+                        <ul style="overflow: hidden;">
+                            <li data-index="1">现汇</li>
+                            <li data-index="2">承兑</li>
+                            <li data-index="3">现汇+承兑</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modelBtnBox" style="height: 75px;">
+                <div style="background:#5690f6;width:130px;height:35px;line-height:35px;font-size:16px; margin: 50px auto 0 80px;" class="modelbtn sure">确定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 <!-- 增加/减少积分 -->
 <div class="add_reduce_integral">
@@ -5000,7 +5046,7 @@
     })
 //    payPassWord
 
-   
+
 </script>
 </body>
 </html>

@@ -438,6 +438,7 @@ function yiyou_quanxian(userId) {
 // 模拟下拉框
 
 var adct1 = document.getElementsByTagName('title')[0].getAttribute('adct1');
+$('.selectPub').unbind();
 $('.selectPub').click(function(event){
 	console.log($(this).attr("disabled"))
 	if($(this).attr("disabled")=="disabled"){return;}//不可选

@@ -19,7 +19,7 @@
 	<div class="standingBookDetail">
 		<div class="standingBookDetailTitle">
 			<span>台账列表详情页</span>
-			<span class="fr duizhang_btn"><a href="accountCheck.html">兑账</a></span>
+			<span class="fr duizhang_btn"><a href="javascript:void (0);" onclick="reconciliation()">兑账</a></span>
 		</div>
 		<div>
 			<ul class="clearfix yingshou_yingfu_title">
@@ -112,6 +112,8 @@
 	<script src="../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
+		var receivableList=[];//应收账款
+		var copeWithList=[];//应收账款
 
     	$(document).on('click', '.yingshou_yingfu_title li span', function () {
     		$('.yingshou_yingfu_title li span').removeClass('current');
@@ -154,20 +156,21 @@
 		            				json.data[i].period_time = new Date(json.data[i].period_time).Format("yyyy-MM-dd");
 		            			}
 
-		            			 
+		            			str += '<div class="standingBookList" data-id="'+json.data[i].transactionOrderId+'">'
+								if(i=="0"){
+                                    str+='<ul class="clearfix list_title">'
+                                        +'<li class="list_title_one"><span style="color: transparent;">我是占位的</span><input style="" type="hidden" name=""></li>'
+                                        +'<li class="list_title_two">订单编号</li>'
+                                        +'<li class="list_title_three">商品名称</li>'
+                                        +'<li class="list_title_four">订单金额</li>'
+                                        +'<li class="list_title_five">账期</li>'
+                                        +'<li class="list_title_six">账期到期时间</li>'
+                                        +'</ul>'
+								}
 
-		            			str += '<div class="standingBookList">'
-									+'<ul class="clearfix list_title">'
-										+'<li class="list_title_one"><input type="radio" name=""></li>'
-										+'<li class="list_title_two">订单编号</li>'
-										+'<li class="list_title_three">商品名称</li>'
-										+'<li class="list_title_four">订单金额</li>'
-										+'<li class="list_title_five">账期</li>'
-										+'<li class="list_title_six">账期到期时间</li>'
-									+'</ul>'
-									+'<ul class="list_cont">'
+									str+='<ul class="list_cont">'
 										+'<li>'
-											+'<span class="yingshou_radio"><input type="radio" name="yingshou"></span>'
+											+'<span class="yingshou_radio"><input class="" type="checkbox" name="yingshou"></span>'
 											+'<span class="yingshou_order_num">'+json.data[i].transactionOrderIdStr+'</span>'
 											+'<span class="yingshou_shop_name">'+json.data[i].productName+'</span>'
 											+'<span class="yingshou_order_money">'
@@ -188,6 +191,9 @@
 											} else if (json.data[i].account_period_type == 1) {
 												str += '<span class="yinsghou_account_date">24小时</span>'
 												+'<span class="yingshou_jiezhi_date">'+json.data[i].period_time+'</span>'
+											}else{
+                                                str += '<span class="yinsghou_account_date"></span>'
+                                                    +'<span class="yingshou_jiezhi_date"></span>'
 											}
 											
 										str += '</li>'
@@ -196,6 +202,50 @@
 		            		}
 
 		            		$('.yingshou_fu_list').html(str);
+//							预处理选中框
+							if($(".current").attr("value")==1){//应收
+                                if(receivableList.length!=0){
+
+                                    for(var i=0;i<receivableList.length;i++){
+                                        $(".standingBookList").each(function (idx,item) {
+                                                if($(item).attr("data-id")==receivableList[i]){
+                                                    $(item).find(".yingshou_radio input[type='checkbox']").prop("checked",true);//选中   做回显
+                                                }
+                                        })
+                                    }
+                                }
+							}else if($(".current").attr("value")==2){//应付
+                                if(copeWithList.length!=0){
+                                    for(var i=0;i<copeWithList.length;i++){
+                                        $(".standingBookList").each(function (idx,item) {
+                                            if($(item).attr("data-id")==copeWithList[i]){
+                                                $(item).find(".yingshou_radio input[type='checkbox']").prop("checked",true);//选中   做回显
+                                            }
+                                        })
+                                    }
+                                }
+                            }
+//		            		点击多选框
+		            		$("input[type='checkbox']").change(function () {
+                                if($(".current").attr("value")==1){//应收
+                                    receivableList=[];
+                                }else if($(".current").attr("value")==2){//应付
+                                    copeWithList=[];
+                                }
+//                                $("input[type='checkbox']").is(':checked')
+                                $("input[type='checkbox']").each(function (idx,item) {
+                                    if($(".current").attr("value")==1){//应收
+                                        if($(item).is(':checked')){
+                                            receivableList.push($(item).parents(".standingBookList").attr("data-id"))
+                                        }
+									}else if($(".current").attr("value")==2){//应付
+                                        if($(item).is(':checked')){
+                                            copeWithList.push($(item).parents(".standingBookList").attr("data-id"))
+                                        }
+									}
+
+                                })
+                            })
 
 		            	} else {
 		            		$('.pageJump').css('display', 'none');    
@@ -210,7 +260,98 @@
 		    });
     	}
 
+    //兑账
+	function reconciliation() {
+    	    if(receivableList.length==0){
+                cf_alert1(2,"请选择应收账款");
+    	        return
+			}
+        if(copeWithList.length==0){
+            cf_alert1(2,"请选择应付账款");
+            return
+        }
+    	    var aOrderIds=receivableList.join(",");
+        	var bOrderIds=copeWithList.join(",");
+		$.ajax({
+			type: "get",
+			url: pubIP + "accountChecking/getAccountCheckingAmount",//v1.0
+			cache: false,
+			dataType: "json",
+			headers: {
+				token: token
+			},
+			data:{
+                aOrderIds: aOrderIds,
+                bOrderIds:bOrderIds,
+                storeWarningValueId:standingBookId,
+			},
+			success: function(res){
+				if(res.code==1){
+					window.top.$(".reconciliation").show()
+                    window.top.$(".reconciliation .ysAmount").text(res.ysAmount)
+                    window.top.$(".reconciliation .yfAmount").text(res.yfAmount)
+                    window.top.$(".reconciliation .total").text(res.total)
+				}else if(res.code==401){
 
+				}else{
+				    cf_alert1(2,res.msg);
+				}
+			},
+			error:function(xhr,statues,error){
+				console.log(err);
+			}
+		});
+	}
+        //确认兑账
+        window.top.$(".reconciliation .sure").unbind();
+        window.top.$(".reconciliation .sure").click(function () {
+            reconciliationSure(this)
+        })
+		function reconciliationSure(that) {
+				if(receivableList.length==0){
+					cf_alert1(2,"请选择应收账款");
+					return
+				}
+				if(copeWithList.length==0){
+					cf_alert1(2,"请选择应付账款");
+					return
+				}
+				var cash=window.top.$(".reconciliation .total").text()
+			if(window.top.$(".reconciliation .payType").attr("data-selectedindex")==2){
+                cash=0;
+			}
+				var aOrderIds=receivableList.join(",");
+				var bOrderIds=copeWithList.join(",");
+				$.ajax({
+					type: "get",
+					url: pubIP + "accountChecking/addAccountCheckingOrder",//v1.0
+					cache: false,
+					dataType: "json",
+					headers: {
+						token: token
+					},
+					data:{
+						aOrderIds: aOrderIds,
+						bOrderIds:bOrderIds,
+						storeWarningValueId:standingBookId,
+						paymentMethod: window.top.$(".reconciliation .payType").attr("data-selectedindex"),
+						cash:cash
+					},
+					success: function(res){
+						if(res.code==1){
+                            window.top.$(".reconciliation").hide();
+							window.location.href="accountCheck.html";
+						}else if(res.code==401){
+
+						}else{
+							cf_alert1(2,res.msg);
+						}
+					},
+					error:function(xhr,statues,error){
+						console.log(err);
+					}
+				});
+			}
     </script>
 </body>
 </html>
