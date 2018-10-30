@@ -162,8 +162,14 @@
 			<!-- 已报名，活动已结束 -->
 			<span class="status">已结束</span>
 			<span class="baoming"></span>
-			<%} else {%>
-			<span class="status"></span>
+			<%} else if(list[i].status == 6) {%>
+			<span class="status">未报名，待活动开始</span>
+			<span class="baoming"></span>
+			<%} else if(list[i].status == 7) {%>
+			<span class="status">未报名，活动进行中</span>
+			<span class="baoming"></span>
+			<%} else if(list[i].status == 8) {%>
+			<span class="status">未报名，活动已结束</span>
 			<span class="baoming"></span>
 			<%}%>
 			<span class="activity_detail exist_qx" data-exist="63"><a href="##">查看活动详情</a></span>
