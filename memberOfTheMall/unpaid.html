@@ -7,7 +7,7 @@
     <meta http-equiv="Cache-Control" CONTENT="no-cache">
     <meta http-equiv="Pragma" content="no-cache">
     <meta name="format-detection" content="telephone=no" />
-	<title>新疆化学品经营服务平台</title>
+	<title adct1="1">新疆化学品经营服务平台</title>
 	<link rel="stylesheet" type="text/css" href="../css/index.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/home.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
@@ -275,6 +275,77 @@
 			width: 200px;
 			height: 200px;
 		}
+
+		#unreadNum {
+	        width: 24px;
+	        height: 24px;
+	        position: absolute;
+	        border-radius: 15px;
+	        background-color: #ff3b30;
+	        left: -11px;
+	        top: -11px;
+	        display: none;
+	        text-align: center;
+	        line-height: 24px;
+	        color: #fff;
+	        font-size: 14px;
+	    }
+
+	    .tsBox .modelcontent>div {
+	        overflow: visible;
+	        margin-bottom: 0px;
+	        padding-bottom: 28px;
+	    }
+
+	    .tsBox .modelcontent>div .span, .tsBox .modelcontent>div span  {
+			width: 80px;
+			text-align: left;
+			font-size: 14px;
+		}
+
+		.tsBox .modelcontent>div input, .tsBox>div textarea, .tsBox>div select {
+			width: 385px;
+			border: 1px #e7e7e7 solid;
+			padding-left: 8px;
+			font-size: 14px;
+		}
+
+		.tsBox .selectPub ul {
+		    overflow: hidden;
+		    font-size: 14px;
+		}
+
+		.ts_tousu {
+		    line-height: 32px;
+		    color: #ff7854;
+		    font-size: 12px;
+		    margin-left: 95px;
+		}
+
+		.all_success_alert p {
+			text-align: center;
+        }
+
+        .all_success_alert {
+        	z-index: 9999;
+	        display: none;
+	        position: fixed;
+	        top: 0;
+	        left: 0;
+	        right: 0;
+	        bottom: 0;
+	        background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .all_success_alert .modelcontent>div {
+	        width: 100%;
+	    }
+
+	    .all_success_alert .modelcontent>div.info {
+	        height: 120px;
+	        text-align: center;
+	    }
+
 	</style>
 </head>
 <body>
@@ -519,27 +590,294 @@
 		
 	</div>
 
+
+	<div class="fxd">
+	    <a href="javascript:void(0)"  onclick="_MEIQIA('showPanel')" class="kefu_a"><img src="../img/indexKefu.png" style="margin-top: 9px;"/> <span id="unreadNum"></span> </a>
+	    <a href="##" id="showCd">
+	        <img src="../img/indexEcode.png"/> 
+	        <div class="showCode">
+	            <img src="../img/dingyuehao.png" />
+	        </div>
+	    </a>
+	    <a href="##" id="tousu"><img src="../img/indedxBi.png"/> </a>
+	    <a href="##" id="gotop"><img src="../img/indexDing.png"/> </a>
+	</div>
+	<div class="tsBg" style="height: 100%; z-index: 1;"></div>
+	<div class="tsBox">
+	    <div class="modeltitle" style="width: 100%;">
+	        <span>投诉建议</span>
+	        <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="" id="colseAlert">
+	    </div>
+	    <!--<img src="img/breadcrumbCloseIcon.png" id="colseAlert"/>-->
+	    <!--<p>投诉建议</p>-->
+	    <div class="modelcontent" style="width: 100%;padding-top: 19px;">
+	        <div class="clearfix">
+	            <span style="float: left;">资讯类别</span>
+	            <!-- <select name="" style="font-size: 12px;color: #999;">
+	                <option value="建议">建议</option>
+	                <option value="投诉">投诉</option>
+	            </select> -->
+	            <div class="selectPub tousu_jianyi" data-selectedindex="1" style="width: 381px; border: 1px solid #e7e7e7; float: left;">
+	                <span style="width: 200px;">投诉</span>
+	                <img src="../img/prl-select.jpg" alt="">
+	                <ul>
+	                    <li data-index="1">投诉</li>
+	                    <li data-index="2">建议</li>
+	                </ul>
+	            </div>
+	            <div class="ts_tousu"></div>
+	        </div>
+	        <div>
+	            <span>联系人电话</span> <input type="text" class="member_phone" placeholder="请输入手机号码"/>
+	            <div class="ts_tousu"></div>
+	        </div>
+	        <div>
+	            <span>联系人 </span><input type="text" class="member" placeholder="请输入联系人"/>
+	            <div class="ts_tousu"></div>
+	        </div>
+	        <div style="height: auto;" class="clearfix">
+	            <span>问题描述 </span><textarea style="color: #666666;" class="member_descript" style="vertical-align: text-top;" placeholder="请输入您的问题"></textarea>
+	            <div class="ts_tousu"></div>
+	        </div>
+	        <div class="modelBtnBox">
+	            <div style="background:#5690f6;width:130px;height:35px;line-height:35px;" class="modelbtn confirm liji_submit">立即提交</div>
+	        </div>
+	    </div>
+	</div>
+
+	<!-- 投诉建议成功 -->
+	<div class="all_success_alert" style="z-index: 99999;">
+	    <div class="modelCont" style="width: 450px;">
+	        <div class="modeltitle" style="width: 450px;">
+	            <span>消息提示</span>
+	            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+	        </div>
+	        <div class="modelcontent clearfix" style="width: 450px; height: 226px;">
+	            <div class="info" style="width: 100%;">
+	                <div class="img_div" style="text-align: center; padding-top: 20px; margin-bottom: 10px;"><img style="float: none;" src="../img/gsxq_success.gif" alt=""></div>
+	                <p class="innerSuccmsg">添加成功</p>
+	            </div>
+	            <div class="modelBtnBox">
+	                <div style="background:#5690f6; margin-top: 20px;width:130px;height:35px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
 	<script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/common.js"></script>
     <script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
-    
+    <script>
+        /**
+         * [处理未读消息]
+         * @param  {[string, object]} msg [string: 'hasBeenRead',
+     object: 未读消息数据]
+         */
+        function yourFunction(msg) {
+            var text = '',
+                num = 0;
+            if (msg === 'hasBeenRead') { // 消息已被阅读
+                num = 0;
+                $('#unreadNum').hide();
+            } else if (typeof(msg) === 'object') {
+                var unreadNum = document.getElementById('unreadNum').innerHTML,
+                    lastMsg = msg[msg.length - 1];
+                num = isNaN(+unreadNum) ? msg.length : +unreadNum + msg.length;
+                // content_type 是消息的类型：
+                // text（文字）、photo（图片）、file（文件）
+                // content 是消息的内容
+                if (lastMsg.content_type === 'text') {
+                    // 文字消息中可能会存在表情图片，由于路径问题
+                    // 将文字消息中的图片处理为文字'[表情]'
+                    text = lastMsg.content.replace(
+                        /<img [^>]*src=['"]([^'"]+)[^>]*>/gi, '[表情]'
+                    );
+                } else if (lastMsg.content_type === 'photo') {
+                    text = '[图片]';
+                } else if (lastMsg.content_type === 'file') {
+                    text = '[文件]';
+                } else {
+                    text = '[新消息]';
+                }
+
+                $('#unreadNum').show();
+
+            }
+            // 未读消息数量
+            document.getElementById('unreadNum').innerHTML = num;
+            // 最后一条消息的内容
+            // document.getElementById('unreadMsg').innerHTML = text;
+        }
+
+    </script>
+
+    <script type='text/javascript'>
+        (function(m, ei, q, i, a, j, s) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+            j.async = true;
+            j.charset = 'UTF-8';
+            j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+            s.parentNode.insertBefore(j, s);
+        })(window, document, 'script', '_MEIQIA');
+        _MEIQIA('entId', '127367');
+
+        //无按钮
+        _MEIQIA('withoutBtn');
+
+         // 获取未读消息
+        _MEIQIA('getUnreadMsg', yourFunction);
+    </script>
+
 	<script>
 
-		$('.close').click(function() {
+		$('.all_success_alert .modelbtn, .all_success_alert .close').click(function() {
+            $(this).parents('.all_success_alert').hide();
+            window.location.reload();
+        });
 
-			$(this).parent().parent().parent().hide();
+        $('#colseAlert').click(function(){
+            $('.tsBg').hide();
+            $('.tsBox').hide();
+        })
+        $('#tousu').click(function(){
+            $('.tsBg').show();
+            $('.tsBox').fadeIn();
+        })
+
+        $('.tousu_jianyi ul li').click(function(){
+            event.stopPropagation();
+            $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+            $(this).parent().parent().find('span').text($(this).text());
+            
+            $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+            
+
+            $(this).parent().css('display','none');
+        });
+
+
+        $('.member_phone').blur(function() {
+            var reg = /^1(3|4|5|6|7|8|9)\d{9}$/;
+            if (reg.test($(this).val()) != true) {
+                $(this).parent().find('.ts_tousu').html('联系电话格式不正确');
+            } else {
+                $(this).parent().find('.ts_tousu').html('');
+            }
+        });
+
+
+        $('.member').blur(function() {
+
+            if ($(this).val() == '') {
+                $(this).parent().find('.ts_tousu').html('联系人不能为空');
+            } else {
+                $(this).parent().find('.ts_tousu').html('');
+            }
+        });
+
+        $('.member_descript').blur(function() {
+            
+            if ($(this).val() == '') {
+                $(this).parent().find('.ts_tousu').html('问题描述不能为空');
+            } else {
+                $(this).parent().find('.ts_tousu').text('');
+            }
+        });
+
+
+
+        $('.liji_submit').click(function() {
+
+
+            var tousu_jianyi = $('.tousu_jianyi').attr('data-selectedindex');
+
+            var member_phone = $('.member_phone');
+
+            var member = $('.member');
+
+            var member_descript = $('.member_descript');
+
+            var reg = /^1(3|4|5|6|7|8|9)\d{9}$/;
+
+            if (reg.test(member_phone.val()) != true) {
+                member_phone.parent().find('.ts_tousu').html('联系电话格式不正确');
+                return false;
+            }               
+
+            if (member.val() == '') {
+                member.parent().find('.ts_tousu').html('联系人不能为空');
+                return false;
+            }
+
+            if (member_descript.val() == '') {
+                member_descript.parent().find('.ts_tousu').html('问题描述不能为空');
+                return false;
+            }
+
+            $.ajax({
+                type:"post",
+                url:pubIP+"complaintAdvise/addAdvise",//v1.0
+                cache:false,
+                dataType: "json",
+                async:false,
+                headers: {
+                    Accept: "application/json; charset=utf-8",
+                    token: token
+                },
+                data: {
+                    type: tousu_jianyi,
+                    contactName: member.val(),
+                    contactPhone: member_phone.val(),
+                    detail: member_descript.val()
+                },
+                success: function(data){
+                    console.log(data);
+                    if (data.code == 1) {
+                        $('.tsBox').hide();
+                        $('.tsBg').hide();
+                        //cf_alert(1, '添加成功');
+                        $('.all_success_alert .innerSuccmsg').text('添加成功');
+                        // $('.all_success_alert .img_div img').attr('src', 'img/cf_denger1.png');
+                        $('.all_success_alert').show();
+                    } else {
+                        //cf_alert(2, '添加失败');
+                        // $('.all_success_alert .innerSuccmsg').text('添加失败');
+                        // $('.all_success_alert .img_div img').attr('src', 'img/cf_denger1.png');
+                        // $('.all_success_alert').show();
+                    }
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });
+
+        });
+
+		$('.all_error_alert .close, .all_error_alert .confirm').click(function() {
+
+			$('.all_error_alert').hide();
 
 		});
 
-		$('.confirm').click(function() {
-			$(this).parent().parent().parent().parent().hide();
+		$('#updataNewPhone .close').click(function() {
+			$('#updataNewPhone').hide();
 		});
+
+		$('#jifen_pay_alert .close').click(function() {
+			$('#jifen_pay_alert').hide();
+		});
+
+		
 
 		var timer1;
 
-		$(document).on('click', '.close', function () {
-	        $(this).parent().parent().parent().css('display', 'none');
-	    });
+		// $(document).on('click', '.close', function () {
+	 //        $(this).parent().parent().parent().css('display', 'none');
+	 //    });
 
 		var orderId = sessionStorage.getItem('orderId');
 
@@ -777,6 +1115,18 @@
   		//积分支付
   		$('.sure_pay').click(function() {
 
+  			if ($('.code_input').val() == '') {
+  				$('.all_error_alert .innerErrmsg').text('验证码错误');
+
+				$('.all_error_alert').show();
+
+				return false;
+  			}
+
+  			if (!codeFlag) {
+  				return false;
+  			}
+
   			$.ajax({
 				type:"post",
 		        url:pubIP+"memberOrder/orderPay",//v1.0
@@ -807,6 +1157,8 @@
 		    });
   		});
 
+  		var codeFlag = true;
+
   		$('.code_kuang .code_input').blur(function() {
   			var smsRandomCode = $(this).val();
 
@@ -829,9 +1181,12 @@
 		        success: function(data){
 		        	console.log(data);
 		        	if (data.code == 1) {
-
+		        		codeFlag = true;
 		        	} else {
-		        		$('.all_error_alert .innerErrmsg').text(data.msg);
+
+		        		codeFlag = false;
+
+		        		$('.all_error_alert .innerErrmsg').text('验证码错误');
 
 						$('.all_error_alert').show();
 
@@ -844,13 +1199,23 @@
 
   		});
 
+  		var cFlag = true;
+
 	    //积分支付获取验证码
 	    $('#jifen_pay_alert .huoqu_code').click(function() {
 	   	 	var count1 = 60;
 
 	    	var mobile = $('#jifen_pay_alert .phone_num').val();
 	    	var _this = $(this);
+
 			_this.attr('disabled',true);
+
+
+
+			if (!cFlag) {
+				return false;
+			}
+
 			if(mobile==''){
 				$('.all_error_alert .innerErrmsg').text('请输入手机号');
 
@@ -860,10 +1225,12 @@
 			}
 			var timer = setInterval(function(){
 				_this.text(count1--);
+				cFlag = false;
 				if(count1<-1){
 					_this.text('获取验证码');
 					clearInterval(timer);
 					_this.attr('disabled',false);
+					cFlag = true;
 				}
 				
 			},1000);

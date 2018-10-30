@@ -13,12 +13,49 @@
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/standingBook/accountCheck.css">
 	<style>
-		.active{
-			background-color: #00ABEB;
+		.active {
+		    color: #5590F6;
+		    position: relative;
 		}
 		.account_check_list_ul li{
 			text-align: center;
+			cursor: pointer;
+			width: 55px;
+			margin-right: 70px;
 		}
+
+		.account_check_list_ul li:hover::before{
+		    transform: scaleX(1);
+		    transform-origin: 0 0;
+		}
+
+	
+		.account_check_list_ul .active::before {
+		    position: absolute;
+		    left: 0;
+		    bottom: 0;
+		    content: "";
+		    width: 100%;
+		    height: 4px;
+		    background: #5590F6;
+		    transform: scaleX(1);
+		    transform-origin: 0 0;
+		    
+		}
+
+		.account_check_list_ul li::before {
+		    position: absolute;
+		    left: 0;
+		    bottom: 0;
+		    content: "";
+		    width: 100%;
+		    height: 4px;
+		    background: #5590F6;
+		    transform: scaleX(0);
+		    transform-origin: 100% 0;
+		    transition: transform 0.5s;
+		}
+
 	</style>
 </head>
 <body>
@@ -47,13 +84,13 @@
 			</ul>
 		</div>
 		<ul class="clearfix account_check_list_ul">
-			<li class="account_check_list_li1 active" data-value="">全部</li>
-			<li class="account_check_list_li2" data-value="1">待确定</li>
-			<li class="account_check_list_li3" data-value="2">待支付</li>
-			<li class="account_check_list_li4" data-value="3">已完成</li>
-			<li class="account_check_list_li5" data-value="4">已拒绝</li>
-			<li class="account_check_list_li6" data-value="5">已失效</li>
-			<li class="account_check_list_li7" data-value="6" style="width: 120px;">已取消</li>
+			<li class="account_check_list_li1 active" data-value=""><span>全部</span></li>
+			<li class="account_check_list_li2" data-value="1"><span>待确定</span></li>
+			<li class="account_check_list_li3" data-value="2"><span>待支付</span></li>
+			<li class="account_check_list_li4" data-value="3"><span>已完成</span></li>
+			<li class="account_check_list_li5" data-value="4"><span>已拒绝</span></li>
+			<li class="account_check_list_li6" data-value="5"><span>已失效</span></li>
+			<li class="account_check_list_li7" data-value="6"><span>已取消</span></li>
 		</ul>
 		<ul class="clearfix ul_title">
 			<!-- <li class="ul_title_li1"><input type="radio" name=""></li> -->
@@ -115,6 +152,9 @@
                 }
 		    } 
 		});
+
+		
+
 		//兑账列表
 		dz_list(1);
 		function dz_list(num,status){
@@ -189,13 +229,21 @@
 				}
 			});
 		}
+		
+
 
         $(".account_check_list_ul  li").unbind();
 		$(".account_check_list_ul  li").click(function () {
             $(".account_check_list_ul  li").removeClass("active");
             $(this).addClass("active");
             dz_list(1);
-        })
+        }).hover(function() {
+        	$(this).css({
+        		'transform': 'scaleX(1)',
+		    	'transform-origin': '0 0'
+        	});
+        	
+        });
 		$(".account_check_num").blur(function () {
             dz_list(1);
         })

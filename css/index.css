@@ -1020,3 +1020,12 @@ input[type='text'].page_page {
 	line-height: 37px !important;
 	text-align: center !important;
 }
+
+
+.exist_qx {
+	visibility: hidden;
+}
+
+.exist_one_qx {
+	display: none;
+} 

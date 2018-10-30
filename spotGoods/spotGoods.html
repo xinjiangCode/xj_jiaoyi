@@ -297,6 +297,25 @@
 				font-size: 14px;
 			}
 
+			.modelcontent>div input, .tsBox>div textarea, .tsBox>div select {
+				font-size: 14px;
+			}
+
+			#unreadNum {
+				width: 24px;
+			    height: 24px;
+			    position: absolute;
+			    border-radius: 15px;
+			    background-color: #ff3b30;
+			    left: -11px;
+			    top: -11px;
+			    display: none;
+			    text-align: center;
+			    line-height: 24px;
+			    color: #fff;
+			    font-size: 14px;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -771,7 +790,7 @@
 		
 		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
 		<div class="fxd">
-			<a href="##"><img src="../img/indexKefu.png" style="margin-top: 9px;"/> </a>
+			<a href="javascript:void(0)" onclick="_MEIQIA('showPanel')" class="kefu_a"><img src="../img/indexKefu.png" style="margin-top: 9px;"/> <span id="unreadNum"></span> </a>
 			<a href="##" id="showCd">
 				<img src="../img/indexEcode.png"/> 
 				<div class="showCode">
@@ -929,6 +948,72 @@
 				</div>
 		     <% } %>
 		</script>
+
+		<script>
+		    /**
+		     * [处理未读消息]
+		     * @param  {[string, object]} msg [string: 'hasBeenRead',
+		 object: 未读消息数据]
+		     */
+		    function yourFunction(msg) {
+		        var text = '',
+		            num = 0;
+		        if (msg === 'hasBeenRead') { // 消息已被阅读
+		            num = 0;
+		            $('#unreadNum').hide();
+		        } else if (typeof(msg) === 'object') {
+		            var unreadNum = document.getElementById('unreadNum').innerHTML,
+		                lastMsg = msg[msg.length - 1];
+		            num = isNaN(+unreadNum) ? msg.length : +unreadNum + msg.length;
+		            // content_type 是消息的类型：
+		            // text（文字）、photo（图片）、file（文件）
+		            // content 是消息的内容
+		            if (lastMsg.content_type === 'text') {
+		                // 文字消息中可能会存在表情图片，由于路径问题
+		                // 将文字消息中的图片处理为文字'[表情]'
+		                text = lastMsg.content.replace(
+		                    /<img [^>]*src=['"]([^'"]+)[^>]*>/gi, '[表情]'
+		                );
+		            } else if (lastMsg.content_type === 'photo') {
+		                text = '[图片]';
+		            } else if (lastMsg.content_type === 'file') {
+		                text = '[文件]';
+		            } else {
+		                text = '[新消息]';
+		            }
+
+		            $('#unreadNum').show();
+
+		        }
+		        // 未读消息数量
+		        document.getElementById('unreadNum').innerHTML = num;
+		        // 最后一条消息的内容
+		        // document.getElementById('unreadMsg').innerHTML = text;
+		    }
+
+		</script>
+
+		<script type='text/javascript'>
+		    (function(m, ei, q, i, a, j, s) {
+		        m[i] = m[i] || function() {
+		            (m[i].a = m[i].a || []).push(arguments)
+		        };
+		        j = ei.createElement(q),
+		            s = ei.getElementsByTagName(q)[0];
+		        j.async = true;
+		        j.charset = 'UTF-8';
+		        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+		        s.parentNode.insertBefore(j, s);
+		    })(window, document, 'script', '_MEIQIA');
+		    _MEIQIA('entId', '127367');
+
+		    //无按钮
+		    _MEIQIA('withoutBtn');
+
+		     // 获取未读消息
+		    _MEIQIA('getUnreadMsg', yourFunction);
+		</script>
+
 		<script type="text/javascript" >
 
 			// $('.tsBg').height($(window).height());
@@ -949,6 +1034,79 @@
 			});
 
 
+			$('.selectPub').click(function(event){
+	        	// debugger;
+				console.log($(this).attr("disabled"))
+				if($(this).attr("disabled")=="disabled"){return;}//不可选
+				if($(this).children('img').attr('src') == '../img/prl-selected.jpg'){
+		            $(this).children('img').attr('src', '../img/prl-select.jpg')
+		        } else {
+		            $(this).children('img').attr('src', '../img/prl-selected.jpg')
+		        }
+
+		        event.stopPropagation();
+
+		        $(this).children('ul').toggle();
+		        var that = $(this);
+		        that.find('li').each(function(){
+		            $(this).mouseover(function(){
+		                $(this).addClass('hovered')
+		            });
+		            $(this).mouseleave(function(){
+		                $(this).removeClass('hovered')
+		            });
+		            if($(this).attr('data-index') == that.attr('data-selectedindex')){
+		                $(this).css({'background': '#6ea3ff','color': '#fff'});
+		                $(this).siblings('li').css({'background': '#fff','color': '#999'});
+		            }
+		        });
+			}).mouseleave(function (event) {
+			    
+			    $(this).children('img').attr('src', '../img/prl-select.jpg');
+				
+			    $(this).children('ul').hide();
+			});
+
+			$('.selectPub ul li').click(function(){
+			    event.stopPropagation();
+			    $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
+			    $(this).parent().parent().find('span').text($(this).text());
+			    
+			    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
+			    
+
+			    $(this).parent().css('display','none');
+			});
+
+
+			$('.member_phone').blur(function() {
+				var reg = /^1(3|4|5|6|7|8|9)\d{9}$/;
+				if (reg.test($(this).val()) != true) {
+					$(this).parent().find('.ts_tousu').html('联系电话格式不正确');
+				} else {
+					$(this).parent().find('.ts_tousu').html('');
+				}
+			});
+
+
+			$('.member').blur(function() {
+				if ($(this).val() == '') {
+					$(this).parent().find('.ts_tousu').html('联系人不能为空');
+				} else {
+					$(this).parent().find('.ts_tousu').html('');
+				}
+			});
+
+			$('.member_descript').blur(function() {
+				
+				if ($(this).val() == '') {
+					$(this).parent().find('.ts_tousu').html('问题描述不能为空');
+				} else {
+					$(this).parent().find('.ts_tousu').text('');
+				}
+			});
+
+
 			$('.liji_submit').click(function() {
 
 				var tousu_jianyi = $('.tousu_jianyi').attr('data-selectedindex');
@@ -959,7 +1117,7 @@
 
 				var member_descript = $('.member_descript');
 
-				var reg = /^\d+$/;
+				var reg = /^1(3|4|5|6|7|8|9)\d{9}$/;
 
 				if (reg.test(member_phone.val()) != true) {
 					member_phone.parent().find('.ts_tousu').html('联系电话格式不正确');
