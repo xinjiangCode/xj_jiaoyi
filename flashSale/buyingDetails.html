@@ -1244,7 +1244,10 @@
 						var goodsSpecialInfoTpl = template('goodsSpecialInfoTpl', chemical);
 						$('.infoBox:eq(1)').html(goodsSpecialInfoTpl);
 						// 产品用途
-						$('.infoBox:eq(2)').children('p').text(chemical.chemicalPurpose);
+						if (chemical) {
+							$('.infoBox:eq(2)').children('p').text(chemical.chemicalPurpose);
+						}
+						
 
 						//权限
 						yiyou_quanxian(userId);

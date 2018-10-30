@@ -13,12 +13,49 @@
 	<link rel="stylesheet" type="text/css" href="../css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="../css/standingBook/accountCheck.css">
 	<style>
-		.active{
-			background-color: #00ABEB;
+		.active {
+		    color: #5590F6;
+		    position: relative;
 		}
 		.account_check_list_ul li{
 			text-align: center;
+			cursor: pointer;
+			width: 55px;
+			margin-right: 70px;
 		}
+
+		.account_check_list_ul li:hover::before{
+		    transform: scaleX(1);
+		    transform-origin: 0 0;
+		}
+
+	
+		.account_check_list_ul .active::before {
+		    position: absolute;
+		    left: 0;
+		    bottom: 0;
+		    content: "";
+		    width: 100%;
+		    height: 4px;
+		    background: #5590F6;
+		    transform: scaleX(1);
+		    transform-origin: 0 0;
+		    
+		}
+
+		.account_check_list_ul li::before {
+		    position: absolute;
+		    left: 0;
+		    bottom: 0;
+		    content: "";
+		    width: 100%;
+		    height: 4px;
+		    background: #5590F6;
+		    transform: scaleX(0);
+		    transform-origin: 100% 0;
+		    transition: transform 0.5s;
+		}
+
 	</style>
 </head>
 <body>
@@ -115,6 +152,9 @@
                 }
 		    } 
 		});
+
+		
+
 		//兑账列表
 		dz_list(1);
 		function dz_list(num,status){
@@ -189,13 +229,21 @@
 				}
 			});
 		}
+		
+
 
         $(".account_check_list_ul  li").unbind();
 		$(".account_check_list_ul  li").click(function () {
             $(".account_check_list_ul  li").removeClass("active");
             $(this).addClass("active");
             dz_list(1);
-        })
+        }).hover(function() {
+        	$(this).css({
+        		'transform': 'scaleX(1)',
+		    	'transform-origin': '0 0'
+        	});
+        	
+        });
 		$(".account_check_num").blur(function () {
             dz_list(1);
         })

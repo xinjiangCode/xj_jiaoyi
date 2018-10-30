@@ -249,7 +249,7 @@
 		//立即报名
         $(document).on('click', '.liji_baoming', function() {
         	window.parent.$('#lijiBaoming .pay_pass_input').val('');
-        	window.parent.$('#lijiBaoming .phone_num').val('');
+        	window.parent.$('#lijiBaoming .phone_num').val(financePhoneNumber);
         	window.parent.$('#lijiBaoming .code_input').val('');
         	window.parent.$('#lijiBaoming .ts2').text('').css('visibility','hidden');
         	window.parent.$('#lijiBaoming .modelbtn').attr('data-activityid', $(this).parent().attr('data-dbid'));
@@ -263,7 +263,10 @@
           	window.parent.$('#lijiBaoming .huoqu_code').text("获取验证码");
           	clickFlgCode = true;
 
+
         	window.parent.lijiBaoming();
+
+
         });
 
         var payPassTrue = true;
