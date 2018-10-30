@@ -16,6 +16,12 @@
 		.qwer{
 			display: none;
 		}
+		.order_info_cont ul li:nth-child(1), .order_info_cont ul li:nth-child(3), .order_info_cont ul li:nth-child(5){
+			width: 50%;
+		}
+		.dealWith td,.receivable td,.dealWith th,.receivable th{
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
@@ -102,14 +108,46 @@
 				<span>订单信息</span>
 				<span class="fr order_num">订单编号：000</span>
 			</div>
-			<div class="order_info_cont">
-				<ul class="clearfix">
+			<div class="order_info_cont" style="overflow: hidden;">
+				<ul class="clearfix" style="overflow: hidden; margin-bottom: 20px;">
 					<li>兑账企业：<span class="dzqy">000</span></li>
 					<li>兑账订单</li>
 					<li>兑账金额：<span>000</span></li>
-					<li>应收：<span>000</span></li>
 					<li>支付方式：<span>000</span></li>
-					<li>应付：<span>000</span></li>
+					<li>应收：<span>000</span>
+						<div style="width: 98%;height: 400px;border: 1px solid #eee;overflow-y: scroll">
+							<table class="receivable" style="width: 100%">
+								<thead>
+									<tr>
+										<th>订单号</th>
+										<th>商品名称</th>
+										<th>总金额</th>
+										<th>支付方式</th>
+									</tr>
+								</thead>
+								<tbody style="">
+
+								</tbody>
+							</table>
+						</div>
+					</li>
+					<li>应付：<span>000</span>
+						<div style="width: 98%;height: 400px;border: 1px solid #eee;overflow-y: scroll">
+							<table class="dealWith" style="width: 100%">
+								<thead>
+									<tr>
+										<th>订单号</th>
+										<th>商品名称</th>
+										<th>总金额</th>
+										<th>支付方式</th>
+									</tr>
+								</thead>
+								<tbody>
+
+								</tbody>
+							</table>
+						</div>
+					</li>
 				</ul>
 			</div>
 			<div class="order_money">
@@ -181,6 +219,29 @@
 					$(".order_num").html("订单编号："+data.accountCheckingId);//订单号
 					$(".dzqy").html(data.companyName);//对方名称
 
+					var str1="";
+					var str2="";
+					if(json.data2.length!=0){
+					    $.each(json.data2,function (idx,item) {
+							if(item.orderType==1){
+                                str1+='<tr>'
+                                str1+='<td>'+item.transactionOrderId+'</td>'
+                                str1+='<td>'+item.productName+'</td>'
+                                str1+='<td>'+item.total+'</td>'
+                                str1+='<td>'+item.paymentMethodStr+'</td>'
+                                str1+='</tr>'
+                            }else{
+                                str2+='<tr>'
+                                str2+='<td>'+item.transactionOrderId+'</td>'
+                                str2+='<td>'+item.productName+'</td>'
+                                str2+='<td>'+item.total+'</td>'
+                                str2+='<td>'+item.paymentMethodStr+'</td>'
+                                str2+='</tr>'
+							}
+                        })
+						$(".receivable tbody").html(str1)
+                        $(".dealWith tbody").html(str2)
+					}
 				}
 				
 				

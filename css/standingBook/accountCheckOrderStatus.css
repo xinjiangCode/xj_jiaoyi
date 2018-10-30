@@ -150,7 +150,7 @@
 }
 
 .order_info {
-	height: 228px;	
+	/*height: 228px;	*/
 }
 
 .order_info .order_info_title{
@@ -168,7 +168,7 @@
 }
 
 .order_info_cont {
-	height: 125px;
+	/*height: 125px;*/
 	border-bottom: 1px solid #eeeced;
 	padding-top: 18px;
 	box-sizing: border-box;

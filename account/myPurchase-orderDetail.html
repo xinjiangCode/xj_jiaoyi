@@ -1261,12 +1261,14 @@
                             },
                             success: function(res){
                                 if(res.code == 1){
-
-                                    window.parent.$(".modelBox34").hide();//支付成功
+                                    cf_alert(1,"支付成功")
+//                                    window.parent.$(".modelBox34").hide();//支付成功
                                     payAnalysis(window.parent.$(".modelBox33 .accountBalance").text());
-                                    alert(res.msg);
+//                                    alert(res.msg);
+
                                 }else{
-                                    alert(res.msg);
+                                    cf_alert(2,res.msg)
+//                                    alert(res.msg);
                                 }
                             },
                             error: function(err){
