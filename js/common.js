@@ -2,9 +2,9 @@
 // var pubIP = 'http://api.xjv56.com/service/';
 
 
-// var pubIP = 'http://api.test.xjv56.com/service/';
+var pubIP = 'http://api.test.xjv56.com/service/';
 // var pubIP = 'http://192.168.1.80:7777/service/';
-var pubIP = 'http://192.168.1.166:7777/service/';
+// var pubIP = 'http://192.168.1.166:7777/service/';
 
 // var pubIP = 'http://192.168.1.57:7777/service/';
 // var pubIP = 'http://192.168.1.105:7777/service/';
@@ -165,7 +165,8 @@ if(token){
 
     //是否开启权限 1不开启，2开启
     var flag = 1;
-	
+
+
 	//isOld token
 	//2 ok 已认证
 	//0 超时
@@ -289,6 +290,11 @@ if(token){
 
 
                 yiyou_quanxian(userId);
+            }
+            
+            if (flag == 1) {
+                $('.my_xunpan, .my_baojia, .go_zizhi, .go_qiye, .update_login, .update_phone, .jiyi_pass_edit, .weiRenZheng_btn').addClass('quanxian');
+                $('.purchase1, .purchase2, .purchase3, .purchase4, .sale_order1, .sale_order2, .sale_order3, .sale_order4').parent().addClass('quanxian');
             }
             
 
