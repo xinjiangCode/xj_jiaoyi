@@ -3,8 +3,8 @@
 
 
 // var pubIP = 'http://api.test.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
-// var pubIP = 'http://192.168.1.166:7777/service/';
+// var pubIP = 'http://192.168.1.80:7777/service/';
+var pubIP = 'http://192.168.1.166:7777/service/';
 
 // var pubIP = 'http://192.168.1.57:7777/service/';
 // var pubIP = 'http://192.168.1.105:7777/service/';
@@ -162,6 +162,9 @@ if(token){
 		      
 		  }
 	});
+
+    //是否开启权限 1不开启，2开启
+    var flag = 1;
 	
 	//isOld token
 	//2 ok 已认证
@@ -278,10 +281,16 @@ if(token){
             financePhoneNumber = json.financePhoneNumber;
             userPhone = json.data.mobile;
             
-            $('.exist_qx').css('visibility','hidden');
-            $('.exist_one_qx').css('display','none');
+            
+            if (flag == 2) {
 
-            yiyou_quanxian(userId);
+                $('.exist_qx').css('visibility','hidden');
+                $('.exist_one_qx').css('display','none');
+
+
+                yiyou_quanxian(userId);
+            }
+            
 
 		  },
 		  error:function(xhr,statues,error){
@@ -307,6 +316,7 @@ if(token){
 //}
 
 function yiyou_quanxian(userId) {
+
     //查询某个用户已有权限
     $.ajax({
         url: pubIP + 'userPermissions/getRoleByUserId',

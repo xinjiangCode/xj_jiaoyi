@@ -476,7 +476,9 @@
 
                         $('.allPageN').text(num+'/'+json.data.pages);
 
-                         yiyou_quanxian(userId);
+                        if (flag == 2) {
+                            yiyou_quanxian(userId);
+                        }
 
                     } else {
                         $('.pageJump').hide();

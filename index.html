@@ -1351,9 +1351,15 @@
 
 						$('#baojia_caigou_info').html(str);
 
-						$('.exist_qx').css('visibility','hidden');
+						
 
-						yiyou_quanxian(userId);
+						if (flag == 2) {
+							$('.exist_qx').css('visibility','hidden');
+							
+			                yiyou_quanxian(userId);
+			            }
+
+						
 
 	                },
 	                error: function(err) {
