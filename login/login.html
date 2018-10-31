@@ -203,8 +203,29 @@
                   }
                   $(this).toggleClass("active");
               })
-              $(".mainCenter") .css({"background-image":"url(../img/cf_loginBackGround.png)","background-size":"cover","min-width":"1230px","background-position":"center center"});
-//              $(".mainCenter") .css("background-size","cover");
+              //背景图片
+              //var pubIP = "http://192.168.1.80:7777/service/";
+              $.ajax({
+              	  type:"get",
+		          url:pubIP+"backgroundImg/getBackgroundImgByType",//v1.0
+		          dataType: "json",
+		          data:{
+			        type: "background_img_login"	 
+		          },
+		          success: function(data){
+		          	// console.log("+++++++++++++++");
+		          	// console.log(data);
+		          	if(data.data != "" && data.data != null){
+		          		$(".mainCenter") .css({"background-image":"url(\'"+data.data+"\')","background-size":"cover","min-width":"1230px","background-position":"center center"});
+		          	}else{
+		          		$(".mainCenter") .css({"background-image":"url(../img/cf_loginBackGround.png)","background-size":"cover","min-width":"1230px","background-position":"center center"});
+		          	}
+		          },
+		          error: function(xhr,statues,error){
+		          	console.log(error);
+		          }
+              })
+              
           })
           
           $(document).on('keydown',function(event){
