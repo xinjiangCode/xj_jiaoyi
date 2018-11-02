@@ -290,6 +290,23 @@
     <script>
         // 收货地址
         function shouhuoAddressEdit() {
+            window.parent.$('.shouhuo_person').val('');
+            window.parent.$('#province1 span').text('请选择省');
+            window.parent.$('#province1').attr('data-selectedindex', '');
+
+            window.parent.$('#city1 span').text('请选择市');
+            window.parent.$('#city1').attr('data-selectedindex', '');
+
+            // window.parent.$('#city1').removeClass('id_id');
+
+            window.parent.$('.add_address_btn1').text('添加该地址');
+
+            window.parent.$('.add_address_btn1').attr('data-dbid', '');
+
+            window.parent.shouhuo_list1();
+            
+            // window.parent.$('#detail_address1').val('');
+            // window.parent.$('#phone1').val('');
            window.parent.shouhuoAddressEdit();
         }
         //cangku
@@ -297,6 +314,12 @@
             window.parent.cangkuAddressEdit();
 
         }
+
+
+        window.parent.$('.modelBox24 .modelbtn').click(function() {
+            window.location.reload();
+        });
+
         //级别
         $.ajax({
             type:"get",
@@ -414,18 +437,30 @@
                     }
                     var str = '';
                     for (var i = 0; i < data.data.length; i++) {
-                        str += '<li  data-index="'+i+'" value="'+i+'" data-addressId="'+data.data[i].dbid+'" title="'+data.data[i].receiver+" "+data.data[i].phone+" "+data.data[i].addressStr+" "+data.data[i].detailedAddress+'">'+data.data[i].receiver+" "+data.data[i].phone+" "+data.data[i].addressStr+" "+data.data[i].detailedAddress+'</li>';
+                        str += '<li data-defaultStr="'+data.data[i].defaultStr+'" data-index="'+i+'" value="'+i+'" data-addressId="'+data.data[i].dbid+'" title="'+data.data[i].receiver+" "+data.data[i].phone+" "+data.data[i].addressStr+" "+data.data[i].detailedAddress+'">'+data.data[i].receiver+" "+data.data[i].phone+" "+data.data[i].addressStr+" "+data.data[i].detailedAddress+'</li>';
                     }
 
                     $('#shoupiaoAddre ul').html(str);
 
-                    $('#shoupiaoAddre span').text($('#shoupiaoAddre ul li').eq(0).text());
+                    $('#shoupiaoAddre ul li').each(function() {
+                        if ($(this).attr('data-defaultStr') == '1') {
+                            
 
-                    $('#shoupiaoAddre').attr('data-addressId', $('#shoupiaoAddre ul li').eq(0).attr('data-addressId'));                  
-                    
-                    $('#shoupiaoAddre').attr('data-selectedindex', $('#shoupiaoAddre ul li').eq(0).val());                  
+                            $('#shoupiaoAddre span').text($(this).text());
 
-                    
+                            $('#shoupiaoAddre').attr('data-addressId', $(this).attr('data-addressId'));                  
+                            
+                            $('#shoupiaoAddre').attr('data-selectedindex', $(this).val());  
+
+
+                            // $('#shoupiaoAddre span').text($('#shoupiaoAddre ul li').eq(0).text());
+
+                            // $('#shoupiaoAddre').attr('data-addressId', $('#shoupiaoAddre ul li').eq(0).attr('data-addressId'));                  
+                            
+                            // $('#shoupiaoAddre').attr('data-selectedindex', $('#shoupiaoAddre ul li').eq(0).val());  
+                        }
+                    });
+
 
                     $('#shoupiaoAddre ul li').click(function(){
                         event.stopPropagation();

@@ -396,10 +396,12 @@
             window.parent.$(".hzf_wdxsdd").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
             
         } else {
-            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
-            window.parent.$('.all_error_alert').show();
-            
-            return false;
+            if (localStorage.getItem('isOld') == 2) {
+                window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                window.parent.$('.all_error_alert').show();
+                
+                return false;
+            }
         }
 
         
@@ -421,12 +423,12 @@
 
             
         } else {
+            if (localStorage.getItem('isOld') == 2) {
+                window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                window.parent.$('.all_error_alert').show();
 
-            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
-            window.parent.$('.all_error_alert').show();
-
-            return false;
-            
+                return false;
+            }
         }
 
         
@@ -449,9 +451,11 @@
             window.parent.$(".hzf_wdxp").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
 
         } else {
-            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
-            window.parent.$('.all_error_alert').show();
-            return false;
+            if (localStorage.getItem('isOld') == 2) {
+                window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                window.parent.$('.all_error_alert').show();
+                return false;
+            }
         }
 
 
@@ -473,11 +477,11 @@
             window.parent.$(".hzf_wdbj").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
 
         } else {
-
-            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
-            window.parent.$('.all_error_alert').show();
-            return false;
-
+            if (localStorage.getItem('isOld') == 2) {
+                window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                window.parent.$('.all_error_alert').show();
+                return false;
+            }
         }
 
 
@@ -571,7 +575,7 @@
                    // $(".weiRenZheng").css("display","none");//测试使用
 					localStorage.setItem('mobile',json.data.mobile);
                     //身份认证
-                    if(json.data.idCard==null){
+                    if(json.data.idCard==null || json.data.idCard== ''){
                         $(".yrz").css("display","none");
                         $(".wrz").css("display","block");
                     }else{
@@ -693,9 +697,11 @@
                             } 
 
                         } else {
-                            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
-                            window.parent.$('.all_error_alert').show();
-                            return false;
+                            if (localStorage.getItem('isOld') == 2) {
+                                window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                                window.parent.$('.all_error_alert').show();
+                                return false;
+                            }
                         }
                            
                     });
@@ -703,7 +709,7 @@
                     //去企业认证
                     $('.go_qiye').click(function() {
 
-                        if ($(this).hasClass('quanxian')) {
+                        // if ($(this).hasClass('quanxian')) {
                             
                             if (json.data.state == null) {
                                 window.parent.$('#account_ziliao').click();
@@ -761,13 +767,14 @@
                                 window.parent.$('.qiye_renzheng').click();
                             }
 
-                        } else {
+                        // } else {
+                        //     if (localStorage.getItem('isOld') == 2) {
+                        //         window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                        //         window.parent.$('.all_error_alert').show();
+                        //         return false;
+                        //     }
 
-                            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
-                            window.parent.$('.all_error_alert').show();
-                            return false;
-
-                        }
+                        // }
 
                         
                         
@@ -790,9 +797,13 @@
         if ($('.update_login').hasClass('quanxian')) {
             window.parent.$(ids).css("display","block");
         } else {
-            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
-            window.parent.$('.all_error_alert').show();
-            return false;
+            if (localStorage.getItem('isOld') == 2) {
+                window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                window.parent.$('.all_error_alert').show();
+                return false;
+            } else {
+                window.parent.$(ids).css("display","block");
+            }
         }
         
     }
@@ -805,9 +816,15 @@
             window.parent.$('#oldPhone').val(mobile);
 
         } else {
-            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
-            window.parent.$('.all_error_alert').show();
-            return false;
+            if (localStorage.getItem('isOld') == 2) {
+                window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                window.parent.$('.all_error_alert').show();
+                return false;
+            } else {
+                window.parent.$(ids).css("display","block");
+                var mobile = localStorage.getItem('mobile');
+                window.parent.$('#oldPhone').val(mobile);
+            }
         }
 
         
@@ -824,9 +841,17 @@
             window.parent.updataPayPwd();
 
         } else {
-            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
-            window.parent.$('.all_error_alert').show();
-            return false;
+            if (localStorage.getItem('isOld') == 2) {
+                window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                window.parent.$('.all_error_alert').show();
+                return false;
+            } else {
+                window.parent.$('#oldPayPwd').val('');
+                window.parent.$('#newPayPwd1').val('');
+                window.parent.$('#newPayPwd2').val('');
+                window.parent.$('#updataPayPwdSub').attr('data-yanzheng', financePhoneNumber);
+                window.parent.updataPayPwd();
+            }
         }
 
         
@@ -841,9 +866,14 @@
             window.parent.renzheng();
 
         } else {
-            window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
-            window.parent.$('.all_error_alert').show();
-            return false;
+            if (localStorage.getItem('isOld') == 2) {
+                window.parent.$('.all_error_alert p').text('对不起，你没有此权限');
+                window.parent.$('.all_error_alert').show();
+                return false;
+            } else {
+                window.parent.renzheng();
+            }
+            
         }
         
     });

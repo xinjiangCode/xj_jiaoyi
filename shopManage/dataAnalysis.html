@@ -23,7 +23,12 @@
 		}
 	
 		.paihangbang_ul .shop_name span {
-			margin-left: 5px;
+		    margin-left: 5px;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    width: 95px;
+		    display: inline-block;
 		}
 
 		.paihangbang_ul.pay_ul .zhuanhualv {
@@ -761,7 +766,7 @@
                     		str1 += '<li>'
 									+'<span class="shop_name">'
 										+'<img src="'+data.data[i].productPicOne+'">'
-										+'<span>'+data.data[i].productName+'</span>'
+										+'<span title="'+data.data[i].productName+'">'+data.data[i].productName+'</span>'
 									+'</span>'
 									+'<span class="liang_num">'+data.data[i].countNumber+'</span>'
 									+'<span class="progress_span"><span class="progress_span_current" style="width:'+number1+'"></span></span>'
@@ -815,7 +820,7 @@
                     		str += '<li>'
 									+'<span class="shop_name">'
 										+'<img src="'+data.date[i].productPicOne+'">'
-										+'<span>'+data.date[i].productName+'</span>'
+										+'<span title="'+data.date[i].productName+'">'+data.date[i].productName+'</span>'
 									+'</span>'
 									+'<span class="liang_num">'+data.date[i].countNumber+'</span>'
 									+'<span class="progress_span"><span class="progress_span_current" style="width:'+number+'"></span></span>'

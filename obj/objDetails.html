@@ -403,7 +403,6 @@
 			}
 
 			img.jisuanqi {
-			    margin-left: 37px;
 			    vertical-align: bottom;
 			    display: none;
 			}
@@ -624,7 +623,26 @@
 				height: 35px;
 				line-height: 35px;
 			}
+
+			.commentator.modelpop .cont {
+				margin-left: -265px;
+    			margin-top: -165px;
+			}
 			
+			.commentator.modelpop .tosurebtn {
+				text-align: center;
+			}
+
+			.commentator .count_productName {
+				font-size: 16px;
+			    color: #333;
+			    max-width: 310px;
+			    display: inline-block;
+			    overflow: hidden;
+			    white-space: nowrap;
+			    text-overflow: ellipsis;
+			}
+
 		</style>
 	</head>
 
@@ -734,8 +752,11 @@
 									
 								</p>
 								<p style="margin-bottom: 25px;">合计总量：<span class="cOr goodsTotalNum"> 0</span><span class="dazong">吨</span><span class="shiji"><%=productSpecStr%></span>
-								<img src="../img/jisuanqi.png" class="jisuanqi" alt="">
-								<span class="zhuanhuan" style="color: #347AE9; display: none;">包装转换</span></p>
+								<span class="baozhuang_zhuanhuan" style="display: inline-block; margin-left: 37px; cursor: pointer;">
+									<img src="../img/jisuanqi.png" class="jisuanqi" alt="">
+									<span class="zhuanhuan" style="color: #347AE9; display: none;">包装转换</span>
+								</span>
+								</p>
 
 
 								<!-- <p style="margin-bottom: 29px;">合计总量: <span  class="cOr">1  </span>盒 ,<span>90ml</span></p> -->
@@ -1076,6 +1097,50 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- 包装转换器 -->
+			<div class="modelpop commentator">
+				<div class="cont" style="height: 330px; width: 530px;">
+					<div class="title">
+						<span>购买数量计算</span>
+						<img src="../img/gsxq_del.png" height="45" alt="" class="close">
+					</div>
+					<div class="main" style="height:280px; width: 530px;">
+						<div class="clearfix">
+							<div class="fl">
+								<a href="##" title="">
+									<img src="../img/count_img.jpg" alt="">
+								</a>
+							</div>
+							<div class="fr">
+								<h4>
+									<a href="##" title="" class="count_productName">MB0036 阿克苏粉末涂料户外棕色细砂纹 RAL8016</a>
+								</h4>
+								<ul>
+									<li>
+										<span>CAS：</span>
+										<span></span>
+									</li>
+									<li>
+										<span style="width: 150px;">
+											<span>规格：</span>
+											<span>25kg/箱</span>
+										</span>
+										<span>销售单位：</span>
+										<span>箱</span>
+									</li>
+									<li>
+										<span>需要购买：</span>
+										<input type="text">
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="tosurebtn count_btn">开始计算</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
 		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
 		

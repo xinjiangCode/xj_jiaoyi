@@ -764,6 +764,9 @@
 			                	dataObj.flow = dataObj1;
 			                	dataObj1.name = data.data.result[i].companyName;
 			                	dataObj1.type = data.data.result[i].storeType;
+
+			                	dataObj1.companyId = data.data.result[i].companyId;
+
 			                	//缺少字段
 			                	dataObj1.yujingzhi = data.data.result[i].warning_value;
 			                	dataObj1.yingshou = data.data.result[i].shou;
@@ -853,6 +856,9 @@
 		                	oneselfObj.flow = oneselfObj1;
 		                	oneselfObj1.name = data.date1.companyName;
 		                	oneselfObj1.type = data.date1.storeType;
+
+		                	oneselfObj1.companyId = companyId;
+
 		                	//缺少字段
 		                	oneselfObj1.flag = "1";
 		                	oneselfObj1.yujingzhi = data.date1.warning_value;
@@ -1054,7 +1060,11 @@
 			    myChart.setOption(option, true);
 			}
 
-
+			myChart.on('click', function (params) {
+				console.log(params);
+				window.localStorage.setItem('thisCompanyId', params.data.flow.companyId);
+				window.parent.location.href = 'storeIndex.html';
+			});
 		}
 		
     </script>

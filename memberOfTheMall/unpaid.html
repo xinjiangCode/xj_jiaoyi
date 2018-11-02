@@ -739,6 +739,10 @@
             window.location.reload();
         });
 
+        $('#xuni_account_pay_alert .close').click(function() {
+        	$('#xuni_account_pay_alert').hide();
+        });
+
         $('#colseAlert').click(function(){
             $('.tsBg').hide();
             $('.tsBox').hide();
@@ -926,10 +930,15 @@
 	        		} else if (data.data.goodsPayMethod == 3) { //现金+积分
 	        			$('.jifen_money .num1').text(data.data.integral);
 	        			$('.jifen_money .num2').text(data.data.cash);
+	        			$('.pay2').attr('goods_payMethod', data.data.goodsPayMethod);
+	        			$('.pay2').attr('num2', $('.num2').text())
+	        			$('.pay2').attr('num1', $('.num1').text())
 	        		} else if (data.data.goodsPayMethod == 1) {
 	        			$('.jf_span').hide();
 	        			$('.add_btn').hide();
 	        			$('.yuan_span .num2').text(data.data.cash);
+	        			$('.pay2').attr('goods_payMethod', data.data.goodsPayMethod);
+	        			$('.pay2').attr('num2', $('.num2').text());
 	        		}
 
 
@@ -1109,13 +1118,16 @@
 	            window.event.cancelBubble = true; 
 	        }
 	    });
-
-	    $('.phone_num').val(userPhone);
+	    
+	    if (userPhone) {
+	    	$('.phone_num').val(userPhone);
+	    }
+	    
 
   		//积分支付
   		$('.sure_pay').click(function() {
 
-  			if ($('.code_input').val() == '') {
+  			if ($('#jifen_pay_alert .code_input').val() == '') {
   				$('.all_error_alert .innerErrmsg').text('验证码错误');
 
 				$('.all_error_alert').show();
@@ -1159,7 +1171,7 @@
 
   		var codeFlag = true;
 
-  		$('.code_kuang .code_input').blur(function() {
+  		$('#jifen_pay_alert .code_input').blur(function() {
   			var smsRandomCode = $(this).val();
 
   			var phone_num = $('#jifen_pay_alert .phone_num').val();
@@ -1254,6 +1266,119 @@
 	    });
 
 
+	    // 验证支付密码
+	    // pay_pass_input
+
+	    //支付密码
+	    $('#xuni_account_pay_alert .modelbtn').click(function(){
+
+	    	if ($('#xuni_account_pay_alert .pay_pass_input').val() == '') {
+
+	    		$('.all_error_alert .innerErrmsg').text('请输入支付密码');
+
+				$('.all_error_alert').show();
+
+				return false;
+	    	}
+
+	    	if ($('#xuni_account_pay_alert .code_input').val() == '') {
+
+	    		$('.all_error_alert .innerErrmsg').text('请输入验证码');
+
+				$('.all_error_alert').show();
+
+				return false;
+	    	}
+
+	    	if (clickCode == 1) {
+	    		$('.all_error_alert .innerErrmsg').text('请先获取验证码');
+
+				$('.all_error_alert').show();
+
+				return false;
+	    	}
+
+	    	$.ajax({
+				url: pubIP + 'memberOrder/updateOrderPayAccount', /*v1.0*/
+	            type: 'post',
+	            headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
+				data:{
+					orderId: $('.order_num_num').text(),
+					payPassword: $('#xuni_account_pay_alert .pay_pass_input').val(), //支付验证码
+					phoneCode: $('#xuni_account_pay_alert .code_input').val()
+				},
+				success:function(data){
+					console.log(data);
+
+				}
+			})
+	    });
+
+	    var cFlag1 = true;
+
+	    var clickCode = 1;
+
+	    //虚拟账户支付获取验证码
+	    $('#xuni_account_pay_alert .huoqu_code').click(function() {
+
+	    	clickCode = 2;
+
+	   	 	var count2 = 60;
+
+	    	var mobile = $('#xuni_account_pay_alert .phone_num').val();
+	    	var _this = $(this);
+
+			_this.attr('disabled',true);
+
+
+
+			if (!cFlag1) {
+				return false;
+			}
+
+			if(mobile==''){
+				$('.all_error_alert .innerErrmsg').text('请输入手机号');
+
+				$('.all_error_alert').show();
+
+				return false;
+			}
+			var timer1 = setInterval(function(){
+				_this.text(count2-- + 's');
+				cFlag1 = false;
+				if(count2<-1){
+					_this.text('获取验证码');
+					clearInterval(timer1);
+					_this.attr('disabled',false);
+					cFlag1 = true;
+				}
+				
+			},1000);
+			
+			// if (_this.attr('disabled') != 'disabled') {
+				$.ajax({
+					url: pubIP + 'user/getMessageCode', /*v1.0*/
+		            type: 'post',
+		            headers: {
+		                Accept: "application/json; charset=utf-8",
+		                token: token
+		            },
+					data:{
+						mobile:mobile,
+						type: 12 //支付验证码
+					},
+					success:function(data){
+						console.log(data);
+
+					}
+				})
+			// }
+			
+	    });
+
 	    //更换手机号
 	    $('.change_phone').click(function() {
 	    	// $('#updataPhone').css("display","block");
@@ -1277,7 +1402,7 @@
 				return false;
 			}
 			var timer = setInterval(function(){
-				_this.text(count--);
+				_this.text(count-- + 's');
 				if(count<-1){
 					_this.text('获取手机验证码');
 					clearInterval(timer);
@@ -1420,6 +1545,18 @@
 					return false;
   				} else {
   					$('#xuni_account_pay_alert').show();
+
+  					if ($('.pay2').attr('goods_payMethod') == 1) {
+
+  						$('.pay_method_method').text('现金');
+  						$('.jifen_cash').text($('.pay2').attr('num2')+'现金');
+
+  					} else if ($('.pay2').attr('goods_payMethod') == 3) {
+  						$('.pay_method_method').text('现金+积分');
+  						$('.jifen_cash').text($('.pay2').attr('num2')+'现金+'+$('.pay2').attr('num1')+'积分');
+  					}
+
+
   				}
   			}
 

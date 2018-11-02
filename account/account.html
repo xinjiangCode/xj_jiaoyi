@@ -3965,7 +3965,7 @@
                 $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                 $(this).parent().parent().attr('data-proviceid', $(this).attr('data-proviceid'));
                 $(this).parent().parent().find('span').text($(this).text());
-                $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                 $(this).parent().css('display','none');
                 var provinceID =$("#province").attr('data-proviceid');
                 $('#city span').text('请选择市');
@@ -4031,7 +4031,7 @@
                     $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                     $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
                     $(this).parent().parent().find('span').text($(this).text());
-                    $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                     $(this).parent().css('display','none');
                     var cityID =$("#city").attr('data-cityid');
                     $('#area span').text('请选择区');
@@ -4116,7 +4116,7 @@
                     $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                     $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
                     $(this).parent().parent().find('span').text($(this).text());
-                    $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                     $(this).parent().css('display','none');
                     var areaID =$("#area").attr('data-cityid');
 
@@ -4519,11 +4519,12 @@
                 $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                 $(this).parent().parent().attr('data-proviceid', $(this).attr('data-proviceid'));
                 $(this).parent().parent().find('span').text($(this).text());
-                $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                 $(this).parent().css('display','none');
                 var provinceID =$("#province1").attr('data-proviceid');
                 $('#city1 span').text('请选择市区');
-                $('#city1').removeClass('id_id1');
+                $('#city1').removeClass('id_id');
+                // $('#city1').removeClass('id_id1');
                 selectCity1(provinceID,null);
 
             });
@@ -4573,7 +4574,7 @@
                     $(this).parent().parent().attr('data-selectedindex', $(this).attr('data-index'));
                     $(this).parent().parent().attr('data-cityid', $(this).attr('data-cityid'));
                     $(this).parent().parent().find('span').text($(this).text());
-                    $(this).parent().parent().children('img').attr('src', '../../img/prl-select.jpg')
+                    $(this).parent().parent().children('img').attr('src', '../img/prl-select.jpg')
                     $(this).parent().css('display','none');
                     var cityID =$("#city1").attr('data-cityid');
                     $('#city1').removeClass('id_id1');
@@ -4703,6 +4704,7 @@
 
         /*v1.0*/
         if ($(this).attr('data-dbid')) {
+
             edit1(dbid,name, province, city, detail_address, phone, moren_address);
         } else {
             $.ajax({
@@ -4806,7 +4808,9 @@
 
         var dbid = $(this).parent().parent().attr('data-dbid');
 
-        $('.add_address_btn').attr('data-dbid', dbid);
+        $('.add_address_btn1').attr('data-dbid', dbid);
+
+        $('.add_address_btn1').text('修改该地址');
 
     });
 
@@ -4845,6 +4849,23 @@
         });
     }
 
+
+    $('.modelBox27 .modelbtn').click(function() {
+        $('.shouhuo_person').val('');
+        $('#province1 span').text('请选择省');
+        $('#province1').attr('data-selectedindex', '');
+
+        $('#city1 span').text('请选择市');
+        $('#city1').attr('data-selectedindex', '');
+
+        $('.add_address_btn1').text('添加该地址');
+        $('.add_address_btn1').attr('data-dbid', '');
+
+        $('#moren_address1')[0].checked = false;
+
+        shouhuo_list1();
+
+    });
 
 
     /*删除按钮*/

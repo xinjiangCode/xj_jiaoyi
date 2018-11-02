@@ -2,9 +2,9 @@
 // var pubIP = 'http://api.xjv56.com/service/';
 
 
-var pubIP = 'http://api.test.xjv56.com/service/';
-// var pubIP = 'http://192.168.1.80:7777/service/';
-// var pubIP = 'http://192.168.1.166:7777/service/';
+// var pubIP = 'http://api.test.xjv56.com/service/';
+var pubIP = 'http://192.168.1.80:7777/service/';
+// var pubIP = 'http://192.168.1.176:7777/service/';
 
 // var pubIP = 'http://192.168.1.57:7777/service/';
 // var pubIP = 'http://192.168.1.105:7777/service/';
@@ -295,8 +295,11 @@ if(token){
             }
             
             if (flag == 1) {
-                $('.my_xunpan, .my_baojia, .go_zizhi, .go_qiye, .update_login, .update_phone, .jiyi_pass_edit, .weiRenZheng_btn').addClass('quanxian');
-                $('.purchase1, .purchase2, .purchase3, .purchase4, .sale_order1, .sale_order2, .sale_order3, .sale_order4').parent().addClass('quanxian');
+                if (localStorage.getItem('isOld') == 2) {
+                    $('.my_xunpan, .my_baojia, .go_zizhi, .update_login, .update_phone, .jiyi_pass_edit').addClass('quanxian');
+                    $('.purchase1, .purchase2, .purchase3, .purchase4, .sale_order1, .sale_order2, .sale_order3, .sale_order4, .weiRenZheng_btn').parent().addClass('quanxian');
+                }
+                
             }
             
 

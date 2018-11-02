@@ -1201,7 +1201,7 @@
 					if(data.data.one != ''&&data.data.one != null){
 						str0 += '<img src="../img/tuijian.png"/>'
 						+'<h1 title="'+data.data.one.chemicalName+'">'+data.data.one.chemicalName+'</h1>'
-						+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; width: 52px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.one.remain+'">'+data.data.one.remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.one.productPurity+'%   </span></span></p>'
+						+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; max-width: 50px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.one.remain+'">'+data.data.one.remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.one.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.one.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
 						+'<p id="distanceTime0"></p>';
@@ -1219,7 +1219,7 @@
 					if(data.data.two != ''&&data.data.two != null){
 						str1 += '<img src="../img/tuijian.png"/>'
 						+'<h1 title="'+data.data.two.chemicalName+'">'+data.data.two.chemicalName+'</h1>'
-						+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; width: 52px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.two.remain+'">'+data.data.two.remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.two.productPurity+'%   </span></span></p>'
+						+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; max-width: 50px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.two.remain+'">'+data.data.two.remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.two.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.two.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
 						+'<p id="distanceTime1"></p>';
@@ -1236,7 +1236,7 @@
 					if(data.data.three != ''&&data.data.three != null){
 						str2 += '<img src="../img/tuijian.png"/>'
 						+'<h1 title="'+data.data.three.chemicalName+'">'+data.data.three.chemicalName+'</h1>'
-						+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; width: 52px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.three.remain+'">'+data.data.three.remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.three.productPurity+'%   </span></span></p>'
+						+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; max-width: 50px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.three.remain+'">'+data.data.three.remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.three.productPurity+'%   </span></span></p>'
 						+'<p>交货地: <span class="delivery_address">'+data.data.three.deliveryAddress+'</span></p>'
 						+'<p style="margin-top: 37px;">剩余时间：</p>'
 						+'<p id="distanceTime2"></p>';
@@ -1479,7 +1479,7 @@
 
 		                		str += '<div class="fsObjItem">'
 				        			+'<h1 title="'+data.data.list[i].chemicalName+'">'+data.data.list[i].chemicalName+'</h1>'
-				        			+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; width: 52px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.list[i].remain+'">'+data.data.list[i].remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.list[i].productPurity+'%   </span></span></p>'
+				        			+'<p><span class="gbRight">数 量: <span class="hasColoR" style="display: inline-block; max-width: 50px;text-overflow: ellipsis;word-wrap: normal;overflow: hidden;" title="'+data.data.list[i].remain+'">'+data.data.list[i].remain+'</span>吨</span><span>纯 度: <span class="hasColoR">'+data.data.list[i].productPurity+'%   </span></span></p>'
 				        			+'<p>交货地: <span class="delivery_address1">'+data.data.list[i].warehouse.warehouseProvince+' '+data.data.list[i].warehouse.warehouseCity+' '+data.data.list[i].warehouse.warehouseArea+'</span></p>'
 				        			+'<p style="margin-top: 37px;">剩余时间：</p>'
 				        			+'<p class="p_span" id="distanceTime'+(num+1)+i+'"></p>';
