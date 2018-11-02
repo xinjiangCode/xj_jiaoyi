@@ -422,6 +422,28 @@
               $(".box").eq(0).click(function () {
                   $(this).toggleClass("active");
               })
+              //背景图片
+              //var pubIP = "http://192.168.1.80:7777/service/";
+              $.ajax({
+              	  type:"get",
+		          url:pubIP+"backgroundImg/getBackgroundImgByType",//v1.0
+		          dataType: "json",
+		          data:{
+			        type: "background_img_register"	 
+		          },
+		          success: function(data){
+		          	// console.log("+++++++++++++++");
+		          	// console.log(data);
+		          	if(data.data != "" && data.data != null){
+		          		$(".mainCenter") .css({"background-image":"url(\'"+data.data+"\')","background-size":"cover","min-width":"1230px","background-position":"center center"});
+		          	}else{
+		          		$(".mainCenter") .css({"background-image":"url(../img/cf_registertBackGround.png)","background-size":"cover","min-width":"1230px","background-position":"center center"});
+		          	}
+		          },
+		          error: function(xhr,statues,error){
+		          	console.log(error);
+		          }
+              })
               $(".mainCenter") .css({"background-image":"url(../img/cf_registertBackGround.png)","min-width":"1230px"});
             //   $("#code").attr("disabled","disabled");
             //   $("#SMScode").attr("disabled","disabled")
