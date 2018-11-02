@@ -269,7 +269,7 @@
 				background: #5690f6;
 				line-height: 35px;
 				border-radius: 5px;
-				margin: 30px auto 0;
+				margin: 30px 0 0 30px;
 				font-size: 16px;
 				color: #fff;
 				cursor: pointer;
@@ -626,7 +626,7 @@
 
 			.commentator.modelpop .cont {
 				margin-left: -265px;
-    			margin-top: -165px;
+    			margin-top: -190px;
 			}
 			
 			.commentator.modelpop .tosurebtn {
@@ -641,6 +641,48 @@
 			    overflow: hidden;
 			    white-space: nowrap;
 			    text-overflow: ellipsis;
+			}
+
+			.commentator .count_jieguo {
+				padding: 16px 20px;
+			    line-height: 24px;
+			    height: 24px;
+			    margin: 8px 0;
+			    width: 300px;
+			    background: #f7f7f7;
+			}
+
+
+			.commentator.modelpop .result_count b {
+				font-size: 16px;
+    			color: #fb5651;
+    			margin: 0 2px;
+			}
+
+			.commentator .a_img {
+				display: inline-block;
+				width: 100%;
+				height: 100%;
+				border: 1px solid #e7e7e7;
+			}
+
+			.commentator .a_img img {
+				width: 118px;
+				height: 118px;
+			}
+
+			.number1, .number2 {
+				width: 48px; 
+				height: 24px;
+				line-height: 24px;
+				text-align: center;
+				text-indent: 0;
+				margin-right: 6px;
+				border: 1px solid #e7e7e7;
+			}
+
+			.result_count {
+				display: none;
 			}
 
 		</style>
@@ -1100,43 +1142,53 @@
 
 			<!-- 包装转换器 -->
 			<div class="modelpop commentator">
-				<div class="cont" style="height: 330px; width: 530px;">
+				<div class="cont" style="height: 380px; width: 530px;">
 					<div class="title">
 						<span>购买数量计算</span>
 						<img src="../img/gsxq_del.png" height="45" alt="" class="close">
 					</div>
-					<div class="main" style="height:280px; width: 530px;">
+					<div class="main" style="height:333px; width: 530px; padding: 20px;">
 						<div class="clearfix">
-							<div class="fl">
-								<a href="##" title="">
+							<div class="fl" style="padding-right: 30px;">
+								<a href="##" class="a_img" title="">
 									<img src="../img/count_img.jpg" alt="">
 								</a>
 							</div>
-							<div class="fr">
+							<div class="fr" style="width: 340px;float: right;">
 								<h4>
 									<a href="##" title="" class="count_productName">MB0036 阿克苏粉末涂料户外棕色细砂纹 RAL8016</a>
 								</h4>
 								<ul>
 									<li>
-										<span>CAS：</span>
-										<span></span>
+										<span>
+											<span>规格：</span>
+											<span class="product_guige">25kg/桶</span>
+										</span>
 									</li>
 									<li>
-										<span style="width: 150px;">
-											<span>规格：</span>
-											<span>25kg/箱</span>
-										</span>
-										<span>销售单位：</span>
-										<span>箱</span>
+										<span>工业级别：</span>
+										<span style="width: 100px; display: inline-block;" class="product_jibie">医药级</span>
+										<span>形态：</span>
+										<span class="product_xingtai">固体</span>
 									</li>
 									<li>
 										<span>需要购买：</span>
-										<input type="text">
+										<input type="text" class="number1" value="">
+										<span>吨</span>
+									</li>
+									<li>
+										<span>需要购买：</span>
+										<input type="text" class="number2" value="" style="margin-top: 10px;">
+										<span class="xiao_danwei">桶</span>
 									</li>
 								</ul>
+								<div class="count_jieguo">
+									<span class="result_count">共需要购买<b>0</b><span class="danwei">箱</span></span>
+								</div>
+								<div class="tosurebtn count_btn">开始计算</div>
 							</div>
 						</div>
-						<div class="tosurebtn count_btn">开始计算</div>
+						
 					</div>
 				</div>
 			</div>
@@ -1153,6 +1205,12 @@
             $('#cangkuName').bind('input propertychange',function () {
                 $(this).val($(this).val().replace(/\D/g,''));
             });
+
+
+            $('.commentator .close').click(function() {
+            	$('.commentator').hide();
+            });
+
 
 			//大家都在买
 			$.ajax({
@@ -1625,6 +1683,77 @@
 						if (chemical) {
 							$('.infoBox:eq(2)').children('p').text(chemical.chemicalPurpose);
 						}
+
+						//包装转换器
+						$(document).on('click', '.baozhuang_zhuanhuan', function() {
+
+							response.data.productDetail.productPic = response.data.productDetail.productPic.split(',');
+
+							$('.commentator .a_img img').attr('src', response.data.productDetail.productPic[0]);
+							$('.commentator .a_img').attr('title', response.data.productDetail.productName);
+
+							$('.commentator .count_productName').text(response.data.productDetail.productName);
+							$('.commentator .count_productName').attr('title', response.data.productDetail.productName);
+
+							$('.commentator .product_guige').text(response.data.productDetail.productSpecNum + response.data.productDetail.productSpecUnitStr);
+
+							$('.commentator .product_jibie').text(response.data.productDetail.levelName);
+							$('.commentator .product_xingtai').text(response.data.productDetail.productFormStr);
+
+							$('.commentator .xiao_danwei').text(response.data.productDetail.productSpecStr);
+							
+			            	$('.commentator').show();
+			            });
+
+
+
+						//输入这个输入框，清空另外一个输入框
+						$('.number1').blur(function() {
+							$('.number2').val('');
+						});
+
+						$('.number2').blur(function() {
+							$('.number1').val('');
+						});
+
+						//开始计算转换
+			            $('.count_btn').click(function() {
+
+			            	var number1 = $('.number1').val();
+
+			            	var number2 = $('.number2').val();
+
+			            	var product_spec_num = Number(response.data.productDetail.productSpecNum);
+
+			            	var result_num = 0;
+
+			            	if (number1 != '') {
+			            		
+			            		number1 = Number(number1 + '000');
+
+			            		$('.danwei').text($('.xiao_danwei').text());
+
+			            		$('.result_count b').text(Math.ceil(1 / product_spec_num * number1));
+
+			            	}
+
+			            	if (number2 != '') {
+			            		
+			            		number2 = Number(number2);
+
+			            		$('.danwei').text('吨');
+
+			            		$('.result_count b').text(product_spec_num / 1000 * number2);
+
+			            	}
+
+
+			            	
+			            	$('.result_count').show();
+			            	
+
+			            });
+
 						
 						//权限
 						yiyou_quanxian(userId);

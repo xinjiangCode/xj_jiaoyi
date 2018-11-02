@@ -185,7 +185,7 @@
                 ansyc: false,
                 dataType: 'json',
                 success: function (data) {
-                    /*console.log(data.data);*/
+                    console.log(data.data);
                     var result =  template("templateTpl",{list:data.data});
                     $('#templateInfo').html(result);
 

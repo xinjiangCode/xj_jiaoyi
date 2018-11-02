@@ -736,7 +736,7 @@
 
 		$('.all_success_alert .modelbtn, .all_success_alert .close').click(function() {
             $(this).parents('.all_success_alert').hide();
-            window.location.reload();
+            // window.location.reload();
         });
 
         $('#xuni_account_pay_alert .close').click(function() {
@@ -1100,12 +1100,55 @@
 		        }
 		    }
 		    xhr.send();
+
+		    //微信支付成功之后
+	    	var wx_timer = setInterval(function(){
+
+				$.ajax({
+					type:"get",
+			        url:pubIP+"memberOrder/findOrderStatus",//v1.0
+			        dataType: "json",
+			        headers: {
+		                Accept: "application/json; charset=utf-8",
+		                token: token
+		            },
+		            data: {
+		            	orderId: orderId
+		            },
+			        success: function(data){
+			        	console.log(data);
+			        	if (data.code == 1) {
+
+			        		$('.all_success_alert .innerSuccmsg').text('支付成功');
+
+	                        $('.all_success_alert').show();
+
+			        		clearInterval(wx_timer);
+
+			        	} else if (data.code == -1) { //支付失败
+
+
+			        	}
+			        },
+			        error: function(err) {
+			        	console.log(err);
+			        }
+			    });
+
+				
+			},3000);
 		  	
 	    }
 
 	    $('.ewm_div').click(function() {
 	    	$(this).hide();
 	    });
+
+
+
+
+	    
+
 
 	    //没用上
 	    $(document).on('click', '.ewm_div img', function(e) {
@@ -1118,9 +1161,9 @@
 	            window.event.cancelBubble = true; 
 	        }
 	    });
-	    
-	    if (userPhone) {
-	    	$('.phone_num').val(userPhone);
+
+	    if (financePhoneNumber) {
+	    	$('.phone_num').val(financePhoneNumber);
 	    }
 	    
 
@@ -1308,14 +1351,27 @@
 				data:{
 					orderId: $('.order_num_num').text(),
 					payPassword: $('#xuni_account_pay_alert .pay_pass_input').val(), //支付验证码
-					phoneCode: $('#xuni_account_pay_alert .code_input').val()
+					phoneCode: $('#xuni_account_pay_alert .code_input').val(),
+					phone: financePhoneNumber
 				},
 				success:function(data){
 					console.log(data);
+					if (data.code == 1) {
 
+						$('.all_success_alert .innerSuccmsg').text('支付成功');
+                        $('.all_success_alert').show();
+                        $('#xuni_account_pay_alert').hide();
+					} else {
+						$('.all_error_alert .innerErrmsg').text(data.msg);
+
+						$('.all_error_alert').show();
+
+					}
 				}
 			})
 	    });
+
+
 
 	    var cFlag1 = true;
 
