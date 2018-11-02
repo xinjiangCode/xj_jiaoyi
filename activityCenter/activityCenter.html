@@ -269,10 +269,13 @@
           	window.parent.$('#lijiBaoming .huoqu_code').text("获取验证码");
           	clickFlgCode = true;
 
-
-        	window.parent.lijiBaoming();
-
-
+			//判断保证金是否为0
+			if($(this).parent().attr('data-bzj')==0 || $(this).parent().attr('data-bzj')==null){
+				ljbm($(this).parent().attr("data-dbid"), 0);
+			}else{
+				window.parent.lijiBaoming();
+			}
+ 
         });
 
         var payPassTrue = true;
