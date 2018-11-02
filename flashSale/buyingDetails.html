@@ -1349,13 +1349,13 @@
 								}
 								return;
 							}
-						
-							// if(thisCompanyId==companyId){
-							// 	$('.all_error_alert p').text('您不能抢购本公司商品！');
-							// 	$('.all_error_alert').show();
-							// 	// alert("您不能抢购本公司商品！");
-							// 	return;
-							// }
+							//不能抢购本公司商品！
+							if(thisCompanyId==companyId){
+								$('.all_error_alert p').text('您不能抢购本公司商品！');
+								$('.all_error_alert').show();
+								// alert("您不能抢购本公司商品！");
+								return;
+							}
 
 							var isOld = localStorage.getItem('isOld');
 							if(isOld != '2') {

@@ -1653,6 +1653,12 @@
 
 					return false;
 				}
+				//判断购买数量是否大于限购数量
+				if($('.addOrSubGoodsNum input').val()>$(".max_num").text()){
+					$('.all_error_alert .innerErrmsg').text('兑换数量不能大于限兑数量');
+					$('.all_error_alert').show();
+					return false;
+				}
 
 
 				sessionStorage.setItem('spec', arr);
