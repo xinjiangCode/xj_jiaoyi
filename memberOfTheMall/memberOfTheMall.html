@@ -808,6 +808,8 @@
 
 		var one = 1;
 		var two = 1;
+
+		var one_one = 0;
 		
 	    //商城列表   分类gay_bottom
 	    $.ajax({
@@ -863,35 +865,35 @@
 
 
 		        		//列表
-		        		var str1 = '';
+		    //     		var str1 = '';
 
-        				str1 += '<span class="member_title">'+data.data[0].categoryName+'</span>'
-								+'<ul class="clearfix" style="display: inline-block;">'
-									for (var y = 0; y < data.data[0].categoryList.length; y++) {
-										if (y < 3) {
-											str1 += '<li class="" data-li="'+(y+1)+'">'+data.data[0].categoryList[y].categoryName+'</li>'	
-										}
+      //   				str1 += '<span class="member_title">'+data.data[0].categoryName+'</span>'
+						// 		+'<ul class="clearfix" style="display: inline-block;">'
+						// 			for (var y = 0; y < data.data[0].categoryList.length; y++) {
+						// 				if (y < 3) {
+						// 					str1 += '<li class="" data-li="'+(y+1)+'">'+data.data[0].categoryList[y].categoryName+'</li>'	
+						// 				}
 										
-									}
-						str1 += '</ul>';
+						// 			}
+						// str1 += '</ul>';
 
-						$('.fa .box1').html(str1);
-						$('.fa .box1 li').eq(0).addClass('current');
+						// $('.fa .box1').html(str1);
+						// $('.fa .box1 li').eq(0).addClass('current');
 
-						var str2 = '';
+						// var str2 = '';
 
-        				str2 += '<span class="member_title">'+data.data[1].categoryName+'</span>'
-								+'<ul class="clearfix" style="display: inline-block;">'
-									for (var y = 0; y < data.data[1].categoryList.length; y++) {
-										if (y < 3) {
-											str2 += '<li class="" data-li="'+(y+1)+'">'+data.data[1].categoryList[y].categoryName+'</li>'	
-										}
+      //   				str2 += '<span class="member_title">'+data.data[1].categoryName+'</span>'
+						// 		+'<ul class="clearfix" style="display: inline-block;">'
+						// 			for (var y = 0; y < data.data[1].categoryList.length; y++) {
+						// 				if (y < 3) {
+						// 					str2 += '<li class="" data-li="'+(y+1)+'">'+data.data[1].categoryList[y].categoryName+'</li>'	
+						// 				}
 										
-									}
-						str2 += '</ul>';
+						// 			}
+						// str2 += '</ul>';
 
-						$('.fa .box2').html(str2);
-						$('.fa .box2 li').eq(0).addClass('current');
+						// $('.fa .box2').html(str2);
+						// $('.fa .box2 li').eq(0).addClass('current');
 				
 		        	}
 	        	}
@@ -907,7 +909,80 @@
 	    	window.location.href = "memberOfTheMallMore.html";
 	    });
 
-		function listAjax() {
+	    list_title();
+
+	    function list_title() {
+	    	$.ajax({
+				type:"get",
+		        url:pubIP+"memberShop/getMemberShopGoodsDataByFloor",//v1.0
+		        dataType: "json",
+		        success: function(data){
+		        	console.log(data);
+
+		        	if (data.code == 1) {
+		        		if (data.data.length != 0) {
+		        			if (data.data.l1) {
+
+			        			if (data.data.l1.floorTagList.length != 0) {
+
+			        				//楼层标题
+			        				$('.box1 .member_title').text(data.data.l1.name);
+
+			        				var title_str1 = '';
+			    					for (var y = 0; y < data.data.l1.floorTagList.length; y++) {
+										
+										if (y < 3) {
+											title_str1 += '<li class="" data-li="'+data.data.l1.floorTagList[y].dbid+'">'+data.data.l1.floorTagList[y].tagName+'</li>'	
+										}
+
+			        				}
+
+			        				$('.fa .box1 ul').html(title_str1);
+
+			        				$('.fa .box1 ul li').eq(0).addClass('current');
+
+			        				listAjax(1, $('.fa .box1 ul li').eq(0).attr('data-li'));
+
+			        			}
+
+			        		}
+
+			        		if (data.data.l2) {
+
+			        			if (data.data.l2.floorTagList.length != 0) {
+
+
+			        				//楼层标题
+			        				$('.box2 .member_title').text(data.data.l2.name);
+
+			        				var title_str2 = '';
+			    					for (var y = 0; y < data.data.l2.floorTagList.length; y++) {
+										
+										if (y < 3) {
+											title_str2 += '<li class="" data-li="'+data.data.l2.floorTagList[y].dbid+'">'+data.data.l2.floorTagList[y].tagName+'</li>'	
+										}
+
+			        				}
+
+			        				$('.fa .box2 ul').html(title_str2);
+
+			        				$('.fa .box2 ul li').eq(0).addClass('current');
+
+			        				listAjax(2, $('.fa .box2 ul li').eq(0).attr('data-li'));
+			        				
+			        			}
+
+			        		}
+		        		}
+		        	}
+
+		        	
+
+		        }
+		    });
+	    }
+
+		function listAjax(lou_ceng_num, ceng_id) {
 			$.ajax({
 				type:"get",
 		        url:pubIP+"memberShop/getMemberShopGoodsDataByFloor",//v1.0
@@ -918,170 +993,162 @@
 
 		        	if (data.code == 1) {
 		        		if (data.data.length != 0) {
-		        			var str_str1 = '';
-		        			for (var y = 0; y < data.data.length; y++) {
-		        				str_str1 += '<div class="member_width">'
-		        						+'<div class="member_list clearfix">'
-										+'<span class="member_title">广告宣传</span>'
-										+'<ul class="clearfix" style="display: inline-block;">'
-											+'<li class="current" data-li="1">平台广告</li>'
-											+'<li data-li="2">推广服务</li>'
-											+'<li data-li="3">设计服务</li>'
-										+'</ul>'
-									+'</div>'
-									+'<div class="member_content">'
-										+'<ul class="clearfix">'
-											+'<li>'
-												+'<img class="wei_icon" src="../img/wei.png" alt="">'
-												+'<img class="img_pic" src="../img/huafei_big_pic.png" alt="">'
-												+'<p class="shop_name">商品名称</p>'
-												+'<p class="integral_money">1888积分+6880元</p>'
-												+'<span class="duihuan_button"><a href="shopDetail.html"><img src="../img/duihuan_button.png" alt=""></a></span>'
-											+'</li>'
-										+'</ul>'
-									+'</div>'
-								+'</div>';
+
+		        			if (lou_ceng_num == 1) {
+			        			if (data.data.l1) {
+			        					
+			        				var str_str3 = '';
+
+			        				a = 0;
+			        				
+			        				if (data.data.l1.floorTagList.length != 0) {
+			        					
+			        					for (var y = 0; y < data.data.l1.floorTagList.length; y++) {
+
+			        						if (data.data.l1.floorTagList[y]) {
+
+			        							if (data.data.l1.floorTagList[y].dbid == ceng_id) {
+
+			        								if (data.data.l1.floorTagList[y].memberShopGoodsVoList.length != 0) {
+														for (var x = 0; x < data.data.l1.floorTagList[y].memberShopGoodsVoList.length; x++) {
+
+															//只显示10个
+															if (a < 10) {
+
+																if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash == null) {
+																	data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash = 0;
+																}
+
+																if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral == null) {
+																	data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral = 0;
+																}
+
+																// console.log(data.data[0].categoryList[y].productList[m].pic);
+																if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic) {
+																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic.indexOf(',') != -1) {
+																		data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic = data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic.split(',');
+																		data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic = data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic[0]
+																	}
+																}
+
+
+																str_str3 += '<li>'
+																	
+																	+'<img class="img_pic" style="width: 140px; height: 141px;"  src="'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic+'" alt="">'
+																	+'<p class="shop_name">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].goodsName+'</p>'
+
+																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].payMethod == 1) {
+																		str_str3 += '<p class="integral_money">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash+'元</p>'
+																	}
+
+																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].payMethod == 2) {
+																		str_str3 += '<p class="integral_money">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral+'积分</p>'
+																	}
+
+																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].payMethod == 3) {
+																		str_str3 += '<p class="integral_money">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral+'积分+'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash+'元</p>'
+																	}
+
+																	str_str3 += '<span class="duihuan_button" data-productId="'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].id+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
+																+'</li>';
+															}
+
+															a++;
+
+														}
+													}
+
+			        							}
+												
+											}
+
+			        					}
+
+			        				}
+			        				
+
+			        				$('.content1 ul').html(str_str3);
+
+			        			}
+			        		}
+
+		        			if (lou_ceng_num == 2) {
+		        				if (data.data.l2) {
+
+			        				b = 0;
+										
+									if (data.data.l2.floorTagList.length != 0) {
+
+										var box3 = '';
+
+										for (var y1 = 0; y1 < data.data.l2.floorTagList.length; y1++) {
+											if (data.data.l2.floorTagList[y1]) {
+												if (data.data.l2.floorTagList[y1].dbid == ceng_id) {
+													if (data.data.l2.floorTagList[y1].memberShopGoodsVoList.length != 0) {
+
+														for (var n = 0; n < data.data.l2.floorTagList[y1].memberShopGoodsVoList.length; n++) {
+
+															//只显示10个
+															if (b < 10) {
+
+																if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash == null) {
+																	data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash = 0;
+																}
+
+																if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral == null) {
+																	data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral = 0;
+																}
+
+																
+																if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic) {
+																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic.indexOf(',') != -1) {
+																		data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic = data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic.split(',');
+																		data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic = data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic[0]
+																	}
+																}
+
+
+																box3 += '<li>'
+																	
+																	+'<img class="img_pic" style="width: 140px; height: 141px;"  src="'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic+'" alt="">'
+																	+'<p class="shop_name">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].goodsName+'</p>'
+
+																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].payMethod == 1) {
+																		box3 += '<p class="integral_money">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash+'元</p>'
+																	}
+
+																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].payMethod == 2) {
+																		box3 += '<p class="integral_money">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral+'积分</p>'
+																	}
+
+																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].payMethod == 3) {
+																		box3 += '<p class="integral_money">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral+'积分+'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash+'元</p>'
+																	}
+
+																	box3 += '<span class="duihuan_button" data-productId="'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].id+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
+																+'</li>';
+															}
+
+															b++;
+
+														}
+													}
+												}
+											}
+										}
+									}
+	
+			        				
+			        				$('.content2 ul').html(box3);
+
+			        			}
 		        			}
 
-		        			$('.fa').html(str_str1);
+		        			
+		        			
 		        		}
 		        	}
 		        	
-		     //    	if (data.code == 1) {
-		     //    		if (data.data.length != 0) {
-		     //    			var str3 = '';
-							// var str4 = '';
-							// // for (var y = 0; y < data.data[0].categoryList.length; y++) {
-							// 	a = 0;
-							// 	if (one == 1) {
-							// 		y = 0;
-							// 	} else if (one == 2) {
-							// 		y = 1;
-							// 	} else if (one = 3) {
-							// 		y = 2;
-							// 	}
-
-							// 	if (data.data[0].categoryList[y]) {
-							// 		for (var m = 0; m < data.data[0].categoryList[y].productList.length; m++) {
-									
-							// 			//只显示10个
-							// 			if (a < 10) {
-							// 				if (data.data[0].categoryList[y].productList) {
-							// 					if (data.data[0].categoryList[y].productList[m].cash == null) {
-							// 						data.data[0].categoryList[y].productList[m].cash = 0;
-							// 					}
-
-							// 					if (data.data[0].categoryList[y].productList[m].integral == null) {
-							// 						data.data[0].categoryList[y].productList[m].integral = 0;
-							// 					}
-
-							// 					// console.log(data.data[0].categoryList[y].productList[m].pic);
-							// 					if (data.data[0].categoryList[y].productList[m].pic) {
-							// 						if (data.data[0].categoryList[y].productList[m].pic.indexOf(',') != -1) {
-							// 							data.data[0].categoryList[y].productList[m].pic = data.data[0].categoryList[y].productList[m].pic.split(',');
-							// 							data.data[0].categoryList[y].productList[m].pic = data.data[0].categoryList[y].productList[m].pic[0]
-							// 						}
-							// 					}
-												
-												
-							// 					str3 += '<li>'
-							// 						// +'<img class="wei_icon" src="../img/wei.png" alt="">'
-							// 						+'<img class="img_pic" style="width: 140px; height: 141px;" src="'+data.data[0].categoryList[y].productList[m].pic+'" alt="">'
-							// 						+'<p class="shop_name">'+data.data[0].categoryList[y].productList[m].goodsName+'</p>'
-
-							// 						if (data.data[0].categoryList[y].productList[m].payMethod == 1) {
-							// 							str3 += '<p class="integral_money">'+data.data[0].categoryList[y].productList[m].cash+'元</p>'
-							// 						}
-
-							// 						if (data.data[0].categoryList[y].productList[m].payMethod == 2) {
-							// 							str3 += '<p class="integral_money">'+data.data[0].categoryList[y].productList[m].integral+'积分</p>'
-							// 						}
-
-							// 						if (data.data[0].categoryList[y].productList[m].payMethod == 3) {
-							// 							str3 += '<p class="integral_money">'+data.data[0].categoryList[y].productList[m].integral+'积分+'+data.data[0].categoryList[y].productList[m].cash+'元</p>'
-							// 						}
-
-							// 						str3 += '<span class="duihuan_button" data-productId="'+data.data[0].categoryList[y].productList[m].productId+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
-							// 					+'</li>'
-							// 				}
-											
-							// 			}
-							// 			a++;
-
-							// 		}
-							// 	}
-							// // }
-					
-								
-			    //     		$('.content1 ul').html(str3);
-
-
-			    //     			b = 0;
-							// 	if (two == 1) {
-							// 		y1 = 0;
-							// 	} else if (two == 2) {
-							// 		y1 = 1;
-							// 	} else if (two = 3) {
-							// 		y1 = 2;
-							// 	}
-								
-							// 	for (var m = 0; m < data.data[1].categoryList[y1].productList.length; m++) {
-									
-							// 		//只显示10个
-							// 		if (b < 10) {
-							// 			if (data.data[1].categoryList[y1].productList) {
-							// 				if (data.data[1].categoryList[y1].productList[m].cash == null) {
-							// 					data.data[1].categoryList[y1].productList[m].cash = 0;
-							// 				}
-
-							// 				if (data.data[1].categoryList[y1].productList[m].integral == null) {
-							// 					data.data[1].categoryList[y1].productList[m].integral = 0;
-							// 				}
-
-							// 				// console.log(data.data[1].categoryList[y1].productList[m].pic);
-							// 				if (data.data[1].categoryList[y1].productList[m].pic) {
-							// 					if (data.data[1].categoryList[y1].productList[m].pic.indexOf(',') != -1) {
-							// 						data.data[1].categoryList[y1].productList[m].pic = data.data[1].categoryList[y1].productList[m].pic.split(',');
-							// 						data.data[1].categoryList[y1].productList[m].pic = data.data[1].categoryList[y1].productList[m].pic[0]
-							// 					}
-							// 				}
-											
-											
-							// 				str4 += '<li>'
-							// 					// +'<img class="wei_icon" src="../img/wei.png" alt="">'
-							// 					+'<img class="img_pic" style="width: 140px; height: 141px;" src="'+data.data[1].categoryList[y1].productList[m].pic+'" alt="">'
-							// 					+'<p class="shop_name">'+data.data[1].categoryList[y1].productList[m].goodsName+'</p>'
-							// 					if (data.data[1].categoryList[y1].productList[m].payMethod == 1) {
-							// 						str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].cash+'元</p>'
-							// 					}
-
-							// 					if (data.data[1].categoryList[y1].productList[m].payMethod == 2) {
-							// 						str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].integral+'积分</p>'
-							// 					}
-
-							// 					if (data.data[1].categoryList[y1].productList[m].payMethod == 3) {
-							// 						str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].integral+'积分+'+data.data[1].categoryList[y1].productList[m].cash+'元</p>'
-							// 					}
-
-												
-							// 					str4 += '<span class="duihuan_button" data-productId="'+data.data[1].categoryList[y1].productList[m].productId+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
-							// 				+'</li>'
-							// 			}
-										
-							// 		}
-							// 		b++;
-
-							// 	}
-
-
-							// // }
-					
-								
-			    //     		$('.content2 ul').html(str4);
-
-		     //    		}
-		     //    	}
-
 		        },
 		        error: function(err) {
 		        	console.log(err);
@@ -1099,23 +1166,21 @@
     	});
 
 
-		listAjax();
-
 		$(document).on('click', '.box1 li', function() {
 			$('.box1 li').removeClass('current');
 			$(this).addClass('current');
-			one = $(this).attr('data-li');
+			// one = $(this).attr('data-li');
 			a = 0;
-			listAjax();
+			listAjax(1, $(this).attr('data-li'));
 		});
 
 
 		$(document).on('click', '.box2 li', function() {
 			$('.box2 li').removeClass('current');
 			$(this).addClass('current');
-			two = $(this).attr('data-li');
+			// one_one = $(this).attr('data-li');
 			b = 0;
-			listAjax();
+			listAjax(2, $(this).attr('data-li'));
 		});
 
 
