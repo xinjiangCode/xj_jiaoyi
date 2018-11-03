@@ -802,7 +802,6 @@
 
         });
 
-
 		var a = 0;
 		var b = 0;
 
@@ -909,178 +908,152 @@
 
 		function listAjax() {
 			$.ajax({
-				type:"get",
-		        url:pubIP+"memberShop/getMemberShopGoodsDataByFloor",//v1.0
+				type:"post",
+		        url:pubIP+"memberShop/getMemberShopClassGroy",//v1.0
+		        cache:false,
 		        dataType: "json",
+		        async:false,
+		        headers: {
+	                Accept: "application/json; charset=utf-8",
+	                token: token
+	            },
 		        success: function(data){
 		        	console.log(data);
-
-
+		        	
 		        	if (data.code == 1) {
 		        		if (data.data.length != 0) {
-		        			var str_str1 = '';
-		        			for (var y = 0; y < data.data.length; y++) {
-		        				str_str1 += '<div class="member_width">'
-		        						+'<div class="member_list clearfix">'
-										+'<span class="member_title">广告宣传</span>'
-										+'<ul class="clearfix" style="display: inline-block;">'
-											+'<li class="current" data-li="1">平台广告</li>'
-											+'<li data-li="2">推广服务</li>'
-											+'<li data-li="3">设计服务</li>'
-										+'</ul>'
-									+'</div>'
-									+'<div class="member_content">'
-										+'<ul class="clearfix">'
-											+'<li>'
-												+'<img class="wei_icon" src="../img/wei.png" alt="">'
-												+'<img class="img_pic" src="../img/huafei_big_pic.png" alt="">'
-												+'<p class="shop_name">商品名称</p>'
-												+'<p class="integral_money">1888积分+6880元</p>'
-												+'<span class="duihuan_button"><a href="shopDetail.html"><img src="../img/duihuan_button.png" alt=""></a></span>'
-											+'</li>'
-										+'</ul>'
-									+'</div>'
-								+'</div>';
-		        			}
+		        			var str3 = '';
+							var str4 = '';
+							// for (var y = 0; y < data.data[0].categoryList.length; y++) {
+								a = 0;
+								if (one == 1) {
+									y = 0;
+								} else if (one == 2) {
+									y = 1;
+								} else if (one = 3) {
+									y = 2;
+								}
 
-		        			$('.fa').html(str_str1);
+								if (data.data[0].categoryList[y]) {
+									for (var m = 0; m < data.data[0].categoryList[y].productList.length; m++) {
+									
+										//只显示10个
+										if (a < 10) {
+											if (data.data[0].categoryList[y].productList) {
+												if (data.data[0].categoryList[y].productList[m].cash == null) {
+													data.data[0].categoryList[y].productList[m].cash = 0;
+												}
+
+												if (data.data[0].categoryList[y].productList[m].integral == null) {
+													data.data[0].categoryList[y].productList[m].integral = 0;
+												}
+
+												// console.log(data.data[0].categoryList[y].productList[m].pic);
+												if (data.data[0].categoryList[y].productList[m].pic) {
+													if (data.data[0].categoryList[y].productList[m].pic.indexOf(',') != -1) {
+														data.data[0].categoryList[y].productList[m].pic = data.data[0].categoryList[y].productList[m].pic.split(',');
+														data.data[0].categoryList[y].productList[m].pic = data.data[0].categoryList[y].productList[m].pic[0]
+													}
+												}
+												
+												
+												str3 += '<li>'
+													// +'<img class="wei_icon" src="../img/wei.png" alt="">'
+													+'<img class="img_pic" style="width: 140px; height: 141px;" src="'+data.data[0].categoryList[y].productList[m].pic+'" alt="">'
+													+'<p class="shop_name">'+data.data[0].categoryList[y].productList[m].goodsName+'</p>'
+
+													if (data.data[0].categoryList[y].productList[m].payMethod == 1) {
+														str3 += '<p class="integral_money">'+data.data[0].categoryList[y].productList[m].cash+'元</p>'
+													}
+
+													if (data.data[0].categoryList[y].productList[m].payMethod == 2) {
+														str3 += '<p class="integral_money">'+data.data[0].categoryList[y].productList[m].integral+'积分</p>'
+													}
+
+													if (data.data[0].categoryList[y].productList[m].payMethod == 3) {
+														str3 += '<p class="integral_money">'+data.data[0].categoryList[y].productList[m].integral+'积分+'+data.data[0].categoryList[y].productList[m].cash+'元</p>'
+													}
+
+													str3 += '<span class="duihuan_button" data-productId="'+data.data[0].categoryList[y].productList[m].productId+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
+												+'</li>'
+											}
+											
+										}
+										a++;
+
+									}
+								}
+							// }
+					
+								
+			        		$('.content1 ul').html(str3);
+
+
+			        			b = 0;
+								if (two == 1) {
+									y1 = 0;
+								} else if (two == 2) {
+									y1 = 1;
+								} else if (two = 3) {
+									y1 = 2;
+								}
+								
+								for (var m = 0; m < data.data[1].categoryList[y1].productList.length; m++) {
+									
+									//只显示10个
+									if (b < 10) {
+										if (data.data[1].categoryList[y1].productList) {
+											if (data.data[1].categoryList[y1].productList[m].cash == null) {
+												data.data[1].categoryList[y1].productList[m].cash = 0;
+											}
+
+											if (data.data[1].categoryList[y1].productList[m].integral == null) {
+												data.data[1].categoryList[y1].productList[m].integral = 0;
+											}
+
+											// console.log(data.data[1].categoryList[y1].productList[m].pic);
+											if (data.data[1].categoryList[y1].productList[m].pic) {
+												if (data.data[1].categoryList[y1].productList[m].pic.indexOf(',') != -1) {
+													data.data[1].categoryList[y1].productList[m].pic = data.data[1].categoryList[y1].productList[m].pic.split(',');
+													data.data[1].categoryList[y1].productList[m].pic = data.data[1].categoryList[y1].productList[m].pic[0]
+												}
+											}
+											
+											
+											str4 += '<li>'
+												// +'<img class="wei_icon" src="../img/wei.png" alt="">'
+												+'<img class="img_pic" style="width: 140px; height: 141px;" src="'+data.data[1].categoryList[y1].productList[m].pic+'" alt="">'
+												+'<p class="shop_name">'+data.data[1].categoryList[y1].productList[m].goodsName+'</p>'
+												if (data.data[1].categoryList[y1].productList[m].payMethod == 1) {
+													str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].cash+'元</p>'
+												}
+
+												if (data.data[1].categoryList[y1].productList[m].payMethod == 2) {
+													str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].integral+'积分</p>'
+												}
+
+												if (data.data[1].categoryList[y1].productList[m].payMethod == 3) {
+													str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].integral+'积分+'+data.data[1].categoryList[y1].productList[m].cash+'元</p>'
+												}
+
+												
+												str4 += '<span class="duihuan_button" data-productId="'+data.data[1].categoryList[y1].productList[m].productId+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
+											+'</li>'
+										}
+										
+									}
+									b++;
+
+								}
+
+
+							// }
+					
+								
+			        		$('.content2 ul').html(str4);
+
 		        		}
 		        	}
-		        	
-		     //    	if (data.code == 1) {
-		     //    		if (data.data.length != 0) {
-		     //    			var str3 = '';
-							// var str4 = '';
-							// // for (var y = 0; y < data.data[0].categoryList.length; y++) {
-							// 	a = 0;
-							// 	if (one == 1) {
-							// 		y = 0;
-							// 	} else if (one == 2) {
-							// 		y = 1;
-							// 	} else if (one = 3) {
-							// 		y = 2;
-							// 	}
-
-							// 	if (data.data[0].categoryList[y]) {
-							// 		for (var m = 0; m < data.data[0].categoryList[y].productList.length; m++) {
-									
-							// 			//只显示10个
-							// 			if (a < 10) {
-							// 				if (data.data[0].categoryList[y].productList) {
-							// 					if (data.data[0].categoryList[y].productList[m].cash == null) {
-							// 						data.data[0].categoryList[y].productList[m].cash = 0;
-							// 					}
-
-							// 					if (data.data[0].categoryList[y].productList[m].integral == null) {
-							// 						data.data[0].categoryList[y].productList[m].integral = 0;
-							// 					}
-
-							// 					// console.log(data.data[0].categoryList[y].productList[m].pic);
-							// 					if (data.data[0].categoryList[y].productList[m].pic) {
-							// 						if (data.data[0].categoryList[y].productList[m].pic.indexOf(',') != -1) {
-							// 							data.data[0].categoryList[y].productList[m].pic = data.data[0].categoryList[y].productList[m].pic.split(',');
-							// 							data.data[0].categoryList[y].productList[m].pic = data.data[0].categoryList[y].productList[m].pic[0]
-							// 						}
-							// 					}
-												
-												
-							// 					str3 += '<li>'
-							// 						// +'<img class="wei_icon" src="../img/wei.png" alt="">'
-							// 						+'<img class="img_pic" style="width: 140px; height: 141px;" src="'+data.data[0].categoryList[y].productList[m].pic+'" alt="">'
-							// 						+'<p class="shop_name">'+data.data[0].categoryList[y].productList[m].goodsName+'</p>'
-
-							// 						if (data.data[0].categoryList[y].productList[m].payMethod == 1) {
-							// 							str3 += '<p class="integral_money">'+data.data[0].categoryList[y].productList[m].cash+'元</p>'
-							// 						}
-
-							// 						if (data.data[0].categoryList[y].productList[m].payMethod == 2) {
-							// 							str3 += '<p class="integral_money">'+data.data[0].categoryList[y].productList[m].integral+'积分</p>'
-							// 						}
-
-							// 						if (data.data[0].categoryList[y].productList[m].payMethod == 3) {
-							// 							str3 += '<p class="integral_money">'+data.data[0].categoryList[y].productList[m].integral+'积分+'+data.data[0].categoryList[y].productList[m].cash+'元</p>'
-							// 						}
-
-							// 						str3 += '<span class="duihuan_button" data-productId="'+data.data[0].categoryList[y].productList[m].productId+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
-							// 					+'</li>'
-							// 				}
-											
-							// 			}
-							// 			a++;
-
-							// 		}
-							// 	}
-							// // }
-					
-								
-			    //     		$('.content1 ul').html(str3);
-
-
-			    //     			b = 0;
-							// 	if (two == 1) {
-							// 		y1 = 0;
-							// 	} else if (two == 2) {
-							// 		y1 = 1;
-							// 	} else if (two = 3) {
-							// 		y1 = 2;
-							// 	}
-								
-							// 	for (var m = 0; m < data.data[1].categoryList[y1].productList.length; m++) {
-									
-							// 		//只显示10个
-							// 		if (b < 10) {
-							// 			if (data.data[1].categoryList[y1].productList) {
-							// 				if (data.data[1].categoryList[y1].productList[m].cash == null) {
-							// 					data.data[1].categoryList[y1].productList[m].cash = 0;
-							// 				}
-
-							// 				if (data.data[1].categoryList[y1].productList[m].integral == null) {
-							// 					data.data[1].categoryList[y1].productList[m].integral = 0;
-							// 				}
-
-							// 				// console.log(data.data[1].categoryList[y1].productList[m].pic);
-							// 				if (data.data[1].categoryList[y1].productList[m].pic) {
-							// 					if (data.data[1].categoryList[y1].productList[m].pic.indexOf(',') != -1) {
-							// 						data.data[1].categoryList[y1].productList[m].pic = data.data[1].categoryList[y1].productList[m].pic.split(',');
-							// 						data.data[1].categoryList[y1].productList[m].pic = data.data[1].categoryList[y1].productList[m].pic[0]
-							// 					}
-							// 				}
-											
-											
-							// 				str4 += '<li>'
-							// 					// +'<img class="wei_icon" src="../img/wei.png" alt="">'
-							// 					+'<img class="img_pic" style="width: 140px; height: 141px;" src="'+data.data[1].categoryList[y1].productList[m].pic+'" alt="">'
-							// 					+'<p class="shop_name">'+data.data[1].categoryList[y1].productList[m].goodsName+'</p>'
-							// 					if (data.data[1].categoryList[y1].productList[m].payMethod == 1) {
-							// 						str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].cash+'元</p>'
-							// 					}
-
-							// 					if (data.data[1].categoryList[y1].productList[m].payMethod == 2) {
-							// 						str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].integral+'积分</p>'
-							// 					}
-
-							// 					if (data.data[1].categoryList[y1].productList[m].payMethod == 3) {
-							// 						str4 += '<p class="integral_money">'+data.data[1].categoryList[y1].productList[m].integral+'积分+'+data.data[1].categoryList[y1].productList[m].cash+'元</p>'
-							// 					}
-
-												
-							// 					str4 += '<span class="duihuan_button" data-productId="'+data.data[1].categoryList[y1].productList[m].productId+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
-							// 				+'</li>'
-							// 			}
-										
-							// 		}
-							// 		b++;
-
-							// 	}
-
-
-							// // }
-					
-								
-			    //     		$('.content2 ul').html(str4);
-
-		     //    		}
-		     //    	}
 
 		        },
 		        error: function(err) {
@@ -1097,7 +1070,6 @@
     		window.location.href = "shopDetail.html";
 
     	});
-
 
 		listAjax();
 
