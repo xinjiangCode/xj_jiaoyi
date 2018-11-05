@@ -842,13 +842,31 @@ function upload_file(obj) {
                         if (data.code == 1) {
                             console.log(data);
 
-                            $('#chujin_account_name1').val(data.data.accounts[0].accountName);
-                            $('#chujin_account_account1').val(data.data.accounts[0].accountId);
-                            $('#kaihu_bank_info1').val(data.data.accounts[0].bankName);
+                            if (data.data) {
+                                if (data.data.accounts) {
+                                    for (var i = 0; i < data.data.accounts.length; i++) {
+                                        if (data.data.accounts[i].accountType == 3) { //承兑账户
+                                            $('#chujin_account_name2').val(data.data.accounts[i].accountName);
+                                            $('#chujin_account_account2').val(data.data.accounts[i].accountId);
+                                            $('#kaihu_bank_info2').val(data.data.accounts[i].bankName);
+                                        } else if (data.data.accounts[i].accountType == 1) { //出金账户
+                                            $('#chujin_account_name1').val(data.data.accounts[i].accountName);
+                                            $('#chujin_account_account1').val(data.data.accounts[i].accountId);
+                                            $('#kaihu_bank_info1').val(data.data.accounts[i].bankName);
+                                        }
+                                        
+                                    }
+                                }
+                            }
+                            
 
-                            $('#chujin_account_name2').val(data.data.accounts[1].accountName);
-                            $('#chujin_account_account2').val(data.data.accounts[1].accountId);
-                            $('#kaihu_bank_info2').val(data.data.accounts[1].bankName);
+                            // $('#chujin_account_name1').val(data.data.accounts[0].accountName);
+                            // $('#chujin_account_account1').val(data.data.accounts[0].accountId);
+                            // $('#kaihu_bank_info1').val(data.data.accounts[0].bankName);
+
+                            // $('#chujin_account_name2').val(data.data.accounts[1].accountName);
+                            // $('#chujin_account_account2').val(data.data.accounts[1].accountId);
+                            // $('#kaihu_bank_info2').val(data.data.accounts[1].bankName);
                             
                             
                         } else {

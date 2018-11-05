@@ -579,11 +579,11 @@ if(adct == '首页' ){
 document.writeln(headLink);
 
 // var headerip = 'http://api.xjv56.com/service/';
-// var headerip = 'http://api.test.xjv56.com/service/';
-var headerip = 'http://192.168.1.80:7777/service/';
+var headerip = 'http://api.test.xjv56.com/service/';
+// var headerip = 'http://192.168.1.80:7777/service/';
 // var headerip = 'http://192.168.1.176:7777/service/';
 // var headerip = 'http://192.168.1.57:7777/service/';
-// var headerip = 'http://192.168.1.105:7777/service/';
+// var headerip = 'http://192.168.1.195:7777/service/';
 
 // var headerip = 'http://127.0.0.1:7777/service/';
 

@@ -131,7 +131,7 @@
         <span class="allPageN">1/200</span>
         共<span class="allPageSize"></span>页，
         <span>到第</span>
-        <input class="page_page" type="text"/>
+        <input class="page_page" style="padding-left: 0px;" type="text"/>
         <span>页</span>
         <button type="button" class="button goPage">GO</button>
     </div>
@@ -142,7 +142,7 @@
 <script src="../../js/pager.js" type="text/javascript" charset="utf-8"></script>
 <script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$('.goPage').click(function(){
 		addMsg($('.page_page').val()-1);
 	})
@@ -212,7 +212,7 @@
 	   });
 	}
 	$(document).on('click','.look_detail_btn',function(){
-		//查看详情 甲方未给弹框ui
+
         window.parent.forget();
 
 		window.parent.$('.DetTit').text($(this).parents('tr').find('td').eq(1).text());
@@ -234,9 +234,115 @@
 	      success: function(json){}
 	     })
 	})
-	// $('.cancel').click(function(){
-	// 	window.parent.$('#forget').hide();
-	// })
+
+</script> -->
+<script type="text/javascript">
+    $('.goPage').click(function(){
+        addMsg($('.page_page').val()-1, 10);
+    })
+    
+    $('.objListBox>div:nth-child(5n)').css('margin-right','0');
+    
+    var isFirst = true;
+
+    var totalPage = 1;
+
+    addMsg(1, 10);
+
+
+    function addMsg(num, size){
+        $('.pagination').parent().hide();
+        $(".shop_list_table tbody").html("");
+        $.ajax({ 
+          type:"post",
+          url: pubIP + "notice/messageNewsList",//v1.1
+          cache:false,
+          dataType: "json",
+          async:false,
+          headers: {
+            token: token
+          },
+          data:{
+                'page':num,
+                'size':size
+          },
+          success: function(json){
+            console.log(json);
+            if(json.code == '0'){
+                    $('.pageJump').hide();
+                    $('.shop_list_table tbody').html('');
+                    $('.notMsg').show();
+                    return false;
+            }
+            if(isFirst){
+                    
+                    totalPage = Number(Math.ceil(json.count / size));
+                    // totalPage = Number(json.count) % size == 0 ? Number(json.count) / size : Number(json.count) / size + 1;
+
+                    console.log(totalPage);
+
+                    Page({
+                    num: totalPage,
+                    elem: $('#page1'),
+                    callback: function(n) {
+                        //console.log(n);
+                        addMsg(n, size);
+                    }
+                });
+
+                isFirst = false;
+            }
+
+            $('.allPageN').text(num+'/'+totalPage);
+            $('.allPageSize').text(totalPage);
+
+            var result = ''
+            $.each(json.data,function(i,t){
+                var status = t.status == 0 ? "未读" : "已读";
+                // var time = new Date(t.addTimeStr).Format("yyyy-MM-dd");
+                // var timede = new Date(t.addTimeStr).Format("yyyy-MM-dd HH:mm:ss");
+                result += '<tr>\
+                            <td><span class="sort">'+(i+1)+'</span></td>\
+                            <td>'+t.names+'</td>\
+                            <td><div class="message_content_width">'+t.content+'</div></td>\
+                            <td style="color: #007aff;">'+status+'</td>\
+                            <td time="'+t.addTimeStr+'">'+t.addTimeStr+'</td>\
+                            <td><span class="look_detail_btn exist_qx" data-exist="68" id="'+t.id+'">查看详情</span></td>\
+                           </tr>'   ;
+            })
+            $('.notMsg').hide();
+              $('.pagination').parent().show();
+            $('.shop_list_table tbody').html(result);
+            },
+            error:function(xhr,statues,error){
+                
+            }
+       });
+    }
+    $(document).on('click','.look_detail_btn',function(){
+
+        window.parent.forget();
+
+        window.parent.$('.DetTit').text($(this).parents('tr').find('td').eq(1).text());
+        window.parent.$('.DeCont').text($(this).parents('tr').find('td').eq(2).text());
+        window.parent.$('.Detime').text($(this).parents('tr').find('td').eq(4).text());
+        $(this).parents('tr').find('td').eq(3).text('已读')
+        
+        $.ajax({ 
+          type:"post",
+          url:pubIP+"notice/getMessageNews",//v1.1
+          cache:false,
+          dataType: "json",
+          headers: {
+            token: token
+          },
+          data:{
+                'id':$(this).attr('id'),
+          },
+          success: function(json){}
+         })
+    })
+
 </script>
 </body>
 </html>

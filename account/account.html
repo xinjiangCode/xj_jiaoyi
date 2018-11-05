@@ -1177,7 +1177,7 @@
         <div class="modelcontent">
             <div class="modelTxt"></div>
             <div class="modelBtnBox">
-                <div style="background:#5690f6; margin: 20px 0 0 0;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+                <div style="background:#5690f6; margin: 20px 0 0 0;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn zinzeng_ok">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
                 <div style="color:#5690f6;margin: 20px 0 0 0;margin-left:40px;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn cancel">取&nbsp;&nbsp;&nbsp;&nbsp;消</div>
             </div>
         </div>
@@ -3162,6 +3162,7 @@
             $(".hzf_wdcgdd").parent().parent().toggle();
             $(".hzf_wdcgdd").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
             $("#Iframe").attr("src","myPurchase-orderDetail.html?userType=1&id="+biaoshi002);
+
         }
 
         if (jump_flag == 'flag_qyrz') { //账户资料
@@ -3417,6 +3418,8 @@
                     $("#Iframe").attr("src",_that.attr("data-src"));
                     $("#Iframe").attr("height",_that.attr("data-height"));
                     $("#Iframe").css("height",_that.attr("data-height"));
+
+                    window.sessionStorage.setItem('chushi_status', '');
 
                     if (data.data.type == 1) { //未提交
                         $('#account_ziliao').attr('data-src', 'companyRenzheng/promptCompanyRenzheng.html')

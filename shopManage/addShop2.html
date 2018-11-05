@@ -418,9 +418,10 @@
 				success: function (data) {
 					console.log(data);
 					if(data.code == 1){
-
+						window.parent.$('.modelBox').css('display', 'none');
 //						$('.selectAddr option:selected').text(warehouseName);
-                        searchAddress()
+                        searchAddress();
+
 					}
 				},
 				error: function(err){
@@ -586,8 +587,7 @@
 		})
 		
 		// 点击确定--关闭模态框
-         window.parent.$('.modelBox .confirm').unbind();
-		window.parent.$('.modelBox .confirm').click(function(){
+		window.parent.$('.modelBox .zinzeng_ok').unbind('click').click(function(){
 			var province = $(window.parent.document).find(".modelBox #province option:selected").text(), 
 				city=$(window.parent.document).find(".modelBox #city  option:selected").text(), 
 				area=$(window.parent.document).find(".modelBox #area option:selected").text(), 
@@ -600,33 +600,45 @@
 				defaultFlag=defaultFlag?defaultFlag:0;
 			
 			if(!province){
-				alert('请选择省份');
+				// alert('请选择省份');
+				window.parent.$('.all_error_alert p').text('请选择省份');
+				window.parent.$('.all_error_alert').show();
 				return;
 			}
 			if(!city){
-				alert('请选择城市');
+				// alert('请选择城市');
+				window.parent.$('.all_error_alert p').text('请选择城市');
+				window.parent.$('.all_error_alert').show();
 				return;
 			}
 			if(!area){
-				alert('请选择区域');
+				// alert('请选择区域');
+				window.parent.$('.all_error_alert p').text('请选择区域');
+				window.parent.$('.all_error_alert').show();
 				return;
 			}
 			if(!detail_address.trim()){
-				alert('请输入具体的地址');
+				// alert('请输入具体的地址');
+				window.parent.$('.all_error_alert p').text('请输入具体的地址');
+				window.parent.$('.all_error_alert').show();
 				return;
 			}
 			if(!warehouseName.trim()){
-				alert('请输入仓库名');
+				// alert('请输入仓库名');
+				window.parent.$('.all_error_alert p').text('请输入仓库名');
+				window.parent.$('.all_error_alert').show();
 				return;
 			}
 			if(!warehouseType){
-				alert('请选择仓库类型');
+				// alert('请选择仓库类型');
+				window.parent.$('.all_error_alert p').text('请选择仓库类型');
+				window.parent.$('.all_error_alert').show();
 				return;
 			}
 			console.log(warehouseType);
 			/*添加仓库地址*/ 
 			addAddr(warehouseName, province, city, area, detail_address, warehouseType, defaultFlag);
-			$('.modelBox').css('display','none');
+			// $('.modelBox').css('display','none');
 		});
 
 		// 记录信息

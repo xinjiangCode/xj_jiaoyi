@@ -291,6 +291,10 @@
         return "\@u"+res.join("\@u");
     }
 
+    //资金账户概览进入的直接是待支付
+
+    
+
 
     $(function(){
         $('.objListBox>div:nth-child(5n)').css('margin-right','0');
@@ -301,7 +305,15 @@
             currentPage=1,
             ordersListHTML='';
         var dataType =  $(".selectPub_hzf1").attr("data-selectedindex");
-        getOrder(ordertype,status,currentPage,orderMsg,pageSize,dataType);
+
+        if (sessionStorage.getItem('chushi_status') == '1') {
+            $('.myPurchase-tab span').removeClass('active');
+            $('.myPurchase-tab span').eq(2).addClass('active');
+            status = 3;
+        } 
+
+        getOrder(ordertype,status,currentPage,orderMsg,pageSize,dataType);   
+        
         // 点击搜索查询
         $('.search').click(function(){
             orderMsg = $(this).siblings('input').val();

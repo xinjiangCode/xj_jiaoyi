@@ -283,8 +283,9 @@
 		            console.log(json);
 		            if(json.code == 1){
 		            		// alert('修改成功!');
-                        $('.msgInfo').text("修改成功");
-;                        $('.modelBox24').show();
+                        // $('.msgInfo').text("修改成功");
+;                        window.parent.$('.all_success_alert p').text('修改成功');
+;                        window.parent.$('.all_success_alert').show();
 		            }
 		          },
 		          error:function(xhr,statues,error){

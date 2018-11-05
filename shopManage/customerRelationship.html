@@ -344,7 +344,7 @@
 
 			var strUp = $('.str_up').val();
 			// var storeType = $('.store_type').val();
-			var storeType = $('.store_type').attr('data-selectIndex');
+			var storeType = $('.store_type').attr('data-selectedIndex');
 
 			customerList(1, 9, strUp, storeType);
 		});
@@ -378,6 +378,7 @@
 
 		// 客户关系列表
 		function customerList(num, size, strUp, storeType) {
+			console.log(storeType);
 			$.ajax({
 		    	url: pubIP + 'storeRelationship/getStoreRelationshipList',
 	            type: 'get',

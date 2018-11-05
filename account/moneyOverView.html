@@ -34,6 +34,10 @@
          .user div{
          	text-align: left;
          }
+
+         .dai_pay_buy_order, .dai_pay_duizhang_order, .dai_ok_duizhang_order {
+            cursor: pointer;
+         }
     </style>
 </head>
 <body>
@@ -58,11 +62,11 @@
     </div>
     <div class="fast"><a href="##">快速入口</a></div>
     <div class="orderList">
-        <div class="Lf">待支付采购订单（<i style="color: #7dabff;">0</i>）</div>
+        <div class="Lf dai_pay_buy_order">待支付采购订单（<i style="color: #7dabff;">0</i>）</div>
         <div class="row Lf"></div>
-        <div class="Lf">待支付兑账订单（<i style="color: #7dabff;">0</i>）</div>
+        <div class="Lf dai_pay_duizhang_order">待支付兑账订单（<i style="color: #7dabff;">0</i>）</div>
         <div class="row Lf"></div>
-        <div class="Lf">待确定兑账订单（<i style="color: #7dabff;">0</i>）</div>
+        <div class="Lf dai_ok_duizhang_order">待确定兑账订单（<i style="color: #7dabff;">0</i>）</div>
         <div class="row Lf"></div>
         <div class="Lf">账单下载</div>
     </div>
@@ -156,7 +160,7 @@
         }   
     });
 
-	//资金账户快速入口统计(一期只有待支付采购订单)
+	//资金账户快速入口统计---待支付采购订单
 	$.ajax({ 
         type:"get",
         url:pubIP+"orderApi/countOrderMoneyAccount",//v1.0
@@ -168,12 +172,35 @@
         },
         success: function(json){
         console.log(json.data);
-        $('.orderList i').eq(0).text(json.data.stayPayOrder);
+            $('.orderList i').eq(0).text(json.data.stayPayOrder);
         },
         error:function(xhr,statues,error){
             
         }
     });
+
+    //待支付采购订单
+    $('.dai_pay_buy_order').click(function() {
+        window.sessionStorage.setItem('chushi_status', '1');
+        window.location.href = 'myPurchase-order.html';
+    });
+
+
+    //待支付兑账订单
+    $('.dai_pay_duizhang_order').click(function() {
+        window.sessionStorage.setItem('chushi_status', '2');
+        window.location.href = '../standingBook/accountCheck.html';
+    });
+
+
+    //待确认兑账订单
+    $('.dai_ok_duizhang_order').click(function() {
+        window.sessionStorage.setItem('chushi_status', '3');
+        window.location.href = '../standingBook/accountCheck.html';
+    });
+    
+
+
     
     // 最近财务明细接口V1.0-中信银行接口-----------暂无数据
     $.ajax({

@@ -230,12 +230,23 @@
 			});
 		}
 		
+		//待支付兑账订单
+		if (window.sessionStorage.getItem('chushi_status') == '2') {
+			$(".account_check_list_ul li").removeClass('active');
+        	$('.account_check_list_li3').addClass('active');
+        }
 
+        //待确认兑账订单
+        if (window.sessionStorage.getItem('chushi_status') == '3') {
+        	$(".account_check_list_ul li").removeClass('active');
+        	$('.account_check_list_li2').addClass('active');
+        }
 
         $(".account_check_list_ul  li").unbind();
 		$(".account_check_list_ul  li").click(function () {
             $(".account_check_list_ul  li").removeClass("active");
             $(this).addClass("active");
+            
             dz_list(1);
         }).hover(function() {
         	$(this).css({

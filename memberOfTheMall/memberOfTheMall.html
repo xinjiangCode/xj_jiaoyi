@@ -922,55 +922,62 @@
 		        	if (data.code == 1) {
 		        		if (data.data.length != 0) {
 		        			if (data.data.l1) {
+		        				if (data.data.l1.floorTagList) {
+		        					if (data.data.l1.floorTagList.length != 0) {
 
-			        			if (data.data.l1.floorTagList.length != 0) {
+				        				//楼层标题
+				        				$('.box1 .member_title').text(data.data.l1.name);
 
-			        				//楼层标题
-			        				$('.box1 .member_title').text(data.data.l1.name);
+				        				var title_str1 = '';
+				    					for (var y = 0; y < data.data.l1.floorTagList.length; y++) {
+											
+											if (y < 3) {
+												title_str1 += '<li class="" data-li="'+data.data.l1.floorTagList[y].dbid+'">'+data.data.l1.floorTagList[y].tagName+'</li>'	
+											}
 
-			        				var title_str1 = '';
-			    					for (var y = 0; y < data.data.l1.floorTagList.length; y++) {
-										
-										if (y < 3) {
-											title_str1 += '<li class="" data-li="'+data.data.l1.floorTagList[y].dbid+'">'+data.data.l1.floorTagList[y].tagName+'</li>'	
-										}
+				        				}
 
-			        				}
+				        				$('.fa .box1 ul').html(title_str1);
 
-			        				$('.fa .box1 ul').html(title_str1);
+				        				$('.fa .box1 ul li').eq(0).addClass('current');
 
-			        				$('.fa .box1 ul li').eq(0).addClass('current');
+				        				listAjax(1, $('.fa .box1 ul li').eq(0).attr('data-li'));
 
-			        				listAjax(1, $('.fa .box1 ul li').eq(0).attr('data-li'));
-
-			        			}
+				        			}
+		        				}
+			        			
 
 			        		}
 
 			        		if (data.data.l2) {
 
-			        			if (data.data.l2.floorTagList.length != 0) {
+			        			if (data.data.l2.floorTagList) {
+
+			        				if (data.data.l2.floorTagList.length != 0) {
 
 
-			        				//楼层标题
-			        				$('.box2 .member_title').text(data.data.l2.name);
+				        				//楼层标题
+				        				$('.box2 .member_title').text(data.data.l2.name);
 
-			        				var title_str2 = '';
-			    					for (var y = 0; y < data.data.l2.floorTagList.length; y++) {
-										
-										if (y < 3) {
-											title_str2 += '<li class="" data-li="'+data.data.l2.floorTagList[y].dbid+'">'+data.data.l2.floorTagList[y].tagName+'</li>'	
-										}
+				        				var title_str2 = '';
+				    					for (var y = 0; y < data.data.l2.floorTagList.length; y++) {
+											
+											if (y < 3) {
+												title_str2 += '<li class="" data-li="'+data.data.l2.floorTagList[y].dbid+'">'+data.data.l2.floorTagList[y].tagName+'</li>'	
+											}
 
-			        				}
+				        				}
 
-			        				$('.fa .box2 ul').html(title_str2);
+				        				$('.fa .box2 ul').html(title_str2);
 
-			        				$('.fa .box2 ul li').eq(0).addClass('current');
+				        				$('.fa .box2 ul li').eq(0).addClass('current');
 
-			        				listAjax(2, $('.fa .box2 ul li').eq(0).attr('data-li'));
-			        				
+				        				listAjax(2, $('.fa .box2 ul li').eq(0).attr('data-li'));
+				        				
+				        			}
 			        			}
+
+			        			
 
 			        		}
 		        		}
@@ -1000,72 +1007,75 @@
 			        				var str_str3 = '';
 
 			        				a = 0;
-			        				
-			        				if (data.data.l1.floorTagList.length != 0) {
+			        				if (data.data.l1.floorTagList) {
+
+			        					if (data.data.l1.floorTagList.length != 0) {
 			        					
-			        					for (var y = 0; y < data.data.l1.floorTagList.length; y++) {
+				        					for (var y = 0; y < data.data.l1.floorTagList.length; y++) {
 
-			        						if (data.data.l1.floorTagList[y]) {
+				        						if (data.data.l1.floorTagList[y]) {
 
-			        							if (data.data.l1.floorTagList[y].dbid == ceng_id) {
+				        							if (data.data.l1.floorTagList[y].dbid == ceng_id) {
 
-			        								if (data.data.l1.floorTagList[y].memberShopGoodsVoList.length != 0) {
-														for (var x = 0; x < data.data.l1.floorTagList[y].memberShopGoodsVoList.length; x++) {
+				        								if (data.data.l1.floorTagList[y].memberShopGoodsVoList.length != 0) {
+															for (var x = 0; x < data.data.l1.floorTagList[y].memberShopGoodsVoList.length; x++) {
 
-															//只显示10个
-															if (a < 10) {
+																//只显示10个
+																if (a < 10) {
 
-																if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash == null) {
-																	data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash = 0;
+																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash == null) {
+																		data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash = 0;
+																	}
+
+																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral == null) {
+																		data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral = 0;
+																	}
+
+																	// console.log(data.data[0].categoryList[y].productList[m].pic);
+																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic) {
+																		if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic.indexOf(',') != -1) {
+																			data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic = data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic.split(',');
+																			data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic = data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic[0]
+																		}
+																	}
+
+
+																	str_str3 += '<li>'
+																		
+																		+'<img class="img_pic" style="width: 140px; height: 141px;"  src="'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic+'" alt="">'
+																		+'<p class="shop_name">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].goodsName+'</p>'
+
+																		if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].payMethod == 1) {
+																			str_str3 += '<p class="integral_money">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash+'元</p>'
+																		}
+
+																		if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].payMethod == 2) {
+																			str_str3 += '<p class="integral_money">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral+'积分</p>'
+																		}
+
+																		if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].payMethod == 3) {
+																			str_str3 += '<p class="integral_money">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral+'积分+'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash+'元</p>'
+																		}
+
+																		str_str3 += '<span class="duihuan_button" data-productId="'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].id+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
+																	+'</li>';
 																}
 
-																if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral == null) {
-																	data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral = 0;
-																}
+																a++;
 
-																// console.log(data.data[0].categoryList[y].productList[m].pic);
-																if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic) {
-																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic.indexOf(',') != -1) {
-																		data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic = data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic.split(',');
-																		data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic = data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic[0]
-																	}
-																}
-
-
-																str_str3 += '<li>'
-																	
-																	+'<img class="img_pic" style="width: 140px; height: 141px;"  src="'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].pic+'" alt="">'
-																	+'<p class="shop_name">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].goodsName+'</p>'
-
-																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].payMethod == 1) {
-																		str_str3 += '<p class="integral_money">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash+'元</p>'
-																	}
-
-																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].payMethod == 2) {
-																		str_str3 += '<p class="integral_money">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral+'积分</p>'
-																	}
-
-																	if (data.data.l1.floorTagList[y].memberShopGoodsVoList[x].payMethod == 3) {
-																		str_str3 += '<p class="integral_money">'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].integral+'积分+'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].cash+'元</p>'
-																	}
-
-																	str_str3 += '<span class="duihuan_button" data-productId="'+data.data.l1.floorTagList[y].memberShopGoodsVoList[x].id+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
-																+'</li>';
 															}
-
-															a++;
-
 														}
-													}
 
-			        							}
-												
-											}
+				        							}
+													
+												}
 
-			        					}
+				        					}
+
+				        				}
 
 			        				}
-			        				
+	
 
 			        				$('.content1 ul').html(str_str3);
 
@@ -1076,67 +1086,73 @@
 		        				if (data.data.l2) {
 
 			        				b = 0;
-										
-									if (data.data.l2.floorTagList.length != 0) {
 
-										var box3 = '';
+			        				if (data.data.l2.floorTagList) {
 
-										for (var y1 = 0; y1 < data.data.l2.floorTagList.length; y1++) {
-											if (data.data.l2.floorTagList[y1]) {
-												if (data.data.l2.floorTagList[y1].dbid == ceng_id) {
-													if (data.data.l2.floorTagList[y1].memberShopGoodsVoList.length != 0) {
+			        					if (data.data.l2.floorTagList.length != 0) {
 
-														for (var n = 0; n < data.data.l2.floorTagList[y1].memberShopGoodsVoList.length; n++) {
+											var box3 = '';
 
-															//只显示10个
-															if (b < 10) {
+											for (var y1 = 0; y1 < data.data.l2.floorTagList.length; y1++) {
+												if (data.data.l2.floorTagList[y1]) {
+													if (data.data.l2.floorTagList[y1].dbid == ceng_id) {
+														if (data.data.l2.floorTagList[y1].memberShopGoodsVoList.length != 0) {
 
-																if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash == null) {
-																	data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash = 0;
-																}
+															for (var n = 0; n < data.data.l2.floorTagList[y1].memberShopGoodsVoList.length; n++) {
 
-																if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral == null) {
-																	data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral = 0;
-																}
+																//只显示10个
+																if (b < 10) {
 
-																
-																if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic) {
-																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic.indexOf(',') != -1) {
-																		data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic = data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic.split(',');
-																		data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic = data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic[0]
+																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash == null) {
+																		data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash = 0;
 																	}
-																}
 
+																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral == null) {
+																		data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral = 0;
+																	}
 
-																box3 += '<li>'
 																	
-																	+'<img class="img_pic" style="width: 140px; height: 141px;"  src="'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic+'" alt="">'
-																	+'<p class="shop_name">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].goodsName+'</p>'
-
-																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].payMethod == 1) {
-																		box3 += '<p class="integral_money">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash+'元</p>'
+																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic) {
+																		if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic.indexOf(',') != -1) {
+																			data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic = data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic.split(',');
+																			data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic = data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic[0]
+																		}
 																	}
 
-																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].payMethod == 2) {
-																		box3 += '<p class="integral_money">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral+'积分</p>'
-																	}
 
-																	if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].payMethod == 3) {
-																		box3 += '<p class="integral_money">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral+'积分+'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash+'元</p>'
-																	}
+																	box3 += '<li>'
+																		
+																		+'<img class="img_pic" style="width: 140px; height: 141px;"  src="'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].pic+'" alt="">'
+																		+'<p class="shop_name">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].goodsName+'</p>'
 
-																	box3 += '<span class="duihuan_button" data-productId="'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].id+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
-																+'</li>';
+																		if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].payMethod == 1) {
+																			box3 += '<p class="integral_money">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash+'元</p>'
+																		}
+
+																		if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].payMethod == 2) {
+																			box3 += '<p class="integral_money">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral+'积分</p>'
+																		}
+
+																		if (data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].payMethod == 3) {
+																			box3 += '<p class="integral_money">'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].integral+'积分+'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].cash+'元</p>'
+																		}
+
+																		box3 += '<span class="duihuan_button" data-productId="'+data.data.l2.floorTagList[y1].memberShopGoodsVoList[n].id+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
+																	+'</li>';
+																}
+
+																b++;
+
 															}
-
-															b++;
-
 														}
 													}
 												}
 											}
 										}
-									}
+			        					
+			        				}
+										
+									
 	
 			        				
 			        				$('.content2 ul').html(box3);

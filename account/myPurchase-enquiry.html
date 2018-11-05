@@ -13,6 +13,20 @@
     			color: #fff;
     			border-color: #5590F6;
     		}
+
+            .myPurchase-tab #enquireyRange{
+                border: none;
+                float: right;
+                margin-top: 15px; 
+                margin-right: 20px;
+                outline: none;
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                background: url(../img/mp_selectBlue.png) no-repeat scroll right center transparent;
+                padding-right: 15px;
+                color: #5590F6;
+            }
     </style>
 </head>
 <body style="background: #fff;">
@@ -44,6 +58,11 @@
             <span data-state='5'>已取消</span>
             <!-- <span data-state='4'>已完成</span> -->
             <span data-state='4'>已拒绝</span>
+            <select name="" id="enquireyRange">
+                <option value="t1">三个月内询盘</option>
+                <option value="t2">今年的询盘</option>
+                <option value="t3">所有询盘</option>
+            </select>
         </div>
         
         <div class="myPurchase-orders">

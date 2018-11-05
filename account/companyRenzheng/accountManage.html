@@ -527,6 +527,8 @@
 
             $('.add_address_btn').attr('data-dbid', dbid);
 
+            $('.add_address_btn').text('修改该地址');
+
         });
 
 
@@ -552,7 +554,7 @@
                         window.parent.updateSuccess();
                         shouhuo_list();
                         $('.cancel').click();
-
+                        $('.add_address_btn').text('添加该地址');
                     } else {
                         alert('编辑失败！');
                     }
