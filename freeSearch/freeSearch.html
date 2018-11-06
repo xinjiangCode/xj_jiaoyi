@@ -434,6 +434,15 @@
 				overflow: visible;
 			}
 
+			.modelcontent>div.info {
+			    height: 130px;
+			    width: 450px;
+			}
+
+			.modelBox5 .modelBtnBox .modelbtn {
+				margin: 5px auto 0 158px;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -1325,13 +1334,16 @@
 							console.log(data);
 							if(data.code==1){
 								if(companyId == shopCompanyId){
-									alert("您不能对自己公司商品进行报价");
+									// alert("您不能对自己公司商品进行报价");
+									$(".modelBox5 p").text('您不能对自己公司商品进行报价');
+									$(".modelBox5").show();
 								}else{
 									window.localStorage.setItem('baojiaid', $(that).attr('data-baojiaid_id'));
 									//$(that).attr('href', 'offer.html');
 									location.href = "offer.html";
 								}
 							}else{
+								$(".modelBox5 p").text('该报价需求已经超时！');
 								$(".modelBox5").show();
 							}
 						},

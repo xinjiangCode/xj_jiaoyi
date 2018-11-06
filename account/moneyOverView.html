@@ -38,6 +38,10 @@
          .dai_pay_buy_order, .dai_pay_duizhang_order, .dai_ok_duizhang_order {
             cursor: pointer;
          }
+
+         td.user div {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -68,7 +72,7 @@
         <div class="row Lf"></div>
         <div class="Lf dai_ok_duizhang_order">待确定兑账订单（<i style="color: #7dabff;">0</i>）</div>
         <div class="row Lf"></div>
-        <div class="Lf">账单下载</div>
+        <div class="Lf downWd"><a href="##">账单下载</a></div>
     </div>
 
     <div style="padding:45px 0 15px 40px;border-bottom: 1px solid #f1f1f1;">最近账务明细</div>
@@ -133,6 +137,14 @@
 	        window.parent.$("#moneyDetail").addClass("active1");
 	    }
     }
+
+    //下载账单
+    $(document).on('click', '.downWd a', function () {
+        // excel('');
+        $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=")
+        $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=");
+
+    });
 
     //资金账户信息加余额
     $.ajax({
@@ -231,12 +243,16 @@
                         str+='<div>流水号：'+item.HOSTFLW+'</div>'
                         str+='<div>订单号：'+item.HOSTSEQ+'</div>'
                         str+='</td>'
-                        if(item.TRANTYPE==11){
-                            str+='<td style="margin-top: 27px;">普通转账,提现</td>'
-                        }else if(item.TRANTYPE==15){
-                            str+='<td style="margin-top: 27px;">强制转账，现汇交易</td>'
-                        }else if(item.TRANTYPE==23){
-                            str+='<td style="margin-top: 27px;">普通外部转账，充值</td>'
+                        if(item.TRANTYPE==15){
+                            str+='<td style="margin-top: 27px;">现汇交易</td>'
+                        }else if(item.TRANTYPE==23 && item.CDFG=="D"){
+                            str+='<td style="margin-top: 27px;">提现</td>'
+                        } else if(item.TRANTYPE==23 && item.CDFG=="C"){
+                            str+='<td style="margin-top: 27px;">充值</td>'
+                        } else if(item.TRANTYPE==11 && item.CDFG=="C"){
+                            str+='<td style="margin-top: 27px;">充值</td>'
+                        }else {
+                            str+='<td style="margin-top: 27px;"></td>'
                         }
                         str+='<td class="user">'
                         str+='<div>账户名：'+item.OPPACCNAME+'</div>'

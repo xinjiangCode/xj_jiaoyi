@@ -66,6 +66,7 @@
 			            <li data-index="3">30</li>
 			        </ul>
 			    </div>
+			    <span onclick="goAddGoods()" style="color: #00a0e9;width: 76px;cursor: pointer; display: inline-block; line-height: 37px; margin-left: 10px;">添加商品</span>
 			    <span class="ts fl"></span>
 			</div>
 			<div class="div_one">
@@ -255,7 +256,10 @@
 
 		shop_list('');
 
-		
+		function goAddGoods() {
+            sessionStorage.setItem('hzf_showPage',"hzf_fbsp");
+			window.parent.location.href="../account/account.html"
+        }
 
 		function shop_list(cont) {
 			$.ajax({
@@ -300,6 +304,8 @@
 								    console.log($(this).attr('data-productLevel') == 'null');
 								    $('.level').text($(this).attr('data-productLevel') == 'null' ? '' : $(this).attr('data-productLevel'));
 								    $('.guige').text($(this).attr('data-spec')+$(this).attr('data-productSpecUnitStr'));
+
+								    $('.activity_shop_name').val($(this).text());
 
 								});
 									

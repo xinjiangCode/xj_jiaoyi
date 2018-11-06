@@ -324,7 +324,7 @@
         window.parent.forget();
 
         window.parent.$('.DetTit').text($(this).parents('tr').find('td').eq(1).text());
-        window.parent.$('.DeCont').text($(this).parents('tr').find('td').eq(2).text());
+        // window.parent.$('.DeCont').text($(this).parents('tr').find('td').eq(2).text());
         window.parent.$('.Detime').text($(this).parents('tr').find('td').eq(4).text());
         $(this).parents('tr').find('td').eq(3).text('已读')
         
@@ -339,7 +339,10 @@
           data:{
                 'id':$(this).attr('id'),
           },
-          success: function(json){}
+          success: function(json){
+             window.parent.$('.DeCont').html(json.data.content);
+             
+          }
          })
     })
 

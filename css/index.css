@@ -30,6 +30,11 @@ time, mark, audio, video {
 	font-size: 100%;
 	/* font: inherit; */
 	vertical-align: baseline;
+	user-select: text; 
+	-moz-user-select: text;
+	-webkit-user-select: text;
+	-ms-user-select: text;
+	-khtml-user-select: text;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -1020,6 +1025,7 @@ input[type='text'].page_page {
 	line-height: 37px !important;
 	text-align: center !important;
 }
+
 
 
 /*.exist_qx {
