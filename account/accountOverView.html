@@ -236,19 +236,19 @@
         <div class="state Lf">销售订单</div>
         <div class="orderList Lf" style="border-bottom: 1px solid #e3e3e3;">
             <ul class="clearfix ul exist_one_qx1" data-oneExist="23">
-                <li class="orderItem sale_order1 Lf">
+                <li class="orderItem sale_order1 Lf" data-order-status="1">
                     <div class="imgs"><img src="../img/cf_order0.png" alt=""></div>
                     <div class="orderItemTitle">全  部 0</div>
                 </li>
-                <li class="orderItem sale_order2 Lf">
+                <li class="orderItem sale_order2 Lf" data-order-status="3">
                     <div class="imgs"><img src="../img/cf_order1.png" alt=""></div>
                     <div class="orderItemTitle">待支付 0</div>
                 </li>
-                <li class="orderItem sale_order3 Lf">
+                <li class="orderItem sale_order3 Lf" data-order-status="2">
                     <div class="imgs"><img src="../img/cf_order2.png" alt=""></div>
                     <div class="orderItemTitle">待发货 0</div>
                 </li>
-                <li class="orderItem sale_order4 Lf">
+                <li class="orderItem sale_order4 Lf" data-order-status="4">
                     <div class="imgs"><img src="../img/cf_order3.png" alt=""></div>
                     <div class="orderItemTitle">待收货 0</div>
                 </li>
@@ -267,19 +267,19 @@
         <div class="state Lf">采购订单</div>
         <div class="orderList Lf">
             <ul class="clearfix ul exist_one_qx1" data-oneExist="29">
-                <li class="orderItem purchase1 Lf">
+                <li class="orderItem purchase1 Lf" data-order-status1="1">
                     <div class="imgs"><img src="../img/cf_order0.png" alt=""></div>
                     <div class="orderItemTitle">全  部 0</div>
                 </li>
-                <li class="orderItem purchase2 Lf">
+                <li class="orderItem purchase2 Lf" data-order-status1="3">
                     <div class="imgs"><img src="../img/cf_order1.png" alt=""></div>
                     <div class="orderItemTitle">待支付 0</div>
                 </li>
-                <li class="orderItem purchase3 Lf">
+                <li class="orderItem purchase3 Lf" data-order-status1="2">
                     <div class="imgs"><img src="../img/cf_order2.png" alt=""></div>
                     <div class="orderItemTitle">待发货 0</div>
                 </li>
-                <li class="orderItem purchase4 Lf">
+                <li class="orderItem purchase4 Lf" data-order-status1="4">
                     <div class="imgs"><img src="../img/cf_order3.png" alt=""></div>
                     <div class="orderItemTitle">待收货 0</div>
                 </li>
@@ -386,6 +386,8 @@
     // 销售订单
     $('.sale_order1, .sale_order2, .sale_order3, .sale_order4').click(function() {
         if ($(this).parent().hasClass('quanxian')) {
+
+            window.sessionStorage.setItem('order_status', $(this).attr('data-order-status'));
             
             window.location.href = "mySale-order.html";
         
@@ -412,6 +414,8 @@
     $('.purchase1, .purchase2, .purchase3, .purchase4').click(function() {
 
         if ($(this).parent().hasClass('quanxian')) {
+
+            window.sessionStorage.setItem('order_status1', $(this).attr('data-order-status1'));
 
             window.location.href = "./myPurchase-order.html";
         

@@ -901,7 +901,17 @@
                         <p>订单状态：买家及确认收货，等待买家付款。剩余支付时间：<span class="yellow time_djs"></span></p>
                     <%}%>
                 <%} else if(state==3){%><!-- 订单等待确认收货（支付成功，物流未完成） -->
-                    <p>订单状态：订单已经支付成功，等待确认收货。</p>
+                    <%if (logisticsOrderState==1){%>
+                        <p>订单状态：订单已经已结算，等待完成，等待卖家发货。您可以：</p>
+                        <div class="btnBox clearfix">
+                            <div class="payBtn btn btnActive toSendGoodsBtn">发货</div>
+                        </div>
+                    <%} else if (logisticsOrderState == 2) {%>
+                        <p>订单状态：订单已经支付成功，等待确认收货。</p>
+                    <%} else if (logisticsOrderState == 3) {%>
+                        <p>订单状态：订单已经已结算，等待完成，买家已收货。</p>
+                    <%}%>
+                    
                 <%} else if(state==4){%><!-- 待结算（支付完成已确认收货） -->
                     <p>订单状态：订单已经支付完成，买家已确认收货，等待结算。</p>
                 <%} else if(state==5){%><!-- 待完成（已结算） -->

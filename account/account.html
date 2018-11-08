@@ -778,7 +778,7 @@
                     <li><a href="javascript:;" class="manageItem exist_one_qx" data-oneExist="39" id="moneyDetail" data-src="./moneyDetail.html">账户明细</a></li>
                     <!-- 二期注释的内容   ===开始 -->
                     <li><a href="javascript:;" class="manageItem exist_one_qx" data-oneExist="40" data-height="1300" data-src="../standingBook/standingBook.html">台账</a></li>
-                    <li><a href="javascript:;" class="manageItem exist_one_qx" data-oneExist="41" data-src="../standingBook/accountCheck.html">兑账订单列表</a></li>
+                    <li><a href="javascript:;" class="manageItem exist_one_qx hzf_dzddlb" data-oneExist="41" data-src="../standingBook/accountCheck.html">兑账订单列表</a></li>
                     <!-- 二期注释的内容   ===结束 -->
                 </ul>
             </li>
@@ -3347,6 +3347,17 @@
             $(".hzf_wdbj").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
             $("#Iframe").attr("src","mySale-baojia.html");
         }
+
+        if (jump_flag == 'flag_dzdd') { //兑账订单列表
+            $(".acconut_box").toggle();
+            $(".manage").find('img').attr("src","../img/cf_close.png");
+            $(".manageItem").removeClass("active1");
+            $(".hzf_dzddlb").addClass("active1");
+            $(".hzf_dzddlb").parent().parent().toggle();
+            $(".hzf_dzddlb").parent().parent().prev("a").find('img').attr("src","../img/cf_open.png");
+            $("#Iframe").attr("src","../standingBook/accountCheck.html");
+        }
+
         //判断从账户外跳转过来(这个不能往上移位置)结束
 
         // 除了未提交，都是进入企业基本信息
@@ -3419,7 +3430,17 @@
                     $("#Iframe").attr("height",_that.attr("data-height"));
                     $("#Iframe").css("height",_that.attr("data-height"));
 
+                    //资金账户概览的快捷入口
                     window.sessionStorage.setItem('chushi_status', '');
+
+                    // 首页待处理订单的快捷入口
+                    window.sessionStorage.setItem('index_flag', '');
+
+                    //账户概览销售订单
+                    window.sessionStorage.setItem('order_status', '');
+
+                    //账户概览采购订单
+                    window.sessionStorage.setItem('order_status1', '');
 
                     if (data.data.type == 1) { //未提交
                         $('#account_ziliao').attr('data-src', 'companyRenzheng/promptCompanyRenzheng.html')

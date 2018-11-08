@@ -226,6 +226,9 @@
         var enquiryListTpl = '';
         var category = $(".tab_hzf1 .active").attr("data-value");
         var dataType = $(".selectPub_hzf1").attr("data-selectedindex");
+
+
+
         purchaseList(category, 1);
         
         // 采购需求列表
@@ -317,6 +320,9 @@
             purchaseList(category, 1);
 
        });
+
+
+       
        //筛选时间
        $(".my_select_hzf li").on("click",function(){
             dataType = $(this).attr('data-index');

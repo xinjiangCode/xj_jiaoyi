@@ -99,10 +99,10 @@
             </div>
         </div>
         <div class="myPurchase-tab">
-            <span data-type="1" class="active">全部订单</span>
-            <span data-type="2">待发货</span>
-            <span data-type="3">待支付</span>
-            <span data-type="4">确认收货</span>
+            <span data-type="1" class="qbdd active">全部订单</span>
+            <span data-type="2" class="dfh">待发货</span>
+            <span data-type="3" class="dzf">待支付</span>
+            <span data-type="4" class="qrsh">确认收货</span>
             <span data-type="5">已完成</span>
             <div class="hetong_fukuan">合同付款</div>
         </div>
@@ -311,6 +311,32 @@
             $('.myPurchase-tab span').eq(2).addClass('active');
             status = 3;
         } 
+
+
+        if (sessionStorage.getItem('order_status1') == '1') {
+            $('.myPurchase-tab span').removeClass('active');
+            $('.myPurchase-tab span.qbdd').addClass('active');
+            status = 1;
+        }
+
+        if (sessionStorage.getItem('order_status1') == '2') {
+            $('.myPurchase-tab span').removeClass('active');
+            $('.myPurchase-tab span.dfh').addClass('active');
+            status = 2;
+        }
+
+        if (sessionStorage.getItem('order_status1') == '3') {
+            $('.myPurchase-tab span').removeClass('active');
+            $('.myPurchase-tab span.dzf').addClass('active');
+            status = 3;
+        }
+
+        if (sessionStorage.getItem('order_status1') == '4') {
+            $('.myPurchase-tab span').removeClass('active');
+            $('.myPurchase-tab span.qrsh').addClass('active');
+            status = 4;
+        }
+
 
         getOrder(ordertype,status,currentPage,orderMsg,pageSize,dataType);   
         

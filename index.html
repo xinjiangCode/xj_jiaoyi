@@ -32,16 +32,24 @@
 				font-size: 12px;
 				cursor: pointer;
 				background: #64A5FF;
+				margin-left: 12px;
 			}
 			
 			.hsUser .loginBox button:hover {
 				background: #5590F6;
 			}
 			
-			.hsUser .loginBox div{
+			.hsUser .loginBox div {
 				display: inline-block;
 				width: 49%;
 				color: #282828;
+				overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			}
+
+			.hsUser .loginBox div.go_dbj {
+				margin-left: 10px;
 			}
 		
 			.loginBox {
@@ -1345,7 +1353,7 @@
 
 
 	                    str += '<button class="go_fbxq exist_qx" data-exist="1">发布采购</button>'
-								+'<div class="go_dbj exist_qx" data-exist="2">待报价<span>('+data.data.waitOfferCount+')</span></div>'
+								+'<div class="go_dbj exist_qx" data-exist="2">待处理的报价<span>('+data.data.waitOfferCount+')</span></div>'
 								+'<div class="go_sdbj exist_qx" data-exist="3">已收到的报价<span>('+data.data.getOfferCount+')</span></div>'
 								+'<div class="go_dcl exist_qx" data-exist="4">待处理的订单<span>('+data.data.treatedOrderCount+')</span></div>';
 
@@ -1369,7 +1377,7 @@
 			} else {
 
 				str += '<button class="go_fbxq exist_qx" data-exist="1">发布采购</button>'
-						+'<div class="go_dbj exist_qx" data-exist="2">待报价<span>(0)</span></div>'
+						+'<div class="go_dbj exist_qx" data-exist="2">待处理的报价<span>(0)</span></div>'
 						+'<div class="go_sdbj exist_qx" data-exist="3">已收到的报价<span>(0)</span></div>'
 						+'<div class="go_dcl exist_qx" data-exist="4">待处理的订单<span>(0)</span></div>';
 
@@ -1434,6 +1442,7 @@
 						missedLogin() ;
 					}
 				}else{
+
 					window.location.href='account/account.html';
 					sessionStorage.setItem('hzf_showPage','flag_wdbj');
 				}
@@ -1490,6 +1499,7 @@
 						missedLogin() ;
 					}
 				}else{
+					window.sessionStorage.setItem('index_flag', '3');
 					window.location.href='account/account.html';
 					sessionStorage.setItem('hzf_showPage','flag_wdbj_dcl');
 				}

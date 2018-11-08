@@ -48,6 +48,13 @@
         border: 1px solid #5590F6;
         color: #5590F6;
     }
+    
+    .export a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+
 </style>
 <body>
     <!-- 商品管理 850-->
@@ -57,7 +64,7 @@
         </div>
         <div class="shop_list_operate clearfix">
             <a href="../shopManage/addShop.html"><div class="inline-block btn fl exist_qx" data-exist="43">添加</div></a>
-            <div class="inline-block btn fl ml7 export exist_qx" data-exist="44">导出</div>
+            <div class="inline-block btn fl ml7 export exist_qx" data-exist="44"><a href="##" download="">导出</a></div>
             <div class="inline-block fl clearfix">
                 <input type="text" class="select_shop fl" id="searchText" placeholder="按订单编号/商品名称查询">
                 <!-- <span class="shangjia fl">
@@ -128,8 +135,17 @@
             if(isSearch==0){
                 getShopList("","",companyId1,$('.page_page').val()-1);
 
+                //导出
+                // $('.export a').attr('download', pubIP + "productApi/downExcel?cond=''&productState=''&companyId="+companyId1+"&pageNum="+($('.page_page').val()-1)+"&pageSize=10")
+                // $('.export a').attr('href', pubIP + "productApi/downExcel?cond=''&productState=''&companyId="+companyId1+"&pageNum="+($('.page_page').val()-1)+"&pageSize=10");
+
             }else{
                 getShopList($("#searchText").val(),$("#isok option:selected").val(),companyId1,$('.page_page').val()-1)
+
+                //导出
+                // $('.export a').attr('download', pubIP + "productApi/downExcel?cond="+($("#searchText").val())+"&productState="+($("#isok option:selected").val())+"&companyId="+companyId1+"&pageNum="+($('.page_page').val()-1)+"&pageSize=10")
+                // $('.export a').attr('href', pubIP + "productApi/downExcel?cond="+($("#searchText").val())+"&productState="+($("#isok option:selected").val())+"&companyId="+companyId1+"&pageNum="+($('.page_page').val()-1)+"&pageSize=10");
+
             }
 
         })
@@ -153,6 +169,14 @@
                     if(json.code == '1'){
                         companyId1=json.data.companyId;
                         getShopList("","",companyId1,"0")
+
+                        //导出
+                        // $('.export a').attr('download', pubIP + "productApi/downExcel?cond=''&productState=''&companyId="+companyId1+"&pageNum=0&pageSize=10")
+                        // $('.export a').attr('href', pubIP + "productApi/downExcel?cond=''&productState=''&companyId="+companyId1+"&pageNum=0&pageSize=10");
+
+                        $('.export a').attr('download', pubIP + "productApi/downExcel?companyId="+companyId1+"&pageNum=1&pageSize=10")
+                        $('.export a').attr('href', pubIP + "productApi/downExcel?companyId="+companyId1+"&pageNum=1&pageSize=10");
+
                         currentPage=0;
                     }else{
 
@@ -190,6 +214,8 @@
                                 callback: function(n) {
                                     currentPage=n-1;
                                     getShopList(cond,productState,companyId1,n-1);
+                                    // $('.export a').attr('download', pubIP + "productApi/downExcel?cond="+cond+"&productState="+productState+"&companyId="+companyId1+"&pageNum="+(n-1)+"&pageSize=10")
+                                    // $('.export a').attr('href', pubIP + "productApi/downExcel?cond="+cond+"&productState="+productState+"&companyId="+companyId1+"&pageNum="+(n-1)+"&pageSize=10");
                                 }
                             });
 
@@ -207,6 +233,11 @@
                                 callback: function(n) {
                                     currentPage=n-1;
                                     getShopList(cond,productState,companyId1,n-1);
+                                    //导出
+                                
+                                    // $('.export a').attr('download', pubIP + "productApi/downExcel?cond="+cond+"&productState="+productState+"&companyId="+companyId1+"&pageNum="+(n-1)+"&pageSize=10")
+                                    // $('.export a').attr('href', pubIP + "productApi/downExcel?cond="+cond+"&productState="+productState+"&companyId="+companyId1+"&pageNum="+(n-1)+"&pageSize=10");
+                                
 
                                 }
                             });
@@ -256,6 +287,7 @@
 
                         yiyou_quanxian(userId);
 
+
                     }else if(json.code==0){
 
                         $(".shop_list_table tbody").html("");
@@ -265,6 +297,9 @@
                 }
             });
         }
+
+        
+
         //编辑  未接
         function edit(id) {
             //console.log(id)
@@ -305,9 +340,16 @@
                         alert("删除成功");
                         if(isSearch==0){
                             getShopList("","",companyId1,currentPage);
+                            // $('.export a').attr('download', pubIP + "productApi/downExcel?cond="+cond+"&productState="+productState+"&companyId="+companyId1+"&pageNum="+currentPage+"&pageSize=10")
+                            // $('.export a').attr('href', pubIP + "productApi/downExcel?cond="+cond+"&productState="+productState+"&companyId="+companyId1+"&pageNum="+currentPage+"&pageSize=10");
 
                         }else{
                             getShopList($("#searchText").val(),$("#isok option:selected").val(),companyId1,currentPage)
+
+                            //导出
+                            // $('.export a').attr('download', pubIP + "productApi/downExcel?cond="+($("#searchText").val())+"&productState="+($("#isok option:selected").val())+"&companyId="+companyId1+"&pageNum="+($('.page_page').val()-1)+"&pageSize=10")
+                            // $('.export a').attr('href', pubIP + "productApi/downExcel?cond="+($("#searchText").val())+"&productState="+($("#isok option:selected").val())+"&companyId="+companyId1+"&pageNum="+($('.page_page').val()-1)+"&pageSize=10");
+
                         }
                     }else{
 
@@ -315,17 +357,9 @@
                 }
             });
         }
-        //导出
-        $('.export').on('click',function(){
-            $.ajax({
-                url:pubIP+'',
-                type:'',
-                data:{},
-                success:function(){
+        
 
-                }
-            })
-        })
+
         //上、下架
         function putAway(states) {
             if(states!=isCli){
@@ -355,8 +389,18 @@
 
                         if(isSearch==0){
                             getShopList("","",companyId1,currentPage);
+
+                            //导出
+                            // $('.export a').attr('download', pubIP + "productApi/downExcel?cond="+cond+"&productState="+productState+"&companyId="+companyId1+"&pageNum="+currentPage+"&pageSize=10")
+                            // $('.export a').attr('href', pubIP + "productApi/downExcel?cond="+cond+"&productState="+productState+"&companyId="+companyId1+"&pageNum="+currentPage+"&pageSize=10");
+
                         }else{
                             getShopList($("#searchText").val(),$("#isok option:selected").val(),companyId1,currentPage)
+
+                            //导出
+                            // $('.export a').attr('download', pubIP + "productApi/downExcel?cond="+($("#searchText").val())+"&productState="+($("#isok option:selected").val())+"&companyId="+companyId1+"&pageNum="+($('.page_page').val()-1)+"&pageSize=10")
+                            // $('.export a').attr('href', pubIP + "productApi/downExcel?cond="+($("#searchText").val())+"&productState="+($("#isok option:selected").val())+"&companyId="+companyId1+"&pageNum="+($('.page_page').val()-1)+"&pageSize=10");
+
                         }
                     }else{
 
@@ -383,6 +427,10 @@
         function search() {
             isSearch=1;
             getShopList($("#searchText").val(),$("#isok option:selected").val(),companyId1,0)
+
+            //导出
+            // $('.export a').attr('download', pubIP + "productApi/downExcel?cond="+($("#searchText").val())+"&productState="+($("#isok option:selected").val())+"&companyId="+companyId1+"&pageNum="+($('.page_page').val()-1)+"&pageSize=10")
+            // $('.export a').attr('href', pubIP + "productApi/downExcel?cond="+($("#searchText").val())+"&productState="+($("#isok option:selected").val())+"&companyId="+companyId1+"&pageNum="+($('.page_page').val()-1)+"&pageSize=10");
         }
 
     </script>

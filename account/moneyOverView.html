@@ -184,7 +184,10 @@
         },
         success: function(json){
         console.log(json.data);
-            $('.orderList i').eq(0).text(json.data.stayPayOrder);
+            $('.orderList i').eq(0).text(json.data.stayPayOrder); //待支付采购订单
+            $('.orderList i').eq(1).text(json.data.acOrderListPages); //待确认兑账订单
+            $('.orderList i').eq(2).text(json.data.acOrderListPages2); //待支付兑账订单
+            
         },
         error:function(xhr,statues,error){
             
@@ -194,6 +197,7 @@
     //待支付采购订单
     $('.dai_pay_buy_order').click(function() {
         window.sessionStorage.setItem('chushi_status', '1');
+
         window.location.href = 'myPurchase-order.html';
     });
 
@@ -201,6 +205,7 @@
     //待支付兑账订单
     $('.dai_pay_duizhang_order').click(function() {
         window.sessionStorage.setItem('chushi_status', '2');
+        // window.sessionStorage.setItem('hzf_showPage', 'flag_dzdd');
         window.location.href = '../standingBook/accountCheck.html';
     });
 
