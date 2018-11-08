@@ -1,9 +1,7 @@
 //api地址
 // var pubIP = 'http://api.xjv56.com/service/';
-
-
-var pubIP = 'http://api.test.xjv56.com/service/';
-// var pubIP = 'http://192.168.1.80:7777/service/';
+// var pubIP = 'http://api.test.xjv56.com/service/';
+var pubIP = 'http://192.168.1.80:7777/service/';
 // var pubIP = 'http://192.168.1.176:7777/service/';
 
 // var pubIP = 'http://192.168.1.57:7777/service/';
@@ -41,6 +39,9 @@ var pageSize=1;//分页的每页个数
 var companyId = null, userId = null ;
 var financePhoneNumber = '';
 
+var name = '';
+
+var userPhone = '';
 
 // 对Date的扩展，将 Date 转化为指定格式的String
 // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
@@ -283,6 +284,7 @@ if(token){
 
             financePhoneNumber = json.financePhoneNumber;
             userPhone = json.data.mobile;
+            name = json.data.name;
             
             
             if (flag == 2) {

@@ -254,6 +254,16 @@
 		$('.activityStartTime').text(startTime);
 		$('.activityEndTime').text(endTime);
 
+		if (name != null) {
+			$('.concat_name').val(name);
+		}
+		
+		if (userPhone != null) {
+			$('.concat_method').val(userPhone);	
+		}
+		
+
+
 		shop_list('');
 
 		function goAddGoods() {

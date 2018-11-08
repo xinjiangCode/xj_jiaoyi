@@ -304,18 +304,19 @@
                             // 现汇金额
                             var totalMoney=$('#totalmoney').val();
                             var acceptanceTotal=$('#chengdui').val();//承兑金额
-                            $('#currenthui').text((res.data.total-0)-(acceptanceTotal-0));
-                                console.log(acceptanceTotal,totalMoney)
+                            $('#currenthui').text(Number(res.data.total)-Number(acceptanceTotal));
+                                console.log(Number(res.data.total),Number(acceptanceTotal))
 
 
                             // 1、改变总金额--现汇金额变化
                             $('#totalmoney').on('input porpertychange', function(){
+                                
 
                                 //totalMoney = $('#totalmoney').val()
                                 var totalMoney=$('#totalmoney').val();
                                 var acceptanceTotal=$('#chengdui').val();//承兑金额
-                                $('#currenthui').text((res.data.total-0)-(acceptanceTotal-0));
-                                console.log(acceptanceTotal,totalMoney)
+                                $('#currenthui').text(Number(res.data.total)-Number(acceptanceTotal));
+                                console.log(Number(res.data.total),Number(acceptanceTotal))
 
                                 $('.zongjia').text($('#totalmoney').val());
 
@@ -343,18 +344,18 @@
                             $('#chengdui').on("input",function () {
                                 var totalMoney = $('#totalmoney').val();//总金额
                                 var acceptanceTotal=$('#chengdui').val();//承兑金额
-                                if(Number(totalMoney-acceptanceTotal)==0){
+                                if(Number(totalMoney)-Number(acceptanceTotal)==0){
                                     alert('现汇价不能都为空');
                                     $('#chengdui').val('');
                                     $('#currenthui').text('');
                                     return;
-                                }else if(Number(totalMoney-acceptanceTotal)<0){
+                                }else if(Number(totalMoney)-Number(acceptanceTotal)<0){
                                     alert('承兑价不能大于总价');
                                     $('#chengdui').val('');
                                     $('#currenthui').text('');
                                     return;
                                 }else{
-                                    $('#currenthui').text(Number(totalMoney-acceptanceTotal));
+                                    $('#currenthui').text(Number(totalMoney)- Number(acceptanceTotal));
                                 }
                             })
 
