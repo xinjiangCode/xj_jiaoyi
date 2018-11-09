@@ -139,12 +139,18 @@
     }
 
     //下载账单
-    $(document).on('click', '.downWd a', function () {
-        // excel('');
-        $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=")
-        $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=");
+    // $(document).on('click', '.downWd a', function () {
+    //     // excel('');
+    //     $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=")
+    //     $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=");
 
-    });
+    // });
+
+
+    //下载账单
+    $('.downWd a').attr('download', pubIP + "financialApi/downExcel?token="+token+"&currentPage=1&moneyFlow=&tranType=&orderId=&startTime=&endTime=&timeSlot=");
+
+    $('.downWd a').attr('href', pubIP + "financialApi/downExcel?token="+token+"&currentPage=1&moneyFlow=&tranType=&orderId=&startTime=&endTime=&timeSlot=");
 
     //资金账户信息加余额
     $.ajax({

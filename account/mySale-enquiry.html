@@ -64,9 +64,9 @@
             <!-- <span data-state='4'>已完成</span> -->
             <span data-state='4'>已拒绝</span>
             <select name="" id="enquireyRange">
-                <option value="t1">三个月内询盘</option>
-                <option value="t2">今年的询盘</option>
-                <option value="t3">所有询盘</option>
+                <option value="2" selected="">三个月内询盘</option>
+                <option value="1">今年的询盘</option>
+                <option value="">所有询盘</option>
             </select>
         </div>
         
@@ -126,7 +126,7 @@
             <ul class="pagination" id="page1"></ul>
             <div class="pageJump">
                         <span class="allPageN">1/200</span>
-                        共200页，
+                        共<span>0</span>页，
                 <span>到第</span>
                 <input type="text" class="page_page" />
                 <span>页</span>
@@ -167,8 +167,9 @@
                 var enquiryListTpl = '',pageNum=1,
                     interestId='',productName='',
                     companyName='',startTime='',
-                    endTime='',state='';
-                getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state);
+                    endTime='',state='',
+                    timeStr=$('#enquireyRange option:selected').val();
+                getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state,timeStr);
                 // 点击查询按钮查询
                 $('.search').on('click', function(){
                     productName = $('.productNameInput').val();
@@ -177,7 +178,7 @@
                     startTime = $('#test1').val();
                     endTime = $('#test2').val();
                     console.log(interestId,startTime, endTime);
-                    getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state);
+                    getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state,timeStr);
                 });
                 // 点击重置清空查询条件
                 $('.reset').click(function(){
@@ -197,23 +198,33 @@
                     $('.myPurchase-tab span').removeClass('active');
                     $(this).addClass('active');
                     state = $(this).attr('data-state');
-                    getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state)
+                    getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state,timeStr)
                 });
                 // 点击分页刷新数据
                 $('.pageCont').on('click', '.button',function(){
+                    
                     pageNum = $('.pageCont li.active>a').text();
                     // console.log(pageNum,'------');
-                    getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state);
+                    getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state,timeStr);
                 })
-                $('.pageCont').on('click', 'li>a',function(){
+                $('.pageCont').on('click', 'li',function(){
+                    
                     pageNum = $('.pageCont li.active>a').text();
-                    getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state);
+                    getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state,timeStr);
                 })
+
+                //时间筛选
+                $('#enquireyRange').change(function() {
+                    timeStr = $(this).find('option:selected').val();
+                    getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state,timeStr);
+                });
+
             });
             // 获取我的询盘列表
-            function getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state){
+            function getMyenquiryFunc(pageNum,companyId,interestId,productName, companyName,startTime,endTime,state,timeStr){
                 $('.pagination').parent().hide();
 //                $(".myPurchase-orders").html("");
+                
                 $.ajax({
                     type:"post",
                     url:pubIP+"inquiries/getInquiriesList",//v1.0
@@ -225,7 +236,7 @@
                     },
                     data: {
                         sEcho: 1,//记录操作的次数:
-                        pageNum: 1,//页码
+                        pageNum: pageNum,//页码
                         companyId: companyId,
                         type: 'B',//A：买家列表 B：卖家列表
                         interestId: interestId,//询盘编号--not required
@@ -235,24 +246,29 @@
                         endTime: endTime,//--not required
                         state: state,//1：等待确认 2：已达成 3：未达成（包括已被拒绝或过期未确认） 4询盘-商家拒绝 5询盘-买家取消’,--not required
                         timeNum: '',//时间参数 直接传数字 7 30--not required
+                        timeStr: timeStr
                     },
                     success: function(res){
+                        
                         console.log(res);
                         // 分页
-                        $('.pageJump').html('<span class="allPageN">'+pageNum+'/'+res.pages+'</span>'+
-                            '共'+res.pages+'页，'+
-                            '<span>到第</span>'+
-                            '<input type="text" class="page_page" />'+
-                            '<span>页</span>'+
-                            '<button type="button" class="button">GO</button>');
-                        Page({
-                            // num: 3,
-                            num: res.pages,
-                            elem: $('#page1'),
-                            callback: function(n) {
-                                console.log(n);
-                            }
-                        });
+                        // $('.pageJump').html('<span class="allPageN">'+pageNum+'/'+res.pages+'</span>'+
+                        //     '共'+res.pages+'页，'+
+                        //     '<span>到第</span>'+
+                        //     '<input type="text" class="page_page" />'+
+                        //     '<span>页</span>'+
+                        //     '<button type="button" class="button">GO</button>');
+                        if(pageNum==1){
+                            Page({
+                                // num: 3,
+                                num: res.pages,
+                                elem: $('#page1'),
+                                callback: function(n) {
+                                    // console.log(n);
+                                    getMyenquiryFunc(n,companyId,interestId,productName, companyName,startTime,endTime,state,timeStr);
+                                }
+                            });
+                        }
                         
                         if(res.aData && res.aData.length>0){
                             $.each(res.aData, function(i, item){
@@ -262,6 +278,11 @@
                             });
                             enquiryListTpl = template('enquiryListTpl', {list: res.aData});
                             $('.myPurchase-orders').html(enquiryListTpl);
+
+                            $('.allPageN').text(pageNum+'/'+res.pages);
+
+                            $('.allPageN span').text(res.pages);
+
                             $('.pagination').parent().show();
                         } else {
                             enquiryListTpl = '<h5 style="font-family:microsoft yahei;text-align:center;font-size:20px;line-height:100px;">暂无数据</h5>';

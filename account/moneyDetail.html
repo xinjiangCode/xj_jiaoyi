@@ -48,14 +48,14 @@
         <div class="selec" style="display: block;overflow: hidden">
             <div class="Lf" style="width: 426px;">
                 资&nbsp;金&nbsp;流&nbsp;向&nbsp;:
-                <input type="radio" name="flow" value="" style="margin-left: 15px;">所有
+                <input type="radio" name="flow" value="" style="margin-left: 15px;" checked="">所有
                 <input type="radio" name="flow" value="D">收入
                 <input type="radio" name="flow" value="C">支付
             </div>
 
             <div class="Lf" style="width: 426px;margin-left: 45px;">
                 类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;:
-                <input type="radio" name="leixing" style="margin-left: 15px" value="0">所有
+                <input type="radio" name="leixing" style="margin-left: 15px" value="0" checked="">所有
                 <input type="radio" name="leixing" value="15">支付
                 <input type="radio" name="leixing" value="23">充值
                 <input type="radio" name="leixing" value="11">提现
@@ -186,12 +186,22 @@
             var timeSlot = 4;
         }
 
+        // $('.downWd').attr('download', pubIP + "financialApi/downExcel?token="+token+"&currentPage=1&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot="+timeSlot);
+
+        // $('.downWd').attr('href', pubIP + "financialApi/downExcel?token="+token+"&currentPage=1&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot="+timeSlot);
+        
+
         listPage(1, flow, leixing, orderNum, startTime, endTime, timeSlot);
+
+        // $('.downWd').attr('download', pubIP + "financialApi/downExcel?token="+token+"&currentPage=1&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot="+timeSlot);
+
+        // $('.downWd').attr('href', pubIP + "financialApi/downExcel?token="+token+"&currentPage=1&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot="+timeSlot);
     });
 
     //账务明细接口－中信银行接口V1.0------暂无数据
 
     listPage(1, '', '', '', '', '', '');
+
     function listPage(currentPage, flow, leixing, orderNum, startTime, endTime, timeSlot){
         $.ajax({
             type:"get",
@@ -212,6 +222,7 @@
             dataType: "json",
             success: function(response){
                 console.log('账务明细', response);
+                // debugger
                 if(response.code == 1){
                     // 收入金额
                     var income = response.data.countData.income;
@@ -227,8 +238,31 @@
                     //TODO-----------
                     var list = response.data.pageData;
                     var str = '';
-                    if(list.length==0){ $(".myTbody").html("");$(".pagination").parent().css("display","none"); return;}
+                    if(list.length==0){ 
+                        $(".myTbody").html("");
+                        $(".pagination").parent().css("display","none"); 
+
+                        $('.downWd').attr('download', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot="+timeSlot);
+
+                        $('.downWd').attr('href', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot="+timeSlot);
+
+                        //日账单下载
+                        $('.day_excel').attr('href', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot=1");
+
+                        $('.day_excel').attr('download', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot=1");
+
+                        //月账单下载
+                        $('.month_excel').attr('href', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot=3");
+
+                        $('.month_excel').attr('download', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot=3");
+
+                        return;
+                    }
+                    
                     $(".pagination").parent().css("display","block");
+
+                    
+
                     if(currentPage==1){
                         //修改底部分页
                         var pageNum=Math.ceil(list.length/10);
@@ -240,7 +274,13 @@
                             elem: $('#page1'),
                             callback: function(n) {
                                 // console.log(n);
+
+                                // $('.downWd').attr('download', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+n+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot="+timeSlot);
+
+                                // $('.downWd').attr('href', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+n+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot="+timeSlot);
+
                                 listPage(n);//加载n页数据
+                                
                             }
                         });
                     }
@@ -311,31 +351,49 @@
 
                     yiyou_quanxian(userId);
 
+                    console.log(currentPage, flow, leixing, orderNum, startTime, endTime, timeSlot);
+
+                    //下载账单
+                    $('.downWd').attr('download', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot="+timeSlot);
+
+                    $('.downWd').attr('href', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot="+timeSlot);
+
+                    //日账单下载
+                    $('.day_excel').attr('href', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot=1");
+
+                    $('.day_excel').attr('download', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot=1");
+
+                    //月账单下载
+                    $('.month_excel').attr('href', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot=3");
+
+                    $('.month_excel').attr('download', pubIP + "financialApi/downExcel?token="+token+"&currentPage="+currentPage+"&moneyFlow="+flow+"&tranType="+leixing+"&orderId="+orderNum+"&startTime="+startTime+"&endTime="+endTime+"&timeSlot=3");
+                    
+
                 }
             }
         });
     }
 
     //月账单下载  
-    $(document).on('click', '.month_excel', function () {
-        $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=3")
-        $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=3");
-    });
+    // $(document).on('click', '.month_excel', function () {
+    //     $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=3")
+    //     $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=3");
+    // });
     
     //日账单下载  
-    $(document).on('click', '.day_excel', function () {
-        // excel(1);
-        $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=1")
-        $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=1");
-    });
+    // $(document).on('click', '.day_excel', function () {
+    //     // excel(1);
+    //     $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=1")
+    //     $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=1");
+    // });
 
     //下载账单
-    $(document).on('click', '.downWd', function () {
-        // excel('');
-        $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=")
-        $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=");
+    // $(document).on('click', '.downWd', function () {
+        
+    //     $(this).attr('download', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=")
+    //     $(this).attr('href', pubIP + "financialApi/downExcel?token="+token+"&timeSlot=");
 
-    });
+    // });
 
     // function excel(timeSlot) {
     //     $.ajax({

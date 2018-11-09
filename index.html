@@ -471,6 +471,10 @@
 			    font-size: 14px;
 			}
 
+			.hsUser .headImg {
+				cursor: pointer;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -1285,7 +1289,15 @@
 
 		<script type="text/javascript" >  
 
+			if (logo != null && logo != '') {
+				$('.hsUser .headImg').css('background', 'url('+logo+') no-repeat').css('background-position', 'center');
+			} 
 
+			//点击进入店铺
+			$('.hsUser .headImg').click(function() {
+				localStorage.getItem('thisCompanyId', companyId);
+				window.location.href = 'shopManage/storeIndex.html';
+			});
 
 			$('.all_success_alert .modelbtn, .all_success_alert .close').click(function() {
 				$(this).parents('.all_success_alert').hide();
@@ -1353,9 +1365,9 @@
 
 
 	                    str += '<button class="go_fbxq exist_qx" data-exist="1">发布采购</button>'
-								+'<div class="go_dbj exist_qx" data-exist="2">待处理的报价<span>('+data.data.waitOfferCount+')</span></div>'
+								+'<div class="go_dbj exist_qx" data-exist="2">待处理的报价<span>('+data.data.treatedOfferCount+')</span></div>'
 								+'<div class="go_sdbj exist_qx" data-exist="3">已收到的报价<span>('+data.data.getOfferCount+')</span></div>'
-								+'<div class="go_dcl exist_qx" data-exist="4">待处理的订单<span>('+data.data.treatedOrderCount+')</span></div>';
+								+'<div class="go_dcl exist_qx" data-exist="4">待处理的订单<span>('+data.dfh+')</span></div>';
 
 						$('#baojia_caigou_info').html(str);
 
