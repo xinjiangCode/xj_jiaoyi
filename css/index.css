@@ -233,7 +233,7 @@ input[type='text'].page_page {
 .mianCont_box{
 	background-color: white;
 }
-.hotSch>span{
+.hotSch>span>span{
 	color: #999;
 	margin-right: 12px;
 }

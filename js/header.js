@@ -120,6 +120,7 @@ document.writeln("<button>搜&nbsp;&nbsp;索</button>");
 document.writeln(" </div>");
 document.writeln("<div class=\"hotSch\">");
 document.writeln("热门搜索：");
+document.writeln("<span class=\"hotSch_span\">");
 if(adct == '首页' ){
 	document.writeln("<span><a href='search/productNameSearch_precise.html'>丙二醇</a></span>");
 	document.writeln("<span><a href='search/productNameSearch_precise.html'>氯化钾</a></span>");
@@ -138,6 +139,7 @@ if(adct == '首页' ){
 	document.writeln("<span><a href='../search/productNameSearch_precise.html'>曲拉通</a></span>");
 }
 
+document.writeln("</span>");
 document.writeln("</div>");
 document.writeln("</div>");
 document.writeln("<div class=\"phoneNum\"/></div>");
@@ -765,7 +767,56 @@ window.onload = function(){
 	       	}
        })
 
+       // hotSch_span
+       $.ajax({ 
+	      	type:"get",
+	      	url:headerip+"productApi/selectTopSearch",//v1.0
+	      	headers: {
+	      		token: token
+	      	},
+	      	cache:false,
+	      	dataType: "json",
+	      	data: {
+	      		index: 5
+	      	},
+	      	success: function(json){
+		        console.log(json);
+		        if (json.code == 1) {
+		        	// $('.hotSch_span').
+		        	var str = '';
+		        	for (var i = 0; i < json.data.length; i++) {
+		        		if (adct == '首页') {
+		        			$('.hotSch_span').addClass('shouye_flag');
+		        		} else {
+		        			$('.hotSch_span').addClass('feishouye_flag');
+		        		// 	str += '<span><a href="../search/productNameSearch_precise.html" data-searchId="'+json.data[i].id+'">'+json.data[i].names+'</a></span>';
+		        		}
 
+		        		str += '<span><a href="##">'+json.data[i].names+'</a></span>';
+		        		
+		        	}
+		        	$('.hotSch_span').html(str);
+		        }
+		    },
+		    error:function(xhr,statues,error){
+		    	      
+		    }
+	  });
+
+
+
+       $(document).on('click', '.hotSch_span span a', function() {
+       		
+       		window.localStorage.setItem('seachName', $(this).text());
+
+       		if ($('.hotSch_span').hasClass('feishouye_flag')) {
+       			window.location.href = '../search/fuzzySearch.html';
+
+       		} else {
+       			window.location.href = 'search/fuzzySearch.html';
+       			
+       		}
+       })
        
        $(document).on('click','.headObjType a,.category',function(){
        	  localStorage.setItem('categoryId',$(this).attr('typeId'));
