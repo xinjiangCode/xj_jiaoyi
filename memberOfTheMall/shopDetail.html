@@ -783,7 +783,7 @@
 							</div>
 							<p>商品总价：<span class="cOr goodsTotalMoney">￥0.00元</span></p>
 							<!-- <p>购买资格：<span style="margin-top: 20px; display: inline-block; margin-left: 10px">黄金会员 信用5级 （每个账号限兑换5个）</span></p> -->
-							<p>购买资格：<span style="margin-top: 20px; display: inline-block; margin-left: 10px"><span class="member_level">黄金会员</span> （每个账号限兑换<span class="max_num">5</span>个）</span></p>
+							<p>购买资格：<span style="margin-top: 20px; display: inline-block; margin-left: 10px"><span class="member_level">黄金会员</span> <span class="wu">（每个账号限兑换<span class="max_num">5</span>个）</span></span></p>
 							<a class="toXunpanBtn exchange exist_qx" data-exist="14" href="javascript:;">立即兑换</a>
 							
 						</div>
@@ -1327,7 +1327,13 @@
 
 						$('.member_level').text(data.data.memberLevelStr == null ? '' : data.data.memberLevelStr);
 
-						$('.max_num').text(data.data.maxCount == null ? 0 : data.data.maxCount);
+						if (data.data.isLimitation == 0) {
+							$('.wu').text('无');
+						} else {
+							$('.wu').html('（每个账号限兑换<span class="max_num">0</span>个）');
+							$('.max_num').text(data.data.maxCount == null ? 0 : data.data.maxCount);
+						}
+						
 
 						$('.infoBox').html(data.data.description);
 
@@ -1335,7 +1341,16 @@
 
 						$('.addOrSubGoodsNum input').val(data.data.minCount == null ? 0 : data.data.minCount);
 
+						$('.toXunpanBtn').attr('data-isLimitation', data.data.isLimitation);
 
+						// 1使用运费模板   2固定运费
+						$('.toXunpanBtn').attr('data-freightMethod', data.data.freightMethod);	
+
+						if (data.data.freightMethod == 2) {
+							$('.yunfei_num').text(data.data.fixedFreight+'元');
+						}
+
+						// $('.toXunpanBtn').attr('data-fixedFreight', data.data.fixedFreight);						
 						
 		        	}
 
@@ -1421,6 +1436,8 @@
 
 							$('.addOrSubGoodsNum .addBtn').attr('data-kucun', data.data.repertoryCount);
 
+							window.sessionStorage.setItem('skuId', data.data.skuId);
+
 						}
 
 					},
@@ -1444,7 +1461,11 @@
 
 				if ($('#province').attr('data-selectedindex') != 0 && $('#city').attr('data-selectedindex') != 0 && $('#area').attr('data-selectedindex') != 0) {
 					
-					yunfei($('.addOrSubGoodsNum input').val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area').attr('data-selectedindex'));
+					//2固定运费
+					if ($('.toXunpanBtn').attr('data-freightMethod') == 1) { 
+						yunfei($('.addOrSubGoodsNum input').val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area').attr('data-selectedindex'));
+					}
+					
 
 					$('.addOrSubGoodsNum input').val(num);
 
@@ -1516,8 +1537,9 @@
 
 				if ($('#province').attr('data-selectedindex') != 0 && $('#city').attr('data-selectedindex') != 0 && $('#area').attr('data-selectedindex') != 0) {
 
-
-					yunfei($('.addOrSubGoodsNum input').val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area').attr('data-selectedindex'));
+					if ($('.toXunpanBtn').attr('data-freightMethod') == 1) { 
+						yunfei($('.addOrSubGoodsNum input').val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area').attr('data-selectedindex'));
+					}
 
 					$('.addOrSubGoodsNum input').val(num);
 
@@ -1572,8 +1594,10 @@
 
 				if ($('#province').attr('data-selectedindex') != 0 && $('#city').attr('data-selectedindex') != 0 && $('#area').attr('data-selectedindex') != 0) {
 
-					yunfei($(this).val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area'
-						).attr('data-selectedindex'));
+					if ($('.toXunpanBtn').attr('data-freightMethod') == 1) { 
+						yunfei($(this).val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area'
+							).attr('data-selectedindex'));
+					}
 
 
 					kucun(arr, $('.objPrice').attr('data-payMethod'));
@@ -1654,12 +1678,17 @@
 					return false;
 				}
 				
-				//判断购买数量是否大于限购数量
-				if($('.addOrSubGoodsNum input').val()>$(".max_num").text()){
-					$('.all_error_alert .innerErrmsg').text('兑换数量不能大于限兑数量');
-					$('.all_error_alert').show();
-					return false;
+
+				//  0不限购 1限购
+				if ($(this).attr('data-isLimitation') == 1) {
+					//判断购买数量是否大于限购数量
+					if($('.addOrSubGoodsNum input').val()>$(".max_num").text()){
+						$('.all_error_alert .innerErrmsg').text('兑换数量不能大于限兑数量');
+						$('.all_error_alert').show();
+						return false;
+					}
 				}
+				
 
 
 				sessionStorage.setItem('spec', arr);
@@ -1819,7 +1848,9 @@
 						    //查询运费
 		    				if ($('#area').attr('data-selectedindex') != 0) {
 
-		    					yunfei($('.addOrSubGoodsNum input').val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area').attr('data-selectedindex'));
+		    					if ($('.toXunpanBtn').attr('data-freightMethod') == 1) { 
+		    						yunfei($('.addOrSubGoodsNum input').val(), $('#province').attr('data-selectedindex'), $('#city').attr('data-selectedindex'), $('#area').attr('data-selectedindex'));
+		    					}
 		    				}
 
 						});

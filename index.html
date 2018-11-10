@@ -1097,7 +1097,7 @@
 			<a href="##" id="tousu"><img src="img/indedxBi.png"/> </a>
 			<a href="##" id="gotop"><img src="img/indexDing.png"/> </a>
 		</div>
-		<div class="tsBg" style="height: 100%;"></div>
+		<div class="tsBg" style="height: 100%; z-index: 30;"></div>
 		<div class="tsBox">
 			<div class="modeltitle" style="width: 100%;">
 	            <span>投诉建议</span>
@@ -1858,6 +1858,8 @@
 						for (var i = 0; i < data.data.length; i++) {
 
 							var time2 = new Date(data.data[i].validityData).Format("yyyy-MM-dd,hh:mm:ss");
+
+							time2=time2.replace(new RegExp(/-/gm) ,"/");
 							
 							distanceTime2("distanceTime"+i+"", time2);
 						}
@@ -1928,6 +1930,7 @@
 			})
 
 			function distanceTime2(id, deadtime) {  
+
                 var endtime = new Date(deadtime); //结束时间  
                 var nowtime = new Date(); //当前时间  
                 var lefttime = parseInt(((endtime.getTime() - nowtime.getTime()) / 1000));  
@@ -1936,6 +1939,8 @@
                 var h = parseInt(lefttime / (60 * 60) % 24);  
                 var m = parseInt((lefttime / 60) % 60);  
                 var s = lefttime % 60; 
+
+
                 if (d < 10) {
                 	d = '0' + d;
                 }
@@ -1955,6 +1960,8 @@
                 if (document.getElementById(id) == null) {
                 	return false;
                 }
+
+
 
                 document.getElementById(id).innerHTML = '<span class="fontStyle">'+d+'</span>天'
         				+'<span class="fontStyle">'+h+'</span>时'

@@ -1462,6 +1462,8 @@
                     
                     res.data.deptTime = new Date(res.data.deptTime).Format("yyyy-MM-dd hh:mm:ss");
 
+                    res.data.deptTime=res.data.deptTime.replace(new RegExp(/-/gm) ,"/");
+
                     distanceTime2("time_djs", res.data.deptTime);
 
                     var orderInfoTpl = template('orderInfoTpl', res.data);

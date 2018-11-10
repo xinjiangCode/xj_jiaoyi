@@ -953,9 +953,14 @@
 
 		        		data.data.orderTime.submitTime = new Date(data.data.orderTime.submitTime).Format("yyyy-MM-dd hh:mm:ss");
 
+
+
 		        		time = new Date(time).Format("yyyy-MM-dd hh:mm:ss");
-		        		console.log(time);
-		        		console.log(data.data.orderTime.submitTime);
+
+		        		time=time.replace(new RegExp(/-/gm) ,"/");
+
+		        		// console.log(time);
+		        		// console.log(data.data.orderTime.submitTime);
 
 		        		distanceTime('time_out', time);
 		        		// distanceTime('time_out', '2018-09-21 17:22:00');

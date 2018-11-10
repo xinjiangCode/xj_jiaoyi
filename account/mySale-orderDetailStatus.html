@@ -1216,6 +1216,8 @@
 
                     res.data.deptTime = new Date(res.data.deptTime).Format("yyyy-MM-dd hh:mm:ss");
 
+                    res.data.deptTime=res.data.deptTime.replace(new RegExp(/-/gm) ,"/");
+
                     distanceTime2("time_djs", res.data.deptTime);
 
                     var orderInfoTpl = template('orderInfoTpl', res.data);
@@ -1256,8 +1258,15 @@
                     });
                     // 取消订单
                     $('.toCancelOrderbtn').click(function(){
-                        toCancelOrder(id);
+                        window.parent.warn_alert(id, '是否确定要取消订单？');
+                        
                     });
+
+                    window.parent.$('.all_warn_alert .all_sure').click(function() {
+                        // console.log($(this).attr('data-this'));
+                        toCancelOrder($(this).attr('data-this'));
+                    });
+
                     // 延长支付时间
                     $('.extendPayTimebtn').click(function(){
                         $('.modelBox').css('display','block');
@@ -1428,6 +1437,8 @@
             }
         });
     }
+
+
     // 订单取消
     function toCancelOrder(id){
         $.ajax({
@@ -1444,7 +1455,8 @@
             success: function(res){
                 console.log(res);
                 if(res.code == 1){
-                    alert('订单取消成功');
+                    window.parent.$('.all_success_alert p').text('订单取消成功');
+                    window.parent.$('.all_success_alert').show();
                     window.location.reload();
                 }
             },

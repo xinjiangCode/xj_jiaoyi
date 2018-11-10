@@ -2,7 +2,7 @@
 // var pubIP = 'http://api.xjv56.com/service/';
 // var pubIP = 'http://api.test.xjv56.com/service/';
 var pubIP = 'http://192.168.1.80:7777/service/';
-// var pubIP = 'http://192.168.1.176:7777/service/';
+// var pubIP = 'http://192.168.1.166:7777/service/';
 
 // var pubIP = 'http://192.168.1.57:7777/service/';
 // var pubIP = 'http://192.168.1.105:7777/service/';

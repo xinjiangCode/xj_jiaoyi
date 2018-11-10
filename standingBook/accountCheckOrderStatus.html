@@ -233,6 +233,7 @@
 
                         // endtime =  new Date(endtime).Format("yyyy-MM-dd hh:mm:ss");
 
+                        item.endTime=item.endTime.replace(new RegExp(/-/gm) ,"/");
 
                         distanceTime2("time_time1", item.endTime);
                         distanceTime2("time_time2", item.endTime);
