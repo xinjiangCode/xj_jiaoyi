@@ -794,6 +794,7 @@ window.onload = function(){
 
 		        		str += '<span><a href="##">'+json.data[i].names+'</a></span>';
 		        		
+		        		
 		        	}
 		        	$('.hotSch_span').html(str);
 		        }
@@ -806,7 +807,7 @@ window.onload = function(){
 
 
        $(document).on('click', '.hotSch_span span a', function() {
-       		
+
        		window.localStorage.setItem('seachName', $(this).text());
 
        		if ($('.hotSch_span').hasClass('feishouye_flag')) {
