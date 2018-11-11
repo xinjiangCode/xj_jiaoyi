@@ -940,6 +940,11 @@
 		// var areaId = sessionStorage.getItem('areaId');
 		var productId = sessionStorage.getItem('productId');
 
+
+		var skuId = sessionStorage.getItem('skuId');
+
+
+
 		var cityId = '';
 		var areaId = '';
 		var provinceId = '';
@@ -1079,9 +1084,11 @@
 						if (data.data.yunfei == 0) {
 							$('.delivery').text('免运费');
 							$('.delivery').attr('data-delivery', 0);
+							sessionStorage.setItem('delivery_money', 0);
 						} else {
 							$('.delivery span').text(data.data.yunfei);
 							$('.delivery').attr('data-delivery', data.data.yunfei);
+							sessionStorage.setItem('delivery_money', data.data.yunfei);
 						}
 
 						if (data.data.goodsInfo.pic) {
@@ -1106,8 +1113,13 @@
 
 							$('.cash .span').text(data.data.cash);
 
-							$('.yingfu_money .yingfu_cash .cash_span').text(data.data.cash);
+							if (Number(data.data.yunfei) > 0) {
 
+								$('.yingfu_money .yingfu_cash .cash_span').text(Number(data.data.cash) + Number(data.data.yunfei));
+							} else {
+								$('.yingfu_money .yingfu_cash .cash_span').text(data.data.cash);
+							}
+							
 							$('.yingfu_jifen').hide();
 							$('.add_fuhao').hide();
 
@@ -1124,11 +1136,20 @@
 
 							$('.yingfu_money .yingfu_jifen .jifen_span').text(data.data.integral);
 
-							$('.yingfu_cash').hide();
+
+							if (Number(data.data.yunfei) > 0) {
+								$('.yingfu_money .yingfu_cash .cash_span').text(Number(data.data.yunfei));
+							} else {
+								$('.yingfu_cash').hide();
+							}
 
 						} else if (data.data.goodsInfo.payMethod == 3) { //现金+积分
 
+								
 							$('.money_span').text(data.data.integral + '积分 + ' + data.data.cash + '元');
+							
+
+							
 
 							var jf = data.data.integral * data.data.goodsNum;
 							// if (data.data.cash == '0.00') {
@@ -1145,12 +1166,19 @@
 							$('.jifen .span').text(jf);
 							$('.cash .span').text(xj);
 
-							$('.jifen .usable_jifen').text(data.data.userIntegral);
-
 							$('.yingfu_money .jifen_span').text(jf);
-							$('.yingfu_money .cash_span').text(xj);
+							
+
+							if (Number(data.data.yunfei) > 0) {
+								$('.yingfu_money .cash_span').text(Number(xj) + Number(data.data.yunfei));
+							} else {
+								$('.yingfu_money .cash_span').text(xj);
+							}
+							
 
 						} 
+
+						$('.jifen .usable_jifen').text(data.data.userIntegral);
 
 						$('.submit_order').attr('data-payMethod', data.data.goodsInfo.payMethod);
 						
@@ -1209,7 +1237,8 @@
 					goodsNum: goodsNum,
 					cash: cash,
 					integral: integral,
-					spec: spec
+					spec: spec,
+					skuId: skuId
 				},
 				traditional: true,
 				dataType: 'json',

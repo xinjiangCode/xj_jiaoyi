@@ -70,7 +70,7 @@
 				<p>
 					<span>等级：</span>
 					<span class="progress_width"><span></span></span>
-					<span class="cha">还差<span class="cha_num">6000</span>分升级</span>
+					<span class="cha">还差<span class="cha_num">0</span>分升级</span>
 				</p>
 				<p>
 					目前等级：<span class="gold_member">黄金会员</span>
@@ -272,18 +272,13 @@
 	        		$('.cha_num').text(data.data.nextValue);
 
 	        		
-	        		if (data.data.ratio.indexOf('%') != -1) {
-	        			data.data.ratio = data.data.ratio.split('%').join('');	
-	        		}
 
-	        		if (data.data.ratio == '100') {
-
-	        			data.data.ratio = 0;
+	        		if (data.level == 'top') {
+	        			$('.progress_width span').css('width', '100%');
 	        		} else {
-	        			data.data.ratio = Number(100 - 20);
+	        			$('.progress_width span').css('width', data.data.ratio);
 	        		}
-
-	        		$('.progress_width span').css('width', data.data.ratio);
+	        		
 	        		
 	        	}
 

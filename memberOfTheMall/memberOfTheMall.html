@@ -1233,6 +1233,19 @@
 	        			$('.member_logo .logo_img').css('background-image', 'url("'+data.data.storeImage+'")');
 	        			$('.member_logo .logo_img').css('background-position', 'center center');
 	        			$('.member_logo .logo_img').css('background-repeat', 'no-repeat');
+
+						$('.member_logo .logo_img').css('cursor', 'pointer');	
+
+
+						$('.member_logo .logo_img').click(function() {
+							
+							localStorage.setItem('thisCompanyId', data.data.companyId);
+
+							window.location.href = '../shopManage/storeIndex.html';
+							
+						});        			
+
+
 	        		}
 
 	        		$('.login_name').text(data.data.name == null ? '' : data.data.name);
@@ -1242,7 +1255,12 @@
 	        			data.data.memberGrowCurrent = 0;
 	        		}
 
-	        		$('.progress_bg span').css('width', data.data.ratio);
+	        		if (data.level == 'top') {
+	        			$('.progress_bg span').css('width', '100%');
+	        		} else {
+	        			$('.progress_bg span').css('width', data.data.ratio);
+	        		}
+
 	        		
 	        		$('.yellow_member span').text(data.data.propertiesName);
 

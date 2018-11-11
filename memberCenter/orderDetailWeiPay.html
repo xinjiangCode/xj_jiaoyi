@@ -391,7 +391,9 @@
 		        	$('.address_str').text(data.data.addressStr);
 		        	$('.phone').text(data.data.mobile);
 
-		        	$('.carriage_cash').text(data.data.carriageCash == null ? 0 : data.data.carriageCash);
+		        	// $('.carriage_cash').text(data.data.carriageCash == null ? 0 : data.data.carriageCash);
+
+		        	$('.carriage_cash').text(Number(sessionStorage.getItem('delivery_money')));
 
 		        	if (data.data.payMethod == 1) {
 		        		$('.pay_method').text('积分');

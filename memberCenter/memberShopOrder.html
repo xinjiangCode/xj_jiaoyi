@@ -269,23 +269,44 @@
 											+'<li style="width: 110px; padding-right: 20px;"><span class="dun_num">'+data.pageInfo.list[i].goodsNum+'</span></li>'
 											+'<li style="width: 163px; padding-left: 49px;">'
 											if (data.pageInfo.list[i].goodsPayMethod == 1) { //现金
+
+												if (Number(data.pageInfo.list[i].carriageCash) > 0) {
+													str += '<p>现金：<span class="xinjin_num">￥'+(Number(data.pageInfo.list[i].cash) + Number(data.pageInfo.list[i].carriageCash))+'</span></p>'
+												} else {
+													str += '<p>现金：<span class="xinjin_num">￥'+data.pageInfo.list[i].cash+'</span></p>'
+												}
 												
-												str += '<p>现金：<span class="xinjin_num">￥'+data.pageInfo.list[i].cash+'</span></p>'
 												
 											} else if (data.pageInfo.list[i].goodsPayMethod == 2) { //积分
+
+												if (Number(data.pageInfo.list[i].carriageCash) > 0) {
+													str += '<p>积分：<span class="dun_num">'+data.pageInfo.list[i].integral+'</span></p>'
+														+'<p>现金：<span class="xinjin_num">￥'+data.pageInfo.list[i].carriageCash+'</span></p>'
+												} else {
+													str += '<p>积分：<span class="dun_num">'+data.pageInfo.list[i].integral+'</span></p>'
+												}
 												
-												str += '<p>积分：<span class="dun_num">'+data.pageInfo.list[i].integral+'</span></p>'
+												
 												
 											} else if (data.pageInfo.list[i].goodsPayMethod == 3) {
 												
-												str += '<p>积分：<span class="dun_num">'+data.pageInfo.list[i].integral+'</span></p>'
+												if (Number(data.pageInfo.list[i].carriageCash) > 0) {
+
+													str += '<p>积分：<span class="dun_num">'+data.pageInfo.list[i].integral+'</span></p>'
+													+'<p>现金：<span class="xinjin_num">￥'+(Number(data.pageInfo.list[i].cash) + Number(data.pageInfo.list[i].carriageCash))+'</span></p>'
+
+												} else {
+
+													str += '<p>积分：<span class="dun_num">'+data.pageInfo.list[i].integral+'</span></p>'
 													+'<p>现金：<span class="xinjin_num">￥'+data.pageInfo.list[i].cash+'</span></p>'
+												}
+												
 											}
 											
 											str += '</li>'
 											+'<li style="width: 110px; padding-right: 20px;">'+status+'</li>'
 											+'<li style="padding-right: 13px;">'
-												+'<span class="look_order exist_qx" data-exist="66"><a href="##" data-status="'+data.pageInfo.list[i].status+'" data-orderId="'+data.pageInfo.list[i].orderId+'">查看订单</a></span>'
+												+'<span class="look_order exist_qx" data-exist="66"><a href="##" data-delivery="'+data.pageInfo.list[i].carriageCash+'" data-status="'+data.pageInfo.list[i].status+'" data-orderId="'+data.pageInfo.list[i].orderId+'">查看订单</a></span>'
 											+'</li>'
 										+'</ul>'
 									+'</div>'
@@ -331,6 +352,8 @@
         $(document).on('click', '.look_order a', function() {
         	sessionStorage.setItem('orderId', $(this).attr('data-orderId'));
         	sessionStorage.setItem('status', $(this).attr('data-status'));
+
+        	sessionStorage.setItem('delivery_money', $(this).attr('data-delivery'));
         	
         	window.parent.location.href="../memberCenter/orderDetailWeiPay.html";
         });

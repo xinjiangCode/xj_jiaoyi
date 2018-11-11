@@ -122,21 +122,21 @@ document.writeln("<div class=\"hotSch\">");
 document.writeln("热门搜索：");
 document.writeln("<span class=\"hotSch_span\">");
 if(adct == '首页' ){
-	document.writeln("<span><a href='search/productNameSearch_precise.html'>丙二醇</a></span>");
-	document.writeln("<span><a href='search/productNameSearch_precise.html'>氯化钾</a></span>");
-	document.writeln("<span><a href='search/productNameSearch_precise.html'>冰醋酸</a></span>");
-	document.writeln("<span><a href='search/productNameSearch_precise.html'>聚氯乙烯</a></span>");
-	document.writeln("<span><a href='search/productNameSearch_precise.html'>氰化钠</a></span>");
-	document.writeln("<span><a href='search/productNameSearch_precise.html'>辛醇</a></span>");
-	document.writeln("<span><a href='search/productNameSearch_precise.html'>曲拉通</a></span>");
+	document.writeln("<span><a href='search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='search/productNameSearch_precise.html'></a></span>");
 }else{
-	document.writeln("<span><a href='../search/productNameSearch_precise.html'>丙二醇</a></span>");
-	document.writeln("<span><a href='../search/productNameSearch_precise.html'>氯化钾</a></span>");
-	document.writeln("<span><a href='../search/productNameSearch_precise.html'>冰醋酸</a></span>");
-	document.writeln("<span><a href='../search/productNameSearch_precise.html'>聚氯乙烯</a></span>");
-	document.writeln("<span><a href='../search/productNameSearch_precise.html'>氰化钠</a></span>");
-	document.writeln("<span><a href='../search/productNameSearch_precise.html'>辛醇</a></span>");
-	document.writeln("<span><a href='../search/productNameSearch_precise.html'>曲拉通</a></span>");
+	document.writeln("<span><a href='../search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='../search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='../search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='../search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='../search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='../search/productNameSearch_precise.html'></a></span>");
+	document.writeln("<span><a href='../search/productNameSearch_precise.html'></a></span>");
 }
 
 document.writeln("</span>");
@@ -582,8 +582,8 @@ document.writeln(headLink);
 
 // var headerip = 'http://api.xjv56.com/service/';
 // var headerip = 'http://api.test.xjv56.com/service/';
-var headerip = 'http://192.168.1.80:7777/service/';
-// var headerip = 'http://192.168.1.166:7777/service/';
+// var headerip = 'http://192.168.1.80:7777/service/';
+var headerip = 'http://192.168.1.166:7777/service/';
 // var headerip = 'http://192.168.1.57:7777/service/';
 // var headerip = 'http://192.168.1.105:7777/service/';
 
@@ -793,7 +793,7 @@ window.onload = function(){
 		        		}
 
 		        		str += '<span><a href="##">'+json.data[i].names+'</a></span>';
-		        		
+
 		        		
 		        	}
 		        	$('.hotSch_span').html(str);

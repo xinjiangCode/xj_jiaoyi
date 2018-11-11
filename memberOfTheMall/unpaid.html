@@ -390,7 +390,7 @@
 		<ul class="clearfix ul_pay">
 			<li class="pay_current wx"><img src="../img/wx_pay.png" alt=""></li>
 			<li class="pay2"><img src="../img/xuni_account_pay.png" alt=""></li>
-			<li class="yl"><img src="../img/yinlian_pay.png" alt=""></li>
+			<!-- <li class="yl"><img src="../img/yinlian_pay.png" alt=""></li> -->
 			<li class="pay4"><img src="../img/jifen_pay.png" alt=""></li>
 		</ul>
 	</div>
@@ -885,6 +885,8 @@
 
 		var orderId = sessionStorage.getItem('orderId');
 
+		var delivery_money = sessionStorage.getItem('delivery_money');
+
   		$.ajax({
 			type:"get",
 	        url:pubIP+"memberOrder/orderInfo",//v1.0
@@ -903,8 +905,13 @@
 	        	if (data.code == 1) {
 
 	        		if (data.data.goodsPayMethod == 2) { //积分
-	        			$('.ul_pay li').removeClass('pay_current');
-	        			$('.pay4').addClass('pay_current');
+	        			if (Number(delivery_money) > 0) {
+
+	        			} else {
+	        				$('.ul_pay li').removeClass('pay_current');
+	        				$('.pay4').addClass('pay_current');
+	        			}
+	        			
 	        			// $('.pay2').unbind();
 	        		} else if (data.data.goodsPayMethod == 3 || data.data.goodsPayMethod == 1) { //现金+积分
 	        			// $('.pay4').unbind();
@@ -925,18 +932,37 @@
 
 
 	        		if (data.data.goodsPayMethod == 2) { //积分
-	        			$('.yuan_span').hide();
+	        			
 	        			$('.jf_span .num1').text(data.data.integral);
+	        			if (Number(delivery_money) > 0) {
+	        				$('.yuan_span .num2').text(delivery_money);
+	        				$('.pay2').attr('num2', $('.num2').text());
+	        			} else {
+	        				$('.yuan_span').hide();
+	        			}
 	        		} else if (data.data.goodsPayMethod == 3) { //现金+积分
 	        			$('.jifen_money .num1').text(data.data.integral);
-	        			$('.jifen_money .num2').text(data.data.cash);
+	        			if (Number(delivery_money) > 0) {
+	        				$('.jifen_money .num2').text(Number(data.data.cash) + Number(delivery_money));
+	        				$('.pay2').attr('num2', $('.num2').text())
+	        			} else {
+	        				$('.jifen_money .num2').text(data.data.cash);
+	        				$('.pay2').attr('num2', $('.num2').text())
+	        			}
+	        			
+
 	        			$('.pay2').attr('goods_payMethod', data.data.goodsPayMethod);
-	        			$('.pay2').attr('num2', $('.num2').text())
+	        			
 	        			$('.pay2').attr('num1', $('.num1').text())
 	        		} else if (data.data.goodsPayMethod == 1) {
 	        			$('.jf_span').hide();
 	        			$('.add_btn').hide();
-	        			$('.yuan_span .num2').text(data.data.cash);
+	        			if (Number(delivery_money) > 0) {
+	        				$('.yuan_span .num2').text(Number(data.data.cash) + Number(delivery_money));
+	        			} else {
+	        				$('.yuan_span .num2').text(data.data.cash);
+	        			}
+	        			
 	        			$('.pay2').attr('goods_payMethod', data.data.goodsPayMethod);
 	        			$('.pay2').attr('num2', $('.num2').text());
 	        		}
@@ -1124,11 +1150,13 @@
 			        	console.log(data);
 			        	if (data.code == 1) {
 
-			        		$('.all_success_alert .innerSuccmsg').text('支付成功');
+			        		// $('.all_success_alert .innerSuccmsg').text('支付成功');
 
-	                        $('.all_success_alert').show();
+	            //             $('.all_success_alert').show();
 
 			        		clearInterval(wx_timer);
+
+			        		window.location.href = '../memberCenter/orderDetailWeiPay.html'
 
 			        	} else if (data.code == -1) { //支付失败
 
@@ -1362,10 +1390,11 @@
 				success:function(data){
 					console.log(data);
 					if (data.code == 1) {
-
-						$('.all_success_alert .innerSuccmsg').text('支付成功');
-                        $('.all_success_alert').show();
-                        $('#xuni_account_pay_alert').hide();
+						// $('#xuni_account_pay_alert').hide();
+						// $('.all_success_alert .innerSuccmsg').text('支付成功');
+      //                   $('.all_success_alert').show();
+      					window.location.href = '../memberCenter/orderDetailWeiPay.html'
+                        
 					} else {
 						$('.all_error_alert .innerErrmsg').text(data.msg);
 
@@ -1587,11 +1616,16 @@
   			
   			if ($(this).hasClass('wx')) { 
   				if ($('.ul_pay').attr('data-payMethod') == 2) {
-  					$('.all_error_alert .innerErrmsg').text('只能进行积分支付');
+  					if (Number(delivery_money) > 0) {
+  						
+  					} else {
+  						$('.all_error_alert .innerErrmsg').text('只能进行积分支付');
 
-					$('.all_error_alert').show();
+						$('.all_error_alert').show();
 
-					return false;
+						return false;
+  					}
+  					
   				}
 
   			}
@@ -1599,11 +1633,17 @@
   			if ($(this).hasClass('pay2')) {
   				
   				if ($('.ul_pay').attr('data-payMethod') == 2) {
-  					$('.all_error_alert .innerErrmsg').text('只能进行积分支付');
 
-					$('.all_error_alert').show();
+  					if (Number(delivery_money) > 0) {
 
-					return false;
+  					} else {
+  						$('.all_error_alert .innerErrmsg').text('只能进行积分支付');
+
+						$('.all_error_alert').show();
+
+						return false;
+  					}
+  					
   				} else {
   					$('#xuni_account_pay_alert').show();
 
@@ -1621,27 +1661,37 @@
   				}
   			}
 
-  			if ($(this).hasClass('yl')) {
-  				if ($('.ul_pay').attr('data-payMethod') == 2) {
-  					$('.all_error_alert .innerErrmsg').text('只能进行积分支付');
+  			// if ($(this).hasClass('yl')) {
+  			// 	if ($('.ul_pay').attr('data-payMethod') == 2) {
+  			// 		$('.all_error_alert .innerErrmsg').text('只能进行积分支付');
 
-					$('.all_error_alert').show();
+					// $('.all_error_alert').show();
 
-					return false;
-  				} else {
+					// return false;
+  			// 	} else {
   					
-  				}
-  			}
+  			// 	}
+  			// }
 
   			if ($(this).hasClass('pay4')) {
   				if ($('.ul_pay').attr('data-payMethod') == 2) {
 
-  					$('.ul_pay li').removeClass('pay_current');
-  					$(this).addClass('pay_current');
+  					if (Number(delivery_money) > 0) {
+  						$('.all_error_alert .innerErrmsg').text('不能进行积分支付');
 
-  					$('.jifen_cash').text($('.jf_span .num1').text()+'积分');
+						$('.all_error_alert').show();
 
-  					$('#jifen_pay_alert').show();
+						return false;
+
+  					} else {
+  						$('.ul_pay li').removeClass('pay_current');
+	  					$(this).addClass('pay_current');
+
+	  					$('.jifen_cash').text($('.jf_span .num1').text()+'积分');
+
+	  					$('#jifen_pay_alert').show();
+  					}
+  					
   				} else {
   					$('.all_error_alert .innerErrmsg').text('不能进行积分支付');
 
