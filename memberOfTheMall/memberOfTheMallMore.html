@@ -535,6 +535,7 @@
 	        			}
 	        			$('.one_lei').html(str);
 
+	        			debugger
 	        			// sort_name
 	        			if (sessionStorage.getItem('look_more') == '') { //查看更多进来的
 	        				$('.one_lei li').eq(0).addClass('sort_name');
@@ -595,6 +596,7 @@
 
 	    //二级分类
 	    function secondClass(firstClass) {
+
 	    	$.ajax({
 				type:"post",
 		        url:pubIP+"memberShop/getMemberShopClassGroyByOneClass",//v1.0
@@ -610,6 +612,7 @@
 	            },
 		        success: function(data){
 		        	console.log(data);
+		        	debugger
 		        	if (data.code == 1) {
 		        		if (data.data.length != 0) {
 		        			

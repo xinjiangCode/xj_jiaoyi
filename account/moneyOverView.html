@@ -296,7 +296,8 @@
     });
 
 //    点击提现
-$(".tixian").click(function () {
+
+$(".tixian").unbind().bind('click',function () {
     window.parent.$(".modelBox35 .tiXianMoney").val("");
     window.parent.$(".modelBox35 .payPassWord").val("");
     window.parent.$(".modelBox35 .SMScode").val("");
@@ -403,8 +404,8 @@ $(".tixian").click(function () {
     }
 
     //确认提现
-    window.parent.$("#sureTiXian").unbind();
-    window.parent.$("#sureTiXian").click(function () {
+    // window.parent.$("#sureTiXian").unbind();
+    window.parent.$("#sureTiXian").unbind().('click',function () {
         if($(this).attr("data-isok")==0){
             return;
         }

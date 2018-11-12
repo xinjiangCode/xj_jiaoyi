@@ -686,7 +686,8 @@
 		
 		// 点击下一步
         $('.nextSub2').click(function(){
-        	
+
+
 			if(!can){
 				return false;
 			}
@@ -698,8 +699,11 @@
         			check_val.push(obj[i].value);
         		}
         	}
+        	
+
         	var checkstr = check_val.join('');
 			// console.log(checkstr);
+
 
 			infoObj.paymentMethod = $('input[name="pay"]:checked').val();
 			//营销类型 1：主营产品 2：热销产品
@@ -709,7 +713,8 @@
 			// 是否公开
 			infoObj.isPublic = $('input[name="concat"]:checked').val()?$('input[name="concat"]:checked').val():0;
 
-		
+			
+
         	$('.main_content select,.main_content input[type="text"]').each(function(){
 				if(this.tagName == 'INPUT'){
 					if($(this).val() == ''){
@@ -730,11 +735,20 @@
 			if(!can1){
 				return false;
 			}
-			if(!infoObj.paymentMethod){
+
+
+			if(!checkstr){
 				$(".modelBox4" , parent.document).find('.info p').text('支付方式未选择');
 				$(".modelBox4" , parent.document).show();
 				return false;
 			}
+
+			if (checkstr.indexOf("3") != -1 && Number($('.unitPrice').val()) <= 0.01) {
+				$(".modelBox4" , parent.document).find('.info p').text('单价小于等于0.01，不能选择承兑+现汇');
+				$(".modelBox4" , parent.document).show();
+                return false;
+			}
+
 			if(!infoObj.marketingCategory){
 				$(".modelBox4" , parent.document).find('.info p').text('店铺分类未选择');
 				$(".modelBox4" , parent.document).show();

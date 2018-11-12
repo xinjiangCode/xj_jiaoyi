@@ -783,11 +783,18 @@
 					}
 				}
 			})
-			if(!infoObj.paymentMethod){
+			if(!checkstr){
 				$(".modelBox4" , parent.document).find('.info p').text('支付方式未选择');
 				$(".modelBox4" , parent.document).show();
 				return false;
 			}
+
+			if (checkstr.indexOf("3") != -1 && Number($('.unitPrice').val()) <= 0.01) {
+				$(".modelBox4" , parent.document).find('.info p').text('单价小于等于0.01，不能选择承兑+现汇');
+				$(".modelBox4" , parent.document).show();
+                return false;
+			}
+			
 			if(!infoObj.marketingCategory){
 				$(".modelBox4" , parent.document).find('.info p').text('店铺分类未选择');
 				$(".modelBox4" , parent.document).show();
