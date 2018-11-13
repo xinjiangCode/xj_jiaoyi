@@ -190,7 +190,7 @@
         }
         var step= $("#myStep").step({
             animate:true,
-            initStep:2,
+            initStep:1,
             speed:1000
         });
         $(function() {
@@ -280,10 +280,12 @@
                 var times = setInterval(function(){
                     isi++;
                     $('#sdphCode').text(60-isi+'秒后获取');
+                    $('#sdphCode').css('background', '#ccc');
                     if(isi == 60){
                         console.log(isi);
                         clearInterval(times);
                         $('#sdphCode').text('获取验证码');
+                        $('#sdphCode').css('background', 'rgba(53,130,248,1)');
                         canSend = true;
                     }
                 },1000);

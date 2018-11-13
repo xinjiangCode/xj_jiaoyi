@@ -1551,7 +1551,7 @@
             <div class="info">
                 <div class="img_div"><span class="clearfix"><img style="float: none;" src="../img/gsxq_success.gif" alt=""><span style="color: #6894FE; font-size: 20px; vertical-align: top; margin-top: 6px;
                 margin-left: 10px; display: inline-block;">实名认证成功</span></span></div>
-                <p>恭喜您，<span>实名认证成功</span>，将获得*****的积分奖励！</p>
+                <p>恭喜您，<span>实名认证成功</span>，将获得<span class="shiming_jf">0</span>的积分奖励！</p>
             </div>
             <div class="modelBtnBox">
                 <div style="background:#5690f6;width:130px;height:35px;font-size:16px;line-height:35px;" class="modelbtn confirm">返回</div>
@@ -2736,11 +2736,13 @@
                 success: function (data) {
                     console.log(data);
                     if (data.code == 1) {
-                        
+                            
+                        $('.modelBox23 .shiming_jf').text(data.jifen);
+
                         $('.modelBox23').css('display', 'block');
 
                         $('.upload_info').parent().parent().parent().parent().css('display', 'none');
-                        window.location.reload();
+                        
                         // $("#Iframe").attr("src","account.html");
                     }
                     
@@ -2752,11 +2754,14 @@
 
         }
 
-
-        
-
         
     });
+
+    $('.modelBox23 .modelbtn').click(function() {
+        window.location.reload();
+    });
+
+    // window.location.reload();
 
 
     $(document).on('change','#file_input1, #file_input2',function(){
@@ -4291,7 +4296,10 @@
                 success: function (data) {
                     console.log(data);
                     if (data.code == 1) {
-                        window.parent.addAddress();
+                        // addAddress();
+                        $('.all_success_alert p').text('添加成功');
+                        $('.all_success_alert').show();
+
                         shouhuo_list();
                         $('.cancel').click();
                     }else {
@@ -4410,7 +4418,9 @@
                 /* console.log(data);*/
                 if (data.code == 1) {
                     shouhuo_list();
-                    window.parent.updateSuccess();
+                    // window.parent.updateSuccess();
+                    $('.all_success_alert p').text('编辑成功');
+                    $('.all_success_alert').show();
 
                     $('.cancel').click();
 
@@ -4451,7 +4461,9 @@
                     if (data.code == 1) {
 //                        debugger
                         shouhuo_list();
-                        window.parent.delSuccess();
+                        // window.parent.delSuccess();
+                        $('.all_success_alert p').text('删除成功');
+                        $('.all_success_alert').show();
 
                     }
                 },
@@ -4753,7 +4765,9 @@
                     console.log(data);
                     if (data.code == 1) {
                         shouhuo_list1();
-                        window.parent.addAddress();
+                        // addAddress();
+                        $('.all_success_alert p').text('添加成功');
+                        $('.all_success_alert').show();
 
                         $('.cancel').click();
                     }else {

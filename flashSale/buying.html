@@ -559,17 +559,24 @@
 		            success: function(data){
 						console.log(data);
 						if (data.data != null) {
-							var str1 = '<span class="page_guide_item item" data-activityid=""><span>全  部</span></span>';
+							if (data.activityList.length != 0) {
 
-							for (var j = 0; j < data.activityList.length; j++) {
+								var str1 = '<span class="page_guide_item item" data-activityid=""><span>全  部</span></span>';
 
-								str1 += '<span class="page_guide_item item" data-activityid="'+data.activityList[j].dbid+'"><span class="page_guide_item_text">'+data.activityList[j].title+'</span></span>'
+								for (var j = 0; j < data.activityList.length; j++) {
 
+									str1 += '<span class="page_guide_item item" data-activityid="'+data.activityList[j].dbid+'"><span class="page_guide_item_text">'+data.activityList[j].title+'</span></span>'
+
+								}
+
+								$('#qianggou_title').html(str1);
+
+								$('#qianggou_title>span>span').eq(0).addClass('act');
+
+							} else {
+								$('.buyTab').css('borderBottom', 'none');
 							}
-
-							$('#qianggou_title').html(str1);
-
-							$('#qianggou_title>span>span').eq(0).addClass('act');
+							
 						}
 					},
 					error: function (err) {
@@ -600,15 +607,9 @@
 		            dataType: "json",
 		            success: function(data){
 						console.log(data);
-
 					
 						// 分页
-		                	if(data.code == '0'){
-		                        $('.pageJump').hide();
-		                        $('.buyIngObj>div').html('');
-		                        $('.notMsg').show();
-		                        return false;
-		                    } else if (data.code == '1') {
+		                	if (data.code == '1') {
 
 		                    	if (data.data.length != 0) {
 
@@ -710,8 +711,24 @@
 		                    		$('.buyIngObj').html('');
 		                    		$('.pagination').hide();
 		                    		$('.pageJump').css('display', 'none');
+		                    		
+			                        // $('#qianggou_title .item').each(function() {
+			                        // 	if ($(this).attr('data-activityid') == activityId) {
+			                        // 		$(this).hide();
+			                        // 	}
+			                        // })
 		                    	}
 
+		                    } else {
+		                        $('.pageJump').hide();
+		                        $('.buyIngObj>div').html('');
+		                        $('.notMsg').show();
+		                        
+		                        // $('#qianggou_title .item').each(function() {
+		                        // 	if ($(this).attr('data-activityid') == activityId) {
+		                        // 		$(this).hide();
+		                        // 	}
+		                        // })
 		                    }
 
 						

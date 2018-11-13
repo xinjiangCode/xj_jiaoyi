@@ -1,7 +1,7 @@
 //api地址
 // var pubIP = 'http://api.xjv56.com/service/';
-var pubIP = 'http://api.test.xjv56.com/service/';
-// var pubIP = 'http://192.168.1.80:7777/service/';
+// var pubIP = 'http://api.test.xjv56.com/service/';
+var pubIP = 'http://192.168.1.80:7777/service/';
 // var pubIP = 'http://192.168.1.166:7777/service/';
 
 // var pubIP = 'http://192.168.1.57:7777/service/';
@@ -14,9 +14,14 @@ var pubIP = 'http://api.test.xjv56.com/service/';
 
 
 // 物流交易衔接的链接
+
+var wuliuIP1 = 'http://api.test.hdlsuper.com/service/';
+
 // var wuliuIP = 'http://wl.web.xjv56.com/';
-// var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
-var wuliuIP = 'http://www.test.hdlsuper.com/';
+var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
+// var wuliuIP = 'http://web.test.hdlsuper.com/';
+// var wuliuIP = 'http://www.test.hdlsuper.com/';
+// var wuliuIP = 'http://web.hdlsuper.com/';
 // var wuliuIP = 'http://www.hdlsuper.com/';
 //跳回登录页
 //var homeUrl = 'http://192.168.1.80:8180/';

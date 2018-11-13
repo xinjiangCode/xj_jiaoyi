@@ -1444,6 +1444,12 @@ function xmTanUploadImg2(obj) {
                     return false;
                 }
 
+                
+
+                if (!codeFlag1) {
+                    return false;
+                }
+
                 if ($('#pay_pass2').val().trim() == '') {
                     $('#pay_pass2').parent().next().css('display', 'block');
                     return false;
@@ -1458,9 +1464,7 @@ function xmTanUploadImg2(obj) {
                     return false;
                 }
 
-                if (!codeFlag1) {
-                    return false;
-                }
+                
                 
             }
 

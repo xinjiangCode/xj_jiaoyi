@@ -706,10 +706,20 @@
             }
           //获短信取验证码前
             function getSMSCode(){
+
+            	if (!userName) {
+            		return false;
+            	}
+
             	if($("#phone").val()==="") {
             		$('#phone').focus();
               		$('#phone').next('.error').text('请输入手机号码');
             	}
+
+            	if (!phoneFlag) {
+            		return false;
+            	}
+
               	if(sessionStorage["isok"]==0){
                   	return;
 			  	}
@@ -738,8 +748,11 @@
               	}
 			  }
               
-              yanZhengUser();
+              
           }
+
+          var userName = true;
+
             //获短信取验证码前验证用户名
           function yanZhengUser() { //验证用户名是否存在
              $.ajax({
@@ -756,9 +769,13 @@
                  success: function (data) {
                     console.log(data.code);
                     if(data.code==1){
-                        yanZhengPhone();
+                        // yanZhengPhone();
+                        userName = true;
 					}else{
                         $("#user").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').css('background-position', 'left').text(data.msg);
+
+                        userName = false;
+
                         return;
 					}
                  },
@@ -767,6 +784,10 @@
                  }
              });
          }
+
+
+         var phoneFlag = true;
+
             //获短信取验证码前验证手机号
           function yanZhengPhone() { //验证手机号是否存在
               $.ajax({
@@ -783,9 +804,11 @@
                   success: function (data) {
                       console.log(data.code);
                       if(data.code==1){
-                          getSCode();
+                          // getSCode();
+                          phoneFlag = true;
                       }else{
                           $("#phone").parent().find(".error").text(data.msg);
+                          phoneFlag = false;
                           return;
                       }
                   },
@@ -839,8 +862,24 @@
                   }
               })
           }
+
+          //鼠标离开之后验证用户名是否存在
+          $('#user').blur(function() {
+          	yanZhengUser();
+          });
+
+          $('#phone').blur(function() {
+          	yanZhengPhone();
+          });
+
 		//提交
           function sub(that) {
+
+          		if (!userName) {
+            		return false;
+            	}
+
+
               var errorlist='';
               for(var i=0;i<$(".error").length;i++){
                   errorlist+=$(".error").eq(i).text();
@@ -858,7 +897,9 @@
               }else if($("#phone").val()===""){
                   $("#phone").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').css('background-position', 'left').css('background-position', 'left').text("手机号不能为空");
                   return;
-              }else if($("#code").val()===""){
+              }else if(!phoneFlag) {
+              	return false;
+              } else if($("#code").val()===""){
                   $("#code").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').css('background-position', 'left').text("验证码不能为空");
                   return;
               }else if($("#SMScode").val()===""){

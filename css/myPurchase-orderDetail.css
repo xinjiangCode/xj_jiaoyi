@@ -253,6 +253,9 @@
     width: 10%;
     line-height: 20px;
     padding: 16px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 /* .goodsItem .thords{
     padding: 0 5px;

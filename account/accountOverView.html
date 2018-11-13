@@ -578,11 +578,11 @@
 
                    // $(".weiRenZheng").css("display","none");//测试使用
 					localStorage.setItem('mobile',json.data.mobile);
-                    //身份认证
-                    if(json.data.idCard==null || json.data.idCard== ''){
+                    //身份认证  //实名认证  1未认证   2已认证   3认证中   4已拒绝
+                    if(json.data.authentication == 1){
                         $(".yrz").css("display","none");
                         $(".wrz").css("display","block");
-                    }else{
+                    }else if (json.data.authentication == 2) {
                         $(".wrz").css("display","none");
                         $(".yrz").css("display","block");
                     }
@@ -866,7 +866,22 @@
     //实名认证
     $(document).on('click', '.weiRenZheng_btn', function () {
         if ($(this).parent().hasClass('quanxian')) {
-            
+            window.parent.$('.modelBox22 .person_name').val('');
+            window.parent.$('.modelBox22 .person_name').next().hide();
+
+            window.parent.$('.modelBox22 .date_of_birth').val('');
+            window.parent.$('.modelBox22 .date_of_birth').next().hide();
+
+            window.parent.$('.modelBox22 .job').val('');
+            window.parent.$('.modelBox22 .job').next().hide();
+
+            window.parent.$('.modelBox22 .id_card_num').val('');
+            window.parent.$('.modelBox22 .id_card_num').next().hide();
+
+            window.parent.$('.modelBox22 .id_card_pic2').val('');
+            window.parent.$('.modelBox22 .id_card_pic2').next().hide();
+
+
             window.parent.renzheng();
 
         } else {
