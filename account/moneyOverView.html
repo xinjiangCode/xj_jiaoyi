@@ -405,7 +405,7 @@ $(".tixian").unbind().bind('click',function () {
 
     //确认提现
     // window.parent.$("#sureTiXian").unbind();
-    window.parent.$("#sureTiXian").unbind().('click',function () {
+    window.parent.$("#sureTiXian").unbind().bind('click',function () {
         if($(this).attr("data-isok")==0){
             return;
         }
