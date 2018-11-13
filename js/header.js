@@ -1045,8 +1045,8 @@ window.onload = function(){
 			},
 		    success: function(data){
 		    	console.log(data);
-
-		    	if (data.code == 1) {
+		    	
+		    	// if (data.code == 1) {
 		    		window.localStorage.removeItem('token');
 		    		console.log(window.localStorage.getItem('isOld'));
 		    		// window.localStorage.setItem('data-logout', 'true');
@@ -1056,7 +1056,7 @@ window.onload = function(){
 					}else{
 						location.href = '../login/login.html';
 					}
-		    	}
+		    	// }
 
 		    },
 		    error: function (err) {
