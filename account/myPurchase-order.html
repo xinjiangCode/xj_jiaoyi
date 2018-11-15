@@ -238,6 +238,7 @@
 <script>
 
     $(document).on('click', '.publish_wuliu_xuqiu a', function() {
+
         var productName = $(this).attr('data-productName');
         var sum = $(this).attr('data-sum');
         var orderId = $(this).attr('data-orderId');
@@ -260,7 +261,8 @@
                 success: function(json){
                     console.log(json);
                     if(json.code == 1){
-                        window.parent.$("#Iframe").attr("src","./mySale-order.html");
+
+                        window.parent.$("#Iframe").attr("src","./myPurchase-order.html");
                         //$(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
                         openWin( wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName));
                     }
@@ -271,7 +273,8 @@
                 }
             })
         }else{
-            $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
+
+            $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=2&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
         }
     })
 
@@ -395,29 +398,39 @@
                 if(json.code == '1'){
                     var pages = Math.floor(json.data.total / pageSize)+1;
                     pages = json.data.pages?json.data.pages:pages;
-                    $('.pageJump').html('<span class="allPageN">'+currentPage+'/'+pages+'</span>'+
-                        '共'+pages+'页，'+
-                        '<span>到第</span>'+
-                        '<input type="text"/>'+
-                        '<span>页</span>'+
-                        '<button type="button" class="button">GO</button>');
-                    Page({
-                        // num: 3,
-                        num: pages,
-                        elem: $('#page1'),
-                        callback: function(n) {
-                            console.log(n);
-                        }
-                    });
+                    // $('.pageJump').html('<span class="allPageN">'+currentPage+'/'+pages+'</span>'+
+                    //     '共'+pages+'页，'+
+                    //     '<span>到第</span>'+
+                    //     '<input type="text"/>'+
+                    //     '<span>页</span>'+
+                    //     '<button type="button" class="button">GO</button>');
+                    if (currentPage == 1) {
+                        Page({
+                            // num: 3,
+                            num: pages,
+                            elem: $('#page1'),
+                            callback: function(n) {
+                                console.log(n);
+                            }
+                        });
+                    }
+                    
                     var ordersList = json.data.result;
                     if(ordersList && ordersList.length>0){
                         $.each(ordersList,function(i, item){
                             item.submitTime=new Date(item.submitTime).Format("yyyy-MM-dd hh:mm:ss");
                             item.logisticsOrderState = item.logisticsOrderState?item.logisticsOrderState:1;
                         });
+
+                        
+
                         $('.pagination').parent().show();
                         ordersListHTML = template('ordersListTpl', {list: json.data.result});
                         $('#myPurchase-orders').html(ordersListHTML);
+
+                        $('.allPageN').text(currentPage+'/'+pages);
+
+                        $('.allPageSize').text(pages);
 
                         yiyou_quanxian(userId);
 

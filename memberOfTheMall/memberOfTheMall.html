@@ -1261,6 +1261,15 @@
 	        			$('.progress_bg span').css('width', data.data.ratio);
 	        		}
 
+	        		var r = data.data.ratio;
+	        		if (r.indexOf('%') != '-1') {
+	        			r = r.replace('%', '');
+	        		}
+	        		
+	        		if (Number(r) > 100) {
+	        			$('.progress_bg span').css('width', '100%');
+	        		}
+
 	        		
 	        		$('.yellow_member span').text(data.data.propertiesName);
 

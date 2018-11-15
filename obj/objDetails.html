@@ -76,6 +76,10 @@
 				padding-top: 15px;
 				box-sizing: border-box;
 			}
+
+			.modelpop .cont>.main.xp {
+				min-height: 509px;
+			}
 			
 			.modelpop .cont>.main li {
 				overflow: hidden;
@@ -186,6 +190,7 @@
 				float: right;
 				margin-right: 33px;
 				color: #5690f6;
+				cursor: pointer;
 			}
 			
 			.item {
@@ -690,6 +695,41 @@
 				margin: 30px 0 0 150px;
 			}
 
+			.all_success_alert, .all_error_alert{
+	            z-index: 9999;
+	            display: none;
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            right: 0;
+	            bottom: 0;
+	            background-color: rgba(0, 0, 0, 0.5);
+	        }
+
+
+	        .all_success_alert .modelcontent>div, .all_error_alert .modelcontent>div {
+	        	margin-bottom: 0px;
+				width: 450px;
+	        }
+
+	        .all_success_alert .modelcontent>div.info, .all_error_alert .modelcontent>div.info {
+	        	height: 140px;
+	        }
+			
+			.all_success_alert .img_div, .all_error_alert .img_div {
+				text-align: center;
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+
+			.all_success_alert .modelbtn, .all_error_alert .modelbtn {
+				margin: 5px auto 0 160px
+			}
+
+			.all_error_alert p, .all_success_alert p {
+				text-align: center;
+	        }
+
 		</style>
 	</head>
 
@@ -1008,10 +1048,10 @@
 									<div class="fl" style="margin-left: 80px;">
 										<label for="" style="color: #6c6d6e; font-size: 14px;">所在地区：</label>
 										<select style="margin-left:0; font-size: 13px;" name="province" id="province" class="provice">
-											<!--<option value="">请选择省</option>-->
+											<!-- <option value="">请选择省</option> -->
 										</select>
 										<select name="city" id="city" class="city" style=" font-size: 13px;">
-											<!--<option>请选择市</option>-->
+											<!-- <option value="">请选择市</option> -->
 										</select>
 									</div>
 									<span class="tishi1 fl"></span>
@@ -1048,7 +1088,7 @@
 						<span>我要询价</span>
 						<img src="../img/gsxq_del.png" height="48" alt="" class="close">
 					</div>
-					<div class="main" style="padding-bottom:10px;">
+					<div class="main xp" style="padding-bottom:10px;">
 						<ul>
 							<li>
 								<label for="xj_goodsNum">购买数量：</label>
@@ -1145,6 +1185,24 @@
 				</div>
 			</div>
 
+			<div class="all_error_alert" style="z-index: 99999;">
+			    <div class="modelCont">
+			        <div class="modeltitle">
+			            <span>消息提示</span>
+			            <img class="close" style="float: right;cursor: pointer;" height="50" src="../img/gsxq_del.png" alt="">
+			        </div>
+			        <div class="modelcontent">
+			            <div class="info">
+			                <div class="img_div"><img style="float: none;" src="../img/cf_denger1.png" alt=""></div>
+			                <p class="innerErrmsg"></p>
+			            </div>
+			            <div class="modelBtnBox">
+			                <div style="background:#5690f6;" class="modelbtn confirm">确&nbsp;&nbsp;&nbsp;&nbsp;定</div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+
 			<!-- 包装转换器 -->
 			<div class="modelpop commentator">
 				<div class="cont" style="height: 380px; width: 530px;">
@@ -1217,6 +1275,11 @@
             });
 
 
+            $('.all_error_alert .cancel, .all_error_alert .close, .all_error_alert .confirm').click(function() {
+				$('.all_error_alert').hide();
+			});
+
+
 			//大家都在买
 			$.ajax({
 				type:"get",
@@ -1267,18 +1330,9 @@
 			$('.cancel,.close').click(function() {
 				$('.modelBox').hide();
 			})
-			$('.addAddress').click(function() {
 
-			    $("#receiver").val("");
-                $("#detail_address").val("");
-                $("#cangkuName").val("");
-                $("#receiver").val("");
-                $("#province option").eq(0).attr("selected","selected")
-                $("#city option").eq(0).attr("selected","selected")
-				$('.modelBox').show();
-			})
 			/*添加仓库地址*/ 
-			$('.confirm').click(function(){
+			$('.modelBox .confirm').click(function(){
 //			   debugger
 //                $('#province option:selected').val()
 				var province = $(".modelBox #province").val(),
@@ -1290,29 +1344,37 @@
 					var defaultFlag = $('.modelBox input[name="isdefault"]:checked').val();
 					defaultFlag=defaultFlag?defaultFlag:0;
 				if(!receiver){
-					alert('请填写收货人');
+					// alert('请填写收货人');
+					$('.all_error_alert p').text('请填写收货人');
+					$('.all_error_alert').show();
+					
 					return false;
 				}
 				if(!province){
-					alert('请选择省份');
+					// alert('请选择省份');
+					$('.all_error_alert p').text('请选择省份');
+					$('.all_error_alert').show();
 					return false;
 				}
 				if(!city){
-					alert('请选择城市');
+					// alert('请选择城市');
+					$('.all_error_alert p').text('请选择城市');
+					$('.all_error_alert').show();
 					return false;
 				}
 				if(!detail_address){
-					alert('请输入详细地址');
+					// alert('请输入详细地址');
+					$('.all_error_alert p').text('请输入详细地址');
+					$('.all_error_alert').show();
 					return false;
 				}
 				if(!warehouseName){
-					alert('请输入手机号码');
+					// alert('请输入手机号码');
+					$('.all_error_alert p').text('请输入手机号码');
+					$('.all_error_alert').show();
 					return false;
 				}
-				if(!warehouseName){
-                    alert('请输入正确手机号码');
-                    return false;
-				}
+				
 				//console.log(warehouseType);
 				/*添加仓库地址*/ 
 				addAddr(receiver,province,city,detail_address,warehouseName,defaultFlag,this);
@@ -1418,14 +1480,35 @@
 							str += '<option value="'+data.data[i].provinceid+'" data-proviceId="'+data.data[i].provinceid+'">'+data.data[i].province+'</option>';
 						}
 						$('.modelBox #province').html(str);
+
+						if ($("#province").attr('data-province-select') == '1') {
+
+							$("#province option").eq(0).attr("selected","selected");
+						}
+
 						$('#city').html('<option>请选择市</option>');
 						$('#area').html('<option>请选择区</option>');
+
+
 					},
 					error: function(err){
 						console.log(err);
 					}
 				});
 			}
+
+			$('.addAddress').click(function() {
+				
+			    $("#receiver").val("");
+                $("#detail_address").val("");
+                $("#cangkuName").val("");
+                $("#receiver").val("");
+                getAllProvinces();
+                $("#province option").eq(0).attr("selected","selected")
+                $("#province").attr('data-province-select', '1');
+                $("#city option").eq(0).attr("selected","selected")
+				$('.modelBox').show();
+			})
 	
 	
 			 /*查询所有城市*/
@@ -1434,7 +1517,9 @@
 				var provinceID = $("#province option:selected").attr('data-proviceId');
 				
 				if (!provinceID) {
-					alert('no provinceID');
+					// alert('no provinceID');
+					$('.all_error_alert p').text('no provinceID');
+					$('.all_error_alert').show();
 					return;
 				}
 				$.ajax({
@@ -1457,20 +1542,24 @@
 	                    }
 						$('.modelBox #city').html(str);
 						$('#area').html('<option>请选择区</option>');
-	                        
+      
 	                },
 	                error: function(err){
 	                    console.log(err);
 	                }
 	            });
 			});
+
+			 
 	
 	        // 查询所有区域
 	        $(document).on('change', '#city', function () {
 	            var cityID = $(".modelBox #city option:selected").attr('data-cityId');
 				
 				if(!cityID){
-					alert('no cityid');
+					// alert('no cityid');
+					$('.all_error_alert p').text('no cityid');
+					$('.all_error_alert').show();
 					return;
 				}
 	
@@ -1873,7 +1962,9 @@
 							//判断是否时本公司产品
 							//alert(thisCompanyId);
 							if(thisCompanyId==companyId){
-								alert("您不能询盘自己公司商品！");
+								// alert("您不能询盘自己公司商品！");
+								$('.all_error_alert p').text('您不能询盘自己公司商品！');
+								$('.all_error_alert').show();
 								return;
 							}
 							//var isOld = localStorage.getItem('isOld');
@@ -1881,11 +1972,15 @@
 								return;
 							}
 							if(totalNum <= 0) {
-								alert('您未购买商品');
+								// alert('您未购买商品');
+								$('.all_error_alert p').text('您未购买商品');
+								$('.all_error_alert').show();
 								return;
 							} else {
 								if(!payTypeVal) {
-									alert('您未购选择支付方式');
+									// alert('您未购选择支付方式');
+									$('.all_error_alert p').text('您未购选择支付方式');
+									$('.all_error_alert').show();
 									return;
 								} else {
 									var fapiaoType = '',
@@ -1967,53 +2062,63 @@
 									});
 									//////////////////////////-----------------------------------------------------------
 									$('#editShoupiaoAddress .tosure').click(function() {
-										$('#editShoupiaoAddress').css('display', 'none');
-                                        $.ajax({
-                                            type: "post",
-                                            headers: {
-                                                Accept: "application/json; charset=utf-8",
-                                                token: token
-                                            },
-                                            async: false,
-                                            url: pubIP + "address/listAddressByShopUserId", //v1.0
-                                            cache: false,
-                                            data: {
-                                                supplyId: objid
-                                            },
-                                            success: function(resp) {
-                                                console.log(resp);
-                                                if(resp.code == 1) {
 
-                                                    if(resp.data && resp.data.length > 0) {
-                                                        shoupiaoAddressList = resp.data;
-                                                        current_dbid=$('input[name="address"]:checked').parent().parent().attr('data-id');
-                                                        addressId = current_dbid;
-                                                        for(var i=0;i<shoupiaoAddressList.length;i++){
-                                                            if(current_dbid == shoupiaoAddressList[i].dbid) {
-                                                                shoupiaoAddress = shoupiaoAddressList[i];
-                                                            }
-														}
+										if ($('input[name="address"]:checked').val() == '1') {
+											
+											$('#editShoupiaoAddress').css('display', 'none');
 
-//                                                        $.each(shoupiaoAddressList, function(i, n) {
-//                                                            if(current_dbid == n.dbid) {
-//                                                                shoupiaoAddress = n;
-//                                                            }
-//                                                        })
-                                                        // console.log(shoupiaoAddress,'----------');
-                                                        // 重新渲染收票地址数据
-                                                        $('.xj_shoupiaoAddress').text(
-                                                            shoupiaoAddress.addressStr + '  ' + shoupiaoAddress.detailedAddress +
-                                                            ' ' + shoupiaoAddress.receiver + ' ' + shoupiaoAddress.phone
-                                                        ).attr('data-dbid', addressId);
-                                                    }else{
-                                                        isHasAddress=0;
-                                                    }
-                                                }else if(resp.code == 0){
-                                                    isHasAddress=0;
-                                                }
-                                            }
-                                        });
+											$.ajax({
+	                                            type: "post",
+	                                            headers: {
+	                                                Accept: "application/json; charset=utf-8",
+	                                                token: token
+	                                            },
+	                                            async: false,
+	                                            url: pubIP + "address/listAddressByShopUserId", //v1.0
+	                                            cache: false,
+	                                            data: {
+	                                                supplyId: objid
+	                                            },
+	                                            success: function(resp) {
+	                                                console.log(resp);
+	                                                if(resp.code == 1) {
 
+	                                                    if(resp.data && resp.data.length > 0) {
+	                                                        shoupiaoAddressList = resp.data;
+	                                                        current_dbid=$('input[name="address"]:checked').parent().parent().attr('data-id');
+	                                                        addressId = current_dbid;
+	                                                        for(var i=0;i<shoupiaoAddressList.length;i++){
+	                                                            if(current_dbid == shoupiaoAddressList[i].dbid) {
+	                                                                shoupiaoAddress = shoupiaoAddressList[i];
+	                                                            }
+															}
+
+	//                                                        $.each(shoupiaoAddressList, function(i, n) {
+	//                                                            if(current_dbid == n.dbid) {
+	//                                                                shoupiaoAddress = n;
+	//                                                            }
+	//                                                        })
+	                                                        // console.log(shoupiaoAddress,'----------');
+	                                                        // 重新渲染收票地址数据
+	                                                        $('.xj_shoupiaoAddress').text(
+	                                                            shoupiaoAddress.addressStr + '  ' + shoupiaoAddress.detailedAddress +
+	                                                            ' ' + shoupiaoAddress.receiver + ' ' + shoupiaoAddress.phone
+	                                                        ).attr('data-dbid', addressId);
+	                                                    }else{
+	                                                        isHasAddress=0;
+	                                                    }
+	                                                }else if(resp.code == 0){
+	                                                    isHasAddress=0;
+	                                                }
+	                                            }
+	                                        });
+
+										}else {
+											$('.all_error_alert p').text('请选择收票地址');
+											$('.all_error_alert').show();
+											return false;
+										}
+												
 									});
 
 									$('#toXunpan').css('display', 'block');
@@ -2029,7 +2134,9 @@
 
 									$('#xj_tel').on('blur', function() {
 										if(!isPoneAvailable($('#xj_tel'))) {
-											alert('请输入正确的手机号');
+											// alert('请输入正确的手机号');
+											$('.all_error_alert p').text('请输入正确的手机号');
+											$('.all_error_alert').show();
 											return;
 										}
 									});
@@ -2050,24 +2157,32 @@
 										}
 										//发票类型不能为空
 										if(!fapiaoType) {
-											alert('发票类型不能为空');
+											// alert('发票类型不能为空');
+											$('.all_error_alert p').text('发票类型不能为空');
+											$('.all_error_alert').show();
 											return;
 										}
 										//收票地址
                                         if($(".xj_shoupiaoAddress").text()==""){
-                                            alert('收票地址不能为空');
+                                            // alert('收票地址不能为空');
+                                            $('.all_error_alert p').text('收票地址不能为空');
+											$('.all_error_alert').show();
                                             return;
                                         }
 										// 联系人不能为空
 										var concatMan = $('#xj_concatMan').val();
 										if(!$('#xj_concatMan').val() || $('#xj_concatMan').val() == ' ') {
-											alert('联系人不能为空');
+											// alert('联系人不能为空');
+											$('.all_error_alert p').text('联系人不能为空');
+											$('.all_error_alert').show();
 											return;
 										}
 
 										var tel = $('#xj_tel').val();
 										if(!isPoneAvailable($('#xj_tel'))) {
-											alert('请输入正确的手机号');
+											// alert('请输入正确的手机号');
+											$('.all_error_alert p').text('请输入正确的手机号');
+											$('.all_error_alert').show();
 											return;
 										}
 										var beizhu = $('#xj_bei').val();

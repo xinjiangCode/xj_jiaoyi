@@ -887,7 +887,7 @@
         console.log(companyId);
         if (companyId) {
 
-            
+        
             //v1.0
             $.ajax({
                 url: pubIP + 'companyCertification/getCompanyWriteStateByUserToken',
@@ -938,6 +938,7 @@
                         window.parent.tan6();
 
                     } else if (data.data.type == 3) {  //已认证
+                        
                         $(".weiRenZheng").addClass('xiaoshi');
                         $(".update_btn").css('display', 'block');
                         $('.next_btn_update').css('display', 'none');

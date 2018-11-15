@@ -102,6 +102,10 @@
             margin-right: -5px;
         }
 
+        .kf {
+            margin-left: 65px;
+        }
+
         @font-face {
             font-family: "YourFont";
             src: url('../font/AGENCYR.TTF');
@@ -121,16 +125,43 @@
         .goodsInfoTitle.title_span span {
             width: 10%;
         }
+
+        .kefu_a {
+            position: relative;
+        }
+
+        #unreadNum {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            border-radius: 15px;
+            background-color: #ff3b30;
+            left: 80px;
+            top: -8px;
+            display: none;
+            text-align: center;
+            line-height: 24px;
+            color: #fff;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body style="background: #fff;">
     <div class="orderDetailMain">
         <div class="od_head title clearfix">
             <div class="Lf">订单状态</div>
-            <div class="Rt">
+            <div class="Rt" style="overflow: visible;">
                 <span>重要提醒：暂无数据</span>
-                <img style="cursor: pointer; " src="../img/mp_qiE.png" alt="在线客服">
-                <span style="cursor: pointer;" class="blue">在线客服</span>
+                <!-- <span style="cursor: pointer; " class="kf kefu_a" onclick="_MEIQIA('showPanel')">
+                    <img style="cursor: pointer; " src="../img/mp_qiE.png" alt="在线客服">
+                    <span style="cursor: pointer;" class="blue">在线客服</span>    
+                     <span id="unreadNum"></span>
+                </span> -->
+                <span style="cursor: pointer; " class="kf">
+                    <img style="cursor: pointer; " src="../img/mp_qiE.png" alt="在线客服">
+                    <span style="cursor: pointer;" class="blue">在线客服</span>    
+                </span>
+                
             </div>
         </div>
         <!-- 订单超时,订单已取消 不展示进度条 <div class="orderStatus_progress bacFD">-->
@@ -1025,14 +1056,14 @@
                 <div class="goodsList">
                     <div class="goodsItem">
                         <script type="text/html" id="goodsInfoTpl">
-                            <div class="goodsName"><%=productName%></div>
+                            <div class="goodsName" title="<%=productName%>"><%=productName%></div>
                             <div class="shape"><%=productFormStr%></div>
                             <div class="specifications"><%=productSpecNum?productSpecNum:'暂无数据'%><%=productSpecUnitStr?productSpecUnitStr:''%></div>
                             <div class="singlePrice"><%=unitPrice%></div>
                             <div class="number"><%=sum%></div>
                             <div class="level"><%=productLevelStr%></div>
                             <div class="payWay"><%=paymentMethodStr%></div>
-                            <div class="orderTime"><%=submitTime%></div>
+                            <div class="orderTime" title="<%=submitTime%>"><%=submitTime%></div>
                             <!-- <div class="thords">平台物流&nbsp;&nbsp;&nbsp;&nbsp;新疆经济开发区39号中泰化学</div> -->
                             <div class="thords"><%=deliveryTypeStr%></div>
 
@@ -1151,6 +1182,72 @@
 <script src="./../js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="./../js/common.js" type="text/javascript" charset="utf-8"></script>
 <script src="../js/template.js"></script>
+
+<script>
+    /**
+     * [处理未读消息]
+     * @param  {[string, object]} msg [string: 'hasBeenRead',
+ object: 未读消息数据]
+     */
+    function yourFunction(msg) {
+        var text = '',
+            num = 0;
+        if (msg === 'hasBeenRead') { // 消息已被阅读
+            num = 0;
+            $('#unreadNum').hide();
+        } else if (typeof(msg) === 'object') {
+            var unreadNum = document.getElementById('unreadNum').innerHTML,
+                lastMsg = msg[msg.length - 1];
+            num = isNaN(+unreadNum) ? msg.length : +unreadNum + msg.length;
+            // content_type 是消息的类型：
+            // text（文字）、photo（图片）、file（文件）
+            // content 是消息的内容
+            if (lastMsg.content_type === 'text') {
+                // 文字消息中可能会存在表情图片，由于路径问题
+                // 将文字消息中的图片处理为文字'[表情]'
+                text = lastMsg.content.replace(
+                    /<img [^>]*src=['"]([^'"]+)[^>]*>/gi, '[表情]'
+                );
+            } else if (lastMsg.content_type === 'photo') {
+                text = '[图片]';
+            } else if (lastMsg.content_type === 'file') {
+                text = '[文件]';
+            } else {
+                text = '[新消息]';
+            }
+
+            $('#unreadNum').show();
+
+        }
+        // 未读消息数量
+        document.getElementById('unreadNum').innerHTML = num;
+        // 最后一条消息的内容
+        // document.getElementById('unreadMsg').innerHTML = text;
+    }
+
+</script>
+
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', '127367');
+
+    //无按钮
+    _MEIQIA('withoutBtn');
+
+     // 获取未读消息
+    _MEIQIA('getUnreadMsg', yourFunction);
+</script>
+
 <script>
     $(function(){
          // 点击关闭

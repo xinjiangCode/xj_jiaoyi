@@ -1,8 +1,8 @@
 //api地址
 // var pubIP = 'http://api.xjv56.com/service/';
-// var pubIP = 'http://api.test.xjv56.com/service/';
-var pubIP = 'http://192.168.1.80:7777/service/';
-// var pubIP = 'http://192.168.1.166:7777/service/';
+var pubIP = 'http://api.test.xjv56.com/service/';
+// var pubIP = 'http://192.168.1.80:7777/service/';
+// var pubIP = 'http://192.168.1.165:7777/service/';
 
 // var pubIP = 'http://192.168.1.57:7777/service/';
 // var pubIP = 'http://192.168.1.105:7777/service/';
@@ -18,8 +18,8 @@ var pubIP = 'http://192.168.1.80:7777/service/';
 var wuliuIP1 = 'http://api.test.hdlsuper.com/service/';
 
 // var wuliuIP = 'http://wl.web.xjv56.com/';
-var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
-// var wuliuIP = 'http://web.test.hdlsuper.com/';
+// var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
+var wuliuIP = 'http://web.test.hdlsuper.com/';
 // var wuliuIP = 'http://www.test.hdlsuper.com/';
 // var wuliuIP = 'http://web.hdlsuper.com/';
 // var wuliuIP = 'http://www.hdlsuper.com/';
@@ -149,9 +149,23 @@ function cf_popEffectClose1(that) {
 }
 
 
+var url = window.location.href;
+/**
+ * @desc 获取url参数
+ * @param {String} _url  url路径
+ */
+function parse_url(_url){
+    var pattern = /(\w+)=(\w+)/ig;
+    var parames = {};
+    url.replace(pattern, function(a, b, c){
+    parames[b] = c;
+    });
+    return parames;
+}
+var parames = parse_url(url);
 
 
-if(token){
+if(token && parames.type == null){
 	//底部信息ajax
 	$.ajax({ 
 		  type:"post",
@@ -174,7 +188,8 @@ if(token){
     
 
     //是否开启权限 1不开启，2开启
-    var flag = 1;
+    var flag = '';
+    // var flag = 1;
 
 
 	//isOld token
@@ -295,6 +310,12 @@ if(token){
 
             logo = json.logo;
             
+            if (localStorage.getItem('isOld') == '-1' || localStorage.getItem('isOld') == '-2' || localStorage.getItem('isOld') == '0' || localStorage.getItem('isOld') == '1') {
+                flag = 1;
+            } else {
+                flag = 2;
+            }
+
             
             if (flag == 2) {
 
@@ -307,12 +328,13 @@ if(token){
             
             if (flag == 1) {
                 if (localStorage.getItem('isOld') == 2) {
-                    $('.my_xunpan, .my_baojia, .go_zizhi, .update_login, .update_phone, .jiyi_pass_edit').addClass('quanxian');
+                    $('.my_xunpan, .my_baojia, .go_qiye, .go_zizhi, .update_login, .update_phone, .jiyi_pass_edit').addClass('quanxian');
                     $('.purchase1, .purchase2, .purchase3, .purchase4, .sale_order1, .sale_order2, .sale_order3, .sale_order4, .weiRenZheng_btn').parent().addClass('quanxian');
                 }
                 
             }
             
+            console.log(flag);
 
 		  },
 		  error:function(xhr,statues,error){
@@ -497,6 +519,9 @@ function yiyou_quanxian(userId) {
         }
     });
 }
+
+
+
 
 // 模拟下拉框
 

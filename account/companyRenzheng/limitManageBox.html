@@ -736,8 +736,12 @@
                     }
 
                     $('.info').html(str);
-                    
+
                     yi_limit();
+
+                    
+
+                    
 
                     //点击一级菜单二级全部选中
                     $('.first_title input').click(function() {
@@ -769,7 +773,298 @@
                             
                         // }
 
+                        //点击账户概览，下面的一级去掉
+                        if ($(this).parent().attr('data-first') == '8') {
+                            
+                            var _that = $(this);
+
+                            $('.first_title').each(function() {
+
+                                if ($(this).attr('data-first') == '11') {
+                                    
+                                    if ($(_that)[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+                                    } else {
+
+                                        $(this).find('input')[0].checked = false;
+                                        $(this).next().find('li').each(function() {
+                                            $(this).find('input')[0].checked = false;
+                                        });
+                                    }
+
+                                }
+
+                                if ($(this).attr('data-first') == '12') {
+                                    
+                                    if ($(_that)[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+                                    } else {
+
+                                        $(this).find('input')[0].checked = false;
+                                        $(this).next().find('li').each(function() {
+                                            $(this).find('input')[0].checked = false;
+                                        });
+                                    }
+
+                                }
+
+                                if ($(this).attr('data-first') == '21') {
+                                    
+                                    if ($(_that)[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+                                    } else {
+
+                                        $(this).find('input')[0].checked = false;
+                                        $(this).next().find('li').each(function() {
+                                            $(this).find('input')[0].checked = false;
+                                        });
+                                    }
+
+                                }
+
+                                if ($(this).attr('data-first') == '27') {
+                                    
+                                    if ($(_that)[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+                                    } else {
+
+                                        $(this).find('input')[0].checked = false;
+                                        $(this).next().find('li').each(function() {
+                                            $(this).find('input')[0].checked = false;
+                                        });
+                                    }
+
+                                }
+
+                                
+                            });
+                        }
+
+
+                        // 企业认证
+                        if ($(this).parent().attr('data-first') == '11') {
+                            
+                            var _that = $(this);
+
+                            $('.two_title li').each(function() {
+
+                                if ($(this).attr('data-second') == '16') {
+                                    
+                                    if ($(_that)[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+
+                                        $('.first_title').each(function() {
+                                            if ($(this).attr('data-first') == 8) {
+                                                $(this).find('input')[0].checked = true;
+                                            }
+                                        });
+
+
+                                    } else {
+                                        $(this).find('input')[0].checked = false;
+                                    }
+                                }
+
+                                
+                            });
+                        }
+
+                        //资质认证
+                        if ($(this).parent().attr('data-first') == '12') {
+                            
+                            var _that = $(this);
+
+                            $('.two_title li').each(function() {
+
+                                if ($(this).attr('data-second') == '17') {
+                                    
+                                    if ($(_that)[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+
+                                        $('.first_title').each(function() {
+                                            if ($(this).attr('data-first') == 8) {
+                                                $(this).find('input')[0].checked = true;
+                                            }
+                                        });
+
+                                    } else {
+                                        $(this).find('input')[0].checked = false;
+                                    }
+                                }
+
+                                
+                            });
+                        }
+
+                        //我的询盘
+                        if ($(this).parent().attr('data-first') == '27') {
+                            
+                            var _that = $(this);
+
+                            $('.two_title li').each(function() {
+
+                                if ($(this).attr('data-second') == '19') {
+                                    
+                                    if ($(_that)[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+
+                                        $('.first_title').each(function() {
+                                            if ($(this).attr('data-first') == 8) {
+                                                $(this).find('input')[0].checked = true;
+                                            }
+                                        });
+
+                                    } else {
+                                        $(this).find('input')[0].checked = false;
+
+                                    }
+                                }
+
+                                
+                            });
+                        }
+
+                        //我的报价
+                        if ($(this).parent().attr('data-first') == '21') {
+                            
+                            var _that = $(this);
+
+                            $('.two_title li').each(function() {
+
+                                if ($(this).attr('data-second') == '20') {
+                                    
+                                    if ($(_that)[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+
+                                        $('.first_title').each(function() {
+                                            if ($(this).attr('data-first') == 8) {
+                                                $(this).find('input')[0].checked = true;
+                                            }
+                                        });
+
+                                    } else {
+                                        $(this).find('input')[0].checked = false;
+                                    }
+                                }
+
+                                
+                            });
+                        }
+
+
                     });
+
+
+                    $('.two_title li').click(function() {
+
+                        // 账户概览->企业认证
+                        if ($(this).attr('data-second') == '16') {
+
+                            var _that1 = $(this);
+
+                            $('.first_title').each(function() {
+
+                                if ($(this).attr('data-first') == '11') {
+
+                                    if ($(_that1).find('input')[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+                                    } else {
+                                        $(this).find('input')[0].checked = false;
+                                        $(this).next().find('li').each(function() {
+                                            $(this).find('input')[0].checked = false;
+                                        });
+                                    }
+
+                                }
+
+                            });
+                        }
+
+                        // 账户概览->资质认证
+                        if ($(this).attr('data-second') == '17') {
+
+                            var _that1 = $(this);
+
+                            $('.first_title').each(function() {
+
+                                if ($(this).attr('data-first') == '12') {
+
+                                    if ($(_that1).find('input')[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+                                    } else {
+                                        $(this).find('input')[0].checked = false;
+                                        $(this).next().find('li').each(function() {
+                                            $(this).find('input')[0].checked = false;
+                                        });
+                                    }
+
+                                }
+
+                            });
+                        }
+
+
+                        // 账户概览->我的询盘
+                        if ($(this).attr('data-second') == '19') {
+
+                            var _that1 = $(this);
+
+                            $('.first_title').each(function() {
+
+                                if ($(this).attr('data-first') == '27') {
+
+                                    if ($(_that1).find('input')[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+                                    } else {
+                                        $(this).find('input')[0].checked = false;
+                                        $(this).next().find('li').each(function() {
+                                            $(this).find('input')[0].checked = false;
+                                        });
+                                    }
+
+                                }
+
+                            });
+                        }
+
+                        // 账户概览->我的报价
+                        if ($(this).attr('data-second') == '20') {
+
+                            var _that1 = $(this);
+
+                            $('.first_title').each(function() {
+
+                                if ($(this).attr('data-first') == '21') {
+
+                                    if ($(_that1).find('input')[0].checked == true) {
+                                       
+                                        $(this).find('input')[0].checked = true;
+                                    } else {
+                                        $(this).find('input')[0].checked = false;
+                                        $(this).next().find('li').each(function() {
+                                            $(this).find('input')[0].checked = false;
+                                        });
+                                    }
+
+                                }
+
+                            });
+                        }
+
+                    });
+
+                        
 
                     
                     

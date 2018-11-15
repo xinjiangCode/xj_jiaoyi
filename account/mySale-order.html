@@ -274,7 +274,7 @@
                 }
             })
         }else{
-            $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=1&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
+            $(this).attr('href', wuliuIP+'xj_wuliu_gy/account.html?type=2&token='+token+'&productName='+decToHex(productName)+'&sum='+sum+'&orderId='+orderId+'&chemicalId='+chemicalId+'&chemicalName='+decToHex(chemicalName))
         }
 
     })
@@ -387,20 +387,25 @@
                 if(json.code == '1'){
                     var pages = Math.floor(json.data.total / pageSize)+1;
                     pages = json.data.pages?json.data.pages:pages;
-                    $('.pageJump').html('<span class="allPageN">'+currentPage+'/'+pages+'</span>'+
-                        '共'+pages+'页，'+
-                        '<span>到第</span>'+
-                        '<input type="text" class="page_page"/>'+
-                        '<span>页</span>'+
-                        '<button type="button" class="button">GO</button>');
-                    Page({
-                        // num: 3,
-                        num: pages,
-                        elem: $('#page1'),
-                        callback: function(n) {
-                            console.log(n);
-                        }
-                    });
+                    // $('.pageJump').html('<span class="allPageN">'+currentPage+'/'+pages+'</span>'+
+                    //     '共'+pages+'页，'+
+                    //     '<span>到第</span>'+
+                    //     '<input type="text" class="page_page"/>'+
+                    //     '<span>页</span>'+
+                    //     '<button type="button" class="button">GO</button>');
+
+                    if (currentPage == 1) {
+                        Page({
+                            // num: 3,
+                            num: pages,
+                            elem: $('#page1'),
+                            callback: function(n) {
+                                // console.log(n);
+                                getOrder(type,status,n,orderMsg,pageSize);
+                            }
+                        });
+                    }
+                    
                     var ordersList = json.data.result;
                     if(ordersList && ordersList.length>0){
                         $.each(ordersList,function(i, item){
@@ -410,6 +415,11 @@
                         
                         ordersListHTML = template('ordersListTpl', {list: json.data.result});
                         $('#myPurchase-orders').html(ordersListHTML);
+
+                        $('.allPageN').text(currentPage+'/'+pages);
+
+                        $('.allPageSize').text(pages);
+
                         $('.pagination').parent().show();
 
                         yiyou_quanxian(userId);

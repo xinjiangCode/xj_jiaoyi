@@ -711,10 +711,11 @@
             		return false;
             	}
 
-            	if($("#phone").val()==="") {
-            		$('#phone').focus();
-              		$('#phone').next('.error').text('请输入手机号码');
-            	}
+            	// if($("#phone").val()==="") {
+            	// 	$('#phone').focus();
+             //  		$('#phone').next('.error').text('请输入手机号码');
+             //  		return false;
+            	// }
 
             	if (!phoneFlag) {
             		return false;
@@ -748,7 +749,7 @@
               	}
 			  }
               
-              
+              getSCode();
           }
 
           var userName = true;

@@ -126,7 +126,7 @@
             <ul class="pagination" id="page1"></ul>
             <div class="pageJump">
                         <span class="allPageN">1/200</span>
-                        共<span>0</span>页，
+                        共<span class="allPageN_span">0</span>页，
                 <span>到第</span>
                 <input type="text" class="page_page" />
                 <span>页</span>
@@ -281,7 +281,7 @@
 
                             $('.allPageN').text(pageNum+'/'+res.pages);
 
-                            $('.allPageN span').text(res.pages);
+                            $('.allPageN_span').text(res.pages);
 
                             $('.pagination').parent().show();
                         } else {

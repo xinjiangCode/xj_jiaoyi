@@ -3447,13 +3447,18 @@
                     //账户概览采购订单
                     window.sessionStorage.setItem('order_status1', '');
 
-                    if (data.data.type == 1) { //未提交
-                        $('#account_ziliao').attr('data-src', 'companyRenzheng/promptCompanyRenzheng.html')
-                        // $("#Iframe").attr("src","companyRenzheng/promptCompanyRenzheng.html");
-                    } else { //审核中
-                        $('#account_ziliao').attr('data-src', './identification1.html')
-                        // $("#Iframe").attr("src","./identification1.html");
-                    } 
+                    if (data.data) {
+                        if (data.data.type == 1) { //未提交
+                            $('#account_ziliao').attr('data-src', 'companyRenzheng/promptCompanyRenzheng.html')
+                            // $("#Iframe").attr("src","companyRenzheng/promptCompanyRenzheng.html");
+                        } else { //审核中
+                            $('#account_ziliao').attr('data-src', './identification1.html')
+                            // $("#Iframe").attr("src","./identification1.html");
+                        }
+                        
+                    }
+
+                    
 
                     
 

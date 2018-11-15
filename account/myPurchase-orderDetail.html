@@ -970,14 +970,14 @@
                 <div class="goodsList">
                     <div class="goodsItem">
                         <script type="text/html" id="goodsInfoTpl">
-                            <div class="goodsName"><%=productName%></div>
+                            <div class="goodsName" title="<%=productName%>"><%=productName%></div>
                             <div class="shape"><%=productFormStr%></div>
                             <div class="specifications"><%=productSpecStr?productSpecStr:'暂无数据'%></div>
                             <div class="singlePrice"><%=unitPrice%></div>
                             <div class="number"><%=sum%></div>
                             <div class="level"><%=productLevelStr%></div>
                             <div class="payWay"><%=paymentMethodStr%></div>
-                            <div class="orderTime"><%=submitTime%></div>
+                            <div class="orderTime" title="<%=submitTime%>"><%=submitTime%></div>
                             <div class="thords"><%=deliveryTypeStr%></div>
                             <!-- <div class="thords">平台物流&nbsp;&nbsp;&nbsp;&nbsp;新疆经济开发区39号中泰化学</div> -->
                             <%if(state==1 || state==2){%>
