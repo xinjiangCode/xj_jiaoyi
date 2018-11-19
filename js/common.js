@@ -188,8 +188,8 @@ if(token && parames.type == null){
     
 
     //是否开启权限 1不开启，2开启
-    var flag = '';
-    // var flag = 1;
+    // var flag = '';
+    var flag = 1;
 
 
 	//isOld token
@@ -310,11 +310,11 @@ if(token && parames.type == null){
 
             logo = json.logo;
             
-            if (localStorage.getItem('isOld') == '-1' || localStorage.getItem('isOld') == '-2' || localStorage.getItem('isOld') == '0' || localStorage.getItem('isOld') == '1') {
-                flag = 1;
-            } else {
-                flag = 2;
-            }
+            // if (localStorage.getItem('isOld') == '-1' || localStorage.getItem('isOld') == '-2' || localStorage.getItem('isOld') == '0' || localStorage.getItem('isOld') == '1') {
+            //     flag = 1;
+            // } else {
+            //     flag = 2;
+            // }
 
             
             if (flag == 2) {

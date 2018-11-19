@@ -169,7 +169,7 @@
             </div>
             <div class="myPurchase-infoHandle">
                 <div class="myPurchase-title infoHandleTitle clearfix">
-                    <div class="Lf">询盘信息<span>(注：询盘有效时间 2017-07-27 15: 50: 29，超时未处理询盘将会失效)</span></div>
+                    <div class="Lf">询盘信息<span class="periodTime"></span></div>
                     <div class="Rt yellow">待处理</div>
                 </div>
                 <div class="infoHandleCont">
@@ -290,9 +290,15 @@
                 success: function(res){
                     console.log(res);
                     if(res.code == 1){
+                        debugger
                         if(res.data){
-
+                            
                             res.data.resultTime = new Date(res.data.resultTime).Format("yyyy-MM-dd hh:mm:ss");
+                            debugger
+                            res.data.periodTime = new Date(res.data.periodTime).Format("yyyy-MM-dd hh:mm:ss");
+                            $(".periodTime").text("(注：询盘有效时间 "+res.data.periodTime+"，超时未处理询盘将会失效)")
+
+
                             res.data.myfromPage=from;
                             //渲染左侧
                             var leftTpl = template('leftTpl', res.data);
@@ -480,7 +486,7 @@
                         window.location.href="./account.html";
 
                     }else{
-                        alert(res.code);
+                        alert(res.msg);
                     }
                 },
                 error: function(err){
