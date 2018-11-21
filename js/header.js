@@ -29,6 +29,7 @@ if (parames.type || sessionStorage.getItem('cys_type') == '2') {
 
 		}
 
+
 		// window.location.reload();
 
 		sessionStorage.setItem('cys_type', '2');
@@ -168,7 +169,7 @@ if (parames.type || sessionStorage.getItem('cys_type') == '2') {
 				<a href="##"><span>试剂商城</span></a>\
 				<a href="##"><span>免费找货</span></a>\
 				<a href="##"><span>金融服务</span></a>\
-				<a href="##"><span>物流服务</span></a>\
+				<a target="_blank" href="'+wuliuIP+'" class="wuliu"><span>物流服务</span></a>\
 				<a href="##"><span>抢购</span></a>\
 				<a href="##"><span>抢货</span></a>\
 				<a href="##"><span>行业资讯</span></a>\
@@ -177,11 +178,13 @@ if (parames.type || sessionStorage.getItem('cys_type') == '2') {
 
 		document.writeln(headLink);
 
+		tokenFun();
+
 		// var headerip = 'http://api.xjv56.com/service/';
-		var headerip = 'http://api.test.xjv56.com/service/';
-		// var headerip = 'http://192.168.1.80:7777/service/';
-		// var headerip = 'http://192.168.1.165:7777/service/';
-		// var headerip = 'http://192.168.1.57:7777/service/';
+		// var headerip = 'http://api.test.xjv56.com/service/';
+		var headerip = 'http://192.168.1.80:7777/service/';
+		// var headerip = 'http://192.168.1.166:7777/service/';
+		// var headerip = 'http://192.168.1.34:7777/service/';
 		// var headerip = 'http://192.168.1.105:7777/service/';
 
 
@@ -386,10 +389,36 @@ if (parames.type || sessionStorage.getItem('cys_type') == '2') {
 
 }
 
+// function find(str,cha,num){
+// 	var x=str.indexOf(cha);
+// 	for(var i=0;i<num;i++){
+// 	    x=str.indexOf(cha,x+1);
+// 	}
+// 	return x;
+// }
+
+function tokenFun() {
+	// 公共头
+	var href = location.href; 
+
+	if (href.substring('26') == '' || href.indexOf('index.html') != -1 || href.indexOf('freeSearch') != -1 || href.indexOf('buying') != -1 || href.indexOf('flashSale') != -1 || href.indexOf('industryInformation') != -1 || href.indexOf('memberOfTheMall') != -1 || href.indexOf('reagentMall') != -1 || href.indexOf('spotGoods') != -1 || href.indexOf('memberOfTheMall') != -1 || href.indexOf('obj') != -1) {
+		var token1 = localStorage.getItem('token');
+
+		// var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
+		// var wuliuIP = 'http://127.0.0.1:8020/allWuliu/index.html?token='+token1;
+		var wuliuIP = 'http://web.test.hdlsuper.com/?token='+token1;
+		// var wuliuIP = 'http://www.test.hdlsuper.com/?token='+token1;
+		// var wuliuIP = 'http://web.hdlsuper.com/?token='+token1;
+		// var wuliuIP = 'http://www.hdlsuper.com/?token='+token1;
+
+	}
+}
+
+
 function zheng() {
 	// 公共头
 	var href = location.href; 
-	if (href.indexOf('index.html') != -1 || href.indexOf('freeSearch') != -1 || href.indexOf('buying') != -1 || href.indexOf('flashSale') != -1 || href.indexOf('industryInformation') != -1 || href.indexOf('memberOfTheMall') != -1 || href.indexOf('reagentMall') != -1 || href.indexOf('spotGoods') != -1 || href.indexOf('memberOfTheMall') != -1 || href.indexOf('obj') != -1) {
+	if (href.substring('26') == '' || href.indexOf('index.html') != -1 || href.indexOf('freeSearch') != -1 || href.indexOf('buying') != -1 || href.indexOf('flashSale') != -1 || href.indexOf('industryInformation') != -1 || href.indexOf('memberOfTheMall') != -1 || href.indexOf('reagentMall') != -1 || href.indexOf('spotGoods') != -1 || href.indexOf('memberOfTheMall') != -1 || href.indexOf('obj') != -1) {
 		var token1 = localStorage.getItem('token');
 
 		// var wuliuIP = 'http://192.168.1.159:8080/allWuliu/';
@@ -541,59 +570,35 @@ function zheng() {
 								<ul>\
 							      <li> ';		
 	if(adct == '首页' ){
-	headLink +=	'<h3><a href="obj/objList.html">生物及医药化学品</a> <i class="rightIcon"/></i></h3>';
+	headLink +=	'<h3><a href="obj/objList.html"></a> </h3>';
 	}else{
-	headLink +=	'<h3><a href="../obj/objList.html">生物及医药化学品</a> <i class="rightIcon"/></i></h3>';
+	headLink +=	'<h3><a href="../obj/objList.html"></a> </h3>';
 	}
 							      
-	headLink +=  '<span><a herf="javascript:;" class="one">生物化学品</a> </span>\
-							      	<span><a herf="javascript:;" class="two">药物杂质</a> </span>\
+	headLink +=  '<span><a herf="javascript:;" class="one"></a> </span>\
+							      	<span><a herf="javascript:;" class="two">\</a> </span>\
 							        <div class="submenu">\
 							          <div class="subleft">\
-							           	<div class="subTit">生物及医药化学品</div>\
+							           	<div class="subTit">\</div>\
 							           	<div class="objType">\
-							           		<a href="##">生物化学品</a>\
-							           		<a href="##">药物杂质</a>\
-							           		<a href="##">药物中间体</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
+							           		<a href="##">\</a>\
+							           		<a href="##">\</a>\
+							           		<a href="##">\</a>\
 							           	</div>\
 							           	<div>\
-							           		<p>热销商品</p>\
+							           		<p></p>\
 							           		<div class="hotObj">\
 							           			<a href="##">\
 							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
+								           			<p></p>\
+								           			<span></span>\
 							           			</a>\
 							           		</div>\
 							           		<div class="hotObj">\
 							           			<a href="##">\
 							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
+								           			<p></p>\
+								           			<span></span>\
 							           			</a>\
 							           		</div>\
 							           	</div>\
@@ -601,56 +606,32 @@ function zheng() {
 							        </div>\
 							      </li>\
 							      <li> \
-							      	<h3><a herf="javascript:;">农药化学品</a> <i class="rightIcon"/></i></h3>\
-							      	<span><a herf="javascript:;">农药间接体</a> </span>\
-							      	<span><a herf="javascript:;">化肥</a> </span>\
-							      	<span><a herf="javascript:;">化肥助剂</a> </span>\
+							      	<h3><a herf="javascript:;"></a> </h3>\
+							      	<span><a herf="javascript:;"></a> </span>\
+							      	<span><a herf="javascript:;"></a> </span>\
+							      	<span><a herf="javascript:;"></a> </span>\
 							        <div class="submenu">\
 							          <div class="subleft">\
-							           	<div class="subTit">生物及医药化学品</div>\
+							           	<div class="subTit"></div>\
 							           	<div class="objType">\
-							           		<a href="##">生物化学品</a>\
-							           		<a href="##">药物杂质</a>\
-							           		<a href="##">药物中间体</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
+							           		<a href="##"></a>\
+							           		<a href="##"></a>\
+							           		<a href="##"></a>\
 							           	</div>\
 							           	<div>\
-							           		<p>热销商品</p>\
+							           		<p></p>\
 							           		<div class="hotObj">\
 							           			<a href="##">\
 							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
+								           			<p></p>\
+								           			<span></span>\
 							           			</a>\
 							           		</div>\
 							           		<div class="hotObj">\
 							           			<a href="##">\
 							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
+								           			<p></p>\
+								           			<span></span>\
 							           			</a>\
 							           		</div>\
 							           	</div>\
@@ -658,280 +639,31 @@ function zheng() {
 							        </div>\
 							      </li>\
 							      <li> \
-							      	<h3><a herf="javascript:;">基础化学品</a> <i class="rightIcon"></i></h3>\
-							      	<span><a herf="javascript:;">石油化学品</a> </span>\
-							      	<span><a herf="javascript:;">有机溶剂</a> </span>\
+							      	<h3><a herf="javascript:;"></a> </h3>\
+							      	<span><a herf="javascript:;"></a> </span>\
+							      	<span><a herf="javascript:;"></a> </span>\
 							        <div class="submenu">\
 							          <div class="subleft">\
-							           	<div class="subTit">生物及医药化学品</div>\
+							           	<div class="subTit"></div>\
 							           	<div class="objType">\
-							           		<a href="##">生物化学品</a>\
-							           		<a href="##">药物杂质</a>\
-							           		<a href="##">药物中间体</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
+							           		<a href="##"></a>\
+							           		<a href="##"></a>\
+							           		<a href="##"></a>\
 							           	</div>\
 							           	<div>\
-							           		<p>热销商品</p>\
+							           		<p></p>\
 							           		<div class="hotObj">\
 							           			<a href="##">\
 							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
+								           			<p></p>\
+								           			<span></span>\
 							           			</a>\
 							           		</div>\
 							           		<div class="hotObj">\
 							           			<a href="##">\
 							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           	</div>\
-							          </div>\
-							        </div>\
-							      </li>\
-							      <li> \
-							      	<h3><a herf="javascript:;">日用化学品</a><i class="rightIcon"></i> </h3>\
-							      	<span><a herf="javascript:;">洗涤用品</a> </span>\
-							      	<span><a herf="javascript:;">化妆品原料</a> </span>\
-							        <div class="submenu">\
-							          <div class="subleft">\
-							           	<div class="subTit">生物及医药化学品</div>\
-							           	<div class="objType">\
-							           		<a href="##">生物化学品</a>\
-							           		<a href="##">药物杂质</a>\
-							           		<a href="##">药物中间体</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           	</div>\
-							           	<div>\
-							           		<p>热销商品</p>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           	</div>\
-							          </div>\
-							        </div>\
-							      </li>\
-							      <li> \
-							      	<h3><a herf="javascript:;">染料及颜料</a> <i class="rightIcon"></i></h3>\
-							      	<span><a herf="javascript:;">染料</a> </span>\
-							      	<span><a herf="javascript:;">染料中间体</a> </span>\
-							      	<span><a herf="javascript:;">颜料</a> </span>\
-							        <div class="submenu">\
-							          <div class="subleft">\
-							           	<div class="subTit">生物及医药化学品</div>\
-							           	<div class="objType">\
-							           		<a href="##">生物化学品</a>\
-							           		<a href="##">药物杂质</a>\
-							           		<a href="##">药物中间体</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           	</div>\
-							           	<div>\
-							           		<p>热销商品</p>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           	</div>\
-							          </div>\
-							        </div>\
-							      </li>\
-							      <li> \
-							      	<h3><a herf="javascript:;">天然产物及提取物</a><i class="rightIcon"></i> </h3>\
-							      	<span><a herf="javascript:;">动物提取物</a> </span>\
-							      	<span><a herf="javascript:;">植物提取物</a> </span>\
-							        <div class="submenu">\
-							          <div class="subleft">\
-							           	<div class="subTit">生物及医药化学品</div>\
-							           	<div class="objType">\
-							           		<a href="##">生物化学品</a>\
-							           		<a href="##">药物杂质</a>\
-							           		<a href="##">药物中间体</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           	</div>\
-							           	<div>\
-							           		<p>热销商品</p>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           	</div>\
-							          </div>\
-							        </div>\
-							      </li>\
-							      <li> \
-							      	<h3><a herf="javascript:;">涂料与油漆</a> <i class="rightIcon"></i></h3>\
-							      	<span><a herf="javascript:;">涂料</a> </span>\
-							      	<span><a herf="javascript:;">涂料与油漆辅助材料类</a> </span>\
-							        <div class="submenu">\
-							          <div class="subleft">\
-							           	<div class="subTit">生物及医药化学品</div>\
-							           	<div class="objType">\
-							           		<a href="##">生物化学品</a>\
-							           		<a href="##">药物杂质</a>\
-							           		<a href="##">药物中间体</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           		<a href="##">医用辅料</a>\
-							           	</div>\
-							           	<div>\
-							           		<p>热销商品</p>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
-							           			</a>\
-							           		</div>\
-							           		<div class="hotObj">\
-							           			<a href="##">\
-							           				<div></div>\
-								           			<p>6880元/吨</p>\
-								           			<span>日化原料</span>\
+								           			<p></p>\
+								           			<span></span>\
 							           			</a>\
 							           		</div>\
 							           	</div>\
@@ -970,10 +702,10 @@ function zheng() {
 	document.writeln(headLink);
 
 	// var headerip = 'http://api.xjv56.com/service/';
-	var headerip = 'http://api.test.xjv56.com/service/';
-	// var headerip = 'http://192.168.1.80:7777/service/';
-	// var headerip = 'http://192.168.1.165:7777/service/';
-	// var headerip = 'http://192.168.1.57:7777/service/';
+	// var headerip = 'http://api.test.xjv56.com/service/';
+	var headerip = 'http://192.168.1.80:7777/service/';
+	// var headerip = 'http://192.168.1.166:7777/service/';
+	// var headerip = 'http://192.168.1.34:7777/service/';
 	// var headerip = 'http://192.168.1.105:7777/service/';
 
 	// var headerip = 'http://127.0.0.1:7777/service/';
@@ -1100,7 +832,7 @@ function zheng() {
 	       // hotSch_span
 	       $.ajax({ 
 		      	type:"get",
-		      	url:headerip+"productApi/selectTopSearch",//v1.0
+		      	url:headerip+"productApi/getNetArticle",//v1.0
 		      	headers: {
 		      		token: token
 		      	},

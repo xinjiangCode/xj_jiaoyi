@@ -243,6 +243,31 @@
 				text-align: center;
 	        }
 
+	        .xy_detail .img {
+				width: 100%;
+				background: url('../img/cf_popbackgr.png') no-repeat;
+				height: 48px;
+	        }
+
+	        span.agreement_title {
+			    line-height: 48px;
+			    padding-left: 20px;
+			    font-size: 15px;
+			    color: #333;
+			}
+
+			.cont_main {
+			    width: 100%;
+			    height: 430px;
+			    overflow-y: auto;
+			    padding-right: 10px;
+    			box-sizing: border-box;
+			}
+
+			.xy_close {
+				cursor: pointer;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -340,8 +365,16 @@
         <!-- 协议 -->
         <div class="mask"></div>
         <div class="xy_detail">
-            <img class="xy_close" src="../img/cf_close1.png" alt="">
-            <div> </div>
+        	<div class="img">
+        		<span class="agreement_title"></span>
+        		<img class="xy_close" src="../img/cf_close1.png" alt="">
+        	</div>
+            
+            <div class="cont"> 
+				<div class="cont_main">
+					
+				</div>
+            </div>
         </div>
 
         <div class="all_error_alert" style="z-index: 99999;">
@@ -384,7 +417,8 @@
                         //location.href = data.data.fileUrl;
                         $(".mask").show();
                         $(".xy_detail").show();
-                        $(".xy_detail div").html(data.data.content)
+                        $(".xy_detail div.cont .cont_main").html(data.data.content);
+                        $('.xy_detail .agreement_title').text(data.data.agreementTitle);
                     
                     },
                     error: function (err) {
@@ -808,9 +842,11 @@
                           // getSCode();
                           phoneFlag = true;
                       }else{
-                          $("#phone").parent().find(".error").text(data.msg);
-                          phoneFlag = false;
-                          return;
+                      		$("#phone").parent().find(".error").css('background', 'url(../img/input_error.png) no-repeat').css('background-position', 'left').text(data.msg);
+
+                          	phoneFlag = false;
+                          	
+                          	return;
                       }
                   },
                   error: function(err){

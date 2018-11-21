@@ -947,7 +947,7 @@ footer .friendList a{
 	box-sizing: border-box;
 	border: 1px solid #ebe9ea;
 	position: absolute;
-	top: 36px;
+	top: 34px;
 	left: -1px;
 	background: #fff;
 	border-top: none;
@@ -1026,7 +1026,27 @@ input[type='text'].page_page {
 	text-align: center !important;
 }
 
+img.kefu_png {
+    position: absolute;
+    left: 315px;
+    top: 26px;
+    cursor: pointer;
+}
 
+#unreadNum2 {
+	width: 24px;
+    height: 24px;
+    position: absolute;
+    border-radius: 15px;
+    background-color: #ff3b30;
+    left: 445px;
+    top: 15px;
+    display: none;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    font-size: 14px;
+}
 
 /*.exist_qx {
 	visibility: hidden;

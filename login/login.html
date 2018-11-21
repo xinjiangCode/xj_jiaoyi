@@ -179,15 +179,17 @@
 		<script src="../js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" >
-		window.onload = function(){
-			localStorage.setItem("token","");
-		}
+		// window.onload = function(){
+		// 	localStorage.setItem("token","");
+		// }
 				var isAuto=0;
 
 		  var mySwiper = new Swiper ('.swiper-container', {
 			    loop: true,
 			    autoplay:true,
 		  })
+
+		  
           $(function () {
               if(localStorage.getItem("isAuto")==1){
               	if(localStorage.getItem('isOld') == 2){
@@ -196,6 +198,7 @@
               }
 
               $(".box").eq(0).click(function () {
+
                   if(isAuto==1){
                       isAuto=0;
                   }else{
@@ -257,7 +260,7 @@
           });
           
           $('#login').click(function(){
-
+          	
           	var user = $('#user').val();
           	var pwd = $('#pwd').val();
           	if(user == ''){
@@ -268,6 +271,13 @@
           		//alert('请输入密码！');
                 $(".error").eq(0).css('background', 'url(../img/input_warning.png) no-repeat').css('background-position', 'left').text('请输入密码！');
           		return false;
+          	}
+
+
+          	var auto = 0;
+
+          	if (isAuto == 1) {
+          		auto = 1;
           	}
 
               var that=this;
@@ -287,14 +297,14 @@
 	          data:{
 		        	  'mobileOrLoginName':user,
 		        	  'password':pwd,
-                      "isAuto":isAuto
+                      "isAuto":auto
 	          },
 	          success: function(json){
                   $(that).attr("cf_norepeat","1")
 
 	            	console.log(json);
 	                if(json.code == '1'){
-                        localStorage.setItem("isAuto",isAuto);
+                        localStorage.setItem("isAuto",auto);
                         localStorage.setItem("token",json.data.token);
                         //sessionStorage.setItem("token",json.data.token);//hzf  20180716
 	                	window.location.href = '../index.html';

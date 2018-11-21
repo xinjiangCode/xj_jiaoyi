@@ -1,10 +1,10 @@
 //api地址
 // var pubIP = 'http://api.xjv56.com/service/';
-var pubIP = 'http://api.test.xjv56.com/service/';
-// var pubIP = 'http://192.168.1.80:7777/service/';
-// var pubIP = 'http://192.168.1.165:7777/service/';
+// var pubIP = 'http://api.test.xjv56.com/service/';
+var pubIP = 'http://192.168.1.80:7777/service/';
+// var pubIP = 'http://192.168.1.166:7777/service/';
 
-// var pubIP = 'http://192.168.1.57:7777/service/';
+// var pubIP = 'http://192.168.1.34:7777/service/';
 // var pubIP = 'http://192.168.1.105:7777/service/';
 
 //导出
@@ -80,7 +80,7 @@ document.writeln("<div class=\"pop\" id=\"effect\">\n" +
     "\t<div class=\"cont\" >\n" +
     "\t\t<div class=\"cance2\" >\n" +
     "\t\t\t<span class=\"popTitle Lf\" >提示</span>\n" +
-    "\t\t\t<div class=\"close Rt\" style=\"width:46px;height:48px;margin-right: -20px;margin-top: 0; background: url('img/gsxq_del.png') no-repeat ; background-size: contain;\" onclick=\"cf_popEffectClose1(this)\"></div>\n" +
+    "\t\t\t<div class=\"close Rt\" onclick=\"popEffectLogin()\" style=\"width:46px;height:48px;margin-right: -20px;margin-top: 0; background: url('img/gsxq_del.png') no-repeat ; background-size: contain;\" onclick=\"cf_popEffectClose1(this)\"></div>\n" +
     "\t\t</div>\n" +
     "\t\t<div class=\"deanger\"></div>\n" +
     // "\t\t<div class=\"contTitle\">您好，<span>您的登录已经过期</span>,请先<i onclick=\"popEffectLogin()\" style=\"color: #00a0e9;\">登录</i>，以便使用更多功能。</div>\n" +
@@ -94,7 +94,7 @@ document.writeln("<div class=\"pop\" id=\"effect402\">\n" +
     "\t<div class=\"cont\" >\n" +
     "\t\t<div class=\"cance2\" >\n" +
     "\t\t\t<span class=\"popTitle Lf\" >提示</span>\n" +
-    "\t\t\t<div class=\"close Rt\" style=\"width:46px;height:48px;margin-right: -20px;margin-top: 0; background: url('img/gsxq_del.png') no-repeat ; background-size: contain;\" onclick=\"cf_popEffectClose1(this)\"></div>\n" +
+    "\t\t\t<div class=\"close Rt\" onclick=\"popEffectLogin()\" style=\"width:46px;height:48px;margin-right: -20px;margin-top: 0; background: url('img/gsxq_del.png') no-repeat ; background-size: contain;\" onclick=\"cf_popEffectClose1(this)\"></div>\n" +
     "\t\t</div>\n" +
     "\t\t<div class=\"deanger\"></div>\n" +
     "\t\t<div class=\"contTitle\">您的账号已在其他设备进行登录，本设备已下线，请重新<i onclick=\"popEffectLogin()\" style=\"color: #00a0e9;\">登录</i></div>\n" +
@@ -165,6 +165,10 @@ function parse_url(_url){
 var parames = parse_url(url);
 
 
+if (adct == 'messied_login') {
+    $('.close').css('background', 'url("../img/gsxq_del.png") no-repeat');
+}
+
 if(token && parames.type == null){
 	//底部信息ajax
 	$.ajax({ 
@@ -188,8 +192,8 @@ if(token && parames.type == null){
     
 
     //是否开启权限 1不开启，2开启
-    // var flag = '';
-    var flag = 1;
+    var flag = '';
+    // var flag = 1;
 
 
 	//isOld token
@@ -209,12 +213,14 @@ if(token && parames.type == null){
 		  },
 		  success: function(json){
 		    console.log(json.data);
+            
+            
 			//是否超时
 		    if(json.code == 401){
 		    	localStorage.setItem('isOld','0');
 		  		if(location.href.indexOf('login') == -1){
 					  
-					 if(!(location.href.indexOf('index') != -1 || location.href.indexOf('aboutUs') != -1)){
+					 if(!(location.href.substring('26') == '' || location.href.indexOf('index') != -1 || location.href.indexOf('aboutUs') != -1)){
 					//if(location.href.indexOf('index') == -1){
 		  				if(location.href.indexOf('account') != -1 || location.href.indexOf('shopManage') != -1){
 		  					$("#effect" , parent.document).show();
@@ -310,11 +316,11 @@ if(token && parames.type == null){
 
             logo = json.logo;
             
-            // if (localStorage.getItem('isOld') == '-1' || localStorage.getItem('isOld') == '-2' || localStorage.getItem('isOld') == '0' || localStorage.getItem('isOld') == '1') {
-            //     flag = 1;
-            // } else {
-            //     flag = 2;
-            // }
+            if (localStorage.getItem('isOld') == '-1' || localStorage.getItem('isOld') == '-2' || localStorage.getItem('isOld') == '0' || localStorage.getItem('isOld') == '1') {
+                flag = 1;
+            } else {
+                flag = 2;
+            }
 
             
             if (flag == 2) {

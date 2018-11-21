@@ -695,7 +695,7 @@
 				margin: 30px 0 0 150px;
 			}
 
-			.all_success_alert, .all_error_alert{
+			.all_success_alert, .all_error_alert1{
 	            z-index: 9999;
 	            display: none;
 	            position: fixed;
@@ -707,26 +707,26 @@
 	        }
 
 
-	        .all_success_alert .modelcontent>div, .all_error_alert .modelcontent>div {
+	        .all_success_alert .modelcontent>div, .all_error_alert1 .modelcontent>div {
 	        	margin-bottom: 0px;
 				width: 450px;
 	        }
 
-	        .all_success_alert .modelcontent>div.info, .all_error_alert .modelcontent>div.info {
+	        .all_success_alert .modelcontent>div.info, .all_error_alert1 .modelcontent>div.info {
 	        	height: 140px;
 	        }
 			
-			.all_success_alert .img_div, .all_error_alert .img_div {
+			.all_success_alert .img_div, .all_error_alert1 .img_div {
 				text-align: center;
 				padding-top: 20px;
 				padding-bottom: 20px;
 			}
 
-			.all_success_alert .modelbtn, .all_error_alert .modelbtn {
+			.all_success_alert .modelbtn, .all_error_alert1 .modelbtn {
 				margin: 5px auto 0 160px
 			}
 
-			.all_error_alert p, .all_success_alert p {
+			.all_error_alert1 p, .all_success_alert p {
 				text-align: center;
 	        }
 
@@ -1185,7 +1185,7 @@
 				</div>
 			</div>
 
-			<div class="all_error_alert" style="z-index: 99999;">
+			<div class="all_error_alert1" style="z-index: 99999;">
 			    <div class="modelCont">
 			        <div class="modeltitle">
 			            <span>消息提示</span>
@@ -1275,8 +1275,8 @@
             });
 
 
-            $('.all_error_alert .cancel, .all_error_alert .close, .all_error_alert .confirm').click(function() {
-				$('.all_error_alert').hide();
+            $('.all_error_alert1 .cancel, .all_error_alert1 .close, .all_error_alert1 .confirm').click(function() {
+				$('.all_error_alert1').hide();
 			});
 
 
@@ -1333,7 +1333,6 @@
 
 			/*添加仓库地址*/ 
 			$('.modelBox .confirm').click(function(){
-//			   debugger
 //                $('#province option:selected').val()
 				var province = $(".modelBox #province").val(),
 					receiver = $('#receiver').val(),
@@ -1345,33 +1344,33 @@
 					defaultFlag=defaultFlag?defaultFlag:0;
 				if(!receiver){
 					// alert('请填写收货人');
-					$('.all_error_alert p').text('请填写收货人');
-					$('.all_error_alert').show();
+					$('.all_error_alert1 p').text('请填写收货人');
+					$('.all_error_alert1').show();
 					
 					return false;
 				}
 				if(!province){
 					// alert('请选择省份');
-					$('.all_error_alert p').text('请选择省份');
-					$('.all_error_alert').show();
+					$('.all_error_alert1 p').text('请选择省份');
+					$('.all_error_alert1').show();
 					return false;
 				}
 				if(!city){
 					// alert('请选择城市');
-					$('.all_error_alert p').text('请选择城市');
-					$('.all_error_alert').show();
+					$('.all_error_alert1 p').text('请选择城市');
+					$('.all_error_alert1').show();
 					return false;
 				}
 				if(!detail_address){
 					// alert('请输入详细地址');
-					$('.all_error_alert p').text('请输入详细地址');
-					$('.all_error_alert').show();
+					$('.all_error_alert1 p').text('请输入详细地址');
+					$('.all_error_alert1').show();
 					return false;
 				}
 				if(!warehouseName){
 					// alert('请输入手机号码');
-					$('.all_error_alert p').text('请输入手机号码');
-					$('.all_error_alert').show();
+					$('.all_error_alert1 p').text('请输入手机号码');
+					$('.all_error_alert1').show();
 					return false;
 				}
 				
@@ -1518,8 +1517,8 @@
 				
 				if (!provinceID) {
 					// alert('no provinceID');
-					$('.all_error_alert p').text('no provinceID');
-					$('.all_error_alert').show();
+					$('.all_error_alert1 p').text('no provinceID');
+					$('.all_error_alert1').show();
 					return;
 				}
 				$.ajax({
@@ -1558,8 +1557,8 @@
 				
 				if(!cityID){
 					// alert('no cityid');
-					$('.all_error_alert p').text('no cityid');
-					$('.all_error_alert').show();
+					$('.all_error_alert1 p').text('no cityid');
+					$('.all_error_alert1').show();
 					return;
 				}
 	
@@ -1595,7 +1594,7 @@
 				// 获取商品供应id
 				//				var objid = window.location.search.substring(1).split('=')[1];
 				var objid = localStorage.getItem('objid');
-				console.log(objid);
+				// console.log(objid);
 				//console.log(objid);
 				// 获取商品详情的数据
 				//alert(objid);
@@ -1603,6 +1602,7 @@
 				// 获取店铺信息
 				//				getshopInfo(companyId);
 			});
+
 			var companyId_this = localStorage.getItem('thisCompanyId');
 			// 获取商品详情的数据
 			function getGoodsDetail(objid) {
@@ -1715,8 +1715,8 @@
 							// 		$('.hazardousArticle').css('display', '')
 							// 	}
 							// } else if (response.data.productDetail.productCate == 2) {
-								console.log("+++++++++++++++++++++")
-								console.log(response.data)
+								// console.log("+++++++++++++++++++++")
+								// console.log(response.data)
 
 								if(response.data.chemicalType != null && response.data.chemicalType != ''){
                                     if (response.data.chemicalType.msgContent == null) {
@@ -1963,8 +1963,8 @@
 							//alert(thisCompanyId);
 							if(thisCompanyId==companyId){
 								// alert("您不能询盘自己公司商品！");
-								$('.all_error_alert p').text('您不能询盘自己公司商品！');
-								$('.all_error_alert').show();
+								$('.all_error_alert1 p').text('您不能询盘自己公司商品！');
+								$('.all_error_alert1').show();
 								return;
 							}
 							//var isOld = localStorage.getItem('isOld');
@@ -1973,14 +1973,14 @@
 							}
 							if(totalNum <= 0) {
 								// alert('您未购买商品');
-								$('.all_error_alert p').text('您未购买商品');
-								$('.all_error_alert').show();
+								$('.all_error_alert1 p').text('您未购买商品');
+								$('.all_error_alert1').show();
 								return;
 							} else {
 								if(!payTypeVal) {
 									// alert('您未购选择支付方式');
-									$('.all_error_alert p').text('您未购选择支付方式');
-									$('.all_error_alert').show();
+									$('.all_error_alert1 p').text('您未购选择支付方式');
+									$('.all_error_alert1').show();
 									return;
 								} else {
 									var fapiaoType = '',
@@ -2114,8 +2114,8 @@
 	                                        });
 
 										}else {
-											$('.all_error_alert p').text('请选择收票地址');
-											$('.all_error_alert').show();
+											$('.all_error_alert1 p').text('请选择收票地址');
+											$('.all_error_alert1').show();
 											return false;
 										}
 												
@@ -2135,8 +2135,8 @@
 									$('#xj_tel').on('blur', function() {
 										if(!isPoneAvailable($('#xj_tel'))) {
 											// alert('请输入正确的手机号');
-											$('.all_error_alert p').text('请输入正确的手机号');
-											$('.all_error_alert').show();
+											$('.all_error_alert1 p').text('请输入正确的手机号');
+											$('.all_error_alert1').show();
 											return;
 										}
 									});
@@ -2158,31 +2158,31 @@
 										//发票类型不能为空
 										if(!fapiaoType) {
 											// alert('发票类型不能为空');
-											$('.all_error_alert p').text('发票类型不能为空');
-											$('.all_error_alert').show();
+											$('.all_error_alert1 p').text('发票类型不能为空');
+											$('.all_error_alert1').show();
 											return;
 										}
 										//收票地址
                                         if($(".xj_shoupiaoAddress").text()==""){
                                             // alert('收票地址不能为空');
-                                            $('.all_error_alert p').text('收票地址不能为空');
-											$('.all_error_alert').show();
+                                            $('.all_error_alert1 p').text('收票地址不能为空');
+											$('.all_error_alert1').show();
                                             return;
                                         }
 										// 联系人不能为空
 										var concatMan = $('#xj_concatMan').val();
 										if(!$('#xj_concatMan').val() || $('#xj_concatMan').val() == ' ') {
 											// alert('联系人不能为空');
-											$('.all_error_alert p').text('联系人不能为空');
-											$('.all_error_alert').show();
+											$('.all_error_alert1 p').text('联系人不能为空');
+											$('.all_error_alert1').show();
 											return;
 										}
 
 										var tel = $('#xj_tel').val();
 										if(!isPoneAvailable($('#xj_tel'))) {
 											// alert('请输入正确的手机号');
-											$('.all_error_alert p').text('请输入正确的手机号');
-											$('.all_error_alert').show();
+											$('.all_error_alert1 p').text('请输入正确的手机号');
+											$('.all_error_alert1').show();
 											return;
 										}
 										var beizhu = $('#xj_bei').val();

@@ -443,11 +443,11 @@
 		        		var str1 = ''
 		        		for (var i = 0; i < data.aData.length; i++) {
 
-		        			if (data.aData[i].cash == null) {
+		        			if (data.aData[i].cash == null || data.aData[i].cash == '0' || data.aData[i].cash == '0.00') {
 		        				data.aData[i].cash = 0;
 		        			}
 
-		        			if (data.aData[i].integral == null) {
+		        			if (data.aData[i].integral == null || data.aData[i].integral == '0' || data.aData[i].integral == '0.00') {
 		        				data.aData[i].integral = 0;
 		        			}
 
@@ -461,8 +461,22 @@
 		        			str1 += '<li>'
 									+'<img class="img_pic" src="'+data.aData[i].pic+'" alt="">'
 									+'<p class="shop_name">'+data.aData[i].goodsName+'</p>'
-									+'<p class="integral_money">'+data.aData[i].integral+'积分+'+data.aData[i].cash+'元</p>'
-									+'<span class="duihuan_button" data-productId="'+data.aData[i].ids+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
+									if (data.aData[i].payMethod == 1) {
+										str1 += '<p class="integral_money">'+data.aData[i].cash+'元</p>'
+									} else if (data.aData[i].payMethod == 2) {
+										str1 += '<p class="integral_money">'+data.aData[i].integral+'积分</p>'
+									} else if (data.aData[i].payMethod == 3)  {
+										if (data.aData[i].integral == 0) {
+											str1 += '<p class="integral_money">'+data.aData[i].cash+'元</p>'
+										} else if (data.aData[i].cash == 0) {
+											str1 += '<p class="integral_money">'+data.aData[i].integral+'积分</p>'
+										} else {
+											str1 += '<p class="integral_money">'+data.aData[i].integral+'积分+'+data.aData[i].cash+'元</p>'
+										}
+										
+									}
+									
+									str1 += '<span class="duihuan_button" data-productId="'+data.aData[i].ids+'"><a href="##"><img src="../img/duihuan_button.png" alt=""></a></span>'
 								+'</li>'
 		        		}
 

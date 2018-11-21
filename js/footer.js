@@ -34,8 +34,9 @@ if (parames.type || sessionStorage.getItem('cys_type') == '2') {
 
         document.writeln("<footer>\n" +
             "    <div class=\"footerTop1\">\n" +
-            "        <div class=\"mianCont\" style=\"width: 1230px;height: 90px;background: url(../img/footers_hzf1.png) 0 0 no-repeat\">\n" +
-
+            "        <div class=\"mianCont\" style=\"position:relative;width: 1230px;height: 90px;background: url(../img/footers_hzf2.png) 0 0 no-repeat\">\n" +
+            "           <img class='kefu_png' src='../img/kefu2.png' onclick='_MEIQIA(\"showPanel\")'>\n"+
+            "           <span id='unreadNum2'></span>\n"+
             "        </div>\n" +
             "\n" +
             "    </div>\n" +
@@ -115,7 +116,7 @@ function chang() {
 
     document.writeln("<footer>\n" +
         "    <div class=\"footerTop1\">\n" +
-        "        <div class=\"mianCont shouye\" style=\"width: 1230px;height: 90px;background: url(../img/footers_hzf1.png) 0 0 no-repeat\">\n" +
+        "        <div class=\"mianCont shouye\" style=\"position:relative;width: 1230px;height: 90px;background: url(../img/footers_hzf2.png) 0 0 no-repeat\">\n" +
         // "            <div class=\"Lf ftphone\">\n" +
         // "                <div class=\"Lf ftphoneImg ftImg1\">\n" +
         // "                    <!--<img src=\"img/footer1.png\" alt=\"\">-->\n" +
@@ -165,6 +166,8 @@ function chang() {
         // "                    <div style=\"font-size: 14px;\">扫码关注我们</div>\n" +
         // "                </div>\n" +
         // "            </div>\n" +
+        "           <img class='kefu_png' src='../img/kefu2.png' onclick='_MEIQIA(\"showPanel\")'>\n"+
+        "           <span id='unreadNum2'></span>\n"+
         "        </div>\n" +
         "\n" +
         "    </div>\n" +
@@ -230,7 +233,8 @@ function chang() {
 
 
         if (adct == '首页') {
-            $('.shouye').css('background', 'url(img/footers_hzf.png) 0 0 no-repeat');
+            $('.shouye').css('background', 'url(img/footers_hzf2.png) 0 0 no-repeat');
+            $('.kefu_png').attr('src', 'img/kefu2.png');
             $('.index_page').attr('href', 'index.html');
             $('.about_us').attr('href', 'aboutUs.html');
             $('.connect_me').attr('href', 'connect.html');
@@ -248,6 +252,71 @@ function chang() {
             
             window.location.href = '../help/helpCenter.html';        
         });
+
+
+
+        /**
+     * [处理未读消息]
+     * @param  {[string, object]} msg [string: 'hasBeenRead',
+ object: 未读消息数据]
+     */
+    function yourFunction1(msg) {
+        var text = '',
+            num = 0;
+        if (msg === 'hasBeenRead') { // 消息已被阅读
+            num = 0;
+            $('#unreadNum2').hide();
+        } else if (typeof(msg) === 'object') {
+            var unreadNum2 = document.getElementById('unreadNum2').innerHTML,
+                lastMsg = msg[msg.length - 1];
+            num = isNaN(+unreadNum2) ? msg.length : +unreadNum2 + msg.length;
+            // content_type 是消息的类型：
+            // text（文字）、photo（图片）、file（文件）
+            // content 是消息的内容
+            if (lastMsg.content_type === 'text') {
+                // 文字消息中可能会存在表情图片，由于路径问题
+                // 将文字消息中的图片处理为文字'[表情]'
+                text = lastMsg.content.replace(
+                    /<img [^>]*src=['"]([^'"]+)[^>]*>/gi, '[表情]'
+                );
+            } else if (lastMsg.content_type === 'photo') {
+                text = '[图片]';
+            } else if (lastMsg.content_type === 'file') {
+                text = '[文件]';
+            } else {
+                text = '[新消息]';
+            }
+
+            $('#unreadNum2').show();
+
+        }
+        // 未读消息数量
+        document.getElementById('unreadNum2').innerHTML = num;
+        // 最后一条消息的内容
+        // document.getElementById('unreadMsg').innerHTML = text;
+    } 
+
+
+    (function(m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', '127367');
+
+    //无按钮
+    _MEIQIA('withoutBtn');
+
+     // 获取未读消息
+    _MEIQIA('getUnreadMsg', yourFunction1);
+
+
 }
 
-    
+   

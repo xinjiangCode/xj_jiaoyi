@@ -688,7 +688,7 @@
 		        	var str = '';
 		        	for (var i = 0; i < data.data.length; i++) {
 
-		        		str += '<li class="clearfix">'
+		        		str += '<li class="clearfix" data-supplyid="'+data.data[i].supplyId+'">'
 								+'<img class="fl" src="'+data.data[i].productPicList[0]+'" alt="">'
 								+'<div class="fl buy_info">'
 									+'<p class="huafei_name">'+data.data[i].productName+'</p>'
@@ -706,6 +706,11 @@
 
 			});
 
+			//大家都在买点击进入商品详情
+			$(document).on('click', '.buy_list li', function() {
+				window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
+				window.location.href="../obj/objDetails.html";
+			});
 
 			$(document).on('click', '.major_product_more', function () {
 				$("#oranger li:nth-child(3)").click();

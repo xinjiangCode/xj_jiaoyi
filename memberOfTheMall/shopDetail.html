@@ -678,7 +678,9 @@
 			}
 
 			
-
+			.selectPub>ul {
+				width: 102%;
+			}
 			
 
 		</style>
@@ -1224,11 +1226,11 @@
 						//详情
 						$('.objDInfo h1').text(data.data.goodsName);
 
-						if (data.data.cash == null) {
+						if (data.data.cash == null || data.data.cash == '0.00' || data.data.cash == '0') {
 							data.data.cash = 0;
 						}
 
-						if (data.data.integral == null) {
+						if (data.data.integral == null  || data.data.integral == '0.00' || data.data.integral == '0') {
 							data.data.integral = 0;
 						}
 
@@ -1247,7 +1249,18 @@
 
 						} else if (data.data.payMethod == 3) { //现金+积分
 
-							$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分 + <span class="fs28">'+data.data.cash+'</span>元</span></p>');
+							if (data.data.cash == 0) {
+
+								$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分</span></p>');
+
+							} else if (data.data.integral == 0) {
+
+								$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.cash+'</span>元</span></p>');
+
+							} else {
+								$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分 + <span class="fs28">'+data.data.cash+'</span>元</span></p>');
+							}
+							
 
 							$('.objPrice').attr('data-payMethod', 3);
 
@@ -1423,9 +1436,28 @@
 							}
 
 							if (payMethod == 3) { //现金+积分
-								$('.goodsTotalMoney').text('￥'+ $('.addOrSubGoodsNum input').val() * data.data.integral+ '积分 + ' + $('.addOrSubGoodsNum input').val() * data.data.cash + '元');
 
-								$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分 + <span class="fs28">'+data.data.cash+'</span>元</span></p>');
+
+								
+
+								if (data.data.cash == 0) {
+
+									$('.goodsTotalMoney').text($('.addOrSubGoodsNum input').val() * data.data.integral+ '积分');
+
+									$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf"><span class="fs28">'+data.data.integral+'</span>积分</span></p>');
+
+								} else if (data.data.integral == 0) {
+
+									$('.goodsTotalMoney').text('￥'+ $('.addOrSubGoodsNum input').val() * data.data.cash + '元');
+
+									$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.cash+'</span>元</span></p>');
+
+								} else {
+
+									$('.goodsTotalMoney').text('￥'+ $('.addOrSubGoodsNum input').val() * data.data.integral+ '积分 + ' + $('.addOrSubGoodsNum input').val() * data.data.cash + '元');
+
+									$('.objPrice').html('<p><i style="font-size:16px;">价格：</i><span class="fs16 mljf">¥<span class="fs28">'+data.data.integral+'</span>积分 + <span class="fs28">'+data.data.cash+'</span>元</span></p>');
+								}
 
 							}
 
@@ -1940,7 +1972,7 @@
 
 			$(document).on('click', '.evBdBuyItem', function () {
 				window.localStorage.setItem('objid', $(this).attr('data-supplyid'));
-				window.location.href="./objDetails.html";
+				window.location.href="../obj/objDetails.html";
 			});
 
 
